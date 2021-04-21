@@ -1,7 +1,7 @@
 var ConfigurePath = () => {
 
-var excelSheetPath ='./test/testdatafiles/testDataSheetPreprod.xls';
-//var excelSheetPath ='./test/testdatafiles/testDataStaging.xls';
+var excelSheetPath ='C:/Jenkinspath/testdatafiles/testDataSheetPreprod.xls';
+//var excelSheetPath ='C:/Jenkinspath/testdatafiles';
   //var excelSheetPath ='./test/testdatafiles/testDataSheetProd.xls';
 
  

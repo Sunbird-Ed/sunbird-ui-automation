@@ -19,9 +19,9 @@ exports.config = {
 //  sanity3: 'test/specs/sanity3/*.spec.js',
 
     userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
-    collaborationAndInteraction: 'test/specs/collaborationAndInteraction/*.spec.js',
-    sourcing: 'test/specs/sourcing/*.spec.js',
-    Consumption: 'test/specs/Consumption/*.spec.js',
+   // collaborationAndInteraction: 'test/specs/collaborationAndInteraction/*.spec.js',
+   // sourcing: 'test/specs/sourcing/*.spec.js',
+   // Consumption: 'test/specs/Consumption/*.spec.js',
     // contentcreation: 'test/specs/content-creation/*.spec.js',
 //QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
   // tpd: 'test/specs/tpd/*.spec.js', 

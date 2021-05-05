@@ -23,6 +23,7 @@ describe('CreateBookAndConsume.', () => {
         
     });
     it('CreateBookAndConsume',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let bookName= etbPageObj.createBook();

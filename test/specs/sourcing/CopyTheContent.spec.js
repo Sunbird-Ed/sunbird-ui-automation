@@ -22,6 +22,7 @@ describe('copied Content From Library', () => {
     });
     
     it('CopyTheContent',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
        sanityFun.copyContentFromLib('Resource');

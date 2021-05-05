@@ -22,6 +22,7 @@ describe('AddMoreThan4Units', () => {
         browser.manage().deleteAllCookies();
     });
     it('AddMoreThan4Units',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Book Creator');

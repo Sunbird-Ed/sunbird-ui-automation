@@ -23,6 +23,7 @@ describe('creator is able to add collaborators using the Add and remove collabor
         browser.manage().deleteAllCookies();
     });
     it('AddandDeleteCollaboratorsForUploadContent',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent=uploadPageObj.uploadanyPDF();

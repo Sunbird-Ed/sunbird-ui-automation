@@ -22,7 +22,7 @@ describe('Add Progress bar Plugin in Resource Edior', () => {
         browser.manage().deleteAllCookies();
     });
     it('AddProgressBarInResource',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
             let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();

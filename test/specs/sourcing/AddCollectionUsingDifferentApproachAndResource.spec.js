@@ -22,6 +22,7 @@ describe('AddCollectionUsingDifferentApproachAndResource Verify', () => {
         browser.manage().deleteAllCookies();
     });
     it('AddCollectionUsingDifferentApproachAndResource',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Book Creator');

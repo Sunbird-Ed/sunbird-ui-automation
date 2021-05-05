@@ -20,6 +20,7 @@ describe('CreateBookWithNoContentAndFilledEditDetailsForm', () => {
         browser.manage().deleteAllCookies();
     });
     it('CreateBookWithNoContentAndFilledEditDetailsForm',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Creator');

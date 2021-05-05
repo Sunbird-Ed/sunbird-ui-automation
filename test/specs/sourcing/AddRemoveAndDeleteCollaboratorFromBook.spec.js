@@ -23,6 +23,7 @@ describe('AU_033,AddRemoveAndDeleteCollaboratorFromBook', () => {
         browser.manage().deleteAllCookies();
     });
     it('AddRemoveAndDeleteCollaboratorFromBook ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Book Creator');
         let bookName=etbPage.createBook();

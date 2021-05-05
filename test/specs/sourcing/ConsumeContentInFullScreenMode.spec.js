@@ -23,7 +23,7 @@ describe('ConsumeContentInFullScreenMode play', () => {
         browser.manage().deleteAllCookies();
     });
     it('ConsumeContentInFullScreenMode',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionFITBWithAllStyles();

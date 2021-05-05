@@ -21,6 +21,7 @@ describe('CheckUpcomingBatchesMessage', () => {
         browser.manage().deleteAllCookies();
     });
     it('CheckUpcomingBatchesMessage ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         let courseName="CourseATeresa";
         utility.userLogin('Public User1');

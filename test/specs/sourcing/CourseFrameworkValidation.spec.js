@@ -22,6 +22,7 @@ describe('CourseFrameworkValidation', () => {
         
     });
     it('CourseFrameworkValidation',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         utility.validateWorkspace();

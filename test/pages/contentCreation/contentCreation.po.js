@@ -423,12 +423,30 @@ var contentCreation = () => {
     var chatMainMenu2= element(by.xpath("//button[contains(text(),'Go Back')]//following::button[1]"));
     var verifykarnatakaState= element(by.xpath("//button[contains(text(),'Karnataka')]"));
     var clkDikshaCopy = element(by.xpath("//span[contains(text(),'Copy')]"));
+    var boardDropdown=element(by.xpath("//sui-select[@id='board']"));
+    var mediumDropdown=element(by.xpath("//sui-multi-select[@id='medium']"));
+    var gradeLevelDropDown=element(by.xpath("//sui-multi-select[@id='gradeLevel']"));
+    var subjectDropdown=element(by.xpath("//sui-multi-select[@id='subject']"));
+    var submitButtonForDropdowns=element(by.xpath("//sui-modal/sui-dimmer/div/div/div/div[3]/button"));
+    var selectBoardValue=element(by.xpath("//span[contains(text(),'CBSE/NCERT')]"));
+    var selectMediumValue=element(by.xpath("//*[@id='medium']/div/sui-select-option/span[contains(text(),'English')]"));
+    var selectGradeLevelValue=element(by.xpath("//*[@id='gradeLevel']/div[2]/sui-select-option[2]/span[contains(text(),'Class 1')]"));
+    var selectSubjectValue=element(by.xpath("//*[@id='subject']/div[2]/sui-select-option[1]/span[contains(text(),'Accountancy')]"));
 
 
 
 
     return {
         closeIcon,
+         boardDropdown,
+        selectSubjectValue,
+        selectBoardValue,
+        selectGradeLevelValue,
+        selectMediumValue,
+        subjectDropdown,
+        submitButtonForDropdowns,
+        gradeLevelDropDown,
+        mediumDropdown,
         workSpace,
         startCreating,
         addResource,

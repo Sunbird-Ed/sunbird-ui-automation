@@ -21,6 +21,7 @@ describe('CheckStatusDraftAndLive', () => {
         browser.manage().deleteAllCookies();
     });
     it('CheckStatusDraftAndLive',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Creator');

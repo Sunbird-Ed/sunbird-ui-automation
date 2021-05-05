@@ -21,7 +21,7 @@ describe('to create resource and add colaborator,remove colaborator and send the
     });
     
     it('AddSearchAndRemoveCollaboratorAndTryToPublishResource',function(){
-        
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         let resourceName=addSARCATTPRPageObj.createResource();

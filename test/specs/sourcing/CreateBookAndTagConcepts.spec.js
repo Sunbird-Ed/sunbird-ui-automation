@@ -22,6 +22,7 @@ describe('AU_032,CreateBookAndTagConcepts.', () => {
         
     });
     it('CreateBookAndTagConcepts',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let bookName= etbPageObj.createBookWithSpecificResourceType("concept");

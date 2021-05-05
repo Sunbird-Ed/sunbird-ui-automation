@@ -22,6 +22,7 @@ describe('AU_028,CheckContributionDetailsPostAddingResource', () => {
         
     });
     it('CheckContributionDetailsPostAddingResource ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();

@@ -278,10 +278,45 @@ const handleLocationPopupAsOther = () => {
         console.error("Failed to handle location pop up, " + err);
     }
 }
+const handleDropDown=()=>{
+    try{
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.boardDropdown, 30000);
+        content.boardDropdown.click();
+        browser.sleep(1000); 
+        wait.waitForElementVisibility(content.selectBoardValue, 30000);
+        content.selectBoardValue.click();
+        browser.sleep(1000); 
+        wait.waitForElementVisibility(content.mediumDropdown, 30000);
+        content.mediumDropdown.click();
+        browser.sleep(1000); 
+        wait.waitForElementVisibility(content.selectMediumValue, 30000);
+        content.selectMediumValue.click();
+        browser.sleep(1000); 
+        wait.waitForElementVisibility(content.gradeLevelDropDown, 30000);
+        content.gradeLevelDropDown.click();
+        browser.sleep(1000); 
+        wait.waitForElementVisibility(content.selectGradeLevelValue, 30000);
+        content.selectGradeLevelValue.click();
+        browser.sleep(1000); 
+        // wait.waitForElementVisibility(content.subjectDropdown, 30000);
+        // content.subjectDropdown.click();
+        // browser.sleep(1000); 
+        // wait.waitForElementVisibility(content.selectSubjectValue, 30000);
+        // content.selectSubjectValue.click();
+        // browser.sleep(1000); 
+        wait.waitForElementVisibility(content.submitButtonForDropdowns, 30000);
+        content.submitButtonForDropdowns.click();
+        browser.sleep(1000); 
+    }catch(err){
+        console.log(err);
+    }
+}
 
 
 module.exports = {
     verifyAdminDashBoard,
+    handleDropDown,
     userLogin,
     handleLocationPopup,
     userLogout,

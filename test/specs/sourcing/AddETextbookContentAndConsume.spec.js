@@ -23,6 +23,7 @@ describe('AddETextBookContentAndConsume.', () => {
         
     });
     it('AddETextBookContentAndConsume',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let bookName= etbPageObj.createBook();

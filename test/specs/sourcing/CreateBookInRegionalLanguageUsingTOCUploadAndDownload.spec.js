@@ -22,6 +22,7 @@ describe('AU_030,CreateBookInRegionalLanguageUsingTOCUploadAndDownload', () => {
         browser.manage().deleteAllCookies();
     });
     it('CreateBookInRegionalLanguageUsingTOCUploadAndDownload',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         etbPage.createBookWithRegionalLanguage("ಕನ್ನಡ");

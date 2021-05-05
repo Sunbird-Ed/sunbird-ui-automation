@@ -23,6 +23,7 @@ describe('CheckTrackableCollection', () => {
         browser.manage().deleteAllCookies();
     });
     it('CheckTrackableCollection ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         var sheetPath = getAppURL.ConfigurePath().excelSheetPath;
         var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '3');

@@ -25,11 +25,9 @@ describe('Verify Coure attahced With Certificate', () => {
     });
     it('CoursehasCertificateAttached',function(){
 
-       
+       utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        
-
         tpdPageObj.VerifyCourseWhichhasCertificate();
        
       

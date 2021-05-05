@@ -19,6 +19,7 @@ describe('able to addCollaborator and callobarator can edit and sendforreview ,c
         browser.manage().deleteAllCookies();
     });
     it('AddMultipleCollaboratorAndVerify',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = addMCAVPageObj.searchCollaboratorBySearchField();

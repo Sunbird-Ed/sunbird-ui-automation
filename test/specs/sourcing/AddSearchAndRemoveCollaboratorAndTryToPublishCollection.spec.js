@@ -22,6 +22,7 @@ describe('Vefy content creator is able to add collaborators using the Add collab
         browser.manage().deleteAllCookies();
     });
     it('AddSearchAndRemoveCollaboratorAndTryToPublishCollection',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         let resourceName=collectionPageObj.createCollection();

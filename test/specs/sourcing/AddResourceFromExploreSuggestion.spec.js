@@ -22,6 +22,7 @@ describe('AddResourceFromExploreSuggestion', () => {
         browser.manage().deleteAllCookies();
     });
     it('AddResourceFromExploreSuggestion',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Book Creator');

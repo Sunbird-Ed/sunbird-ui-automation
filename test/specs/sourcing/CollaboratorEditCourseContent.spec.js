@@ -21,8 +21,8 @@ describe('colobartor not able to delete the course', () => {
         browser.manage().deleteAllCookies();
     });
     it('CollaboratorEditCourseContent',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
-
         utility.userLogin('Creator');
         let courseName = collaECCPageObj.searchCollaboratorBySearchField();
         utility.userLogout();

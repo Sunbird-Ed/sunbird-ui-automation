@@ -21,6 +21,7 @@ describe('user is able validate all language ,Elements are changed as per the La
         browser.manage().deleteAllCookies();
     });
     it('CheckCoursePageLanguageChangeWorksFine',function(){
+        utility.handleDropDown();
          utility.handleLocationPopup();
        
         checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsHindi();

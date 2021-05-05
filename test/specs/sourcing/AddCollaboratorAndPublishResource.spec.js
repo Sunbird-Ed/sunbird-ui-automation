@@ -21,6 +21,7 @@ describe('Content creator is able to add a collaborator in all the types of cont
         browser.manage().deleteAllCookies();
     });
     it('AddCollaboratorAndPublishResource',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         let resourceName=addCAPRPageObj.createResource();

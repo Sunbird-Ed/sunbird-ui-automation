@@ -23,6 +23,7 @@ describe('ceate Collection save and send for review and publish.', () => {
         
     });
     it('CreateCollectionVerifyInDraftReviewAndPublish',function(){
+         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName=collectionPageObj.createCollection();

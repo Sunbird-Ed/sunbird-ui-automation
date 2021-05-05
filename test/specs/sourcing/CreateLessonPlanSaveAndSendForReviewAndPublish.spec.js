@@ -21,6 +21,7 @@ describe('ontent creator is able to save the content ( Lesson Plan) & send the c
         
     });
     it('CreateLessonPlanSaveAndSendForReviewAndPublish',function(){
+         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let lessonPlan=lessonPlanPageObj.createLessonPlan();

@@ -22,7 +22,7 @@ describe('Add timer Plugin in Resource Edior', () => {
         browser.manage().deleteAllCookies();
     });
     it('AddTimerInResource',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
             let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();

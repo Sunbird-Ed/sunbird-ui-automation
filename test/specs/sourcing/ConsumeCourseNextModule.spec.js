@@ -22,6 +22,7 @@ describe('ConsumeCourseNextModule', () => {
         
     });
     it('ConsumeCourseNextModule',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         searchCBFPPageObj.startLeaning();

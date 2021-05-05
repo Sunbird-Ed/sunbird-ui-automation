@@ -24,6 +24,7 @@ describe('is Able to create Question FIB and Consume by other Users and Creator 
     it('CreateQuestionFITBAndConsume',function(){
 
         utility.handleLocationPopup();
+         utility.handleDropDown();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionFITBWithAllStyles();
         resourcePageObj.sendForReviewTheResource();

@@ -21,6 +21,7 @@ describe('user is not able to Enroll to the Course For EnrollMentDateEnded and J
         browser.manage().deleteAllCookies();
     });
     it('BatchEnrollmentDateEnded',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         var contentName = 'CourseAEna';
         utility.userLogin('Reviewer');

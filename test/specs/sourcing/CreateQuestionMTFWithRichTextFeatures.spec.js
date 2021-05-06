@@ -22,7 +22,7 @@ describe('that user is able to apply rich text features for MTF question', () =>
     });
 
     it('CreateQuestionMTFWithRichTextFeatures',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
 
         utility.userLogin('Creator');

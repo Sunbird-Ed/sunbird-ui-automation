@@ -21,6 +21,7 @@ describe('searchAllContentInExplorePage ', () => {
         browser.manage().deleteAllCookies();
     });
     it('searchAllContentInExplorePage',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
        // utility.userLogin('Public User1');
         etbFun.searchContentInExplorePage('Textbook');

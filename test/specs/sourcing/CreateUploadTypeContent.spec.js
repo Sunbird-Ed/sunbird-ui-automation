@@ -22,6 +22,7 @@ describe('Verif, Content creator is able to Create upload type contents.', () =>
         browser.manage().deleteAllCookies();
     });
     it('CreateUploadTypeContent',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent=uploadPageObj.uploadTemplate();

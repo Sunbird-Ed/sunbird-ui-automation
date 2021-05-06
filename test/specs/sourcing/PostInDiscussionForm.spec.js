@@ -24,6 +24,7 @@ describe('PostInDiscussionForm', () => {
         browser.manage().deleteAllCookies();
     });
     it('PostInDiscussionForm ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
          utility.userLogin('Creator');
      sanityPage.verifyDiscussionForum();

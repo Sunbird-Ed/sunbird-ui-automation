@@ -22,6 +22,7 @@ describe('Verify User is able see batch count in batchSection in Workspace', () 
         browser.manage().deleteAllCookies();
     });
     it('verifyBatchOptionWorkspace',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         EnrollTBFCPageObj.verifyBatchOptionWorkSpace();

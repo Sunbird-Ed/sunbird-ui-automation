@@ -22,6 +22,7 @@ describe('SeeCompletedCourseByMentor.', () => {
         
     });
     it('SeeCompletedCourseByMentor ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();

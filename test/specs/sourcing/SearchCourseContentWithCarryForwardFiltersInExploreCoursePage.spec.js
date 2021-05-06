@@ -21,6 +21,7 @@ describe('able search in explore page', () => {
         browser.manage().deleteAllCookies();
     });
     it('SearchCourseContentWithCarryForwardFiltersInExploreCoursePage',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
     //    searchCCWCFFIECPPageObj.searchContentWithFilter();
     //    searchCCWCFFIECPPageObj.carryForwardSearchFilter();

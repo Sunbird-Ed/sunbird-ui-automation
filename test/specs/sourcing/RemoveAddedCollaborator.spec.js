@@ -20,6 +20,7 @@ describe('Lointo Application with Creator user,Remove the Added Collobartor,Logo
         browser.manage().deleteAllCookies();
     });
     it('RemoveAddedCollaborator',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         addCTLPPageObj.createLessonPlan() ;

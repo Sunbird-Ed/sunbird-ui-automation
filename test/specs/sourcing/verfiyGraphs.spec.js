@@ -21,6 +21,7 @@ describe('verfiyGraphs', () => {
         browser.manage().deleteAllCookies();
     });
     it('verfiyGraphs',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         etbFun.verifyOnlyClassFilter();

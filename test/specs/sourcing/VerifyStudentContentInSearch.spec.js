@@ -21,6 +21,7 @@ describe('VerifyStudentContentInSearch', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyStudentContentInSearch',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
        
         let coursename="Course teacherStudent";

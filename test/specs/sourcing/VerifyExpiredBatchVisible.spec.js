@@ -24,6 +24,7 @@ describe('VerifyNewCertificateTemplateCreation' , () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyNewCertificateTemplateCreation',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(15000);
         utility.userLogin('Creator');

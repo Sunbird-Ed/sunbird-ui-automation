@@ -24,6 +24,7 @@ describe('aApplyAdvancedFilterAndToggleQuestion', () => {
         browser.manage().deleteAllCookies();
     });
     it('ApplyAdvancedFilterAndToggleQuestion', function () {
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         tpdobj.applyFilterAndToggleQuestion();

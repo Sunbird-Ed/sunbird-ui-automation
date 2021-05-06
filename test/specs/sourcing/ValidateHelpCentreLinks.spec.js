@@ -21,6 +21,7 @@ describe('AU_040,ValidateHelpCentreLinks', () => {
         browser.manage().deleteAllCookies();
     });
     it('ValidateHelpCentreLinks',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         etbFun.librarysearchFilter();

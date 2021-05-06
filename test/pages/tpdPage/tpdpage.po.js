@@ -564,11 +564,27 @@ const tpdPage = () => {
     var clkExpandAll = element(by.xpath("//*[contains(text(),'Expand all')]"));
     var clkSwitchClassicTheme=element(by.xpath("//span[contains(text(),'Switch to classic theme')]"));
     var clkSwitchJoyFulTheme=element(by.xpath("//span[contains(text(),'Switch to joyful theme')]"));
+    var batchTncCheck=element(by.xpath("//input[@formcontrolname='tncCheck']"));
+    var addCollaboratorButton=element(by.xpath("(//strong[text()='+ADD'])[2]"));
+    var addCollaboratorDoneButton=element(by.xpath("//button[text()='Done']"));
+    var publishTheCourse=element(by.xpath("//button[text()=' Publish ']"));
+    var confirmForPublishBook=element(by.xpath("//button[text()=' Yes ']"));
+    var rejectThecourse=element(by.xpath("//button[text()=' Reject ']"));
+    var addCommentForReject=element(by.xpath("//textarea[@placeholder='Add comment']"));
+    var reviewSubmitForReject=element(by.xpath("//button[text()=' Submit Review ']"));
 
     
 
     return {
         headerCourse,
+        confirmForPublishBook,
+        reviewSubmitForReject,
+        addCommentForReject,
+        rejectThecourse,
+        batchTncCheck,
+        addCollaboratorButton,
+        addCollaboratorDoneButton,
+        publishTheCourse,
         latestCourseViewAllSection,
         getCourseName,
         addIcon,

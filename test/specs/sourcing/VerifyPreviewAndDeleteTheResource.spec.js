@@ -22,7 +22,7 @@ describe('Veri that user is able to preview and delete the resource', () => {
     });
 
     it('VerifyPreviewAndDeleteTheResource',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResource();

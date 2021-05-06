@@ -3,7 +3,7 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js')
-
+const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
 describe('Course reviewer is able to rejects the course .', () => {
 
     beforeEach(() => {
@@ -24,23 +24,25 @@ describe('Course reviewer is able to rejects the course .', () => {
         
     });
     it('CreateCourseAndRejectCourse  ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();
-        tpdPageObj.createCourse();
-        let courseName=tpdPageObj.sendForReviewCourseWithName();
+        let courseName=sanityfun.createCourseAndSendForReview();
+        // tpdPageObj.createCourse();
+        // let courseName=tpdPageObj.sendForReviewCourseWithName();
       //resourcePageObj.reviewInSubmissions(courseName);
         utility.userLogout();
         utility.userLogin('Reviewer');
-        resourcePageObj.rejectLessonPlan(courseName)
-        utility.userLogout();
-        utility.userLogin('Creator');
-        tpdPageObj.editTheCourseInDraft();
-        tpdPageObj.sendForReviewTheRejectedCourse();
-        utility.userLogout();
-        utility.userLogin('Reviewer');
+        // resourcePageObj.rejectLessonPlan(courseName)
+        // utility.userLogout();
+        // utility.userLogin('Creator');
+        // tpdPageObj.editTheCourseInDraft();
+        // tpdPageObj.sendForReviewTheRejectedCourse();
+        // utility.userLogout();
+        // utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishTheCourseFromUpForReview(courseName);
+        tpdPageObj.publishCourseFromUpForReview(courseName);;
         utility.userLogout();
         utility.userLogin('Creator');
         utility.validateWorkspace();

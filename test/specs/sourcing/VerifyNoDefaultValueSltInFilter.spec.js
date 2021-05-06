@@ -21,6 +21,7 @@ describe('VerifyNoDefaultValueSltInFilter ', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyNoDefaultValueSltInFilter',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         etbFun.verifyNoDefaultValuSltinFilter();

@@ -22,6 +22,7 @@ describe('UploadCSVFileAndCheckTOC', () => {
         
     });
     it('UploadCSVFileAndCheckTOC',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.uploadCSVFile();

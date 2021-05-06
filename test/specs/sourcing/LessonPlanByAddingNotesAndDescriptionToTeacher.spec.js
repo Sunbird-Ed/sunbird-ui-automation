@@ -23,7 +23,7 @@ describe('Ve that creator is able to create the Lesson plan by adding Descriptio
     });
 
     it('LessonPlanByAddingNotesAndDescriptionToTeacher',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let lessonPlan=lessonPlanPageObj.createLessonPlan();

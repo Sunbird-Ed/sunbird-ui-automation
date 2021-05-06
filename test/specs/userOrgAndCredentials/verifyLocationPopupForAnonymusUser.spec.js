@@ -22,7 +22,7 @@ describe('Verify Location Popup for anonymus User', () => {
     });
 
     it('AU_015-verifyLocationPopupForAnonymusUser',function(){
-
+        utility.handleDropDown();
         usrOnBoardfun.verifyLocationPopupForAnonymusUser();
         utility.userLogin('Custod2');
         usrOnBoardfun.custodianUsersProfilePageValidations();

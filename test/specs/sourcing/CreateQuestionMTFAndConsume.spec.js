@@ -23,7 +23,7 @@ describe('is Able to create Question MTF and  Consume by other Users and Creator
         browser.manage().deleteAllCookies();
     });
     it('CreateQuestionMTFAndConsume',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionMTFWithFormulaAndAllStyle();

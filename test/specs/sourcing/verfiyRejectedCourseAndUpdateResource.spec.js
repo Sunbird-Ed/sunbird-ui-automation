@@ -23,6 +23,7 @@ describe('After Rejecting course Add New Resource , again publish', () => {
         
     });
     it('verfiyRejectedCourseAndUpdateResource',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();

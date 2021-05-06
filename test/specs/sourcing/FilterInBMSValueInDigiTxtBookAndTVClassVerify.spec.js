@@ -21,6 +21,7 @@ describe('FilterInBMSValueInDigiTxtBookAndTVClassVerify', () => {
         browser.manage().deleteAllCookies();
     });
     it('FilterInBMSValueInDigiTxtBookAndTVClassVerify',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         etbFun.verifDefaultValueInDigiTxtAndTVClass();

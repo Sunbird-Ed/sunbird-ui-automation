@@ -24,6 +24,7 @@ describe('VerifyCourseTOC', () => {
         
     });
     it('VerifyCourseTOC',function(){
+        utility.handleDropDown();
         utility.handleLocationPopupForOtherExplorer();
         ETBFun.CheckJoinButtonOptions();
 

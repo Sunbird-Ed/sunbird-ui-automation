@@ -19,6 +19,7 @@ describe('Usr is able to search the content in library', () => {
         browser.manage().deleteAllCookies();
     });
     it('CustodianUserTryToConsumeContent',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('CustodianUser');
         var content =  custUTTCCPageObj.searchContentInLibraryAndFetchFirstContent('Book');

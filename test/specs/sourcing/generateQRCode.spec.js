@@ -25,6 +25,7 @@ describe('generateQRCode', () => {
     
     
     it('generateQRCode',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.generateQRCodes();

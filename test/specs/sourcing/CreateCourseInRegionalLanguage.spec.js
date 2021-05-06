@@ -23,6 +23,7 @@ describe('Course creator is able to create course in regional language.', () => 
         
     });
     it('CreateCourseInRegionalLanguage  ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();

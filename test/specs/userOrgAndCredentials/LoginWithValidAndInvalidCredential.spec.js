@@ -20,6 +20,7 @@ describe('Login with valid and invalid credentials', () => {
         browser.manage().deleteAllCookies();
     });
     it('LoginWithValidAndInvalidCredential ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Admin');
         utility.userLogout();

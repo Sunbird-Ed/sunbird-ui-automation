@@ -24,6 +24,7 @@ describe('joinDiscussionForumVerify', () => {
         browser.manage().deleteAllCookies();
     });
     it('joinDiscussionForumVerify ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
          utility.userLogin('Creator');
      sanityPage.verifyDiscussionForum();

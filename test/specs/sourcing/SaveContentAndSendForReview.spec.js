@@ -23,6 +23,7 @@ describe('Verfy, Content creator is able to  i see the content under submitted f
     });
   
     it('SaveContentAndSendForReview',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent= uploadPageObj.uploadH5p();

@@ -20,6 +20,7 @@ describe('Verify test cases for Igotportal', () => {
     });
 
     it('verify Igot Portal',function(){
+        utility.handleDropDown();
         usrOnBoardfun.verifyIgot();
         
 

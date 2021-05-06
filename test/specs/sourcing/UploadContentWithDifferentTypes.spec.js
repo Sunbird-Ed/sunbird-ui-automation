@@ -21,7 +21,7 @@ describe('UploadContentWithDifferentTypes', () => {
         browser.manage().deleteAllCookies();
     });
     it('UploadContentWithDifferentTypes',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionFITBWithAllStyles();

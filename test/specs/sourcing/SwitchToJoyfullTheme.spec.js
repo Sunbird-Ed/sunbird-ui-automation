@@ -23,6 +23,7 @@ describe('Verify SwitchToJoyfullTheme', () => {
     });
     
     it('SwitchToJoyfullTheme',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         usrOnBoardfun.switchToJoyfulTheme();

@@ -23,6 +23,7 @@ describe('AU_035,EditLimitedSharingBookDeleteFromDraftPublishedAllMyContentShare
         
     });
     it('EditLimitedSharingBookDeleteFromDraftPublishedAllMyContentShareViaLink',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Book Creator');
         let bookName= etbPageObj.createBook();

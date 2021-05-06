@@ -22,6 +22,7 @@ describe('CustodianUserProfilePageValidation', () => {
     });
     
     it('CustodianUserProfilePageValidation',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Custod2');
         usrOnBoardfun.custodianUsersProfilePageValidations();

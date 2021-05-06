@@ -21,6 +21,7 @@ describe('verifyOtherStatedataNotAdded.spec', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyCountWithState',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
     utility.userLogin('Admin3');
         etbFun.verifyCountWithState();

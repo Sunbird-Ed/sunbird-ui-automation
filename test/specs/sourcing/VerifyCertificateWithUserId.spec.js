@@ -22,6 +22,7 @@ describe('VerifyCertificateWithUserId', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyCertificateWithUserId',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         EnrollTBFCPageObj.createCourse();

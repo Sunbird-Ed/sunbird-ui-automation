@@ -24,6 +24,7 @@ describe('ontent reviewer is able to Publish/Reject content.( Lesson Plan).', ()
         
     });
     it('RejectTheLessonPlan',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let lessonPlan=lessonPlanPageObj.createLessonPlan();

@@ -22,6 +22,7 @@ describe('Verify AllDetaisl in Explore LibraryPage', () => {
     });
     
     it('ToVerifyViewAllButtonUnderLibraryOfExplorePage',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
        usrOnBoardfun.verifyViewAllButton();
        

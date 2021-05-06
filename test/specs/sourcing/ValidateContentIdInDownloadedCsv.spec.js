@@ -21,6 +21,7 @@ describe('AU_028,ValidateContentIdInDownloadedCsv', () => {
         browser.manage().deleteAllCookies();
     });
     it('ValidateContentIdInDownloadedCsv',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.uploadCSVFile();

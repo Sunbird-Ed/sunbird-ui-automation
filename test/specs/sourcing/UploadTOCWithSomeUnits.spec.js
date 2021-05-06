@@ -24,6 +24,7 @@ describe('UploadTOCWithSomeUnits', () => {
     });
     
     it('UploadTOCWithSomeUnits',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
          sanityFun.uploadCSVFile();

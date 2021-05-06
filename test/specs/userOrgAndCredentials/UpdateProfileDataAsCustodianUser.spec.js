@@ -21,6 +21,7 @@ describe('Login into Application with custodian user and verify language selecti
         browser.manage().deleteAllCookies();
     });
     it('UpdateProfileDataAsCustodianUser',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('CustodianUser');
         signUpPageObject.languageVerify();

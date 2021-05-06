@@ -280,7 +280,7 @@ const handleLocationPopupAsOther = () => {
 }
 const handleDropDown=()=>{
     try{
-        browser.sleep(1000);
+        browser.sleep(4000);
         wait.waitForElementVisibility(content.boardDropdown, 30000);
         content.boardDropdown.click();
         browser.sleep(1000); 

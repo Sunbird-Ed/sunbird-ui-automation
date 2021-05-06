@@ -22,7 +22,7 @@ describe('Vali dateRatingSecInRegionalLanguageec', () => {
         browser.manage().deleteAllCookies();
     });
     it('ValidateRatingSecInRegionalLanguage',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
        utility.userLogin('Creator');
             let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();

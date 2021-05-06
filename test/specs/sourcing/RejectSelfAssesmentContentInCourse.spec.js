@@ -23,6 +23,7 @@ describe('Course reviewer is able to rejects the SelfAssesmentcourse .', () => {
         
     });
     it('RejectSelfAssesmentContentInCourse',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();

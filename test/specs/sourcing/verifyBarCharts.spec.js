@@ -21,6 +21,7 @@ describe('verifyBarCharts', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyBarCharts',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         etbFun.verifyOnlyClassFilter();

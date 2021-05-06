@@ -22,6 +22,7 @@ describe('able to create addtext and images and  multiple slides and preview all
 		
     });
     it('VerifyPropertySectionAndPreviewSlides',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         verifyPSAPSPageObj.resourceName();

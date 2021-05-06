@@ -22,7 +22,7 @@ describe('is Able to create Question FIB and Consume by other Users and Creator 
         browser.manage().deleteAllCookies();
     });
     it('CreateQuestionFITBAndConsume',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
          utility.handleDropDown();
         utility.userLogin('Creator');

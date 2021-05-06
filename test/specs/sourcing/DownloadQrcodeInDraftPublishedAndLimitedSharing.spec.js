@@ -22,6 +22,7 @@ describe('AU_031,DownloadQrcodeInDraftPublishedAndLimitedSharing', () => {
     });
     
     it('DownloadQrcodeInDraftPublishedAndLimitedSharing',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Book Creator');
         etbPage.openBookFromDraftAndDownloadQRCode();

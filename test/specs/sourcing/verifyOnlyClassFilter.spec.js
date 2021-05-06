@@ -21,6 +21,7 @@ describe('VerifyOnlyClassFilter ', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyOnlyClassFilter',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         etbFun.verifyOnlyClassFilter();

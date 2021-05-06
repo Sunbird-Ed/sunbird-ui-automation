@@ -21,6 +21,7 @@ describe('able to ceate multiple slides and preview all', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifySettingFeaturesInResourceCreation',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         verifySFIRCPageObj.resourceName();

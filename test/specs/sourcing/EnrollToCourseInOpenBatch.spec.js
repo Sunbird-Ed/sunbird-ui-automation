@@ -22,6 +22,7 @@ describe('Custodian User is able to enroll to the batch and consume', () => {
         browser.manage().deleteAllCookies();
     });
     it('EnrollToCourseInOpenBatch',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.createCourse();

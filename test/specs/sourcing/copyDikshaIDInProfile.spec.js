@@ -23,6 +23,7 @@ describe('Verify copyDikshaIDInProfile', () => {
     });
     
     it('copyDikshaIDInProfile',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         usrOnBoardfun.copyDikshaID();

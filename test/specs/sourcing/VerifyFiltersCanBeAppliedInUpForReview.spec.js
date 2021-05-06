@@ -23,6 +23,7 @@ describe('VeriyFiltersCanBeAppliedInUpForReview', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyFiltersCanBeAppliedInUpForReview', function () {
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Reviewer');
         ccPageObj.reviewerUpForReview();

@@ -21,6 +21,7 @@ describe('User Is able To ValidatePAGE LANG translation and Regional langauge tr
         browser.manage().deleteAllCookies();
     });
     it('SearchAndApplyLanguageTranslate',function(){
+        utility.handleDropDown();
          utility.handleLocationPopup();
         utility.userLogin('Creator');
         searchAALTPageObj.vaidatePageLangaugeTranslation();

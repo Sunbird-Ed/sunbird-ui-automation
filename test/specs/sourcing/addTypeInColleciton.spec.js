@@ -22,6 +22,7 @@ describe('Create Collection save and send for review and publish.', () => {
         
     });
     it('addTypeInColleciton ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName=collectionPageObj.createCollection();

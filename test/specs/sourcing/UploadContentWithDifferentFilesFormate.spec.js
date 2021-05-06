@@ -23,6 +23,7 @@ describe('Veri Content creator is able to upload contents with specified format 
         browser.manage().deleteAllCookies();
     });
     it('UploadContentWithDifferentFilesFormate',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();

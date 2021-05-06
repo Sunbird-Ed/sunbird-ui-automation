@@ -22,7 +22,7 @@ describe('able to apply rich text features for MTF question', () => {
     });
 
     it('CreateQnMTFWithRichTextEditorFeaturesAndVerify',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
 
         utility.userLogin('Creator');

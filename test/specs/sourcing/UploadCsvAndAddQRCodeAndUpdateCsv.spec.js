@@ -23,6 +23,7 @@ describe('UploadCSVAndAddQrcodeAndUpdateCsv', () => {
     });
     
     it('UploadCSVAndAddQrcodeAndUpdateCsv',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.uploadCSVFile();

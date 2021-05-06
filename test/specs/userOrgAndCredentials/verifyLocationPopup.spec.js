@@ -21,7 +21,7 @@ describe('Verify Location Popup', () => {
     });
 
     it('AU_013-VerifyLocationPopup ',function(){
-
+        utility.handleDropDown();
         usrOnBoardfun.verifyLocationPopup();
 
 });

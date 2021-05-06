@@ -24,6 +24,7 @@ describe('content reviewer is able to Publish/Reject contents by clicking on Pub
         
     });
     it('RejectTheCollectionAndVerifyInDraft',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName=collectionPageObj.createCollection();

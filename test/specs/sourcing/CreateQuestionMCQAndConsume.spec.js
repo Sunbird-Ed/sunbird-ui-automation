@@ -22,7 +22,7 @@ describe('Crea is Able to create Question MCQ and Consume by other Users and Cre
         browser.manage().deleteAllCookies();
     });
     it('CreateQuestionMCQAndConsume',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();

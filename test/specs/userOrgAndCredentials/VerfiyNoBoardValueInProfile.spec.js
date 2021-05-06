@@ -22,6 +22,7 @@ describe('VerfiyNoBoardValueInProfile In Profile', () => {
     });
     
     it('VerfiyNoBoardValueInProfile',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('NoBoard');
         usrOnBoardfun.verifyNoBoardValue();

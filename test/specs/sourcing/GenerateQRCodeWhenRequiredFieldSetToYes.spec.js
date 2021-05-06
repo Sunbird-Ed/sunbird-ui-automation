@@ -26,6 +26,7 @@ describe('GenerateQRCodeWhenRequiredFieldSetToYes', () => {
         
     });
     it('GenerateQRCodeWhenRequiredFieldSetToYes',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let bookName= etbPageObj.createBook();

@@ -22,6 +22,7 @@ describe('Verify FAQ Question', () => {
     });
     
     it('Verify FAQ Question',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         usrOnBoardfun.verifyHelpFAQ();

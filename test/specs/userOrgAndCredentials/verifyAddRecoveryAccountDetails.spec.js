@@ -22,6 +22,7 @@ describe('verifyAddRecoveryAccountDetails', () => {
     });
     
     it('AU_011-verifyAddRecoveryAccountDetails',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         usrOnBoardfun.addRecoveryAccountDetails();

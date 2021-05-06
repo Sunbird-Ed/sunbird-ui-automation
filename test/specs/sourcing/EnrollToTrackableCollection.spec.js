@@ -22,6 +22,7 @@ describe('EnrollToTrackableCollection', () => {
         browser.manage().deleteAllCookies();
     });
     it('EnrollToTrackableCollection',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.createCourse();

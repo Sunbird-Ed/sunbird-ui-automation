@@ -1919,8 +1919,178 @@ try{
 
 
 }
+const createCourseAndSendForReview=()=>{
+    var courseName;
+    try{
+        console.log("user is trying to create a course")
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+    content.headerDropdown.click();
+    browser.sleep(2000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+    content.workSpace.click();
+    browser.sleep(2000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.course), 20000,"Creation page not loaded");
+    content.course.click();
+    browser.sleep(3000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.courseIcon), 20000,"Icon not loaded");
+    sanity.courseIcon.click();
+    browser.sleep(2000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.allImages), 20000,"all images not loaded");
+    sanity.allImages.click();
+    browser.sleep(2000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.firststIconImage), 20000,"first image not loaded");
+    sanity.firststIconImage.click();
+    browser.sleep(2000);
+    //browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.addCourseTitle), 20000, "title not available");
+    sanity.addCourseTitle.click();
+    sanity.addCourseTitle.clear();
+    courseName= "courseA"+faker.randomData().firstname;
+    sanity.addCourseTitle.sendKeys(courseName);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.addcourseTag), 20000, "tag not available");
+    sanity.addcourseTag.sendKeys('test');
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);
+    browser.executeScript('window.scrollTo(0,1000);').then(function () {
+        console.log('++++++SCROLLED Down+++++');
+    });
+    sanityPage.SanityElement().courseadditionalCategory.click();
+    browser.sleep(1000);
+    sanityPage.SanityElement().selectAdditionalCategory.click();
+    browser.sleep(1000);
+    sanityPage.SanityElement().courseType.click();
+    browser.sleep(3000);
+    sanityPage.SanityElement().selectcourseType.click();
+    browser.sleep(3000);
+    sanityPage.SanityElement().subjectCovered.click();
+    browser.sleep(3000);
+    sanityPage.SanityElement().selectSubject.click();
+    browser.sleep(3000);
+    browser.executeScript('window.scrollTo(0,1000);').then(function () {
+             console.log('++++++SCROLLED Down+++++');
+     });
+     sanityPage.SanityElement().selectBoardForcourse.click();
+     browser.sleep(3000);
+     sanityPage.SanityElement().selectBoard.click();
+     browser.sleep(3000);
+     browser.executeScript('window.scrollTo(0,1000);').then(function () {
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectMediumForCourse), 20000,"Medium covered not loaded");
+        sanityPage.SanityElement().selectMediumForCourse.click();
+        browser.sleep(3000);
+    })
+     sanityPage.SanityElement().selectMedium.click();
+     browser.sleep(3000);
+     browser.executeScript('window.scrollTo(0,1000);').then(function () {
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectClassForCourse), 20000,"class covered not loaded");
+        sanityPage.SanityElement().selectClassForCourse.click();
+        browser.sleep(3000);
+    })
+     sanityPage.SanityElement().selectclass.click();
+     browser.sleep(3000);
+    browser.executeScript('window.scrollTo(0,1000);').then(function () {
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectSubjectForCourse), 20000,"subject covered not loaded");
+        sanityPage.SanityElement().selectSubjectForCourse.click();
+        browser.sleep(3000);
+    })
+     sanityPage.SanityElement().selectSubject2.click();
+     browser.sleep(3000); 
+     sanityPage.SanityElement().Author.sendKeys("EKSTEP");
+     browser.sleep(3000);
+     sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
+     browser.sleep(3000);
+     sanityPage.SanityElement().saveAsDraft.click();
+     browser.sleep(3000);   
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.courseadditionalCategory), 20000,"Additional category not loaded");
+    // sanity.courseadditionalCategory.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectAdditionalCategory), 20000,"Additional category value not loaded");
+    // sanity.selectAdditionalCategory.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.courseType), 20000,"course Type not loaded");
+    // sanity.courseType.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectcourseType), 20000,"course Type value not loaded");
+    // sanity.selectcourseType.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.subjectCovered), 20000,"Subject covered not loaded");
+    // sanity.subjectCovered.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectSubject), 20000,"subjectcovered value not loaded");
+    // sanity.selectSubject.click();
+    // browser.sleep(1000);
+    // browser.executeScript('window.scrollTo(0,500);').then(function () {
+    //     console.log('++++++SCROLLED Down+++++');
+    // });
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectBoardForcourse), 20000,"board not loaded");
+    // sanity.selectBoardForcourse.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectBoard), 20000,"board value not loaded");
+    // sanity.selectBoard.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectMediumForCourse), 20000,"Medium covered not loaded");
+    // sanity.selectMediumForCourse.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectMedium), 20000,"Medium value not loaded");
+    // sanity.selectMedium.click();
+    // browser.sleep(1000); 
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectClassForCourse), 20000,"Class covered not loaded");
+    // sanity.selectClassForCourse.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectclass), 20000,"Class value not loaded");
+    // sanity.selectclass.click();
+    // browser.sleep(1000); 
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectSubjectForCourse), 20000,"Subject covered not loaded");
+    // sanity.selectSubjectForCourse.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectSubject2), 20000,"Subject value not loaded");
+    // sanity.selectSubject2.click();
+    // browser.sleep(1000); 
+    // browser.executeScript('window.scrollTo(0,500);').then(function () {
+    //     console.log('++++++SCROLLED Down+++++');
+    // });
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.Author), 20000,"Author  not loaded");
+    // sanity.Author.sendKeys("EKSTEP");
+    // browser.sleep(1000); 
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectCopyRightYear), 20000,"copyRightYear not loaded");
+    // sanity.selectCopyRightYear.sendKeys("2021");
+    // browser.sleep(1000); 
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.saveAsDraft), 20000,"Save As Draft not loaded");
+    // sanity.saveAsDraft.click();
+    // browser.sleep(1000); 
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.addChild), 20000,"Add child not loaded");
+    sanityPage.SanityElement().addChild.click();
+    browser.sleep(3000); 
+   // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
+    sanityPage.SanityElement().addFromLibraryButton.click();
+    browser.sleep(3000); 
+   // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().selectButton), 20000,"Select content Button not loaded");
+    sanityPage.SanityElement().selectButton.click();
+    browser.sleep(3000); 
+    //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addContent), 20000,"Add content content Button not loaded");
+    sanityPage.SanityElement().addContent.click();
+    browser.sleep(3000); 
+   // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().contentFromLibrayBackButton), 20000,"Back Button not loaded");
+    sanityPage.SanityElement().contentFromLibrayBackButton.click();
+    browser.sleep(3000); 
+    //browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.NewCoursesubmitButton), 20000,"submit for review Button not loaded");
+    sanityPage.SanityElement().NewCoursesubmitButton.click();
+    browser.sleep(3000); 
+    //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().termsAndConditionCheckbox), 20000,"terms and condition checkbox Button not loaded");
+    sanityPage.SanityElement().termsAndConditionCheckbox.click();
+    browser.sleep(3000); 
+   // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000,"submit Button not loaded");
+    sanityPage.SanityElement().submitForreviewButton.click();
+    browser.sleep(3000); 
+    }catch(err){
+        console.log(err);
+    }
+    return courseName;
+}
 module.exports = {
     verifyViewAllButton,
+    createCourseAndSendForReview,
     veriyMaximumAttempts,
     verifyEnableAndDisableDiscussionForGroup,
     verifyTOC,

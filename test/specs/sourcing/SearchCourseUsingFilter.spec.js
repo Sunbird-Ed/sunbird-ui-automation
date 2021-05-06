@@ -21,6 +21,7 @@ describe('When is able to search a course by using Search filter and Page filter
         browser.manage().deleteAllCookies();
     });
     it('SearchCourseUsingFilter',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
 
          

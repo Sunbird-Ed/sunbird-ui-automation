@@ -26,6 +26,7 @@ describe('TenantWithNoBoard', () => {
         
     });
     it('TenantWithNoBoard',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let bookName= etbPageObj.createBook();

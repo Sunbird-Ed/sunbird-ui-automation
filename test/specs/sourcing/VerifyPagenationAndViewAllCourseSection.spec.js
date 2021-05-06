@@ -24,6 +24,7 @@ describe('Veriy ViewAll and Pagenation in Course Section', () => {
     });
 
     it('VerifyPagenationAndViewAllCourseSection',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Reviewer');
         resourcePageObj.VerifyCoursePage();

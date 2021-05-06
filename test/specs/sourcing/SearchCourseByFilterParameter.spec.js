@@ -21,6 +21,7 @@ describe('able to search Coursebyfilter and validatelanguageTranslation and Get 
         browser.manage().deleteAllCookies();
     });
     it('SearchCourseByFilterParameter',function(){
+        utility.handleDropDown();
          utility.handleLocationPopup();
         utility.userLogin('Public User1');
         searchCBFPPageObj.courseSearchFilter();

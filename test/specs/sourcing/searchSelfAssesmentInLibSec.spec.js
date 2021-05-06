@@ -22,6 +22,7 @@ describe('User is able to SearchSelfAssesmentInLibSection', () => {
         
     });
     it('SearchSelfAssesmentInLibrarySection',function(){
+        utility.handleDropDown();
          utility.handleLocationPopup();
         utility.userLogin('Creator');
         searchCBFPPageObj.searchSelfAssesmentInLib();

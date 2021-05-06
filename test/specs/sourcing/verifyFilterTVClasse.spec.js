@@ -21,6 +21,7 @@ describe('verifyFilterTVClasse', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyFilterTVClasse',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         //utility.userLogin('Creator');
         etbFun.boardValueForTvClassAndDigitTxtBook();

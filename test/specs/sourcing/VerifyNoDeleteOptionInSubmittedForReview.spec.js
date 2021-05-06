@@ -23,7 +23,7 @@ describe('Verfy No delete Option available for content or draft in submitted for
         browser.manage().deleteAllCookies();
     });
     it('VerifyNoDeleteOptionInSubmittedForReview',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         resourcePageObj.NoDeleteOptionInSubmittedForReview();

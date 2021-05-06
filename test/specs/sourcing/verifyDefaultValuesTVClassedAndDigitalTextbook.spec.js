@@ -21,6 +21,7 @@ describe('verifyDefaultValuesTVClassedAndDigitalTextbook', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyDefaultValuesTVClassedAndDigitalTextbook',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         etbFun.verifDefaultValueInDigiTxtAndTVClass();

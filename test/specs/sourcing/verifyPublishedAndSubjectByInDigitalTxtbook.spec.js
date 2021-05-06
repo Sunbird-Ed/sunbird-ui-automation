@@ -21,6 +21,7 @@ describe('verifyPublishedverifyPublishedAndSubjectByInDigitalTxtbookndAllTabsAnd
         browser.manage().deleteAllCookies();
     });
     it('verifyPublishedAndSubjectByInDigitalTxtbook',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         etbFun.verifyPublishedAndSubjectBy();
        

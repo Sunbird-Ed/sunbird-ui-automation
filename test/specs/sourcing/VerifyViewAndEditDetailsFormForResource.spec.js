@@ -21,6 +21,7 @@ describe('VrifyViewAndEditDetailsFormForResource', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyViewAndEditDetailsFormForResource',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionFITBWithAllStyles();
@@ -29,7 +30,6 @@ describe('VrifyViewAndEditDetailsFormForResource', () => {
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
-
         utility.userLogin('Public User1');
         resourcePageObj.ConsumeResourceAndValidateScoreForFITB(contentName);
       

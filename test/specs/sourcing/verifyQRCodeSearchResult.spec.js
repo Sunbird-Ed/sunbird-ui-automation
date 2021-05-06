@@ -21,6 +21,7 @@ describe('verifyQRCodeSearchResult Verify', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyQRCodeSearchResult',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Public User1');

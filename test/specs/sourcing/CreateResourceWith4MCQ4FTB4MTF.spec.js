@@ -21,6 +21,7 @@ describe('Crea is Able to CreateQuestionAS4McQ,4MTF,4FLB and its navigate and Co
         browser.manage().deleteAllCookies();
     });
     it('CreateResourceWith4MCQ4FTB4MTF',function(){
+        utility.handleDropDown();
 
         utility.handleLocationPopup();
 

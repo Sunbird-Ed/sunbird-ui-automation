@@ -22,7 +22,7 @@ describe('Verify that default license is  displayed in edit  details && Verify o
         browser.manage().deleteAllCookies();
     });
     it('AU_073, AU_081-VerifyDefaultLicence && CreditLink and Copyright',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         resourcePageObj.VerifyDefaultLicense();

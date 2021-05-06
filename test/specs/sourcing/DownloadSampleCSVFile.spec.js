@@ -21,6 +21,7 @@ describe('DownloadSampleCSVFile', () => {
         browser.manage().deleteAllCookies();
     });
     it('DownloadSampleCSVFile',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Creator');

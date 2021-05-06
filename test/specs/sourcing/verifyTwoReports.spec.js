@@ -21,6 +21,7 @@ describe('verifyTwoReports', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyTwoReports',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         etbFun.verifyOnlyClassFilter();

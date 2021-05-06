@@ -21,6 +21,7 @@ describe('SearchInLibraryUsingFilter', () => {
         browser.manage().deleteAllCookies();
     });
     it('SearchInLibraryUsingFilter',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         etbFun.librarysearchFilter();

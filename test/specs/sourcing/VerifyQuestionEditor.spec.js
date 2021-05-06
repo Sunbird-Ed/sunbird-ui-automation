@@ -21,7 +21,7 @@ describe('VerifyQuestionEditor', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyQuestionEditor',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         // utility.handleLocationPopup();

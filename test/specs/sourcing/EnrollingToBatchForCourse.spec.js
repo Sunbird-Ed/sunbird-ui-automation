@@ -22,6 +22,7 @@ describe('able to create course and enroll consume and creator able to delete th
         browser.manage().deleteAllCookies();
     });
     it('EnrollingToBatchForCourse',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
        EnrollTBFCPageObj.createCourse();

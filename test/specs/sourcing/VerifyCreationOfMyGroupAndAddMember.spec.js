@@ -21,6 +21,7 @@ describe('VerifyCreationOfMyGroupAndAddMember', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyCreationOfMyGroupAndAddMember ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMember();

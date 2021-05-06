@@ -22,7 +22,7 @@ describe('Verifyt user is able to give multiple blank space and delete the same'
     });
 
     it('VerifyResumeAndCloseEditor',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
 

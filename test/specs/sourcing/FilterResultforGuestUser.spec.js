@@ -21,6 +21,7 @@ describe('FilterResultforGuestUser.spec', () => {
         browser.manage().deleteAllCookies();
     });
     it('FilterResultforGuestUser.spec',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         etbFun.filterResultForGuestUser();

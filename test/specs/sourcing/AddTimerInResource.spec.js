@@ -23,6 +23,7 @@ describe('Add timer Plugin in Resource Edior', () => {
     });
     it('AddTimerInResource',function(){
         utility.handleDropDown();
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
             let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();

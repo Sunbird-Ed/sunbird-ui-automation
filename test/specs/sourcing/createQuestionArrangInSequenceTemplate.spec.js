@@ -25,6 +25,7 @@ describe('be able to create Arrange in Sequence', () => {
         browser.manage().deleteAllCookies();
     });
     it('createQuestionArrangInSequenceTemplate', function () {
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = resourcePageObj.createQuestionArrangeSequenceTemplateWithAllStyles();

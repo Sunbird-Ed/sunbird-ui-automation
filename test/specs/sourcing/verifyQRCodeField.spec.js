@@ -20,6 +20,7 @@ describe('verifyQRCodeField', () => {
             browser.manage().deleteAllCookies();
         });
     it('verifyQRCodeField',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Creator');

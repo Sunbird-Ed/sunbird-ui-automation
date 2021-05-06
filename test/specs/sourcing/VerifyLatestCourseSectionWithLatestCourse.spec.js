@@ -2,6 +2,7 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 const usrOnBoardfun = require(protractor.basePath + '/test/pageObject/UserOnBoardingPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
+const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
 
 describe('VerifyLatestCourseSectionWithLatestCourse', () => {
 
@@ -22,15 +23,17 @@ describe('VerifyLatestCourseSectionWithLatestCourse', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyLatestCourseSectionWithLatestCourse',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();
-        tpdPageObj.createCourse();
-        let courseName=tpdPageObj.sendForReviewCourseWithName();
+        let courseName=sanityfun.createCourseAndSendForReview();
+        // tpdPageObj.createCourse();
+        // let courseName=tpdPageObj.sendForReviewCourseWithName();
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishTheCourseFromUpForReview(courseName);
+        tpdPageObj.publishCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
         utility.validateWorkspace();

@@ -22,6 +22,7 @@ describe('ValidationOfAutoBatch', () => {
         
     });
     it('ValidationOfAutoBatch',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         utility.validateWorkspace();

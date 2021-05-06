@@ -22,6 +22,7 @@ describe('EditCertificateRequirementFromNoToYes', () => {
         browser.manage().deleteAllCookies();
     });
     it('EditCertificateRequirementFromNoToYes',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         EnrollTBFCPageObj.createCourse();

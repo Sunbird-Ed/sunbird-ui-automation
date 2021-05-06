@@ -24,6 +24,7 @@ describe('shareCouseViaLink Verify', () => {
     });
     
     it('shareCouseViaLink',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         var courseName = sanityFun.copyContentFromTraining('Course');

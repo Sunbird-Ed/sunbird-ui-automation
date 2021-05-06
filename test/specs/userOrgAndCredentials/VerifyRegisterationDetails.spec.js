@@ -21,6 +21,7 @@ describe('Verify VerifyRegisterationDetails', () => {
     });
     
     it('VerifyRegisterationDetails',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         usrOnBoardfun.verifyRegisterPageDetails();
 

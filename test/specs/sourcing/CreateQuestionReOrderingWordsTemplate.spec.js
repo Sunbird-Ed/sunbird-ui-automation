@@ -24,6 +24,7 @@ describe('  Reordering Words', () => {
         browser.manage().deleteAllCookies();
     });
     it('CreateQuestionReOrderingWordsTemplate', function () {
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName =resourcePageObj.createQuestionReOrderingWithAllStyles();

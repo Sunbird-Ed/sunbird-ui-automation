@@ -21,6 +21,7 @@ describe('Vify, Content creator is able to get the content in Drafts section pos
         
     });
     it('CreatorGetContentInDraftPostRejection',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let lessonPlan=lessonPlanPageObj.createLessonPlan();

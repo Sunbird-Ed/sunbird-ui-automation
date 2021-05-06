@@ -21,7 +21,7 @@ describe('Verifthat when a question is copied which belong to different tenant u
     });
 
     it('VerifyCopiedQuestionReflectsWithDetails', function () {
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
          utility.userLogin('Creator');
         resourcePageObj.CreateQuestionAndSubmit();

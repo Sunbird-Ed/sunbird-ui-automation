@@ -21,6 +21,7 @@ describe('editContentAndSendForReview', () => {
         browser.manage().deleteAllCookies();
     });
     it('editContentAndSendForReview',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Book Creator');
         etbFun.navigateToWorkspace('Book');

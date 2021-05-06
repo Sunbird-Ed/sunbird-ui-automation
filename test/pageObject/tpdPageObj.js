@@ -5328,9 +5328,33 @@ catch(Exception)
    console.log("Failed to click start learning");
 }
 }
+const publishCourseFromUpForReview=(coursename)=>{
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+    content.headerDropdown.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+    content.workSpace.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.upForReview), 20000,"Creation page not loaded");
+    content.upForReview.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
+    content.searchForReview.click();
+    content.searchForReview.sendKeys(coursename);
+    browser.sleep(2000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchedContentForPublish), 20000, "workspace page not loaded");
+    content.searchedContentForPublish.click();
+    browser.sleep(3000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(tpdPage.tpdPage().publishTheCourse), 20000, "workspace page not loaded");
+    tpdPage.tpdPage().publishTheCourse.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(tpdPage.tpdPage().confirmForPublishBook), 20000, "workspace page not loaded");
+    tpdPage.tpdPage().confirmForPublishBook.click();
+    browser.sleep(1000);
+}
+
 
 module.exports = {
     createCourse,
+    publishCourseFromUpForReview,
     sendForReviewTheCourse,
     publishTheCourseFromUpForReview,
     createInviteOnlyBatchForLatestCourse,

@@ -25,6 +25,7 @@ describe('Vrify that user is able to create Reordering words Question type with 
     });
 
     it('ReOrderingWordsWithRegionalLanguage', function () {
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = resourcePageObj.reOrderingWordsWithRegionalLanguage();

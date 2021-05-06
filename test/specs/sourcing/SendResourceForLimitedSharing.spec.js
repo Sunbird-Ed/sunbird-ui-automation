@@ -21,7 +21,7 @@ describe('SendResourceForLimitedSharing', () => {
         browser.manage().deleteAllCookies();
     });
     it('SendResourceForLimitedSharing',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionFITBWithAllStyles();

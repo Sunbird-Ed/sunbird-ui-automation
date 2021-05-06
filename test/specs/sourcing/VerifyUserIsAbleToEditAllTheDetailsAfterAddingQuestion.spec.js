@@ -21,7 +21,7 @@ describe('Verfy that user is able to edit ,remove,Turn of/on the Shuffle Questio
         browser.manage().deleteAllCookies();
     });
     it('VerifyUserIsAbleToEditAllTheDetailsAfterAddingQuestion',function(){
-
+        utility.handleDropDown(); 
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         resourcePageObj.createQuestionMCQWithFormualAndAllStyles();

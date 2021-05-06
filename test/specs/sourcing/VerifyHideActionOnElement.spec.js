@@ -22,6 +22,7 @@ describe('abl to createResourcewithHideaction', () => {
     });
 
     it('VerifyHideActionOnElement',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         verifyHAOEPageObj.createResourceWithHideAction();

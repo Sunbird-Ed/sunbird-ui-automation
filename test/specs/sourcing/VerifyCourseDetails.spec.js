@@ -22,6 +22,7 @@ describe('VerifyCourseDetails', () => {
         
     });
     it('VerifyCourseDetails',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         searchCBFPPageObj.startLeaning();

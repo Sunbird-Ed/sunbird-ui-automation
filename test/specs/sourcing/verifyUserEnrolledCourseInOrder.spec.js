@@ -2,6 +2,7 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
 describe('Course Enrolled By the user should dispay in descending order', () => {
 
     beforeEach(() => {
@@ -21,25 +22,27 @@ describe('Course Enrolled By the user should dispay in descending order', () => 
         browser.manage().deleteAllCookies();
     });
     it('verifyUserEnrolledCourseInOrder ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
-        EnrollTBFCPageObj.createCourse();
-        let coursename=EnrollTBFCPageObj.sendForReviewCourseWithName();
+        let courseName=sanityfun.createCourseAndSendForReview();
+        // EnrollTBFCPageObj.createCourse();
+        // let coursename=EnrollTBFCPageObj.sendForReviewCourseWithName();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        EnrollTBFCPageObj. publishTheCourseFromUpForReview(coursename);
+        EnrollTBFCPageObj.publishCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Mentor');
-        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(coursename);
+        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
         EnrollTBFCPageObj.createOpenBatchWithEnrolmentDate();
         utility.userLogout();
         utility.userLogin('Public User1');
-        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(coursename);
+        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.enrollForOpenBatch();
-        EnrollTBFCPageObj.checkTheCourseInMyCourseSection(coursename);
-        EnrollTBFCPageObj.navigateToCourseAndSearch(coursename);
-        EnrollTBFCPageObj.ClickOnviewAllAndSearch(coursename)
+        EnrollTBFCPageObj.checkTheCourseInMyCourseSection(courseName);
+        EnrollTBFCPageObj.navigateToCourseAndSearch(courseName);
+        EnrollTBFCPageObj.ClickOnviewAllAndSearch(courseName)
         EnrollTBFCPageObj.applyFilterinAllMyContent();
         utility.userLogout();
         utility.userLogin('Mentor');

@@ -21,6 +21,7 @@ describe('AU_041,TenantSpecificValidation.', () => {
         browser.manage().deleteAllCookies();
     });
     it('TenantSpecificValidation',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         signUpPageObject.validateTenantFramework();
         signUpPageObject.languageVerify();

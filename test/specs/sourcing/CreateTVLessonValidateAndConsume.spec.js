@@ -23,6 +23,7 @@ describe('CreateTVLessonValidateAndConsume', () => {
         browser.manage().deleteAllCookies();
     });
     it('CreateTVLessonValidateAndConsume',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResourceWithTVLesson();

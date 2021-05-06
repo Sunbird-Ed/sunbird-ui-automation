@@ -22,6 +22,7 @@ describe('verifyConsumedCourseInTrainingSection in Profile', () => {
         
     });
     it('verifyTrainingSection',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         tpdPageObj.verifyConsumesCourseInTrainingSec();

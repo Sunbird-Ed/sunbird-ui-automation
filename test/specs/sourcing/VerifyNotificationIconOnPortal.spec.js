@@ -24,6 +24,7 @@ describe('verifyNotificationIconOnPortal' , () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyNotificationIconOnPortal',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(1000);
         //tpdPageObj.NotificationBellIconOnPortalBeforeLogin();

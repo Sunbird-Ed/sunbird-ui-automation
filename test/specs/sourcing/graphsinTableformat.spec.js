@@ -21,6 +21,7 @@ describe('graphsinTableformat', () => {
         browser.manage().deleteAllCookies();
     });
     it('graphsinTableformat',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         etbFun.verifyOnlyClassFilter();

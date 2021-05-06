@@ -24,6 +24,7 @@ describe('EditCsvAndUpdateTOC', () => {
     });
     
     it('EditCsvAndUpdateTOC',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.uploadCSVFile();

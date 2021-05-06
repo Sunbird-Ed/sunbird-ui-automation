@@ -21,6 +21,7 @@ describe('verifyContentInAllTabsIsInSubjectWise', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyContentInAllTabsIsInSubjectWise',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         etbFun.contentInSubjectWiseInAllTabs();

@@ -22,6 +22,7 @@ describe('VerifyCompleteProfileDetails', () => {
     });
     
     it('AU_010-VerifyCompleteProfileDetails',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         usrOnBoardfun.verifyProfileDetails();

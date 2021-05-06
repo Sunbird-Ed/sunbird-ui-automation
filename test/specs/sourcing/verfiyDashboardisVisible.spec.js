@@ -21,6 +21,7 @@ describe('verfiyDashboardisVisible', () => {
         browser.manage().deleteAllCookies();
     });
     it('verfiyDashboardisVisible',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         etbFun.verifyOnlyClassFilter();

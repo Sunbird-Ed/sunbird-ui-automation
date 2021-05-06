@@ -21,6 +21,7 @@ describe('vrify, content creator is able to create lesson plan', () => {
         
     });
     it('ExploreCharBoxTara',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         contentCreationPageObj.exploreChatBox();

@@ -21,6 +21,7 @@ describe('verifyBMSValueInDigiTxtBookAndTVClass', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyBMSValueInDigiTxtBookAndTVClass',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         etbFun.verifDefaultValueInDigiTxtAndTVClass();

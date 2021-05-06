@@ -22,6 +22,7 @@ describe('copyBookAndSendForReview', () => {
         browser.manage().deleteAllCookies();
     });
     it('copyBookAndSendForReview',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Creator');

@@ -22,6 +22,7 @@ describe('ontent creator is able to see the conetnt in All uploads section ,post
         browser.manage().deleteAllCookies();
     });
     it('RejectTheUploadedContent',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent= uploadPageObj.uploadH5p();

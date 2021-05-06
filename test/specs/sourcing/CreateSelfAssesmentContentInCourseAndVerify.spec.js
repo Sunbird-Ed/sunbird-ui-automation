@@ -22,6 +22,7 @@ describe('Create SelfAssesmentCourse save and send for review and publish.', () 
         
     });
     it('CreateSelfAssesmentContentInCourseAndVerify  ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();

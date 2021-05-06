@@ -26,6 +26,7 @@ describe('AU_024,LinkAndDelinkQRcode', () => {
         
     });
     it('LinkAndDelinkQRcode',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         etbFun.navigateToWorkspace();

@@ -22,6 +22,7 @@ describe('AU_031,DeleteAndVerifyInAllMyContentDraftPublish', () => {
         
     });
     it('DeleteAndVerifyInAllMyContentDraftPublish ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();

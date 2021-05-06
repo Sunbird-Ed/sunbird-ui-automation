@@ -22,6 +22,7 @@ describe('createBookLimitedSharingConsumeViaLink', () => {
         browser.manage().deleteAllCookies();
     });
     it('createBookLimitedSharingConsumeViaLink',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Book Creator');
         browser.sleep(3000);

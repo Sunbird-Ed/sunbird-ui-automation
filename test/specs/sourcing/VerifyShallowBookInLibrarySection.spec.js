@@ -23,6 +23,7 @@ describe('VerifyShallowBookInLibrarySection.', () => {
         
     });
     it('VerifyShallowBookInLibrarySection',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         

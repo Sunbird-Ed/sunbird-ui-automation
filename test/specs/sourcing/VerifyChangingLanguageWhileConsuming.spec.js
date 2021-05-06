@@ -23,7 +23,7 @@ describe('VerifyChangingLanguageWhileConsuming for Kannada Language', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyChangingLanguageWhileConsuming',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionFITBWithAllStyles();

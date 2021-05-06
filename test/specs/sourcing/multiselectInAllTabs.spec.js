@@ -21,6 +21,7 @@ describe('multiselectInAllTabs', () => {
         browser.manage().deleteAllCookies();
     });
     it('multiselectInAllTabs',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         etbFun.multiselectForAllTabs();

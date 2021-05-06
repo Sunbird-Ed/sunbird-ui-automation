@@ -21,6 +21,7 @@ describe('VerifyDownloadedTOCEnabledDisabled', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyDownloadedTOCEnabledDisabled',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Creator');

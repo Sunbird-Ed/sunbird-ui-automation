@@ -21,6 +21,7 @@ describe('Course creator is able to share the course content via link', () => {
         browser.manage().deleteAllCookies();
     });
     it('editAndSendLimitedSharingForReview',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();

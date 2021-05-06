@@ -25,6 +25,7 @@ describe('verifyLicenseInEditPageBook Verify' , () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyLicenseInEditPageBook',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
 

@@ -21,7 +21,7 @@ describe('Verify User Search', () => {
     });
 
     it('AU_012-UserSearch ', function () {
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Admin');
         usrOnBoardfun.userSearch();

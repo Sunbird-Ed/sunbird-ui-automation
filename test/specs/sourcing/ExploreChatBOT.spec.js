@@ -21,6 +21,7 @@ describe('vrify chatBot', () => {
         
     });
     it('ExploreChatBOT',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         contentCreationPageObj.exploreChatBOT();

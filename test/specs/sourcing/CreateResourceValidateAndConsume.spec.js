@@ -22,6 +22,7 @@ describe('content creator is able to access the resource section to create resou
         browser.manage().deleteAllCookies();
     });
     it('CreateResourceValidateAndConsume',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResource();

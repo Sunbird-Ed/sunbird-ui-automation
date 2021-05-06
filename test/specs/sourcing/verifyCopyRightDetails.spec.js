@@ -26,6 +26,7 @@ describe('VerifyCopyRight Details Verify' , () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyCopyRightDetails',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
 

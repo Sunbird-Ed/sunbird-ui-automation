@@ -22,7 +22,7 @@ describe('Creatis Able to create Question MCQ and Consume by other Users ,give f
         browser.manage().deleteAllCookies();
     });
     it('verifyImmediateFeedback',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();

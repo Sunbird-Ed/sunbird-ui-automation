@@ -21,6 +21,7 @@ describe('VerfyLayoutOfAnImageInMCQ', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyLayoutOfAnImageInMCQ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();

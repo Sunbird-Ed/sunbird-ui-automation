@@ -24,6 +24,7 @@ describe('courseDisplayedInTrainingAttended', () => {
         browser.manage().deleteAllCookies();
     });
     it('courseDisplayedInTrainingAttended',function(){
+        utility.handleDropDown();
          utility.handleLocationPopup();
          utility.userLogin('Mentor');
          ccPageObj.trainingAttendedIsAvailableInProfilePage();

@@ -22,6 +22,7 @@ describe('ExpandFirstModule', () => {
         
     });
     it('ExpandFirstModule',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
       //  verifyCEBpageobj.validateFeaturedCourseAndCount();
         utility.userLogin('Public User1');

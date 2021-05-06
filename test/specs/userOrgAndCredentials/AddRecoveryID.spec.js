@@ -22,6 +22,7 @@ describe('AddRecoveryID', () => {
     });
     
     it('AddRecoveryID',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('SubOrgMentor');
         usrOnBoardfun.addRecoveryID();

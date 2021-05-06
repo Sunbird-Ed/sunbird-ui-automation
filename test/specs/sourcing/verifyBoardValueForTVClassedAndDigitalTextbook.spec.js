@@ -21,6 +21,7 @@ describe('verifyBoardValueForTVClassedAndDigitalTextbook', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyBoardValueForTVClassedAndDigitalTextbook',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         //utility.userLogin('Creator');
         etbFun.boardValueForTvClassAndDigitTxtBook();

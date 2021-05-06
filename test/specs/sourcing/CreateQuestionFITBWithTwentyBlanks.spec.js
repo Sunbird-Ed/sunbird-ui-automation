@@ -22,7 +22,7 @@ describe('that user is displayed with Resume and Close editor when user is idle 
     });
 
     it('CreateQuestionFITBWithTwentyBlanks',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
 

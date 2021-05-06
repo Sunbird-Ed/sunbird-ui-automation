@@ -22,6 +22,7 @@ describe('LoginWhileJoinCourse.', () => {
         
     });
     it('LoginWhileJoinCourse',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();

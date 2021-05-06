@@ -23,6 +23,7 @@ describe('Shou be able to Edit and Copy and delete Questions.', () => {
         
     });
     it('VerifyDeleteEditAndCopyQuestionInResource',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         var questionName=resourcePageObj.copyQuestion();

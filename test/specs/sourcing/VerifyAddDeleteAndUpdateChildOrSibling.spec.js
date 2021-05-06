@@ -23,7 +23,7 @@ describe('Verifythat user is able to create colleciton by adding,deleting nodes 
     });
 
     it('VerifyAddDeleteAndUpdateChildOrSibling',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName=collectionPageObj.createCollection();

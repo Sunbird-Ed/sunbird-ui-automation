@@ -23,6 +23,7 @@ describe('Ver that content creator is able to add all the plugins while creating
         browser.manage().deleteAllCookies();
     });
     it('CreateResourceWithContentsPluginsAndVerifyContentEditor',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResource();

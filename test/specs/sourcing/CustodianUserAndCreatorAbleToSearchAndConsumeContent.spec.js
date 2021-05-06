@@ -21,6 +21,7 @@ describe('Vefy, Content creator is able to get the contnet in Library section by
         
     });
     it('CustodianUserAndCreatorAbleToSearchAndConsumeContent',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         var content=custUACATSACCPageObj.searchContentInLibraryAndFetchFirstContent('Resource');

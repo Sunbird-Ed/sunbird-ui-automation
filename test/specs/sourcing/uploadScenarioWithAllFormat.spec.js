@@ -23,6 +23,7 @@ describe('uploadScenarioWithAllFormat Verify', () => {
     });
     
     it('uploadScenarioWithAllFormat',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
          sanityFun.uploadCSVFile();

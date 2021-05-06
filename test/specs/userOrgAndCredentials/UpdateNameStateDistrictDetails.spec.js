@@ -23,6 +23,7 @@ describe('Verify UpdateNameStateDistrictDetails', () => {
     });
     
     it('UpdateNameStateDistrictDetails',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('TCTestUser');
         usrOnBoardfun.updateStateAndDistrictName();

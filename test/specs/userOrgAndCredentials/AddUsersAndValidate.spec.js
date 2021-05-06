@@ -21,6 +21,7 @@ describe('Verifiy Adduser is getting add user option in his profile and able to 
         browser.manage().deleteAllCookies();
     });
     it('AddUsersAndValidate ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User3');
         verifyCEBpageobj.addUserInProfile();

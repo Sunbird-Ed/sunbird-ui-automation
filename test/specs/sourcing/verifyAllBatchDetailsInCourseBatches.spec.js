@@ -2,6 +2,7 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 const usrOnBoardfun = require(protractor.basePath + '/test/pageObject/UserOnBoardingPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
+const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
 
 describe('Course creator should have two section under "Courses Batches" :1.Created by me 2.Assigned to me', () => {
 
@@ -22,15 +23,17 @@ describe('Course creator should have two section under "Courses Batches" :1.Crea
         browser.manage().deleteAllCookies();
     });
     it('verifyAllBatchDetailsInCourseBatches',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();
-        tpdPageObj.createCourse();
-        let courseName=tpdPageObj.sendForReviewCourseWithName();
+        let courseName=sanityfun.createCourseAndSendForReview();
+        // tpdPageObj.createCourse();
+        // let courseName=tpdPageObj.sendForReviewCourseWithName();
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishTheCourseFromUpForReview(courseName);
+        tpdPageObj.publishCourseFromUpForReview(courseName);;
         utility.userLogout();
         utility.userLogin('Creator');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);

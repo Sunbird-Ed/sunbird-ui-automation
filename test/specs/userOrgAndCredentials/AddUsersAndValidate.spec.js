@@ -23,8 +23,9 @@ describe('Verifiy Adduser is getting add user option in his profile and able to 
     it('AddUsersAndValidate ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User3');
+        utility.userLogin('Admin2');
         verifyCEBpageobj.addUserInProfile();
+        utility.handleLocationPopup();
         
     })
 

@@ -20,7 +20,10 @@ exports.config = {
 
    // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
    // collaborationAndInteraction: 'test/specs/collaborationAndInteraction/*.spec.js',
-    sourcing: 'test/specs/sourcing/*.spec.js',
+    // sourcing1: 'test/specs/sourcing1/*.spec.js',
+    // sourcing2: 'test/specs/sourcing2/*.spec.js',
+    // sourcing3: 'test/specs/sourcing3/*.spec.js',
+
    // Consumption: 'test/specs/Consumption/*.spec.js',
     // contentcreation: 'test/specs/content-creation/*.spec.js',
 //QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
@@ -83,8 +86,7 @@ exports.config = {
 //RejectTheUploadedContent:['test/specs/content-creation/RejectTheUploadedContent.spec.js'],
 //VerifyFiltersCanBeAppliedInUpForReview:['test/specs/content-creation/VerifyFiltersCanBeAppliedInUpForReview.spec.js'],
 //CustodianUserSearchContentInLibraryByFilters:['test/specs/content-creation/CustodianUserSearchContentInLibraryByFilters.spec.js'],
-
-//verifyContributorCountPostAddingResource:['test/specs/content-creation/RejectTheLessonPlan.spec.js'],
+verifyContributorCountPostAddingResource:['test/specs/sourcing2/AddMoreThan4Units.spec.js'],
 
 
         },

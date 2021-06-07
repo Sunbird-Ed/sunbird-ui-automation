@@ -28,7 +28,7 @@ const userLogin = (roleName) => {
 
         var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
         var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', roleName);
-        browser.sleep(3000);
+        browser.sleep(4000);
         wait.waitForElementVisibility(content.headerDropdown1, 20000);
         content.headerDropdown1.click();
         wait.waitForElementVisibility(content.loginLink, 20000);

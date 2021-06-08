@@ -24,6 +24,7 @@ describe('verifyTheBestScoreDisplayedinCourseToc', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyTheBestScoreDisplayedinCourseToc ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityPage.verifyBestScore();

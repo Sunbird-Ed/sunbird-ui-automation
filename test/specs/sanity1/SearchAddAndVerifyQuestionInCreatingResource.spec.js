@@ -22,6 +22,7 @@ describe('Search Resource save and send for review and publish.', () => {
         browser.manage().deleteAllCookies();
     });
     it('SearchAddAndVerifyQuestionInCreatingResource ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.addQuestionsAfterSearching();

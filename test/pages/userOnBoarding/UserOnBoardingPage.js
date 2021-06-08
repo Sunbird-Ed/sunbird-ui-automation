@@ -1,8 +1,8 @@
 const { element } = require("protractor");
 
 let UserOnBoarding = () => {
-    //let dropdownProfile=element(by.xpath("//div[contains(@class,'dropdown right top pointing')]"));
-    let dropdownProfile = element(by.xpath("(//div[@class='avatar-content'])[2]"));
+  
+ let dropdownProfile = element(by.xpath("(//div[@class='avatar-content'])[2]"));
 
     let clkAdminDashBoard = element(by.xpath("//*[contains(text(), 'Admin dashboard')]"));
     let assertReportPulse = element(by.xpath("//*[contains(text(),'Pulse of the Nation Learning')]"));
@@ -122,13 +122,9 @@ let UserOnBoarding = () => {
     var updatedFrequency = element(by.xpath("//*[contains(text(),'Update Frequency')]"));
     var status = element(by.xpath("//*[contains(text(),'Status')]"));
     var contentName = element(by.xpath("//div[@class='sb-media-body']/h6"));
-    var selectcsvfile = element(by.xpath("//*[contains(text(),'Select .csv file')]"));
+	 var selectcsvfile = element(by.xpath("//*[contains(text(),'Select .csv file')]"));
     var uploadcsvfile = element(by.xpath("//*[contains(text(),'Upload .csv file')]"));
     var validationToasterMsg = element(by.xpath("//*[@class='iziToast-texts']"));
-    var AddUserClk = element(by.xpath("//img[@alt='Add user']"));
-    var entUSrName = element(by.xpath("//input[@name='name']"));
-    var ClkCancelButton = element(by.xpath("//*[contains(text(),' Cancel')]"));
-    var AddUsrCreationBtn = element(by.xpath("//button[@type='submit']"));
     var clkCheckBox = element(by.xpath("//input[@type='checkbox']"));
     var clkCheckBoxContinue = element(by.xpath("//button[contains(text(),' Continue')]"));
     var clkChangeUser = element(by.xpath("//button[contains(text(),' Change user ')]"));
@@ -149,12 +145,10 @@ let UserOnBoarding = () => {
     var closeMediumIcon = element(by.xpath("//label[contains(text(),'Medium')]//following::i[@class='dropdown icon']"));
     var closeClassIcon = element(by.xpath("//label[contains(text(),'Class')]//following::i[@class='dropdown icon']"));
     var closeSubjectIcon = element(by.xpath("//label[contains(text(),'Subject')]//following::i[@class='dropdown icon']"));
-
     var clkClassDropDown = element(by.xpath("//label[contains(text(),'Class')]//following::sui-multi-select"));
     var sltClassDropDown = element(by.xpath("//label[contains(text(),'Class')]//following::span[2]"));
     var clkSubjectDropDown = element(by.xpath("//label[contains(text(),'Subject')]//following::sui-multi-select"));
     var sltSubjectDropDown = element(by.xpath("//label[contains(text(),'Subject')]//following::span[2]"));
-
     var clkSubmitProfile= element(by.xpath("//label[contains(text(),'Subject')]//following::button[contains(text(),' Submit ')]"));
     var assertUpdateToastrMsg= element(by.xpath("//*[contains(text(),'Profile updated successfully...')]"));
     var assertProfileBoardValue= element(by.xpath("//span[contains(text(),'Board')]//following::span[contains(text(),'IGOT-Health')]"));
@@ -165,7 +159,6 @@ let UserOnBoarding = () => {
     var clkDistrictDropdown= element(by.xpath("//label[contains(text(),'District:')]//following::i[@class='dropdown icon']"));
     var sltDistrictDropdown= element(by.xpath("//label[contains(text(),'District:')]//following::span[contains(text(),'Anantapur')]"));
     var districtSubmitClk= element(by.xpath("//label[contains(text(),'District:')]//following::button[contains(text(),'Submit')]"));
-
     var clkRegisterlink = element(by.xpath("//span[@class='registerLink']"));
     var RegisteronDikshaLabel = element(by.xpath("//div[contains(text(),' Register on DIKSHA')]"));
     var nameLabel = element(by.xpath("//label[contains(text(),'Name')]"));
@@ -178,9 +171,7 @@ let UserOnBoarding = () => {
     var sltInValidYear = element(by.xpath("//span[contains(text(),'2020')]"));
     var verifyParentMsg = element(by.xpath("//label[contains(text(),' Enter mobile number or email address ')]"));
     var verifyParentMsg2 = element(by.xpath("//span[contains(text(),'of your parent or guardian')]"));
-
-
-    
+ 
     var verifyPasswordPolicyErrMsg = element(by.xpath("//label[contains(text(),'Your password must contain a minimum of 8 characters. It must include numerals, lower and upper case alphabets and special characters, without any spaces')]"));
 
     var registerPassword = element(by.xpath("//input[@placeholder='Enter password']"));
@@ -191,9 +182,20 @@ let UserOnBoarding = () => {
     var clkForgotPassword = element(by.xpath("//div[@id='fgtPortalFlow']"));
     var assertOTPPage = element(by.xpath("//div[contains(text(),'One Time Password (OTP)')]"));
     var typeName = element(by.xpath("//input[@placeholder='Name']"));
+    var entUSrName = element(by.xpath("//input[@name='name']"));
+    var ClkCancelButton = element(by.xpath("//*[contains(text(),' Cancel')]"));
+    var AddUsrCreationBtn = element(by.xpath("//button[@type='submit']"));
+    var clkCheckBox = element(by.xpath("//input[@type='checkbox']"));
+    var clkCheckBoxContinue = element(by.xpath("//button[contains(text(),' Continue')]"));
+    var clkChangeUser = element(by.xpath("//button[contains(text(),' Change user ')]"));
+    var AddUserClk = element(by.xpath("//img[@alt='Add user']"));
+    var entUSrName = element(by.xpath("//input[@name='name']"));
 
 
-    
+
+
+
+
     
 
     return {
@@ -313,14 +315,7 @@ let UserOnBoarding = () => {
         contentName,
         selectcsvfile,
         uploadcsvfile,
-        validationToasterMsg,
-
-
-
-
-
-        
-      
+        validationToasterMsg,      
         AddUserClk,
         entUSrName,
         ClkCancelButton,

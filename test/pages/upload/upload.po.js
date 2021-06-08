@@ -16,9 +16,12 @@ var upload = () => {
         var uploadButton = element(by.xpath("//button[contains(text(),'Upload')]"));
         var clkEditDetails=element(by.xpath("//*[contains(text(),'Edit Details')]"));
         var selectOne = element(by.id("_selectPrimaryCategory"));
-        var learningResource = element(by.xpath("//select[@id='_selectPrimaryCategory']/option[5]"));
+        var learningResource = element(by.xpath("//select[@id='_selectPrimaryCategory']/option[2]"));
+        var saveupload=element(by.xpath("//div[@data-content='Save content']"));
+        var close=element(by.xpath("//button[text()='Close']"))
         return {
             clickuploadContent,
+            close,
             browseButton,
             savebutton,
             closebutton,
@@ -31,7 +34,8 @@ var upload = () => {
             uploadButton,
             clkEditDetails,
             selectOne,
-            learningResource
+            learningResource,
+            saveupload
         };
     
     };

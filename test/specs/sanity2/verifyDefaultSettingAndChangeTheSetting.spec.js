@@ -22,8 +22,9 @@ describe('VerifyDefaultSettingAndChangeTheSetting', () => {
         
     });
     it('VerifyDefaultSettingAndChangeTheSetting',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
-        sanityFun.verifydefaultValues();
+       // sanityFun.verifydefaultValues();
         
 
     });

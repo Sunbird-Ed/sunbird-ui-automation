@@ -21,6 +21,7 @@ describe('Copy Content From Library', () => {
     });
     
     it('copyContentFromLibraryAndVerify',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         var Book = "BookA";

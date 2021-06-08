@@ -10,7 +10,7 @@ describe('Create Collection save and send for review and publish.', () => {
         var Url=getAppURL.ConfigurePath().AppURL;
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
-        browser.manage().timeouts().implicitlyWait(60000);
+        browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
        
     });
@@ -22,6 +22,7 @@ describe('Create Collection save and send for review and publish.', () => {
         
     });
     it('CreateCollectionAndVerify ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName=collectionPageObj.createCollection();

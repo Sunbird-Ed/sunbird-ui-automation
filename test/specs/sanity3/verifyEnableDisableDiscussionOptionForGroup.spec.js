@@ -22,9 +22,10 @@ describe('verifyEnableDisableDiscussionOptionForGroup', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyEnableDisableDiscussionOptionForGroup',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Admin');
-        sanityPage.verifyEnableAndDisableDiscussionForGroup();
+        utility.userLogin('Admin2');
+        sanityPage.verifyEnableAndDisableDiscussionForGroup2();
        
 
 

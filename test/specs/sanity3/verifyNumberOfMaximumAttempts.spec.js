@@ -22,6 +22,7 @@ describe('verifyNumberOfMaximumAttempts', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyNumberOfMaximumAttempts ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityPage.veriyMaximumAttempts();

@@ -21,6 +21,7 @@ describe('Open draft and Download  QR Code In Book', () => {
     });
     
     it('openDraftAndDownloadQRCodeForBook',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.openBookFromDraftAndDownloadQRCode();

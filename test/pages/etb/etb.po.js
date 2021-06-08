@@ -65,14 +65,71 @@ var etb = () => {
     var clkPublisher = element(by.xpath("//label[contains(text(),'Publisher')]/following::input"));
     var untitledCourse1 = element(by.xpath("(//input[@id='name'])[1]"));
     var collectionType = element(by.xpath("//*[contains(text(),'Collection Type')]/following::sui-select"));
-    var contentResource = element(by.xpath("//*[contains(text(),'Collection Type')]/following::sui-select-option"));
+    var contentResource = element(by.xpath("//*[contains(text(),'Collection Type')]/following::sui-select-option[2]/span[2]"));
     var allImage = element(by.id("allImagesTab"));
     var myImage = element(by.id("myAssetsTab"));
     var allTextBook = element(by.xpath("//*[contains(text(),'All Textbooks')]"));
-    var firstContentWithDraftstatus = element(by.xpath("//td[contains(text(),'Draft')]/../td/h5/div/div"));
+    var firstContentWithDraftstatus = element(by.xpath("(//div[@class='content ']//div)[1]"));
+    var addResource=element(by.xpath("//div[text()='RESOURCES']/following-sibling::button"));
+    var firstResource=element(by.xpath("//div[text()[normalize-space()='Adarsh Course']]"));
+    var proceedButton=element(by.xpath("//button[text()=' PROCEED ']"));
+    var searchBoxForSearchingBook=element(by.xpath("//input[@placeholder='Search content']"));
+    var classFilter=element(by.xpath("(//div[@class='pill rounded'])[3]"));
+    var mediumFilter=element(by.xpath("//div[text()=' Sanskrit']"));
+    var mediumResult=element(by.xpath("(//span[text()='Medium: English'])[1]"));
+    var classResult=element(by.xpath("(//span[@title='Class 1'])[1]"));
+    var digitalTextBook=element(by.xpath("//a[contains(.,'Digital textbooks')]"));
+    var bookForPlayingContent=element(by.xpath("//h4[@title='bks']"));
+    var h5pContent=element(by.xpath("//div[@title='Sanity h5p-AN']"));
+    var nextButton=element(by.xpath("//button[@title='Next']"));
+    var answerBox=element(by.xpath("/html/body/div//div[@role='list']/div[5]//div[@class='h5p-input']/input[@placeholder='Your answer']"));
+    var checkBox=element(by.xpath("/html/body/div//div[@role='list']/div[5]//div[@class='h5p-input']/button[1]"));
+    var videoButton=element(by.xpath("//span[text()='Video']"));
+    var interactiveButton=element(by.xpath("//span[text()='Interactive']"));
+    var docsButton=element(by.xpath("//span[text()='Docs']"));
+    var videoConetentPlaying=element(by.xpath("//h4[@title='Sanity Mp4-AN']"));
+    var dashBoardButton=element(by.xpath("//li[text()=' Admin dashboard ']"));
+    var reports=element(by.xpath("//a[contains(.,'Reports')]"));
+    var datasets=element(by.xpath("//a[text()=' Reports']/following-sibling::a"));
+    var dashboardSearchox=element(by.xpath("(//input[@type='search'])[1]"));
+    var lastPublishedDate=element(by.xpath(("//th[text()='Last Published Date'])[1]")));
+    var courseConsumptionReport=element(by.xpath("//p[text()=' Course consumption Report']"));
+    var lastUpdatedOn=element(by.xpath("(//span[text()='Last updated on : '])[2]"));
+    var districtWiseETBReport=element(by.xpath("//p[text()=' District wise performance on ETB content plays']"));
+    var distwiseETBconsumptionReport=element(by.xpath("//div[text()=' District Wise Etb Consumption ']"));
+    var clkAdditionalCategdropDown=element(by.xpath("//div[contains(text(),'Select Additional Category')]"));
+    var sltTVLessonInAddCatogry=element(by.xpath("//div[contains(text(),'TV Lesson')]"));
+
     
     return {
         bookName,
+        distwiseETBconsumptionReport,
+        dashBoardButton,
+        districtWiseETBReport,
+        reports,
+        datasets,
+        dashboardSearchox,
+        lastPublishedDate,
+        courseConsumptionReport,
+        lastUpdatedOn,
+        videoButton,
+        interactiveButton,
+        docsButton,
+        videoConetentPlaying,
+        answerBox,
+        checkBox,
+        nextButton,
+        digitalTextBook,
+        h5pContent,
+        bookForPlayingContent,
+        mediumResult,
+        classResult,
+        classFilter,
+        mediumFilter,
+        searchBoxForSearchingBook,
+        addResource,
+        proceedButton,
+        firstResource,
         startcreating,
         clickNewChild,
         untitleName,
@@ -138,9 +195,8 @@ var etb = () => {
         clkPublisher,
         allTextBook,
         firstContentWithDraftstatus,
-
-
-
+        clkAdditionalCategdropDown,
+        sltTVLessonInAddCatogry,
   };
 
 };

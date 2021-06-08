@@ -22,6 +22,7 @@ describe('VerifyAddRecoveryMail', () => {
     });
     
     it('VerifyAddRecoveryMail',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('SubOrgMentor');
         usrOnBoardfun.addRecoveryID();

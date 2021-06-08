@@ -22,6 +22,7 @@ describe('ValidateExplorePageAndGetPageContent', () => {
 
     
     it('ValidateExplorePageAndGetPageContent',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup(); 
        // verifyCEBpageobj.validateFeaturedCourseAndCount();
         verifyCEBpageobj.navigateToGetPage();

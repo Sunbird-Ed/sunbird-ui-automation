@@ -24,6 +24,7 @@ describe('Download Described Users Csv Data', () => {
     
     
     it('downloadUsersCsvData',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Admin');
         sanityFun.declaredUsersCsvFileDownload();

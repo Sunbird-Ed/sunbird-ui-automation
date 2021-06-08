@@ -22,6 +22,7 @@ describe('searchQRCode In Explore LibraryPage', () => {
         
     });
     it('searchWithQRCodeInExplorePage',function(){
+      utility.handleDropDown();
         utility.handleLocationPopup();
         etbFun.searchWithQRcode();
         var Url=getAppURL.ConfigurePath().AppURL;

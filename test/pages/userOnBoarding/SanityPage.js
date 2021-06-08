@@ -3,6 +3,7 @@ const { element, by } = require("protractor");
 let SanityElement=()=>{
     //let dropdownProfile=element(by.xpath("//div[contains(@class,'dropdown right top pointing')]"));
        let dropdownProfile=element(by.xpath("//div[@class='avatar-content']"));
+    let profileDropdown=element(by.xpath("//app-header/div/div/div/div[1]/div[2]/div/a[2]/div/ngx-avatar/div/div"));   
     let verifyClassSec=element(by.xpath("//div[@id='class1']"));
     let clkManage=element(by.xpath("//a[contains(text(),'Manage')]"));
     let ClickSelectFile=element(by.xpath("//div[contains(text(),'Select file')]"));
@@ -117,15 +118,16 @@ let ClkCopyAsCourse= element(by.xpath("//button[contains(text(),'Copy as course'
 let clkCheckBox= element(by.xpath("//label[@for='checkbox']"));
 let clkCreateBtn= element(by.xpath("//button[contains(text(),' Create ')]"));
 var manageLink = element(by.xpath("//li[@routerlink='manage']"));
-var downloadBtn = element(by.xpath("//button[@class='sb-btn sb-btn-normal ml-24 sb-btn-secondary']"));
-var digitalTextBooksLink = element(by.xpath("//a[@class='item item--textbooks active']"));
+var downloadBtn=element(by.xpath("//button[@class='sb-btn sb-btn-secondary sb-btn-normal ml-16']"));
+//var downloadBtn = element(by.xpath("//button[@class='sb-btn sb-btn-normal ml-24 sb-btn-secondary']"));
+var digitalTextBooksLink = element(by.xpath("//a[contains(text(),' Digital textbooks ')]"));
 var searchBtn = element(by.xpath("//button[@class='sb-btn sb-btn-md']"));
 var bookImg = element(by.xpath("(//img[contains(@src,'assets/common-consumption/images')])[1]"));
 var copyBtn = element(by.xpath("(//button[@class='sb-btn sb-btn-normal sb-btn-outline-primary mr-8 ng-star-inserted'])[2]"));
 var copyPopup = element(by.xpath("//*[contains(text(),'Content successfully copied')]"));
 var searchBoxForBook=element(by.xpath("//input[@placeholder='Search or enter QR code']"));
 var clickSeaarchButton=element(by.xpath("//button[text()='Search']"));
-var searchedBook=element(by.xpath("//bdi[text()='umesh sanity16']"));
+var searchedBook=element(by.xpath("//div[@class='sb--card__meta']//h4[1]"));
 var profileIcon=element(by.xpath("(//div[@class='avatar-content'])[2]"));
 var workspaceButton=element(by.xpath("//li[text()=' Workspace ']"));
 var draftButton=element(by.xpath("//a[@popuptext='View drafts you are working on. Submit them for review when completed']"));
@@ -150,10 +152,10 @@ var baackButton=element(by.xpath("//button[text()=' Back ']"));
 var bestScore=element(by.xpath("//div[contains(@class,'sbchapter__item__score pr-8')]"));
 var searchButton=element(by.xpath("//button[text()='Search']"));
 var discussionForumFirstBook=element(by.xpath("//div[@class='sb--card__main-area']/following-sibling::div[1]"));
-var forum=element(by.xpath("//button[text()=' Forum ']"));
-var categories=element(by.xpath("//li[contains(@class,'df-sidebar-menu-list menu-active')]//a[1]"));
+var forum=element(by.xpath("//button[@title='Forum']"));
+var categories=element(by.xpath("//a[contains(text(),'Categories')]"));
 var tags=element(by.xpath("//li[contains(@class,'df-sidebar-menu-list menu-active')]/following-sibling::li[1]"));
-var myDiscussions=element(by.xpath("(//li[@class='df-sidebar-menu-list ng-star-inserted']//a)[2]"));
+var myDiscussions=element(by.xpath("//a[contains(text(),'My discussion')]"));
 var categoryCard=element(by.xpath("(//div[@class='category-card-header']//div)[3]"));
 var announcement=element(by.xpath("//div[text()='Announcements']"));
 var generalDiscussion=element(by.xpath("//div[text()='General Discussions']"));
@@ -169,14 +171,14 @@ var startDiscussion=element(by.xpath("//button[text()='Start Discussion']"));
 var askQuestion=element(by.xpath("//input[@placeholder='Ask a question or post an idea']"));
 var description=element(by.xpath("//textarea[@formcontrolname='description']"));
 var submitButton=element(by.xpath("//span[text()='Submit']"));
-var firstGroup=element(by.xpath("//h4[text()='my_group']"));
+var firstGroup=element(by.xpath("//div[@class='sb--card__info']"));
 var groupActions=element(by.xpath("//div[@id='group-actions']"));
 var enableDiscussionIcon=element(by.xpath("//div[text()=' Enable discussions ']"));
 var enablediscussionSuccessful=element(by.xpath("//strong[text()='Enabled discussion forum successfully']"));
 var discussionIcon=element(by.xpath("//button[@title='Forum']//img[1]"));
 var disableDiscussionIcon=element(by.xpath("//div[text()=' Disable discussions ']"));
 var disablediscussionButton=element(by.xpath("//button[text()='Disable discussions']"));
-var disableDiscussionSuccessful=element(by.xpath("//i[contains(@class,'iziToast-icon ico-success')]/following-sibling::div[1]"));
+var disableDiscussionSuccessful=element(by.xpath("//strong[text()='Disabled discussion forum successfully']"));
 var labelLibrary = element(by.xpath("//a[.=' Digital textbooks ']"));
 var labelDefaultBoard = element(by.xpath("(//sui-select[contains(@class,'selection sbt-dropdown')])[2]"));
 //var labelDefaultBoard = element(by.xpath("//sui-select-option[@class='item ng-star-inserted active']//span[contains(text(),'State (Assam)')]"));
@@ -191,9 +193,12 @@ var labelDefaultBoard = element(by.xpath("(//sui-select[contains(@class,'selecti
     var BackButton = element(by.xpath("//button[normalize-space()='Back']"));
     var labelslctBoard = element(by.xpath("(//sui-select[contains(@class,'selection sbt-dropdown')])[2]"));
     var SelectAPboard = element(by.xpath("//span[.='State (Andhra Pradesh)']"));
+    //var SelectCBSEBoard=element(by.xpath("//sui-select/div[1]/span[.='CBSE/NCERT']"));
     var SelectTelguMedium = element(by.xpath("//div[.=' Telugu']"));
     var Select8Class = element(by.xpath("//div[.=' Class 8']"));
+    var selct1Class=element(by.xpath("//div[.=' Class 1']"));
     var SelectBiologybook = element(by.xpath("(//span[.=' Biology '])[1]"));
+    var selectEnglishBook=element(by.xpath("//sui-multi-select/div[2]/div/sui-select-option/span[text()='english']"));
     var SelectVonBook = element(by.xpath("(//div[@class='arrange-card-items certificate-course-contentt pl-8']/h4)[2]"));
     var SelectCourseArrow1 = element(by.xpath("(//button[@class='navigation-arrows player-nextIcon paginate right ml-4'])[1]"));
     var SelectRCButton = element(by.xpath("//i[@class='close icon']"));
@@ -208,17 +213,17 @@ var labelDefaultBoard = element(by.xpath("(//sui-select[contains(@class,'selecti
     var courseType=element(by.xpath("(//select[@id='sb-dropdown'])[2]"));
     var subjectCovered=element(by.xpath("(//div[@class='list-border'])[2]"));
     var selectBoardForcourse=element(by.xpath("(//select[@id='sb-dropdown'])[3]"));
-    var selectMediumForCourse=element(by.xpath("//sb-dynamic-form[@class='ng-star-inserted']/div/div[4]/sb-dynamic-multiple-dropdown[2]//div[@class='list-border']"));
-    var selectClassForCourse=element(by.xpath("//sb-dynamic-form[@class='ng-star-inserted']/div/div[4]/sb-dynamic-multiple-dropdown[3]//div[@class='list-border']"));
-    var selectSubjectForCourse=element(by.xpath("/html/body/app-root/div[1]/div/app-new-collection-editor/lib-editor/div/div/div/div/div[2]/lib-meta-form/sb-dynamic-form/div/div[4]/sb-dynamic-multiple-dropdown[4]/div/div/div[1]"));
-    var selectCopyRightYear=element(by.xpath("//sb-dynamic-form[@class='ng-star-inserted']/div/div[5]/sb-dynamic-textbox[4]//input[@placeholder='Copyright Year']"));
-    var selectAdditionalCategory=element(by.xpath("//span[text()='Textbook']"));
+    var selectMediumForCourse=element(by.xpath("//li[contains(text(),'Select Medium')]"));
+    var selectClassForCourse=element(by.xpath("//li[contains(text(),'Select Class')]"));
+    var selectSubjectForCourse=element(by.xpath("//li[contains(text(),'Select Subject')]"));
+    var selectCopyRightYear=element(by.xpath("//input[@placeholder='Copyright Year']"));
+    var selectAdditionalCategory=element(by.xpath("//label[contains(text(),'Textbook')]"));
     var selectcourseType=element(by.xpath(("(//option[text()='CBSE'])[1]")));
-    var selectSubject=element(by.xpath("(//span[text()='English'])[1]"));
+    var selectSubject=element(by.xpath("//label[contains(text(),'English')]"));
     var selectBoard=element(by.xpath("(//option[text()='CBSE'])[2]"));
-    var selectMedium=element(by.xpath("(//span[text()='English'])[2]"));
-    var selectclass=element(by.xpath("//span[text()='Class 1']"));
-    var selectSubject2=element(by.xpath("(//span[text()='English'])[3]"));
+    var selectMedium=element(by.xpath("//label[contains(text(),'Medium(s) of the audience')]//following::label[contains(text(),'English')]"));
+    var selectclass=element(by.xpath("//label[contains(text(),'Class(es) of the audience')]//following::label[2]"));
+    var selectSubject2=element(by.xpath("//label[contains(text(),'Subject(s) of the audience')]//following::label[2]"));
     var saveAsDraft=element(by.xpath("//button[text()=' Save as Draft ']"));
     var addChild=element(by.xpath("//button[text()=' Add Child']"));
     var NewCoursesubmitButton=element(by.xpath("//button[text()=' Submit ']"));
@@ -226,13 +231,38 @@ var labelDefaultBoard = element(by.xpath("(//sui-select[contains(@class,'selecti
     var selectButton=element(by.xpath("//button[text()='Select content']"));
     var addContent=element(by.xpath("//button[text()=' Add content ']"));
     var contentFromLibrayBackButton=element(by.xpath("//i[contains(@class,'arrow left')]"));
-    var termsAndConditionCheckbox=element(by.xpath("//input[@type='checkbox']"));
-    var submitForreviewButton=element(by.xpath("(//button[text()=' Submit '])[2]"));
+    var termsAndConditionCheckbox=element(by.xpath("//span[contains(text(),'I agree that by submitting / publishing this Content,')]"));
+    var submitForreviewButton=element(by.xpath("//button[contains(text(),' Send for Review ')]"));
     var Author=element(by.xpath("//input[@placeholder='Author']"));
     var courseIcon=element(by.xpath("//i[contains(@class,'icon image')]"));
     var allImages=element(by.xpath("(//a[@class='sb-item item'])[2]"));
     var firststIconImage=element(by.xpath("(//div[@class='sb-image-section']//img)[1]"));
-return{
+    var firstCourseForTOC=element(by.xpath("(//div[@class='sb--card__meta'])[1]"));
+      var subjectFilter=element(by.xpath("(//label[@class='w-100']//sui-multi-select)[1]"));
+      var ContinusProfList=element(by.xpath(("(//option[text()='Continuous Professional Development'])[1]")));
+      var clkTags=element(by.xpath("//*[contains(text(),'Tags')]"));
+      var clkMyDiscussion=element(by.xpath("//*[contains(text(),'My discussion')]"));
+      var clkCloseIconDF=element(by.xpath("//button[contains(text(),' Close ')]"));
+      var clkGeneDiscDF=element(by.xpath("//div[contains(text(),'General Discussion')]"));
+      var clkGenericCreatedTopics=element(by.xpath("//span[contains(text(),'General Discussion')]"));
+      var clkHamburgerMenuTopic=element(by.xpath("//div[@class='kabab-menu']"));
+      var clkHamburgerMenuTopicEdit=element(by.xpath("//div[contains(text(),'Edit')]"));
+      var clkHamburgerMenuTopicDelete=element(by.xpath("//div[contains(text(),'Delete')]"));
+      var clkUpdateBtnTopcis=element(by.xpath("//button[@id='update-topic-popup']"));
+      var assertUpdatedTopicName=element(by.xpath("//div[contains(text(),'UpdateTopic')]"));
+      var assertUpdateDesName=element(by.xpath("//*[contains(text(),'UpdatedDescription')]"));
+      var assertAddedTopicName=element(by.xpath("//*[contains(text(),'This is my 1st idea to be shared')]"));
+      var assertaddedDesName=element(by.xpath("//*[contains(text(),'DescriptionIdeaShared')]"));
+      var assertNoData=element(by.xpath("//div[contains(text(),'No Data')]"));
+      var assert0Disccsuion=element(by.xpath("//span[contains(text(),'0 discussions')]"));
+      var asserr0Post=element(by.xpath("//span[contains(text(),'0 posts')]"));
+
+
+
+
+
+
+    return{
         firstGroup,
         NewCoursesubmitButton,
         firststIconImage,
@@ -446,7 +476,26 @@ return{
         labelDefaultBoard,
         labelDefaultMedium,
         labelDefaultClass,
-        
+        firstCourseForTOC,
+subjectFilter,
+ContinusProfList,
+clkTags,
+clkMyDiscussion,
+clkCloseIconDF,
+clkGeneDiscDF,
+clkGenericCreatedTopics,
+clkHamburgerMenuTopic,
+clkHamburgerMenuTopicEdit,
+clkHamburgerMenuTopicDelete,
+clkUpdateBtnTopcis,
+assertUpdatedTopicName,
+assertUpdateDesName,
+assertAddedTopicName,
+assertaddedDesName,
+assertNoData,
+assert0Disccsuion,
+asserr0Post,
+
 
 
 

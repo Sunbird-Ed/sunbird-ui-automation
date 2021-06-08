@@ -24,6 +24,7 @@ describe('FilterToggleAndEditWhileAddingQuestionInResource', () => {
         browser.manage().deleteAllCookies();
     });
     it('FilterToggleAndEditWhileAddingQuestionInResource', function () {
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         tpdobj.applyFilterAndToggleQuestion();

@@ -22,6 +22,7 @@ describe('verify sign in popup in explore course', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifySignInPopupInExploreCourseEnrollButton ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         verifyCEBpageobj.validateSignInPopupOnClickOnEnroll();
      

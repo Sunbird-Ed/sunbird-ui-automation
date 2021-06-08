@@ -300,6 +300,8 @@ const uploadWebm=()=>{
     content.headerDropdown.click();
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
     content.workSpace.click();
+    browser.sleep(3000);
+
     browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.clickuploadContent), 20000,"Upload content didn't click");
     uploadV.clickuploadContent.click();
     browser.sleep(4000);

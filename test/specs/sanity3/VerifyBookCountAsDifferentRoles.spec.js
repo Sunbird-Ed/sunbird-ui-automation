@@ -22,7 +22,7 @@ describe('VerifyBookCountAsDifferentRoles', () => {
 
     
     it('VerifyBookCountAsDifferentRoles',function(){
-        
+        utility.handleDropDown();
         utility.handleLocationPopup(); 
         bookCount = verifyCEBpageobj.validateTextBookCount();  
     });

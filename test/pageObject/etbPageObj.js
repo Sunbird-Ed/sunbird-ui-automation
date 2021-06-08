@@ -623,7 +623,86 @@ const createBookWithRegionalLanguage=(Regional)=>{
         console.error(err);
 }
 }
+const adminCanEditTextBook=()=>{
 
+    try{
+        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
+        ccpage.contentCreation().headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.allTextBook), 20000, "all textBook link not loaded");
+        etbv.allTextBook.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.searchBoxForSearchingBook), 20000, "searchBox not loaded");
+        etbv.allTextBook.sendKeys('BookA');
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.firstContentWithDraftstatus), 20000, "1st book not loaded");
+        etbv.firstContentWithDraftstatus.click();
+        browser.sleep(8000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        content.addResource.click(); 
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.resourceSearch), 30000, "resourceSearch not available");
+        // content.resourceSearch.click();
+        // content.resourceSearch.sendKeys("pdf");
+        // browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectResourceType2), 30000, "selectResourceType not available");
+        // content.selectResourceType2.click();
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickAddbutton), 30000, "clickAddbutton not available");
+        // content.clickAddbutton.click();
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.proceed), 30000, "proceed is not available");
+        // content.proceed.click();
+        // browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.addResource), 20000, "Add resource not loaded");
+        etbv.addResource.click();
+        browser.sleep(5000);
+        //browser.actions().click(etbv.addResource).perform();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.firstResource), 20000, "1st resource not loaded");
+        etbv.firstResource.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.proceedButton), 20000, "proceed button not loaded");
+        etbv.proceedButton.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.save), 20000, "Dashboard never loaded");
+        browser.sleep(3000);
+        content.save.click();
+        browser.sleep(6000);
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.sendForReview), 20000, "send for review not available");
+        content.sendForReview.click();
+        browser.sleep(6000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.continuewButton), 50000, "contuinew button not available");
+        etbv.continuewButton.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.clickAppIcon), 50000, "clickAppIcon button not available");
+        etbv.clickAppIcon.click();
+        browser.sleep(2000);
+        browser.sleep(2000);
+        wait.waitForElementVisibility(etbv.myImage, 30000, "myImage button not available");
+        etbv.myImage.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.checkAppIcon), 30000, "checkAppIcon button not available");
+        etbv.checkAppIcon.click();
+        browser.sleep(500);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.selectAppIcon), 30000, "selectAppIcon button not available");
+        etbv.selectAppIcon.click();
+        browser.sleep(500);
+        browser.sleep(500);    
+        browser.executeScript("arguments[0].scrollIntoView();",  etbv.yearOfCreation);
+        etbv.yearOfCreation.click();
+        etbv.yearOfCreation.clear();
+        etbv.yearOfCreation.sendKeys("2021");      
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.saveform), 20000, "submitForm not available");
+        content.saveform.click();
+        browser.sleep(7000);
+
+        
+
+        
+       
+    }  catch(err){
+        console.error(err);
+}
+}
 module.exports = {
     createBook,
     sendForReviewTheBook,
@@ -635,5 +714,5 @@ module.exports = {
     openPublishedSectionAndDownloadQRcode,
     createBookWithSpecificResourceType,
     createBookWithRegionalLanguage,
-
+    adminCanEditTextBook,
 }

@@ -2,8 +2,9 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
 
-describe('verifyCertificateRelatedScenarios', () => {
+describe('verifyCertificateRelatedScenario', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -21,29 +22,26 @@ describe('verifyCertificateRelatedScenarios', () => {
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('verifyCertificateRelatedScenarios.spec',function(){
+    it('verifyCertificateRelatedScenario',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
-        EnrollTBFCPageObj.createCourse();
-       let coursename=EnrollTBFCPageObj.sendForReviewCourseWithName();
+        let courseName=sanityfun.createCourseAndSendForReview();
+    //     EnrollTBFCPageObj.createCourse();
+    //    let coursename=EnrollTBFCPageObj.sendForReviewCourseWithName();
         utility.userLogout();
 
         utility.userLogin('Reviewer');
-        EnrollTBFCPageObj. publishTheCourseFromUpForReview(coursename);
+        EnrollTBFCPageObj.publishCourseFromUpForReview(courseName);
         utility.userLogout();
     
         utility.userLogin('Mentor');
-        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(coursename);
-       EnrollTBFCPageObj.createOpenBatch();
+        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
+        EnrollTBFCPageObj.createOpenBatch();
         EnrollTBFCPageObj.editCertificateRequirement();
-        EnrollTBFCPageObj.CheckCertificateOptions();
-
-        
-        
-        
-
-
-      
+        EnrollTBFCPageObj.certficateTemplateCreation();
+        //EnrollTBFCPageObj.CheckCertificateOptions();
+   
       
     })
     

@@ -25,10 +25,11 @@ describe('verifyUserAbleToAddCollaboratorOnLiveAndDraftTextBook', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyUserAbleToAddCollaboratorOnLiveAndDraftTextBook ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-         sanityPage.addCollboratortoDraftAndSaveBook();
-         sanityPage.addCollboratortoLiveAndSaveBook();
+        sanityPage.addCollboratortoDraftAndSaveBook();
+        //sanityPage.addCollboratortoLiveAndSaveBook();
 
     });
    

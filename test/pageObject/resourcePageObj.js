@@ -6213,6 +6213,83 @@ const ConsumeUploadContent = (resourceName,UploadType) => {
         console.log("Failed to Consume Uploaded Content Type");
     }
 }
+
+const sendForReviewTheResourceWithTVLessonInAdditionalCateg = () => {
+    browser.sleep(1000);
+    wait.waitForElementToBeClickable(content.sendForReview, 20000, "send for review not available");
+    content.sendForReview.click();
+    browser.sleep(2000);
+    wait.waitForElementVisibility(etbv.clickAppIcon, 50000, "clickAppIcon button not available");
+    etbv.clickAppIcon.click();
+
+    browser.sleep(2000);
+    wait.waitForElementVisibility(etbv.allImage, 30000, "allImage button not available");
+    etbv.allImage.click();
+    browser.sleep(2000);
+    wait.waitForElementVisibility(etbv.myImage, 30000, "myImage button not available");
+    etbv.myImage.click();
+
+    wait.waitForElementVisibility(etbv.checkAppIcon, 30000, "checkAppIcon button not available");
+    etbv.checkAppIcon.click();
+    wait.waitForElementVisibility(etbv.selectAppIcon, 30000, "selectAppIcon button not available");
+    etbv.selectAppIcon.click();
+    browser.sleep(500);
+
+    wait.waitForElementVisibility(etbv.clkAdditionalCategdropDown, 30000, "clkAdditionalCategdropDown button not available");
+    etbv.clkAdditionalCategdropDown.click();
+    browser.sleep(600);
+    wait.waitForElementVisibility(etbv.sltTVLessonInAddCatogry, 30000, "contuinew button not available");
+    etbv.sltTVLessonInAddCatogry.click();
+    browser.sleep(600);
+
+
+    browser.executeScript("arguments[0].scrollIntoView();", etbv.clickBoard);
+    browser.sleep(500);
+    wait.waitForElementVisibility(etbv.clickBoard, 30000, "board button not available");
+    etbv.clickBoard.click();
+    wait.waitForElementVisibility(etbv.selectBoard, 30000, "contuinew button not available");
+    etbv.selectBoard.click();
+    // wait.waitForElementVisibility(etbv.clickCurriculum, 30000, "clickCurriculum button not available");
+    // etbv.clickCurriculum.click();
+    // wait.waitForElementVisibility(etbv.selectCurriculum, 30000, "selectCurriculum button not available");
+    // etbv.selectCurriculum.click();
+    browser.sleep(500);
+    etbv.clickMedium.click();
+    wait.waitForElementVisibility(etbv.selectMedium, 30000, "contuinew button not available");
+    etbv.selectMedium.click();
+    browser.sleep(500);
+    browser.executeScript("arguments[0].scrollIntoView();", etbv.clickclass);
+    etbv.clickclass.click();
+    wait.waitForElementVisibility(etbv.SelectClass, 30000, "contuinew button not available");
+    etbv.SelectClass.click();
+    browser.sleep(500);
+   
+    etbv.clicksubject.click();
+    wait.waitForElementVisibility(etbv.selectSubject, 30000, "contuinew button not available");
+    etbv.selectSubject.click();
+    browser.sleep(500);
+    
+   
+    browser.executeScript("arguments[0].scrollIntoView();", etbv.yearOfCreation);
+    wait.waitForElementVisibility(etbv.yearOfCreation, 30000, "yearOfCreation button not available");
+    etbv.yearOfCreation.click();
+    etbv.yearOfCreation.clear();
+    etbv.yearOfCreation.sendKeys("2020");
+    // browser.executeScript("arguments[0].scrollIntoView();", etbv.clickContentType);
+    // wait.waitForElementVisibility(etbv.clickContentType, 30000, "clickContentType button not available");
+    // etbv.clickContentType.click();
+    // browser.sleep(1000);
+    // browser.executeScript("arguments[0].scrollIntoView();", etbv.practiceResource2);
+    // etbv.practiceResource2.click();
+    browser.sleep(2000);
+    wait.waitForElementVisibility(content.saveform, 20000, "submitForm not available");
+    content.saveform.click();
+
+ //  content.saveButoonReview.click();
+
+    browser.sleep(5000);
+}
+
 module.exports = {
     createResource,
     sendForReviewTheResource,
@@ -6291,4 +6368,5 @@ module.exports = {
     ConsumeResourceAndValidateRatingContent,
     ValidateRatingContentInRegionalLang,
     ConsumeUploadContent,
+    sendForReviewTheResourceWithTVLessonInAdditionalCateg,
 }

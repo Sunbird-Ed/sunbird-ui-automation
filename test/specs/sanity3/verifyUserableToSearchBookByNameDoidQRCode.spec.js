@@ -26,6 +26,7 @@ describe('verifyUserableToSearchBookByNameDoidQRCode', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyUserableToSearchBookByNameDoidQRCode ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         sanityPage.verifySearchBookInLibraryPage();
         

@@ -19,7 +19,7 @@ describe('Verify Tenant Specific Logo', () => {
         
     });
     it('VerifyTenantSpecificLogo',function(){
-       
+        utility.handleDropDown();
         var Url=getAppURL.ConfigurePath().AppURL;
         var AppendExplore='/tn';
         browser.get(Url+AppendExplore, 40000);     

@@ -22,6 +22,7 @@ describe('Create Book save and send for review and publish.', () => {
         
     });
     it('CreateBookAndVerify',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Book Creator');
         let bookName= etbPageObj.createBook();
@@ -32,8 +33,6 @@ describe('Create Book save and send for review and publish.', () => {
         etbPageObj.publishTheBookFromUpForReview(bookName);
         utility.userLogout();
         utility.userLogin('Book Creator');
-
-        
         utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();      
          

@@ -7,6 +7,7 @@ describe('updateTOCSuccesfully', () => {
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
+
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
@@ -22,6 +23,7 @@ describe('updateTOCSuccesfully', () => {
     });
     
     it('updateTOCSuccesfully',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.uploadCSVFile();

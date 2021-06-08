@@ -23,6 +23,7 @@ describe('copy Question save and send for review and publish.', () => {
         
     });
     it('CopyQuestionWhileAddingQuestionInResource  ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         var questionName=resourcePageObj.copyQuestion();

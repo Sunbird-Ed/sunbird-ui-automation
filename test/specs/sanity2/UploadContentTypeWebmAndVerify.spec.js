@@ -1,11 +1,9 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
-const uploadPageObj = require(protractor.basePath+'/test/pageObject/uploadPageObj.js');
-const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
-
-describe('upload Webm, save and send for review and publish.', () => {
-
+const resourcePageObj=require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
+const uploadPageObj=require(protractor.basePath+'/test/pageObject/uploadPageObj.js');
+const lspPageObj=require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+describe('upload Webm, save and send for review and publish.', () =>{
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -21,25 +19,24 @@ describe('upload Webm, save and send for review and publish.', () => {
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
+
     it('UploadContentTypeWebmAndVerify ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent=uploadPageObj.uploadWebm();
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(uploadContent);
-         utility.userLogout();
-        
-         utility.userLogin('Public User1');
-         resourcePageObj.ConsumeUploadContent(uploadContent,'WEBM');
-         utility.userLogout();
-        
-         utility.userLogin('Creator');
+        utility.userLogout();
+        // utility.userLogin('Public User1');
+        // resourcePageObj.ConsumeUploadContent(uploadContent,'EPUB');
+        // utility.userLogout();
+        utility.userLogin('Creator');
         utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();
-        
-    })
 
-   
+
+    });
+
 });
-   

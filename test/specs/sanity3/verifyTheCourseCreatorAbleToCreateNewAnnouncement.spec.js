@@ -24,9 +24,10 @@ describe('verifyTheCourseCreatorAbleToCreateNewAnnouncement', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyTheCourseCreatorAbleToCreateNewAnnouncement ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-     sanityPage.verifyDiscussionForum();
+        sanityPage.verifyDiscussionForum();
        
 
 

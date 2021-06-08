@@ -22,7 +22,7 @@ describe('VerifyUserProfile', () => {
     });
     
     it('VerifyUserProfile',function(){
-        
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         

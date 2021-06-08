@@ -20,6 +20,7 @@ describe('Search course and consume it', () => {
     });
 
     it('VerifyThatUserIsAbleToSearchAndConsumeThePublishedContent ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         tpdPageObj.navigateToCourseSearchAndConsume();

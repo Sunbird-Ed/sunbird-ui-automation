@@ -24,6 +24,7 @@ describe('Download  QR Code In Book', () => {
     
     
     it('downloadQRCode',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.downloadQRCode();

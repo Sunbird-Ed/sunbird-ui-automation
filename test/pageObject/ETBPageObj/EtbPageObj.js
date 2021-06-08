@@ -21,7 +21,6 @@ var tpd = tpdpage.tpdPage();
 
 
 
-
 const navigateToWorkspace = () => {
     try {
         browser.sleep(1000);
@@ -43,7 +42,6 @@ const navigateToWorkspace = () => {
     }
 
 }
-
 const editFormEditals = () => {
     try {
         browser.sleep(5000);
@@ -216,107 +214,107 @@ const checkForDisabledAndEnabled = () => {
         console.log(err);
     }
 }
-
 const addCollaboratorForBook = () => {
-   var courseName;
-    try {
-        browser.sleep(1000);
-        console.log('User is trying to create New Book');
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '3');
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().courseName), 40000, "courseName is not available");
-        courseName = "Book A" + faker.randomData().firstname;
-        etbPage.EtbElem().courseName.sendKeys(courseName);
+    var courseName;
+     try {
+         browser.sleep(1000);
+         console.log('User is trying to create New Book');
+         var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+         var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '3');
+         browser.sleep(1000);
+         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().courseName), 40000, "courseName is not available");
+         courseName = "Book A" + faker.randomData().firstname;
+         etbPage.EtbElem().courseName.sendKeys(courseName);
+ 
+         sanityFun.FillBmesWhileCreatingBook();
+ 
+         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().startCreating), 40000, "startCreating is not available");
+         etbPage.EtbElem().startCreating.click();
+         console.log('User is clicked on start creating button');
+         browser.sleep(5000);
+         browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+         browser.sleep(5000);
+         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clickUseEditor), 40000, "clickUseEditor is not available");
+         etbPage.EtbElem().clickUseEditor.click();
+         browser.sleep(1000);
+         console.log('Clicked on Start Creating');
+         browser.sleep(1000);
+         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().newchild), 40000, "Didn't switched to different frame");
+         etbPage.EtbElem().newchild.click();
+         browser.sleep(1000);
+         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().untitledNameB), 40000, "createBook is not available");
+         etbPage.EtbElem().untitledNameB.click();
+         etbPage.EtbElem().untitledNameB.clear();
+         etbPage.EtbElem().untitledNameB.sendKeys(courseName);
+         browser.sleep(1000);
+         etbPage.EtbElem().qrCodeRequired.click();
+         browser.sleep(1000);
+         etbPage.EtbElem().dialcodeEnter.click();
+         browser.sleep(1000);
+         etbPage.EtbElem().dialcodeEnter.sendKeys(cred[14]['Title']);
+         console.log('Enter DialCode');
+         browser.sleep(1000);
+         etbPage.EtbElem().validatedialcodeEnterYes.click();
+         browser.sleep(1000);
+         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().collaboratorIcon), 40000, "collaboratorIcon is not available");
+         console.log('Collaborator icon is present');
+         etbPage.EtbElem().collaboratorIcon.click();
+         browser.sleep(1000);
+         etbPage.EtbElem().searchCollaboratorField.click();
+         etbPage.EtbElem().searchCollaboratorField.sendKeys('Content Creator');
+         browser.sleep(3000);
+         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().suggestionCollaboratorList),40000, "Content Creator is not available");
+         // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().allElements), 40000, "courseToBeClicked is not available");
+         // etbPage.EtbElem().allElements.getText().then(function (creator) {
+         //     console.log(creator);
+         // });
+         etbPage.EtbElem().suggestionCollaboratorList.click();
+         browser.sleep(1000);
+         // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().addCollaborator), 40000, "addCollaborator is not available");
+         // etbPage.EtbElem().addCollaborator.click();
+         browser.sleep(1000);
+         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().donebutton1), 40000, "donebutton1 is not available");
+         etbPage.EtbElem().donebutton1.click();
+         browser.sleep(1000);
+         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().saveCourse), 40000, "saveCourse is not available");
+         etbPage.EtbElem().saveCourse.click();
+         browser.sleep(1000);
+         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().closeEditor1), 40000, "closeEditor1 is not available");
+         etbPage.EtbElem().closeEditor1.click();
+         console.log('User successfully added collaborator in book')
+         return courseName;
+     } catch (err) {
+         console.log(err);
+     }
+ 
+ }
+ const navigateToWorkspace1 = () => {
+     try {
+         browser.sleep(1000);
+         console.log('User is navigating to the Workspace to create or check');
+         console.log('User is navigating to workspace');
+         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+         content.headerDropdown.click();
+         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().workSpace), 40000, "workSpace is not available");
+         etbPage.EtbElem().workSpace.click();
+         browser.sleep(2000);
+         browser.executeScript("arguments[0].scrollIntoView();", etbPage.EtbElem().collaborationMenu);
+         etbPage.EtbElem().collaborationMenu.click();
+         browser.sleep(1000);
+         browser.executeScript('window.scrollTo(0,0);').then(function(){
+             console.log('++++++SCROLLED UP+++++');
+         });
+         console.log('User successfully navigated to Collaborations');
+         
+     }
+     catch (err) {
+         console.log(err);
+     }
+ 
+ }
+ 
 
-        sanityFun.FillBmesWhileCreatingBook();
-
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().startCreating), 40000, "startCreating is not available");
-        etbPage.EtbElem().startCreating.click();
-        console.log('User is clicked on start creating button');
-        browser.sleep(5000);
-        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-        browser.sleep(5000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clickUseEditor), 40000, "clickUseEditor is not available");
-        etbPage.EtbElem().clickUseEditor.click();
-        browser.sleep(1000);
-        console.log('Clicked on Start Creating');
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().newchild), 40000, "Didn't switched to different frame");
-        etbPage.EtbElem().newchild.click();
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().untitledNameB), 40000, "createBook is not available");
-        etbPage.EtbElem().untitledNameB.click();
-        etbPage.EtbElem().untitledNameB.clear();
-        etbPage.EtbElem().untitledNameB.sendKeys(courseName);
-        browser.sleep(1000);
-        etbPage.EtbElem().qrCodeRequired.click();
-        browser.sleep(1000);
-        etbPage.EtbElem().dialcodeEnter.click();
-        browser.sleep(1000);
-        etbPage.EtbElem().dialcodeEnter.sendKeys(cred[14]['Title']);
-        console.log('Enter DialCode');
-        browser.sleep(1000);
-        etbPage.EtbElem().validatedialcodeEnterYes.click();
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().collaboratorIcon), 40000, "collaboratorIcon is not available");
-        console.log('Collaborator icon is present');
-        etbPage.EtbElem().collaboratorIcon.click();
-        browser.sleep(1000);
-        etbPage.EtbElem().searchCollaboratorField.click();
-        etbPage.EtbElem().searchCollaboratorField.sendKeys('Content Creator');
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().suggestionCollaboratorList),40000, "Content Creator is not available");
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().allElements), 40000, "courseToBeClicked is not available");
-        // etbPage.EtbElem().allElements.getText().then(function (creator) {
-        //     console.log(creator);
-        // });
-        etbPage.EtbElem().suggestionCollaboratorList.click();
-        browser.sleep(1000);
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().addCollaborator), 40000, "addCollaborator is not available");
-        // etbPage.EtbElem().addCollaborator.click();
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().donebutton1), 40000, "donebutton1 is not available");
-        etbPage.EtbElem().donebutton1.click();
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().saveCourse), 40000, "saveCourse is not available");
-        etbPage.EtbElem().saveCourse.click();
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().closeEditor1), 40000, "closeEditor1 is not available");
-        etbPage.EtbElem().closeEditor1.click();
-        console.log('User successfully added collaborator in book')
-        return courseName;
-    } catch (err) {
-        console.log(err);
-    }
-
-}
-const navigateToWorkspace1 = () => {
-    try {
-        browser.sleep(1000);
-        console.log('User is navigating to the Workspace to create or check');
-        console.log('User is navigating to workspace');
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
-        content.headerDropdown.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().workSpace), 40000, "workSpace is not available");
-        etbPage.EtbElem().workSpace.click();
-        browser.sleep(2000);
-        browser.executeScript("arguments[0].scrollIntoView();", etbPage.EtbElem().collaborationMenu);
-        etbPage.EtbElem().collaborationMenu.click();
-        browser.sleep(1000);
-        browser.executeScript('window.scrollTo(0,0);').then(function(){
-            console.log('++++++SCROLLED UP+++++');
-        });
-        console.log('User successfully navigated to Collaborations');
-        
-    }
-    catch (err) {
-        console.log(err);
-    }
-
-}
-
-const editTextBookInCollaboratorBucketAndVerify = (courseName) => {
+ const editTextBookInCollaboratorBucketAndVerify = (courseName) => {
     try {
         var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
         var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '3');
@@ -544,6 +542,8 @@ const searchWithInvalidQRcode = () => {
 }
 
 
+
+
 const createBookWithEditDetailsFilled = () => {
     var courseName;
     try {
@@ -664,7 +664,6 @@ const saveAndSendEdittedBookForReview = () => {
         console.log(err);
     }
 }
-
 
 const reviewInSubmissions = () => {
     try {
@@ -844,7 +843,6 @@ const validateViewDetailPublishAndSearch = (source) => {
     }
 
 }
-
 const navigateToLibraryAndSearchForBook = (courseName1) => {
     try {
         var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
@@ -2593,6 +2591,32 @@ const verifyCountWithState= () => {
 
 
 }
+const TVClassSearch = (TvClassName) => {
+    try {
+        browser.sleep(1000);
+        console.log('verifying the library search by applying filters');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clkTvClassHeader), 40000, "headerLibrary is not available");
+        etbPage.EtbElem().clkTvClassHeader.click();
+        browser.sleep(4000);
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().filterSearch), 40000, "filterSearch is not available");
+        etbPage.EtbElem().filterSearch.click();
+        etbPage.EtbElem().filterSearch.sendKeys(TvClassName);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().searchIcon), 40000, "searchIcon is not available");
+        etbPage.EtbElem().searchIcon.click();
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().firstTvLessonContent), 40000, "firstTvLessonContent is not available");
+        etbPage.EtbElem().firstTvLessonContent.click();
+        browser.sleep(2000);
+
+    }
+    catch (Exception) {
+        console.log('Failed on searching library by applying filters');
+
+    }
+
+}
 
 
 module.exports = {
@@ -2649,4 +2673,5 @@ contentInSubjectWiseInAllTabs,
 verifDefaultValueInDigiTxtAndTVClass,
 contentInSubjectWiseIncourseTab,
 verifyCountWithState,
+TVClassSearch,
 }

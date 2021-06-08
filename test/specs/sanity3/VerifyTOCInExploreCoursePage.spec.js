@@ -1,9 +1,8 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const searchCBFPPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 
-describe('Verify user is able to click on course tab and should get the lables,Featured course(Count)-Latest courses(Count)', () => {
+describe('VerifyTOCInExploreCoursePage.spec', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -21,9 +20,10 @@ describe('Verify user is able to click on course tab and should get the lables,F
         browser.manage().deleteAllCookies();
         
     });
-    it('verifyTOCInExploreCoursePage',function(){
+    it('VerifyTOCInExploreCoursePage.spec',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
-      //  verifyCEBpageobj.validateFeaturedCourseAndCount();
         utility.userLogin('Public User1');
         searchCBFPPageObj.courseSearchFilter();
         

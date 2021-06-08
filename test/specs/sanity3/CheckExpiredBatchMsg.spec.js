@@ -21,8 +21,9 @@ describe('CheckExpiredBatchMsg', () => {
         browser.manage().deleteAllCookies();
     });
     it('CheckExpiredBatchMsg ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
-        let courseName="CourseAJessi";
+        let courseName="CourseAMathew";
         utility.userLogin('Public User1');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.enrollForexpiredBatch();

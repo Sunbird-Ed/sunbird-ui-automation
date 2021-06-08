@@ -24,9 +24,10 @@ describe('verfiyUserAbleToJoinDiscussionForum', () => {
         browser.manage().deleteAllCookies();
     });
     it('verfiyUserAbleToJoinDiscussionForum ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
-         utility.userLogin('Creator');
-     sanityPage.verifyDiscussionForum();
+        utility.userLogin('Creator');
+        sanityPage.verifyDiscussionForum();
        
 
 

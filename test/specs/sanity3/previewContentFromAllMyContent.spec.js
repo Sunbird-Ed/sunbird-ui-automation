@@ -22,6 +22,7 @@ describe('previewContentFromAllMyContent', () => {
     });
     
     it('previewContentFromAllMyContent',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         sanityFun.previeAllMyContent();

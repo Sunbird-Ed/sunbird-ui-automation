@@ -22,11 +22,12 @@ describe('ValidatingETBTaxanomyInEditPage', () => {
         
     });
     it('ValidatingETBTaxanomyInEditPage',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         utility.validateWorkspace();
-        tpdPageObj.checkForCurriculumCourseFramework();
-        tpdPageObj.checkEditFormOfCurriculumframework();
+        // tpdPageObj.checkForCurriculumCourseFramework();
+        // tpdPageObj.checkEditFormOfCurriculumframework();
 
         
        

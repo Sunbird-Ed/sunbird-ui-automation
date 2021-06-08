@@ -21,6 +21,7 @@ describe('NestedCourseProgressValidation', () => {
         browser.manage().deleteAllCookies();
     });
     it('NestedCourseProgressValidation',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Admin');
         searchCBFPPageObj.nestedCourseValidationAsAdmin();

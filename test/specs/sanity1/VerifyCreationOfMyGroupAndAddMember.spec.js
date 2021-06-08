@@ -20,8 +20,9 @@ describe('VerifyCreationOfMyGroupAndAddMember', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyCreationOfMyGroupAndAddMember ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Mentor');
+        utility.userLogin('Creator');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMember();
        
      

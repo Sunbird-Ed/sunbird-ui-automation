@@ -24,6 +24,7 @@ describe('CopyBookAsCourseAndSendForReview', () => {
         
     });
     it('CopyBookAsCourseAndSendForReview',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Book Creator');
         let bookName= etbPageObj.createBook();
@@ -34,9 +35,9 @@ describe('CopyBookAsCourseAndSendForReview', () => {
         etbPageObj.publishTheBookFromUpForReview(bookName);
         utility.userLogout();
         utility.userLogin('Creator');
-
         sanityFun.copyBookAsCourse(bookName);
-     tpdPageObj.sendForReviewForBookAsCourse();
+       // let courseName=sanityFun.createCourseAndSendForReview();
+      // tpdPageObj.publishCourseFromUpForReview(bookName);
 
         //EtbPageObj.sendCopiedBookForReview();
 

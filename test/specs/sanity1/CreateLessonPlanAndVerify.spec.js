@@ -21,6 +21,7 @@ describe('Create Lesson plan save and send for review and publish.', () => {
         
     });
     it('CreateLessonPlanAndVerify ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let lessonPlan=lessonPlanPageObj.createLessonPlan();

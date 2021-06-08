@@ -21,7 +21,8 @@ describe('Verify createBookWithMoreUnits', () => {
         
     });
     
-    it('createBookWithMoreUnits',function(){
+    it('createBookWithMoreUnit',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.addmoreUnitInBook();

@@ -23,7 +23,7 @@ describe('is Able to create Question MTF and Creator Can Delete that resource', 
         browser.manage().deleteAllCookies();
     });
     it('CreateQuestionMTFAndVerify',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionMTFWithFormulaAndAllStyle();

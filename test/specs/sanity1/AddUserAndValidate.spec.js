@@ -17,13 +17,15 @@ describe('Verifiy user is getting add user option in his profile and able to swi
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-      //  utility.userLogout();
+        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('AddUserAndValidate ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Admin');
+        utility.userLogin('Admin2');
         verifyCEBpageobj.addUserInProfile();
+        utility.handleLocationPopup();
         
     })
 

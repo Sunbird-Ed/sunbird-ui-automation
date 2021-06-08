@@ -23,6 +23,7 @@ describe('TOC Download  QR Code In Book', () => {
     });
     
     it('verifyTOCDownloadedInCSVFormat',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
        // sanityFun.downloadQRCode();

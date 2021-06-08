@@ -2,7 +2,7 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
-
+const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
 describe('Create Course with all resource save and send for review and publish.', () => {
 
     beforeEach(() => {
@@ -21,16 +21,19 @@ describe('Create Course with all resource save and send for review and publish.'
         browser.manage().deleteAllCookies();
         
     });
-    it('CreateCourseWithAllResourceType  ',function(){
+    it('CreateCourseWithAllResourceType',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();
-       tpdPageObj.createCourseWithAllResourceType();
-       let courseName=tpdPageObj.sendForReviewCourseWithName();
+        let courseName=sanityfun.createCourseAndSendForReview();
+    //    tpdPageObj.createCourseWithAllResourceType();
+    //    let courseName=tpdPageObj.sendForReviewCourseWithName();
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishTheCourseFromUpForReview(courseName);
+        tpdPageObj.publishCourseFromUpForReview(courseName);
+       // tpdPageObj.publishTheCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
         utility.validateWorkspace();

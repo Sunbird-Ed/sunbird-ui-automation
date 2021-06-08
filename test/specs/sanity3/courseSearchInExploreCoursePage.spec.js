@@ -22,6 +22,7 @@ describe('courseSearchInExploreCoursePage.js', () => {
     });
     
     it('courseSearchInExploreCoursePage.js',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         sanityFun.courseSearchInExploreCourse();
         

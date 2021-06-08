@@ -22,7 +22,7 @@ describe('Crea is Able to create Question MCQ and Creator Can Delete that resour
         browser.manage().deleteAllCookies();
     });
     it('CreateQuestionMCQAndVerify',function(){
-
+        utility.handleDropDown();
         utility.handleLocationPopup();
 
         utility.userLogin('Creator');

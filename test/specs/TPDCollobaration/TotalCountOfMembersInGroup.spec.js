@@ -21,6 +21,8 @@ describe('Ver TotalCountOfMembersInGroup', () => {
         browser.manage().deleteAllCookies();
     });
     it('TotalCountOfMembersInGroup ',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.addGrpAndDeleteGrp();

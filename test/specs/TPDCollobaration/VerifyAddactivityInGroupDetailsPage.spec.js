@@ -17,6 +17,8 @@ describe('VerifyAddactivityInGroupDetailsPage', () => {
         browser.manage().deleteAllCookies();
     });
     it('VerifyAddactivityInGroupDetailsPage ',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         EnrollTBFCPageObj.verifyAddActivityInGroup();

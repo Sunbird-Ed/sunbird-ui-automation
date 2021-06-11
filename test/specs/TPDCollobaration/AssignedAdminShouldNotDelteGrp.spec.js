@@ -21,6 +21,8 @@ describe('Verify AssignedAdminShouldNotDelteGrp', () => {
         browser.manage().deleteAllCookies();
     });
     it('AssignedAdminShouldNotDelteGrp',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.addGrpAndDeleteGrp();

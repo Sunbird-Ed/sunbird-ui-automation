@@ -18,6 +18,8 @@ describe('verifyEnableDisableOptionForDiscussionForum', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyEnableDisableOptionForDiscussionForum',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         sanityPage.verifyEnableAndDisableDiscussionForGroup();

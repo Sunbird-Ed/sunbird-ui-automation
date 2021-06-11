@@ -18,6 +18,8 @@ describe('Verify UserAddCourseToGrp', () => {
         browser.manage().deleteAllCookies();
     });
     it('UserAddCourseToGrp ',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMemberandAddActivity();

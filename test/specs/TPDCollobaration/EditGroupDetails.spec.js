@@ -21,6 +21,8 @@ describe('Verify EditGroupDetails', () => {
         browser.manage().deleteAllCookies();
     });
     it('EditGroupDetails ',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.addGrpAndDeleteGrp();

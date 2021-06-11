@@ -4,7 +4,7 @@ var HtmlReporter = require('protractor-beautiful-reporter');
 
 
 exports.config = {
-    //seleniumAddress: 'http://localhost:4444/wd/hub',
+  // seleniumAddress: 'http://localhost:4444/wd/hub',
     directConnect: true,
     allScriptsTimeout: 100000, 
 
@@ -14,81 +14,39 @@ exports.config = {
     suites: {
         
 
-//  sanity1: 'test/specs/sanity1/*.spec.js',
- //  sanity2: 'test/specs/sanity2/*.spec.js',
- //sanity3: 'test/specs/sanity3/*.spec.js',
 
-   // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
-   // collaborationAndInteraction: 'test/specs/collaborationAndInteraction/*.spec.js',
-    // sourcing1: 'test/specs/sourcing1/*.spec.js',
-    // sourcing2: 'test/specs/sourcing2/*.spec.js',
-    // sourcing3: 'test/specs/sourcing3/*.spec.js',
+//     sanity1: 'test/specs/sanity1/*.spec.js',
+//   sanity2: 'test/specs/sanity2/*.spec.js',
+//    sanity3: 'test/specs/sanity3/*.spec.js',
+     // sanity3: 'test/specs/sanity3/verifyTheBestScoreDisplayedinCourseToc.spec.js',
+    //sanity3: 'test/specs/sanity3/downloadUsersCsvData.spec.js',
+ //userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
+ //collaborationAndInteraction: 'test/specs/collaborationAndInteraction/*.spec.js',
+ // sourcing1: 'test/specs/sourcing1/*.spec.js',
+  //sourcing2: 'test/specs/sourcing2/*.spec.js',
+  //sourcing3: 'test/specs/sourcing3/*.spec.js',
 
-   // Consumption: 'test/specs/Consumption/*.spec.js',
-    // contentcreation: 'test/specs/content-creation/*.spec.js',
-//QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
-  // tpd: 'test/specs/tpd/*.spec.js', 
-   //  ETB: 'test/specs/ETBSpecs/*.spec.js', 
-    // ETB2: 'test/specs/ETBScenario2/*.spec.js',
-   //smoke : 'test/specs/smoke/*.spec.js', 
+  TPDCollobration: 'test/specs/TPDCollobaration/*.spec.js',
+      //  useronboarding: 'test/specs/user-onboarding/*.spec.js',
+   // contentcreation: 'test/specs/content-creation/*.spec.js',
+   // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
+     //  tpd: 'test/specs/tpd/*.spec.js', 
+    //    ETB: 'test/specs/ETBSpecs/*.spec.js',  
+    //  smoke : 'test/specs/smoke/*.spec.js', 
        
       
      //sample-execution
 
-     //   VerifyHideActionOnEledment1:['test/specs/tpd/MyLearningSectionVerification.spec.js'],
-      //  VerifyHideActionOnEledment1:['test/specs/api/MethPost2.js'],
-       // VerifyHideActionOnEledment3:['test/specs/sanity1/AddUserAndValidate.spec.js'],
-        // VerifyHideActionOnElement2:['test/specs/user-onboarding/VerifyRegisterationDetails.spec.js'],
-       //   VerifyHideActionOnEledment4:['test/specs/user-onboarding/VerifyPasswordPolicyForRegisteration.spec.js'],
-        // searchSelfAssesmentInLibSearch:['test/specs/user-onboarding/UpdateNameStateDistrictDetails.spec.js'],
-         //VerifyHideActionOnEledment5:['test/specs/QuestionScenrio-CC/ValidateRatingSecInRegionalLanguage.spec.js'],
-      
-     //  VerifyHideActionOnEledment5:['test/specs/sanity2/UploadContentTypeWebmAndVerify.spec.js'],
-      //  H5p:['test/specs/sanity2/UploadContentTypeH5pAndVerify.spec.js'],
-     // Mp4:['test/specs/sanity2/ConsumeUploadContent.spec.js'],
-
-        
-    //  VerifyHideActionOnEledment1:['test/specs/user-onboarding/ToVerifyViewAllButtonUnderLibraryOfExplorePage.spec.js'],
-     //  VerifyHideActionOnEledment3:['test/specs/user-onboarding/LoginWithValidAndInvalidCredential.spec.js'],
-    //     VerifyHideActionOnElement2:['test/specs/sanity1/ValidateCreateBatchAndConsentFormWhileEnroll.spec.js'],
-    //     VerifyHideActionOnEledment4:['test/specs/sanity1/CopyQuestionWhileAddingQuestionInResource.spec.js'],
-    //     searchSelfAssesmentInLibSearch:['test/specs/sanity2/CreateResourceAndVerify.spec.js'],
-    //      VerifyHideActionOnEledment5:['test/specs/sanity2/CreateBookAndVerify.spec.js'],
-  //    VerifyHideActionOnEledment6:['test/specs/sanity2/UploadContentTypeH5pAndVerify.spec.js'],
-      
-     
-     
-//  VerifyHideActionOnEledment1:['test/specs/sanity2/UploadContentTypeEpubAndVerify.spec.js'],
-//  VerifyHideActionOnEledment2:['test/specs/sanity2/UploadContentTypeH5pAndVerify.spec.js'],
-//  VerifyHideActionOnEledment3:['test/specs/sanity2/UploadContentTypeHtmlAndVerify.spec.js'],
-//  VerifyHideActionOnEledment4:['test/specs/sanity2/UploadContentTypeMp4AndVerify.spec.js'],
-//  VerifyHideActionOnEledment5:['test/specs/sanity2/UploadContentTypePdfAndVerify.spec.js'],
-
-//Done maint
-// createQuestionArrangInSequenceTemplate:['test/specs/QuestionScenrio-CC/createQuestionArrangInSequenceTemplate.spec.js'],
-// ValidateRatingSecContent:['test/specs/QuestionScenrio-CC/ValidateRatingSecContent.spec.js'],
-// AddTimerInResource:['test/specs/QuestionScenrio-CC/AddTimerInResource.spec.js'],
-// CreateQuestionReOrderingWordsTemplate:['test/specs/QuestionScenrio-CC/CreateQuestionReOrderingWordsTemplate.spec.js'],
-// CreateQuestionMCQAndConsume:['test/specs/QuestionScenrio-CC/CreateQuestionMCQAndConsume.spec.js'],
-// ReOrderingWordsWithRegionalLanguage:['test/specs/QuestionScenrio-CC/ReOrderingWordsWithRegionalLanguage.spec.js'],
-// ValidateRatingSecInRegionalLanguage:['test/specs/QuestionScenrio-CC/ValidateRatingSecInRegionalLanguage.spec.js'],
-
-// CreateResourceWith4MCQ4FTB4MTF:['test/specs/QuestionScenrio-CC/CreateResourceWith4MCQ4FTB4MTF.spec.js'],
-// VerifyViewAndEditDetailsFormForResource:['test/specs/QuestionScenrio-CC/VerifyViewAndEditDetailsFormForResource.spec.js'],
-
-//
-//VerifyCopiedQuestionReflectsWithDetails:['test/specs/QuestionScenrio-CC/VerifyCopiedQuestionReflectsWithDetails.spec.js'],
-
-//VerifyLayoutOfAnImageInMCQ:['test/specs/QuestionScenrio-CC/VerifyLayoutOfAnImageInMCQ.spec.js'],
-//VerifyUserIsAbleToEditAllTheDetailsAfterAddingQuestion:['test/specs/QuestionScenrio-CC/VerifyUserIsAbleToEditAllTheDetailsAfterAddingQuestion.spec.js'],
-//VerifyUserIsAbleToEditAllTheDetailsAfterAddingQuestion:['test/specs/content-creation/RemoveAddedCollaborator.spec.js'],
-//VerifyAddDeleteAndUpdateChildOrSibling:['test/specs/content-creation/VerifyAddDeleteAndUpdateChildOrSibling.spec.js'],
-//RejectTheUploadedContent:['test/specs/content-creation/RejectTheUploadedContent.spec.js'],
-//VerifyFiltersCanBeAppliedInUpForReview:['test/specs/content-creation/VerifyFiltersCanBeAppliedInUpForReview.spec.js'],
-//CustodianUserSearchContentInLibraryByFilters:['test/specs/content-creation/CustodianUserSearchContentInLibraryByFilters.spec.js'],
-verifyContributorCountPostAddingResource:['test/specs/sanity3/verifyEnableDisableDiscussionOptionForGroup.spec.js'],
-
-
+       //  VerifyHideActionOnEledment1:['test/specs/tpd/EditCertificateRequirementFromNoToYes.spec.js'],
+        //    VerifyHideActionOnEledment3:['test/specs/ETBSpecs/copyBookAndSendForReview.spec.js'],
+        //     VerifyHideActionOnElement2:['test/specs/ETBSpecs/generateQRCode.spec.js'],
+        //    VerifyHideActionOnEledment4:['test/specs/ETBSpecs/VerifyCopyRightDetails.spec.js'],
+        // searchSelfAssesmentInLibSearch:['test/specs/ETBSpecs/CreateBookInRegionalLanguageUsingTOCUploadAndDownload.spec.js'],
+        //  VerifyHideActionOnEledment5:['test/specs/ETBSpecs/DownloadQrcodeInDraftPublishedAndLimitedSharing.spec.js'],
+        // VerifyHideActionOnEledment6:['test/specs/ETBSpecs/CreateBookWithNoContentAndFilledEditDetailsForm.spec.js'],
+        //  VerifyHideActionOnEledment7:['test/specs/ETBSpecs/TenantSpecificValidation.spec.js'],
+        //   VerifyHideActionOnEledment8:['test/specs/ETBSpecs/CreateBookAndTagConcepts.spec.js'],
+    VerifyHideActionOnEledment1:['test/specs/sanity2/CreateCourseAndVerify.spec.js'],
         },
     allScriptsTimeout: 40000,
 
@@ -103,6 +61,9 @@ verifyContributorCountPostAddingResource:['test/specs/sanity3/verifyEnableDisabl
     //Run Only in Chrome Browser
     capabilities: {
         browserName: 'chrome',
+        'goog:chromeOptions': {
+            w3c: false
+            },
         version: '78.0.3904.108',
         platform: 'Any',
         shardTestFiles: true,

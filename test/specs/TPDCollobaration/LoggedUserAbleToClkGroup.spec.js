@@ -21,6 +21,8 @@ describe('LoggedUserAbleToClkGroup', () => {
         browser.manage().deleteAllCookies();
     });
     it('LoggedUserAbleToClkGroup ',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         EnrollTBFCPageObj.clkMyGroups();

@@ -21,6 +21,8 @@ describe('Verify ViewAllCreatedGroupsByAdmin', () => {
         browser.manage().deleteAllCookies();
     });
     it('ViewAllCreatedGroupsByAdmin ',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.addGrpAndDeleteGrp();

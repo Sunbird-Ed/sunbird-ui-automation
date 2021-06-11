@@ -18,6 +18,8 @@ describe('Course by applying filter', () => {
         browser.manage().deleteAllCookies();
     });
     it('Course by applying filter',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         EnrollTBFCPageObj.courseByFilter();

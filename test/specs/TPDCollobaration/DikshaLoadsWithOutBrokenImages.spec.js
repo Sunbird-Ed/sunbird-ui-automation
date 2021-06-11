@@ -21,6 +21,8 @@ describe('DikshaLoadsWithOutBrokenImages', () => {
         browser.manage().deleteAllCookies();
     });
     it('DikshaLoadsWithOutBrokenImages',function(){
+      utility.handleDropDown();
+
         utility.handleLocationPopup();
         //utility.userLogin('Creator');
       //  etbFun.boardValueForTvClassAndDigitTxtBook();

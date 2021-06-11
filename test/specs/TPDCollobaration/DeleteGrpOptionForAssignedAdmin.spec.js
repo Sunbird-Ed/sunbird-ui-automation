@@ -21,6 +21,8 @@ describe('Verify DeleteGrpOptionForAssignedAdmin', () => {
         browser.manage().deleteAllCookies();
     });
     it('DeleteGrpOptionForAssignedAdmin',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.addGrpAndDeleteGrp();

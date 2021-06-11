@@ -21,6 +21,8 @@ describe('Verify adminAddActivity', () => {
         browser.manage().deleteAllCookies();
     });
     it('adminAddActivity ',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMemberandAddActivity();

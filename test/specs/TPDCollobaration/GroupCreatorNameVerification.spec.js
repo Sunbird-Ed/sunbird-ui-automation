@@ -21,6 +21,8 @@ describe('Ver GroupCreatorNameVerification', () => {
         browser.manage().deleteAllCookies();
     });
     it('GroupCreatorNameVerification ',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.addGrpAndDeleteGrp();

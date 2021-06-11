@@ -18,6 +18,8 @@ describe('verifyUpdateDiscussionForumPost', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyUpdateDiscussionForumPost ',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         sanityPage.updateDiscussionForumPost();

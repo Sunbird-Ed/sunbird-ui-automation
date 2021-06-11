@@ -21,6 +21,8 @@ describe('verifyGroupGuidlinesPopups', () => {
         browser.manage().deleteAllCookies();
     });
     it('verifyGroupGuidlinesPopup ',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         EnrollTBFCPageObj.clkMyGroups();

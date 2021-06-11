@@ -21,6 +21,7 @@ describe('Verify AdminAbleToDelteGroup', () => {
         browser.manage().deleteAllCookies();
     });
     it('AdminAbleToDelteGroup ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.addGrpAndDeleteGrp();

@@ -21,6 +21,8 @@ describe('DigitalTxtBookAndTVClassFilter', () => {
         browser.manage().deleteAllCookies();
     });
     it('DigitalTxtBookAndTVClassFilter',function(){
+        utility.handleDropDown();
+
         utility.handleLocationPopup();
         //utility.userLogin('Creator');
         etbFun.boardValueForTvClassAndDigitTxtBook();

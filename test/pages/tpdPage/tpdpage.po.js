@@ -397,13 +397,13 @@ const tpdPage = () => {
     var latestEnrolledourse=element(by.xpath("(//div[@class='sb-card-body'])[1]"));
     var myGroupButton=element(by.xpath("//li[@routerlink='profile']//following::i[2]"));
     var profileButton=element(by.xpath("(//div[@class='avatar-content'])[2]"));
-    var createGroupButton=element(by.xpath("//button[text()=' Create group ']"));
+   // var createGroupButton=element(by.xpath("//button[text()=' Create group ']"));
     var enterGroupName=element(by.xpath("//input[@placeholder='Enter group name']"));
     var enterGroupDescription=element(by.xpath("//textarea[contains(@class,'sb-form-control ng-untouched')]"));
     var GroupcheckBox=element(by.xpath("//input[@role='checkbox']"));
-    var createGroupSubmitButton=element(by.xpath("(//button[text()=' Create group '])[2]"));
+   // var createGroupSubmitButton=element(by.xpath("(//button[text()=' Create group '])[2]"));
     var groupAdminIcon=element(by.xpath("//div[text()='Admin']"));
-    var CreatedGroup=element(by.xpath("//*[contains(@class,'sb--card__title ')]"));
+   // var CreatedGroup=element(by.xpath("//*[contains(@class,'sb--card__title ')]"));
     var addActivityButton=element(by.xpath("//button[contains(@class,'sb-btn sb-btn-primary')]"));
     var nextButton=element(by.xpath("//button[@type='submit']"));
     var selectFirstCourse=element(by.xpath("(//div[@class='sb--card__main-area'])[1]"));
@@ -544,9 +544,23 @@ const tpdPage = () => {
     var myGroupButton2=element(by.xpath("//li[@routerlink='profile']//following::i[4]"));
 
 
+    var createGroupButton = element(by.xpath("(//*[contains(@class,'flex-ai-jc-center')])[1]"));
+    var createGroupSubmitButton=element(by.xpath("//*[contains(@class,'sb-modal-actions')]//child::button"));
+    var CreatedGroup = element(by.xpath("(//*[contains(@class,'sb--card__title ')])[1]"));
 
-
-
+    var filter = element(by.xpath("//*[contains(@class,'sb-btn sb-btn-outline-primary sb-btn-normal')]"));
+    var subSelect = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-label-container list-border')])[1]"));
+    var subSelectValue = element(by.xpath("//*[contains(text(),'CBSE/NCERT')]"));
+    var MedSelect = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-label-container list-border')])[2]"))
+    var MedSelectValue = element(by.xpath("(//*[contains(text(),'english')])[2]"));
+    var clickclass = element(by.xpath("//div[contains(text(),'Select Class')]"));
+    var SelectClass = element(by.xpath("//div[contains(text(),'Select Class')]//following::div[2]"));
+    var clicksubject = element(by.xpath("//div[contains(text(),'Select Subject')]"));
+    var selectSubject = element(by.xpath("//div[contains(text(),'Select Subject')]//following::div[2]"));
+    var selectSubjectValue=element(by.xpath("//*[@id='subject']/div[2]/sui-select-option[1]/span[contains(text(),'Accountancy')]"));
+    var contentType = element(by.xpath("//*[contains(text(),'Select Content type')]"));
+    var contentTypeValue = element(by.xpath("//span[contains(text(),'course')]"));
+    
 
 
     return {
@@ -1105,10 +1119,18 @@ const tpdPage = () => {
         createCertificateTemplate,
         clkCloseIconPopup,
         myGroupButton2,
-
-
-
-
+        filter,
+        subSelect,
+        subSelectValue,
+        MedSelect,
+        MedSelectValue,
+        clickclass,
+        SelectClass,
+        clicksubject,
+        selectSubject,
+        selectSubjectValue,
+        contentType,
+        contentTypeValue,
     };
 
 };

@@ -260,6 +260,16 @@ var labelDefaultBoard = element(by.xpath("(//sui-select[contains(@class,'selecti
 
 
 
+      var firstGroupInMentor=element(by.xpath("(//*[contains(@class,'sb--card__info')])[6]"));
+      var myDiscussioninMentor=element(by.xpath("(//li[@id='d.route']//a)[3]"));
+      var closeDiscussion=element(by.xpath("//*[contains(@id,'close-discussion-forum')]"));
+      
+
+
+
+
+
+
 
 
     return{
@@ -495,9 +505,9 @@ assertaddedDesName,
 assertNoData,
 assert0Disccsuion,
 asserr0Post,
-
-
-
+firstGroupInMentor,
+myDiscussioninMentor,
+closeDiscussion,
 
 
 

@@ -2439,6 +2439,74 @@ const verifyEnableAndDisableDiscussionForGroup2=()=>{
         console.log(err)
     }
 }
+const updateDiscussionForumPost=()=>{
+    try{
+       browser.sleep(2000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().searchBoxForBook), 20000, "Serchbox for QR code  is not available");
+       sanityPage.SanityElement().searchBoxForBook.sendKeys('do_213291936590995456125');
+       browser.sleep(2000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clickSeaarchButton), 20000, "SerchButton for QR code  is not available");
+       sanityPage.SanityElement().clickSeaarchButton.click();
+       browser.sleep(2000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().discussionForumFirstBook), 20000, "1st book not available");
+       sanityPage.SanityElement().discussionForumFirstBook.click();
+       browser.sleep(2000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().forum), 20000, "forum is not available");
+       sanityPage.SanityElement().forum.click();
+       browser.sleep(2000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().categories), 20000, "categories is not available");
+       expect(sanityPage.SanityElement().categories.isDisplayed()).toBeTruthy();
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().categoryCard), 20000, "categories card is not available");
+       sanityPage.SanityElement().categoryCard.click();
+       browser.sleep(3000);
+    //    expect(sanityPage.SanityElement().announcement.isDisplayed()).toBeTruthy();
+       expect(sanityPage.SanityElement().generalDiscussion.isDisplayed()).toBeTruthy();
+    //    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().announcement), 20000, "announcement is not available");
+    //    sanityPage.SanityElement().announcement.click();
+    //    browser.sleep(3000);
+    //    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().announcementLink), 20000, "announcementLinkis not available");
+    //    sanityPage.SanityElement().announcementLink.click();
+    //    browser.sleep(3000);
+    //    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().textareaForComment), 20000, "textareaForComment is not available");
+    //    sanityPage.SanityElement().textareaForComment.sendKeys("This is for adding comment");
+    //    browser.sleep(3000);
+    //    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().postReply), 20000, "postReply is not available");
+    //    sanityPage.SanityElement().postReply.click();
+    //    browser.sleep(3000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().categories), 20000, "categories is not available");
+       sanityPage.SanityElement().categories.click();
+       browser.sleep(3000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().categoryCard), 20000, "categories card is not available");
+       sanityPage.SanityElement().categoryCard.click();
+       browser.sleep(3000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().generalDiscussion), 20000, "generalDiscussion is not available");
+       sanityPage.SanityElement().generalDiscussion.click();
+       browser.sleep(3000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().startDiscussion), 20000, "startDiscussion is not available");
+       sanityPage.SanityElement().startDiscussion.click();
+       browser.sleep(3000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().askQuestion), 20000, "askQuestion is not available");
+       sanityPage.SanityElement().askQuestion.sendKeys("This is my 1st idea to be shared");
+       browser.sleep(3000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().description), 20000, "description is not available");
+       sanityPage.SanityElement().description.sendKeys("This is my 1st idea to be shared description");
+       browser.sleep(3000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitButton), 20000, "submitButton is not available");
+       sanityPage.SanityElement().submitButton.click();
+       browser.sleep(3000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().editPostIcon), 20000, "edit PostIcon is not available");
+       sanityPage.SanityElement().editPostIcon.click();
+       browser.sleep(3000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().postYourContent), 20000, "post your content is not available");
+       sanityPage.SanityElement().postYourContent.sendKeys("Updating Post");
+       browser.sleep(3000);
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().updateComment), 20000, "update post button is not available");
+       sanityPage.SanityElement().updateComment.click();
+       browser.sleep(3000);
+    }catch(err){
+        console.log(err);
+    }
+}
 
 
 module.exports = {
@@ -2485,6 +2553,7 @@ module.exports = {
     verifyCloseIconInEnableAndDisableDiscussionForGroup,
     editAndDelteTopic,
     verifyEnableAndDisableDiscussionForGroup2,
+    updateDiscussionForumPost,
 }
 
     

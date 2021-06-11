@@ -4038,88 +4038,89 @@ const verifyConsumesCourseInTrainingSec = () => {
 
 const verifyCreateMyGroupAddMemberandAddActivity = () => {
     try{
-console.log('user is able to create myGroup,add member and addActivity');
-browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton),40000,"Profile Button not available");
-searchObj.profileButton.click();
-browser.sleep(3000);
-browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton),40000,"myGroup icon not available");
-searchObj.myGroupButton.click();
-browser.sleep(3000);
-browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton),40000,"Cross button not available");
-searchObj.crossButton.click();
-browser.sleep(3000);
-browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.createGroupButton),40000,"Create Group button not available");
-searchObj.createGroupButton.click();
-browser.sleep(3000);
-browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.enterGroupName),40000,"Enter Group name box not available");
-searchObj.enterGroupName.sendKeys(faker.randomData().firstname);
-browser.sleep(3000);
-browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.enterGroupDescription),40000,"Enter Deescription box not available");
-searchObj.enterGroupDescription.sendKeys(faker.randomData().firstname);
-browser.sleep(3000);
-browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.GroupcheckBox),40000,"Check box not available");
-searchObj.GroupcheckBox.click();
-browser.sleep(3000);
-browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.createGroupSubmitButton),40000,"CreateGroup submit button not available");
-searchObj.createGroupSubmitButton.click();
-browser.sleep(3000);
-// browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addedSuccessfully),40000,"Group admin Icon not available");
-// var adminText=searchObj.addedSuccessfully.getText();
-// expect((adminText).isDisplayed()).toBe(true);
-// browser.sleep(1000);
-browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CreatedGroup),40000,"Created group not available");
-searchObj.CreatedGroup.click();
-browser.sleep(3000);
-browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addActivityButton),40000,"Add activity button not available");
-searchObj.addActivityButton.click();
-browser.sleep(3000);
-// browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.nextButton),40000,"Next button not available");
-// searchObj.nextButton.click();
-// browser.sleep(3000);
-browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.selectFirstCourse),40000,"Course not available");
-searchObj.selectFirstCourse.click();
-browser.sleep(3000);
-browser.actions().mouseMove(searchObj.courseToAddInGroup).perform();
-browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addToGroupButton),40000,"Add to Group Button not available");
-searchObj.addToGroupButton.click();
-browser.sleep(3000);
-browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addedSuccessfully),40000,"Successful Text not available");
-var successfulText=searchObj.addedSuccessfully.getText();
-expect((successfulText).isDisplayed()).toBe(true);
-browser.sleep(1000);
-// browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton),40000,"Profile Button not available");
-// searchObj.profileButton.click();
-// browser.sleep(3000);
-// browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroup),40000,"myGroup icon not available");
-// searchObj.myGroup.click();
-// browser.sleep(3000);
-// browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CreatedGroup),40000,"Created group not available");
-// searchObj.CreatedGroup.click();
-// browser.sleep(3000);
-// browser.executeScript('window.scrollTo(0,200);').then(function () {
-//     console.log('++++++SCROLLED Down+++++');
-// });
-// browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addMember),40000,"Add member button not available");
-// searchObj.addMember.click();
-// browser.sleep(3000);
-// browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton),40000,"Cross button not available");
-// searchObj.crossButton.click();
-// browser.sleep(3000);
-// browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.EnterUserId),40000,"Enter User Id not available");
-// searchObj.EnterUserId.sendKeys('usersun');
-// browser.sleep(3000);
-// browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.verifyUserId),40000,"Verify User Id button not available");
-// searchObj.verifyUserId.click();
-// browser.sleep(6000);
-// browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addingMembertoGroup),40000,"Adding Member to group button not available");
-// searchObj.addingMembertoGroup.click();
-// browser.sleep(6000);
-// browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.UserAddedSuccessfully),40000,"Successful Text not available");
-// var userAddedsuccessfulText=searchObj.UserAddedSuccessfully.getText();
-// expect((userAddedsuccessfulText).isDisplayed()).toBe(true);
-}catch(Exception){
-    console.log('User is unable to create my Group,member and addActivity');
-}
+        console.log('user is able to create myGroup,add member and addActivity');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton),40000,"Profile Button not available");
+        searchObj.profileButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton),40000,"myGroup icon not available");
+        searchObj.myGroupButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton),40000,"Cross button not available");
+        searchObj.crossButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.createGroupButton),40000,"Create Group button not available");
+        searchObj.createGroupButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.enterGroupName),40000,"Enter Group name box not available");
+        searchObj.enterGroupName.sendKeys(faker.randomData().firstname);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.enterGroupDescription),40000,"Enter Deescription box not available");
+        searchObj.enterGroupDescription.sendKeys(faker.randomData().firstname);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.GroupcheckBox),40000,"Check box not available");
+        searchObj.GroupcheckBox.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.createGroupSubmitButton),40000,"CreateGroup submit button not available");
+        searchObj.createGroupSubmitButton.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addedSuccessfully),40000,"Group admin Icon not available");
+        // var adminText=searchObj.addedSuccessfully.getText();
+        // expect((adminText).isDisplayed()).toBe(true);
+        // browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CreatedGroup),40000,"Created group not available");
+        searchObj.CreatedGroup.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addActivityButton),40000,"Add activity button not available");
+        searchObj.addActivityButton.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.nextButton),40000,"Next button not available");
+        // searchObj.nextButton.click();
+        // browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.selectFirstCourse),40000,"Course not available");
+        searchObj.selectFirstCourse.click();
+        browser.sleep(3000);
+        browser.actions().mouseMove(searchObj.courseToAddInGroup).perform();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addToGroupButton),40000,"Add to Group Button not available");
+        searchObj.addToGroupButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addedSuccessfully),40000,"Successful Text not available");
+        var successfulText=searchObj.addedSuccessfully.getText();
+        expect((successfulText).isDisplayed()).toBe(true);
+        browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton),40000,"Profile Button not available");
+        // searchObj.profileButton.click();
+        // browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroup),40000,"myGroup icon not available");
+        // searchObj.myGroup.click();
+        // browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CreatedGroup),40000,"Created group not available");
+        // searchObj.CreatedGroup.click();
+        // browser.sleep(3000);
+        // browser.executeScript('window.scrollTo(0,200);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        // });
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addMember),40000,"Add member button not available");
+        // searchObj.addMember.click();
+        // browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton),40000,"Cross button not available");
+        // searchObj.crossButton.click();
+        // browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.EnterUserId),40000,"Enter User Id not available");
+        // searchObj.EnterUserId.sendKeys('usersun');
+        // browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.verifyUserId),40000,"Verify User Id button not available");
+        // searchObj.verifyUserId.click();
+        // browser.sleep(6000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addingMembertoGroup),40000,"Adding Member to group button not available");
+        // searchObj.addingMembertoGroup.click();
+        // browser.sleep(6000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.UserAddedSuccessfully),40000,"Successful Text not available");
+        // var userAddedsuccessfulText=searchObj.UserAddedSuccessfully.getText();
+        // expect((userAddedsuccessfulText).isDisplayed()).toBe(true);
+        }
+catch(Exception){
+        console.log('User is unable to create my Group,member and addActivity');
+    }
 }
 
 const groupMemberCourseConsumptionstatus=()=>{
@@ -5350,7 +5351,83 @@ const publishCourseFromUpForReview=(coursename)=>{
     tpdPage.tpdPage().confirmForPublishBook.click();
     browser.sleep(1000);
 }
-
+const clkMyGroups=()=>{
+    try{
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton),40000,"Profile Button not available");
+        searchObj.profileButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton),40000,"myGroup icon not available");
+        searchObj.myGroupButton.click();   
+    }
+    catch(Exception)
+    {
+       console.log("clicking my groups failed");
+    }
+}
+const courseByFilter=()=>{
+    try{
+        console.log('user is able to create myGroup,add member and addActivity');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton),40000,"Profile Button not available");
+        searchObj.profileButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton),40000,"myGroup icon not available");
+        searchObj.myGroupButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton),40000,"Cross button not available");
+        searchObj.crossButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CreatedGroup),40000,"Created group not available");
+        searchObj.CreatedGroup.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addActivityButton),40000,"Add activity button not available");
+        searchObj.addActivityButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.selectFirstCourse),40000,"Cross button not available");
+        searchObj.selectFirstCourse.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.filter),40000,"Cross button not available");
+        content.filter.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.subSelect),40000,"Cross button not available");
+        searchObj.clickBoardFilter.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.subSelectValue),40000,"Cross button not available");
+        searchObj.selectBoardFilter.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.MedSelect),40000,"Cross button not available");
+        searchObj.mediumDropdown.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.MedSelectValue),40000,"Cross button not available");
+        searchObj.selectMediumValue.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickclass),40000,"Cross button not available");
+        searchObj.clickclass.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.sltclass1),40000,"Cross button not available");
+        searchObj.sltclass1.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.subjectDropdown),40000,"Cross button not available");
+        searchObj.subjectDropdown.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectSubjectValue),40000,"Cross button not available");
+        searchObj.selectSubjectValue.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.contentType),40000,"Cross button not available");
+        searchObj.selectSubjectValue.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.contentTypeValue),40000,"Cross button not available");
+        searchObj.selectSubjectValue.click();
+        browser.sleep(3000);
+        browser.actions().mouseMove(searchObj.addToGroup).perform();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.addToGroup),40000,"addToGroup button not available");
+        content.addToGroup.click();
+        browser.sleep(3000);
+        //(//*[contains(@class,'sb--card__main-area ng-star-inserted')])[3]
+    }
+        catch(Exception)
+        {
+            console.log("clicking my groups failed");
+        }
+}
 
 module.exports = {
     createCourse,
@@ -5457,4 +5534,6 @@ module.exports = {
      startLeaning,
      shareModule,
      verifyCollapseAllOption,
+     courseByFilter,
+     clkMyGroups,
 }

@@ -26,15 +26,16 @@ exports.config = {
   //sourcing2: 'test/specs/sourcing2/*.spec.js',
   //sourcing3: 'test/specs/sourcing3/*.spec.js',
 
-  TPDCollobration: 'test/specs/TPDCollobaration/*.spec.js',
-      //  useronboarding: 'test/specs/user-onboarding/*.spec.js',
+  //TPDCollobration: 'test/specs/TPDCollobaration/*.spec.js',
+     //   useronboarding: 'test/specs/userOrgAndCredentials/*.spec.js',
    // contentcreation: 'test/specs/content-creation/*.spec.js',
    // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
-     //  tpd: 'test/specs/tpd/*.spec.js', 
+     tpd: 'test/specs/tpd/*.spec.js', 
+     tpd: 'test/specs/TPD2/*.spec.js', 
+
     //    ETB: 'test/specs/ETBSpecs/*.spec.js',  
     //  smoke : 'test/specs/smoke/*.spec.js', 
        
-      
      //sample-execution
 
        //  VerifyHideActionOnEledment1:['test/specs/tpd/EditCertificateRequirementFromNoToYes.spec.js'],
@@ -46,7 +47,6 @@ exports.config = {
         // VerifyHideActionOnEledment6:['test/specs/ETBSpecs/CreateBookWithNoContentAndFilledEditDetailsForm.spec.js'],
         //  VerifyHideActionOnEledment7:['test/specs/ETBSpecs/TenantSpecificValidation.spec.js'],
         //   VerifyHideActionOnEledment8:['test/specs/ETBSpecs/CreateBookAndTagConcepts.spec.js'],
-    VerifyHideActionOnEledment1:['test/specs/sanity2/CreateCourseAndVerify.spec.js'],
         },
     allScriptsTimeout: 40000,
 

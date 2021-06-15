@@ -22,7 +22,7 @@ describe('CreateCourseAndConsume.', () => {
         browser.manage().deleteAllCookies();
         
     });
-    it('CreateCourseAndConsume  ',function(){
+    it('CreateCourseAndConsume',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');

@@ -20,7 +20,7 @@ describe('multiselectInAllTabs', () => {
        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('multiselectInAllTabs',function(){
+    it('CustodianUserSearchContentInLibraryByFilters',function(){
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         etbFun.multiselectForAllTabs();

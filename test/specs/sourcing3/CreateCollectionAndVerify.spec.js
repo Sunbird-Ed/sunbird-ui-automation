@@ -1,10 +1,9 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
+const collectionPageObj = require(protractor.basePath+'/test/pageObject/collectionPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
-const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js')
 
-describe('After Rejecting course Add New Resource , again publish', () => {
+describe('Create Collection save and send for review and publish.', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -22,33 +21,23 @@ describe('After Rejecting course Add New Resource , again publish', () => {
         browser.manage().deleteAllCookies();
         
     });
-    it('verfiyRejectedCourseAndUpdateResource',function(){
+    it('CreateCollectionAndVerify',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
-        tpdPageObj.createCourse();
-        let courseName=tpdPageObj.sendForReviewCourseWithName();
+        let collectionName=collectionPageObj.createCollection();
+        collectionPageObj.sendForReviewTheCollection();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        resourcePageObj.rejectLessonPlan(courseName)
-        utility.userLogout();
-        utility.userLogin('Creator');
-        tpdPageObj.editTheCourseInDraftAddNewResource();
-        tpdPageObj.sendForReviewTheRejectedCourse();
-        utility.userLogout();
-        utility.userLogin('Reviewer');
-        utility.validateWorkspace();
-        tpdPageObj.publishTheCourseFromUpForReview(courseName);
+        collectionPageObj.publishTheCollectionFromUpForReview(collectionName);
         utility.userLogout();
         utility.userLogin('Creator');
         utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();
-       
-       
+        
     })
 
-   
+    
    
 });
    

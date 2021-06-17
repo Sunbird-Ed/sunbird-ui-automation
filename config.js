@@ -30,9 +30,9 @@ exports.config = {
      //   useronboarding: 'test/specs/userOrgAndCredentials/*.spec.js',
    // contentcreation: 'test/specs/content-creation/*.spec.js',
    // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
-     tpd: 'test/specs/tpd/*.spec.js', 
-     tpd: 'test/specs/TPD2/*.spec.js', 
-      tpd: 'test/specs/TPDCollobaration/*.spec.js',
+     tpd1: 'test/specs/tpd/*.spec.js', 
+     tpd2: 'test/specs/TPD2/*.spec.js', 
+      tpd3: 'test/specs/TPDCollobaration/*.spec.js',
 
     //    ETB: 'test/specs/ETBSpecs/*.spec.js',  
     //  smoke : 'test/specs/smoke/*.spec.js', 

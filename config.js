@@ -32,7 +32,7 @@ exports.config = {
    // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
      tpd: 'test/specs/tpd/*.spec.js', 
      tpd: 'test/specs/TPD2/*.spec.js', 
-      tpd: 'test/specs/TPDCollobaration*.spec.js',
+      tpd: 'test/specs/TPDCollobaration/*.spec.js',
 
     //    ETB: 'test/specs/ETBSpecs/*.spec.js',  
     //  smoke : 'test/specs/smoke/*.spec.js', 

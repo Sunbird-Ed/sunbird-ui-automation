@@ -256,14 +256,10 @@ var labelDefaultBoard = element(by.xpath("(//sui-select[contains(@class,'selecti
       var assertNoData=element(by.xpath("//div[contains(text(),'No Data')]"));
       var assert0Disccsuion=element(by.xpath("//span[contains(text(),'0 discussions')]"));
       var asserr0Post=element(by.xpath("//span[contains(text(),'0 posts')]"));
-
-
-
-
-      var firstGroupInMentor=element(by.xpath("(//*[contains(@class,'sb--card__info')])[6]"));
+     var firstGroupInMentor=element(by.xpath("(//*[contains(@class,'sb--card__info')])[6]"));
       var myDiscussioninMentor=element(by.xpath("(//li[@id='d.route']//a)[3]"));
       var closeDiscussion=element(by.xpath("//*[contains(@id,'close-discussion-forum')]"));
-      
+       var childDesc=element(by.xpath("//textarea[@placeholder='Description']"));
 
 
 
@@ -508,6 +504,7 @@ asserr0Post,
 firstGroupInMentor,
 myDiscussioninMentor,
 closeDiscussion,
+childDesc,
 
 
 

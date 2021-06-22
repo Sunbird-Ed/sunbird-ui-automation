@@ -299,6 +299,41 @@ const addUserInProfile=()=>{
        console.error("failed to  validateTextBookCountInDifferentRole");
      }
    }
+   const verifyYOBforCustodianUsers=()=>{
+    try{
+     console.log("Verify that custodian users is displayed with YOB popup and the user is not allowed to proceed further without filling the YOB popup");
+     browser.sleep(1000);
+     browser.wait(protractor.ExpectedConditions.visibilityOf(content.yobPopup), 20000, "YOB popup not generated");
+     //expect(content.BookCount.isDisplayed).toBeTruthy();
+    // browser.driver.switchTo().alert().getText();
+     content.yobPopup.getText().then(function(PopupText){
+       expect(PopupText).toEqual('Select year of birth*')});
+       console.log("YOB popup verified");
+     browser.wait(protractor.ExpectedConditions.visibilityOf(content.yobPopup), 20000, "YOB popup not generated");  
+     content.yobSelectYearDropdown.click();
+     browser.sleep(3000); 
+     browser.wait(protractor.ExpectedConditions.visibilityOf(content.yearSelection), 20000, "Year is not selected");  
+     content.yearSelection.click();
+     browser.sleep(3000);   
+   //   content.yobPopup.getText().then(function(input){
+   //   console.log("Book count : "+input);
+   //   count = input;
+   //  })
+   //   browser.sleep(1000);
+   //   expect(content.BookCount.isDisplayed).toBeTruthy();
+   //   content.BookCount.getText().then(function(input){
+   //   console.log("Book count : "+input);
+   //   count = input;
+   //  })
+   //   expect(count).toEqual(bookCnt);
+   //   console.log("Verified count is same and  : "+count);
+    }
+     catch(e)
+    {
+      console.error("Popup Verified");
+    }
+  }
+
  
 module.exports = {
     validateSignInPopupOnClickOnEnroll,
@@ -310,7 +345,7 @@ module.exports = {
     addUserInProfile,
     validateTextBookCount,
     validateTextBookCountInDifferentRole,
-   
+    verifyYOBforCustodianUsers,
     
    
 }

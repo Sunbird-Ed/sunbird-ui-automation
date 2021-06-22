@@ -16,6 +16,8 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 const sanityPage=require(protractor.basePath+'/test/pages/userOnBoarding/SanityPage.js');
 var teacherCsv =protractor.basePath + '/test/testdata/teacher.csv';
 var searchObj=tpdPage.tpdPage();
+const verifyCEBpage = require(protractor.basePath+'/test/pages/sanity/VerifySignInPopupInExploreCourseEnrollButton.js');
+var verifyCEBObj=verifyCEBpage.VerifySignInPopupInExploreCourseEnrollButton();
 
 const verifyAdminDashBoard = () => {
 
@@ -921,7 +923,373 @@ const switchToJoyfulTheme = () => {
     browser.sleep(5000);
 
 }
+const verifyGuestUserDisplayedInProfile=()=>{
+    try{
+        console.log('Verify Guest user is displayed in profile');
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.headerDropdown1, 20000);
+        content.headerDropdown1.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.profileButton, 20000);
+        content.profileButton.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.editProfileName, 20000);
+        content.editProfileName.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.guestName, 20000);
+        content.guestName.sendKeys('guestName12');
+        browser.sleep(5000);
+        wait.waitForElementVisibility(content.submitForm, 20000);
+        content.submitForm.click();
+        browser.sleep(5000);
+        wait.waitForElementVisibility(content.profileName, 20000);
+        browser.sleep(3000);
+        expect(content.profileName.isDisplayed.toBeTruthy);
+        if((content.profileName.getText()).toContain('Guest')){
+            console.log('Profile name verified');
+        }
+    }
+    catch(Exception)
+    {
+            console.log("Guest user is not displayed in profile");
+    }
+}
 
+const verifyUserCourseProgress=()=>{
+    try {
+            // browser.sleep(3000);
+            // wait.waitForElementVisibility(content.checkboxFirst, 20000);
+            // content.checkboxFirst.click();
+            // browser.sleep(3000);
+            // wait.waitForElementVisibility(content.continuePolicyButton, 20000);
+            // content.continuePolicyButton.click();
+            // browser.sleep(3000);
+            // wait.waitForElementVisibility(content.yobSelectYearDropdown, 20000);
+            // content.yobSelectYearDropdown.click();
+            // browser.sleep(3000);
+            // wait.waitForElementVisibility(content.yearSelection, 20000);
+            // content.yearSelection.click();
+            // browser.sleep(3000);
+            wait.waitForElementVisibility(content.searchInput, 20000);
+            content.searchInput.sendKeys('do_2132937923166453761651');
+            browser.sleep(3000);
+            // wait.waitForElementVisibility(content.btnSubmit, 20000);
+            // content.searchInput.click();
+            // browser.sleep(3000);
+            wait.waitForElementVisibility(content.searchButton, 20000);
+            content.searchButton.click();
+            browser.sleep(5000);
+            // wait.waitForElementVisibility(content.searchButton2, 20000);
+            // content.searchButton2.click();
+            // browser.sleep(5000);
+            wait.waitForElementVisibility(content.courseCard, 20000);
+            content.courseCard.click();
+            browser.sleep(5000);
+            wait.waitForElementVisibility(content.joinCourse, 20000);
+            content.joinCourse.click();
+            browser.sleep(5000);
+            // wait.waitForElementVisibility(content.checkbox, 20000);
+            // content.checkbox.click();
+            // browser.sleep(5000);
+            // wait.waitForElementVisibility(content.shareButton, 20000);
+            // content.shareButton.click();
+            // browser.sleep(5000);
+            wait.waitForElementVisibility(content.startLearning, 20000);
+            content.startLearning.click();
+            browser.sleep(5000);
+            wait.waitForElementVisibility(content.kebabMenu, 20000);
+            content.kebabMenu.click();
+            browser.sleep(5000);
+            wait.waitForElementVisibility(content.syncProgressNow, 20000);
+            content.syncProgressNow.click();
+            browser.sleep(5000);
+            wait.waitForElementVisibility(content.progresSynced, 20000);
+            content.progresSynced.getText().then(function(input){
+                console.log("First content on report is: "+input);
+                });
+            browser.sleep(5000);
+            wait.waitForElementVisibility(content.courseProgress, 20000);
+            content.courseProgress.getText().then(function(input){
+                console.log("First content on report is: "+input);
+                });
+            browser.sleep(5000);
+        } 
+        catch (err) {
+            console.error("Failed to handle location pop up, " + err);
+        }
+    }
+    const verifyBCSforSelectedState=()=>{
+        try {
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.headerDropdown, 20000);
+                content.headerDropdown.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.profileButton, 20000);
+                content.profileButton.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.editProfileName, 20000);
+                content.editProfileName.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.yobSelectYearDropdown, 20000);
+                content.yobSelectYearDropdown.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.yobSelectYearDropdown, 20000);
+                content.yobSelectYearDropdown.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.yearSelection, 20000);
+                content.yearSelection.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.btnSubmit, 20000);
+                content.btnSubmit.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.BMCstate, 20000);
+                content.BMCstate.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.SelectBMCstate, 20000);
+                content.SelectBMCstate.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.BMCdistrict, 20000);
+                content.BMCdistrict.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.SelectBMCdistrict, 20000);
+                content.SelectBMCdistrict.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.BMCBlock, 20000);
+                content.BMCBlock.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.SelectBMCblock, 20000);
+                content.SelectBMCblock.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.BMCcluster, 20000);
+                content.SelectBMCblock.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.SelectBMCcluster, 20000);
+                content.SelectBMCcluster.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.BMCSchoolCluster, 20000);
+                content.BMCSchoolCluster.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.BMCSchoolCluster, 20000);
+                content.BMCSchoolCluster.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.BMCSubmit, 20000);
+                content.BMCSubmit.click();
+                browser.sleep(3000);
+            } 
+            catch (err) {
+                console.error("Verify Block Cluster and school in BMC with state Uttar pradesh, " + err);
+            }
+        }
+    
+        const AddUserProfileVerification=()=>{
+            try
+            {
+             console.log("User is trying to addUserInProfile");
+             browser.sleep(1000);
+             browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
+             content.headerDropdown.click();
+             browser.sleep(1000);
+             browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.addUser), 20000, "addUser is not available");
+             verifyCEBObj.addUser.click();
+             console.log("Clicked on add user");
+             userName= "User"+faker.randomData().firstname;
+             browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.enterName), 20000, "enterName is not available");
+             verifyCEBObj.enterName.sendKeys(userName);
+             browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.addUserButton), 20000, "addUserButton is not available");
+             verifyCEBObj.addUserButton.click();
+             browser.sleep(1000);
+              console.log("added a User successfully ");
+              verifyCEBObj.availableUser.getText().then(function(input){
+               // expect(input).toEqual(userName);
+                console.log("Verified added user: "+input);
+              });
+              verifyCEBObj.availableUser.click();
+              browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.switchUser), 20000, "switchUser is not available");
+              verifyCEBObj.switchUser.click();
+              browser.sleep(1000);
+              browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.declaration), 20000, "declaration is not available");
+              verifyCEBObj.declaration.click();
+              browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.continueDeclaration), 20000, "switchUser is not available");
+              verifyCEBObj.continueDeclaration.click();
+              browser.sleep(3000);
+              wait.waitForElementVisibility(content.Teacher, 20000);
+              content.Teacher.click();
+              wait.waitForElementVisibility(content.Continue, 20000);
+              content.Continue.click();
+              browser.sleep(4000);
+              browser.sleep(2000);
+                  wait.waitForElementVisibility(content.state, 20000);
+                  content.state.click();
+                  wait.waitForElementVisibility(content.selectState, 20000);
+                  content.selectState.click();
+                  wait.waitForElementVisibility(content.district, 20000);
+                  content.district.click();
+                  wait.waitForElementVisibility(content.selectDistrict, 20000);
+                  content.selectDistrict.click();
+                  wait.waitForElementVisibility(content.btnSubmit, 20000);
+                  content.btnSubmit.click();
+              browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
+             content.headerDropdown.click();
+             browser.sleep(1000);
+             verifyCEBObj.availableUser.getText().then(function(input){
+             expect(input).toEqual(userName);
+             console.log("Verified selected user is switched : "+input);
+            });
+              }
+              catch(Exception)
+              {
+                  console.log("Failed on adding user");
+              }
+            }
+            const YOBnotAccessibleToExistingAndSSOusers=()=>{
+                try{
+                    console.log('Verify YOB popup is not accecsible for existing and SSO users');
+                    browser.sleep(5000);
+                    wait.waitForElementVisibility(content.statelogin, 20000);
+                    content.statelogin.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.stateInsideEdit, 20000);
+                    content.stateInsideEdit.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.stateDropdown, 20000);
+                    content.stateDropdown.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.stateSubmit, 20000);
+                    content.stateSubmit.click();
+                    browser.sleep(3000);
+                }
+                catch(Exception)
+                {
+                        console.log("YOB popup is accecsible for existing and SSO users");
+                }
+            }
+            
+            const verifyYOBpopUpdisplayedToNewAndExistingUsers=()=>{
+                try{
+                    console.log('Verify YOB popup displayed to new and existing google users');
+                    browser.sleep(5000);
+                    wait.waitForElementVisibility(content.googleSignButton, 20000);
+                    content.googleSignButton.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.GoogleUserName, 20000);
+                    content.GoogleUserName.sendKeys('tejas.teju110@gmail.com');
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.googleNextButton, 20000);
+                    content.GoogleUserName.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.googlePassword, 20000);
+                    content.googlePassword.sendKeys('password');
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.googleNextButton, 20000);
+                    content.GoogleUserName.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.userChangepolicyCheckbox, 20000);
+                    content.userChangepolicyCheckbox.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.policySubmitButton, 20000);
+                    content.policySubmitButton.click();
+                    browser.sleep(3000);
+                }
+                catch(Exception)
+                {
+                        console.log("Yob popup not displayed to google users");
+                }
+            }
+            const VerifyMUAusersYOBpopupNotBedisplayed=()=>{
+                try{
+                    console.log('Verify that in portal for MUA users YOB popup should not be displayed');
+                    browser.sleep(5000);
+                    wait.waitForElementVisibility(content.headerDropdown2, 20000);
+                    content.headerDropdown2.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.MUAuser, 20000);
+                    content.MUAuser.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.userChangepolicyCheckbox, 20000);
+                    content.userChangepolicyCheckbox.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.policySubmitButton, 20000);
+                    content.policySubmitButton.click();
+                    browser.sleep(3000);
+                }
+                catch(Exception)
+                {
+                        console.log("MUA users displayed with YOB popup");
+                }
+            }
+            const verifyReportIssueButton = () => {
+                try{
+                    console.log('Classic Theme enabled');
+                    browser.sleep(5000);
+                    wait.waitForElementVisibility(content.headerDropdown1, 20000);
+                    content.headerDropdown1.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(userOnboard.helpButton, 20000);
+                    userOnboard.helpButton.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(userOnboard.reportButton, 20000);
+                    expect(userOnboard.reportButton.isDisplayed).toBeTruthy();
+                        userOnboard.reportButton.click();
+                        console.log('Report button validated for classic theme');
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.headerDropdown1, 20000);
+                    content.headerDropdown1.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.themeChange, 20000);
+                    content.themeChange.click();
+                    console.log('Joy Theme enabled');
+                    wait.waitForElementVisibility(userOnboard.reportButton, 20000);
+                    expect(userOnboard.reportButton.isDisplayed).toBeTruthy();
+                        userOnboard.reportButton.click();
+                        browser.sleep(2000);
+                        console.log('Report button validated for joyful theme');
+                }
+                catch(Exception)
+                {
+                        console.log("Failed on Validating SignInPopup on click on Enroll button on latest course in Explore-Course Page");
+                }
+            }
+            const NewCustodianUsers=()=>{
+                try{
+                    console.log('Verify YOBpopup for new CustodianUsers');
+                    browser.sleep(5000);
+                    wait.waitForElementVisibility(content.RegisterHereLink, 20000);
+                    content.RegisterHereLink.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.yobSelectYearDropdown, 20000);
+                    content.yobSelectYearDropdown.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.yearSelection, 20000);
+                    content.yearSelection.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(content.name, 20000);
+                    content.name.sendKeys('custodianB');
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(userOnboard.checkBoxEmail, 20000);
+                    userOnboard.checkBoxEmail.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(userOnboard.emailIdTextBox, 20000);
+                    userOnboard.emailIdTextBox.sendKeys(faker.randomData().emailData);
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(userOnboard.registerPassword, 20000);
+                    userOnboard.registerPassword.sendKeys('Test@123');
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(userOnboard.registerConfPassword, 20000);
+                    userOnboard.registerConfPassword.sendKeys('Test@123');
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(userOnboard.clkTermsCheckbox, 20000);
+                    userOnboard.clkTermsCheckbox.click();
+                    browser.sleep(3000);
+                    wait.waitForElementVisibility(userOnboard.registerLabel, 20000);
+                    userOnboard.registerLabel.click();
+                    browser.sleep(3000);
+                }
+                catch(Exception)
+                {
+                        console.log("Verification failed YOBpopup for new CustodianUsers");
+                }
+            }
+            
 
 module.exports = {
     verifyAdminDashBoard,
@@ -949,5 +1317,13 @@ module.exports = {
     verifyRegisterPageDetails,
     copyDikshaID,
     switchToJoyfulTheme,
+    verifyGuestUserDisplayedInProfile,
+    verifyUserCourseProgress,
+    verifyBCSforSelectedState,
+    AddUserProfileVerification,
+    YOBnotAccessibleToExistingAndSSOusers,
+    verifyYOBpopUpdisplayedToNewAndExistingUsers,
+    VerifyMUAusersYOBpopupNotBedisplayed,
+    verifyReportIssueButton,
 }
 

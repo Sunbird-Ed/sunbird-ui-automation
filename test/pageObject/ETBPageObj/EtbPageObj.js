@@ -2618,6 +2618,31 @@ const TVClassSearch = (TvClassName) => {
 
 }
 
+const verifyUserAccessLiscenceTerms = () => {
+    try {
+        console.log('Verify User is able to access Liscence Terms Section')
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbpage1.etb().GuestHeaderDropDown), 50000, "guest drop down is not available");
+        etbpage1.etb().GuestHeaderDropDown.click();
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbpage1.etb().themeSwitch), 40000, "Theme is not switchable");
+        etbpage1.etb().themeSwitch.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbpage1.etb().digitalTextBook), 50000, "Digital Text book is not available");
+        etbpage1.etb().digitalTextBook.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbpage1.etb().openBook), 50000, "Book not available");
+        etbpage1.etb().openBook.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbpage1.etb().liscenceTerms), 50000, "Book not available");
+        etbpage1.etb().liscenceTerms.click();
+        browser.sleep(3000);
+        console.log('User is able to access Liscence Terms Section')
+    }
+    catch (err) {
+        console.log('User not able to access Liscence Terms Section');
+    }
+}
 
 module.exports = {
     navigateToWorkspace,
@@ -2674,4 +2699,5 @@ verifDefaultValueInDigiTxtAndTVClass,
 contentInSubjectWiseIncourseTab,
 verifyCountWithState,
 TVClassSearch,
+verifyUserAccessLiscenceTerms,
 }

@@ -75,7 +75,6 @@ let UserOnBoarding = () => {
     var popupRecoveryAccount = element(by.xpath("//span[contains(text(),'Recovery ID')]"));
     var labelEmailInPopup = element(by.xpath("//label[contains(text(),'Email address')]"));
     var labelMobileInPopup = element(by.xpath("//label[contains(text(),'Mobile Number')]"));
-    var checkBoxEmail = element(by.xpath("(//input[@id='email'])[1]"));
     var fieldEmail = element(by.xpath("(//input[@id='email'])[2]"));
     var checkboxPhone = element(by.xpath("//input[@id='phone']"));
     var fieldMobileNumber = element(by.xpath("//input[@formcontrolname='phone']"));
@@ -191,10 +190,12 @@ let UserOnBoarding = () => {
     var AddUserClk = element(by.xpath("//img[@alt='Add user']"));
     var entUSrName = element(by.xpath("//input[@name='name']"));
 
+    var helpButton = element(by.xpath("//*[contains(text(),' Help ')]//child::i"));
+    var reportButton = element(by.xpath("//*[contains(text(),'Report')]"));
 
+    var checkBoxEmail = element(by.xpath("(//*[contains(@class,'ui radio checkbox')])[2]"));
 
-
-
+    
 
     
 
@@ -374,6 +375,8 @@ let UserOnBoarding = () => {
     clkForgotPassword,
     typeName,
     assertOTPPage,
+    helpButton,
+    reportButton,
     }
 };
 module.exports = {

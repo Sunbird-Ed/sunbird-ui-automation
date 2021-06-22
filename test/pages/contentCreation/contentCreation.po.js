@@ -428,14 +428,72 @@ var contentCreation = () => {
     var gradeLevelDropDown=element(by.xpath("//sui-multi-select[@id='gradeLevel']"));
     var subjectDropdown=element(by.xpath("//sui-multi-select[@id='subject']"));
     var submitButtonForDropdowns=element(by.xpath("//sui-modal/sui-dimmer/div/div/div/div[3]/button"));
-    var selectBoardValue=element(by.xpath("//span[contains(text(),'CBSE/NCERT')]"));
+   // var selectBoardValue=element(by.xpath("//span[contains(text(),'CBSE/NCERT')]"));
+    var selectBoardValue=element(by.xpath("//span[contains(text(),'State (Andhra Pradesh)')]"));
+
     var selectMediumValue=element(by.xpath("//*[@id='medium']/div/sui-select-option/span[contains(text(),'English')]"));
-    var selectGradeLevelValue=element(by.xpath("//*[@id='gradeLevel']/div[2]/sui-select-option[2]/span[contains(text(),'Class 1')]"));
-    var selectSubjectValue=element(by.xpath("//*[@id='subject']/div[2]/sui-select-option[1]/span[contains(text(),'Accountancy')]"));
+  //  var selectGradeLevelValue=element(by.xpath("//*[@id='gradeLevel']/div[2]/sui-select-option[2]/span[contains(text(),'Class 1')]"));
+  var selectGradeLevelValue=element(by.xpath("//label[contains(text(),'Class')]//following::span[2]"));
+ 
+  var selectSubjectValue=element(by.xpath("//*[@id='subject']/div[2]/sui-select-option[1]/span[contains(text(),'Accountancy')]"));
+
+    var district1 = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-caret caret-down')])[7]"));
+    var searchButton2 = element(by.xpath("//*[contains(text(),'Search')]"));
+    var courseProgress = element(by.xpath("//div[contains(@class,'course__progress')]//div[3]"));
+    var continueLearning = element(by.xpath("//div[contains(@class,'certified-course__btn ng-star-inserted')]"));
+    var kebabMenu = element(by.xpath("//div[contains(@class,'kabab-menu pull-right ng-star-inserted')]"));
+    var joinCourse = element(by.xpath("(//*[contains(@class,'sb-btn sb-btn-secondary sb-btn-normal ml-auto textbook__addbtn')])[1]"));
+    var checkbox = element(by.xpath("(//input[contains(@class,'mr-8 ng-valid ng-touched ng-dirty')])"));
+    var shareButton = element(by.xpath("(//*[contains(@class,'sb-btn sb-btn-normal sb-btn-primary text-uppercase ng-star-inserted')])[1]"));
+    var startLearning = element(by.xpath("(//*[contains(text(),'Start learning')])[1]"));
+    var syncProgressNow = element(by.xpath("(//*[contains(text(),'Sync progress now')])"));
+    var progresSynced = element(by.xpath("(//*[contains(text(),'Progress synced successfully')])"));
+    var SelectDistrict = element(by.xpath("(//*[contains(text(),'Alipurduar')])"));
+    var continuePolicyButton = element(by.xpath("(//*[contains(text(),' Continue ')])"));
+    var BMCstate = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-caret caret-down')])[2]"));
+    var SelectBMCstate = element(by.xpath("(//*[contains(text(),'Uttar Pradesh')])"));
+    var BMCdistrict = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-caret caret-down')])[3]"));
+    var SelectBMCdistrict = element(by.xpath("(//*[contains(text(),'AGRA')])"));
+    var BMCBlock = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-caret caret-down')])[4]"));
+    var SelectBMCblock = element(by.xpath("(//*[contains(text(),'ACHHNERA')])"));
+    var BMCcluster = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-label-container list-border')])[3]"));
+    var SelectBMCcluster = element(by.xpath("(//*[contains(text(),'Select Cluster')])[2]"));
+    var BMCSchoolCluster = element(by.xpath("(//*[contains(text(),'Select School')])[2]"));
+    var BMCSubmit = element(by.xpath("(//*[contains(@type,'submit')])[2]"));
+
+    var headerDropdown2 = element(by.xpath("(//div[@id='dropdown-menu-list-header'])[4]"));
+    var profileName = element(by.xpath("//*[contains(@class,'profile-user-label font-w-bold d-flex')]"));
+    var profileButton = element(by.xpath("//*[@class='icon-svg icon-svg--sm icon-profileuser mr-8']"));
+    var guestName = element(by.xpath("//*[contains(@class,'sb-textbox ng-pristine ng-valid ng-touched')]"));
+    var editProfileName = element(by.xpath("(//*[contains(@class,'sb-btn sb-btn-primary')])[1]"));
+
+    var yobPopup = element(by.xpath("//*[@class='mr-16']"));
+    var yobSelectYearDropdown= element(by.xpath("//sui-select[contains(@class,'selection ui dropdown')]"));
+    var yearSelection=element(by.xpath("//*[contains(text(),'2018')]"));
 
 
+    var contentType = element(by.xpath("//*[contains(text(),'Select Content type')]"));
+    var contentTypeValue = element(by.xpath("//span[contains(text(),'course')]"));
+    var subSelect = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-label-container list-border')])[1]"));
+    var addToGroup = element(by.xpath("(//*[contains(text(),'Add to group')])[7]"));
+    var subSelectValue = element(by.xpath("//*[contains(text(),'CBSE/NCERT')]"));
+    var MedSelect = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-label-container list-border')])[2]"))
+    var MedSelectValue = element(by.xpath("(//*[contains(text(),'english')])[2]"));
+    var statelogin = element(by.xpath("//*[@id='stateButton']"));
+    var stateDropdown = element(by.xpath("//*[contains(text(),'State Andhrapradesh')]"));
+    var stateSubmit = element(by.xpath("//*[contains(@class,'sb-btn-primary')]"));
+    var MUAuser = element(by.xpath("(//span[contains(text(),'t')])[2]"));
+    var userChangepolicyCheckbox = element(by.xpath("//input[@type='checkbox']"));
+    var policySubmitButton = element(by.xpath("//button[text()=' Continue ']"));
+   
+    var googleSignButton = element(by.xpath("//button[contains(@class,'signInWithGoogle')]"));
+    var GoogleUserName = element(by.xpath("//*[(@name='identifier')]"));
+    var googleNextButton = element(by.xpath("(//*[(@class='VfPpkd-Jh9lGc')])[1]"));
+    var googlePassword = element(by.xpath("(//*[(@type='password')])[1]"));
 
+   
 
+  
     return {
         closeIcon,
          boardDropdown,
@@ -831,7 +889,58 @@ var contentCreation = () => {
         chatMainMenu2,
         verifykarnatakaState,
         clkDikshaCopy,
+        district1,
+        searchButton2,
+        courseProgress,
+        continueLearning,
+        kebabMenu,
+        joinCourse,
+        checkbox,
+        shareButton,
+        startLearning,
+        syncProgressNow,
+        progresSynced,
+        SelectDistrict,
+        continuePolicyButton,
+        BMCstate,
+        SelectBMCstate,
+        BMCdistrict,
+        SelectBMCdistrict,
+        BMCBlock,
+        SelectBMCblock,
+        BMCcluster,
+        SelectBMCcluster,
+        BMCSchoolCluster,
+        BMCSubmit,
+        headerDropdown2,
+        profileName,
+        profileButton,
+        guestName,
+        editProfileName,
+        yobPopup,
+        yobSelectYearDropdown,
+        yearSelection,
+        contentType,
+        contentTypeValue,
+        subSelect,
+        addToGroup,
+        subSelectValue,
+        MedSelect,
+        MedSelectValue,
+        statelogin,
+        stateDropdown,
+        stateSubmit,
+        MUAuser,
+        userChangepolicyCheckbox,
+        policySubmitButton,
+        googleSignButton,
+        GoogleUserName,
+        googleNextButton,
+        googlePassword,
     };
+
+
+    
 
 };
 module.exports = {

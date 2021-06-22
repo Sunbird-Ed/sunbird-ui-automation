@@ -15,9 +15,9 @@ exports.config = {
         
 
 
-//     sanity1: 'test/specs/sanity1/*.spec.js',
-//   sanity2: 'test/specs/sanity2/*.spec.js',
-//    sanity3: 'test/specs/sanity3/*.spec.js',
+    sanity1: 'test/specs/sanity1/*.spec.js',
+  sanity2: 'test/specs/sanity2/*.spec.js',
+   sanity3: 'test/specs/sanity3/*.spec.js',
      // sanity3: 'test/specs/sanity3/verifyTheBestScoreDisplayedinCourseToc.spec.js',
     //sanity3: 'test/specs/sanity3/downloadUsersCsvData.spec.js',
  //userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
@@ -30,9 +30,9 @@ exports.config = {
      //   useronboarding: 'test/specs/userOrgAndCredentials/*.spec.js',
    // contentcreation: 'test/specs/content-creation/*.spec.js',
    // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
-     tpd1: 'test/specs/tpd/*.spec.js', 
-     tpd2: 'test/specs/TPD2/*.spec.js', 
-      tpd3: 'test/specs/TPDCollobaration/*.spec.js',
+    //  tpd1: 'test/specs/tpd/*.spec.js', 
+    //  tpd2: 'test/specs/TPD2/*.spec.js', 
+    //   tpd3: 'test/specs/TPDCollobaration/*.spec.js',
 
     //    ETB: 'test/specs/ETBSpecs/*.spec.js',  
     //  smoke : 'test/specs/smoke/*.spec.js', 
@@ -47,7 +47,7 @@ exports.config = {
         //  VerifyHideActionOnEledment5:['test/specs/ETBSpecs/DownloadQrcodeInDraftPublishedAndLimitedSharing.spec.js'],
         // VerifyHideActionOnEledment6:['test/specs/ETBSpecs/CreateBookWithNoContentAndFilledEditDetailsForm.spec.js'],
         //  VerifyHideActionOnEledment7:['test/specs/ETBSpecs/TenantSpecificValidation.spec.js'],
-        //   VerifyHideActionOnEledment8:['test/specs/ETBSpecs/CreateBookAndTagConcepts.spec.js'],
+       //   VerifyHideActionOnEledment8:['test/specs/sanity2/CreateCourseAndVerify.spec.js'],
         },
     allScriptsTimeout: 40000,
 

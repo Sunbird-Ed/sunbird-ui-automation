@@ -2046,8 +2046,9 @@ const createCourseAndSendForReview=()=>{
      browser.sleep(3000);
      sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
      browser.sleep(3000);
+
      sanityPage.SanityElement().saveAsDraft.click();
-     browser.sleep(3000);   
+     browser.sleep(5000);   
     // browser.sleep(1000);
     // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.courseadditionalCategory), 20000,"Additional category not loaded");
     // sanity.courseadditionalCategory.click();
@@ -2109,6 +2110,10 @@ const createCourseAndSendForReview=()=>{
     // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.addChild), 20000,"Add child not loaded");
     sanityPage.SanityElement().addChild.click();
     browser.sleep(3000); 
+
+    sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+    browser.sleep(3000);
+
    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
     sanityPage.SanityElement().addFromLibraryButton.click();
     browser.sleep(3000); 
@@ -2507,6 +2512,47 @@ const updateDiscussionForumPost=()=>{
         console.log(err);
     }
 }
+const verifyIGOTpage=()=>{
+    try{
+        wait.waitForElementVisibility(content.boardDropdown, 30000);
+        content.boardDropdown.click();
+        browser.sleep(7000); 
+        wait.waitForElementVisibility(sanity.selectBoardValue, 30000);
+        sanity.selectBoardValue.click();
+        browser.sleep(1000); 
+        wait.waitForElementVisibility(content.mediumDropdown, 30000);
+        content.mediumDropdown.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.selectMediumValue, 30000);
+        content.selectMediumValue.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.gradeLevelDropDown, 30000);
+        content.gradeLevelDropDown.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(sanity.selectGradeLevelValue, 30000);
+        sanity.selectGradeLevelValue.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.submitButtonForDropdowns, 30000);
+        content.submitButtonForDropdowns.click();
+        browser.sleep(3000); 
+        wait.waitForElementVisibility(content.Teacher, 30000);
+        content.Teacher.click();
+        wait.waitForElementVisibility(content.Continue, 20000);
+        content.Continue.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.district1, 20000);
+        content.district1.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.SelectDistrict, 20000);
+        content.SelectDistrict.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.course, 20000);
+        content.course.click();
+        browser.sleep(3000);
+    }catch(err){
+        console.log(err);
+    }
+}
 
 
 module.exports = {
@@ -2554,6 +2600,7 @@ module.exports = {
     editAndDelteTopic,
     verifyEnableAndDisableDiscussionForGroup2,
     updateDiscussionForumPost,
+    verifyIGOTpage,
 }
 
     

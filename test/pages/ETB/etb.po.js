@@ -71,6 +71,10 @@ var etb = () => {
     var allTextBook = element(by.xpath("//*[contains(text(),'All Textbooks')]"));
     var firstContentWithDraftstatus = element(by.xpath("//td[contains(text(),'Draft')]/../td/h5/div/div"));
     
+    var GuestHeaderDropDown=element(by.xpath("//*[@id='dropdown-menu-list-header']/ngx-avatar/div"));
+    var themeSwitch=element(by.xpath("//*[contains(text(),'Switch to classic theme')]"));
+    var openBook=element(by.xpath("//*[contains(@class,'show-3')][1]"));
+    var liscenceTerms=element(by.buttonText("//*[contains(text(),'Credits And Licence Info')]"));
     return {
         bookName,
         startcreating,
@@ -138,9 +142,10 @@ var etb = () => {
         clkPublisher,
         allTextBook,
         firstContentWithDraftstatus,
-
-
-
+        GuestHeaderDropDown,
+        themeSwitch,
+        liscenceTerms,
+        openBook,
   };
 
 };

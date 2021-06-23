@@ -2553,6 +2553,97 @@ const verifyIGOTpage=()=>{
         console.log(err);
     }
 }
+const verifyFilterscreatingBook=()=>{
+    try{
+        browser.sleep(3000);
+        console.log("User is trying to create book")
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.book), 20000,"Book page not loaded");
+        etbpage.etb().book.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.bookName), 20000,"Book page not loaded");
+        bookname= "BookA"+faker.randomData().firstname;
+        etbpage.etb().bookName.sendKeys(bookname);
+        FillBmesWhileCreatingBook();
+        ccpage.contentCreation().startCreating.click();
+        browser.sleep(5000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.clickUseEditor), 20000, "clickUseEditor is not available");
+        etbpage.etb().clickUseEditor.click();
+        browser.sleep(500);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.newchild), 20000, "Didn't switched to different frame");
+        ccpage.contentCreation().newchild.click();
+        sanityPage.SanityElement().UnitName.sendKeys(faker.randomData().firstname);
+        browser.sleep(1000);
+        sanityPage.SanityElement().saveButton.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().closePage.click();
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.SelectTextBook), 20000, "allTextBook  is not available");
+        //expect(etbv.SelectTextBook.getText()).toEqual('All Textbooks');
+        etbv.SelectTextBook.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkEditDetails), 20000, "clkEditDetails  is not available");
+        sanityPage.SanityElement().clkEditDetails.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkAppIcon), 50000, "clkAppIcon  is not available");
+        sanityPage.SanityElement().clkAppIcon.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(etbv.allImage, 30000, "allImage button not available");
+        etbv.allImage.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(etbv.myImage, 30000, "myImage button not available");
+        etbv.myImage.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().chkAppIcon.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().sltButton.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().clkBoard.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().sltBoard.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().clkMedium.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().sltMedium.click();
+        browser.sleep(3000);
+        var we =sanityPage.SanityElement().clkClass;
+                    browser.executeScript("arguments[0].scrollIntoView();", we.getWebElement()).then(function(){
+                    we.click();
+                    });
+        browser.sleep(3000);
+        sanityPage.SanityElement().SltClass.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().clkSubject.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().SltSubject.click();
+        browser.sleep(3000);
+        browser.executeScript("arguments[0].scrollIntoView();", content.author);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.author), 20000, "topicSelectorDone not available");
+        content.author.click();
+        browser.sleep(2000);
+        content.author.sendKeys("Ekstep");
+        etbv.yearOfCreation.click();
+        browser.sleep(2000);
+        etbv.yearOfCreation.clear();
+        etbv.yearOfCreation.sendKeys("2020");          
+        sanityPage.SanityElement().clkSaveEdit.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().clkCloseButton.click();
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+
+
+
+
 
 
 module.exports = {
@@ -2601,6 +2692,7 @@ module.exports = {
     verifyEnableAndDisableDiscussionForGroup2,
     updateDiscussionForumPost,
     verifyIGOTpage,
+    verifyFilterscreatingBook,
 }
 
     

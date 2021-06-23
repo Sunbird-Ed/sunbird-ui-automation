@@ -47,7 +47,7 @@ exports.config = {
         //  VerifyHideActionOnEledment5:['test/specs/ETBSpecs/DownloadQrcodeInDraftPublishedAndLimitedSharing.spec.js'],
         // VerifyHideActionOnEledment6:['test/specs/ETBSpecs/CreateBookWithNoContentAndFilledEditDetailsForm.spec.js'],
         //  VerifyHideActionOnEledment7:['test/specs/ETBSpecs/TenantSpecificValidation.spec.js'],
-       //   VerifyHideActionOnEledment8:['test/specs/sanity2/CreateCourseAndVerify.spec.js'],
+       //  VerifyHideActionOnEledment8:['test/specs/sanity2/CreateCourseAndVerify.spec.js'],
         },
     allScriptsTimeout: 40000,
 

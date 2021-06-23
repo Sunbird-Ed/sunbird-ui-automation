@@ -427,7 +427,7 @@ var contentCreation = () => {
     var mediumDropdown=element(by.xpath("//sui-multi-select[@id='medium']"));
     var gradeLevelDropDown=element(by.xpath("//sui-multi-select[@id='gradeLevel']"));
     var subjectDropdown=element(by.xpath("//sui-multi-select[@id='subject']"));
-    var submitButtonForDropdowns=element(by.xpath("//sui-modal/sui-dimmer/div/div/div/div[3]/button"));
+    var submitButtonForDropdowns=element(by.xpath("//button[contains(text(),' Submit ')]"));
    // var selectBoardValue=element(by.xpath("//span[contains(text(),'CBSE/NCERT')]"));
     var selectBoardValue=element(by.xpath("//span[contains(text(),'State (Andhra Pradesh)')]"));
 
@@ -491,6 +491,17 @@ var contentCreation = () => {
     var googleNextButton = element(by.xpath("(//*[(@class='VfPpkd-Jh9lGc')])[1]"));
     var googlePassword = element(by.xpath("(//*[(@type='password')])[1]"));
 
+    var SSOUserName = element(by.xpath("//*[contains(@id,'name')]"));
+    var SSOUserExtID = element(by.xpath("//*[contains(@name,'user_external_id')]"));
+    var SSOSchoolExtID = element(by.xpath("//*[contains(@name,'school_external_id')]"));
+    var SSOsubmit = element(by.xpath("//*[contains(@name,'submit')]"));
+    var SSOStateSelect = element(by.xpath("//*[contains(text(),'tn')][1]"));
+    var SSOSubmit2 = element(by.xpath("//*[contains(@class,'sb-btn sb-btn-normal w-100 sb-btn-primary')]"));
+    var UpdateButton = element(by.xpath("//button[contains(text(),'Update')]"));
+    var DataDropdown = element(by.xpath("//*[contains(@class,'cfe-multiselect-field-label-container list-border')]"));
+    var SelectDataDropdown = element(by.xpath("//*[contains(text(),'Haryana State')]"));
+    var myDetails = element(by.xpath("//*[contains(text(),'Haryana State')]"));
+    var SelectTextBook = element(by.xpath("//*[contains(@class,'ui image')]"));
    
 
   
@@ -937,6 +948,17 @@ var contentCreation = () => {
         GoogleUserName,
         googleNextButton,
         googlePassword,
+        SSOUserName,
+        SSOUserExtID,
+        SSOSchoolExtID,
+        SSOsubmit,
+        SSOStateSelect,
+        SSOSubmit2,
+        UpdateButton,
+        DataDropdown,
+        SelectDataDropdown,
+        myDetails,
+        SelectTextBook,
     };
 
 

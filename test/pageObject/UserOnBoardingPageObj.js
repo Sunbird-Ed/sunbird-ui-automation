@@ -1289,7 +1289,55 @@ const verifyUserCourseProgress=()=>{
                         console.log("Verification failed YOBpopup for new CustodianUsers");
                 }
             }
-            
+            const verifySSOAndCustodianMerge=()=>{
+                try
+                {
+                    wait.waitForElementVisibility(content.statelogin, 20000);
+                    content.statelogin.click();
+                    browser.sleep(1000);
+                    wait.waitForElementVisibility(content.stateInsideEdit, 20000);
+                    content.stateInsideEdit.click();
+                    browser.sleep(1000);
+                    wait.waitForElementVisibility(content.SSOStateSelect, 20000);
+                    content.SSOStateSelect.click();
+                    browser.sleep(1000);
+                    wait.waitForElementVisibility(content.SSOSubmit2, 20000);
+                    content.SSOSubmit2.click();
+                    browser.sleep(1000); 
+                    wait.waitForElementVisibility(content.SSOUserName, 20000);
+                    content.SSOUserName.sendKeys('rambo');
+                    browser.sleep(1000); 
+                    wait.waitForElementVisibility(content.SSOUserExtID, 20000);
+                    content.SSOUserExtID.sendKeys('rambo1');
+                    browser.sleep(1000); 
+                    wait.waitForElementVisibility(content.SSOSchoolExtID, 20000);
+                    content.SSOSchoolExtID.sendKeys('33291500301');
+                    browser.sleep(1000);
+                    wait.waitForElementVisibility(content.SSOsubmit, 20000);
+                    content.SSOsubmit.click();
+                    browser.sleep(1000);
+                    wait.waitForElementVisibility(content.headerDropdown, 20000);
+                    content.headerDropdown.click();
+                    browser.sleep(1000);
+                    wait.waitForElementVisibility(content.mergeAccount, 20000);
+                    content.mergeAccount.click();
+                    browser.sleep(1000);
+                    wait.waitForElementVisibility(content.mergebutton, 20000);
+                    content.mergebutton.click();
+                    browser.sleep(1000);
+                    wait.waitForElementVisibility(content.userName, 20000);
+                        content.userName.sendKeys('custod2user@yopmail.com');
+                        browser.sleep(3000);
+                        content.password.sendKeys('Test@123');
+                        browser.sleep(3000);
+                        content.login.click();
+                  }
+                  catch(Exception)
+                  {
+                      console.log("Failed on adding user");
+                  }
+                }
+        
 
 module.exports = {
     verifyAdminDashBoard,
@@ -1325,5 +1373,6 @@ module.exports = {
     verifyYOBpopUpdisplayedToNewAndExistingUsers,
     VerifyMUAusersYOBpopupNotBedisplayed,
     verifyReportIssueButton,
+    verifySSOAndCustodianMerge,
 }
 

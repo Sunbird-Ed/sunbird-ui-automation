@@ -2643,7 +2643,14 @@ const verifyUserAccessLiscenceTerms = () => {
         console.log('User not able to access Liscence Terms Section');
     }
 }
-
+const verifyMCSBookPostSearch = () => {
+    try {
+        sanityFun.verifyFilterscreatingBook();
+    }
+    catch (err) {
+        console.log(' User not able to create book');
+    }
+}
 module.exports = {
     navigateToWorkspace,
     checkForDisabledAndEnabled,
@@ -2700,4 +2707,5 @@ contentInSubjectWiseIncourseTab,
 verifyCountWithState,
 TVClassSearch,
 verifyUserAccessLiscenceTerms,
+verifyMCSBookPostSearch,
 }

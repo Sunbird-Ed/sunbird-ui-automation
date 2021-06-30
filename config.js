@@ -15,16 +15,16 @@ exports.config = {
         
 
 
-    sanity1: 'test/specs/sanity1/*.spec.js',
-  sanity2: 'test/specs/sanity2/*.spec.js',
-   sanity3: 'test/specs/sanity3/*.spec.js',
+    //sanity1: 'test/specs/sanity1/*.spec.js',
+  //sanity2: 'test/specs/sanity2/*.spec.js',
+   //sanity3: 'test/specs/sanity3/*.spec.js',
      // sanity3: 'test/specs/sanity3/verifyTheBestScoreDisplayedinCourseToc.spec.js',
     //sanity3: 'test/specs/sanity3/downloadUsersCsvData.spec.js',
  //userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
  //collaborationAndInteraction: 'test/specs/collaborationAndInteraction/*.spec.js',
- // sourcing1: 'test/specs/sourcing1/*.spec.js',
-  //sourcing2: 'test/specs/sourcing2/*.spec.js',
-  //sourcing3: 'test/specs/sourcing3/*.spec.js',
+  sourcing1: 'test/specs/sourcing1/*.spec.js',
+  sourcing2: 'test/specs/sourcing2/*.spec.js',
+  sourcing3: 'test/specs/sourcing3/*.spec.js',
 
   //TPDCollobration: 'test/specs/TPDCollobaration/*.spec.js',
      //   useronboarding: 'test/specs/userOrgAndCredentials/*.spec.js',

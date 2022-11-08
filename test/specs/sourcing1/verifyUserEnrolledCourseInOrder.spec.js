@@ -30,13 +30,12 @@ describe('Course Enrolled By the user should dispay in descending order', () => 
         // let coursename=EnrollTBFCPageObj.sendForReviewCourseWithName();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        EnrollTBFCPageObj.publishCourseFromUpForReview(courseName);
+        EnrollTBFCPageObj.publishContentFromUpForReviewBucket(courseName);
         utility.userLogout();
         utility.userLogin('Mentor');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
-        //let courseName = "do_2134299735418552321800";
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.enrollForOpenBatch();

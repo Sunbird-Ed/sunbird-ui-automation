@@ -30,7 +30,7 @@ describe('createAllCollectionContentAndConsume', () => {
         let collectionName1 = collectionPageObj.createCollectionWithDiffCollectionTypes("digitalTxtbook");
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(collectionName1);
+        tpdPageObj.publishContentFromUpForReviewBucket(collectionName1);
         utility.userLogout();
         utility.userLogin('Creator');
         CreateIOBBAMAMFRASPageObj.consumeDigitalTextBook();
@@ -40,7 +40,7 @@ describe('createAllCollectionContentAndConsume', () => {
         let collectionName2 = collectionPageObj.createCollectionWithDiffCollectionTypes("contentPlaylist");
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(collectionName2);
+        tpdPageObj.publishContentFromUpForReviewBucket(collectionName2);
         utility.userLogout();
         utility.userLogin('Creator');
         CreateIOBBAMAMFRASPageObj.consumeContentPlaylist();

@@ -23,6 +23,5 @@ describe('verifyCourseSavedWithCurriculum', () => {
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         sanityfun.TargetFrameworkWithMultipleCategoricalValues("k12");
-
     });
 });    

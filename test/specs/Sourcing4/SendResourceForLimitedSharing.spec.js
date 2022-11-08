@@ -24,16 +24,12 @@ describe('SendResourceForLimitedSharing', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionFITBWithAllStyles();
+        console.log(contentName);
+        //let contentName="ResourceADomenica";
         resourcePageObj.sendForLimitedSharing(contentName);
         resourcePageObj.clickingTheResourceFromShareViaLinkBucket();
         resourcePageObj.sendForReviewInShareVialink();
-        // utility.userLogout();
-        // utility.userLogin('Reviewer');
-        // resourcePageObj.reviewInSubmissions();
-        // resourcePageObj.publishTheResourceFromUpForReview(contentName);
-        // utility.userLogout();
-        // utility.userLogin('Creator');
-        // resourcePageObj.deleteCreatedItems();
+        
 
     });
 });

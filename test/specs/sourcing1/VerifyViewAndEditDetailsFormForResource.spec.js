@@ -1,6 +1,7 @@
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
+const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 
 describe('VrifyViewAndEditDetailsFormForResource', () => {
 
@@ -27,11 +28,8 @@ describe('VrifyViewAndEditDetailsFormForResource', () => {
         resourcePageObj.sendForReviewTheResource();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        //let contentName = "do_21337527559235174411623"
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
-        utility.userLogout();
-        utility.userLogin('Public User1');
-        resourcePageObj.ConsumeResourceAndValidateScoreForFITB(contentName);
+        
       
 
     });

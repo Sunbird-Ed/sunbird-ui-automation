@@ -33,16 +33,11 @@ describe('Create Course save and send for review and publish.', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        tpdPageObj.publishContentFromUpForReviewBucket(courseName)
         utility.userLogout();
         utility.userLogin('Creator');
         utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();
-
-
     })
-
-
-
 });
 

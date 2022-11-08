@@ -21,7 +21,6 @@ describe('able to create course and enroll consume EnrollingToBatchForCourse.spe
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('EnrollingToBatchForCourse', function () {
@@ -30,16 +29,15 @@ describe('able to create course and enroll consume EnrollingToBatchForCourse.spe
         utility.userLogin('Creator');
         utility.validateWorkspace();
         let courseName = sanityfun.createCourseAndSendForReview();
+        console.log(courseName);
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        tpdPageObj.publishContentFromUpForReviewBucket(courseName)
         utility.userLogout();
-
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        //  EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
-        ///   EnrollTBFCPageObj.createOpenBatchWithEnrolmentDate();
+     
         EnrollTBFCPageObj.createOpenBatch();
 
         utility.userLogout();
@@ -48,8 +46,6 @@ describe('able to create course and enroll consume EnrollingToBatchForCourse.spe
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch();
         utility.userLogout();
-
-
         utility.userLogin('Creator');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.checklastUpdatedOption();

@@ -13,14 +13,13 @@ describe('Course creator should have two section under "Courses Batches" :1.Crea
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('verifyAllBatchDetailsInCourseBatches',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
@@ -29,8 +28,7 @@ describe('Course creator should have two section under "Courses Batches" :1.Crea
         let courseName=sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
-        tpdPageObj.publishCourseFromUpForReview(courseName);;
+        tpdPageObj.publishContentFromUpForReviewBucket(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
@@ -40,13 +38,14 @@ describe('Course creator should have two section under "Courses Batches" :1.Crea
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         let fetchCoursename =tpdPageObj.enrollForOpenBatch();
         utility.userLogout();
+        // let courseName="CourseCLauryn";
         utility.userLogin('Creator');
         tpdPageObj.navigateToWorkspaceFeatures();
         tpdPageObj.validateCourseInAssigToMeSection(courseName);
         tpdPageObj.navigateToWorkspaceFeatures();
         tpdPageObj.verifyCourseInOnGoingBatchSection();
         tpdPageObj.updateBatches();
-        tpdPageObj.validateAllBatches();
+       
         
     });
  

@@ -34,9 +34,6 @@ describe('is Able to create Question MTF and  Consume by other Users and Creator
         utility.userLogin('Public User1');
         resourcePageObj.ConsumeResourceAndValidateScoreForMTF(contentName);
       
-      
-      
-      
     })
     
 });

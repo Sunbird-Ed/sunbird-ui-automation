@@ -31,7 +31,7 @@ describe('validateMetadataValuesForCurriculumInrootnode', () => {
         utility.userLogout();
         utility.userLogin('ContentReviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishCourseFromUpForReview2(courseName);
+        tpdPageObj.publishContentFromUpForReviewBucket2(courseName);
         utility.userLogout();
         utility.userLogin('ContentCreator');
         utility.validateWorkspace();

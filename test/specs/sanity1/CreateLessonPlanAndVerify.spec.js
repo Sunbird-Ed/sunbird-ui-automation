@@ -22,14 +22,14 @@ describe('Create Lesson plan save and send for review and publish.', () => {
     it('CreateLessonPlanAndVerify ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let lessonPlan=lessonPlanPageObj.createLessonPlan();
         lessonPlanPageObj.sendForReviewTheLessonPlan();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         lessonPlanPageObj.publishTheLessonPlanFromUpForReview(lessonPlan);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         utility.validateWorkspace();
         lessonPlanPageObj.deleteCreatedItems();
         

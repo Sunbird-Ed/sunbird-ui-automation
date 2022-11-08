@@ -17,25 +17,34 @@ exports.config = {
         sanity2: 'test/specs/sanity2/*.spec.js',
         sanity3: 'test/specs/sanity3/*.spec.js',
 
-        //sanity1: 'test/specs/Consumption/verifyThatUserCanEnrollToOngoingBatchAlreadyExpiredBatch.spec.js',
-        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
-        // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
-
-        // sanity1: 'test/specs/sanity2/CreateMCQQuestionSet.spec.js',
-        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
-        // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
-        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
-        // Consumption: 'test/specs/Consumption/*.spec.js',
-
-
-        // sourcing1: 'test/specs/sourcing1/*.spec.js',
-        // sourcing2: 'test/specs/sourcing2/*.spec.js',
         // sourcing1: 'test/specs/sourcing1/*.spec.js',
         // sourcing2: 'test/specs/sourcing2/*.spec.js',
         // sourcing3: 'test/specs/sourcing3/*.spec.js',
-        // sourcing21: 'test/specs/so8/*.spec.js',
+        // sourcing4: 'test/specs/sourcing4/*.spec.js',
+
+        // sanity1: 'test/specs/Consumption/verifyConsumptionOfPDFcontentInFullscreenMode.spec.js',
+        // userOrgAndCredentials: 'test/specs/sourcing1/VerifyCreatorAbleToCreateMultipleCategoricalValues.spec.js',
+        // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
+
+        // sanity1: 'test/specs/sanity2/CreateMCQQuestionSet.spec.js',
+
+        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
+        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
 
         // TPDCollobration: 'test/specs/TPDCollobaration/*.spec.js',
+        // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
+        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
+        //Consumption: 'test/specs/Consumption/*.spec.js',
+
+
+        // sourcing3: 'test/specs/sourcing3/*.spec.js',
+        // sourcing4: 'test/specs/sourcing4/*.spec.js',
+        // sourcing1: 'test/specs/sourcing1/*.spec.js',
+        // sourcing2: 'test/specs/sourcing2/*.spec.js',
+        // sourcing3: 'test/specs/sourcing3/*.spec.js',
+        // sourcing21:'test/specs/so8/*.spec.js',
+
+
         // useronboarding: 'test/specs/Consumption/*.spec.js',
         // contentcreation: 'test/specs/content-creation/*.spec.js',
         // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
@@ -59,8 +68,8 @@ exports.config = {
         // NavigateToTabUsingKeyBoard: ['test/specs/Consumption/NavigateToTabUsingKeyBoard.spec.js'],
         // TimerVerification: ['test/specs/sanity2/TimerVerification.spec.js'],
 
-  
     },
+
     allScriptsTimeout: 4000000000,
 
     // suites: {
@@ -77,7 +86,7 @@ exports.config = {
         version: '78.0.3904.108',
         platform: 'Any',
         shardTestFiles: true,
-        maxInstances: 3,
+        maxInstances: 2,
         chromeOptions: {
             prefs: {
                 profile: {

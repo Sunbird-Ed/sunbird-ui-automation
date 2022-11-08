@@ -2,6 +2,7 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const searchCBFPPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
+const etbFun = require(protractor.basePath + '/test/pageObject/etbPageObj.js');
 
 describe('VerifyCourseDetails', () => {
 
@@ -17,15 +18,15 @@ describe('VerifyCourseDetails', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
-        
     });
+    
     it('VerifyCourseDetails',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
-        searchCBFPPageObj.startLeaning();
+        etbFun.searchContentInExplorePagewithoutBack("do_21333638997764505612253");
+        searchCBFPPageObj.verifyCourseDetail();
     });
 });
    

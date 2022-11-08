@@ -28,7 +28,7 @@ describe('verifyCreateContentByRegionalLanguage', () => {
         let bookName = sanityfun.createBookwithRegionalLanguage();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(bookName);
+        tpdPageObj.publishContentFromUpForReviewBucket(bookName);
         
         
     })

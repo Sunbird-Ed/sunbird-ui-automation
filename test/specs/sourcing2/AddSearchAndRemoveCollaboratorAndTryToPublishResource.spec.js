@@ -29,6 +29,6 @@ describe('to create resource and add colaborator,remove colaborator and send the
         utility.userLogin('Creator');
         addSARCATTPRPageObj.unavailbleInCollaboratorSendTheResourceForReview(resourceName);
     
-        });AddSearchAndRemoveCollaboratorAndTryToPublishResource
+        });
       
     });

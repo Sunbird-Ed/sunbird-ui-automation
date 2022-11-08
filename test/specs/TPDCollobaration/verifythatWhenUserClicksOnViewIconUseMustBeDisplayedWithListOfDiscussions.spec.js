@@ -19,7 +19,7 @@ describe('Verify if user click of Tag menu, when there are no tags available, us
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('verifyUseMustBeDisplayedWithListOfDiscussions ',function(){
+    it('verifythatWhenUserClicksOnViewIconUseMustBeDisplayedWithListOfDiscussions ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('LoadAnimation');

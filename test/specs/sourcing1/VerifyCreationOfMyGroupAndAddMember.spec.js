@@ -22,7 +22,7 @@ describe('VerifyCreationOfMyGroupAndAddMember', () => {
     it('VerifyCreationOfMyGroupAndAddMember ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Mentor');
+        utility.userLogin('Mentor2');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMember();
         
      

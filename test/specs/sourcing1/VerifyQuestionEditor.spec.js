@@ -23,13 +23,11 @@ describe('VerifyQuestionEditor', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        // utility.handleLocationPopup();
-        // utility.userLogin('Creator');
-        // let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();
-        // resourcePageObj.sendForReviewTheResource();
-        // utility.userLogout();
-        // utility.userLogin('Reviewer');
-        // resourcePageObj.publishTheResourceFromUpForReview(contentName);
+        let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();
+        resourcePageObj.sendForReviewTheResource();
+        utility.userLogout();
+        utility.userLogin('Reviewer');
+        resourcePageObj.publishTheResourceFromUpForReview(contentName);
         // utility.userLogout();
         // utility.userLogin('Public User1');
         // resourcePageObj.ConsumeResourceAndValidateScoreForMCQ(contentName);

@@ -22,7 +22,6 @@ describe('selectDeselectOrgFramework', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-        //utility.validateWorkspace();
         sanityfun.createCourseForFrameworkWithTopicAndSubject("k12");
     });
 });

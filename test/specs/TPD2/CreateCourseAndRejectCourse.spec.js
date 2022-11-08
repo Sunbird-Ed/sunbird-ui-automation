@@ -29,8 +29,9 @@ describe('After Rejecting course Add New Resource , again publish', () => {
         utility.validateWorkspace();
         let courseName=sanityfun.createCourseAndSendForReview();
         utility.userLogout();
+        //let courseName ="course";
         utility.userLogin('Reviewer');
-        resourcePageObj.rejectCourse(courseName)
+        resourcePageObj.rejectCourse(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
         tpdPageObj.contentSearchInDraftAndEdit(courseName);

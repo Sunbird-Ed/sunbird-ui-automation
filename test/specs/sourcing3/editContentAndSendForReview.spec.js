@@ -31,7 +31,7 @@ describe('editContentAndSendForReview', () => {
         console.log(bookName);
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(bookName);
+        tpdPageObj.publishContentFromUpForReviewBucket(bookName);
         utility.userLogout();
         utility.userLogin('Creator');
         tpdPageObj.contentSearchInPublishedAndEdit(bookName);

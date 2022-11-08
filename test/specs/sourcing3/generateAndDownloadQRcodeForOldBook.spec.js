@@ -27,19 +27,18 @@ describe('generateAndDownloadQRcodeForOldBook', () => {
     it('generateAndDownloadQRcodeForOldBook', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Book Creator');
+        utility.userLogin('Creator');
         let bookName = sanityfun.createBookSaveAsDraft();
         utility.userLogout();
-        //let bookName = "BookBSanford";
-        utility.userLogin('Book Creator');
+        
+        utility.userLogin('Creator');
         tpdPageObj.dwnldAndGenerateQRinBookFromDraft(bookName);
         utility.userLogout();
-        utility.userLogin('Book Creator');
-        //let bookName ="BookBMaximilian";
-        utility.userLogin('Book Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(bookName);
+        
+        utility.userLogin('Reviewer');
+        tpdPageObj.publishContentFromUpForReviewBucket2(bookName);
         utility.userLogout();
-        utility.userLogin('Book Creator');
-        tpdPageObj.dwnldAndGenerateQRinBookFromPublish(bookName);
+        // utility.userLogin('Book Creator');
+        // tpdPageObj.dwnldAndGenerateQRinBookFromPublish(bookName);
     })
 });

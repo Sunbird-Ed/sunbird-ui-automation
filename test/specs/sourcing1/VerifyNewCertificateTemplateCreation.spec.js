@@ -27,13 +27,6 @@ describe('VerifyNewCertificateTemplateCreation' , () => {
         browser.sleep(3000);
         utility.userLogin('Creator');
         tpdPageObj.newCertificateTemplateCreation();
-        
-         
-
-      
     })
-
-   
-   
 });
    

@@ -24,7 +24,7 @@ describe('VerifyAdminCanEditTextBook', () => {
     it('VerifyAdminCanEditTextBook',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('ContentCreator');
+        utility.userLogin('Creator');
         let bookName= sanityfun.createBookSaveAsDraft();
         tpdPageObj.contentSearchInDraftAndEdit(bookName)
     })

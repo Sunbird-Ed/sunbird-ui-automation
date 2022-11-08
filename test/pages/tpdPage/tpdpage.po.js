@@ -154,7 +154,7 @@ const tpdPage = () => {
     var batchCreateTostrMsg = element(by.xpath("//strong[contains(text(),'Batch created successfully...')] "));
     var clickEnrollmentEditButton = element(by.xpath("(//*[contains(text(),'Edit')])[1]"));
     var updateEnrollmentDate = element(by.xpath("//input[@formcontrolname='enrollmentEndDate']/../../../../../../../../../../../../sui-popup/div/sui-datepicker/sui-calendar-date-view/table/tbody/tr/td[@class='link ng-star-inserted']"));
-    //var  updateBatch = element(by.xpath("//button[contains(text(),'Update')] "));
+    var  batchUpdate = element(by.xpath("//button[contains(text(),'Update')]"));
     var updateBatch = element(by.xpath("//button[text()=' Create ']"));
     var batchUpdateTostrMsg = element(by.xpath("//strong[contains(text(),'Batch updated successfully...')] "));
     var viewCourseDashBoard = element(by.xpath("//button[contains(text(),'View training dashboard')]"));
@@ -217,16 +217,17 @@ const tpdPage = () => {
     var upcomingBatch = element(by.xpath("//span[contains(text(),'Upcoming')]"));
     var calenderIcon = element(by.xpath("(//i[@class='calendar outline icon'])[1]"));
     var courseName1 = element(by.xpath("(//h4[@class='sb-card-title'])[1]"));
-    var assignedToMe = element(by.xpath("//a[contains(text(),'Assigned to me')]"));
+    var assignedToMe = element(by.xpath("//div[@id='search-input-container']//following::a[contains(text(),'Assigned to me')]"));
     var courseOnGoingBatch1 = element(by.xpath("(//span[contains(text(),'Ongoing Courses')]//following::span[contains(@class,'batch-content-description batch-card')])"));
     var clickCreateByMeSection = element(by.xpath("(//*[@href='/workspace/content/batches/created']//following::a[1])[1]"));
     var courseNameInOnGoingBatches = element(by.xpath("(//span[contains(@class,'batch-card-ellipsis batch-course-name w-100 fs-0-92')])[1]"));
-    var lockicon = element(by.xpath("(//h4[contains(text(),'Ongoing Courses')]//following::i[contains(@class,'right floated unlock alternate icon')])[1]"));
-    var courseUpcomingBatch = element(by.xpath("(//span[contains(text(),'Upcoming Batches')]//following::span[contains(@class,'batch-content-description batch-card-ellipsis w-162')])[1]"));
-    var courseExpiredBatch = element(by.xpath("(//span[contains(text(),'Expired Courses')]//following::span[contains(@class,'batch-content-description batch-card')])[1]"));
+    var lockicon = element(by.xpath("(//span[contains(text(),'Ongoing Courses')]//following::i[contains(@class,'right floated unlock alternate icon')])[1]"));
+    var courseUpcomingBatch = element(by.xpath("//span[contains(text(),'Upcoming Courses')]//following::div[7]"));
+    var courseExpiredBatch = element(by.xpath("//span[contains(text(),'Expired Courses')]//following::div[7]"));
     var expiredCoursesCourse = element(by.xpath("(//h4[contains(.,'Expired Courses')]/following::div[contains(@class,'ui link cards')]//div[@class='image'])[1]"));
     var mentorsInBatch1 = element(by.xpath("(//div[@class='createbatchdropdown ui fluid multiple search selection dropdown disabled'])[1]"));
     var closePopUp = element(by.xpath("//i[contains(@class,'close icon')]"));
+    var closeForum = element(by.xpath("//button[contains(@id,'close-discussion-forum')]"));
     var onGoingViewAll = element(by.xpath("//h4[contains(text(),'Ongoing Courses')]//following::button[1]"));
     var validatecourseCardList = element(by.xpath("(//div[@class='batch-content'])[1]"));
     var closeCourse = element(by.xpath("//button[contains(text(),'Close')]"));
@@ -404,15 +405,15 @@ const tpdPage = () => {
     var groupAdminIcon = element(by.xpath("//div[text()='Admin']"));
     var addActivityButton = element(by.xpath("//button[contains(@class,'sb-btn sb-btn-primary')]"));
     var nextButton = element(by.xpath("//button[@type='submit']"));
-    var selectFirstCourse = element(by.xpath("(//div[@class='sb--card__main-area'])[1]"));
+    var selectFirstCourse = element(by.xpath("//h4[contains(text(),'Course')]"));
     var addToGroupButton = element(by.xpath("//*[text()='Add to group']"));
     var addedSuccessfully = element(by.xpath("//div[@class='iziToast-wrapper iziToast-wrapper-topCenter']"));
     var addMember = element(by.xpath("//div[contains(text(),'Add member')]"));
     var crossButton = element(by.xpath("(//i[contains(@class,'icon-svg icon-svg--xs')])[2]"));
-    var EnterUserId = element(by.xpath("//div[contains(text(),' Add member ')]//following::input"));
-    var verifyUserId = element(by.xpath("//div[contains(text(),' Add member ')]//following::button"));
+    var EnterUserId = element(by.xpath("//input[contains(@aria-label,'search user id')]"));
+    var verifyUserId = element(by.xpath("//input[contains(@aria-label,'search user id')]//following::button[text()='Verify']"));
     var addingMembertoGroup = element(by.xpath("//button[contains(text(),' Add to group ')]"));
-    var UserAddedSuccessfully = element(by.xpath("//div[contains(text(),' Members ')]//following::span[contains(text(),'Content reviewer‎')]"));
+    var UserAddedSuccessfully = element(by.xpath("//*[@class='iziToast-title slideIn'])]"));
     var joinCourseButton = element(by.xpath("//button[text()='Join Course']"));
     var joinBatch = element(by.xpath("//button[text()='Join']"));
     var startlearningButton = element(by.xpath("//button[text()='Start learning']"));
@@ -475,7 +476,7 @@ const tpdPage = () => {
     var addCollaboratorDoneButton = element(by.xpath("//button[text()='Done']"));
     var publishTheCourse = element(by.xpath("//button[text()=' Publish ']"));
     var confirmForPublishBook = element(by.xpath("//button[text()=' Yes ']"));
-    var rejectThecourse = element(by.xpath("//button[text()=' Reject ']"));
+    var rejectThecourse = element(by.xpath("//button[contains(text(),'Reject')]"));
     var moduleProgress = element(by.xpath("//div[@class='certified-course__progress ng-star-inserted']//div[text()='Module progress']"));
     var clkCollapseAll = element(by.xpath("//*[contains(text(),'Collapse all')]"));
     var clkSwitchClassicTheme = element(by.xpath("//span[contains(text(),'Switch to classic theme')]"));
@@ -607,7 +608,7 @@ const tpdPage = () => {
     var assertBatchDropdownOnGoing = element(by.xpath("//div[@class='title active']//following::span[2]//following::span[contains(text(),'Ongoing')]"));
     var assertBatchDropdownUpcoming = element(by.xpath("//div[@class='title active']//following::span[2]//following::span[contains(text(),'Upcoming')]"));
     var assertBatchDropdownExpired = element(by.xpath("//div[@class='title active']//following::span[2]//following::span[contains(text(),'Expired')]"));
-    var assertEnrollEndDateWithYear = element(by.xpath("//*[contains(text(),'2021')]"));
+    var assertEnrollEndDateWithYear = element(by.xpath("(//*[contains(text(),'2022')])[1]"));
     var assertEnrollEndDateWithInBatchSec = element(by.xpath("//div[contains(text(),' Created by content creator ')]//following::*[contains(text(),'Last date for enrolment:')]"));
     var clkCancelBtnPublishPopup = element(by.xpath("//button[contains(text(),'Cancel')]"));
     var clkNoBtnPublishPopup = element(by.xpath("//button[contains(text(),'No')]"));
@@ -843,9 +844,116 @@ const tpdPage = () => {
     var assertMediumUpdated = element(by.xpath("(//span[text()='Hindi'])[1]"));
     var assertClassUpdated = element(by.xpath("(//span[text()='Class 2'])[1]"));
 
+    var shareIcon = element(by.xpath("//*[@id='keyword']//following::button[contains(text(),' Share ')]"));
+
+    var sharePopUpCloseIcon = element(by.xpath("//*[@id='mat-dialog-title-0']//following::button[contains(@class,'close-btn')]"));
+    var assertCourseProgressInHindi = element(by.xpath("//div[text()='कोर्स प्रगति']"));
+    var assertCourseCompleteInHindi = element(by.xpath("//div[text()='100% पूर्ण']"));
+    var assertCourseSyncInHindi = element(by.xpath("//div[text()=' अब प्रगति को सिंक्रनाइज़ करें']"));
+    var sltKannadaLang = element(by.xpath("//span[contains(text(),'ಕನ್ನಡ')]"));
+    var assertCourseInProgKannada = element(by.xpath("//div[text()='ಕೋರ್ಸ್ ಪ್ರಗತಿ']"));
+    var assertCourseSyncInKannada = element(by.xpath("//div[text()=' ಈಗ ಪ್ರಗತಿಯನ್ನು ಸಿಂಕ್ ಮಾಡಿ']"));
+    var clkLangDropdown = element(by.xpath("//*[contains(text(),'हिंदी')]/following::i"));
+    var assertToastMsg = element(by.xpath("//strong[text()='You can view your updated course progress within 24 hours']"));
+    var assertConversationPage = element(by.xpath("//div[text()=' Add new conversation ']"));
+    var submitDiscussion = element(by.xpath("//button[contains(@id,'submit-discussion-start-form')]"));
 
 
-  
+    var viewCollaborator = element(by.xpath("//div[@data-title='View collaborator']//child::i[@class='icon user plus mr-0']"));
+    var courseEndDate =element(by.xpath("(//*[contains(@id,'dashoardFiltersHolder')]//following::span[@class='course-end-dt course-participants-label'])[2]"));
+    var courseEndDateLabel =element(by.xpath("(//*[contains(@id,'dashoardFiltersHolder')]//following::span[@class='course-end-dt course-participants-label'])[1]"));
+    var batchContentCard = element(by.xpath("//span[contains(text(),'Ongoing Courses')]//following::div[8]"));
+    var updatedBatchName = element(by.xpath("//span[contains(text(),'Ongoing Courses')]//following::span[2]"));
+    var listOfPublishedUserTypeDropDwn = element(by.xpath("//div[@id='search-input-container']//following::div[contains(@id,'audience')]//following::div[@class='cfe-multiselect-dropdown sb-modal-dropdown-web cfe-dropdown-web']"));
+    var courseTab = element(by.xpath("//a[contains(text(),'Digital textbooks')]//following::a[contains(text(),' Courses ')][1]"));
+    var tvClasstab = element(by.xpath("//a[contains(text(),'Digital textbooks')]//following::a[contains(text(),' TV classes ')]"));
+    var enableDiscussionInCreateBatch = element(by.xpath("(//input[@formcontrolname='enableDiscussions'])[1]"));
+    var validateForum = element(by.xpath("//*[@alt='Forum']"));
+    var KebabOptOnActionColumn = element(by.xpath("((//button[text()='Copy'])[1]//following::i)[1]"));
+    var editOptOnActionColumn = element(by.xpath("(//div[text()='Edit'])[1]"));
+    var deleteOptOnActionColumn = element(by.xpath("(//div[text()='Delete'])[1]"));
+    var DisableOptOnActionColumn = element(by.xpath("(//div[text()='Disable'])[1]"));
+    var inputSearchName = element(by.xpath("//input[@placeholder='Search']"));
+    var clkSearchName = element(by.xpath("(//button[text()='Search'])[2]"));
+    var assertConversationName = element(by.xpath("//label[text()='Conversation name ']"));
+    var assertConversationDesc = element(by.xpath("//label[text()='Conversation description']"));
+    var assertConversationPurpose = element(by.xpath("//label[text()='Purpose of the conversation ']"));
+    var assertStartingMsg = element(by.xpath("//label[text()='Starting message ']")); 
+    var assertNextButton = element(by.xpath("//button[text()=' Next ']"));
+    var assertConversationFlow = element(by.xpath("//div[text()='Conversation flow']"));
+    var EnableOptOnActionColumn = element(by.xpath("//div[text()='Enable']"));
+    var assertLiveOption = element(by.xpath("//td[text()='Live']"));
+    var enterConversationName = element(by.xpath("//input[@placeholder='Enter name']"));
+    var enterconversationPurpose = element(by.xpath("//input[@placeholder='Enter purpose']"));
+    var enterStartingMsg = element(by.xpath("//input[@placeholder='Enter message']"));
+    var assertNoLogicAdded = element(by.xpath("//div[text()=' No logic Added ']"));
+    var assertAddLogicBtn = element(by.xpath("//button[text()=' Add logic ']"));
+    var assertConvSetUpWithGreen = element(by.xpath("//button[@class='circular ui icon button green-bg-white-text']"));
+    var assertConvFlowWithBlue = element(by.xpath("//button[@class='circular ui icon button blue-bg-white-text']"));
+    var backBtnConvFlow = element(by.xpath("(//button[text()=' Back '])[2]"));
+    var assertConvSetUpWithBlue = element(by.xpath("//button[@class='circular ui icon button blue-bg-white-text']"));
+    var assertDisabledOption = element(by.xpath("//td[text()='Disabled']"));
+    var assertToastMsgEnable = element(by.xpath("//strong[text()='Enabled discussion forum successfully']"));
+    var addmemberButton = element(by.xpath("//input[@id='search-within-group']//following::*[contains(text(),'Add member')]"));
+    var addAnotheruser = element(by.xpath("//div[@aria-label='Add User']"));
+    var addUser = element(by.xpath("//input[contains(@id,'keyword')]//following::button[contains(text(),' Add user ')]"));
+    var userSelected = element(by.xpath("(//div[@class='sb-members-list-item sb-members-list-item--small sb-members-list-item--vertical'])[2]"));
+    var changeUserButton = element(by.xpath("//input[@id='keyword']//following::button[contains(text(),' Change user ')]"));
+    var userIdName = element(by.xpath("//input[contains(@id,'keyword')]//following::div[@id='copyUser']"));
+    var notificationBell = element(by.xpath("//input[contains(@id,'keyword')]//following::*[contains(@class,'icon bell-icon')]"));
+    var moreUser = element(by.xpath("//div[@class='more-user__btn']"));
+    var messageNotification = element(by.xpath("//div[contains(text(),'Notification')]//following::div[@class='sb-notification-list p-8'][1]"));
+    var userNameInput = element(by.xpath("//input[contains(@id,'keyword')]//following::input[contains(@placeholder,'Enter your name')]"));
+    var profilePage = element(by.xpath("//li[contains(text(),' Profile ')]"));
+    var hamburgerMenu = element(by.xpath("(//div[contains(@class,'menu ml-8')])[2]"));
+    var removeMember = element(by.xpath("//span[contains(text(),'Remove member')]"));
+    var backButton = element(by.xpath("//button[contains(@aria-label,'Back')]"));
+    var removeMemberPopup = element(by.xpath("//button[contains(text(),'Remove member')]"));
+    var myDiscussions = element(by.xpath("//a[text()='My discussion']"));
+    var clkGeneralDisc = element(by.xpath("(//div[text()=' General Discussion '])[1]"));
+    var enterAns = element(by.xpath("//textarea[@placeholder='Type here (minimum 10 characters)']"));
+    var postReply = element(by.xpath("//span[text()='Post Reply']"));
+    var assertRecentPost = element(by.xpath("//p[text()='automation demo']"));
+    var assertUserWithSplChar = element(by.xpath("//span[contains(text(),'$')]"));
+    var clearAllNotification = element(by.xpath("//a[text()='Clear']"));
+    var assertCountAtBellIcon = element(by.xpath("//div[text()='1']"));
+    var assertNotification = element(by.xpath("//div[text()='Notification']"));
+    var clkNotification1 = element(by.xpath("(//img[@class='Delete-gray'])[1]//following::div[1]"));
+    var clkNotification2 = element(by.xpath("(//img[@class='Delete-gray'])[2]//following::div[1]"));
+    var btnCloseNotificationList = element(by.xpath("//button[@aria-label='close dialog']"));
+    var assertNotification1Clickable = element(by.xpath("//h4[text()='Course details']"));
+    var assertNotification2Clickable = element(by.xpath("//h4[text()='Course details']"));
+    var clkFirstActivity = element(by.xpath("//div[text()=' Course ']//following::a[1]"));
+    var clkRemoveActivity = element(by.xpath("//span[text()='Remove activity']"));
+    var clkBtnRemove = element(by.xpath("//button[text()='Remove']"));
+    var deleteNotification = element(by.xpath("//img[@class='Delete-gray']"));
+    var deleteNotification2 = element(by.xpath("//img[@class='Delete-red']"));
+    var assertUnassignedMsg = element(by.xpath("//div[contains(text(),'has been unassigned')]"));
+    var assertAssignedMsg = element(by.xpath("//div[contains(text(),'has been assigned')]"));
+    var tagsButton = element(by.xpath("(//div[@class='discuss-left-panel']//following::a[contains(text(),'Tags')])[1]"));
+
+    var tagIcon = element(by.xpath("//div[@id='search-input-container']//following::span[@class='margin-left-m'][1]"));
+     
+
+    var assertConversations = element(by.xpath("//a[text()='Conversations']"));
+    var assertbotName = element(by.xpath("//th[text()=' Name ']//following::td[1]"));
+    var assertbotStaus = element(by.xpath("//th[text()=' Name ']//following::td[2]"));
+    var assertbotDesc = element(by.xpath("//th[text()=' Name ']//following::td[3]"));
+    var dropDownIssueCertificate = element(by.xpath("//div[text()='Select']//following::i[1]"));
+    var clkMyStateTeacher = element(by.xpath("//span[text()='My state teacher']"));
+    var clkmerit = element(by.xpath("//span[text()='100%']"));
+    var checkAllElements = element(by.xpath("//label[text()='All the elements and attributes are thoroughly verified']"));
+    var selCertificate1 = element(by.xpath("//button[text()=' Refresh ']//following::div[1]"));
+    var clkPreview = element(by.xpath("(//span[text()='Preview'])[1]"));
+    var btnSelTemplate = element(by.xpath("//button[text()=' Select template ']"));
+    var btnAddCertificate = element(by.xpath("//button[text()='Add certificate']"));
+    var assertCertificateAdded = element(by.xpath("//strong[text()='Certificate added successfully']"));
+    var assertCourseCardImage = element(by.xpath("//*[text()=' Share ']//preceding::img[1]"));
+    var assertCourseModule = element(by.xpath("//h4[text()=' Course modules']"));
+    var assertCourseUnit = element(by.xpath("//h4[text()=' Course Unit ']"));
+    var assertCourseDetails = element(by.xpath("//h4[text()='Course details']"));
+
+
     return {
         headerCourse,
         confirmForPublishBook,
@@ -1633,6 +1741,114 @@ const tpdPage = () => {
         assertBoardUpdated,
         assertMediumUpdated,
         assertClassUpdated,
+        shareIcon,
+        sharePopUpCloseIcon,
+        viewCollaborator,
+        assertCourseProgressInHindi,
+        assertCourseCompleteInHindi,
+        assertCourseSyncInHindi,
+        sltKannadaLang,
+        assertCourseInProgKannada,
+        assertCourseSyncInKannada,
+        clkLangDropdown,
+        assertToastMsg,
+        assertConversationPage,
+        courseEndDate,
+        courseEndDateLabel,
+        batchContentCard,
+        batchUpdate,
+        updatedBatchName,
+        listOfPublishedUserTypeDropDwn,
+        courseTab,
+        tvClasstab,
+        enableDiscussionInCreateBatch,
+        validateForum,
+        closeForum,
+        submitDiscussion,
+        KebabOptOnActionColumn,
+        editOptOnActionColumn,
+        deleteOptOnActionColumn,
+        DisableOptOnActionColumn,
+        inputSearchName,
+        clkSearchName,
+        assertConversationName,
+        assertConversationDesc,
+        assertConversationPurpose,
+        assertStartingMsg,
+        assertNextButton,
+        assertConversationFlow,
+        EnableOptOnActionColumn,
+        assertLiveOption,
+        enterConversationName,
+        enterconversationPurpose,
+        enterStartingMsg,
+        assertNoLogicAdded,
+        assertAddLogicBtn,
+        assertConvSetUpWithGreen,
+        assertConvFlowWithBlue,
+        backBtnConvFlow,
+        assertConvSetUpWithBlue,
+        assertDisabledOption,
+        assertToastMsgEnable,
+
+        addmemberButton,
+        addAnotheruser,
+        addUser,
+        userSelected,
+        changeUserButton,
+        userIdName,
+        notificationBell,
+        moreUser,
+        messageNotification,
+        userNameInput,
+        profilePage,
+        hamburgerMenu,
+        removeMember,
+        backButton,
+        removeMemberPopup,
+
+        myDiscussions,
+        clkGeneralDisc,
+        enterAns,
+        postReply,
+        assertRecentPost,
+        assertUserWithSplChar,
+        clearAllNotification,
+        assertCountAtBellIcon,
+        assertNotification,
+        clkNotification1,
+        clkNotification2,
+        btnCloseNotificationList,
+        assertNotification1Clickable,
+        assertNotification2Clickable,
+        clkFirstActivity,
+        clkRemoveActivity,
+        clkBtnRemove,
+        deleteNotification,
+        deleteNotification2,
+        assertUnassignedMsg,
+        assertAssignedMsg,
+
+        tagsButton,
+        tagIcon,
+
+        assertConversations,
+        assertbotName,
+        assertbotStaus,
+        assertbotDesc,
+        dropDownIssueCertificate,
+        clkMyStateTeacher,
+        clkmerit,
+        checkAllElements,
+        selCertificate1,
+        clkPreview,
+        btnSelTemplate,
+        btnAddCertificate,
+        assertCertificateAdded,
+        assertCourseCardImage,
+        assertCourseModule,
+        assertCourseUnit,
+        assertCourseDetails,
 
     }
 

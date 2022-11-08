@@ -28,7 +28,7 @@ describe('Create Collection save and send for review and publish.', () => {
         let collectionName = collectionPageObj.createCollection();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(collectionName)
+        tpdPageObj.publishContentFromUpForReviewBucket(collectionName)
         utility.userLogout();
         utility.userLogin('Creator');
         utility.validateWorkspace();

@@ -2,6 +2,9 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const searchCCWCFFIECPPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 const verifyCEBpageobj = require(protractor.basePath + '/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
+const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
+
+
 
 describe('able search in explore page', () => {
 
@@ -22,8 +25,7 @@ describe('able search in explore page', () => {
     it('SearchCourseContentWithCarryForwardFiltersInExploreCoursePage', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        searchCCWCFFIECPPageObj.navigateToTOCInExploreCoursePage();
-        verifyCEBpageobj.validateSignInPopupOnClickOnEnroll();
-
+        //searchCCWCFFIECPPageObj.navigateToTOCInExploreCoursePage();
+        tpdPageObj.verifyCourseData();
     })
 });

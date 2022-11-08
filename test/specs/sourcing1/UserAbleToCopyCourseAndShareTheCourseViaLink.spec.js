@@ -27,12 +27,10 @@ describe('Creator is able to copy course of same or different tenant and can sha
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         var courseName = sanityFun.copyContentFromTraining('Course');
-        //tpdPageObj.editTheCourseFromDraft(courseName);
-        //tpdPageObj.sendForReviewTheCourse();
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishCourseFromUpForReview(courseName);
+        tpdPageObj.publishContentFromUpForReviewBucket(courseName);
         utility.userLogout();
         utility.userLogin('SubOrgMentor');
         var courseName = sanityFun.copyContentFromTraining('Course');

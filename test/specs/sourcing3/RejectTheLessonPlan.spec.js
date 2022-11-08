@@ -25,19 +25,15 @@ describe('ontent reviewer is able to Publish/Reject content.( Lesson Plan).', ()
     it('RejectTheLessonPlan',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('Mentor2');
         let lessonPlan=lessonPlanPageObj.createLessonPlan();
         lessonPlanPageObj.sendForReviewTheLessonPlan();
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        resourcePageObj.rejectLessonPlan(lessonPlan)
+        utility.userLogin('ContentReviewer');
+        resourcePageObj.rejectTheLessonPlan(lessonPlan)
         utility.userLogout();
-        utility.userLogin('Creator');
-        resourcePageObj.editTheContentInDraft();
-        
-    })
-
-    
-   
+        utility.userLogin('Mentor2');
+        resourcePageObj.editTheContentInDraft();  
+    })   
 });
    

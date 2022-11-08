@@ -34,7 +34,7 @@ describe('updateCourseFromPublishedAndAllMyContentSection', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        tpdPageObj.publishContentFromUpForReviewBucket(courseName)
         utility.userLogout();
         utility.userLogin('Creator');
         //let courseName="courseCVincenza";

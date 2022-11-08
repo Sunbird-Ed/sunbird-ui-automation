@@ -31,11 +31,11 @@ describe('verifyDeleteContentInPublishedAndUploadBucket', () => {
         let collectionName = collectionPageObj.createCollectionWithDiffCollectionTypes("digitalTxtbook");
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(collectionName);
+        tpdPageObj.publishContentFromUpForReviewBucket(collectionName);
         utility.userLogout();
         utility.userLogin('Creator');
         lspPageObj.deleteCreatedItems(collectionName);
-        lspPageObj.deleteUploadContent();
+        //lspPageObj.deleteUploadContent();
 
     })
 });

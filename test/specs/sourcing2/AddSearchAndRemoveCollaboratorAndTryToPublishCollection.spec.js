@@ -27,10 +27,11 @@ describe('Vefy content creator is able to add collaborators using the Add collab
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName = collectionPageObj.createCollectionAndSaveAsDraft();
-                sanityfun.addCollborator(collectionName);
+        sanityfun.addCollborator(collectionName);
         sanityfun.removeCollboratortoDraftAndSaveBook(collectionName);
+        collectionPageObj.submitForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(collectionName)
+        tpdPageObj.publishContentFromUpForReviewBucket(collectionName)
     });
 });

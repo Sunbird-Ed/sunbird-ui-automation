@@ -24,7 +24,6 @@ describe('VerifyPopupOnclickChangePreference', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-
         resourcePageObj.changePreferencePopup();
         
       

@@ -22,14 +22,14 @@ describe('ontent creator is able to save the content ( Lesson Plan) & send the c
     it('CreateLessonPlanSaveAndSendForReviewAndPublish',function(){
          utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('Mentor2');
         let lessonPlan=lessonPlanPageObj.createLessonPlan();
         lessonPlanPageObj.sendForReviewTheLessonPlan();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         lessonPlanPageObj.publishTheLessonPlanFromUpForReview(lessonPlan);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('Mentor2');
         utility.validateWorkspace();
         lessonPlanPageObj.deleteCreatedItems();
         

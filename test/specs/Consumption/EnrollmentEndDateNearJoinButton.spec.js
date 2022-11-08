@@ -23,12 +23,14 @@ describe('able to create course and enroll consume EnrollmentEndDateNearJoinButt
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('EnrollmentEndDateNearJoinButton', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
+        console.log(courseName);
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(courseName)
         utility.userLogout();
@@ -36,15 +38,10 @@ describe('able to create course and enroll consume EnrollmentEndDateNearJoinButt
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatchWithEnrollMentEndDate();
         utility.userLogout();
+        let courseName = "CourseCAyana";
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.validateEnrollmentEndDateNearJoinCourse();
-        
-
-
     })
-
-
-
 });
 

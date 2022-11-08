@@ -683,8 +683,7 @@ const createCollectionAndSave = () => {
         sanityPage.SanityElement().contentFromLibrayBackButton.click();
         browser.sleep(3000);
         sendForReviewTheCollectionWithimageIcon();
-        sanityPage.SanityElement().baackButton.click();
-        browser.sleep(3000);
+
         console.log("User successfully created a collection");
         return collectionName;
     } catch (Exception) {
@@ -922,7 +921,7 @@ const createCollectionWithDiffCollectionTypes = (collectionType) => {
         sanityPage.SanityElement().addFromLibraryButton.click();
         browser.sleep(3000);
         //sanityPage.SanityElement().searchContentFromLibrary.sendKeys("pdf");
-       // sanityPage.SanityElement().searchContentFromLibrary.sendKeys(protractor.Key.ENTER);
+        // sanityPage.SanityElement().searchContentFromLibrary.sendKeys(protractor.Key.ENTER);
         //browser.sleep(3000);
         // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().selectButton), 20000,"Select content Button not loaded");
         sanityPage.SanityElement().selectButton.click();
@@ -1101,7 +1100,6 @@ const updateCollectionAndSendForReviewFromDraft = (courseNames) => {
 
 
 const createCollectionAndSaveAsDraft = () => {
-
     var collectionName;
     try {
         console.log("User is trying to create a collection")
@@ -1114,7 +1112,7 @@ const createCollectionAndSaveAsDraft = () => {
         content.collection.click();
         browser.sleep(200);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.name), 20000, "Course creation editor never loaded");
-        collectionName = "CollectionA" + faker.randomData().firstname;
+        collectionName = "CollectionB" + faker.randomData().firstname;
         content.name.sendKeys(collectionName);
         browser.sleep(200);
 
@@ -1218,10 +1216,13 @@ const createCollectionAndSaveAsDraft = () => {
 }
 
 const sendForReviewTheCollectionWithimageIcon = () => {
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.collectionAppIcon), 50000, "clickAppIcon button not available");
-    etbv.collectionAppIcon.click();
-
+    browser.sleep(2000);
+    try {
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.collectionAppIcon), 50000, "clickAppIcon button not available");
+        etbv.collectionAppIcon.click();
+    } catch (Exception) {
+        console.log("Image icon is clicked and validated.");
+    }
     browser.sleep(3000);
     wait.waitForElementVisibility(etbv.collAllImage, 30000, "allImage button not available");
     etbv.collAllImage.click();
@@ -1374,7 +1375,7 @@ const createCollectionWithDiffCollectionTypesAndSaveAsDraft = (collectionType) =
         sanityPage.SanityElement().addFromLibraryButton.click();
         browser.sleep(3000);
         //sanityPage.SanityElement().searchContentFromLibrary.sendKeys("pdf");
-       // sanityPage.SanityElement().searchContentFromLibrary.sendKeys(protractor.Key.ENTER);
+        // sanityPage.SanityElement().searchContentFromLibrary.sendKeys(protractor.Key.ENTER);
         //browser.sleep(3000);
         // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().selectButton), 20000,"Select content Button not loaded");
         sanityPage.SanityElement().selectButton.click();
@@ -1389,14 +1390,31 @@ const createCollectionWithDiffCollectionTypesAndSaveAsDraft = (collectionType) =
         browser.sleep(10000);
         sanityPage.SanityElement().contentFromLibrayBackButton.click();
         browser.sleep(3000);
-        
-
         console.log("User successfully created a collection");
         return collectionName;
     } catch (Exception) {
         console.log("User failed to create a collection");
     }
 }
+
+
+const submitForReview = () => {
+    try {
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000, "submit Button not loaded");
+        sanityPage.SanityElement().submitForreviewButton.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().termsAndConditionCheckbox.click();
+        browser.sleep(3000);
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.NewCoursesubmitButton), 20000,"submit for review Button not loaded");
+        sanityPage.SanityElement().NewCoursesubmitButton.click();
+        browser.sleep(3000);
+
+    } catch (Exception) {
+        console.log("User failed to create a collection");
+    }
+}
+
 
 
 
@@ -1421,6 +1439,7 @@ module.exports = {
     updateCollectionAndSendForReviewFromDraft,
     createCollectionAndSaveAsDraft,
     createCollectionWithDiffCollectionTypesAndSaveAsDraft,
+    submitForReview,
 
 
 }

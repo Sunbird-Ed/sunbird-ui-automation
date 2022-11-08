@@ -34,6 +34,6 @@ describe('addChildSiblingNodeInContentPlaylist', () => {
         tpdPageObj.addChildAndSiblingNode(collectionName);
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(collectionName);
+        tpdPageObj.publishContentFromUpForReviewBucket(collectionName);
     })
 });

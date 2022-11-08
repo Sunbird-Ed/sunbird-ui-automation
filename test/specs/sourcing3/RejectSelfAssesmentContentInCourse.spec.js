@@ -24,26 +24,24 @@ describe('Course reviewer is able to rejects the SelfAssesmentcourse .', () => {
     it('RejectSelfAssesmentContentInCourse', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         utility.validateWorkspace();
         let courseName = tpdPageObj.createCourseAssessment();
         console.log("nam is"+courseName);
         tpdPageObj.sendForReviewTheCourseAssessment();
-        resourcePageObj.reviewInSubmissions(courseName);
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         resourcePageObj.rejectLessonPlan(courseName)
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         resourcePageObj.editTheContentInDraft();
         tpdPageObj.sendForReviewTheRejectedCourse();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishTheCourseFromUpForReview(courseName);
+        resourcePageObj.publishTheResourceFromUpForReview(courseName);
         utility.userLogout();
-        utility.userLogin('Creator');
-        utility.validateWorkspace();
+        utility.userLogin('ContentCreator');
         lspPageObj.deleteCreatedItems();
     })
 });

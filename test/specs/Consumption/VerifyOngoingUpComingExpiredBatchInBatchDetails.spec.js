@@ -32,8 +32,6 @@ describe('able to create course and enroll consume VerifyOngoingUpComingExpiredB
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(courseName)
         utility.userLogout();
-
-
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatchWithEnrollMentEndDate();

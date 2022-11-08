@@ -28,7 +28,6 @@ describe('able to addCollaborator and callobarator can edit and sendforreview ,c
         addMCAVPageObj.searchCollaboratorBySearchField(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
-       
         addMCAVPageObj.checkTheCourseInReviewSubmision(courseName);
       
     })

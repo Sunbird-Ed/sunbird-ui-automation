@@ -28,7 +28,6 @@ describe('AU_033,AddRemoveAndDeleteCollaboratorFromBook', () => {
         utility.userLogin('Creator');
         let bookName = sanityfun.createBookSaveAsDraft();
         sanityfun.addCollborator(bookName);
-        // let bookName = "BookBKasandra";
         addSARCATTPRPageObj.removeCollboratortoDraftAndSaveBook(bookName);
 
     });

@@ -33,7 +33,7 @@ describe('editDigitalTextBook', () => {
         tpdPageObj.contentSearchInDraftAndEditWithChildSibling(collectionName);
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(collectionName);
+        tpdPageObj.publishContentFromUpForReviewBucket(collectionName);
         
     })
 });

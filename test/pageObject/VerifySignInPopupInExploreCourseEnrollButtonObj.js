@@ -10,7 +10,6 @@ var content = ccpage.contentCreation();
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 
 const validateSignInPopupOnClickOnEnroll = () => {
-
   try {
     console.log("User is in Explore-Course Page");
     browser.sleep(1000);
@@ -181,8 +180,8 @@ const navigateToGetPage = () => {
     console.error("failed to navigate to get page, " + es);
   }
 }
-const clickOnEnrollAndConsume = () => {
 
+const clickOnEnrollAndConsume = () => {
   try {
     console.log("User is trying to clickOnEnrollAndConsume");
     browser.sleep(1000);
@@ -213,6 +212,8 @@ const clickOnEnrollAndConsume = () => {
     console.log("Failed on Validating SignInPopup on click on Enroll button in Explore-Course Page");
   }
 }
+
+
 const addUserInProfile = () => {
   var userName;
   try {
@@ -276,6 +277,7 @@ const validateTextBookCount = () => {
     console.error("failed to  validateTextBookCount");
   }
 }
+
 const validateTextBookCountInDifferentRole = (bookCnt) => {
   var count;
   try {
@@ -296,6 +298,8 @@ const validateTextBookCountInDifferentRole = (bookCnt) => {
     console.error("failed to  validateTextBookCountInDifferentRole");
   }
 }
+
+
 const verifyYOBforCustodianUsers = () => {
   try {
     console.log("Verify that custodian users is displayed with YOB popup and the user is not allowed to proceed further without filling the YOB popup");
@@ -325,6 +329,4 @@ module.exports = {
   validateTextBookCountInDifferentRole,
   verifyYOBforCustodianUsers,
 
-
 }
-

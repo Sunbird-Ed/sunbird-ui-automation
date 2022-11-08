@@ -24,7 +24,7 @@ describe('able to create course and enroll consume ConsumeCourse', () => {
         browser.manage().deleteAllCookies();
 
     });
-    
+
     it('ConsumeCourse', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
@@ -34,15 +34,12 @@ describe('able to create course and enroll consume ConsumeCourse', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        tpdPageObj.publishContentFromUpForReviewBucket(courseName)
         utility.userLogout();
 
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        //EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
-        //   EnrollTBFCPageObj.createOpenBatchWithEnrolmentDate();
         EnrollTBFCPageObj.createOpenBatch();
-
         utility.userLogout();
 
         utility.userLogin('Public User1');

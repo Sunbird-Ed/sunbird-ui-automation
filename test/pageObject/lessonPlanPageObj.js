@@ -31,22 +31,18 @@ const createLessonPlan = () => {
         content.name.sendKeys(lessonName);
         browser.sleep(2000);
 
-
-        browser.executeScript("arguments[0].scrollIntoView();", etbv.collectionType);
-        wait.waitForElementVisibility(etbv.collectionType, 30000, "collectionType button not available");
-        etbv.collectionType.click();
-        browser.sleep(1000);
-        browser.executeScript("arguments[0].scrollIntoView();", etbv.contentResource);
-        etbv.contentResource.click();
-
-
+        //browser.executeScript("arguments[0].scrollIntoView();", etbv.collectionType);
+        // wait.waitForElementVisibility(etbv.collectionType, 30000, "collectionType button not available");
+        // etbv.collectionType.click();
+        // browser.sleep(1000);
+        // browser.executeScript("arguments[0].scrollIntoView();", etbv.contentResource);
+        // etbv.contentResource.click();
 
         content.startCreating.click();
         browser.sleep(9000);
         browser.sleep(9000);
         browser.sleep(9000);
         browser.sleep(9000);
-
         browser.sleep(8000);
 
         browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
@@ -94,6 +90,9 @@ const createLessonPlan = () => {
         console.log("User failed to create lesson plan")
     }
 }
+
+
+
 const sendForReviewTheLessonPlan = () => {
     browser.sleep(1000);
     browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.sendForReview), 20000, "send for review not available");

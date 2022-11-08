@@ -31,8 +31,8 @@ describe('createCollectionsWithDifferentCollectionType', () => {
         //let collectionName2=collectionPageObj.createCollectionWithDiffCollectionTypes("questionPaper");
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(collectionName);
-        tpdPageObj.publishCourseFromUpForReview(collectionName1);
+        tpdPageObj.publishContentFromUpForReviewBucket(collectionName);
+        tpdPageObj.publishContentFromUpForReviewBucket(collectionName1);
         //collectionPageObj.publishTheCollectionFromUpForReview(collectionName2);
         //utility.userLogout();
     })

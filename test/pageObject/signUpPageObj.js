@@ -791,6 +791,7 @@ const validateTenantFramework = () => {
 
 
 module.exports = {
+    
     languageVerify,
     verifyLocationUpdateForUser,
     updateMobileEmailAndRecoveryDetails,

@@ -31,7 +31,7 @@ describe('able to create course and enroll consume EnrollToCourseInOpenBatch.spe
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishCourseFromUpForReview(courseName);
+        tpdPageObj.publishContentFromUpForReviewBucket(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);

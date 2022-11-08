@@ -29,7 +29,7 @@ describe('clickDoNotShareConsentPopUpForCourse', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        tpdPageObj.publishContentFromUpForReviewBucket(courseName)
         utility.userLogout();
         
         utility.userLogin('Creator');

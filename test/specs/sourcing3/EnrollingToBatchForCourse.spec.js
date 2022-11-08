@@ -29,10 +29,11 @@ describe('able to create course and enroll consume EnrollingToBatchForCourse.spe
         utility.userLogin('Creator');
         utility.validateWorkspace();
         let courseName = sanityfun.createCourseAndSendForReview();
+        console.log(courseName);
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        tpdPageObj.publishContentFromUpForReviewBucket(courseName)
         utility.userLogout();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
@@ -46,7 +47,7 @@ describe('able to create course and enroll consume EnrollingToBatchForCourse.spe
         var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch();
         utility.userLogout();
 
-
+        //let courseName="CourseCLaurel";
         utility.userLogin('Creator');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.checklastUpdatedOption();

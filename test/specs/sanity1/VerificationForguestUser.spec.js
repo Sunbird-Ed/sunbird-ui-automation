@@ -1,6 +1,8 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const usrOnBoardfun = require(protractor.basePath + '/test/pageObject/UserOnBoardingPageObj.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
+const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
+
 describe('Verify that BMC popup is accesible to Guest User', () => {
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -17,6 +19,6 @@ describe('Verify that BMC popup is accesible to Guest User', () => {
     it('VerificationForguestUser', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        usrOnBoardfun.verifyGuestUserDisplayedInProfile();
+        tpdPageObj.editpersonalDetailsAndValidateInProfielPage();
     })
 });

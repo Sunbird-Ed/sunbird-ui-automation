@@ -35,7 +35,7 @@ describe('VerifyExpiredBatchVisible' , () => {
 
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishTheCourseFromUpForReview(coursename);
+        tpdPageObj.publishContentFromUpForReviewBucket(coursename);
         utility.userLogout();
 
         
@@ -50,10 +50,6 @@ describe('VerifyExpiredBatchVisible' , () => {
 
         utility.userLogin('Creator');
         lspPageObj.deleteCreatedItems();
-        
-         
-
-      
     })
 
    

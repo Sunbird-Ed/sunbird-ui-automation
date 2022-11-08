@@ -28,7 +28,7 @@ describe('createDigitalTextbookWithimageIcon', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName = collectionPageObj.createCollectionAndSave();
-        // collectionPageObj.sendForReviewTheCollectionWithimageIcon();
+        collectionPageObj.sendForReviewTheCollectionWithimageIcon();
         
     })
 });

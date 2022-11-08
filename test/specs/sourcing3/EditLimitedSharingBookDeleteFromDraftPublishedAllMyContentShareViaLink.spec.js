@@ -21,14 +21,14 @@ describe('Create Book save and send for review and publish.', () => {
         browser.manage().deleteAllCookies();
 
     });
-    it('CreateBookAndVerify', function () {
+    it('EditLimitedSharingBookDeleteFromDraftPublishedAllMyContentShareViaLink', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let bookName = sanityfun.createBook();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(bookName);
+        tpdPageObj.publishContentFromUpForReviewBucket(bookName);
         utility.userLogout();
         utility.userLogin('Creator');
         //utility.validateWorkspace();

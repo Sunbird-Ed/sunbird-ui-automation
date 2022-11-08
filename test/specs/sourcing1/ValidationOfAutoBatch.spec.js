@@ -30,7 +30,7 @@ describe('ValidationOfAutoBatch', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishCourseFromUpForReview(courseName);;
+        tpdPageObj.publishContentFromUpForReviewBucket(courseName);;
         utility.userLogout();
         utility.userLogin('Mentor');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName); 

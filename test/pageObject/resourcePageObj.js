@@ -1,5 +1,6 @@
 //const { browser } = require("protractor");
 
+const { browser } = require("protractor");
 
 
 const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
@@ -1833,24 +1834,24 @@ const rejectLessonPlan = (inputToReject) => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
         content.searchForReview.click();
         content.searchForReview.sendKeys(inputToReject);
-
         browser.sleep(3000);
         wait.waitForElementVisibility(resov.contentupload, 40000, "searchedContentForPublish is not available");
         resov.contentupload.getText().then(function (content) {
             console.log('contentupload is  :' + content);
-
         });
         console.log('Content should render properly in the content player while reviewing the contents.')
         resov.contentupload.click();
         browser.sleep(4000);
-        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-        browser.sleep(6000);
-        browser.executeScript("arguments[0].scrollIntoView();", resov.clickRequestChanges);
+        //browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        //browser.sleep(6000);
+        browser.executeScript('window.scrollTo(0,350);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(2000);
         wait.waitForElementVisibility(resov.clickRequestChanges, 40000, "clickRequestChanges is not available");
         resov.clickRequestChanges.click();
         // resov.clickRequestChanges.getText().then(function (request) {
         //     console.log('Request is  :' + request);
-
         // });
         browser.sleep(4000);
         // wait.waitForElementVisibility(resov.rejectReason1,40000, "rejectReason1 is not available");
@@ -1865,12 +1866,10 @@ const rejectLessonPlan = (inputToReject) => {
         resov.reviewComment1.click();
         resov.reviewComment1.sendKeys('Testing')
         browser.sleep(3000);
-        browser.executeScript("arguments[0].scrollIntoView();", resov.requestChangesButton);
-
+        browser.executeScript("arguments[0].scrollIntoView();", resov.requestChengesPopUp);
         browser.sleep(2000);
-
-        wait.waitForElementVisibility(resov.requestChangesButton, 40000, "requestChangesButton is not available");
-        resov.requestChangesButton.click();
+        wait.waitForElementVisibility(resov.requestChengesPopUp, 40000, "requestChangesButton is not available");
+        resov.requestChengesPopUp.click();
         browser.sleep(2000);
         console.log(inputToReject + ' is rejected succesfully')
     }
@@ -2634,6 +2633,7 @@ const sendForReviewInShareVialink = () => {
         wait.waitForElementVisibility(etbv.selectAppIcon, 30000, "selectAppIcon button not available");
         etbv.selectAppIcon.click();
         browser.sleep(500);
+        browser.executeScript("arguments[0].scrollIntoView();", etbv.clickBoard);
         wait.waitForElementVisibility(etbv.clickBoard, 30000, "board button not available");
         etbv.clickBoard.click();
         wait.waitForElementVisibility(etbv.selectBoard, 30000, "contuinew button not available");
@@ -2664,13 +2664,13 @@ const sendForReviewInShareVialink = () => {
         // etbv.yearOfCreation.click();
         etbv.yearOfCreation.clear();
         etbv.yearOfCreation.sendKeys("2020");
-        browser.executeScript("arguments[0].scrollIntoView();", etbv.clickContentType);
-        wait.waitForElementVisibility(etbv.clickContentType, 30000, "clickContentType button not available");
-        etbv.clickContentType.click();
-        browser.sleep(500);
-        browser.executeScript("arguments[0].scrollIntoView();", etbv.practiceResource2);
-        etbv.practiceResource2.click();
-        browser.sleep(2000);
+        // browser.executeScript("arguments[0].scrollIntoView();", etbv.clickContentType);
+        // wait.waitForElementVisibility(etbv.clickContentType, 30000, "clickContentType button not available");
+        // etbv.clickContentType.click();
+        // browser.sleep(500);
+        // browser.executeScript("arguments[0].scrollIntoView();", etbv.practiceResource2);
+        // etbv.practiceResource2.click();
+        // browser.sleep(2000);
         wait.waitForElementVisibility(content.saveform, 20000, "submitForm not available");
         // content.saveform.click();
 
@@ -2974,8 +2974,8 @@ const VerifyCoursePage = () => {
     expect(resov.ddSelectlanguage.isDisplayed()).toBeTruthy();
     wait.waitForElementVisibility(resov.labelEnglish, 20000);
     expect(resov.labelEnglish.isDisplayed()).toBeTruthy();
-    wait.waitForElementVisibility(resov.labelMyCourses, 20000);
-    expect(resov.labelMyCourses.isDisplayed()).toBeTruthy();
+    // wait.waitForElementVisibility(resov.labelMyCourses, 20000);
+    // expect(resov.labelMyCourses.isDisplayed()).toBeTruthy();
 
     // wait.waitForElementVisibility(resov.btnPagination, 20000);
     // var page = resov.btnPagination;
@@ -3786,28 +3786,28 @@ const createQuestionsWith4MCQ4FTB4MTF = () => {
 
         wait.waitForElementVisibility(resov.nextButton, 20000, "nextButton is not available");
         resov.nextButton.click();
-        wait.waitForElementVisibility(resov.questionSetTitle, 20000, "questionSetTitle is not available");
-        // resov.questionSetTitle.click();
-        resov.questionSetTitle.sendKeys("Math test");
-        browser.sleep(1000);
-
-        browser.sleep(2000);
-        browser.executeScript("arguments[0].click();", resov.addbutton,);
-        browser.sleep(2000);
-
-
-        // wait.waitForElementVisibility(resov.addbutton, 20000, "addbutton is not available");
-        // resov.addbutton.click();
+        // wait.waitForElementVisibility(resov.questionSetTitle, 20000, "questionSetTitle is not available");
+        // // resov.questionSetTitle.click();
+        // resov.questionSetTitle.sendKeys("Math test");
         // browser.sleep(1000);
+
+        // browser.sleep(2000);
+        // browser.executeScript("arguments[0].click();", resov.addbutton,);
+        // browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.addbutton, 20000, "addbutton is not available");
+        resov.addbutton.click();
+        browser.sleep(1000);
 
 
         // resov.addbutton.then(function (input) {
         //     input.click();
         // });
-        browser.sleep(2000);
-        wait.waitForElementToBeClickable(resov.saveIcon, 20000, "saveIcon never loaded");
-        resov.saveIcon.click();
-        browser.sleep(1000);
+        // browser.sleep(2000);
+        // wait.waitForElementToBeClickable(resov.saveIcon, 20000, "saveIcon never loaded");
+        // resov.saveIcon.click();
+        // browser.sleep(1000);
         wait.waitForElementToBeClickable(resov.closeButtonMsg, 20000, "closeButtonMsg never loaded");
         resov.closeButtonMsg.click();
 
@@ -6313,44 +6313,45 @@ const sendForReviewTheResourceWithTVLessonInAdditionalCateg = () => {
 }
 const rejectCourse = (inputToReject) => {
     try {
-        console.log('User  is trying to send the request changes for all upload content');
-        browser.sleep(1000);
+        console.log('User  is trying to send the request changes for all content');
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
         content.headerDropdown.click();
+        browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
         content.workSpace.click();
+        browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.upForReview), 20000, "Creation page not loaded");
         content.upForReview.click();
+        browser.sleep(2000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
         content.searchForReview.click();
         content.searchForReview.sendKeys(inputToReject);
-
-        browser.sleep(3000);
-        // wait.waitForElementVisibility(resov.contentupload, 40000, "searchedContentForPublish is not available");
-        // resov.contentupload.getText().then(function (content) {
-        //     console.log('contentupload is  :' + content);
-
-        // });
-        console.log('Content should render properly in the content player while reviewing the contents.')
-        resov.contentupload.click();
         browser.sleep(4000);
-        //  browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-        // browser.sleep(4000);
-
-        browser.sleep(2000);
-        resov.clkRejectBtn.click();
-        browser.sleep(2000);
-
-        wait.waitForElementVisibility(resov.clkcommentBox, 40000, "reviewComment is not available");
-        resov.clkcommentBox.click();
-        resov.clkcommentBox.sendKeys('Testing')
-        browser.sleep(2000);
-        wait.waitForElementVisibility(resov.clkSubmitReviw, 40000, "requestChangesButton is not available");
-        resov.clkSubmitReviw.click();
-        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchedContentForPublish), 20000, "workspace page not loaded");
+        content.searchedContentForPublish.click();
+        browser.sleep(8000);
+        for (i = 1; i > 0; i++) {
+            tpdPage.tpdPage().rejectThecourse.isPresent().then(function (result) {
+                if (result === true) {
+                    searchObj.rejectThecourse.click();
+                    browser.sleep(2000);
+                    wait.waitForElementVisibility(resov.clkcommentBox, 40000, "reviewComment is not available");
+                    resov.clkcommentBox.click();
+                    resov.clkcommentBox.sendKeys('Testing')
+                    browser.sleep(2000);
+                    wait.waitForElementVisibility(resov.clkSubmitReviw, 40000, "requestChangesButton is not available");
+                    resov.clkSubmitReviw.click();
+                    browser.sleep(2000);
+                } else {
+                    browser.refresh();
+                    browser.sleep(6000);
+                }
+            });
+            break;
+        }
     }
     catch (e) {
-        console.log('The reviewer failed to rejects the uploaded content, Exception');
+        console.log('The reviewer failed to rejects the content, Exception');
 
     }
 
@@ -6806,7 +6807,7 @@ const changePreferencePopup = () => {
         wait.waitForElementVisibility(resov.clkChangePreferenceBtn, 40000, "  Filter search bar is not available");
         resov.clkChangePreferenceBtn.click();
         browser.sleep(7000);
-        expect(resov.assertChangePreferencePopup.isDisplayed()).toBeTruthy()
+        expect(content.changePreference.isDisplayed()).toBeTruthy()
         browser.sleep(2000);
 
     } catch (e) {
@@ -7825,68 +7826,68 @@ const addQuestionSetAndTimerWithWarningTime = () => {
         sanityPage.SanityElement().saveAsDraft.click();
         browser.sleep(5000);
 
-        for (var i=1;i<=2;i++) {
-           
-        wait.waitForElementVisibility(resov.createNew1, 20000, "Createnew button not found");
-        resov.createNew1.click();
-        browser.sleep(3000);
+        for (var i = 1; i <= 2; i++) {
 
-        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
-        resov.questionMCQ.click();
-        browser.sleep(2000);
+            wait.waitForElementVisibility(resov.createNew1, 20000, "Createnew button not found");
+            resov.createNew1.click();
+            browser.sleep(3000);
 
-        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
-        resov.questionMCQnextBtn.click();
-        browser.sleep(2000);
+            wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+            resov.questionMCQ.click();
+            browser.sleep(2000);
 
-        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
-        questioninput = "What is the capital of Karnataka?"
-        resov.mCQquestionInput.sendKeys(questioninput);
-        browser.sleep(1000);
+            wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+            resov.questionMCQnextBtn.click();
+            browser.sleep(2000);
 
-        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
-        option1 = "Bangalore"
-        resov.McqOptionInput1.sendKeys(option1);
-        browser.sleep(1000);
+            wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+            questioninput = "What is the capital of Karnataka?"
+            resov.mCQquestionInput.sendKeys(questioninput);
+            browser.sleep(1000);
 
-        browser.executeScript("arguments[0].scrollIntoView();", resov.McqOptionInput2);
+            wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+            option1 = "Bangalore"
+            resov.McqOptionInput1.sendKeys(option1);
+            browser.sleep(1000);
 
-        wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
-        option2 = "Mangalore"
-        resov.McqOptionInput22.sendKeys(option2);
-        browser.sleep(2000);
+            browser.executeScript("arguments[0].scrollIntoView();", resov.McqOptionInput2);
 
-        browser.executeScript('window.scrollTo(0,0);').then(function () {
-            console.log('++++++SCROLLED Down+++++');
-        });
+            wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+            option2 = "Mangalore"
+            resov.McqOptionInput22.sendKeys(option2);
+            browser.sleep(2000);
 
-        browser.sleep(2000);
+            browser.executeScript('window.scrollTo(0,0);').then(function () {
+                console.log('++++++SCROLLED Down+++++');
+            });
 
-        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
-        resov.sltCorrectAnswer1.click();
-        browser.sleep(2000);
+            browser.sleep(2000);
 
-
-        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
-
-        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
-        Title = "Ques "+i;
-        resov.questionDetailsTitle.sendKeys(Title);
-        browser.sleep(2000);
-    
+            wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+            resov.sltCorrectAnswer1.click();
+            browser.sleep(2000);
 
 
+            browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
 
-        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
-        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
-        resov.questionSave.click();
-        browser.sleep(4000);
-
-        sanityPage.SanityElement().clkSection.click();
-        browser.sleep(2000);
+            wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+            Title = "Ques " + i;
+            resov.questionDetailsTitle.sendKeys(Title);
+            browser.sleep(2000);
 
 
-}
+
+
+            browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+            wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+            resov.questionSave.click();
+            browser.sleep(4000);
+
+            sanityPage.SanityElement().clkSection.click();
+            browser.sleep(2000);
+
+
+        }
     }
     catch (e) {
         console.log("Unable To Create Question Set and Add Timer")
@@ -9193,7 +9194,7 @@ const verifyContentInAllTabs = () => {
         expect(resov.resoCard.isDisplayed()).toBeTruthy()
         browser.sleep(3000);
 
-       
+
     } catch (e) {
         console.log("Failed in Filter")
     }
@@ -9210,7 +9211,7 @@ const recentlyPublisedSecInHomePage = () => {
         browser.sleep(2000);
         expect(resov.assertRecentlyPublishedContent.isDisplayed()).toBeTruthy()
         browser.sleep(5000);
-       
+
 
     } catch (e) {
         console.log("volume mute is not validated")
@@ -9227,12 +9228,111 @@ const ContinueLearningSecInHomePage = () => {
         browser.sleep(2000);
         expect(resov.assertContinueLearningContent.isDisplayed()).toBeTruthy()
         browser.sleep(5000);
-       
-
     } catch (e) {
         console.log("volume mute is not validated")
     }
 }
+
+const sendForRevInLessonPlanContent = () => {
+    try {
+        browser.sleep(4000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(5000);
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.sendForReview, 40000, "  Filter search bar is not available");
+        resov.sendForReview.click();
+        browser.sleep(4000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+
+
+
+    } catch (e) {
+        console.log("failed")
+    }
+}
+
+const editTheResourceInDraft = (resourceName) => {
+    try {
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        console.log('User is trying to see the upload content in up for review page');
+        wait.waitForElementVisibility(content.workSpace, 40000, "workSpace is not available");
+        content.workSpace.click();
+        wait.waitForElementVisibility(resov.drafts, 40000, "drafts is not available");
+        resov.drafts.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
+        content.searchForReview.click();
+        content.searchForReview.sendKeys(resourceName);
+        browser.sleep(6000);
+        wait.waitForElementVisibility(resov.imageCard, 40000, "imageCard is not available");
+        resov.imageCard.click();
+        console.log('User should be abel to click on the drafts section to see draft contents')
+        browser.sleep(4000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+    }
+    catch (e) {
+        console.log('failed');
+
+    }
+
+}
+
+const rejectTheLessonPlan = (inputToReject) => {
+    try {
+        console.log('User  is trying to send the request changes for all upload content');
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.upForReview), 20000, "Creation page not loaded");
+        content.upForReview.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
+        content.searchForReview.click();
+        content.searchForReview.sendKeys(inputToReject);
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.contentupload, 40000, "searchedContentForPublish is not available");
+        resov.contentupload.getText().then(function (content) {
+            console.log('contentupload is  :' + content);
+        });
+        console.log('Content should render properly in the content player while reviewing the contents.')
+        resov.contentupload.click();
+        browser.sleep(4000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.lessonPlanRequestChanges, 40000, "clickRequestChanges is not available");
+        resov.lessonPlanRequestChanges.click();
+        // resov.clickRequestChanges.getText().then(function (request) {
+        //     console.log('Request is  :' + request);
+        // });
+        browser.sleep(4000);
+        // wait.waitForElementVisibility(resov.rejectReason1,40000, "rejectReason1 is not available");
+        resov.rejectReason1.click();
+        browser.sleep(2000);
+        resov.rejectReason2.click();
+        browser.sleep(2000);
+        resov.rejectReason3.click();
+        browser.sleep(5000);
+        browser.executeScript("arguments[0].scrollIntoView();", resov.commentbox);
+        wait.waitForElementVisibility(resov.commentbox, 40000, "reviewComment is not available");
+        resov.commentbox.click();
+        resov.commentbox.sendKeys('Testing')
+        browser.sleep(3000);
+        browser.executeScript("arguments[0].scrollIntoView();", resov.footerRequestChanges);
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.footerRequestChanges, 40000, "requestChangesButton is not available");
+        resov.footerRequestChanges.click();
+        browser.sleep(2000);
+        console.log(inputToReject + ' is rejected succesfully')
+    }
+    catch (e) {
+        console.log('The reviewer failed to rejects the uploaded content, Exception');
+
+    }
+}
+
+
 
 module.exports = {
     createResource,
@@ -9351,4 +9451,7 @@ module.exports = {
     verifyContentInAllTabs,
     recentlyPublisedSecInHomePage,
     ContinueLearningSecInHomePage,
+    sendForRevInLessonPlanContent,
+    editTheResourceInDraft,
+    rejectTheLessonPlan,
 }

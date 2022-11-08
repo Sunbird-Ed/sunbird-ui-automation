@@ -196,6 +196,7 @@ let UserOnBoarding = () => {
     var checkBoxEmail = element(by.xpath("(//*[contains(@class,'ui radio checkbox')])[2]"));
 
     var contributionSectionInProfile = element(by.xpath("//div[@class='ui segments']//child::div[@class='ui segment computer only']"));
+    var locationPopUp = element(by.xpath("//*[contains(text(),'Your Location')]"));
 
 
 
@@ -379,6 +380,7 @@ let UserOnBoarding = () => {
         helpButton,
         reportButton,
         contributionSectionInProfile,
+        locationPopUp,
     }
 };
 module.exports = {

@@ -23,11 +23,7 @@ describe('VerifyCourseTOC in course', () => {
     it('VerifyCourseTOC',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
-        searchCBFPPageObj.verifyCollapseAllOption();
-        
-       
-       
+        searchCBFPPageObj.verifyCourseData();
     });
 });
    

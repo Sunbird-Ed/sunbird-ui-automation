@@ -18,7 +18,7 @@ describe('User must be able to open the General Discussion Topics', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('userIsAbleToCreateAndVerifyGeneralDiscussionTopics ',function(){
+    it('UserMustBeAbleToOpenTheGeneralDiscussionTopics ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('LoadAnimation');

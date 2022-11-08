@@ -26,11 +26,9 @@ describe('verifyFrameworkLabelInCourse', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-        utility.validateWorkspace();
         sanityfun.TargetFrameworkWithMultipleCategoricalValues("CPD");
-        utility.logout();
+        utility.userLogout();
         utility.userLogin('ContentCreator');
-        utility.validateWorkspace();
         sanityfun.TargetFrameworkWithMultipleCategoricalValues("K12"); 
 
     })

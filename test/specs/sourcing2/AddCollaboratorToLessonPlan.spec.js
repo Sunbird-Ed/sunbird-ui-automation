@@ -21,7 +21,7 @@ describe('loogin into Application with Mentor user,create LessonPlan and add Col
     it('AddCollaboratorToLessonPlan',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Mentor');
+        utility.userLogin('Mentor2');
         addCTLPPageObj.createLessonPlan() ;
         resourcePageObj.addCollaboratorOnly();
     

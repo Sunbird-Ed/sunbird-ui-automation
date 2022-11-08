@@ -26,14 +26,14 @@ describe('createCollectionAndConsume', () => {
     it('createCollectionAndConsume ', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let collectionName = collectionPageObj.createCollection();
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(collectionName)
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishContentFromUpForReviewBucket(collectionName)
         utility.userLogout();
-        utility.userLogin('Public User1');
-        content.consumeContent();
+        // utility.userLogin('Public User1');
+        // content.consumeContent();
 
     })
 });

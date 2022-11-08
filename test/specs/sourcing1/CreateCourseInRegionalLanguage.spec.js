@@ -30,16 +30,11 @@ describe('Create Course save and send for review and publish.', () => {
         utility.userLogin('Creator');
         utility.validateWorkspace();
         let courseName=sanityfun.createCourseWithRegionalLanguage();
-               utility.userLogout();
+        utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        tpdPageObj.publishContentFromUpForReviewBucket2(courseName)
         utility.userLogout();
-       
-       
     })
-
-   
-   
 });
    

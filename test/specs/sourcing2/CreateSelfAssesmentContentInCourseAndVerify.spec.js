@@ -2,6 +2,8 @@
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const resourcePage = require(protractor.basePath + '/test/pageObject/resourcePageObj.js');
+
 
 describe('Create SelfAssesmentCourse save and send for review and publish.', () => {
 
@@ -23,16 +25,16 @@ describe('Create SelfAssesmentCourse save and send for review and publish.', () 
     it('CreateSelfAssesmentContentInCourseAndVerify  ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('Mentor2');
         //utility.validateWorkspace();
         let courseName=tpdPageObj.createCourseAssessment();
         tpdPageObj.sendForReviewTheCourseAssessment();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishTheCourseFromUpForReview(courseName);
+        resourcePage.publishTheResourceFromUpForReview(courseName);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('Mentor2');
         utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();
        

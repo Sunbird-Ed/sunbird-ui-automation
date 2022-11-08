@@ -19,7 +19,7 @@ describe('Verify Names of all the group members are displayed to the Admin onn t
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('verifyNamesOfAllTheGroupMembersAreDisplayed ',function(){
+    it('verifyUpdateGroupCanSeenInsteadOfSubmitButton ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('VerifyMembers');

@@ -36,7 +36,7 @@ describe('VerifyExpiredBatchVisible' , () => {
 
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishTheCourseFromUpForReview(coursename);
+        tpdPageObj.publishContentFromUpForReviewBucket(coursename);
         utility.userLogout();
 
         

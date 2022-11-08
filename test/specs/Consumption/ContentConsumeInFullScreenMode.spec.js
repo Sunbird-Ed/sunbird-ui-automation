@@ -34,7 +34,7 @@ describe('ConsumeContentInFullScreenMode play', () => {
         // utility.userLogout();
 
         utility.userLogin('Public User1');
-        cont.consumeContent(contentName);
+        cont.consumeContent();
     })
     
 });

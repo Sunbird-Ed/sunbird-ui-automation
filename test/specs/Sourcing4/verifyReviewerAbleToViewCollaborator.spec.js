@@ -27,7 +27,9 @@ describe('verifyReviewerAbleToViewCollaborator', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName=collectionPageObj.createCollectionAndSaveAsDraft();
+        console.log(collectionName);
         sanityPage.addCollboratortoDraftAndSaveBookWithWorkspace(collectionName);
+        //let collectionName="CollectionAVidal";
         utility.userLogout();
         utility.userLogin('Reviewer');
         sanityPage.validatedViewCollaborator(collectionName)

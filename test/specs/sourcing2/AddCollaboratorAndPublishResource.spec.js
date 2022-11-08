@@ -27,10 +27,10 @@ describe('Content creator is able to add a collaborator in all the types of cont
         resourcePageObj.addCollaboratorOnly();
         utility.userLogout();
         utility.userLogin('Creator');
-        resourcePageObj.collaboratorSendTheResourceForReview(resourceName);
+        resourcePageObj.editTheResourceInDraft(resourceName);
         resourcePageObj.sendForReviewTheResource();
-        // utility.userLogout();
-        // utility.userLogin('Reviewer');
-        // resourcePageObj.publishTheResourceFromUpForReview(resourceName);
+        utility.userLogout();
+        utility.userLogin('Reviewer');
+        resourcePageObj.publishTheResourceFromUpForReview(resourceName);
     })
 });

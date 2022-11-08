@@ -30,11 +30,10 @@ describe('CreateCollectionVerifyInDraftReviewAndPublish', () => {
         let collectionName = collectionPageObj.createCollection();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(collectionName);
+        resourcePageObj.rejectCourse(collectionName);
         utility.userLogout();
         utility.userLogin('Creator');
-        //  tpdPageObj.contentSearchInDraftAndEdit(collectionName);
-        tpdPageObj.updateCollectionAndSendForReviewFromDraft(collectionName);
+        tpdPageObj.contentSearchInDraftAndEdit(collectionName);
 
     })
 });

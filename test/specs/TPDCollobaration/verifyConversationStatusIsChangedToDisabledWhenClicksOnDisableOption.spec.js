@@ -1,9 +1,7 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
-const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
-
-describe('VerifyBMSPrefereenceForLoggedUserInHomePage', () => {
+const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
+describe('User clicks on Edit option under the action column to go to Conversation Setup screen', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -20,14 +18,14 @@ describe('VerifyBMSPrefereenceForLoggedUserInHomePage', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('VerifyBMSPrefereenceForLoggedUserInHomePage',function(){
+    it('verifyConversationStatusIsChangedToDisabledWhenClicksOnDisableOption',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-
-        resourcePageObj.LoggedUserPreferencesForBMCInHomePage();
+        utility.userLogin('OrgAdmin');
+        EnrollTBFCPageObj.verifyCommunicationConsole();
+        EnrollTBFCPageObj.userClicksOnThreeDotsInTheActionColumnAndVerify();
+        EnrollTBFCPageObj.verifyConversationStatusIsChangedToDisabledWhenClicksOnDisableOption();
         
-      
+     
     })
-    
 });

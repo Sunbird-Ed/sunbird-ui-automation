@@ -120,8 +120,6 @@ const signInWithSSO = () => {
 }
 
 
-
-
 const mergeAccount = () => {
 
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
@@ -642,8 +640,8 @@ const updateProfileDetailsForSelfSignedUser = () => {
     content.linkProfile.click();
 
 
-    wait.waitForElementVisibility(userOnboard.labelSubjects, 20000);
-    var scrolling = userOnboard.labelSubjects;
+    // wait.waitForElementVisibility(userOnboard.labelSubjects, 20000);
+    var scrolling = userOnboard.clkEditProfile;
     browser.controlFlow().execute(function () {
         browser.executeScript('arguments[0].scrollIntoView({block:"center"})', scrolling.getWebElement());
     });
@@ -1144,7 +1142,7 @@ const AddUserProfileVerification = () => {
         browser.executeScript('window.scrollTo(0,200);').then(function () {
             console.log('++++++SCROLLED UP+++++');
         });
-        
+
         browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.addUserButton), 20000, "addUserButton is not available");
         verifyCEBObj.addUserButton.click();
         browser.sleep(1000);
@@ -1167,14 +1165,14 @@ const AddUserProfileVerification = () => {
         wait.waitForElementVisibility(content.Continue, 20000);
         content.Continue.click();
         browser.sleep(4000);
-        // wait.waitForElementVisibility(content.state, 20000);
-        // content.state.click();
-        // wait.waitForElementVisibility(content.selectState, 20000);
-        // content.selectState.click();
-        // wait.waitForElementVisibility(content.district, 20000);
-        // content.district.click();
-        // wait.waitForElementVisibility(content.selectDistrict, 20000);
-        // content.selectDistrict.click();
+        wait.waitForElementVisibility(content.state, 20000);
+        content.state.click();
+        wait.waitForElementVisibility(content.selectState, 20000);
+        content.selectState.click();
+        wait.waitForElementVisibility(content.district, 20000);
+        content.district.click();
+        wait.waitForElementVisibility(content.selectDistrict, 20000);
+        content.selectDistrict.click();
         wait.waitForElementVisibility(content.btnSubmit, 20000);
         content.btnSubmit.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
@@ -1809,16 +1807,16 @@ const verifyLocationDetailsInProfile = () => {
         browser.sleep(1000);
         wait.waitForElementVisibility(content.sltlocationPopupState, 20000)
         content.sltlocationPopupState.click();
-        content.sltlocationPopupState.getText().then(function(state){
-            console.log("State selected in location popup is : "+state);
+        content.sltlocationPopupState.getText().then(function (state) {
+            console.log("State selected in location popup is : " + state);
         })
         wait.waitForElementVisibility(content.locationpopupDistrict, 20000)
         content.locationpopupDistrict.click();
         browser.sleep(1000);
         wait.waitForElementVisibility(content.sltlocationpopupDistrict, 20000)
         content.sltlocationpopupDistrict.click();
-        content.sltlocationpopupDistrict.getText().then(function(district){
-            console.log("District selected in location popup is : "+district);
+        content.sltlocationpopupDistrict.getText().then(function (district) {
+            console.log("District selected in location popup is : " + district);
         })
         browser.sleep(1000);
         browser.executeScript('window.scrollTo(0,20);').then(function () {
@@ -1945,7 +1943,7 @@ const verifyOTPwarningMessage = () => {
         browser.sleep(2000);
         // var randomEmail = "stag47@yopmail.com";
         // var randomPassword = "Test@123";
-       
+
         wait.waitForElementVisibility(content.registersignupName, 20000);
         content.registersignupName.click();
         browser.sleep(1000);
@@ -1983,9 +1981,9 @@ const verifyOTPwarningMessage = () => {
         content.otpSubmit.click();
         browser.sleep(2000);
 
-       // wait.waitForElementVisibility(content.warningMessage, 20000);
-        content.warningMessage.getText().then(function(input){
-            console.log("Warning message is"+input);
+        // wait.waitForElementVisibility(content.warningMessage, 20000);
+        content.warningMessage.getText().then(function (input) {
+            console.log("Warning message is" + input);
         })
         browser.sleep(2000);
 
@@ -2031,8 +2029,8 @@ const verifyloginPagelinks = () => {
         wait.waitForElementVisibility(content.emailId, 20000);
         content.emailId.sendKeys("invalidEmail");
         browser.sleep(2000);
-        content.invalidEmailMessage.getText().then(function(input){
-            console.log("Invalid Email message is : "+input);
+        content.invalidEmailMessage.getText().then(function (input) {
+            console.log("Invalid Email message is : " + input);
         })
         browser.executeScript('window.scrollTo(0,200);').then(function () {
             console.log('++++++SCROLLED DOWN+++++');
@@ -2122,6 +2120,60 @@ const validatingQRcodeSearchAndValidate = () => {
     }
 }
 
+const validateLocationPopUp = () => {
+    try {
+        console.log("validating locationPopUp");
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.Teacher, 30000);
+        content.Teacher.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.Continue, 20000);
+        content.Continue.click();
+        browser.sleep(5000);
+        console.log("Location popup is validated");
+        browser.sleep(5000);
+        wait.waitForElementVisibility(content.state, 20000);
+        content.state.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.selectState, 20000);
+        content.selectState.click();
+        browser.sleep(4000);
+        wait.waitForElementVisibility(content.district, 20000);
+        content.district.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.selectDistrict, 20000);
+        content.selectDistrict.click();
+        browser.sleep(2000);
+        browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.submitForm, 20000);
+        content.submitForm.click();
+        browser.sleep(5000);
+        //browser.close();
+        
+
+    }
+    catch (Exception) {
+        console.log("failed");
+    }
+}
+
+const validateLocationPopUpInAllPages = () => {
+    try {
+        console.log("validating locationPopUp in all pages");
+        //var Url = getAppURL.ConfigurePath().AppURL;
+        var AppendExplore1 = 'https://staging.sunbirded.org/get';
+        var AppendExplore2 = 'https://staging.sunbirded.org/explore-course';
+        browser.get(AppendExplore1, 40000);
+        browser.sleep(5000);
+        expect((userOnboard.locationPopUp).isPresent()).toBe(false);
+        browser.get(AppendExplore2, 40000);
+        expect((userOnboard.locationPopUp).isPresent()).toBe(false);
+    }
+    catch (Exception) {
+        console.log("failed");
+    }
+}
 
 
 
@@ -2182,6 +2234,8 @@ module.exports = {
     validateTncPopInManage,
     validateSignInGoogleAndSubmiting,
     validatingQRcodeSearchAndValidate,
+    validateLocationPopUpInAllPages,
+    validateLocationPopUp,
 
 }
 

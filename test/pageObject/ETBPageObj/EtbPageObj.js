@@ -2568,7 +2568,7 @@ const verifyPublishedAndSubjectBy = () => {
         browser.sleep(1000);
 
         var PublishedDD = etbPage.EtbElem().PublishedDD.getText();
-        expect(PublishedDD.getText()).toEqual('Select Published by');
+        expect(PublishedDD.getText()).toEqual('Select Published By');
         browser.sleep(1000);
 
 

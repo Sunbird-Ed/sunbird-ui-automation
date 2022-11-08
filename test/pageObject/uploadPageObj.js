@@ -230,8 +230,6 @@ const uploadEpub = () => {
     var resourceName;
     try {
         console.log("User is trying to upload epub");
-
-
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
         content.headerDropdown.click();

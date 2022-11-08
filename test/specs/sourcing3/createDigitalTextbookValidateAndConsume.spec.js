@@ -30,7 +30,7 @@ describe('createDigitalTextbookValidateAndConsume', () => {
         let collectionName = collectionPageObj.createCollectionWithDiffCollectionTypes("digitalTxtbook");
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(collectionName);
+        tpdPageObj.publishContentFromUpForReviewBucket(collectionName);
         utility.userLogout();
         utility.userLogin('Public User1');
         CreateIOBBAMAMFRASPageObj.consumeContentAndValidate(collectionName);

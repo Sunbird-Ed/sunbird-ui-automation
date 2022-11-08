@@ -22,7 +22,7 @@ describe('Content creator is able to add nodes & resources into the lesson.', ()
     it('AddNodesAndResourceToLessonPlan',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('Mentor2');
         let lessonPlan=lessonPlanPageObj.createLessonPlan();
         console.log("Created content name: "+lessonPlan);
         lessonPlanPageObj.previewTheResource();

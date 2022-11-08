@@ -1416,7 +1416,7 @@ const consumeContent = () => {
     (content.assertConsume).getText().then(function (input) {
       console.log(input + " consuming the content.");
     })
-    content.zoomOut.click();
+    //content.zoomOut.click();
     // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "save never loaded");
     // searchObj.starRating.click();
     // browser.sleep(1000);
@@ -1648,7 +1648,7 @@ const consumeTextBook = (publishedTextBook) => {
     browser.sleep(1000);
     content.zoomIn.click();
     browser.sleep(1000);
-    for (i = 0; i < 9; i++) {
+    for (i = 1; i < 9; i++) {
       sanityPage.SanityElement().pdfArrowButton.click();
     }
     browser.sleep(2000);
@@ -1714,17 +1714,162 @@ const verifyPublishedContentInAllMyContent = (publishedTextBook) => {
     searchObj.searchContent.sendKeys(publishedTextBook);
     browser.sleep(2000);
     browser.wait(protractor.ExpectedConditions.visibilityOf(resov.imageCard4), 40000, "imageCard is not available");
-    (resov.imageCard4.getText()).then(function(publishedContent){
+    (resov.imageCard4.getText()).then(function (publishedContent) {
       console.log(publishedContent);
-      (publishedContent).toEqual(publishedTextBook);
+      (publishedContent).includes(publishedTextBook);
     })
 
-  
+
   }
   catch (Exception) {
     console.log("Failed to validate filters in all textbook.");
   }
 }
+
+const validateDownloadToc = () => {
+  try {
+    browser.sleep(9000);
+    browser.actions().dragAndDrop(content.overlayButton, content.overlayButton).mouseUp().perform();
+    browser.sleep(3000);
+    expect(content.downloadButton.isPresent()).toBeTruthy();
+    browser.sleep(3000);
+    content.downloadButton.click();
+    browser.sleep(3000);
+    content.downloadPopUpButton.click();
+    browser.sleep(1000);
+    content.closeButton.click();
+    browser.sleep(1000);
+    browser.actions().dragAndDrop(content.overlayButton, content.overlayButton).mouseUp().perform();
+    browser.sleep(6000);
+  }
+  catch (Exception) {
+    console.log("Failed to consumed the content properly.");
+  }
+}
+
+
+
+const consumePdfContentAndValidateSomeAttributes = () => {
+  try {
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    var do_id = cred[34]['CourseName'];
+    browser.sleep(2000);
+    console.log("User is trying to consume content");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+    sanityPage.SanityElement().clkLibraray.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
+    browser.sleep(2000);
+    sanityPage.SanityElement().clkSearchLib.click();
+    browser.sleep(3000);
+    content.courseCard.click();
+    browser.sleep(1000);
+    content.courseClk.click();
+    browser.sleep(9000);
+    for (i = 0; i > 2; i++) {
+      content.zoomOutToc.click();
+      browser.sleep(1000);
+    }
+    content.zoomInToc.click();
+    validateDownloadToc();
+    content.zoomIn.click();
+    browser.sleep(5000);
+    validateDownloadToc();
+    for (i = 0; i < 94; i++) {
+      sanityPage.SanityElement().pdfArrowButton.click();
+      browser.sleep(200);
+      if (i === 92) {
+        browser.sleep(4000);
+        (content.consumptionInPercentage).getText().then(function (input) {
+          console.log("Consumption percentage : " + input);
+        })
+        browser.sleep(4000);
+      }
+    }
+    sanityPage.SanityElement().pdfArrowButton.click();
+    browser.sleep(5000);
+    (content.consumptionTimer).getText().then(function (input) {
+      console.log("Total time consume " + input);
+    })
+    browser.sleep(6000);
+    (content.assertConsume).getText().then(function (input) {
+      console.log(input + " consuming the content.");
+    })
+    browser.sleep(3000);
+    (content.replayButton).getText().then(function (replay) {
+      console.log(replay + " Button is validated");
+    })
+    browser.sleep(5000);
+    content.zoomOut.click();
+    browser.sleep(1000);
+
+
+  }
+  catch (Exception) {
+    console.log("Failed to consumed the content properly.");
+  }
+}
+
+
+
+const consumePdfContentAndVerifyProgress = () => {
+  try {
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    var do_id = cred[34]['CourseName'];
+    browser.sleep(2000);
+    console.log("User is trying to consume content");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+    sanityPage.SanityElement().clkLibraray.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
+    browser.sleep(2000);
+    sanityPage.SanityElement().clkSearchLib.click();
+    browser.sleep(3000);
+    content.courseCard.click();
+    browser.sleep(8000);
+    content.courseClk.click();
+    browser.sleep(6000);
+    content.zoomIn.click();
+    browser.sleep(5000);
+    for (i = 0; i < 95; i++) {
+      sanityPage.SanityElement().pdfArrowButton.click();
+      browser.sleep(200);
+      if (i === 93) {
+        browser.sleep(4000);
+        (content.consumptionInPercentage).getText().then(function (input) {
+          console.log("Consumption percentage : " + input);
+        })
+        browser.sleep(4000);
+      }
+    }
+    browser.sleep(2000);
+    (content.consumptionTimer).getText().then(function (input) {
+      console.log("Total time consume " + input);
+    })
+    browser.sleep(6000);
+    (content.assertConsume).getText().then(function (input) {
+      console.log(input + " consuming the content.");
+    })
+    browser.sleep(3000);
+    (content.replayButton).getText().then(function (replay) {
+      console.log(replay + " Button is validated");
+    })
+    browser.sleep(7000);
+    content.zoomOut.click();
+    browser.sleep(2000);
+
+  }
+  catch (Exception) {
+    console.log("Failed to consumed the content properly.");
+  }
+}
+
 
 
 
@@ -1776,6 +1921,7 @@ module.exports = {
   consumeTextBook,
   verifyFilterSortSearchInAllTextBook,
   verifyPublishedContentInAllMyContent,
-
-
+  consumePdfContentAndValidateSomeAttributes,
+  consumePdfContentAndVerifyProgress,
+  validateDownloadToc,
 }

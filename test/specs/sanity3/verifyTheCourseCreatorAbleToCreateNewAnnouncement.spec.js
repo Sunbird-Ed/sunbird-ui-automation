@@ -25,10 +25,8 @@ describe('verifyTheCourseCreatorAbleToCreateNewAnnouncement', () => {
     it('verifyTheCourseCreatorAbleToCreateNewAnnouncement ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('Public User1');
         sanityPage.verifyDiscussionForum();
        
-
-
     });
 });

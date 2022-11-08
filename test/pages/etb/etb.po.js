@@ -118,7 +118,7 @@ var etb = () => {
 
     var questionCollType = element(by.xpath("//*[contains(text(),'Collection Type')]/following::sui-select-option[3]/span[2]"));
     var contentCollType = element(by.xpath("//*[contains(text(),'Collection Type')]/following::sui-select-option[1]/span[2]"));
-    var collectionAppIcon = element(by.id("icon_appIcon"));
+    var collectionAppIcon = element(by.xpath("//i[contains(@id,'icon_appIcon')]"));
     var collAllImage = element(by.xpath("//a[text()='All Image']"));
     var collMyImage = element(by.xpath("//a[contains(text(),'My Images')]"));
     var collAppIcon = element(by.xpath("//div[@class='sb-image-section relative position']//following::img"));

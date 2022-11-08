@@ -28,7 +28,7 @@ describe('verifyCreatorDeleteBookFromAllBuckets', () => {
         let bookName = sanityfun.createBook();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(bookName);
+        tpdPageObj.publishContentFromUpForReviewBucket(bookName);
         utility.userLogout();
         utility.userLogin('Creator');
         // let bookName ="Book";

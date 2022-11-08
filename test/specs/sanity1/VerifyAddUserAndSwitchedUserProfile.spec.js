@@ -20,7 +20,7 @@ describe('VerifyAddUserAndSwitchedUserProfile', () => {
     it('VerifyAddUserAndSwitchedUserProfile',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('CustodianUser');
+        utility.userLogin('Admin3');
         usrOnBoardfun.AddUserProfileVerification();
         
     });

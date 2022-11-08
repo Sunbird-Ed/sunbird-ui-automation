@@ -30,7 +30,7 @@ describe('verifyQRCodeSearchWorksFine', () => {
         BookName=sanityFun.verifyQRCodeAtBookLevelAndUnitLevel();
         utility.userLogout();
         utility.userLogin('ContentReviewer');
-        tpdPageObj.publishCourseFromUpForReview(BookName);
+        tpdPageObj.publishContentFromUpForReviewBucket(BookName);
         utility.userLogout();
         utility.userLogin('Public User1');
         tpdPageObj.verifyQRCodeSearchWorksFine();

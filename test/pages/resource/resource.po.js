@@ -151,7 +151,7 @@ var resource = () => {
     var upForReview = element(by.xpath("//a[contains(text(),'Up For Review')]"));
     var newchild = element(by.xpath("//i[@class='level up icon clockwise rotated table-of-contents-child-icon ']"));
     var contentupload = element(by.xpath("(//img[@class='ui tiny image UpReviewTinyImage']/..//div[@class='UpReviewHeader'])[1]"));
-    var clickRequestChanges = element(by.xpath("//body//*[contains(text(),'Request ')]"));
+    var clickRequestChanges = element(by.xpath("//div[contains(@id,'search-input-container')]//following::*[contains(text(),'Request ')]"));
     var rejectReason1 = element(by.xpath("(//h5[.='Appropriateness']/..//input[@class='listItem'])[1]"));
     var rejectReason2 = element(by.xpath("(//h5[.='Content details']/..//input[@class='listItem'])[1]"));
     var rejectReason3 = element(by.xpath("(//h5[.='Usability']/..//input[@class='listItem'])[1]"));
@@ -321,7 +321,7 @@ var resource = () => {
     var btnCloseEditor = element(by.xpath("//div[contains(@class,'ui basic cancel button ng-scope')]"));
     var labelEnterTheQuestion = element(by.xpath("//span[contains(text(),'Enter the question')]"));
     var linkActiveItemDraft = element(by.xpath("(//a[contains(@class,'item active')])[1]"));
-    var ddSendforreview = element(by.xpath("//div[@class='ui button text-part popup-item']//following::i[2]//parent::div"));
+    var ddSendforreview = element(by.xpath("(//div[@class='ui button text-part popup-item']//following::i[2]//parent::div)[1]"));
     var sendForReviewInShareViaLink = element(by.xpath("//div[contains(@data-content,'Send for review')]"));
     var linkLimitedSharing = element(by.xpath("//div[contains(text(),'Limited sharing')]"));
     var linkShareViaLink = element(by.xpath("//a[contains(text(),' Shared via link ')]"));
@@ -405,7 +405,7 @@ var resource = () => {
     var clkcommentBox = element(by.xpath("//textarea[@name='rejectComment']"));
     var clkSubmitReviw = element(by.xpath("//button[@id='submitReview']"));
     var scrollLabelOther = element(by.xpath("//label[contains(text(),'Other Issue(s) (if there are any other issues, tick this and provide details in the comments box)')]"));
-    var reviewComment1 = element(by.xpath("//textarea[@id='review-comments']"));
+    var reviewComment1 = element(by.xpath("//div[contains(text(),' Request changes ')]//following::textarea"));
     var reviewerSuggestionColl = element(by.xpath("//div[@data-title='View review comments']"));
     var reviewerSuggestionTitleColl = element(by.xpath("//textarea[@name='rejectedComment']"));
     var revieDialogCloseColl = element(by.xpath("//textarea[@name='rejectedComment']//following::button"));
@@ -584,8 +584,11 @@ var resource = () => {
     var assertContinueLearningContent = element(by.xpath("//span[contains(text(),'Continue Learning')]//following::div[@class='sb--card__info']"));
     var assertRecentlyPublished = element(by.xpath("//div[contains(text(),' Recently published courses ')]"));
     var assertRecentlyPublishedContent = element(by.xpath("//div[contains(text(),' Recently published courses ')]//following::div[@class='sb--card__info']"));
-
-
+    var collaboration = element(by.xpath("//a[contains(text(),' Collaborations')]"));
+    var requestChengesPopUp = element(by.xpath("//div[contains(@id,'search-input-container')]//following::*[contains(text(),'Request ')][3]"));
+    var lessonPlanRequestChanges = element(by.xpath("//div[@id='reviewButton']//following::*[text()='Request Changes']"));
+    var commentbox = element(by.xpath("//textarea[@id='review-comments']"));
+    var footerRequestChanges = element(by.xpath("//div[@id='review-footer']//following::button[contains(text(),'Request changes')][2]"));
 
 
 
@@ -1181,11 +1184,12 @@ var resource = () => {
         assertContinueLearningContent,
         assertRecentlyPublished,
         assertRecentlyPublishedContent,
+        collaboration,
+        requestChengesPopUp,
+        lessonPlanRequestChanges,
+        commentbox,
+        footerRequestChanges,
     }
-
-
-
-
 
 };
 module.exports = {

@@ -28,7 +28,7 @@ describe('validateAdditionalCategoryInBook', () => {
         let bookName = sanityfun.ValidateAdditionalCategory();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(bookName)
+        tpdPageObj.publishContentFromUpForReviewBucket(bookName)
         utility.userLogout();
         utility.userLogin('Creator');
         utility.validateWorkspace();

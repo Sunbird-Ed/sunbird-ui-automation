@@ -27,12 +27,14 @@ describe('validatePublishedContentInAllMyContentForCreatorSide', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let bookName = sanityfun.createBook();
+        console.log(bookName);
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(bookName);
+        tpdPageObj.publishContentFromUpForReviewBucket(bookName);
         utility.userLogout();
+        // let bookName = "BookBJudy";
         utility.userLogin('Creator');
-        cont.verifyPublishedContentInAllMyContent
+        cont.verifyPublishedContentInAllMyContent(bookName);
         
         
     })

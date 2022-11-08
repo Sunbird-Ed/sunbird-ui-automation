@@ -74,7 +74,7 @@ const userLoginWithInvalidCredential = (roleName) => {
 
 const handleLocationPopup = () => {
     try {
-       
+
         browser.sleep(1000);
         wait.waitForElementVisibility(content.Teacher, 30000);
         content.Teacher.click();
@@ -298,25 +298,24 @@ const handleDropDown = () => {
 
 
         content.autocl.isPresent().then(function (result) {
-            if(result)
-            {
+            if (result) {
                 wait.waitForElementVisibility(content.selectBoardValue, 30000);
                 content.selectBoardValue.click();
                 browser.sleep(6000);
             }
-            else{
-     browser.sleep(3000);
-        wait.waitForElementVisibility(content.boardDropdown, 30000);
-        content.boardDropdown.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.selectBoardValue, 30000);
-        content.selectBoardValue.click();
-        browser.sleep(6000);
+            else {
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.boardDropdown, 30000);
+                content.boardDropdown.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.selectBoardValue, 30000);
+                content.selectBoardValue.click();
+                browser.sleep(6000);
 
             }
-    });
-          
-           wait.waitForElementVisibility(content.mediumDropdown, 30000);
+        });
+
+        wait.waitForElementVisibility(content.mediumDropdown, 30000);
         content.mediumDropdown.click();
         browser.sleep(3000);
         wait.waitForElementVisibility(content.selectMediumValue, 30000);
@@ -328,7 +327,7 @@ const handleDropDown = () => {
         wait.waitForElementVisibility(content.selectGradeLevelValue, 30000);
         content.selectGradeLevelValue.click();
         browser.sleep(2000);
-       
+
         wait.waitForElementVisibility(content.submitButtonForDropdowns, 30000);
         content.submitButtonForDropdowns.click();
         browser.sleep(1000);
@@ -391,11 +390,40 @@ const userLoginPopup = (roleName) => {
 
         content.login.click();
         browser.sleep(3000);
-        
+
     } catch (Err) {
         console.error("Failed to user login, " + Err);
+    }
 }
+
+const userLoginPopup2 = (roleName) => {
+    try {
+        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', roleName);
+        // browser.sleep(4000);
+        // wait.waitForElementVisibility(content.headerDropdown1, 20000);
+        // content.headerDropdown1.click();
+        // browser.sleep(300);
+        // browser.executeScript("arguments[0].scrollIntoView();", content.loginLink);
+        // browser.sleep(200);
+        // wait.waitForElementVisibility(content.loginLink, 20000);
+        // content.loginLink.click();
+        browser.sleep(300);
+        wait.waitForElementVisibility(content.usernamePopUp, 20000);
+        content.usernamePopUp.sendKeys(cred[0]['Username']);
+        browser.sleep(100);
+        content.passwordPopUp.sendKeys(cred[0]['Password']);
+        browser.sleep(100);
+        content.login.click();
+        browser.sleep(3000);
+
+    } catch (Err) {
+        console.error("Failed to user login, " + Err);
+    }
 }
+
+
+
 module.exports = {
     verifyAdminDashBoard,
     userLoginPopup,
@@ -413,4 +441,5 @@ module.exports = {
     handleLocationPopupAsStudent,
     handleLocationPopupAsOther,
     handleLocationPopupForSchoolHead,
+    userLoginPopup2,
 }

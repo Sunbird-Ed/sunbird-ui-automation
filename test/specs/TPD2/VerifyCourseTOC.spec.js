@@ -17,18 +17,15 @@ describe('VerifyCourseTOC in course', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
     it('VerifyCourseTOC',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
-        searchCBFPPageObj.verifyCollapseAllOption();
+        searchCBFPPageObj.verifyCourseData();
         
-       
-       
+    
     });
 });
    

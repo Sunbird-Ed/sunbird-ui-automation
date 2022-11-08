@@ -22,7 +22,7 @@ describe('Verifiy user is getting add user option in his profile and able to swi
     it('AddUserAndValidate ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('CustodianUser');
+        utility.userLogin('Admin3');
         verifyCEBpageobj.addUserInProfile();
         utility.handleLocationPopup();  
     })  

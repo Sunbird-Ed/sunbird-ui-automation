@@ -16,21 +16,17 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
         browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
-
-
     });
-
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('Verify that when user selects the expired course from my courses, user should see the expired course batch', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ExpiredBatch');
         EnrollTBFCPageObj.verifyExpiredCourseWithOptionResumeAndEnroll();
-        
-
     })
 });

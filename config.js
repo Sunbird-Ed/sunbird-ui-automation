@@ -6,7 +6,7 @@ var HtmlReporter = require('protractor-beautiful-reporter');
 exports.config = {
     //seleniumAddress: 'http://localhost:4444/wd/hub',
     directConnect: true,
-    // allScriptsTimeout: 10000000000,
+    //allScriptsTimeout: 10000000000,
 
     framework: 'jasmine2',
     restartBrowserBetweenTests: false,
@@ -17,24 +17,25 @@ exports.config = {
         sanity2: 'test/specs/sanity2/*.spec.js',
         sanity3: 'test/specs/sanity3/*.spec.js',
 
-        // sourcing1: 'test/specs/sourcing1/*.spec.js',
-        // sourcing2: 'test/specs/sourcing2/*.spec.js',
+        //sourcing1: 'test/specs/sourcing1/*.spec.js',
+        //sourcing2: 'test/specs/sourcing2/*.spec.js',
         // sourcing3: 'test/specs/sourcing3/*.spec.js',
         // sourcing4: 'test/specs/sourcing4/*.spec.js',
 
-        // sanity1: 'test/specs/Consumption/verifyConsumptionOfPDFcontentInFullscreenMode.spec.js',
+        //sanity1: 'test/specs/Consumption/validateRecentlyPublishedCoursesLabel.spec.js',
+        //sanity1: 'test/specs/TPDCollobaration/verifyThatUserCanClearAllNotificationsInOneGo.spec.js',
         // userOrgAndCredentials: 'test/specs/sourcing1/VerifyCreatorAbleToCreateMultipleCategoricalValues.spec.js',
         // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
 
-        // sanity1: 'test/specs/sanity2/CreateMCQQuestionSet.spec.js',
+        // sanity1: 'test/specs/Consumption/validateEnableDiscussionAndStartDiscussionInCourse.spec.js',
 
-        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
+        //userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
 
-        // TPDCollobration: 'test/specs/TPDCollobaration/*.spec.js',
+        //TPDCollobration: 'test/specs/TPDCollobaration/*.spec.js',
         // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
-        //Consumption: 'test/specs/Consumption/*.spec.js',
+        // Consumption: 'test/specs/Consumption/*.spec.js',
 
 
         // sourcing3: 'test/specs/sourcing3/*.spec.js',
@@ -45,7 +46,7 @@ exports.config = {
         // sourcing21:'test/specs/so8/*.spec.js',
 
 
-        // useronboarding: 'test/specs/Consumption/*.spec.js',
+        //useronboarding: 'test/specs/Consumption/*.spec.js',
         // contentcreation: 'test/specs/content-creation/*.spec.js',
         // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
         // tpd1: 'test/specs/sourcing2/CreateLessonPlanSaveAndSendForReviewAndPublish.spec.js',
@@ -66,7 +67,7 @@ exports.config = {
         // OnBoardingCardWithoutLogin: ['test/specs/Consumption/OnBoardingCardWithoutLogin.spec.js'],
         // SelectedPreferenceInProfileSection: ['test/specs/Consumption/SelectedPreferenceInProfileSection.spec.js'],
         // NavigateToTabUsingKeyBoard: ['test/specs/Consumption/NavigateToTabUsingKeyBoard.spec.js'],
-        // TimerVerification: ['test/specs/sanity2/TimerVerification.spec.js'],
+        //  TimerVerification: ['test/specs/sanity2/CreateCourseAndVerify.spec.js'],
 
     },
 
@@ -86,7 +87,7 @@ exports.config = {
         version: '78.0.3904.108',
         platform: 'Any',
         shardTestFiles: true,
-        maxInstances: 2,
+        maxInstances: 1,
         chromeOptions: {
             prefs: {
                 profile: {
@@ -99,7 +100,6 @@ exports.config = {
                     //  default_directory: "/home/qualitrix/Documents/diksha-Protractor/test/pageObject",
                 }
             },
-
             args: ['--disable-infobars', '--no-sandbox', '--disable-dev-shm-usage',
                 //          args: ['--incognito',
 

@@ -25,7 +25,7 @@ describe('verifyAddCollaboratorToBook', () => {
     });
 
     it('verifyAddCollaboratorToBook',function(){
-        
+
        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');

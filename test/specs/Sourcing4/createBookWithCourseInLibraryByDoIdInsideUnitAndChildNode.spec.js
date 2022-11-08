@@ -1,17 +1,18 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
-const EnrollTBFCPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
+const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPageObj.js');
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
-const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
-describe('verify sign in popup in explore course', () => {
+describe('createBookWithCourseInLibraryByDoIdInsideUnitAndChildNode', () => {
+
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
         var AppendExplore = '/explore';
         browser.get(Url + AppendExplore, 40000);
+        browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
 
@@ -21,24 +22,30 @@ describe('verify sign in popup in explore course', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('VerifySignInPopupInExploreCourseEnrollButton ', function () {
+
+    it('createBookWithCourseInLibraryByDoIdInsideUnitAndChildNode', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        let courseName = sanityfun.createCourseAndSendForReview();
+        let data = tpdPageObj.createCourseAndReturnDoidAndCourseName();
+        let course = data.courseName;
+        let urldata = data.currentUrl;
+        urldata.then(function (input) {
+        var doid = input.split("/")[6];
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        utility.validateWorkspace();
+        tpdPageObj.publishCourseFromUpForReview2(course);
         utility.userLogout();
         utility.userLogin('Creator');
-        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        EnrollTBFCPageObj.createOpenBatchWithCloseEndDate();
+        let bookName = tpdPageObj.createBookAndAddCoursesInChildAndUnitLevel(doid,course);
         utility.userLogout();
-        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        EnrollTBFCPageObj.validateLoginPopup();
+        utility.userLogin('Reviewer');
+        tpdPageObj.publishCourseFromUpForReview(bookName)
+        utility.userLogout();
+        utility.userLogin('Creator');
+        utility.validateWorkspace();
+        lspPageObj.deleteCreatedItems();
+       })
     })
-
-
-
 });
-

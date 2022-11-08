@@ -1,8 +1,10 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
+const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 
-describe('UploadContentWithDifferentTypes', () => {
+describe('VerifyChangingLanguageWhileConsuming for Kannada Language', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -19,21 +21,20 @@ describe('UploadContentWithDifferentTypes', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('UploadContentWithDifferentTypes',function(){
+    it('VerifyChangingLanguageWhileConsuming',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        let contentName=resourcePageObj.createQuestionFITBWithAllStyles();
-        resourcePageObj.sendForReviewTheResource();
-        utility.userLogout();
-        console.log(contentName);
-        utility.userLogin('Reviewer');
-        resourcePageObj.publishTheResourceFromUpForReview(contentName);
-        utility.userLogout();
+        // utility.userLogin('Creator');
+        // let contentName=resourcePageObj.createQuestionFITBWithAllStyles();
+        // console.log(contentName);
+        // resourcePageObj.sendForReviewTheResource();
+        // utility.userLogout();
+        // utility.userLogin('Reviewer');
+        // resourcePageObj.publishTheResourceFromUpForReview(contentName);
+        // utility.userLogout();
+        let contentName="ResourceAOda";
         utility.userLogin('Public User1');
-        resourcePageObj.ConsumeResourceAndValidateScoreForFITB(contentName);
-      
-        
+        tpdPageObj.ChangeLangWhileConsuming(contentName);
        
       
     })

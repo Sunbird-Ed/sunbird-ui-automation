@@ -1,8 +1,9 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
+const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const resource = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
+const searchCBFPPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 
-describe('BrowseSectionInExplorePage', () => {
+describe('VerifyCollapseAllOption', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -17,11 +18,11 @@ describe('BrowseSectionInExplorePage', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('BrowseSectionInExplorePage',function(){
+
+    it('VerifyCollapseAllOption',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        resource.browseSeactionInExplorePage();
-    })
-    
+        utility.userLogin('Public User1');
+        searchCBFPPageObj.verifyCollapseAllOption();
+    });
 });

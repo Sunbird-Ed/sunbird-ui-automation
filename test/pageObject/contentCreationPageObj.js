@@ -1731,6 +1731,7 @@ const validateDownloadToc = () => {
     browser.sleep(9000);
     browser.actions().dragAndDrop(content.overlayButton, content.overlayButton).mouseUp().perform();
     browser.sleep(3000);
+    expect(content.sharebutton.isPresent()).toBe(true);
     expect(content.downloadButton.isPresent()).toBeTruthy();
     browser.sleep(3000);
     content.downloadButton.click();
@@ -1805,8 +1806,6 @@ const consumePdfContentAndValidateSomeAttributes = () => {
     browser.sleep(5000);
     content.zoomOut.click();
     browser.sleep(1000);
-
-
   }
   catch (Exception) {
     console.log("Failed to consumed the content properly.");
@@ -1870,8 +1869,137 @@ const consumePdfContentAndVerifyProgress = () => {
   }
 }
 
+const navigateContentAndValidate = (keywordNames,courseName) => {
+  try {
+    console.log("To verify navigate to Course section and search course");
+    browser.sleep(2000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+    sanityPage.SanityElement().clkLibraray.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.sendKeys(keywordNames);
+    browser.sleep(2000);
+    sanityPage.SanityElement().clkSearchLib.click();
+    browser.sleep(1000);
+    content.courseCard.getText().then(function (input) {
+      expect(input).toMatch(courseName);
+    })
+  }
+  catch (Exception) {
+  console.log("Failed to verify navigate to Course section and search course");
+}
+}
 
 
+const epubContent = (courseName) => {
+  try {
+    browser.sleep(2000);
+    console.log("User is trying to consume content");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+    sanityPage.SanityElement().clkLibraray.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.sendKeys(courseName);
+    browser.sleep(2000);
+    sanityPage.SanityElement().clkSearchLib.click();
+    browser.sleep(3000);
+    content.courseCard.click();
+    browser.sleep(1000);
+    content.courseClk.click();
+    browser.sleep(9000);sharebutton
+    content.fullScreen.click();
+    validateDownloadToc();
+    for (i = 0; i < 5; i++) {
+      sanityPage.SanityElement().pdfArrowButton.click();
+      browser.sleep(200);
+    }
+    sanityPage.SanityElement().pdfArrowButton.click();
+    browser.sleep(5000);
+    (content.consumptionTimer).getText().then(function (input) {
+      console.log("Total time consume " + input);
+    })
+    browser.sleep(6000);
+    (content.assertConsume).getText().then(function (input) {
+      console.log(input + " consuming the content.");
+    })
+    browser.sleep(3000);
+    (content.replayButton).getText().then(function (replay) {
+      console.log(replay + " Button is validated");
+    })
+    browser.sleep(5000);
+    content.minimizeToc.click();
+    
+  }
+  catch (Exception) {
+    console.log("Failed to consumed the content properly.");
+  }
+}
+
+
+
+const consumeEpubContent= (courseName) => {
+  try {
+    browser.sleep(2000);
+    console.log("User is trying to consume content");
+    console.log("User is trying to consume content");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+    sanityPage.SanityElement().clkLibraray.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.sendKeys(courseName);
+    browser.sleep(2000);
+    sanityPage.SanityElement().clkSearchLib.click();
+    browser.sleep(3000);
+    content.courseCard.click();
+    browser.sleep(1000);
+    content.courseClk.click();
+    browser.sleep(9000);
+    browser.executeScript('window.scrollTo(0,100);').then(function () {
+      console.log('++++++SCROLLED Down+++++');
+  });
+    content.fullScreen.click();
+    //browser.actions().dragAndDrop(content.fullScreen, content.fullScreen).mouseUp().perform();
+    browser.sleep(3000);
+  //  validateDownloadToc();
+  //   content.zoomIn.click();
+  //   browser.sleep(5000);
+  //   validateDownloadToc();
+  //   for (i = 0; i < 94; i++) {
+  //     sanityPage.SanityElement().pdfArrowButton.click();
+  //     browser.sleep(200);
+  //     if (i === 92) {
+  //       browser.sleep(4000);
+  //       (content.consumptionInPercentage).getText().then(function (input) {
+  //         console.log("Consumption percentage : " + input);
+  //       })
+  //       browser.sleep(4000);
+  //     }
+  //   }
+  //   sanityPage.SanityElement().pdfArrowButton.click();
+  //   browser.sleep(5000);
+  //   (content.consumptionTimer).getText().then(function (input) {
+  //     console.log("Total time consume " + input);
+  //   })
+  //   browser.sleep(6000);
+  //   (content.assertConsume).getText().then(function (input) {
+  //     console.log(input + " consuming the content.");
+  //   })
+  //   browser.sleep(3000);
+  //   (content.replayButton).getText().then(function (replay) {
+  //     console.log(replay + " Button is validated");
+  //   })
+  //   browser.sleep(5000);
+  //   content.zoomOut.click();
+  //   browser.sleep(1000);
+
+ }
+  catch (Exception) {
+    console.log("Failed to consumed the content properly.");
+  }
+}
 
 
 
@@ -1924,4 +2052,8 @@ module.exports = {
   consumePdfContentAndValidateSomeAttributes,
   consumePdfContentAndVerifyProgress,
   validateDownloadToc,
+  navigateContentAndValidate,
+  epubContent,
+  consumeEpubContent,
+  
 }

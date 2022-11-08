@@ -29,7 +29,7 @@ describe('Veri that user is able to preview and delete the resource', () => {
         //resourcePageObj.previewResource();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        resourcePage.publishTheResourceFromUpForReview(resourceName);
+        resourcePageObj.publishTheResourceFromUpForReview(resourceName);
         utility.userLogout();
         utility.userLogin('Creator');
         utility.validateWorkspace();

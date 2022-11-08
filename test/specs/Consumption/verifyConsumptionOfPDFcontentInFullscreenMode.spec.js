@@ -30,5 +30,4 @@ describe('verifyConsumptionOfPDFcontentInFullscreenMode', () => {
         utility.userLogin('Public User1');
         cont.consumePdfContentAndValidateSomeAttributes();
     })
-    
 });

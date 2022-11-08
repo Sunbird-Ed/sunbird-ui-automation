@@ -24,8 +24,6 @@ describe('verfiyDashboardisVisible', () => {
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         etbFun.verifyOnlyClassFilter();
-       
-        
     })
 });
    

@@ -72,7 +72,7 @@ const userLoginWithInvalidCredential = (roleName) => {
 
 }
 
-const handleLocationPopup = () => {
+const handleDropDown = () => {
     try {
 
         browser.sleep(1000);
@@ -82,22 +82,23 @@ const handleLocationPopup = () => {
         wait.waitForElementVisibility(content.Continue, 20000);
         content.Continue.click();
         browser.sleep(5000);
-        wait.waitForElementVisibility(content.state, 20000);
-        content.state.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.selectState, 20000);
-        content.selectState.click();
-        browser.sleep(4000);
-        wait.waitForElementVisibility(content.district, 20000);
-        content.district.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.selectDistrict, 20000);
-        content.selectDistrict.click();
-        browser.sleep(2000);
-        browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.submitForm, 20000);
-        content.submitForm.click();
+
+        // wait.waitForElementVisibility(content.state, 20000);
+        // content.state.click();
+        // browser.sleep(2000);
+        // wait.waitForElementVisibility(content.selectState, 20000);
+        // content.selectState.click();
+        // browser.sleep(4000);
+        // wait.waitForElementVisibility(content.district, 20000);
+        // content.district.click();
+        // browser.sleep(2000);
+        // wait.waitForElementVisibility(content.selectDistrict, 20000);
+        // content.selectDistrict.click();
+        // browser.sleep(2000);
+        // browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
+        // browser.sleep(1000);
+        // wait.waitForElementVisibility(content.submitForm, 20000);
+        // content.submitForm.click();
 
     } catch (err) {
         console.error("Failed to handle location pop up, " + err);
@@ -292,18 +293,32 @@ const handleLocationPopupAsOther = () => {
 }
 
 
-const handleDropDown = () => {
+const handleLocationPopup = () => {
     try {
         browser.sleep(6000);
 
 
-        content.autocl.isPresent().then(function (result) {
-            if (result) {
-                wait.waitForElementVisibility(content.selectBoardValue, 30000);
-                content.selectBoardValue.click();
-                browser.sleep(6000);
-            }
-            else {
+        // content.autocl.isPresent().then(function (result) {
+        //     if (result) {
+        //         wait.waitForElementVisibility(content.selectBoardValue, 30000);
+        //         content.selectBoardValue.click();
+        //         browser.sleep(6000);
+        //     }
+        //     else {
+        //         browser.sleep(3000);
+        //         wait.waitForElementVisibility(content.boardDropdown, 30000);
+        //         content.boardDropdown.click();
+        //         browser.sleep(3000);
+        //         wait.waitForElementVisibility(content.selectBoardValue, 30000);
+        //         content.selectBoardValue.click();
+        //         browser.sleep(6000);
+
+        //     }
+        // });
+
+
+      
+           
                 browser.sleep(3000);
                 wait.waitForElementVisibility(content.boardDropdown, 30000);
                 content.boardDropdown.click();
@@ -311,9 +326,6 @@ const handleDropDown = () => {
                 wait.waitForElementVisibility(content.selectBoardValue, 30000);
                 content.selectBoardValue.click();
                 browser.sleep(6000);
-
-            }
-        });
 
         wait.waitForElementVisibility(content.mediumDropdown, 30000);
         content.mediumDropdown.click();
@@ -327,10 +339,35 @@ const handleDropDown = () => {
         wait.waitForElementVisibility(content.selectGradeLevelValue, 30000);
         content.selectGradeLevelValue.click();
         browser.sleep(2000);
-
         wait.waitForElementVisibility(content.submitButtonForDropdowns, 30000);
         content.submitButtonForDropdowns.click();
+        browser.sleep(3000);
+
+
+         wait.waitForElementVisibility(content.state, 20000);
+        content.state.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.selectState, 20000);
+        content.selectState.click();
+        browser.sleep(4000);
+        wait.waitForElementVisibility(content.district, 20000);
+        content.district.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.selectDistrict, 20000);
+        content.selectDistrict.click();
+        browser.sleep(2000);
+        browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
         browser.sleep(1000);
+        wait.waitForElementVisibility(content.submitForm, 20000);
+        content.submitForm.click();
+
+
+
+
+
+
+
+
     } catch (err) {
         console.log(err);
     }
@@ -422,6 +459,51 @@ const userLoginPopup2 = (roleName) => {
     }
 }
 
+const recentDate = () => {
+    try {
+        var date = new Date();
+        var day = date.getDate();
+        var year = date.getFullYear();
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"];
+        var month = monthNames[date.getMonth()];
+        newdate = day + " " + month + " " + year;
+        return newdate;
+    } catch (Err) {
+        console.error("Failed , " + Err);
+    }
+}
+
+
+const nextDate = () => {
+    try {
+        var date = new Date();
+        var day = date.getDate();
+        var year = date.getFullYear();
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"];
+        var month = monthNames[date.getMonth()+1];
+        newdate = day + " " + month + " " + year;
+        return newdate;
+    } catch (Err) {
+        console.error("Failed , " + Err);
+    }
+}
+
+const futureDate = () => {
+    try {
+        var date = new Date();
+        var day = date.getDate();
+        var year = date.getFullYear();
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"];
+        var month = monthNames[date.getMonth()+2];
+        newdate = day + " " + month + " " + year;
+        return newdate;
+    } catch (Err) {
+        console.error("Failed , " + Err);
+    }
+}
 
 
 module.exports = {
@@ -442,4 +524,7 @@ module.exports = {
     handleLocationPopupAsOther,
     handleLocationPopupForSchoolHead,
     userLoginPopup2,
+    recentDate,
+    nextDate,
+    futureDate,
 }

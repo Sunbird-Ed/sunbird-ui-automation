@@ -22,14 +22,8 @@ describe('verifyQRCodeField', () => {
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Creator');
-        etbFun.navigateToWorkspace();
+        // etbFun.navigateToWorkspace();
         etbFun.verifyQRCodeField();
-
-
     })
-
-
-
-
 });
 

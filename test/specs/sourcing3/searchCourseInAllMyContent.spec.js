@@ -27,13 +27,7 @@ describe('Course creator should be able to search the course content  in All my 
         tpdPageObj.navigateToAllMyContent();
         tpdPageObj.applyStatusFilterinAllMyContent();
         tpdPageObj.applyFilterinAllMyContent();
-        tpdPageObj.verifyPagenationInAllMyContent();
-        
-        
+        tpdPageObj.verifyPagenationInAllMyContent(); 
     });
-    
-    
-
- 
 });
    

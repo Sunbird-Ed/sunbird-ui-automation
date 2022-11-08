@@ -3,8 +3,9 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
+const cont = require(protractor.basePath+ '/test/pageObject/contentCreationPageObj.js');
 
-describe('VerifyChangingLanguageWhileConsuming for Kannada Language', () => {
+describe('consumeEpubAndvalidateInToc', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -13,30 +14,28 @@ describe('VerifyChangingLanguageWhileConsuming for Kannada Language', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('VerifyChangingLanguageWhileConsuming',function(){
+
+    it('consumeEpubAndvalidateInToc',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        let contentName=resourcePageObj.createQuestionFITBWithAllStyles();
-        console.log(contentName);
-        resourcePageObj.sendForReviewTheResource();
+        let contentLibraryType="epub";
+        let courseName = tpdPageObj.createCourseAndSendForReviewBySearchingContentInLibrary(contentLibraryType);
         utility.userLogout();
         utility.userLogin('Reviewer');
-        resourcePageObj.publishTheResourceFromUpForReview(contentName);
+        tpdPageObj.publishCourseFromUpForReview(courseName)
         utility.userLogout();
-        //let contentName="ResourceAOda";
+        utility.userLogin('Creator');
+        tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
+        tpdPageObj.createOpenBatch();
+        utility.userLogout();
         utility.userLogin('Public User1');
-        tpdPageObj.ChangeLangWhileConsuming(contentName);
-       
-      
+        cont.consumeEpubContent(courseName);
     })
-    
 });

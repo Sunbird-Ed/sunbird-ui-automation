@@ -24,9 +24,5 @@ describe('VerifyCourseTOC in course', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         searchCBFPPageObj.verifyCourseData();
-        
-    
     });
 });
-   
-

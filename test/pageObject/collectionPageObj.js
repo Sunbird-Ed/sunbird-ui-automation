@@ -121,7 +121,7 @@ const createCollection = () => {
         browser.sleep(3000);
         //browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.NewCoursesubmitButton), 20000,"submit for review Button not loaded");
         sanityPage.SanityElement().NewCoursesubmitButton.click();
-        browser.sleep(3000);
+        browser.sleep(8000);
         //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().termsAndConditionCheckbox), 20000,"terms and condition checkbox Button not loaded");
 
 
@@ -1400,7 +1400,6 @@ const createCollectionWithDiffCollectionTypesAndSaveAsDraft = (collectionType) =
 
 const submitForReview = () => {
     try {
-
         browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000, "submit Button not loaded");
         sanityPage.SanityElement().submitForreviewButton.click();
         browser.sleep(3000);

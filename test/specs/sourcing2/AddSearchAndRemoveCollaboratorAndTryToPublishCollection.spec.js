@@ -30,8 +30,8 @@ describe('Vefy content creator is able to add collaborators using the Add collab
         sanityfun.addCollborator(collectionName);
         sanityfun.removeCollboratortoDraftAndSaveBook(collectionName);
         collectionPageObj.submitForReview();
-        utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishContentFromUpForReviewBucket(collectionName)
+        // utility.userLogout();
+        // utility.userLogin('Reviewer');
+        // tpdPageObj.publishContentFromUpForReviewBucket(collectionName);
     });
 });

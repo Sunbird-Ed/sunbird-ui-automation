@@ -189,7 +189,7 @@ var resource = () => {
     var submitButtonInQuestion = element(by.xpath("(//button[@id='save-question-button'])[2]"));
     var nextButton = element(by.xpath("//button[contains(text(),'Next')]"));
 
-    var addbutton = element(by.xpath("(//button[contains(text(),'Add')])[3]"));
+    var addbutton = element(by.xpath("//span[contains(text(),'Question Set')]//following::button[contains(text(),'Add More Questions')]//following::button[2]"));
 
     var checkAppIcon = element(by.xpath("//div[@class='ui image']//img"));
     var yearOfCreation = element(by.xpath("//input[@id='copyrightYear']"));
@@ -328,7 +328,7 @@ var resource = () => {
     var resourceInFirstColumn = element(by.xpath("//div[@class='cardImageText center aligned ']"));
     var btnEditDetails = element(by.xpath("//span[contains(text(),'Edit Details')]//parent::a"));
     var labelLicense = element(by.xpath("//label[contains(text(),'LICENSE')]//following::div"));
-    var linkCredit = element(by.xpath("//div[contains(text(),'About the content')]//following::i"));
+    var linkCredit = element(by.xpath("//*[contains(text(),'About the content')]"));
     var labelLicenceTerms = element(by.xpath("(//div[contains(@class,'content-metadeta__text fnormal')])[1]"));
     var labelMoreDetails = element(by.xpath("(//div[contains(@class,'content-metadeta__text fnormal')])[2]"));
     var labelCopyRight = element(by.xpath("(//div[contains(@class,'content-metadeta__text fnormal')])[3]"));

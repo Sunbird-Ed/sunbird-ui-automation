@@ -20,8 +20,8 @@ describe('verifyReviewerAbleToViewCollaborator', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        
     });
+
     it('verifyReviewerAbleToViewCollaborator',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();

@@ -5,40 +5,28 @@ const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPag
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
-describe('verify sign in popup in explore course', () => {
+describe('clkBannerAndConsumeContent', () => {
+
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
         var AppendExplore = '/explore';
         browser.get(Url + AppendExplore, 40000);
+        browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
-
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('VerifySignInPopupInExploreCourseEnrollButton ', function () {
+
+    it('clkBannerAndConsumeContent', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        let courseName = sanityfun.createCourseAndSendForReview();
-        utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName)
-        utility.userLogout();
-        utility.userLogin('Creator');
-        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        EnrollTBFCPageObj.createOpenBatchWithCloseEndDate();
-        utility.userLogout();
-        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        EnrollTBFCPageObj.validateLoginPopup();
+        utility.userLogin('User');
+        EnrollTBFCPageObj.validateAndVerifyBannerContent();
     })
-
-
-
 });
-

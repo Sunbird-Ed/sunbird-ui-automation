@@ -29,7 +29,9 @@ describe('createResourceAndValidateInDraft', () => {
         console.log(resourceName);
         resourcePageObj.sendForReviewTheResource();
         utility.userLogout();
+        utility.userLogin('Reviewer');
         resourcePageObj.rejectLessonPlan(resourceName);
+        utility.userLogout();
         utility.userLogin('Creator');
         resourcePageObj.contentSearchInDraftAndEditAndValidate(resourceName);
     })

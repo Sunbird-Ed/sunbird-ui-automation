@@ -153,7 +153,7 @@ let SanityElement = () => {
   var bestPost = element(by.xpath("//*[@id='best-post']"));
   var savedPost = element(by.xpath("//*[@id='saved-post']"));
   var upvoted = element(by.xpath("//*[@id='upvoted-post']"));
-  var downVoted = element(by.xpath("//button[@id='downvoted-post']"));
+  var downVoted = element(by.xpath("//a[@id='downvoted-post']"));
   var announcementLink = element(by.xpath("//span[text()=' Announcements ']"));
   var textareaForComment = element(by.xpath("//textarea[contains(@class,'text-content fnormal')]"));
   var postReply = element(by.xpath("//span[text()='Post Reply']"));
@@ -163,7 +163,7 @@ let SanityElement = () => {
   var description = element(by.xpath("//textarea[@formcontrolname='description']"));
   var submitButton = element(by.xpath("//span[text()='Submit']"));
   var firstGroup = element(by.xpath("//div[@class='sb--card__info']"));
-  var groupActions = element(by.xpath("//div[@id='group-actions']//parent::div"));
+  var groupActions = element(by.xpath("//div[@id='group-actions']"));
   var enableDiscussionIcon = element(by.xpath("//div[text()=' Enable discussions ']"));
   var enablediscussionSuccessful = element(by.xpath("//strong[text()='Enabled discussion forum successfully']"));
   var discussionIcon = element(by.xpath("//button[@title='Forum']//img[1]"));
@@ -237,11 +237,11 @@ let SanityElement = () => {
   var clkCloseIconDF = element(by.xpath("//button[contains(text(),' Close ')]"));
   var clkGeneDiscDF = element(by.xpath("//div[contains(text(),'General Discussion')]"));
   var clkGenericCreatedTopics = element(by.xpath("//*[contains(text(),'General Discussion')]"));
-  var clkHamburgerMenuTopic = element(by.xpath("//div[@class='kabab-menu']"));
+  var clkHamburgerMenuTopic = element(by.xpath("//div[@id='group-actions']"));
   var clkHamburgerMenuTopicEdit = element(by.xpath("//div[contains(text(),'Edit')]"));
   var clkHamburgerMenuTopicDelete = element(by.xpath("//div[contains(text(),'Delete')]"));
   var clkUpdateBtnTopcis = element(by.xpath("//button[@id='update-topic-popup']"));
-  var assertUpdatedTopicName = element(by.xpath("//div[contains(text(),'UpdateTopic')]"));
+  var assertUpdatedTopicName = element(by.xpath("//h3[contains(text(),'UpdateTopic')]"));
   var assertUpdateDesName = element(by.xpath("//*[contains(text(),'UpdatedDescription')]"));
   var assertAddedTopicName = element(by.xpath("//*[contains(text(),'This is my 1st idea to be shared')]"));
   var assertaddedDesName = element(by.xpath("//*[contains(text(),'DescriptionIdeaShared')]"));
@@ -291,7 +291,7 @@ let SanityElement = () => {
   var clkContent = element(by.xpath("(//input[contains(@id,'searchInputField')]//following::span[@class='ng-star-inserted'])[5]"));
   var coursevalidateWithBMC = element(by.xpath("(//span[contains(@class,'cfe-multiselect')])[6]"));
   var attribution = element(by.xpath("//input[contains(@placeholder,'Attributions')]"));
-  var attributionInbook = element(by.xpath("(//div[@class='credits-section']//following::h4[text()='Attributions ']//following::p)[1]"));
+  var attributionInbook = element(by.xpath("(//*[text()=' Credits and Licence information ']//following::h4[text()='Attributions ']//following::p)[1]"));
   var clkObservations = element(by.xpath("//a[contains(text(),' Observations ')]"));
   var filterSearch = element(by.xpath("//input[@name='filter_search']"));
   var searchIcon = element(by.xpath("//button[contains(.,'Search')]"));
@@ -313,7 +313,7 @@ let SanityElement = () => {
   let kebabMenuInCourse = element(by.xpath("(//div[@id='dropdown-menu-list-header'])[2]"));
   var downloadCSVfile = element(by.xpath("//*[text()='Download sample csv file']"));
   var createFolders = element(by.xpath("//button[contains(@class,'item fs-0-785 bg-none')]//following::span[text()='Create folders using csv file']"));
-  var addCourseTagForCourse = element(by.xpath("//input[@placeholder='Input text & PRESS enter']"));
+  var addCourseTagForCourse = element(by.xpath("//input[contains(@placeholder,'nter')]"));
   var contenttoasterMsg = element(by.xpath("//div[@class='iziToast-body']//following::div[@class='iziToast-texts']"));
   var addsibling = element(by.xpath("//button[contains(text(),'Add Sibling')]"));
   var childKebabMenu = element(by.xpath("//span[@id='contextMenu']"));
@@ -391,9 +391,9 @@ let SanityElement = () => {
   var addCategoryInBook = element(by.xpath("//label[@data-title='Additional Category of the Content']//following::span[text()=' Textbook ']"));
   var sltLessonPlan = element(by.xpath("//input[@type='checkbox']//following::label[text()='Lesson Plan']"));
   var assertAdditionalCategory = element(by.xpath("//label[@data-title='Additional Category of the Content']"));
-  var questionNextSlide = element(by.xpath("//div[@class='quml-navigation']//following::div[@aria-label='next slide']"));
-  var questionOption1 = element(by.xpath("(//input[@aria-checked='mcqOption.selected'])[1]"));
-  var questionOption2 = element(by.xpath("(//input[@aria-checked='mcqOption.selected'])[2]"));
+  var questionNextSlide = element(by.xpath("//div[contains(@class,'quml-navigation')]//following::div[@aria-label='next slide']"));
+  var questionOption1 = element(by.xpath("(//div[contains(@aria-labelledby,'option-checkbox')]//following::span[contains(@class,'checkmark')])[1]"));
+  var questionOption2 = element(by.xpath("(//div[contains(@aria-labelledby,'option-checkbox')]//following::span[contains(@class,'checkmark')])[2]"));
   var questionOption3 = element(by.xpath("(//input[@aria-checked='mcqOption.selected'])[3]"));
   var questionOption4 = element(by.xpath("(//input[@aria-checked='mcqOption.selected'])[4]"));
   var questionOption5 = element(by.xpath("(//input[@aria-checked='mcqOption.selected'])[4]"));
@@ -464,7 +464,8 @@ let SanityElement = () => {
   var profileRole = element(by.xpath("//input[contains(@id,'keyword')]//following::div[contains(text(),'Role')]//following::div[1]"));
   var backArrowButton = element(by.xpath("//input[@id='keyword']//following::*[contains(@class,'icon icon-svg--primary')]//parent::i//parent::button"));
   var previousButton = element(by.xpath("(//div[@class='d-flex player-slides ml-8']//following::button[contains(@aria-label,'navigation-arrows-previousIcon')])[1]"));
-  
+  var searchLibrary = element(by.xpath("//input[contains(@placeholder,'Search Library')]"));
+  var contentHierarchyRadbutton = element(by.xpath("//div[contains(text(),' Where do you want to add this content? ')]//following::label[contains(text(),'Collection Unit')]//following::input[contains(@type,'radio')]"));
 
   return {
     firstGroup,
@@ -910,6 +911,8 @@ let SanityElement = () => {
     profileRole,
     backArrowButton,
     previousButton,
+    searchLibrary,
+    contentHierarchyRadbutton,
 
   }
 

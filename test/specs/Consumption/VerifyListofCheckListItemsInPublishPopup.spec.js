@@ -31,12 +31,7 @@ describe('Create Course save and VerifyListofCheckListItemsInPublishPopup for re
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName)
-        
-
+        tpdPageObj.publishCourseFromUpForReview(courseName);
     })
-
-
-
 });
 

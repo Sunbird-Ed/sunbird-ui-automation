@@ -30,7 +30,7 @@ describe('able to create course and enroll consume ValidateCreateBatchAndConsent
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        tpdPageObj.publishCourseFromUpForReview2(courseName)
         utility.userLogout();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);

@@ -1074,8 +1074,8 @@ const verifyQRCodeField = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().startCreating), 40000, "startCreating is not available");
         etbPage.EtbElem().startCreating.click();
         browser.sleep(5000);
-        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-        browser.sleep(5000);
+        // browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        // browser.sleep(5000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clickUseEditor), 40000, "clickUseEditor is not available");
         etbPage.EtbElem().clickUseEditor.click();
         browser.sleep(1000);

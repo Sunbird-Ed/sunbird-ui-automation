@@ -623,7 +623,7 @@ var contentCreation = () => {
 
   var assertquestionSet = element(by.xpath("//i[@class='my-icon file text outline icon']//following::span[text()='QuestionSet']"));
   var summaryTypeValues = element(by.xpath("//select[@id='sb-dropdown']//following::option[text()='Select Summary Type ']"));
-  var questionSetsummaryType = element(by.xpath("//select[@class='sb-dropdown-select ng-pristine ng-valid ng-touched' and @id='sb-dropdown']"));
+  var questionSetsummaryType = element(by.xpath("//option[text()='Select Summary Type ']"));
 
   var headerDropdownForClassTheme = element(by.xpath("//a[contains(text(),' Login ')]//following::div[contains(text(),'G')]"));
 
@@ -786,14 +786,14 @@ var contentCreation = () => {
   var profileHelpButton = element(by.xpath("//div[@id='overlaySidebarID']//following::*[contains(text(),'Help')]"));
   var searchButtonInProfPage = element(by.xpath("//div[@id='search-input-container']//following::button[@title='Search in Users']"));
   var changePreference = element(by.xpath("//input[contains(@id,'keyword')]//following::button[contains(text(),'CHANGE PREFERENCE')]"));
-  var boardValueSelection = element(by.xpath("//span[contains(text(),'State (Assam)')]"));
+  var boardValueSelection = element(by.xpath("//span[contains(text(),'State (Tamil Nadu)')]"));
   var backbutton = element(by.xpath("//input[@id='keyword']//following::span[contains(text(),'Back')]"));
   var liscenceDropdown = element(by.xpath("//div[@id='search-input-container']//following::span[contains(text(),'Credits & license info')]"));
   var liscenceterms = element(by.xpath("//div[@id='search-input-container']//following::span[contains(text(),'Credits & license info')]//following::div[21]"))
   var loginPopup = element(by.xpath("//div[contains(text(),' Access course ')]//following::a[contains(text(),' Login ')]"));
   var usernamePopUp = element(by.xpath("//*[@id='kc-form-login']//following::*[@id='username']"));
   var passwordPopUp = element(by.xpath("//*[@id='kc-form-login']//following::*[@id='password']"));
-  var loginpopUpMsg = element(by.xpath("//div[contains(text(),' Access course ')]//following::div[1]"));
+  var loginpopUpMsg = element(by.xpath("//div[contains(text(),'Access course')]//following::*[contains(text(),'Login')]"));
   var courseAssessment = element(by.xpath("//div[@id='search-input-container']//following::span[contains(text(),'Course Assessment')]"));
   var assessNumberAttempts = element(by.xpath("//input[contains(@placeholder,'Max no of attempts')]"));
   var clkpublishedUsertype = element(by.xpath("//div[@id='search-input-container']//following::div[contains(@id,'audience')]"));
@@ -845,10 +845,16 @@ var contentCreation = () => {
   var zoomOutToc = element(by.xpath("//button[@aria-label='zoom out']"));
   var downloadPopUpButton = element(by.xpath("//button[contains(text(),'Download')]"));
   var closeButton = element(by.xpath("//button[@id='close']"));
-
-
-
-
+  var fullScreen = element(by.xpath("(//*[contains(@class,'icon-svg icon-svg--sm icon-back')])[7]"));
+  var sharebutton = element(by.xpath("//*[contains(text(),' Download')]//preceding::*[contains(text(),'Share')][1]"));
+  var minimizeToc = element(by.xpath("(//span[contains(text(),'Minimize')]//..)[1]"));
+  var clkBanner = element(by.xpath("//div[contains(text(),'Featured')]//following:: div[contains(text(),'NISHTHA FLN COurses')]"));
+  var consentTnCcheckbox = element(by.xpath("//input[@aria-label='term and condition checkbox']"));
+  var batchDropDown = element(by.xpath("//*[contains(text(),'Batch Details')]"));
+  var leaveCourse = element(by.xpath("//button[contains(text(),'Leave course')]"));
+  var leaveCoursePopUp = element(by.xpath("//div[contains(text(),' Batch Unenrolment ')]//following::button[contains(text(),' Leave course ')]"));
+  var nextArrow = element(by.xpath("//button[contains(@aria-label,'Next')]"));
+  var prevArrowBtn = element(by.xpath("//button[contains(@aria-label,'Previous')]"));
 
 
   return {
@@ -1660,7 +1666,16 @@ var contentCreation = () => {
     downloadPopUpButton,
     closeButton,
     zoomOutToc,
-
+    fullScreen,
+    sharebutton,
+    minimizeToc,
+    clkBanner,
+    consentTnCcheckbox,
+    batchDropDown,
+    leaveCourse,
+    leaveCoursePopUp,
+    nextArrow,
+    prevArrowBtn,
   }
 }
 

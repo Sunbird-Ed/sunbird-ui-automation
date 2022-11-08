@@ -17,7 +17,6 @@ describe('Verify EditGroupDetails', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('EditGroupDetails ',function(){

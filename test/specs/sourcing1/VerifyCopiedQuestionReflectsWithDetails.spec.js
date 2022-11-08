@@ -16,7 +16,6 @@ describe('Verifthat when a question is copied which belong to different tenant u
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
 

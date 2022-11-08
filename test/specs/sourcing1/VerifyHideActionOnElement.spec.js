@@ -16,7 +16,6 @@ describe('abl to createResourcewithHideaction', () => {
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

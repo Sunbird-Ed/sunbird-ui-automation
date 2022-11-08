@@ -17,7 +17,6 @@ describe('AU_028,ValidateContentIdInDownloadedCsv', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('ValidateContentIdInDownloadedCsv',function(){

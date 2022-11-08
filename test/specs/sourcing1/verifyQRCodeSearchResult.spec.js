@@ -17,7 +17,6 @@ describe('verifyQRCodeSearchResult Verify', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyQRCodeSearchResult',function(){

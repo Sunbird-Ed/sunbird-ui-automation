@@ -32,8 +32,6 @@ describe('able to create course and enroll consume EnrollmentEndDateNearJoinButt
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(courseName)
         utility.userLogout();
-
-
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatchWithEnrollMentEndDate();
@@ -41,7 +39,6 @@ describe('able to create course and enroll consume EnrollmentEndDateNearJoinButt
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.validateEnrollmentEndDateNearJoinCourse();
-        utility.userLogout();
         
 
 

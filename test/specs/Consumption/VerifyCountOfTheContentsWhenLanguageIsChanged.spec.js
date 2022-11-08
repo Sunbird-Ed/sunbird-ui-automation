@@ -18,7 +18,6 @@ describe('Veriy that user is able to create colleciton by adding,deleting nodes 
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
 

@@ -18,7 +18,6 @@ describe('is Able to create Question FIB and Consume by other Users and Creator 
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CreateQuestionFITBAndVerify',function(){
@@ -30,10 +29,7 @@ describe('is Able to create Question FIB and Consume by other Users and Creator 
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
-      //  utility.userLogout();
-        // utility.userLogin('Creator');
-        // lspPageObj.deleteCreatedItems();
-       
+      
       
     })
     

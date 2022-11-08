@@ -17,7 +17,6 @@ describe('VerifyQuestionEditor', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('VerifyQuestionEditor',function(){

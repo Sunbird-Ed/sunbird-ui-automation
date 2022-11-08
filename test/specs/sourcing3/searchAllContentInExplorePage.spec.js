@@ -1,8 +1,10 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-const etbFun = require(protractor.basePath + '/test/pageObject/etbPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
+const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
+const searchedCotentsValidation = require(protractor.basePath + '/test/pageObject/ETBPageObj/search.js');
 
-describe('searchAllContentInExplorePage ', () => {
+
+describe('Verify searched contents', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -14,31 +16,16 @@ describe('searchAllContentInExplorePage ', () => {
        
     });
 
-
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-     //   utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('searchAllContentInExplorePage',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-       // utility.userLogin('Public User1');
-        etbFun.searchContentInExplorePage('Textbook');
-        etbFun.searchContentInExplorePage('Collection');
-        etbFun.searchContentInExplorePage('Lessonplan');
-        etbFun.searchContentInExplorePage('Resource');
-        etbFun.searchContentInExplorePage('SelfAssessment');
-        etbFun.searchContentInExplorePage('PracticeResource');
-        etbFun.searchContentInExplorePage('LearningOutcomeDefinition');
-        etbFun.searchContentInExplorePage('ExplanationResource');
-
-
-        
-    })
-    
-    
-
- 
+        utility.userLogin('Admin');
+        searchedCotentsValidation.verifySearchContentInExplorePage();
+    });
 });
    
+

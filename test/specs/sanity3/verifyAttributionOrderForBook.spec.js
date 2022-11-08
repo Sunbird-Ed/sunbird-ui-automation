@@ -18,7 +18,6 @@ describe('verifyAttributionOrderForBook', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout(); 
         browser.manage().deleteAllCookies();
     });
 

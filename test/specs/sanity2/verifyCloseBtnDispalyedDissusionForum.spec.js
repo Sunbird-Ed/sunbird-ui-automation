@@ -18,13 +18,12 @@ describe('verifyCloseBtnDispalyedDissusionForum.spec', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyCloseBtnDispalyedDissusionForum',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Reviewer');
+        utility.userLogin('Creator');
         sanityPage.verifyEnableAndDisableDiscussionForGroup2();
        
     });

@@ -17,7 +17,6 @@ describe('Verify Create group add member and add activity', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-       // utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyCreationOfMyGroupAndActivity ',function(){

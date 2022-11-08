@@ -16,7 +16,6 @@ describe('Ve that creator is able to edit already published content, send for re
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('EditAndRepublishTheContent', function () {

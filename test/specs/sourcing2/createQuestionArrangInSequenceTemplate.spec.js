@@ -21,7 +21,6 @@ describe('be able to create Arrange in Sequence', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('createQuestionArrangInSequenceTemplate', function () {

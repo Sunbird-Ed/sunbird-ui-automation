@@ -18,7 +18,6 @@ describe('openBookFromCollaboratorBucketAndModifyBook', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        //utility.userLogout();
         browser.manage().deleteAllCookies();
     });
 

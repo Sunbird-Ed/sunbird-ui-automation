@@ -14,7 +14,6 @@ describe('verifyEnableDisableOptionForDiscussionForum', () => {
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('EditAnDeleteTopicPostDissuscionForum',function(){

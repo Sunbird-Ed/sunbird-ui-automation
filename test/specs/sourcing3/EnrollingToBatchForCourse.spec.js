@@ -21,7 +21,6 @@ describe('able to create course and enroll consume EnrollingToBatchForCourse.spe
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('EnrollingToBatchForCourse', function () {
@@ -37,8 +36,7 @@ describe('able to create course and enroll consume EnrollingToBatchForCourse.spe
         utility.userLogout();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        //  EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
-        ///   EnrollTBFCPageObj.createOpenBatchWithEnrolmentDate();
+     
         EnrollTBFCPageObj.createOpenBatch();
 
         utility.userLogout();

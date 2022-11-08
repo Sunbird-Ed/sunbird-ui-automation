@@ -18,7 +18,6 @@ describe('Course Enrolled By the user should dispay in descending order', () => 
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyUserEnrolledCourseInOrder ',function(){
@@ -37,7 +36,7 @@ describe('Course Enrolled By the user should dispay in descending order', () => 
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
-        //let courseName = "courseCDoris";
+        //let courseName = "do_2134299735418552321800";
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.enrollForOpenBatch();

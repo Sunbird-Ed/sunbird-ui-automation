@@ -17,7 +17,6 @@ describe('able to apply rich text features for MTF question', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
 

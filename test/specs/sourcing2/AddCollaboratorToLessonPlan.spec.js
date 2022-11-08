@@ -16,7 +16,6 @@ describe('loogin into Application with Mentor user,create LessonPlan and add Col
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('AddCollaboratorToLessonPlan',function(){
@@ -25,10 +24,6 @@ describe('loogin into Application with Mentor user,create LessonPlan and add Col
         utility.userLogin('Mentor');
         addCTLPPageObj.createLessonPlan() ;
         resourcePageObj.addCollaboratorOnly();
-       
-         
-         
     
         });
-   
     });

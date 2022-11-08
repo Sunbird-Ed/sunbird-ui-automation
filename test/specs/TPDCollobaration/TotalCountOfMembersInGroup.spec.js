@@ -17,7 +17,6 @@ describe('Ver TotalCountOfMembersInGroup', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('TotalCountOfMembersInGroup ',function(){

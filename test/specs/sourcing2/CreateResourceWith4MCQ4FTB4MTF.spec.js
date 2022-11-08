@@ -17,7 +17,6 @@ describe('Crea is Able to CreateQuestionAS4McQ,4MTF,4FLB and its navigate and Co
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CreateResourceWith4MCQ4FTB4MTF',function(){

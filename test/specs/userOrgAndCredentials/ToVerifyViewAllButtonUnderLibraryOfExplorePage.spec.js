@@ -17,7 +17,6 @@ describe('Verify AllDetaisl in Explore LibraryPage', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-       // utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     

@@ -18,7 +18,6 @@ describe('verifyEditTitleDescriptionTags', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyEditTitleDescriptionTags',function(){

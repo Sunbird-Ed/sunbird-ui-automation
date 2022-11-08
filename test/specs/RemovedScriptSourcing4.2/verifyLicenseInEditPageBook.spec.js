@@ -27,7 +27,6 @@ describe('verifyLicenseInEditPageBook Verify' , () => {
     it('verifyLicenseInEditPageBook',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-
         utility.userLogin('Creator');
         let bookName= sanityFun.createBook();
         console.log(bookName);

@@ -17,7 +17,6 @@ describe('CheckStatusDraftAndLive', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CheckStatusDraftAndLive',function(){

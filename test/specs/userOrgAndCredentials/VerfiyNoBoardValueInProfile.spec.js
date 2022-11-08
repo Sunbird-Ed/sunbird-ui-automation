@@ -17,7 +17,6 @@ describe('VerfiyNoBoardValueInProfile In Profile', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     

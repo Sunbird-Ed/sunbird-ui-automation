@@ -17,7 +17,6 @@ describe('Veriy that user is able to upload/record audio and play audio in all q
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('VerifyUserIsAbleToUploadRecordAudioAndPlayAudio',function(){

@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 //const { browser } = require("protractor");
 const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
 const etbpage = require(protractor.basePath + '/test/pages/ETB/etb.po.js');
@@ -177,8 +179,8 @@ const searchContentInLibraryAndFetchFirstContent = (userData) => {
     var searchContent = content.searchedCard.getText().then(function (value) {
       console.log(value);
     })
-    var searchContent1=Promise.resolve(searchContent);
-    
+    var searchContent1 = Promise.resolve(searchContent);
+
 
     //  expect(content.searchedCard.getText()).toEqual('Book');
 
@@ -188,7 +190,7 @@ const searchContentInLibraryAndFetchFirstContent = (userData) => {
   catch (Exception) {
     console.log("Failed to navigate To Library And Search Content anf fetch the first one.");
   }
-  return searchContent1 ;
+  return searchContent1;
 }
 
 const navigateToLibraryAndSearchForBook = (bookname) => {
@@ -1389,7 +1391,7 @@ const consumeContent = () => {
   try {
     var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
     var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    var do_id = cred[40]['CourseName'];
+    var do_id = cred[34]['CourseName'];
     browser.sleep(2000);
     console.log("User is trying to consume content");
     browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
@@ -1403,9 +1405,11 @@ const consumeContent = () => {
     browser.sleep(1000);
     content.courseCard.click();
     browser.sleep(1000);
+    content.courseClk.click();
+    browser.sleep(2000);
     content.zoomIn.click();
     browser.sleep(1000);
-    for (i = 0; i < 9; i++) {
+    for (i = 0; i < 95; i++) {
       sanityPage.SanityElement().pdfArrowButton.click();
     }
     browser.sleep(2000);
@@ -1420,7 +1424,7 @@ const consumeContent = () => {
     // searchObj.submitRating.click();
     //browser.sleep(4000);
     browser.sleep(1000);
-    
+
 
   }
   catch (Exception) {
@@ -1463,7 +1467,7 @@ const consumeContentPlaylist = () => {
     // searchObj.submitRating.click();
     //browser.sleep(4000);
     browser.sleep(1000);
-    
+
 
   }
   catch (Exception) {
@@ -1506,7 +1510,7 @@ const consumeDigitalTextBook = () => {
     // searchObj.submitRating.click();
     //browser.sleep(4000);
     browser.sleep(1000);
-    
+
 
   }
   catch (Exception) {
@@ -1527,10 +1531,10 @@ const consumeContentAndValidate = (contentName) => {
     browser.sleep(2000);
     sanityPage.SanityElement().clkSearchLib.click();
     browser.sleep(1000);
-    content.courseCard.getText().then(function(input){
+    content.courseCard.getText().then(function (input) {
       expect(input).toEqual(contentName);
     })
-     content.courseCard.click();
+    content.courseCard.click();
     // browser.sleep(1000);
     // content.zoomIn.click();
     // browser.sleep(1000);
@@ -1549,7 +1553,7 @@ const consumeContentAndValidate = (contentName) => {
     // // searchObj.submitRating.click();
     // //browser.sleep(4000);
     // browser.sleep(1000);
-    
+
 
   }
   catch (Exception) {
@@ -1576,37 +1580,153 @@ const validateContentDetails = () => {
     browser.sleep(1000);
     content.courseCard.click();
     browser.sleep(2000);
-    content.createdOn.getText().then(function(createdOn){
-      console.log("validating created on"+createdOn);
+    content.createdOn.getText().then(function (createdOn) {
+      console.log("validating created on" + createdOn);
     })
-    content.assertAuthor.getText().then(function(author){
-      console.log("validating author:"+author);
+    content.assertAuthor.getText().then(function (author) {
+      console.log("validating author:" + author);
     })
-    content.assertCreatedBy.getText().then(function(cretedby){
-      console.log("validating CreatedBy:"+cretedby);
+    content.assertCreatedBy.getText().then(function (cretedby) {
+      console.log("validating CreatedBy:" + cretedby);
     })
-    content.assertPubishedBy.getText().then(function(publishedby){
-      console.log("validating published by:"+publishedby);
+    content.assertPubishedBy.getText().then(function (publishedby) {
+      console.log("validating published by:" + publishedby);
     })
-    content.assertCreditLink.getText().then(function(creditLink){
-      console.log("validating credit Link:"+creditLink);
+    content.assertCreditLink.getText().then(function (creditLink) {
+      console.log("validating credit Link:" + creditLink);
     })
-    content.assertLiscence.getText().then(function(liscence){
-      console.log("validating liscence terms:"+liscence);
+    content.assertLiscence.getText().then(function (liscence) {
+      console.log("validating liscence terms:" + liscence);
     })
     browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.attributionInbook), 40000, "attributionInbook is not available");
     (sanityPage.attributionInbook).getText().then(function (attributionorder) {
-        console.log("Order of Attributions output are" + attributionorder);
+      console.log("Order of Attributions output are" + attributionorder);
     })
 
 
 
-    
+
   }
   catch (Exception) {
     console.log("Failed to consumed the content properly.");
   }
 }
+
+
+const consumeTextBook = (publishedTextBook) => {
+  try {
+    console.log("consuming the published content");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+    sanityPage.SanityElement().clkLibraray.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.sendKeys(publishedTextBook);
+    browser.sleep(2000);
+    sanityPage.SanityElement().clkSearchLib.click();
+    browser.sleep(1000);
+    content.courseCard.click();
+    browser.sleep(2000);
+    browser.navigate().back();
+    browser.sleep(2000);
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    var do_id = cred[35]['Title'];
+    browser.sleep(2000);
+    console.log("User is trying to consume content");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+    sanityPage.SanityElement().clkLibraray.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.click();
+    sanityPage.SanityElement().searchConLib.clear();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
+    browser.sleep(2000);
+    sanityPage.SanityElement().clkSearchLib.click();
+    browser.sleep(1000);
+    content.courseCard.click();
+    browser.sleep(1000);
+    content.zoomIn.click();
+    browser.sleep(1000);
+    for (i = 0; i < 9; i++) {
+      sanityPage.SanityElement().pdfArrowButton.click();
+    }
+    browser.sleep(2000);
+    (content.assertConsume).getText().then(function (input) {
+      console.log(input + " consuming the content.");
+    })
+    content.zoomOut.click();
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "save never loaded");
+    // searchObj.starRating.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.submitRating), 20000, "save never loaded");
+    // searchObj.submitRating.click();
+    // browser.sleep(4000);
+    browser.sleep(1000);
+  }
+  catch (Exception) {
+    console.log("Failed to consume the digitalTextbook properly.");
+  }
+}
+
+const verifyFilterSortSearchInAllTextBook = (publishedTextBook) => {
+  try {
+    console.log("verify all textBook");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
+    ccpage.contentCreation().headerDropdown.click();
+    browser.sleep(1000);
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+    ccpage.contentCreation().workSpace.click();
+    browser.sleep(5000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allTextbook), 20000, "Book page not loaded");
+    searchObj.allTextbook.click();
+    browser.sleep(5000);
+    expect(searchObj.searchContent.isPresent()).toBeTruthy();
+    expect(searchObj.showFilter1.isPresent()).toBeTruthy();
+    expect(searchObj.sortBy.isPresent()).toBeTruthy();
+    browser.sleep(2000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.showFilter1), 20000, "Book page not loaded");
+    searchObj.showFilter1.click();
+    browser.sleep(2000);
+    expect(searchObj.contentType.isPresent()).toBe(false);
+    browser.sleep(3000);
+
+  }
+  catch (Exception) {
+    console.log("Failed to validate filters in all textbook.");
+  }
+}
+
+const verifyPublishedContentInAllMyContent = (publishedTextBook) => {
+  try {
+    console.log("verify all published content in allMyContent");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
+    ccpage.contentCreation().headerDropdown.click();
+    browser.sleep(1000);
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+    ccpage.contentCreation().workSpace.click();
+    browser.sleep(5000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allMyContent), 20000, "Book page not loaded");
+    searchObj.allMyContent.click();
+    browser.sleep(5000);
+    searchObj.searchContent.sendKeys(publishedTextBook);
+    browser.sleep(2000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(resov.imageCard4), 40000, "imageCard is not available");
+    (resov.imageCard4.getText()).then(function(publishedContent){
+      console.log(publishedContent);
+      (publishedContent).toEqual(publishedTextBook);
+    })
+
+  
+  }
+  catch (Exception) {
+    console.log("Failed to validate filters in all textbook.");
+  }
+}
+
+
 
 
 
@@ -1653,6 +1773,9 @@ module.exports = {
   consumeContentPlaylist,
   consumeContentAndValidate,
   validateContentDetails,
+  consumeTextBook,
+  verifyFilterSortSearchInAllTextBook,
+  verifyPublishedContentInAllMyContent,
 
 
 }

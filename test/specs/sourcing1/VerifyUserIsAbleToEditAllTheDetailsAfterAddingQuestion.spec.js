@@ -17,7 +17,6 @@ describe('Verfy that user is able to edit ,remove,Turn of/on the Shuffle Questio
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('VerifyUserIsAbleToEditAllTheDetailsAfterAddingQuestion',function(){

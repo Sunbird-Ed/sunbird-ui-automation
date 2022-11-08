@@ -11,7 +11,6 @@ var san = sanityPage.SanityElement();
 var sanity = sanityPage.SanityElement();
 
 const createCollection = () => {
-
     var collectionName;
     try {
         console.log("User is trying to create a collection")
@@ -66,7 +65,6 @@ const createCollection = () => {
         });
 
         browser.sleep(4000);
-
         sanityPage.SanityElement().selectBoardForcollection.click();
         browser.sleep(200);
         sanityPage.SanityElement().selectBoardValueForcollection.click();

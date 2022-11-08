@@ -17,7 +17,6 @@ describe('verifyPublishedverifyPublishedAndSubjectByInDigitalTxtbookndAllTabsAnd
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-      //  utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyPublishedAndSubjectByInDigitalTxtbook',function(){

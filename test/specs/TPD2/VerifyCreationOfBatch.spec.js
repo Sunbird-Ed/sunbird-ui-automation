@@ -32,7 +32,7 @@ describe('VerifyCreationOfBatch', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishCourseFromUpForReview(courseName);
+        tpdPageObj.publishCourseFromUpForReview2(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);

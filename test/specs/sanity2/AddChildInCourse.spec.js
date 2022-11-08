@@ -18,7 +18,6 @@ describe('Create AddChildInCourse', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

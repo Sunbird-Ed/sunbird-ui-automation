@@ -18,7 +18,6 @@ describe('VerifyDefaultLicenseIsDisplayed', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        //utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('VerifyDefaultLicenseIsDisplayed',function(){

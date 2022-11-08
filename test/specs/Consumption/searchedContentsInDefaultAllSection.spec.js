@@ -19,7 +19,6 @@ describe('searchedContentsInDefaultAllSection', () => {
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('searchedContentsInDefaultAllSection', function () {

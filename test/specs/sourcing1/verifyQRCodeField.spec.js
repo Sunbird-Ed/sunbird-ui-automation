@@ -15,7 +15,6 @@ describe('verifyQRCodeField', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyQRCodeField', function () {

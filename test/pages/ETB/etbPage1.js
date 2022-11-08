@@ -18,7 +18,7 @@ let EtbElem1 = () => {
     var digitalTextbook = element(by.xpath("//*[contains(text(),' Digital textbooks ')]"));
     //var alltab = elemment(by.xpath("//*[contains(@class,'item item--all')]"));
     var searchbutton = element(by.xpath("//*[contains(text(),'Search')]"));
-    var appliedFilters1 = element(by.xpath("//*[contains(@class,'sb-grid dynamic-section-card ')]/div[3]//*[contains(@class,'sb--card__type')]"));
+    var appliedFilters1 = element(by.xpath("//div[@class='sb--card__type']"));
     var appliedFilters2 = element(by.xpath("//*[contains(@class,'sb--card__type')]"));
     var appliedFilters3 = element(by.xpath("//*[contains(@class,'sb--card__type')]"));
     var boardSelection = element(by.xpath("//div[contains(@class,'cfe-multiselect-field-label-container list-border')]/child::ul/span"));
@@ -44,10 +44,6 @@ let EtbElem1 = () => {
     var publishedUsertypeValidation = element(by.xpath("//*[contains(text(),'Select User Type')]"));
     var classSelect1 = element(by.xpath("(//*[contains(@id,'Capa_1')])[3]"));
     var subjectSelect1 = element(by.xpath("(//*[contains(@id,'Capa_1')])[4]"));
-
-
-
-
     var alltab = element(by.xpath("//*[contains(@class,'item item--all')]"));
     var mediumPills = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-label-container list-border')])[2]"));
     var hindi = element(by.xpath("//div[contains(@class,'cfe-multiselect-dropdown sb-modal')]//span[text()='hindi']"));
@@ -56,6 +52,16 @@ let EtbElem1 = () => {
     var subjectSelection1 = element(by.xpath("//*[contains(text(),'accountancy')]"));
     var subjectSelection2 = element(by.xpath("//*[contains(text(),'biology')]"));
     var tvClass = element(by.xpath("//a[text()=' TV classes ']"));
+    var assertCollection = element(by.xpath("//div[contains(text(),'Collection')]"));
+    var clkExplore = element(by.xpath("//*[contains(text(),'Explore')]"));
+    var assertTextBook = element(by.xpath("//*[contains(text(),'TextBook')]"));
+    var assertResource = element(by.xpath("//div[contains(text(),'Resource')]"));
+    var assertLessonPlan = element(by.xpath("//div[contains(text(),'LessonPlan')]"));
+    var assertSelfAssess = element(by.xpath("//div[contains(text(),'SelfAssess')]"));
+    var assertPractiseResourse = element(by.xpath("//div[contains(text(),'PracticeResource')]"));
+    var assertLearningOutCome = element(by.xpath("//div[contains(text(),'LearningOutcomeDefinition')]"));
+    var assertExplanationResource = element(by.xpath("//div[contains(text(),'ExplanationResource')]"));
+
 
     return {
         search,
@@ -106,7 +112,15 @@ let EtbElem1 = () => {
         subjectSelect1,
         alltab,
         tvClass,
-
+        assertCollection,
+        clkExplore,
+        assertTextBook,
+        assertResource,
+        assertLessonPlan,
+        assertSelfAssess,
+        assertPractiseResourse,
+        assertLearningOutCome,
+        assertExplanationResource,
     }
 }
 module.exports = {

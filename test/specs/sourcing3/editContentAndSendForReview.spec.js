@@ -20,7 +20,6 @@ describe('editContentAndSendForReview', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
 

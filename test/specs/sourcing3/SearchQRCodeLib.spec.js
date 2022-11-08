@@ -24,7 +24,7 @@ describe('SearchQRCodeLib', () => {
     it('SearchQRCodeLib',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-               var Url=getAppURL.ConfigurePath().AppURL;
+        var Url=getAppURL.ConfigurePath().AppURL;
         var AppendGet='/get';
         browser.get(Url+AppendGet, 40000);
         sanityFun.searchQRCodeInGetPage();

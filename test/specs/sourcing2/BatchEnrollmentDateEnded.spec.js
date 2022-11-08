@@ -17,7 +17,6 @@ describe('user is not able to Enroll to the Course For EnrollMentDateEnded and J
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('BatchEnrollmentDateEnded',function(){

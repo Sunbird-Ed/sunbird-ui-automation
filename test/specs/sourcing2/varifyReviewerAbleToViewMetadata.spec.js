@@ -18,7 +18,6 @@ describe('varifyReviewerAbleToViewMetadata', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        //utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     

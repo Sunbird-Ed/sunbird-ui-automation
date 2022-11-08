@@ -16,7 +16,6 @@ describe('Vefy, Content creator is able to get the contnet in Library section by
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

@@ -21,7 +21,6 @@ describe('AU_024,LinkAndDelinkQRcode', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

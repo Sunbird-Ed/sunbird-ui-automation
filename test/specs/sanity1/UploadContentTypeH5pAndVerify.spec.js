@@ -16,7 +16,6 @@ describe('upload h5p, save and send for review and publish.', () =>{
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
 

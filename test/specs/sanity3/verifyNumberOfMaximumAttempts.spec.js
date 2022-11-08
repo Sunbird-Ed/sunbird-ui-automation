@@ -18,7 +18,6 @@ describe('verifyNumberOfMaximumAttempts', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyNumberOfMaximumAttempts ',function(){

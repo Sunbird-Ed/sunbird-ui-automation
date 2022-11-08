@@ -18,7 +18,6 @@ describe('Shou be able to Edit and Copy and delete Questions.', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

@@ -17,7 +17,6 @@ describe('that user is displayed with Resume and Close editor when user is idle 
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
 

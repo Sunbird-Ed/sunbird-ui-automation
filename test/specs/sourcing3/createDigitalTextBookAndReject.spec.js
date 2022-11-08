@@ -19,7 +19,6 @@ describe('createDigitalTextBookAndReject', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
 
     });
@@ -35,12 +34,7 @@ describe('createDigitalTextBookAndReject', () => {
         utility.userLogout();
         utility.userLogin('Creator');
         tpdPageObj.creatorReviewCommentsAndSendForReview(collectionName);
-        utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(collectionName);
-        utility.userLogout();
-        utility.userLogin('Public User1');
-        CreateIOBBAMAMFRASPageObj.consumeContent();
+        
     })
 });
 

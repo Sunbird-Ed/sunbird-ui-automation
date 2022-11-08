@@ -20,7 +20,6 @@ describe('verifyNotificationIconOnPortal' , () => {
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyNotificationIconOnPortal',function(){

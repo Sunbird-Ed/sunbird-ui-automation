@@ -19,7 +19,6 @@ describe('Course creator should have two section under "Courses Batches" :1.Crea
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyAllBatchDetailsInCourseBatches',function(){

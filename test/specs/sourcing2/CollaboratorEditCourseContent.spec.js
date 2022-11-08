@@ -18,7 +18,6 @@ describe('colobartor not able to delete the course', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CollaboratorEditCourseContent',function(){

@@ -18,7 +18,6 @@ describe('EditCertificateRequirementFromNoToYes', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('EditCertificateRequirementFromNoToYes',function(){

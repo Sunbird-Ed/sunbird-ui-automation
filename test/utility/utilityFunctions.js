@@ -69,32 +69,33 @@ const userLoginWithInvalidCredential = (roleName) => {
         console.error("failed to login with invalid credential, " + err);
     }
 
+
 }
+
 const handleLocationPopup = () => {
     try {
-        // wait.waitForElementVisibility(content.sunbirdOkMsg, 30000);
-        // content.sunbirdOkMsg.click();
-        // browser.navigate().refresh();
-
-        browser.sleep(500);
+       
+        browser.sleep(1000);
         wait.waitForElementVisibility(content.Teacher, 30000);
         content.Teacher.click();
         browser.sleep(3000);
         wait.waitForElementVisibility(content.Continue, 20000);
         content.Continue.click();
+        browser.sleep(5000);
+        wait.waitForElementVisibility(content.state, 20000);
+        content.state.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.selectState, 20000);
+        content.selectState.click();
         browser.sleep(4000);
-
-        // wait.waitForElementVisibility(content.state, 20000);
-        // content.state.click();
-        // wait.waitForElementVisibility(content.selectState, 20000);
-        // content.selectState.click();
-        // wait.waitForElementVisibility(content.district, 20000);
-        // content.district.click();
-        // wait.waitForElementVisibility(content.selectDistrict, 20000);
-        // content.selectDistrict.click();
-        // browser.sleep(2000);
+        wait.waitForElementVisibility(content.district, 20000);
+        content.district.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.selectDistrict, 20000);
+        content.selectDistrict.click();
+        browser.sleep(2000);
         browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
-        browser.sleep(200);
+        browser.sleep(1000);
         wait.waitForElementVisibility(content.submitForm, 20000);
         content.submitForm.click();
 
@@ -102,6 +103,9 @@ const handleLocationPopup = () => {
         console.error("Failed to handle location pop up, " + err);
     }
 }
+
+
+
 const userLogout = () => {
     try {
 
@@ -287,21 +291,32 @@ const handleLocationPopupAsOther = () => {
     }
 }
 
+
 const handleDropDown = () => {
     try {
+        browser.sleep(6000);
 
-     
-        browser.sleep(9000);
-        wait.waitForElementVisibility(content.boardSelection, 30000);
-        content.boardSelection.click();
-        browser.sleep(3000);
+
+        content.autocl.isPresent().then(function (result) {
+            if(result)
+            {
+                wait.waitForElementVisibility(content.selectBoardValue, 30000);
+                content.selectBoardValue.click();
+                browser.sleep(6000);
+            }
+            else{
+     browser.sleep(3000);
         wait.waitForElementVisibility(content.boardDropdown, 30000);
         content.boardDropdown.click();
         browser.sleep(3000);
         wait.waitForElementVisibility(content.selectBoardValue, 30000);
         content.selectBoardValue.click();
-        browser.sleep(11000);
-        wait.waitForElementVisibility(content.mediumDropdown, 30000);
+        browser.sleep(6000);
+
+            }
+    });
+          
+           wait.waitForElementVisibility(content.mediumDropdown, 30000);
         content.mediumDropdown.click();
         browser.sleep(3000);
         wait.waitForElementVisibility(content.selectMediumValue, 30000);
@@ -313,12 +328,7 @@ const handleDropDown = () => {
         wait.waitForElementVisibility(content.selectGradeLevelValue, 30000);
         content.selectGradeLevelValue.click();
         browser.sleep(2000);
-        // wait.waitForElementVisibility(content.subjectDropdown, 30000);
-        // content.subjectDropdown.click();
-        // browser.sleep(1000);
-        // wait.waitForElementVisibility(content.selectSubjectValue, 30000);
-        // content.selectSubjectValue.click();
-        // browser.sleep(1000);
+       
         wait.waitForElementVisibility(content.submitButtonForDropdowns, 30000);
         content.submitButtonForDropdowns.click();
         browser.sleep(1000);
@@ -326,7 +336,6 @@ const handleDropDown = () => {
         console.log(err);
     }
 }
-
 
 
 const handleLocationPopupForSchoolHead = () => {

@@ -1,4 +1,3 @@
-
 let SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 let AllureReporter = require('jasmine-allure-reporter');
 var HtmlReporter = require('protractor-beautiful-reporter');
@@ -7,7 +6,7 @@ var HtmlReporter = require('protractor-beautiful-reporter');
 exports.config = {
     //seleniumAddress: 'http://localhost:4444/wd/hub',
     directConnect: true,
-    // allScriptsTimeout: 100000,
+    // allScriptsTimeout: 10000000000,
 
     framework: 'jasmine2',
     restartBrowserBetweenTests: false,
@@ -17,16 +16,20 @@ exports.config = {
         sanity1: 'test/specs/sanity1/*.spec.js',
         sanity2: 'test/specs/sanity2/*.spec.js',
         sanity3: 'test/specs/sanity3/*.spec.js',
-        
 
-         
-
-        //sanity1: 'test/specs/Consumption/validateContributionSectionInCreatorProfile.spec.js',
+        //sanity1: 'test/specs/Consumption/verifyThatUserCanEnrollToOngoingBatchAlreadyExpiredBatch.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
-        // sanity1: 'test/specs/sourcing1/VerifyCreationOfMyGroupAndAddMember.spec.js',
-        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
-       //  Consumption: 'test/specs/Consumption/*.spec.js',
+        // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
 
+        // sanity1: 'test/specs/sanity2/CreateMCQQuestionSet.spec.js',
+        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
+        // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
+        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
+        // Consumption: 'test/specs/Consumption/*.spec.js',
+
+
+        // sourcing1: 'test/specs/sourcing1/*.spec.js',
+        // sourcing2: 'test/specs/sourcing2/*.spec.js',
         // sourcing1: 'test/specs/sourcing1/*.spec.js',
         // sourcing2: 'test/specs/sourcing2/*.spec.js',
         // sourcing3: 'test/specs/sourcing3/*.spec.js',
@@ -36,8 +39,8 @@ exports.config = {
         // useronboarding: 'test/specs/Consumption/*.spec.js',
         // contentcreation: 'test/specs/content-creation/*.spec.js',
         // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
-
-        // tpd1: 'test/specs/RemovedScriptSourcing4.2/verifyCopyRightDetails.spec.js',
+        // tpd1: 'test/specs/sourcing2/CreateLessonPlanSaveAndSendForReviewAndPublish.spec.js',
+        // tpd1: 'test/specs/TPDCollobaration/verifythatWhenUserClicksOnViewIconUseMustBeDisplayedWithListOfDiscussions.spec.js',
         // tpd2: 'test/specs/TPD2/ShareModule.spec.js',
         // tpd3: 'test/specs/TPDCollobaration/*.spec.js',
 
@@ -55,15 +58,10 @@ exports.config = {
         // SelectedPreferenceInProfileSection: ['test/specs/Consumption/SelectedPreferenceInProfileSection.spec.js'],
         // NavigateToTabUsingKeyBoard: ['test/specs/Consumption/NavigateToTabUsingKeyBoard.spec.js'],
         // TimerVerification: ['test/specs/sanity2/TimerVerification.spec.js'],
-        // ploadContentTypeMp4AndVerify: ['test/specs/sanity3/UploadContentTypeMp4AndVerify.spec.js'],
-        // UploadContentTypeWebmAndVerify: ['test/specs/sanity2/UploadContentTypeWebmAndVerify.spec.js'],
 
-        // TimerVerification: ['test/specs/sanity2/SearchTVLesonTypeContent.spec.js'],
-       // // PublishTVLessonResource: ['test/specs/sanity1/PublishTVLessonResource.spec.js'],
-    //    CreateQuestionAndVerify: ['test/specs/Consumption/SchoolHeadRoleInLocationPopupAndRolePopup.spec.js'],
-
+  
     },
-    allScriptsTimeout: 40000,
+    allScriptsTimeout: 4000000000,
 
     // suites: {
     //     contentcreation: 'test/specs/content-creation/*.spec.js',`
@@ -79,7 +77,7 @@ exports.config = {
         version: '78.0.3904.108',
         platform: 'Any',
         shardTestFiles: true,
-        maxInstances: 1,
+        maxInstances: 3,
         chromeOptions: {
             prefs: {
                 profile: {

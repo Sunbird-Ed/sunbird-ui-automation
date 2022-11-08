@@ -19,7 +19,6 @@ describe('VerifyChangingLanguageWhileConsuming for Kannada Language', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-       // utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('VerifyChangingLanguageWhileConsuming',function(){
@@ -33,7 +32,7 @@ describe('VerifyChangingLanguageWhileConsuming for Kannada Language', () => {
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
-        let contentName="ResourceAOda";
+        //let contentName="ResourceAOda";
         utility.userLogin('Public User1');
         tpdPageObj.ChangeLangWhileConsuming(contentName);
        

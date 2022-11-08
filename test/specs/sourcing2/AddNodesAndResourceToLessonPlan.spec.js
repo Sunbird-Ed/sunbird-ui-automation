@@ -16,7 +16,6 @@ describe('Content creator is able to add nodes & resources into the lesson.', ()
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

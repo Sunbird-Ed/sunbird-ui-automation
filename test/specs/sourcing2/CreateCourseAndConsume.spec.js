@@ -4,7 +4,7 @@ const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js')
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
 
-describe('Create Course save and send for review and publish.', () => {
+describe('CreateCourseAndConsume', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -20,7 +20,6 @@ describe('Create Course save and send for review and publish.', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
@@ -30,17 +29,11 @@ describe('Create Course save and send for review and publish.', () => {
         utility.userLogin('Creator');
         utility.validateWorkspace();
         let courseName=sanityfun.createCourseAndSendForReview();
-        //tpdPageObj.createCourse();
-        //let courseName=tpdPageObj.sendForReviewCourseWithName();
-        utility.userLogout();
+              utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
         tpdPageObj.publishCourseFromUpForReview(courseName)
-       // tpdPageObj.publishTheCourseFromUpForReview(courseName);
-        utility.userLogout();
-        utility.userLogin('Creator');
-        utility.validateWorkspace();
-        lspPageObj.deleteCreatedItems();
+       
        
        
     })

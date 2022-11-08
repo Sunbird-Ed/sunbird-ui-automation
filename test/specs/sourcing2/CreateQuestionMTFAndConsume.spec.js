@@ -19,7 +19,6 @@ describe('is Able to create Question MTF and  Consume by other Users and Creator
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CreateQuestionMTFAndConsume',function(){

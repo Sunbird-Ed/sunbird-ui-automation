@@ -16,7 +16,6 @@ describe('AU_031,DownloadQrcodeInDraftPublishedAndLimitedSharing', () => {
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

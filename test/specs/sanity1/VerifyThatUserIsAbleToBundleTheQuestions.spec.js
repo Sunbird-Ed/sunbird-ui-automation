@@ -18,7 +18,6 @@ describe('Bundle Question save and send for review and publish.', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('VerifyThatUserIsAbleToBundleTheQuestions  ',function(){
@@ -30,11 +29,7 @@ describe('Bundle Question save and send for review and publish.', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
-        utility.userLogout();
-        utility.userLogin('Creator');
-        utility.validateWorkspace();
-        lspPageObj.deleteCreatedItems();
-        
+       
 
     })
 

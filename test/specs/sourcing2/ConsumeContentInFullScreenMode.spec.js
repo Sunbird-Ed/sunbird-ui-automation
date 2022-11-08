@@ -21,7 +21,6 @@ describe('ConsumeContentInFullScreenMode play', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('ConsumeContentInFullScreenMode',function(){
@@ -34,9 +33,8 @@ describe('ConsumeContentInFullScreenMode play', () => {
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
-
         utility.userLogin('Public User1');
-        cont.consumeContent(contentName);
+        cont.consumeContent();
        
       
     })

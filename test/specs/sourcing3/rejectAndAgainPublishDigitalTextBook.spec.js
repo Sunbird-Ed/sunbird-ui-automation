@@ -18,7 +18,6 @@ describe('rejectAndAgainPublishDigitalTextBook', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
 
     });
@@ -27,7 +26,7 @@ describe('rejectAndAgainPublishDigitalTextBook', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        let collectionName = collectionPageObj.createCollection();
+        let collectionName = collectionPageObj.createCollectionWithDiffCollectionTypes("digitalTxtbook");
         utility.userLogout();
         utility.userLogin('Reviewer');
         tpdPageObj.rejectContentWithAnyRegionalLanguage(collectionName, "Testing");

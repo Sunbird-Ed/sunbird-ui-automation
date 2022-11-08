@@ -18,7 +18,6 @@ describe('ValidationOfAutoBatch', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

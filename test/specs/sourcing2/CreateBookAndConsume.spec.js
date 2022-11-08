@@ -25,15 +25,11 @@ describe('Create Book save and send for review and publish.', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        let bookName = sanityfun.createBook();
+        let bookName= sanityfun.createBook();
         utility.userLogout();
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(bookName)
-        utility.userLogout();
-        utility.userLogin('Creator');
-        utility.validateWorkspace();
-        lspPageObj.deleteCreatedItems();
-
+  
 
     })
 

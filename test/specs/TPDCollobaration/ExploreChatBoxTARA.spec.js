@@ -16,7 +16,6 @@ describe('vrify, content creator is able to create lesson plan', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

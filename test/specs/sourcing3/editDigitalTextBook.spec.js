@@ -19,7 +19,6 @@ describe('editDigitalTextBook', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
 
     });

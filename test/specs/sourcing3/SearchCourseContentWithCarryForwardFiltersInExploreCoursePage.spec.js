@@ -17,7 +17,6 @@ describe('able search in explore page', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('SearchCourseContentWithCarryForwardFiltersInExploreCoursePage', function () {

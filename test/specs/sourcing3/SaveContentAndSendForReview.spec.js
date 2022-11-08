@@ -18,7 +18,6 @@ describe('Verfy, Content creator is able to  i see the content under submitted f
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
   

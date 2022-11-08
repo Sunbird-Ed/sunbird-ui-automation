@@ -1,5 +1,7 @@
 //const { browser } = require("protractor");
 
+const { browser } = require("protractor");
+
 const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
 const etbpage = require(protractor.basePath + '/test/pages/ETB/etb.po.js');
 const data = require(protractor.basePath + '/test/testdata/login/login.td.json');
@@ -768,7 +770,7 @@ const adminCanEditTextBook = (booksName) => {
 
 const searchContentInExplorePage = (Consume) => {
     try {
-
+        browser.sleep(2000);
         wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary not loaded");
         resov.headerLibrary.click();
         browser.sleep(1000);
@@ -782,9 +784,8 @@ const searchContentInExplorePage = (Consume) => {
         wait.waitForElementVisibility(resov.resoCard, 20000, "courseCard not loaded");
         resov.resoCard.click();
         browser.sleep(3000);
-
-
-
+        browser.navigate().back();
+    
     }
     catch (Exception) {
         console.log('Failed on searching library by applying filters');
@@ -858,12 +859,12 @@ const searchWithQRcode = () => {
 
 
 const searchWithInvalidQRcode = () => {
-    try {
-
+    try {    
+        
         browser.sleep(4000);
 
-        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary not loaded");
-        resov.headerLibrary.click();
+        // wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary not loaded");
+        // resov.headerLibrary.click();
         browser.sleep(5000);
         console.log("Clicked on Library");
         wait.waitForElementVisibility(resov.filterSearch, 20000, "filterSearch not loaded");
@@ -991,7 +992,7 @@ const librarysearchFilter = () => {
                         browser.sleep(1000);
                         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().courseCard1), 40000, "courseCard is not available");
                         etbPage.EtbElem().courseCard1.click();
-                        //console.log("User successfully verified the Book : " + bookName2);
+                        console.log("User successfully verified the Book : " + bookName2);
                         console.log("User successfully navigated To Library And Search For Book");
                     });
                 });
@@ -1155,12 +1156,12 @@ const verifyUserAccessLiscenceTerms = () => {
     try {
         console.log('Verify User is able to access Liscence Terms Section');
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown1), 50000, "guest drop down is not available");
-        content.headerDropdown1.click();
-        browser.sleep(5000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(tpd.clkSwitchClassicTheme), 40000, "Theme is not switchable");
-        tpd.clkSwitchClassicTheme.click();
-        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown1), 50000, "guest drop down is not available");
+        // content.headerDropdown1.click();
+        // browser.sleep(5000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(tpd.clkSwitchClassicTheme), 40000, "Theme is not switchable");
+        // tpd.clkSwitchClassicTheme.click();
+        // browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbpage1.etb().digitalTextBook), 50000, "Digital Text book is not available");
         etbpage1.etb().digitalTextBook.click();
         browser.sleep(3000);
@@ -1174,15 +1175,41 @@ const verifyUserAccessLiscenceTerms = () => {
         (etbpage1.etb().liscenceTerms).getText().then(function (PopupText) {
             expect(PopupText).toEqual('Credits And Licence Info');
         });
-        etbpage1.etb().liscenceTerms.click();
-        console.log('User is able to access Liscence Terms Section');
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbpage1.etb().liscenceTerms), 50000, "Book not available");
         // etbpage1.etb().liscenceTerms.click();
-        // browser.sleep(3000);
+        // console.log('User is able to access Liscence Terms Section');
+        // // browser.wait(protractor.ExpectedConditions.visibilityOf(etbpage1.etb().liscenceTerms), 50000, "Book not available");
+        // // etbpage1.etb().liscenceTerms.click();
+        // // browser.sleep(3000);
     }
     catch (Exception) {
         console.log('User not able to access Liscence Terms Section');
     }
+}
+
+const searchContentInExplorePagewithoutBack = (Consume) => {
+    try {
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary not loaded");
+        resov.headerLibrary.click();
+        browser.sleep(1000);
+        console.log("Clicked on Library");
+        wait.waitForElementVisibility(resov.filterSearch, 20000, "filterSearch not loaded");
+        resov.filterSearch.click();
+        resov.filterSearch.sendKeys(Consume);
+        resov.searchIcon.click();
+        browser.sleep(3000);
+        console.log("Clicked on Search Icon");
+        wait.waitForElementVisibility(resov.resoCard, 20000, "courseCard not loaded");
+        resov.resoCard.click();
+        browser.sleep(3000);
+        
+    
+    }
+    catch (Exception) {
+        console.log('Failed on searching library by applying filters');
+
+    }
+
 }
 
 
@@ -1206,4 +1233,5 @@ module.exports = {
     verifyNoDefaultValuSltinFilter,
     multiselectForAllTabs,
     verifyUserAccessLiscenceTerms,
+    searchContentInExplorePagewithoutBack,
 }

@@ -20,7 +20,6 @@ describe('PublishTVLessonResource review and publish.', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('PublishTVLessonResource',function(){

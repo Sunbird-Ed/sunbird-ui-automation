@@ -1722,10 +1722,10 @@ const librarysearchFilter = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.SelectClass), 40000, "selectFilterClass is not available");
         content.SelectClass.click();
         browser.sleep(2000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickFilterSubject), 40000, "clickFilterSubject is not available");
-        content.clickFilterSubject.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectFilterSubject), 40000, "selectFilterSubject is not available");
-        content.selectFilterSubject.click();
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickFilterSubject), 40000, "clickFilterSubject is not available");
+        // content.clickFilterSubject.click();
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectFilterSubject), 40000, "selectFilterSubject is not available");
+        // content.selectFilterSubject.click();
         // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clickSubmit), 40000, "clickSubmit is not available");
         // etbPage.EtbElem().clickSubmit.click();
         browser.sleep(1000);

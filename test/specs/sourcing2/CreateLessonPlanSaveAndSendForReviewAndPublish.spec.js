@@ -16,7 +16,6 @@ describe('ontent creator is able to save the content ( Lesson Plan) & send the c
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

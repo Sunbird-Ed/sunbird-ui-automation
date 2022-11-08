@@ -19,7 +19,6 @@ describe('Veriy ViewAll and Pagenation in Course Section', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
 

@@ -18,7 +18,6 @@ describe('is Able to create Question FIB and Consume by other Users and Creator 
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CreateQuestionFITBAndConsume',function(){

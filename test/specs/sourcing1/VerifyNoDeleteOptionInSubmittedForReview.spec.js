@@ -19,7 +19,6 @@ describe('Verfy No delete Option available for content or draft in submitted for
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('VerifyNoDeleteOptionInSubmittedForReview',function(){

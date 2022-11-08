@@ -19,7 +19,6 @@ describe('CreateTVLessonValidateAndConsume', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CreateTVLessonValidateAndConsume',function(){

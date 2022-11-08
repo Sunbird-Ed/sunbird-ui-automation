@@ -18,7 +18,6 @@ describe('EnrollToTrackableCollection', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('EnrollToTrackableCollection',function(){

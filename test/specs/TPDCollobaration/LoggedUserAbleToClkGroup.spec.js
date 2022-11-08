@@ -17,7 +17,6 @@ describe('LoggedUserAbleToClkGroup', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('LoggedUserAbleToClkGroup ',function(){

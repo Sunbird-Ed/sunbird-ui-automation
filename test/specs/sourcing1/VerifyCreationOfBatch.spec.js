@@ -21,39 +21,22 @@ describe('VerifyCreationOfBatch', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        //  utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('VerifyCreationOfBatch', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        //utility.validateWorkspace();
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        //utility.validateWorkspace();
         tpdPageObj.publishCourseFromUpForReview(courseName)
         utility.userLogout();
-
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        //EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
-        //EnrollTBFCPageObj.createOpenBatchWithEnrolmentDate();
+       
         EnrollTBFCPageObj.createOpenBatch();
-        utility.userLogout();
-
-        // utility.userLogin('Public User1');
-        // EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        // var fetchCoursename= EnrollTBFCPageObj.enrollForOpenBatch();
-
-        // EnrollTBFCPageObj.checkTheCourseInMyCourseSection(fetchCoursename);
-
-        // utility.userLogout();
-
-        // utility.userLogin('Mentor');
-        // lspPageObj.deleteCreatedItems();
-
+       
 
 
 

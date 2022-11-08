@@ -1792,8 +1792,8 @@ const unavailbleInCollaboratorSendTheResourceForReview = (contentName) => {
 const reviewInSubmissions = (source) => {
     try {
         browser.sleep(4000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
-        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workspaceHeaderDropDwn), 20000, "headerDropdowns page not loaded");
+        content.workspaceHeaderDropDwn.click();
         wait.waitForElementVisibility(content.workSpace, 40000, "workSpace is not available");
         content.workSpace.click();
         browser.sleep(2000);
@@ -6613,8 +6613,8 @@ const verifyBoardSubjectAndCategories = () => {
         browser.sleep(2000);
         expect(resov.assertBoardSubContnet.isDisplayed()).toBeTruthy()
         browser.sleep(2000);
-        expect(resov.featured.isDisplayed()).toBeTruthy()
-        browser.sleep(2000);
+        // expect(resov.featured.isDisplayed()).toBeTruthy()
+        // browser.sleep(2000);
         expect(resov.browseByCategories.isDisplayed()).toBeTruthy()
         browser.sleep(2000);
         expect(resov.assertCategSubContent.isDisplayed()).toBeTruthy()
@@ -7233,8 +7233,8 @@ const FourCourseOrTextBookinNCERTSection = () => {
 const VerifyUserIsAbleToClickHelpAndSeeFAQ = () => {
     try {
         browser.sleep(4000);
-        wait.waitForElementVisibility(content.headerDropdown1, 20000);
-        content.headerDropdown1.click();
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
         browser.sleep(300);
         browser.executeScript("arguments[0].scrollIntoView();", content.HelpLink);
         browser.sleep(200);
@@ -7272,8 +7272,8 @@ const VerifyUserIsAbleToClickHelpAndSeeFAQ = () => {
 const VerifyUserVisitsAndDisplyFAQ = () => {
     try {
         browser.sleep(4000);
-        wait.waitForElementVisibility(content.headerDropdown1, 20000);
-        content.headerDropdown1.click();
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
         browser.sleep(300);
         browser.executeScript("arguments[0].scrollIntoView();", content.HelpLink);
         browser.sleep(200);
@@ -7644,7 +7644,7 @@ const createSubjectiveQuestionSet = () => {
 
         wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
         resov.maxHour.click();
-        resov.maxHour.sendKeys('00');
+        resov.maxHour.sendKeys('01');
         browser.sleep(2000);
 
         resov.maxHour.sendKeys(protractor.Key.TAB, '02');
@@ -7730,7 +7730,8 @@ const addQuestionSetAndTimerWithWarningTime = () => {
         wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
         resov.clickQuestionSet.click();
         wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
-        questionName = "QuestionA" + faker.randomData().firstname;
+        // questionName = "QuestionA" + faker.randomData().firstname;
+        questionName = "AutomationSetDec10";
         resov.QuestionName.click();
         resov.QuestionName.clear();
         resov.QuestionName.sendKeys(questionName);
@@ -7803,7 +7804,7 @@ const addQuestionSetAndTimerWithWarningTime = () => {
 
         resov.maxHour.sendKeys(protractor.Key.TAB, '02');
 
-        resov.maxHour.sendKeys(protractor.Key.TAB, protractor.Key.TAB, protractor.Key.TAB, protractor.Key.TAB, '01');
+        resov.maxHour.sendKeys(protractor.Key.TAB, protractor.Key.TAB, protractor.Key.TAB, protractor.Key.TAB, '02');
         browser.sleep(2000);
 
         browser.executeScript('window.scrollTo(0,0);').then(function () {
@@ -7817,14 +7818,15 @@ const addQuestionSetAndTimerWithWarningTime = () => {
         sanityPage.SanityElement().addChild.click();
         browser.sleep(3000);
 
-        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        sanityPage.SanityElement().childDesc1.sendKeys("CdildDesc");
         browser.sleep(3000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
         sanityPage.SanityElement().saveAsDraft.click();
         browser.sleep(5000);
 
-
+        for (var i=1;i<=2;i++) {
+           
         wait.waitForElementVisibility(resov.createNew1, 20000, "Createnew button not found");
         resov.createNew1.click();
         browser.sleep(3000);
@@ -7868,15 +7870,23 @@ const addQuestionSetAndTimerWithWarningTime = () => {
         browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
 
         wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
-        Title = "GK";
+        Title = "Ques "+i;
         resov.questionDetailsTitle.sendKeys(Title);
         browser.sleep(2000);
+    
+
+
 
         browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
         wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
         resov.questionSave.click();
+        browser.sleep(4000);
+
+        sanityPage.SanityElement().clkSection.click();
         browser.sleep(2000);
 
+
+}
     }
     catch (e) {
         console.log("Unable To Create Question Set and Add Timer")
@@ -7927,21 +7937,14 @@ const verifyWarningTimeDisplayed = () => {
         browser.sleep(500);
         resov.nextSlideIcon.click();
         browser.sleep(60000);
+        browser.sleep(10000);
 
-        expect(resov.warningTime1.isDisplayed()).toBeTruthy();
+        expect(resov.warningTime1.isPresent()).toEqual(true);
         console.log('Warning Time is Displayed On Question Set Preview ');
+        browser.sleep(2000);
 
-        browser.sleep(6000);
-
-        expect(resov.warningTime2.isDisplayed()).toBeTruthy();
+        expect(resov.warningTime3.isPresent()).toEqual(true);
         console.log('Warning Time is Displayed On Question Set Preview ');
-
-        browser.sleep(45000);
-
-        expect(resov.completeTime.isDisplayed()).toBeTruthy();
-        console.log('Time Over For Question Set in Preview ');
-
-
         browser.sleep(2000);
 
     }
@@ -9180,7 +9183,56 @@ const VerifyUserShouldBeAbleToCreateMQCTypeContent = () => {
     }
 }
 
+const verifyContentInAllTabs = () => {
+    try {
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.clkAllTabs, 40000, "  Filter search bar is not available");
+        resov.clkAllTabs.click();
+        browser.sleep(4000);
 
+        expect(resov.resoCard.isDisplayed()).toBeTruthy()
+        browser.sleep(3000);
+
+       
+    } catch (e) {
+        console.log("Failed in Filter")
+    }
+}
+
+const recentlyPublisedSecInHomePage = () => {
+    try {
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.clkHome, 40000, "  Filter search bar is not available");
+        resov.clkHome.click();
+        browser.sleep(4000);
+
+        expect(resov.assertRecentlyPublished.isDisplayed()).toBeTruthy()
+        browser.sleep(2000);
+        expect(resov.assertRecentlyPublishedContent.isDisplayed()).toBeTruthy()
+        browser.sleep(5000);
+       
+
+    } catch (e) {
+        console.log("volume mute is not validated")
+    }
+}
+const ContinueLearningSecInHomePage = () => {
+    try {
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.clkHome, 40000, "  Filter search bar is not available");
+        resov.clkHome.click();
+        browser.sleep(4000);
+
+        expect(resov.assertContinueLearning.isDisplayed()).toBeTruthy()
+        browser.sleep(2000);
+        expect(resov.assertContinueLearningContent.isDisplayed()).toBeTruthy()
+        browser.sleep(5000);
+       
+
+    } catch (e) {
+        console.log("volume mute is not validated")
+    }
+}
 
 module.exports = {
     createResource,
@@ -9296,5 +9348,7 @@ module.exports = {
     previewAndConsumeQuestionSet,
     verifyUserIsAbleToCreateQUMLTypeContent,
     VerifyUserShouldBeAbleToCreateMQCTypeContent,
-
+    verifyContentInAllTabs,
+    recentlyPublisedSecInHomePage,
+    ContinueLearningSecInHomePage,
 }

@@ -220,6 +220,8 @@ let EtbElem = () => {
     var clkTVClasses = element(by.xpath("//a[contains(text(),' TV classes ')]"));
 
     var downloadCSVfile = element(by.xpath("//*[text()='Download sample csv file']"));
+    
+
 
 
 

@@ -14,13 +14,12 @@ describe('VerifyAddactivityInGroupDetailsPage', () => {
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('VerifyAddactivityInGroupDetailsPage ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Mentor2');
+        utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.addGrpAndDeleteGrp();
     })
 });

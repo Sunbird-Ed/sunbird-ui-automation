@@ -19,7 +19,6 @@ describe('Ver that content creator is able to add all the plugins while creating
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CreateResourceWithContentsPluginsAndVerifyContentEditor',function(){

@@ -17,7 +17,6 @@ describe('Verify UpdateProfileDetailsForSelfSignedUser', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     

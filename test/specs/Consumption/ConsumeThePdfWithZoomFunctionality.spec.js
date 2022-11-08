@@ -16,7 +16,6 @@ describe('ConsumeThePdfWithZoomFunctionality', () => {
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('ConsumeThePdfWithZoomFunctionality',function(){

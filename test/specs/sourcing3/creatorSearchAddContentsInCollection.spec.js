@@ -18,7 +18,6 @@ describe('creatorSearchAddContentsInCollection', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

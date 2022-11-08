@@ -17,10 +17,9 @@ describe('Course creator should be able to search the course content  in All my 
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
-        
     });
+    
     it('searchCourseInAllMyContent',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();

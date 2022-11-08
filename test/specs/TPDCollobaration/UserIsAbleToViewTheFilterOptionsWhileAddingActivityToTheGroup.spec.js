@@ -17,7 +17,6 @@ describe('User must be able to view the Filter options while adding a Activity t
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('UserIsAbleToViewTheFilterOptionsWhileAddingActivityToTheGroup ',function(){

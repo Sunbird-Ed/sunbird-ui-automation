@@ -17,7 +17,6 @@ describe('FilterResultforGuestUser.spec', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('FilterResultforGuestUser.spec',function(){

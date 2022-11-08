@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
 const resourcePag = require(protractor.basePath + '/test/pages/resource/resource.po.js');
 const etbpage = require(protractor.basePath + '/test/pages/ETB/etb.po.js');
@@ -17,6 +19,10 @@ var h5p = protractor.basePath + '/test/testdata/fill-in-the-blanks-837.h5p';
 var mp4 = protractor.basePath + '/test/testdata/DraftVersion.mp4';
 var webm = protractor.basePath + '/test/testdata/big-buck-bunny_trailer.webm';
 const resourcePageObj = require(protractor.basePath + '/test/pageObject/resourcePageObj.js');
+const sanityPage = require(protractor.basePath + '/test/pages/userOnBoarding/SanityPage.js');
+var sanity = sanityPage.SanityElement();
+const tpdPage = require(protractor.basePath + '/test/pages/tpdPage/tpdpage.po.js');
+var searchObj = tpdPage.tpdPage();
 
 const uploadPdf = () => {
 
@@ -184,13 +190,13 @@ const uploadH5p = () => {
         uploadV.enterUrl.click();
         browser.sleep(2000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.browseButton), 20000, "didn't click browse button");
         uploadV.browseButton.sendKeys(h5p);
         browser.sleep(40000);
 
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.sendforRev), 20000, "Failed to click sendForReview");
-        uploadV.sendforRev.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.sndForRevInUpload), 20000, "Failed to click sendForReview");
+        uploadV.sndForRevInUpload.click();
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.clickAppIcon), 50000, "clickAppIcon button not available");
         etbv.clickAppIcon.click();
@@ -870,6 +876,153 @@ const uploadContentAndPreviewInAllMyContent = () => {
         console.log("User failed to upload mp4");
     }
 }
+
+
+const uploadH5pAndLimitsharing = () => {
+    var resourceName;
+    try {
+
+        console.log("User is trying to upload H5p content")
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.clickuploadContent), 20000, "Upload content didn't click");
+        uploadV.clickuploadContent.click();
+        browser.sleep(4000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(5000);
+        browser.sleep(7000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.selectOne), 20000, "selectOne is not available");
+        uploadV.selectOne.click();
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.learningResource), 20000, "learningResource is not available");
+        uploadV.learningResource.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.enterUrl.click();
+        browser.sleep(2000);
+
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.browseButton), 20000, "didn't click browse button");
+        uploadV.browseButton.sendKeys(h5p);
+        browser.sleep(40000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.editDetails), 20000, "didn't click browse button");
+        uploadV.editDetails.click();
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.clickAppIcon), 50000, "clickAppIcon button not available");
+        etbv.clickAppIcon.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(etbv.allImage, 30000, "allImage button not available");
+        etbv.allImage.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(etbv.myImage, 30000, "myImage button not available");
+        etbv.myImage.click();
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.checkAppIcon), 30000, "checkAppIcon button not available");
+        etbv.checkAppIcon.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.selectAppIcon), 30000, "selectAppIcon button not available");
+        etbv.selectAppIcon.click();
+        browser.sleep(500);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.titleName), 30000, "selectAppIcon button not available");
+        etbv.titleName.click();
+        browser.sleep(500);
+        etbv.titleName.clear();
+        resourceName = "ResourceA" + faker.randomData().firstname;
+        etbv.titleName.sendKeys(resourceName);
+        DropDownForSendForReview();
+        browser.sleep(3000);
+        uploadV.closebuton.click();
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.sendForReviewDropDown), 40000, "clickLimitedSharing is not available");
+        searchObj.sendForReviewDropDown.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clickLimitedSharing), 40000, "clickLimitedSharing is not available");
+        searchObj.clickLimitedSharing.click();
+        browser.sleep(3000);
+
+        return resourceName;
+    } catch (Exception) {
+        console.log("Usr failed upload h5p");
+    }
+}
+
+
+
+const validateuplloadContentInAllMyContentBeforeRejection = (contentName) => {
+      try {
+
+        console.log("User validating content in AllMyContent section")
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.allMyContent), 20000, "Upload content didn't click");
+        sanity.allMyContent.click();
+        browser.sleep(4000);
+        sanity.clkSearhInAllMyContent.sendKeys(contentName);
+        browser.sleep(1000);
+        sanity.clkSearchIconAllMyContent.click();
+        browser.sleep(5000);
+        uploadV.contentCard.getText().then(function(input){
+            expect(input).toEqual(contentName);
+            console.log(input+ " is validated in AllMyContent session.")
+        })
+        
+    } catch (Exception) {
+        console.log("User not able to validate content in AllMyContent section");
+    }
+}
+
+
+const validateuplloadContentInAllUploadAfterRejection = (contentName) => {
+    try {
+
+      console.log("User is trying to validate content in Alluploads section")
+      browser.sleep(1000);
+      browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+      content.headerDropdown.click();
+      browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+      content.workSpace.click();
+      browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.allUploads), 20000, "Upload content didn't click");
+      uploadV.allUploads.click();
+      browser.sleep(5000);
+      uploadV.allUploadsContentCard.getText().then(function(input){
+          expect(input).toEqual(contentName);
+          console.log(input+ " is validated in AllUpload session.");
+      })
+  } catch (Exception) {
+      console.log("Usr failed to validaate in AllUpload.");
+  }
+}
+
+const validateuplloadContentInSharedViaLinkSection = (contentName) => {
+    try {
+
+      console.log("User is trying to validate content in SharedViaLink bucket")
+      browser.sleep(1000);
+      browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+      content.headerDropdown.click();
+      browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+      content.workSpace.click();
+      browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.sharedViaLinkBucket), 20000, "Upload content didn't click");
+      uploadV.sharedViaLinkBucket.click();
+      browser.sleep(5000);
+      uploadV.allUploadsContentCard.getText().then(function(input){
+          expect(input).toEqual(contentName);
+          console.log(input+ " is validated in SharedViaLink bucket.");
+      })
+  } catch (Exception) {
+      console.log("Usr failed to validaate in sharedViaLink bucket.");
+  }
+}
+
+
 module.exports = {
     uploadPdf,
     uploadHtml,
@@ -885,6 +1038,10 @@ module.exports = {
     uploadanyPDF,
     DropDownForSendForReview,
     uploadContentAndPreviewInAllMyContent,
+    validateuplloadContentInAllMyContentBeforeRejection,
+    validateuplloadContentInAllUploadAfterRejection,
+    validateuplloadContentInSharedViaLinkSection,
+    uploadH5pAndLimitsharing,
 
 }
 

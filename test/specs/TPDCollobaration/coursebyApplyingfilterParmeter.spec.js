@@ -14,7 +14,6 @@ describe('Course by applying filter', () => {
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('Coursebyapplyingfilter',function(){

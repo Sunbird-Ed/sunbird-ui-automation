@@ -16,7 +16,6 @@ describe('Verify that custodian users is displayed with YOB popup and the user i
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-      //  utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('varifyYOBpopupForCustodianUsers',function(){

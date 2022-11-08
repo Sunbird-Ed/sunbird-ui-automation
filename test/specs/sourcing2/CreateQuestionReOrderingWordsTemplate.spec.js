@@ -6,7 +6,7 @@ const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageO
 
 
 
-describe('  Reordering Words', () => {
+describe('CreateQuestionReOrderingWordsTemplate', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -20,7 +20,6 @@ describe('  Reordering Words', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CreateQuestionReOrderingWordsTemplate', function () {

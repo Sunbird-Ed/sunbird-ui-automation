@@ -19,7 +19,6 @@ describe('createResourceAndValidateInDraft', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('createResourceAndValidateInDraft',function(){

@@ -1,5 +1,7 @@
 //const { browser } = require('protractor');
 
+const { browser } = require('protractor');
+
 const usronBoardPage = require(protractor.basePath + '/test/pages/userOnBoarding/UserOnBoardingPage.js');
 const wait = require(protractor.basePath + '/helper/waiters.js');
 const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
@@ -902,7 +904,9 @@ const copyDikshaID = () => {
     browser.sleep(3000);
     wait.waitForElementVisibility(content.clkDikshaCopy, 20000);
     content.clkDikshaCopy.click();
-    browser.sleep(4000);
+    browser.sleep(6000);
+    content.clkBackProfileBtn.click();
+    browser.sleep(6000);
 
     searchObj.headerCourse.click();
     browser.sleep(2000);
@@ -911,6 +915,10 @@ const copyDikshaID = () => {
 
     browser.actions().keyDown(protractor.Key.CONTROL).sendKeys('v').perform();
     searchObj.searchIcon.click();
+    browser.sleep(4000);
+
+    expect(content.assertNoData.isDisplayed.toBeTruthy);
+    browser.sleep(3000);
 
 }
 const switchToJoyfulTheme = () => {
@@ -1131,6 +1139,12 @@ const AddUserProfileVerification = () => {
         userName = "User" + faker.randomData().firstname;
         browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.enterName), 20000, "enterName is not available");
         verifyCEBObj.enterName.sendKeys(userName);
+        browser.sleep(3000);
+
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        
         browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.addUserButton), 20000, "addUserButton is not available");
         verifyCEBObj.addUserButton.click();
         browser.sleep(1000);
@@ -1530,233 +1544,644 @@ const verifyHamburgerAndFAQ = () => {
                 console.log(input + " is validated.")
             })
         })
-    }    
+    }
     catch (Exception) {
-            console.log("Failed to validate the Faq(s) and helpcentre burger menu");
-        }
+        console.log("Failed to validate the Faq(s) and helpcentre burger menu");
+    }
+}
+
+const validateSubmitConsentForm = () => {
+    try {
+
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(content.linkProfile, 20000);
+        content.linkProfile.click();
+        browser.sleep(3000);
+        expect(content.submitDetailsProfile.isPresent()).toBe(true).then(function () {
+            content.submitDetailsProfile.click();
+            browser.sleep(2000);
+        })
+        expect(content.masterOrgDropdown.isPresent()).toBeTruthy().then(function () {
+            content.masterOrgDropdown.click();
+            browser.sleep(1000);
+            content.sltStateDropdown.click();
+            browser.sleep(1000);
+        })
+        expect(content.optionalFieldID.isPresent()).toBe(true).then(function () {
+            console.log("External ID optional field is validated");
+            browser.sleep(2000);
+        })
+        expect(content.externalID.isPresent()).toBe(true).then(function () {
+            console.log("External ID input field is validated");
+            browser.sleep(2000);
+        })
+        expect(content.optionalFieldphoneNumber.isPresent()).toBe(true).then(function () {
+            console.log("Phone Number optional field is validated");
+            browser.sleep(2000);
+        })
+        expect(content.phoneNumber.isPresent()).toBe(true).then(function () {
+            console.log("Phone Number input field is validated");
+            browser.sleep(2000);
+        })
+        expect(content.optionalFieldEmailID.isPresent()).toBe(true).then(function () {
+            console.log("Email optional field is validated");
+            browser.sleep(2000);
+        })
+        expect(content.checkBoxConsent.isPresent()).toBe(true).then(function () {
+            console.log("checkbox field is validated");
+            browser.sleep(2000);
+        })
+
+        var consenttnc = "I consent to provide my Profile Details and the additional details listed above with the administrators of my State / Institution. All administrators on DIKSHA are bound by the Privacy Policy and Administrator Guidelines in their use of my data."
+        expect(content.consentCheckBox.isPresent()).toBe(true).then(function () {
+            console.log("consent checkbox tnc field is validated");
+            content.consentCheckBox.getText().then(function (input) {
+                input.includes(consenttnc);
+                console.log("terms nd condition is validated");
+            })
+            browser.sleep(2000);
+        })
+    }
+    catch (e) {
+        console.error("Handled");
+    }
+}
+
+const validateUserTypes = () => {
+    try {
+
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(content.linkProfile, 20000);
+        content.linkProfile.click();
+        browser.sleep(3000);
+        expect(content.profileEdit.isPresent()).toBe(true).then(function () {
+            content.profileEdit.click();
+            browser.sleep(2000);
+        })
+        expect(content.profileRole.isPresent()).toBe(true).then(function () {
+            content.profileRole.click();
+            browser.sleep(2000);
+        })
+        expect(content.roleValues.isPresent()).toBe(true).then(function () {
+            content.roleValues.getText().then(function (input) {
+                console.log(input);
+            })
+            browser.sleep(2000);
+        })
+    }
+    catch (e) {
+        console.error("Handled");
+    }
+}
+
+const validateReportIssueButtonwithRegionalLanguage = (regionalLanguage) => {
+    try {
+        console.log('Classic Theme enabled');
+        browser.sleep(5000);
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(userOnboard.helpButton, 20000);
+        userOnboard.helpButton.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(userOnboard.reportButton, 20000);
+        expect(userOnboard.reportButton.isDisplayed).toBeTruthy();
+        userOnboard.reportButton.click();
+        console.log('Report button validated for classic theme');
+        browser.sleep(3000);
+        expect(content.reportIssueCategoryDrpdwn.isDisplayed).toBeTruthy();
+        content.reportIssueCategoryDrpdwn.click();
+        browser.sleep(2000);
+        expect(content.sltReportIssueCategoryDrpdwn.isDisplayed).toBeTruthy();
+        content.sltReportIssueCategoryDrpdwn.click();
+        browser.sleep(2000);
+        expect(content.reportIssueSubcategoryDrpdwn.isDisplayed).toBeTruthy();
+        content.reportIssueSubcategoryDrpdwn.click();
+        browser.sleep(2000);
+        expect(content.sltReportIssueSubcategoryDrpdwn.isDisplayed).toBeTruthy();
+        content.sltReportIssueSubcategoryDrpdwn.click();
+        browser.sleep(2000);
+        expect(content.reportIssueTextArea.isDisplayed).toBeTruthy();
+        content.reportIssueTextArea.sendKeys(regionalLanguage);
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,370);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        expect(content.reportSubmitFeedback.isDisplayed).toBeTruthy();
+        content.reportSubmitFeedback.click();
+        browser.sleep(200);
+        expect(content.feedbackToastMsg.isDisplayed).toBeTruthy();
+        browser.sleep(200);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+    }
+    catch (Exception) {
+        console.log("Failed to submit feedback");
+    }
+}
+const validateReportIssueButtonwithRegionalLanguage2 = (regionalLanguage) => {
+    try {
+        console.log('Classic Theme enabled');
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.classicThemeHeaderDropdown, 20000);
+        content.classicThemeHeaderDropdown.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(userOnboard.helpButton, 20000);
+        userOnboard.helpButton.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(userOnboard.reportButton, 20000);
+        expect(userOnboard.reportButton.isDisplayed).toBeTruthy();
+        userOnboard.reportButton.click();
+        console.log('Report button validated for classic theme');
+        browser.sleep(3000);
+        expect(content.reportIssueCategoryDrpdwn.isDisplayed).toBeTruthy();
+        content.reportIssueCategoryDrpdwn.click();
+        browser.sleep(2000);
+        expect(content.sltReportIssueCategoryDrpdwn.isDisplayed).toBeTruthy();
+        content.sltReportIssueCategoryDrpdwn.click();
+        browser.sleep(2000);
+        expect(content.reportIssueSubcategoryDrpdwn.isDisplayed).toBeTruthy();
+        content.reportIssueSubcategoryDrpdwn.click();
+        browser.sleep(2000);
+        expect(content.sltReportIssueSubcategoryDrpdwn.isDisplayed).toBeTruthy();
+        content.sltReportIssueSubcategoryDrpdwn.click();
+        browser.sleep(2000);
+        expect(content.reportIssueTextArea.isDisplayed).toBeTruthy();
+        content.reportIssueTextArea.sendKeys(regionalLanguage);
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,370);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        expect(content.reportSubmitFeedback.isDisplayed).toBeTruthy();
+        content.reportSubmitFeedback.click();
+        browser.sleep(200);
+        expect(content.feedbackToastMsg.isDisplayed).toBeTruthy();
+        browser.sleep(200);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+    }
+    catch (Exception) {
+        console.log("Failed to submit feedback");
+    }
+}
+
+
+const validateReprtIssueWithThemes = () => {
+    try {
+
+        browser.sleep(2000);
+        validateReportIssueButtonwithRegionalLanguage("हिन्दी");
+        validateReportIssueButtonwithRegionalLanguage("ಕನ್ನಡ");
+        validateReportIssueButtonwithRegionalLanguage("తెలుగు");
+        validateReportIssueButtonwithRegionalLanguage("मराठी");
+        validateReportIssueButtonwithRegionalLanguage("অসমীয়া");
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(searchObj.clkSwitchClassicTheme, 20000);
+        searchObj.clkSwitchClassicTheme.click();
+        browser.sleep(1000);
+        validateReportIssueButtonwithRegionalLanguage2("हिन्दी");
+        validateReportIssueButtonwithRegionalLanguage2("ಕನ್ನಡ");
+        validateReportIssueButtonwithRegionalLanguage2("తెలుగు");
+        validateReportIssueButtonwithRegionalLanguage2("मराठी");
+        validateReportIssueButtonwithRegionalLanguage2("অসমীয়া");
+        wait.waitForElementVisibility(content.classicThemeHeaderDropdown, 20000);
+        content.classicThemeHeaderDropdown.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(searchObj.clkSwitchJoyFulTheme, 20000);
+        searchObj.clkSwitchJoyFulTheme.click();
+        browser.sleep(5000);
+
+    }
+    catch (Exception) {
+        console.log("Failed on Validating SignInPopup on click on Enroll button on latest course in Explore-Course Page");
     }
 
-    const validateSubmitConsentForm = () => {
-        try {
-            
-            wait.waitForElementVisibility(content.headerDropdown, 20000);
-            content.headerDropdown.click();
-            wait.waitForElementVisibility(content.linkProfile, 20000);
-            content.linkProfile.click();
-            browser.sleep(3000);
-            expect(content.submitDetailsProfile.isPresent()).toBe(true).then(function(){
-                content.submitDetailsProfile.click();
-                browser.sleep(2000);
-            })
-            expect(content.masterOrgDropdown.isPresent()).toBeTruthy().then(function(){
-                content.masterOrgDropdown.click();
-                browser.sleep(1000);
-                content.sltStateDropdown.click();
-                browser.sleep(1000);
-            })
-            expect(content.optionalFieldID.isPresent()).toBe(true).then(function(){
-                console.log("External ID optional field is validated");
-                browser.sleep(2000);
-            })
-            expect(content.externalID.isPresent()).toBe(true).then(function(){
-                console.log("External ID input field is validated");
-                browser.sleep(2000);
-            })
-            expect(content.optionalFieldphoneNumber.isPresent()).toBe(true).then(function(){
-                console.log("Phone Number optional field is validated");
-                browser.sleep(2000);
-            })
-            expect(content.phoneNumber.isPresent()).toBe(true).then(function(){
-                console.log("Phone Number input field is validated");
-                browser.sleep(2000);
-            })
-            expect(content.optionalFieldEmailID.isPresent()).toBe(true).then(function(){
-                console.log("Email optional field is validated");
-                browser.sleep(2000);
-            })
-            expect(content.emailID.isPresent()).toBe(true).then(function(){
-                console.log("emailID input field is validated");
-                browser.sleep(2000);
-            })
-            expect(content.consentCheckBox.isPresent()).toBe(true).then(function(){
-                console.log("consent checkbox field is validated");
-                content.consentCheckBox.click();
-                browser.sleep(2000);
-            })
-    
-        }
-        catch (e) {
-            console.error("Handled");
-        }
-    }
 
-    const validateUserTypes = () => {
-        try {
-            
-            wait.waitForElementVisibility(content.headerDropdown, 20000);
-            content.headerDropdown.click();
-            wait.waitForElementVisibility(content.linkProfile, 20000);
-            content.linkProfile.click();
-            browser.sleep(3000);
-            expect(content.profileEdit.isPresent()).toBe(true).then(function(){
-                content.profileEdit.click();
-                browser.sleep(2000);
-            })
-            expect(content.profileRole.isPresent()).toBe(true).then(function(){
-                content.profileRole.click();
-                browser.sleep(2000);
-            })
-            expect(content.roleValues.isPresent()).toBe(true).then(function(){
-                content.roleValues.getText().then(function(input){
-                    console.log(input);
-                })
-                browser.sleep(2000);
-            })
-        }
-        catch (e) {
-            console.error("Handled");
-        }
-    }
+}
 
-    const validateReportIssueButtonwithRegionalLanguage = (regionalLanguage) => {
-        try {
-            console.log('Classic Theme enabled');
-            browser.sleep(5000);
-            // wait.waitForElementVisibility(content.headerDropdown, 20000);
-            // content.headerDropdown.click();
-            // browser.sleep(3000);
-            wait.waitForElementVisibility(userOnboard.helpButton, 20000);
-            userOnboard.helpButton.click();
-            browser.sleep(2000);
-            wait.waitForElementVisibility(userOnboard.reportButton, 20000);
-            expect(userOnboard.reportButton.isDisplayed).toBeTruthy();
-            userOnboard.reportButton.click();
-            console.log('Report button validated for classic theme');
-            browser.sleep(3000);
-            expect(content.reportIssueCategoryDrpdwn.isDisplayed).toBeTruthy();
-            content.reportIssueCategoryDrpdwn.click();
-            browser.sleep(2000);
-            expect(content.sltReportIssueCategoryDrpdwn.isDisplayed).toBeTruthy();
-            content.sltReportIssueCategoryDrpdwn.click();
-            browser.sleep(2000);
-            expect(content.reportIssueSubcategoryDrpdwn.isDisplayed).toBeTruthy();
-            content.reportIssueSubcategoryDrpdwn.click();
-            browser.sleep(2000);
-            expect(content.sltReportIssueSubcategoryDrpdwn.isDisplayed).toBeTruthy();
-            content.sltReportIssueSubcategoryDrpdwn.click();
-            browser.sleep(2000);
-            expect(content.reportIssueTextArea.isDisplayed).toBeTruthy();
-            content.reportIssueTextArea.sendKeys(regionalLanguage);
-            browser.sleep(2000);
-    
-        }
-        catch (Exception) {
-            console.log("Failed on Validating SignInPopup on click on Enroll button on latest course in Explore-Course Page");
-        }
-    }
-    
-    const validateReprtIssueWithThemes = () => {
-        try {
-            browser.sleep(5000);
-            wait.waitForElementVisibility(content.headerDropdown, 20000);
-            content.headerDropdown.click();
-            
-            wait.waitForElementVisibility(searchObj.clkSwitchClassicTheme, 20000);
-            searchObj.clkSwitchClassicTheme.click();
-            browser.sleep(3000);
-            wait.waitForElementVisibility(content.classicThemeHeaderDropdown, 20000);
-            content.classicThemeHeaderDropdown.click();
-            browser.sleep(2000);
-            validateReportIssueButtonwithRegionalLanguage("हिन्दी");
-            wait.waitForElementVisibility(content.classicThemeHeaderDropdown, 20000);
-            content.classicThemeHeaderDropdown.click();
-            browser.sleep(2000);
-            wait.waitForElementVisibility(searchObj.clkSwitchJoyFulTheme, 20000);
-            searchObj.clkSwitchJoyFulTheme.click();
-            browser.sleep(5000);
-            
-        }
-        catch (Exception) {
-            console.log("Failed on Validating SignInPopup on click on Enroll button on latest course in Explore-Course Page");
-        }
-    
-    
-    }
-    
 
-    const validateContributionSection = () => {
-        try {
-            wait.waitForElementVisibility(content.headerDropdown, 20000);
-            content.headerDropdown.click();
-            browser.sleep(2000)
-            wait.waitForElementVisibility(content.linkProfile, 20000);
-            content.linkProfile.click();
-            browser.sleep(3000);
-            browser.executeScript('window.scrollTo(0,600);').then(function () {
-                console.log('++++++SCROLLED Down+++++');
-            });
-            userOnboard.contributionSectionInProfile.getText().then(function(input){
-                console.log(input+" is validated")
+const validateContributionSection = () => {
+    try {
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(2000)
+        wait.waitForElementVisibility(content.linkProfile, 20000);
+        content.linkProfile.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,600);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        userOnboard.contributionSectionInProfile.getText().then(function (input) {
+            console.log(input + " is validated")
+        })
+
+
+    }
+    catch (Exception) {
+        console.log("Failed on Validating SignInPopup on click on Enroll button on latest course in Explore-Course Page");
+    }
+}
+
+
+const verifyLocationDetailsInProfile = () => {
+    try {
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(2000)
+        wait.waitForElementVisibility(content.linkProfile, 20000);
+        content.linkProfile.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,130);').then(function () {
+            console.log('++++++SCROLLED down+++++');
+        });
+        wait.waitForElementVisibility(content.btnEdit, 20000)
+        content.btnEdit.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.locationPopupState, 20000)
+        content.locationPopupState.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.sltlocationPopupState, 20000)
+        content.sltlocationPopupState.click();
+        content.sltlocationPopupState.getText().then(function(state){
+            console.log("State selected in location popup is : "+state);
+        })
+        wait.waitForElementVisibility(content.locationpopupDistrict, 20000)
+        content.locationpopupDistrict.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.sltlocationpopupDistrict, 20000)
+        content.sltlocationpopupDistrict.click();
+        content.sltlocationpopupDistrict.getText().then(function(district){
+            console.log("District selected in location popup is : "+district);
+        })
+        browser.sleep(1000);
+        browser.executeScript('window.scrollTo(0,20);').then(function () {
+            console.log('++++++SCROLLED down+++++');
+        });
+        wait.waitForElementVisibility(content.btnSubmit, 20000)
+        content.btnSubmit.click();
+        browser.sleep(1000);
+        content.assertDistrict.getText().then(function (district) {
+            console.log(district + " is validated");
+        })
+        browser.sleep(2000);
+        content.assertStateInProfile.getText().then(function (state) {
+            console.log(state + " is validated");
+        })
+        browser.sleep(2000);
+    }
+    catch (Exception) {
+        console.log("not able to validate location Pop up state and district.");
+    }
+}
+
+
+const verifyLocationPopUpByDisableStateDistrict = () => {
+    try {
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.linkProfile, 20000);
+        content.linkProfile.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,150);').then(function () {
+            console.log('++++++SCROLLED down+++++');
+        });
+        wait.waitForElementVisibility(content.btnEdit, 20000)
+        content.btnEdit.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.locationPopUpclearButton, 20000)
+        content.locationPopUpclearButton.click();
+        browser.sleep(3000);
+        expect(content.btnSubmit.isEnabled()).toBe(false);
+        content.btnSubmit.click();
+        console.log("Submit button is disabled.");
+        browser.sleep(3000);
+    }
+    catch (Exception) {
+        console.log("not able to validate location Pop up disabling state and district.");
+    }
+}
+
+const verifyRegisterHerePage = () => {
+    try {
+        console.log("validating Register Here page.")
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.loginLink, 20000);
+        content.loginLink.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,150);').then(function () {
+            console.log('++++++SCROLLED down+++++');
+        });
+        wait.waitForElementVisibility(content.RegisterHereLink, 20000)
+        content.RegisterHereLink.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.birthYear, 20000)
+        content.birthYear.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.sltBirtYear, 20000)
+        content.sltBirtYear.click();
+        browser.sleep(2000);
+        expect(content.signUpName.isPresent()).toBe(true);
+        expect(content.emailLabel.isPresent()).toBe(true);
+        expect(content.phonenumLabel.isPresent()).toBe(true);
+        expect(content.passwordLabel.isPresent()).toBe(true);
+        expect(content.confirmPassLabel.isPresent()).toBe(true);
+        expect(content.tncLabel.isPresent()).toBe(true);
+        browser.sleep(3000);
+        console.log("Register page is not blank.")
+    }
+    catch (Exception) {
+        console.log("Register here page is blank.");
+    }
+}
+
+const verifyLearnerPassbook = () => {
+    try {
+        console.log("validating Register Here page.")
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(content.linkProfile, 20000);
+        content.linkProfile.click();
+        browser.sleep(3000);
+        expect(content.learnerPassbook.isPresent()).toBe(true).then(function () {
+            content.learnerPassbook.getText().then(function (input) {
+                console.log(input + " is validated.");
             })
-
-            
-        }
-        catch (Exception) {
-            console.log("Failed on Validating SignInPopup on click on Enroll button on latest course in Explore-Course Page");
-        }
+        })
+        browser.sleep(2000);
+        content.dwnldCourseCertificate.click();
     }
-    
+    catch (Exception) {
+        console.log("Register here page is blank.");
+    }
+}
+
+const verifyOTPwarningMessage = () => {
+    try {
+        console.log("validating OTP warning message.")
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.loginLink, 20000);
+        content.loginLink.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.registerLink, 20000);
+        content.registerLink.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.birthYear, 20000);
+        content.birthYear.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.sltBirtYear, 20000);
+        content.sltBirtYear.click();
+        browser.sleep(2000);
+        // var randomEmail = "stag47@yopmail.com";
+        // var randomPassword = "Test@123";
+       
+        wait.waitForElementVisibility(content.registersignupName, 20000);
+        content.registersignupName.click();
+        browser.sleep(1000);
+        content.registersignupName.sendkeys("otpvalidate@yopmail.com");
+        browser.sleep(8000);
+        wait.waitForElementVisibility(content.signUpEmailId, 20000);
+        content.signUpEmailId.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.emailId, 20000);
+        content.emailId.sendkeys("otpvalidate@yopmail.com");
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED DOWN+++++');
+        });
+        wait.waitForElementVisibility(content.signUpPassword, 20000);
+        content.signUpPassword.sendKeys("Test@123");
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.signUpCnfrmPasswrd, 20000);
+        content.signUpCnfrmPasswrd.sendKeys("Test@123");
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(200,400);').then(function () {
+            console.log('++++++SCROLLED DOWN+++++');
+        });
+        wait.waitForElementVisibility(content.signUptnc, 20000);
+        content.signUptnc.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.signUpSubmitBtn, 20000);
+        content.signUpSubmitBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(content.otpValidation, 20000);
+        content.otpValidation.sendKeys("1234");
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.otpSubmit, 20000);
+        content.otpSubmit.click();
+        browser.sleep(2000);
+
+       // wait.waitForElementVisibility(content.warningMessage, 20000);
+        content.warningMessage.getText().then(function(input){
+            console.log("Warning message is"+input);
+        })
+        browser.sleep(2000);
+
+    }
+    catch (Exception) {
+        console.log("Not validating OTP warning message.");
+    }
+}
+
+
+const verifyloginPagelinks = () => {
+    try {
+        console.log("validating links of Login,Forgetpasswordlink,SignwithGoogle,LoginwithStateSystem,Register here");
+        expect((content.forgotPasswordLink).isPresent()).toBeTruthy();
+        console.log("Forgot password link is validated.");
+        browser.sleep(500);
+        expect((content.assertLogin).isPresent()).toBeTruthy();
+        console.log("Login link is validated.");
+        browser.sleep(500);
+        expect((content.registerLink).isPresent()).toBeTruthy();
+        console.log("RegisterHere link is validated.");
+        browser.sleep(500);
+        expect((content.googleSignButton).isPresent()).toBeTruthy();
+        console.log("Google Signin button link is validated.");
+        browser.sleep(500);
+        expect((content.statelogin).isPresent()).toBeTruthy();
+        console.log("State login link is validated.");
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.registerLink, 20000);
+        content.registerLink.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.birthYear, 20000);
+        content.birthYear.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.sltBirtYear, 20000);
+        content.sltBirtYear.click();
+        browser.sleep(2000);
+        content.registersignupName.sendKeys("Email");
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.signUpEmailId, 20000);
+        content.signUpEmailId.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.emailId, 20000);
+        content.emailId.sendKeys("invalidEmail");
+        browser.sleep(2000);
+        content.invalidEmailMessage.getText().then(function(input){
+            console.log("Invalid Email message is : "+input);
+        })
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED DOWN+++++');
+        });
+        wait.waitForElementVisibility(content.signUpPassword, 20000);
+        content.signUpPassword.sendKeys("Test@123");
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.signUpCnfrmPasswrd, 20000);
+        content.signUpCnfrmPasswrd.sendKeys("st@123");
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(200,400);').then(function () {
+            console.log('++++++SCROLLED DOWN+++++');
+        });
+        expect(content.signUptnc.isPresent()).toBeTruthy();
+        console.log("TnC check box is validated.")
+        browser.sleep(2000);
+        browser.executeScript('arguments[0].scrollIntoView()', content.signUpSubmitBtn.getWebElement());
+        expect((content.signUpSubmitBtn).isPresent()).toBeTruthy();
+        console.log("Register button link is validated.");
+        browser.sleep(2000);
+    }
+    catch (Exception) {
+        console.log("Not able to validate invalid email message");
+    }
+}
+
+
+const validateTncPopInManage = () => {
+    try {
+        console.log("validating manage option popup is not generete everytime user visit.");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.manageOption), 20000, "Manage option page not loaded");
+        content.manageOption.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.adminpolicyInManage), 20000, "Manage option page not loaded");
+        content.adminpolicyInManage.click();
+        browser.sleep(1000);
+        expect((content.tncPopUp).isPresent()).toBe(true);
+        browser.sleep(2000);
+    }
+    catch (Exception) {
+        console.log("failed");
+    }
+}
+
+const validateSignInGoogleAndSubmiting = () => {
+    try {
+        console.log("validating signin google and submitting.");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.googleSignIn), 20000, "googlesignIn page not loaded");
+        content.googleSignIn.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.enterEmail), 20000, "Enter email page not loaded");
+        content.enterEmail.sendKeys("dikshatest15@gmail.com");
+        browser.sleep(10000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.signInNextButton), 20000, "SignInNextbutton page not loaded");
+        content.signInNextButton.click();
+        browser.sleep(10000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.enterPassword), 20000, "Manage option page not loaded");
+        content.enterPassword.sendKeys("Test@123");
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.passwordNext), 20000, "Manage option page not loaded");
+        content.passwordNext.click();
+        browser.sleep(2000);
+
+    }
+    catch (Exception) {
+        console.log("failed");
+    }
+}
+
+const validatingQRcodeSearchAndValidate = () => {
+    try {
+        console.log("validating signin google and submitting.");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.qrSearchBar), 20000, "qr search bar page not loaded");
+        content.qrSearchBar.sendKeys("U2Q4U4");
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.qrSearchButton), 20000, "qr search button page not loaded");
+        content.qrSearchButton.click();
+        browser.sleep(10000);
+        expect(content.searchQrContent.isPresent()).toBeTruthy();
+        browser.sleep(10000);
+    }
+    catch (Exception) {
+        console.log("failed");
+    }
+}
+
 
 
 
 
 module.exports = {
-        verifyAdminDashBoard,
-        signInWithSSO,
-        verifyViewAllButton,
-        usersUploadAndDownload,
-        mergeAccount,
-        addRecoveryID,
-        forgetPassword,
-        userSearch,
-        verifyLocationPopup,
-        verifyProfileDetails,
-        addRecoveryAccountDetails,
-        addRecoveryAccountDetailsForSanity,
-        mergeAccountWithCustodian,
-        usersUploadAndDownloadValidations,
-        custodianUsersProfilePageValidations,
-        verifyLocationPopupForAnonymusUser,
-        verifyIgot,
-        verifyNoBoardValue,
-        verifyHelpFAQ,
-        updateProfileDetailsForSelfSignedUser,
-        updateStateAndDistrictName,
-        verifyPasswordPolicyInRegisterPage,
-        verifyRegisterPageDetails,
-        copyDikshaID,
-        switchToJoyfulTheme,
-        verifyGuestUserDisplayedInProfile,
-        verifyUserCourseProgress,
-        verifyBCSforSelectedState,
-        AddUserProfileVerification,
-        YOBnotAccessibleToExistingAndSSOusers,
-        verifyYOBpopUpdisplayedToNewAndExistingUsers,
-        VerifyMUAusersYOBpopupNotBedisplayed,
-        verifyReportIssueButton,
-        verifySSOAndCustodianMerge,
-        verifyYOBforCustodianUsers,
-        YOBvalidating,
-        NewCustodianUsers,
-        verifyUserAbleToUpdateDetails,
-        clkProfileForGuestUsers,
-        SelectedPreferenceInProfileSection,
-        submitDetailsNotDisplay,
-        verifyHamburgerAndFAQ,
-        validateSubmitConsentForm,
-        validateUserTypes,
-        validateReprtIssueWithThemes,
-        validateContributionSection,
-        
-    }
+    verifyAdminDashBoard,
+    signInWithSSO,
+    verifyViewAllButton,
+    usersUploadAndDownload,
+    mergeAccount,
+    addRecoveryID,
+    forgetPassword,
+    userSearch,
+    verifyLocationPopup,
+    verifyProfileDetails,
+    addRecoveryAccountDetails,
+    addRecoveryAccountDetailsForSanity,
+    mergeAccountWithCustodian,
+    usersUploadAndDownloadValidations,
+    custodianUsersProfilePageValidations,
+    verifyLocationPopupForAnonymusUser,
+    verifyIgot,
+    verifyNoBoardValue,
+    verifyHelpFAQ,
+    updateProfileDetailsForSelfSignedUser,
+    updateStateAndDistrictName,
+    verifyPasswordPolicyInRegisterPage,
+    verifyRegisterPageDetails,
+    copyDikshaID,
+    switchToJoyfulTheme,
+    verifyGuestUserDisplayedInProfile,
+    verifyUserCourseProgress,
+    verifyBCSforSelectedState,
+    AddUserProfileVerification,
+    YOBnotAccessibleToExistingAndSSOusers,
+    verifyYOBpopUpdisplayedToNewAndExistingUsers,
+    VerifyMUAusersYOBpopupNotBedisplayed,
+    verifyReportIssueButton,
+    verifySSOAndCustodianMerge,
+    verifyYOBforCustodianUsers,
+    YOBvalidating,
+    NewCustodianUsers,
+    verifyUserAbleToUpdateDetails,
+    clkProfileForGuestUsers,
+    SelectedPreferenceInProfileSection,
+    submitDetailsNotDisplay,
+    verifyHamburgerAndFAQ,
+    validateSubmitConsentForm,
+    validateUserTypes,
+    validateReprtIssueWithThemes,
+    validateContributionSection,
+    verifyLocationDetailsInProfile,
+    verifyLocationPopUpByDisableStateDistrict,
+    verifyRegisterHerePage,
+    verifyLearnerPassbook,
+    verifyOTPwarningMessage,
+    verifyloginPagelinks,
+    validateTncPopInManage,
+    validateSignInGoogleAndSubmiting,
+    validatingQRcodeSearchAndValidate,
+
+}
 

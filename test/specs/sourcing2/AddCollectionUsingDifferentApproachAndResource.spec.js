@@ -19,7 +19,6 @@ describe('AddCollectionUsingDifferentApproachAndResource Verify', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('AddCollectionUsingDifferentApproachAndResource',function(){

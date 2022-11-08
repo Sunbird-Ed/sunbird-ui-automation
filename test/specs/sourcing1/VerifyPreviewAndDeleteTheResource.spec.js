@@ -17,7 +17,6 @@ describe('Veri that user is able to preview and delete the resource', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
 

@@ -17,7 +17,6 @@ describe('Verifiy Adduser is getting add user option in his profile and able to 
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-      //  utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('AddUsersAndValidate ',function(){

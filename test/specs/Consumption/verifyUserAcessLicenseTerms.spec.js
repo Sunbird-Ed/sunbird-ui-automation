@@ -17,14 +17,14 @@ describe('Verify searched contents', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        //utility.userLogout();
         browser.manage().deleteAllCookies();
     });
+
     it('verifyUserAcessLicenseTerms',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
+        utility.userLogin('Creator');
         searchedCotentsValidation.verifyUserAccessLiscenceTerms();
-    });
 
+    });
 });
-   

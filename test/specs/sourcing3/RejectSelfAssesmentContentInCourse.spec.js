@@ -18,7 +18,6 @@ describe('Course reviewer is able to rejects the SelfAssesmentcourse .', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
 
     });

@@ -18,7 +18,6 @@ describe('Creatis Able to create Question MCQ and Consume by other Users ,give f
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyImmediateFeedback',function(){

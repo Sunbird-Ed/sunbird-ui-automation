@@ -18,8 +18,17 @@ var upload = () => {
     var selectOne = element(by.id("_selectPrimaryCategory"));
     var learningResource = element(by.xpath("//select[@id='_selectPrimaryCategory']/option[2]"));
     var saveupload = element(by.xpath("//div[@data-content='Save content']"));
-    var close = element(by.xpath("//button[text()='Close']"))
-    var closeEditor = element(by.xpath("//i[@class='remove icon custom-cursor']"))
+    var close = element(by.xpath("//button[text()='Close']"));
+    var closeEditor = element(by.xpath("//i[@class='remove icon custom-cursor']"));
+    var sndForRevInUpload = element(by.xpath("//div[@id='reviewButton']"));
+    var contentCard = element(by.xpath("//th[contains(text(),'Content ')]//following::div[@class='UpReviewHeader']"));
+    var allUploads = element(by.xpath("//a[@mattooltip='View all your uploads']"));
+    var allUploadsContentCard = element(by.xpath("//a[@mattooltip='View all your uploads']//following::span[@class='sliderCardHeading text-cencapitalize']"));
+    var sharedViaLinkBucket = element(by.xpath("//a[@mattooltip='View content shared via link. This is not searchable until published by submitting for review']"));
+    var editDetails = element(by.xpath("//label[contains(text(),'Untitled Content')]//following::span[@ng-if='showEditMeta']"));
+    var limitSharingDrpdwn = element(by.xpath("//label[contains(text(),'Untitled Content')]//following::div[@ng-show='hideLimitedSharingBtn']//following::i[@class='dropdown icon']"));
+    var limmitSharingDrpdwnValue = element(by.xpath("//label[contains(text(),'Untitled Content')]//following::div[@ng-show='hideLimitedSharingBtn']//following::i[@class='dropdown icon']/following::div[@class='item']"));
+    var closebuton = element(by.xpath("//button[contains(text(),'Close')]"));
 
 
     return {
@@ -40,6 +49,15 @@ var upload = () => {
         learningResource,
         saveupload,
         closeEditor,
+        sndForRevInUpload,
+        contentCard,
+        allUploads,
+        allUploadsContentCard,
+        sharedViaLinkBucket,
+        editDetails,
+        limitSharingDrpdwn,
+        limmitSharingDrpdwnValue,
+        closebuton,
     };
 
 };

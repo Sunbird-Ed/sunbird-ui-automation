@@ -17,7 +17,6 @@ describe('able to ceate multiple slides and preview all', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('VerifySettingFeaturesInResourceCreation',function(){

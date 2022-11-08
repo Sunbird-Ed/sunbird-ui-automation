@@ -18,7 +18,6 @@ describe('Create Course save and send for review and publish.', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

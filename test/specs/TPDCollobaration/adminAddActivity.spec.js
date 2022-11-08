@@ -17,7 +17,6 @@ describe('Verify adminAddActivity', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('adminAddActivity ',function(){

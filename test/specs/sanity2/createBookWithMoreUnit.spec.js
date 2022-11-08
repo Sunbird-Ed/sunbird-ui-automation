@@ -18,7 +18,6 @@ describe('Verify createBookWithMoreUnits', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

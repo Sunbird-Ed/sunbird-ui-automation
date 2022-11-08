@@ -17,7 +17,6 @@ describe('clickDoNotShareConsentPopUpForCourse', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     
@@ -32,10 +31,12 @@ describe('clickDoNotShareConsentPopUpForCourse', () => {
         utility.validateWorkspace();
         tpdPageObj.publishCourseFromUpForReview(courseName)
         utility.userLogout();
+        
         utility.userLogin('Creator');
-        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        EnrollTBFCPageObj.createOpenBatch();
+        tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
+        tpdPageObj.createOpenBatch();
         utility.userLogout();
+        console.log(courseName);
         utility.userLogin('Public User1');
         utility.validateWorkspace();
         lspPageObj.verifyConsentPopup(courseName);

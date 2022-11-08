@@ -15,13 +15,12 @@ describe('verifyTOCandCourseCounsumptionInGroups', () => {
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyTOCandCourseCounsumptionInGroups',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Custodian3');
+        utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.verifyTOCandCourseConsumption();
     })
 });

@@ -167,7 +167,7 @@ var resource = () => {
     var searchIcon = element(by.xpath("//button[contains(.,'Search')]"));
     var cardLabel = element(by.xpath("//span[contains(@class,'sb--card__type')]"));
     var searchedContentForUpload = element(by.xpath("(//h4[contains(@class,'sb--card__title sb__ellipsis sb__ellipsis--two text-left')])[1]"));
-    var headerLibrary = element(by.xpath("//*[contains(@class,'textbooks')]"));
+    var headerLibrary = element(by.xpath("(//*[contains(@class,'textbooks')])[1]"));
     var selectFITBTemplate = element(by.xpath("//a[contains(text(),'Fill in the Blanks')]/following::div[3]"));
 
     var workSpace = element(by.xpath("//*[contains(text(),'Workspace')]"));
@@ -461,12 +461,12 @@ var resource = () => {
     var browseByAudience = element(by.xpath("//div[contains(text(),'Browse by Audience')]"));
     var assertCbseBoard = element(by.xpath("//label[contains(text(),'Cbse/ncert')]"));
     var assertIgotBoard = element(by.xpath("//label[contains(text(),'Igot-health')]"));
-    var assertBoardSubContnet = element(by.xpath("//div[contains(text(),'Browse by Subjects')]//following::div[@class='item'][1]"));
-    var assertCategSubContent = element(by.xpath("//div[contains(text(),'Browse by Categories')]//following::div[@class='item'][1]"));
+    var assertBoardSubContnet = element(by.xpath("//div[contains(text(),'Browse by Subjects')]//following::div[@role='button'][1]"));
+    var assertCategSubContent = element(by.xpath("//div[contains(text(),'Browse by Categories')]//following::div[@role='button'][1]"));
     var clkExploreTab = element(by.xpath("//*[contains(text(),' Explore ')]"));
     var assertAudeinceType = element(by.xpath("//div[contains(text(),'Browse by Audience')]//following::label[contains(text(),'School Head Or Officials')]"));
     var assertAudeinceType2 = element(by.xpath("//div[contains(text(),'Browse by Audience')]//following::label[contains(text(),'Parent/guardian')]"));
-    var clkBackInbrowseBySubjectContentCard = element(by.xpath("//div[contains(text(),'Explore economics from all the boards and mediums on  SUNBIRD')]//preceding::button[1]"));
+    var clkBackInbrowseBySubjectContentCard = element(by.xpath("//div[contains(text(),' from all the boards and mediums on  SUNBIRD')]//preceding::button[1]"));
     var clkBackInbrowseByBoardInExplore = element(by.xpath("//div[contains(text(),'Explore cbse/ncert from all the boards and mediums on  SUNBIRD')]//preceding::button[1]"));
     var clkViewAllBtn = element(by.xpath("//button[contains(text(),'View all')]"));
     var clkCloseBtn = element(by.xpath("//button[contains(text(),'Close ')]"));
@@ -478,17 +478,17 @@ var resource = () => {
     var toastMsg = element(by.xpath("//*[@class='iziToast-title slideIn']"));
     var addVedio = element(by.xpath("//a[@data-content='Add Video']"));
     var addMathtext = element(by.xpath("//a[@data-content='Add Math text']"));
-    var clkMediFilter = element(by.xpath("//label[contains(text(),'Medium')]//following::div[2]"));
-    var sltMediuFilter1 = element(by.xpath("//label[contains(text(),'Medium')]//following::span[5]"));
+    var clkMediFilter = element(by.xpath("//label[contains(text(),'Medium')]//following::span[1]"));
+    var sltMediuFilter1 = element(by.xpath("//label[contains(text(),'Medium')]//following::div[5]"));
     var sltMediuFilter2 = element(by.xpath("//label[contains(text(),'Medium')]//following::span[6]"));
-    var ClkClassFilter = element(by.xpath("//label[contains(text(),'Class')]//following::div[2]"));
-    var sltClassFilter1 = element(by.xpath("//label[contains(text(),'Class')]//following::span[5]"));
+    var ClkClassFilter = element(by.xpath("//label[contains(text(),'Class')]//following::span[1]"));
+    var sltClassFilter1 = element(by.xpath("//label[contains(text(),'Class')]//following::div[5]"));
     var sltClassFilter2 = element(by.xpath("//label[contains(text(),'Class')]//following::span[6]"));
     var clkDigitalTxtBooks = element(by.xpath("//a[contains(text(),'Digital textbooks')]"));
     var clkTVClasses = element(by.xpath("//a[contains(text(),'TV classes')]"));
     var clkCourseHeader = element(by.xpath("//a[contains(text(),'Courses')]"));
     var MediumsAsertSelectedOption = element(by.xpath("//label[contains(text(),'Medium')]//following::span[contains(text(),',')]"));
-    var ClassAsserSelctedOption = element(by.xpath("//label[contains(text(),'Medium')]//following::span[contains(text(),',')][1]"));
+    var ClassAsserSelctedOption = element(by.xpath("//label[contains(text(),'Class')]//following::span[contains(text(),',')][1]"));
     var clkResetBtn = element(by.xpath("//button[contains(text(),'Reset')]"));
     var clkViewAllNcertSec = element(by.xpath("//*[contains(text(),' From NCERT ')]/following:: button[contains(text(),' View All')][1]"));
     var aseertCourseData = element(by.xpath("//*[contains(text(),'From NCERT')]//following::div[contains(text(),'Course')]"));
@@ -520,7 +520,7 @@ var resource = () => {
     var alertTimeOn = element(by.xpath("//span[text()='60:00']"));
     var alertTimeOn1 = element(by.xpath("//span[text()='2:00']"));
     var nextSlideIcon = element(by.xpath("//div[@title='next slide']"));
-    var warningTime1 = element(by.xpath("//span[contains(text(),'0:5')]"));
+    var warningTime1 = element(by.xpath("//span[contains(text(),'0:')]"));
     var warningTime2 = element(by.xpath("//span[contains(text(),'0:4')]"));
     var completeTime = element(by.xpath("//span[contains(text(),'0:0')]"));
     var questionSubjective = element(by.xpath("//div[contains(text(),'Subjective Question')]"));
@@ -575,6 +575,15 @@ var resource = () => {
     var UnderLineSelected1 = element(by.xpath("(//button[@aria-pressed='true'])[8]"));
     var clkBullet1 = element(by.xpath("(//button[@aria-pressed='false'])[10]"));
     var BulletSelected1 = element(by.xpath("(//button[@aria-pressed='true'])[9]"));
+    var BackButton1 = element(by.xpath("//span[text()='Back']"));
+    var backTolibrary = element(by.xpath("//span[text()='Back']"));
+    var warningTime3 = element(by.xpath("//span[@class='blink']"));
+    var clkAllTabs = element(by.xpath("//a[contains(text(),'Digital textbooks')]//following::a[contains(text(),'All')]"));
+    var assertContentAllTab = element(by.xpath("//a[contains(text(),'Digital textbooks')]//following::a[contains(text(),'All')]"));
+    var assertContinueLearning = element(by.xpath("//span[contains(text(),'Continue Learning')]"));
+    var assertContinueLearningContent = element(by.xpath("//span[contains(text(),'Continue Learning')]//following::div[@class='sb--card__info']"));
+    var assertRecentlyPublished = element(by.xpath("//div[contains(text(),' Recently published courses ')]"));
+    var assertRecentlyPublishedContent = element(by.xpath("//div[contains(text(),' Recently published courses ')]//following::div[@class='sb--card__info']"));
 
 
 
@@ -1163,8 +1172,16 @@ var resource = () => {
         clkUnderLine1,
         BulletSelected1,
         clkBullet1,
+        BackButton1,
+        backTolibrary,
+        warningTime3,
+        clkAllTabs,
+        assertContentAllTab,
+        assertContinueLearning,
+        assertContinueLearningContent,
+        assertRecentlyPublished,
+        assertRecentlyPublishedContent,
     }
-
 
 
 

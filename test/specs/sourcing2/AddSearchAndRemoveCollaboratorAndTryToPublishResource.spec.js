@@ -16,7 +16,6 @@ describe('to create resource and add colaborator,remove colaborator and send the
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     

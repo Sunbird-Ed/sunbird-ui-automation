@@ -3,7 +3,7 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 
-describe('Crea is Able to create Question MCQ and Consume by other Users and Creator Can Delete that resource', () => {
+describe('CreateQuestionMCQAndConsume', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -18,7 +18,6 @@ describe('Crea is Able to create Question MCQ and Consume by other Users and Cre
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CreateQuestionMCQAndConsume',function(){

@@ -18,13 +18,11 @@ describe('Verify searched contents', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-      //  utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyContentsInExplorePage',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Admin');
         searchedCotentsValidation.verifySearchContentInExplorePage();
     });
 });

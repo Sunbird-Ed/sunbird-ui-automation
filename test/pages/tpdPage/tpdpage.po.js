@@ -437,7 +437,7 @@ const tpdPage = () => {
     var closeTpdEditor = element(by.xpath("//i[@class='remove icon custom-cursor']"));
     var editIconLinkInTpdEditor = element(by.xpath("//i[@class='edit icon link']"));
     var courseToAddInGroup = element(by.xpath("//div[contains(@class,'sb--card__')]"));
-    var copyAsCourse = element(by.xpath("//button[contains(text(),'Copy as course')]"));
+    var copyAsCourse = element(by.xpath("//img[@alt='copy-clone']"));
     var copyAsCourseCheckBox = element(by.xpath("//label[contains(text(),' Select All')]"));
     var copyAsCourseConfirm = element(by.xpath(" //button[contains(text(),'Cancel')]/following::button"));
     var editCertificate = element(by.xpath("//*[contains(text(),'Edit certificate')]"));
@@ -543,7 +543,7 @@ const tpdPage = () => {
 
 
     var createGroupButton = element(by.xpath("(//*[contains(@class,'flex-ai-jc-center')])[1]"));
-    var createGroupSubmitButton = element(by.xpath("//*[contains(@class,'sb-modal-actions')]//child::button"));
+    var createGroupSubmitButton = element(by.xpath("//textarea[@id='group-description-input']//following::button[contains(text(),' Create group ')]"));
     var CreatedGroup = element(by.xpath("(//*[contains(@class,'sb--card__title ')])[1]"));
 
     var filter = element(by.xpath("//*[contains(@class,'sb-btn sb-btn-outline-primary sb-btn-normal')]"));
@@ -586,11 +586,11 @@ const tpdPage = () => {
     var editedGrpValidation = element(by.xpath("//*[contains(text(),'Group updated successfully')]"));
     var clkDeleteGrpsPopup = element(by.xpath("//button[contains(text(),'Delete')]"));
     var batchDropdown = element(by.xpath("//div[@aria-controls='batches']//span[contains(text(),'Batches')]"));
-    var selectCourse = element(by.xpath("(//div[@class='sb--card__main-area'])[3]"))
+    var selectCourse = element(by.xpath("(//div[@aria-label='Course'])"))
     var submittedForReviewCard = element(by.xpath("//span[@class='sliderCardHeading text-cencapitalize']"));
     var tncCheck = element(by.xpath("//input[contains(@aria-label,'term and condition checkbox')]"));
     var continueLearning = element(by.xpath("//button[text()='Continue learning']"));
-    
+
     var coursemodules = element(by.xpath("//h4[contains(@class,'sb-pageSection-title sb-pageSection-title-light')]"));
     var courseinformation = element(by.xpath("//h4[contains(text(),'Course details')]"));
     var credits = element(by.xpath("//span[contains(text(),'Credits & license info')]"));
@@ -601,7 +601,7 @@ const tpdPage = () => {
     var assertOrgname = element(by.xpath("(//div[@role='link']//following::div[@class='sb--card__meta2 text-left'])[1]"));
     var assertcoursecard = element(by.xpath("(//div[@class='sb--card sb--card--theme2 ng-star-inserted']//following::div[@class='sb--card__svg-area'])[1]"));
     var assertEnrollEndDate = element(by.xpath("//*[contains(text(),'Last date for enrolment:')]"));
-    
+
     var assertStartAndEndDate = element(by.xpath("//*[@class='calendar outline icon']//following::*[contains(text(),'2021')]"));
     var clkBatchDropdown = element(by.xpath("//div[@class='title active']//following::span[2]"));
     var assertBatchDropdownOnGoing = element(by.xpath("//div[@class='title active']//following::span[2]//following::span[contains(text(),'Ongoing')]"));
@@ -614,7 +614,7 @@ const tpdPage = () => {
     var assertNoBatchMessages = element(by.xpath("//strong[contains(text(),'This course does not have any open batches')]"));
     var assertCourseloginpopUp = element(by.xpath("//div[@class='sb-modal-content sb-join-modal-content']//child::div"));
     var createdBy = element(by.xpath("//div[@class='pb-24 ng-star-inserted']//following::div[text()=' Created by']"));
-    var createdByname  = element(by.xpath("//div[@class='pb-24 ng-star-inserted']//following::div[text()=' Created by']//following::div[text()='content creator']"));
+    var createdByname = element(by.xpath("//div[@class='pb-24 ng-star-inserted']//following::div[text()=' Created by']//following::div[text()='content creator']"));
     var loginPopup = element(by.xpath("//a[contains(text(),' Login ')]"));
     var revSubmission = element(by.xpath("//a[@mattooltip='View drafts you are working on. Submit them for review when completed']//following::a[1]"));
     var assertJoinCourse = element(by.xpath("//button[contains(@class,'sb-btn-disabled')]"));
@@ -623,7 +623,7 @@ const tpdPage = () => {
     var assertEnableDissInBatchpopUp = element(by.xpath("//div[@class='ng-star-inserted']//following::label[text()='Enable discussions']"));
     var yesRadbtnForBatchPopupdisc = element(by.xpath("//input[@formcontrolname='enableDiscussions']//following::label[text()='Yes']"));
     var clkSwithToClassicTheme = element(by.xpath("//span[contains(text(),'Switch to classic theme')]"));
-    var selectGroup1 = element(by.xpath("//h2[text()='My Groups']//following::div[4]"));
+    var selectGroup1 = element(by.xpath("(//div[text()='Admin'])[1]"));
     var explanationContent = element(by.xpath("//h4[contains(text(),'Explanation Content')]"));
     var learnngModule = element(by.xpath("//h4[contains(text(),'Learning module')]"));
     var practiceQuestionSet = element(by.xpath("//h4[contains(text(),'Practice question set')]"));
@@ -642,12 +642,210 @@ const tpdPage = () => {
     var CrossOption = element(by.xpath("//div[text()=' Add member ']//preceding::i[1]"));
     var searchWithinGroup = element(by.xpath("//input[@id='search-within-group']"));
     var communicationConsole = element(by.xpath("//li[text()=' Communication console ']"));
-var createGroupSubmitButton1 = element(by.xpath("//input[@role='checkbox']//following::button"));
-var selectCourse1 = element(by.xpath("//h4[contains(text(),'Course')]"));
-var course1 = element(by.xpath("//div[text()=' Course ']//following::img[1]"));
-var activityDashBoard = element(by.xpath("//button[text()=' Activity Dashboard']"));
-var LastUpdate = element(by.xpath("//label[contains(text(),' Last update : ')]"));
+    var createGroupSubmitButton1 = element(by.xpath("//input[@role='checkbox']//following::button"));
+    var selectCourse1 = element(by.xpath("//h4[contains(text(),'Course')]"));
+    var course1 = element(by.xpath("//div[text()=' Course ']//following::img[1]"));
+    var activityDashBoard = element(by.xpath("//button[text()=' Activity Dashboard']"));
+    var LastUpdate = element(by.xpath("//label[contains(text(),' Last update : ')]"));
+    var downloadAsCSV = element(by.xpath("//button[text()=' Download as CSV']"));
+    var enterSunbirdID = element(by.xpath("//input[@placeholder='Enter SUNBIRD ID']"));
+    var verifyID = element(by.xpath("//input[@placeholder='Enter SUNBIRD ID']//following::button[text()='Verify']"));
+    var addToGroup = element(by.xpath("//button[text()=' Add to group ']"));
+    var AdminMember = element(by.xpath("//span[text()='S']"));
+    var member1 = element(by.xpath("//span[text()='M']"));
+    var member2 = element(by.xpath("//span[text()='U']"));
+    var addNewButton = element(by.xpath("//button[text()=' Add New']"));
+    var conversation = element(by.xpath("//a[text()='Conversations']"));
+    var nameHeading = element(by.xpath("//th[text()=' Name ']"));
+    var nameValue1 = element(by.xpath("//th[text()=' Name ']//following::td[1]"));
+    var statusHeading = element(by.xpath("//th[text()=' Status ']"));
+    var statusValue1 = element(by.xpath("//th[text()=' Status ']/following::td[2]"));
+    var descriptionHeading = element(by.xpath("//th[text()=' Description ']"));
+    var descriptionValue1 = element(by.xpath("//th[text()=' Description ']//following::td[3]"));
+    var startingmsgHeading = element(by.xpath("//th[text()=' Starting Message ']"));
+    var startingmsgValue1 = element(by.xpath("//th[text()=' Starting Message ']/following::td[4]"));
+    var botURLHeading = element(by.xpath("//th[text()=' Bot URL ']"));
+    var botURLValue1 = element(by.xpath("//th[text()=' Bot URL ']//following::button[1]"));
+    var botIDHeading = element(by.xpath("//th[text()=' Bot Id ']"));
+    var botIDValue1 = element(by.xpath("//th[text()=' Bot Id ']//following::button[2]"));
+    var actionHeading = element(by.xpath("//th[text()=' Action ']"));
+    var actionKebab1 = element(by.xpath("//th[text()=' Action ']//following::i[1]"));
+    var deleteGroup = element(by.xpath("//div[text()='Delete group ']"));
+    var assertLoginInPoup = element(by.xpath("//div[contains(text(),' To access the course you have to log in and join the course ')]//following::a[contains(text(),'Login')]"));
+    var assertCourseDetailsAfterLogin = element(by.xpath("//*[contains(text(),'Course details')]"));
+    var enableDiscussionsOpt = element(by.xpath("//div[text()=' Enable discussions ']"));
+    var viewActivities = element(by.xpath("//h4[text()=' Activities']"));
+    var clkDiscussionForum = element(by.xpath("//button[@title='Forum']"));
+    var clkGeneralDiscussion1 = element(by.xpath("//div[text()='General Discussion']"));
+    var startDiscussion = element(by.xpath("//button[@id='start-discussion']"));
+    var discussionTopic = element(by.xpath("//label[text()='Discussion topic*']"));
+    var buttonCancel = element(by.xpath("//button[@id='discard-discussion-start-form']"));
+    var navigateBack = element(by.xpath("//button[text()=' Back ']"));
+    var disableDiscussionsOpt = element(by.xpath("//div[text()=' Disable discussions ']"));
+    var confirmDisable = element(by.xpath("//button[text()='Disable discussions']"));
+    var enterDiscussionTopic = element(by.xpath("//input[@placeholder='Type here (minimum 8 characters)']"));
+    var enterQuestionOrIdea = element(by.xpath("//textarea[@id='description']"));
+    var submitOnDiscussionTopic = element(by.xpath("//span[text()='Submit']"));
+    var createdTopic = element(by.xpath("//h3[text()='Demo1234']"));
+    var generalDiscussion = element(by.xpath("//div[text()=' General Discussion ']"));
+    var voteIcon = element(by.xpath("//img[@alt='votes icon']"));
+    var closeButtonDiscussionForum = element(by.xpath("//button[@id='close-discussion-forum']"));
+    var animationPage = element(by.xpath("//img[@alt='add activity']"));
+    var clkTagOption = element(by.xpath("//a[text()='Tags']"));
+    var tagPageAnimation = element(by.xpath("//label[text()='No tags Available !']//preceding::img[1]"));
+    var noTagsAvailableMsg = element(by.xpath("//label[text()='No tags Available !']"));
+    var assertDiscussionTopic = element(by.xpath("//input[@placeholder='Type here (minimum 8 characters)']"));
+    var assertElaborateSection = element(by.xpath("//textarea[@placeholder='Type here (minimum 8 characters)']"));
+    var viewIcon = element(by.xpath("//div[text()='General Discussion']//following::img[1]"));
+    var createdTopic2 = element(by.xpath("//h3[text()='Demo5678']"));
+    var assertMinLengthOnReply = element(by.xpath("//textarea[@placeholder='Type here (minimum 10 characters)']"));
+    var minLengthValue = element(by.xpath("//textarea[@minlength='10']"));
+    var assertelaborateLabel = element(by.xpath("//label[text()='Please elaborate your question or idea here*']"));
+    var assertTagLabel = element(by.xpath("//label[text()='Tags']"));
+    var assertTagWaterMark = element(by.xpath("//input[@placeholder='Add a tag and press Enter']"));
+    var assertCCDiscussionTopic = element(by.xpath("//label[contains(text(),'D')]"));
+    var assertCCelaborate = element(by.xpath("//label[contains(text(),'P')]"));
+    var assertCCTags = element(by.xpath("//label[contains(text(),'T')]"));
+    var assertCCTopicDesc = element(by.xpath("//small[contains(text(),'Q')]"));
+    var assertCCelaborateDesc = element(by.xpath("//small[contains(text(),'D')]"));
+    var assertCCCancelButton = element(by.xpath("(//button[contains(text(),'C')])[2]"));
+    var createGroupSubmitButton1 = element(by.xpath("//input[@role='checkbox']//following::button"));
+    var selectCourse1 = element(by.xpath("//h4[contains(text(),'Course')]"));
+    var course1 = element(by.xpath("//div[text()=' Course ']//following::img[1]"));
+    var activityDashBoard = element(by.xpath("//button[text()=' Activity Dashboard']"));
+    var LastUpdate = element(by.xpath("//label[contains(text(),' Last update : ')]"));
+    var downloadAsCSV = element(by.xpath("//button[text()=' Download as CSV']"));
+    var enterSunbirdID = element(by.xpath("//input[@placeholder='Enter SUNBIRD ID']"));
+    var verifyID = element(by.xpath("//input[@placeholder='Enter SUNBIRD ID']//following::button[text()='Verify']"));
+    var addToGroup = element(by.xpath("//button[text()=' Add to group ']"));
+    var AdminMember = element(by.xpath("//span[text()='S']"));
+    var member1 = element(by.xpath("//span[text()='M']"));
+    var member2 = element(by.xpath("//span[text()='U']"));
+    var addNewButton = element(by.xpath("//button[text()=' Add New']"));
+    var conversation = element(by.xpath("//a[text()='Conversations']"));
+    var nameHeading = element(by.xpath("//th[text()=' Name ']"));
+    var nameValue1 = element(by.xpath("//th[text()=' Name ']//following::td[1]"));
+    var statusHeading = element(by.xpath("//th[text()=' Status ']"));
+    var statusValue1 = element(by.xpath("//th[text()=' Status ']/following::td[2]"));
+    var descriptionHeading = element(by.xpath("//th[text()=' Description ']"));
+    var descriptionValue1 = element(by.xpath("//th[text()=' Description ']//following::td[3]"));
+    var startingmsgHeading = element(by.xpath("//th[text()=' Starting Message ']"));
+    var startingmsgValue1 = element(by.xpath("//th[text()=' Starting Message ']/following::td[4]"));
+    var botURLHeading = element(by.xpath("//th[text()=' Bot URL ']"));
+    var botURLValue1 = element(by.xpath("//th[text()=' Bot URL ']//following::button[1]"));
+    var botIDHeading = element(by.xpath("//th[text()=' Bot Id ']"));
+    var botIDValue1 = element(by.xpath("//th[text()=' Bot Id ']//following::button[2]"));
+    var actionHeading = element(by.xpath("//th[text()=' Action ']"));
+    var actionKebab1 = element(by.xpath("//th[text()=' Action ']//following::i[1]"));
+    var deleteGroup = element(by.xpath("//div[text()='Delete group ']"));
+    var assertLoginInPoup = element(by.xpath("//div[contains(text(),' To access the course you have to log in and join the course ')]//following::a[contains(text(),'Login')]"));
+    var assertCourseDetailsAfterLogin = element(by.xpath("//*[contains(text(),'Course details')]"));
+    var enableDiscussionsOpt = element(by.xpath("//div[text()=' Enable discussions ']"));
+    var viewActivities = element(by.xpath("//h4[text()=' Activities']"));
+    var clkDiscussionForum = element(by.xpath("//button[@title='Forum']"));
+    var clkGeneralDiscussion1 = element(by.xpath("//div[text()='General Discussion']"));
+    var startDiscussion = element(by.xpath("//button[@id='start-discussion']"));
+    var discussionTopic = element(by.xpath("//label[text()='Discussion topic*']"));
+    var buttonCancel = element(by.xpath("//button[@id='discard-discussion-start-form']"));
+    var navigateBack = element(by.xpath("//button[text()=' Back ']"));
+    var disableDiscussionsOpt = element(by.xpath("//div[text()=' Disable discussions ']"));
+    var confirmDisable = element(by.xpath("//button[text()='Disable discussions']"));
+    var enterDiscussionTopic = element(by.xpath("//input[@placeholder='Type here (minimum 8 characters)']"));
+    var enterQuestionOrIdea = element(by.xpath("//textarea[@id='description']"));
+    var submitOnDiscussionTopic = element(by.xpath("//span[text()='Submit']"));
+    var createdTopic = element(by.xpath("//h3[text()='Demo1234']"));
+    var generalDiscussion = element(by.xpath("//div[text()=' General Discussion ']"));
+    var voteIcon = element(by.xpath("//img[@alt='votes icon']"));
+    var closeButtonDiscussionForum = element(by.xpath("//button[@id='close-discussion-forum']"));
+    var animationPage = element(by.xpath("//img[@alt='add activity']"));
+    var clkTagOption = element(by.xpath("//a[text()='Tags']"));
+    var tagPageAnimation = element(by.xpath("//label[text()='No tags Available !']//preceding::img[1]"));
+    var noTagsAvailableMsg = element(by.xpath("//label[text()='No tags Available !']"));
+    var assertDiscussionTopic = element(by.xpath("//input[@placeholder='Type here (minimum 8 characters)']"));
+    var assertElaborateSection = element(by.xpath("//textarea[@placeholder='Type here (minimum 8 characters)']"));
+    var viewIcon = element(by.xpath("//div[text()='General Discussion']//following::img[1]"));
+    var createdTopic2 = element(by.xpath("//h3[text()='Demo5678']"));
+    var cancelRejectButton = element(by.xpath("(//button[contains(@id,'submitReview')]//following::button[text()='Cancel'])[1]"));
+    var clkBackButton1 = element(by.xpath("//span[text()='ಹಿಂದೆ ']//preceding::i[1]"));
+    var leaveCourse = element(by.xpath("//span[contains(text(),'Batch Details')]//following::button[text()='Leave course']"));
+    var batchDropDown = element(by.xpath("//span[contains(text(),'Batch Details')]"));
+    var leaveCoursePopUp = element(by.xpath("//button[@id='unenrollFromCourse']"));
+    var allTextbook = element(by.xpath("//a[contains(text(),' All Textbooks ')]"));
+    var showFilter = element(by.xpath("//div[@id='showFilterButton']"));
+    var contentType = element(by.xpath("//*[@id='primaryCategory']//following::div[contains(text(),' Select Content Type')]"));
+    var sortBy = element(by.xpath("//div[@id='sortByDropDown']"));
+    var submittedForReview = element(by.xpath("//a[contains(text(),' Submitted for review ')]"));
+    var submtdforRevImageCard = element(by.xpath("(//span[contains(text(),' My Workspace ')])//following::span[@class='sliderCardHeading text-cencapitalize']"));
+    var categoryCourse = element(by.xpath("(//label[contains(text(),'Category  ')]//following::select[@id='sb-dropdown'])[1]"));
+    var clkCourse = element(by.xpath("//h4[text()=' Course Unit ']//following::i[2]"));
+    var clkAbtTheContent = element(by.xpath("//div[text()='About the content ']"));
+    var assertAuthorTitle = element(by.xpath("//div[text()='Author']"));
+    var assertAuthorName = element(by.xpath("//div[text()='Author']//following::div"));
+    var attributionTitle = element(by.xpath("//div[text()='Attributions']"));
+    var attributeName = element(by.xpath("//div[text()='Attributions']//following::div"));
+    var licenceTermTitle = element(by.xpath("//div[text()='License Terms']"));
+    var licenceName = element(by.xpath("//div[text()='License Terms']//following::div"));
+    var copyRightTitle = element(by.xpath("//div[text()='Copyright']"));
+    var copyRightValue = element(by.xpath("//div[text()='Copyright']//following::div"));
+    var assertCourseInProgress = element(by.xpath("//div[text()='Course progress']"));
+    var assertModuleProgress = element(by.xpath("//div[text()='Module progress']"));
+    var exploreTab = element(by.xpath("//a[text()=' Explore ']"));
+    var assertExploreClick = element(by.xpath("//div[text()='Browse by Categories']"));
+    var assertLatestCourse = element(by.xpath("//div[text()='Course']//following::a[1]"));
+    var assertBatch = element(by.xpath("//div[text()='Batch']//following::span[1]"));
+    var assertOngoingBatch = element(by.xpath("(//div[text()='Ongoing'])[1]"));
+    var clickFullScreen = element(by.xpath("//span[text()='Fullscreen']"));
+    var clickMinimize = element(by.xpath("//span[text()='Minimize']"));
+    var courseCompletionMsg = element(by.xpath("//div[text()='Congratulations!!']"));
+    var clossCompletionPopUp = element(by.xpath("//i[@class='close icon']"));
+    var navigateBackButton = element(by.xpath("//*[text()=' Share ']//preceding::button[1]"));
+    var courseComplted = element(by.xpath("//div[text()='100% Completed']"));
+    var clkKebabMenuForSync = element(by.xpath("//div[@class='kabab-menu pull-right ng-star-inserted']"));
+    var assertSyncProgress = element(by.xpath("//div[text()=' Sync progress now']"));
+    var clkDropDown = element(by.xpath("(//i[@class='dropdown icon'])[2]"));
+    var clkExpired = element(by.xpath("//span[text()='Expired']"));
+    var assertExpiredBatch = element(by.xpath("(//i[@class='calendar outline icon'])[1]"));
+    var assertResumebtnForExpBatch = element(by.xpath("//button[text()='Resume']"));
+    var assertJoinCourseBtnForExpBatch = element(by.xpath("//button[text()='Join Course']"));
+    var assertCourseCardOnProfile = element(by.xpath("(//div[text()='Course'])[1]//following::h4[1]"));
+    
+    var viewMoreCourse = element(by.xpath("//button[contains(text(),'View more')]"));
+    var expiredBatch = element(by.xpath("(//div[text()='Expired batch'])[1]"));
+    var BatchName = element(by.xpath("(//div[text()='Expired batch'])[1]//preceding::div[2]"));
+    var ExpiredCourseName = element(by.xpath("(//div[text()='Expired batch'])[1]//preceding::div[3]"));
+    var assertExpiredCourse = element(by.xpath("//h6[contains(text(),'Batch has ended on ')]"));
+    var assertExpiredCourse1 = element(by.xpath("//h6[contains(text(),'therefore your progress will not be updated.')]"));
+    var clickToSelectMedium = element(by.xpath("//label[text()='Medium']//following::sb-caret-down[1]"));
+    var selTamil = element(by.xpath("//span[text()='Tamil']"));
+    var clickToSelectClass = element(by.xpath("//label[text()='Class']//following::sb-caret-down[1]"));
+    var selClass2 = element(by.xpath("//span[text()='Class 2']"));
+    var assertTextBook = element(by.xpath("(//div[text()='TextBook'])[1]"));
+    var assertBoardSelected = element(by.xpath("//span[text()='Tamil Nadu']"));
+    var assertMediumSelected = element(by.xpath("(//span[contains(@title,'English,Tamil')])[1]"));
+    var assertClassSelected  = element(by.xpath("(//span[contains(@title,'Class 1,Class 2')])[1]"));
+    var clkRole = element(by.xpath("//span[contains(text(),'Role')]//following::div[2]"));
+    var selParent = element(by.xpath("//span[text()='Parent']"));
+    var clkState = element(by.xpath("//span[contains(text(),'Role')]//following::sb-caret-down[2]"));
+    var selAP = element(by.xpath("//span[text()='Andhra Pradesh']"));
+    var clkDistrict = element(by.xpath("//span[contains(text(),'Role')]//following::sb-caret-down[3]"));
+    var selChittoor = element(by.xpath("//span[text()='Chittoor']"));
+    var clkbtnEdit2 = element(by.xpath("(//button[contains(text(),'Edit')])[2]"));
+    var clkBoardUpdate = element(by.xpath("//label[text()='Board ']//following::sui-select"));
+    var selNCERT = element(by.xpath("//span[text()='CBSE/NCERT']"));
+    var clkMediumUpdate = element(by.xpath("//label[text()='Medium ']//following::sui-multi-select[1]"));
+    var selHindi = element(by.xpath("//span[text()='Hindi']"));
+    var clkClassUpdate = element(by.xpath("//label[text()='Class ']//following::sui-multi-select[1]"));
+    var selClass = element(by.xpath("//span[text()='Class 2']"));
+    var assertUpdatedRole = element(by.xpath("//div[text()=' Parent']"));
+    var assertUpdatedDist = element(by.xpath("//div[text()=' Chittoor ']"));
+    var assertUpdatedState = element(by.xpath("//div[text()=' Andhra Pradesh']"));
+    var assertBoardUpdated = element(by.xpath("(//span[text()='CBSE/NCERT'])[1]"));
+    var assertMediumUpdated = element(by.xpath("(//span[text()='Hindi'])[1]"));
+    var assertClassUpdated = element(by.xpath("(//span[text()='Class 2'])[1]"));
 
+
+
+  
     return {
         headerCourse,
         confirmForPublishBook,
@@ -1299,7 +1497,142 @@ var LastUpdate = element(by.xpath("//label[contains(text(),' Last update : ')]")
         course1,
         activityDashBoard,
         LastUpdate,
-    
+        downloadAsCSV,
+        enterSunbirdID,
+        verifyID,
+        addToGroup,
+        AdminMember,
+        member1,
+        member2,
+        addNewButton,
+        conversation,
+        nameHeading,
+        nameValue1,
+        statusHeading,
+        statusValue1,
+        descriptionHeading,
+        descriptionValue1,
+        startingmsgHeading,
+        startingmsgValue1,
+        botURLHeading,
+        botURLValue1,
+        botIDHeading,
+        botIDValue1,
+        actionHeading,
+        actionKebab1,
+        deleteGroup,
+        assertLoginInPoup,
+        assertCourseDetailsAfterLogin,
+        enableDiscussionsOpt,
+        viewActivities,
+        clkDiscussionForum,
+        clkGeneralDiscussion1,
+        startDiscussion,
+        discussionTopic,
+        buttonCancel,
+        navigateBack,
+        disableDiscussionsOpt,
+        confirmDisable,
+        enterDiscussionTopic,
+        enterQuestionOrIdea,
+        submitOnDiscussionTopic,
+        createdTopic,
+        generalDiscussion,
+        voteIcon,
+        closeButtonDiscussionForum,
+        animationPage,
+        clkTagOption,
+        tagPageAnimation,
+        noTagsAvailableMsg,
+        assertDiscussionTopic,
+        assertElaborateSection,
+        viewIcon,
+        createdTopic2,
+        assertMinLengthOnReply,
+        minLengthValue,
+        assertelaborateLabel,
+        assertTagLabel,
+        assertTagWaterMark,
+        assertCCDiscussionTopic,
+        assertCCelaborate,
+        assertCCTags,
+        assertCCTopicDesc,
+        assertCCelaborateDesc,
+        assertCCCancelButton,
+        cancelRejectButton,
+        clkBackButton1,
+        leaveCourse,
+        batchDropDown,
+        leaveCoursePopUp,
+        allTextbook,
+        showFilter,
+        sortBy,
+        submtdforRevImageCard,
+        categoryCourse,
+        clkCourse,
+        clkAbtTheContent,
+        assertAuthorTitle,
+        assertAuthorName,
+        attributionTitle,
+        attributeName,
+        licenceTermTitle,
+        licenceName,
+        copyRightTitle,
+        copyRightValue,
+        assertCourseInProgress,
+        assertModuleProgress,
+        exploreTab,
+        assertExploreClick,
+        assertLatestCourse,
+        assertBatch,
+        assertOngoingBatch,
+        clickFullScreen,
+        clickMinimize,
+        courseCompletionMsg,
+        clossCompletionPopUp,
+        navigateBackButton,
+        courseComplted,
+        clkKebabMenuForSync,
+        assertSyncProgress,
+        clkDropDown,
+        clkExpired,
+        assertExpiredBatch,
+        assertResumebtnForExpBatch,
+        assertJoinCourseBtnForExpBatch,
+        assertCourseCardOnProfile,
+        viewMoreCourse,
+        expiredBatch,
+        BatchName,
+        ExpiredCourseName,
+        assertExpiredCourse,
+        assertExpiredCourse1,
+        clickToSelectMedium,
+        selTamil,
+        clickToSelectClass,
+        selClass2,
+        assertTextBook,
+        assertBoardSelected,
+        assertMediumSelected,
+        assertClassSelected,
+        clkRole,
+        selParent,
+        clkState,
+        selAP,
+        clkDistrict,
+        selChittoor,
+        clkbtnEdit2,
+        clkBoardUpdate,
+        selNCERT,
+        clkMediumUpdate,
+        selHindi,
+        clkClassUpdate,
+        selClass,
+        assertUpdatedRole,
+        assertUpdatedDist,
+        assertUpdatedState,
+        assertBoardUpdated,
+        assertMediumUpdated,
+        assertClassUpdated,
 
     }
 

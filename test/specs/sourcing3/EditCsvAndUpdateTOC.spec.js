@@ -18,7 +18,6 @@ describe('EditCsvAndUpdateTOC', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         sanityFun.UpdateTocAndUpload('/home/qualitrix/Downloads/');
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

@@ -17,7 +17,6 @@ describe('User is able to SearchSelfAssesmentInLibSection', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-     //   utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

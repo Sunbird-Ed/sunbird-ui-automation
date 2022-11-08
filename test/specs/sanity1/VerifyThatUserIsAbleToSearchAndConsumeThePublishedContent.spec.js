@@ -21,32 +21,24 @@ describe('able to create course and enroll consume VerifyThatUserIsAbleToSearchA
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('VerifyThatUserIsAbleToSearchAndConsumeThePublishedContent', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
         tpdPageObj.publishCourseFromUpForReview(courseName);
         utility.userLogout();
-
-        utility.userLogin('Public User1');
+        utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
-        //EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
         utility.userLogout();
-
         utility.userLogin('Public User1');
-        // let courseName = "courseAKarelle";
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch();
-        //utility.userLogout();
 
 
     })

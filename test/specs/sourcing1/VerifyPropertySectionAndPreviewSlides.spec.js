@@ -17,7 +17,6 @@ describe('able to create addtext and images and  multiple slides and preview all
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
 		
     });

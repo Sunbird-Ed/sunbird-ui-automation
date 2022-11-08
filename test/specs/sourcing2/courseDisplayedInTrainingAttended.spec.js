@@ -20,7 +20,6 @@ describe('courseDisplayedInTrainingAttended', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('courseDisplayedInTrainingAttended',function(){

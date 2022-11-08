@@ -17,7 +17,6 @@ describe('Verify Close option must be seen at Search Bar in member list section'
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyCloseOptionMusteSeenAtSearchBarInMemberListSection ',function(){

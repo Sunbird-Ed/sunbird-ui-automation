@@ -18,7 +18,6 @@ describe('Add Progress bar Plugin in Resource Edior', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('AddProgressBarInResource',function(){

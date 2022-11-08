@@ -630,8 +630,9 @@ const verifyConsentPopup = (content) => {
       sanityPage.SanityElement().searchConLib.sendKeys(content);
       browser.sleep(2000);
       sanityPage.SanityElement().clkSearchLib.click();
-      browser.sleep(5000);
-      content.sltCourseCard.click();
+      browser.sleep(3000);
+      wait.waitForElementVisibility(resov.resoCard, 20000, "courseCard not loaded");
+      resov.resoCard.click();
       browser.sleep(2000);
       searchObj.joinCourse.click();
       browser.sleep(2000);

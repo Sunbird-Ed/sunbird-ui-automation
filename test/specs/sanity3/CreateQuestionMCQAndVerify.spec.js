@@ -18,7 +18,6 @@ describe('Crea is Able to create Question MCQ and Creator Can Delete that resour
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CreateQuestionMCQAndVerify',function(){

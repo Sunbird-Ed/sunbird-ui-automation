@@ -23,7 +23,6 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CreateOpenBatchCourseForPublicUser', function () {

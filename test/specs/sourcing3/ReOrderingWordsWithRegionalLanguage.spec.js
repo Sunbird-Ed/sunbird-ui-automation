@@ -15,12 +15,10 @@ describe('Vrify that user is able to create Reordering words Question type with 
         browser.get(Url + AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
-
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
 
@@ -30,14 +28,12 @@ describe('Vrify that user is able to create Reordering words Question type with 
         utility.userLogin('Creator');
         let courseName = resourcePageObj.reOrderingWordsWithRegionalLanguage();
         resourcePageObj.sendForReviewTheResource();
-        resourcePageObj.reviewInSubmissions(courseName);
-         utility.userLogout();
+        utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Public User1');
         resourcePageObj.ConsumeResourceAndValidateScoreForRegionalLangReOrderingTemplate(courseName);
        
-
     });
 });

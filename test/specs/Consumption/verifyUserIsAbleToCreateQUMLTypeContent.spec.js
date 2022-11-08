@@ -20,7 +20,7 @@ describe('Search Resource save and send for review and publish.', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('verifyAllTypesOfLayoutsRendered ',function(){
+    it('verifyUserIsAbleToCreateQUMLTypeContent ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');

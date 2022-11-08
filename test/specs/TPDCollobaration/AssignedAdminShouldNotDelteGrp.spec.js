@@ -17,7 +17,6 @@ describe('Verify AssignedAdminShouldNotDelteGrp', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('AssignedAdminShouldNotDelteGrp',function(){

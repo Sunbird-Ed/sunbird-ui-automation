@@ -1,8 +1,9 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const verifyCEBpage = require(protractor.basePath+'/test/pages/sanity/VerifySignInPopupInExploreCourseEnrollButton.js');
-const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
-
+let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
+const EnrollTBFCPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
+const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPageObj.js');
+const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
+const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
 describe('verify sign in popup in explore course', () => {
 
@@ -18,14 +19,23 @@ describe('verify sign in popup in explore course', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('VerifySignInPopupInExploreCourseEnrollButton ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        verifyCEBpageobj.validateSignInPopupOnClickOnEnroll();
-     
+        utility.userLogin('Creator');
+        let courseName = sanityfun.createCourseAndSendForReview();
+        utility.userLogout();
+        utility.userLogin('Reviewer');
+        tpdPageObj.publishCourseFromUpForReview(courseName)
+        utility.userLogout();
+        utility.userLogin('Creator');
+        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
+               EnrollTBFCPageObj.createOpenBatchWithCloseEndDate();
+        utility.userLogout();
+             EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
+             EnrollTBFCPageObj.validateLoginPopup();
     })
 
  

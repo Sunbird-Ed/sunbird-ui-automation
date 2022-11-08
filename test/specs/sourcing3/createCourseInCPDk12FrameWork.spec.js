@@ -18,7 +18,6 @@ describe('createCourseInCPDk12FrameWork', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
 
     });

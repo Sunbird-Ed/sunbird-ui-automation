@@ -14,7 +14,6 @@ describe('verifyBCSforSelectedState', () => {
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     

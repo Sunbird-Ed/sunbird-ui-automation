@@ -21,7 +21,6 @@ describe('AddMoreThan4Units', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
 
     });

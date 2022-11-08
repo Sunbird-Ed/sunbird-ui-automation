@@ -16,7 +16,6 @@ describe('verifyFeaturedAndLatestSectionExploreCourse And Verify ViewAll Sec', (
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

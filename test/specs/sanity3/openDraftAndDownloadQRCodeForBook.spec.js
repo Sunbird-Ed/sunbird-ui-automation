@@ -22,7 +22,6 @@ describe('openDraftAndDownloadQRCodeForBook', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        //utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

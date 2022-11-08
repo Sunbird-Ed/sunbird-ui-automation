@@ -19,7 +19,6 @@ describe('ontent reviewer is able to Publish/Reject content.( Lesson Plan).', ()
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

@@ -17,7 +17,6 @@ describe('Verify AdminAbleToDelteGroup', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('AdminAbleToDelteGroup ',function(){

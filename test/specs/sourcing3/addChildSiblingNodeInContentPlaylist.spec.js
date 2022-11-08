@@ -19,7 +19,6 @@ describe('addChildSiblingNodeInContentPlaylist', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
 
     });
@@ -29,11 +28,12 @@ describe('addChildSiblingNodeInContentPlaylist', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();
-        collectionPo.createCollectionWithDiffCollectionTypes("contentPlaylist");
+        let collectionName = collectionPo.createCollectionAndSaveAsDraft();
         utility.userLogout();
         utility.userLogin('Creator');
-        tpdPageObj.addChildAndSiblingNode();
+        tpdPageObj.addChildAndSiblingNode(collectionName);
+        utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview();
+        tpdPageObj.publishCourseFromUpForReview(collectionName);
     })
 });

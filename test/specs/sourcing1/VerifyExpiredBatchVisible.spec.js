@@ -7,7 +7,7 @@ const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageO
 
 
 
-describe('VerifyNewCertificateTemplateCreation' , () => {
+describe('VerifyExpiredBatchVisible' , () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -20,10 +20,9 @@ describe('VerifyNewCertificateTemplateCreation' , () => {
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('VerifyNewCertificateTemplateCreation',function(){
+    it('VerifyExpiredBatchVisible',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(15000);

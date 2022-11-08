@@ -5,7 +5,7 @@ const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js
 const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPageObj.js');
 const resourcePageObj = require(protractor.basePath + '/test/pageObject/resourcePageObj.js')
 
-describe('content reviewer is able to Publish/Reject VerifyInDraftReviewAndPublish.spec.', () => {
+describe('CreateCollectionVerifyInDraftReviewAndPublish', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -31,10 +31,10 @@ describe('content reviewer is able to Publish/Reject VerifyInDraftReviewAndPubli
         utility.userLogout();
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(collectionName);
-                utility.userLogout();
+        utility.userLogout();
         utility.userLogin('Creator');
-      //  tpdPageObj.contentSearchInDraftAndEdit(collectionName);
-      tpdPageObj.updateCollectionAndSendForReviewFromDraft(collectionName);
+        //  tpdPageObj.contentSearchInDraftAndEdit(collectionName);
+        tpdPageObj.updateCollectionAndSendForReviewFromDraft(collectionName);
 
     })
 });

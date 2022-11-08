@@ -18,7 +18,6 @@ describe('VerifyShallowBookInLibrarySection.', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
@@ -26,7 +25,6 @@ describe('VerifyShallowBookInLibrarySection.', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        
         etbFun.verifyShallowBookInLibrarySection('May 6 NCERT Book');
 
        

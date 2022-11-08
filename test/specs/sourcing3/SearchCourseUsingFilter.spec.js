@@ -17,7 +17,6 @@ describe('When is able to search a course by using Search filter and Page filter
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        // utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('SearchCourseUsingFilter',function(){

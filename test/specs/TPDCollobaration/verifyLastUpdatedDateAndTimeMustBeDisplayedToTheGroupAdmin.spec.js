@@ -16,13 +16,12 @@ describe('Verify Last updated date and time is displayed to the Group Admin', ()
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyLastUpdatedDateAndTimeMustBeDisplayedToTheGroupAdmin ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Mentor2');
+        utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.verifyLastUpdatedDateAndTimeOnGroup();
      
     })

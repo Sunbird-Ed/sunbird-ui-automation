@@ -18,7 +18,6 @@ describe('AU_030,CreateBookInRegionalLanguageUsingTOCUploadAndDownload', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        //utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CreateBookInRegionalLanguageUsingTOCUploadAndDownload',function(){

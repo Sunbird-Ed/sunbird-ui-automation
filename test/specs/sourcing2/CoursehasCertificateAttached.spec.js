@@ -20,7 +20,6 @@ describe('Verify Coure attahced With Certificate', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-       // utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CoursehasCertificateAttached',function(){

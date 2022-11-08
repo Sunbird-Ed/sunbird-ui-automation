@@ -17,7 +17,6 @@ describe('AU_031,DeleteAndVerifyInAllMyContentDraftPublish', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

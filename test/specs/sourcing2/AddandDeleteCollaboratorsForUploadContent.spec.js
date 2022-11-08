@@ -19,7 +19,6 @@ describe('creator is able to add collaborators using the Add and remove collabor
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('AddandDeleteCollaboratorsForUploadContent',function(){

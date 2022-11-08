@@ -3,7 +3,7 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const verifyUOpage = require(protractor.basePath+'/test/pageObject/UserOnBoardingPageObj.js');
 
 
-describe('Verify that Report other issue button displayed in portal Help page in both the themes', () => {
+describe('verifyReportIssueInputWithRegionalLanguage', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -17,11 +17,11 @@ describe('Verify that Report other issue button displayed in portal Help page in
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('verifyReportIssueButtonInThemes',function(){
+    it('verifyReportIssueInputWithRegionalLanguage',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        verifyUOpage.verifyReportIssueButton();
+        verifyUOpage.validateReprtIssueWithThemes();
     })
 });
 

@@ -19,7 +19,6 @@ describe('is Able to create Question MTF and Creator Can Delete that resource', 
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CreateQuestionMTFAndVerify',function(){
@@ -31,10 +30,7 @@ describe('is Able to create Question MTF and Creator Can Delete that resource', 
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
-        utility.userLogout();
-
-        utility.userLogin('Creator');
-        lspPageObj.deleteCreatedItems();
+       
        
       
     })

@@ -68,7 +68,7 @@ exports.config = {
         version: '78.0.3904.108',
         platform: 'Any',
         shardTestFiles: true,
-        maxInstances:3,
+        maxInstances:4,
         chromeOptions: {
             prefs: {
                 profile: {

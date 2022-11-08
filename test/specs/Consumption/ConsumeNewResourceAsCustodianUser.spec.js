@@ -28,7 +28,9 @@ describe('custodian user should is able to consume the resource contents from li
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
         utility.userLogout();
-        utility.userLogin('Public User1');
-        resourcePageObj.navigateToLibraryAndSearchContent(resourceName);  
+        utility.userLogin('CustodianUser');
+        resourcePageObj.navigateToLibraryAndSearchContent(resourceName);
+        
     })
+   
 });

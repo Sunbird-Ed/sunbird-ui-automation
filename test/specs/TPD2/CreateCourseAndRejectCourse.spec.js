@@ -19,7 +19,6 @@ describe('After Rejecting course Add New Resource , again publish', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-      //  utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
@@ -34,12 +33,8 @@ describe('After Rejecting course Add New Resource , again publish', () => {
         resourcePageObj.rejectCourse(courseName)
         utility.userLogout();
         utility.userLogin('Creator');
-        tpdPageObj.editTheCourseInDraftAddNewResource();
-       
+        tpdPageObj.contentSearchInDraftAndEdit(courseName);
        
     })
-
-   
-   
 });
    

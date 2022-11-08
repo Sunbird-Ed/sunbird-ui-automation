@@ -1,17 +1,17 @@
 const filt2 = require(protractor.basePath + '/test/pages/ETB/etbPage1.js');
-var filter2=filt2.EtbElem1();
+var filter2 = filt2.EtbElem1();
 const data = require(protractor.basePath + '/test/testdata/login/login.td.json');
 const faker = require(protractor.basePath + '/test/pathFolder/faker.js');
-const wait = require(protractor.basePath +'/helper/waiters.js');
-const genericFun= require(protractor.basePath + '/test/genericFunctions/GenericFunction.js');
-let getExcelPath=require(protractor.basePath + '/test/pathFolder/changePath.js');
+const wait = require(protractor.basePath + '/helper/waiters.js');
+const genericFun = require(protractor.basePath + '/test/genericFunctions/GenericFunction.js');
+let getExcelPath = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
-var content=ccpage.contentCreation();
-let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
+var content = ccpage.contentCreation();
+let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 
-    
 
-const verifyfilters=()=>{
+
+const verifyfilters = () => {
 
     browser.sleep(4000);
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.digitalTextbooksFilter), 20000, "Digital Textbooks Filter not found");
@@ -32,8 +32,8 @@ const verifyfilters=()=>{
     browser.sleep(2000);
     expect(filter2.publishedUsertypeValidation.isDisplayed()).toBe(true);
     console.log("Digtal Textbooks verified");
-    
-    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.coursesFilter), 20000, "Course filter not found");  
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.coursesFilter), 20000, "Course filter not found");
     filter2.coursesFilter.click();
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.mediumValidation), 20000, "Medium Filter not found");
     filter2.mediumValidation.click();
@@ -51,7 +51,7 @@ const verifyfilters=()=>{
     expect(filter2.publishedUsertypeValidation.isDisplayed()).toBe(true);
     console.log("Courses Verified");
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.tvClassesFilter), 20000, "TV class filter not found");  
+    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.tvClassesFilter), 20000, "TV class filter not found");
     filter2.tvClassesFilter.click();
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.mediumValidation), 20000, "Medium Filter not found");
     filter2.mediumValidation.click();
@@ -69,7 +69,7 @@ const verifyfilters=()=>{
     expect(filter2.publishedUsertypeValidation.isDisplayed()).toBe(true);
     console.log("TV class filter verified");
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(fil.allFilter), 20000, "All filter not found");  
+    browser.wait(protractor.ExpectedConditions.visibilityOf(fil.allFilter), 20000, "All filter not found");
     fil.allFilter.click();
     browser.wait(protractor.ExpectedConditions.visibilityOf(fil.mediumValidation), 20000, "Medium Filter not found");
     fil.mediumValidation.click();
@@ -87,13 +87,13 @@ const verifyfilters=()=>{
     expect(fil.publishedUsertypeValidation.isDisplayed()).toBe(true);
     console.log("TV class filter verified");
 
-    return{
+    return {
         verifyfilters,
-        };
-    
+    };
+
 };
 
-const verifySearchContentInExplorePage=()=>{
+const verifySearchContentInExplorePage = () => {
 
     browser.sleep(5000);
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.search), 20000, "collection content not validated");
@@ -102,12 +102,12 @@ const verifySearchContentInExplorePage=()=>{
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchbutton), 20000, "collection content not validated");
     filter2.searchbutton.click();
     browser.sleep(4000);
-    filter2.appliedFilters1.getText().then(elementText =>{
+    filter2.appliedFilters1.getText().then(elementText => {
         console.log(elementText);
     })
     expect(filter2.appliedFilters1.getText()).toEqual('Collection');
-        console.log("collection content validated")    
-    
+    console.log("collection content validated")
+
     browser.sleep(7000);
     browser.navigate().back();
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.search), 50000, "textbook content not validated");
@@ -115,159 +115,160 @@ const verifySearchContentInExplorePage=()=>{
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchbutton), 20000, "Search button not validated");
     filter2.searchbutton.click();
     browser.sleep(4000);
-    
-    filter2.appliedFilters1.getText().then(elementText =>{
+
+    filter2.appliedFilters1.getText().then(elementText => {
         console.log(elementText);
     })
 
     expect(filter2.appliedFilters1.getText()).toEqual('Resource');
-        console.log("Textbook content validated");
+    console.log("Textbook content validated");
     browser.sleep(10000);
     browser.navigate().back();
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.search), 80000, "lessonPlan content validated");
     filter2.search.sendKeys("lessonPlan");
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchbutton), 20000, "collection content not validated");
     filter2.searchbutton.click();
-    filter2.appliedFilters1.getText().then(elementText =>{
+    filter2.appliedFilters1.getText().then(elementText => {
         console.log(elementText);
     })
     expect(filter2.appliedFilters1.getText()).toContain("LessonPlan");
-        console.log("lessonPlan content validated");
+    console.log("lessonPlan content validated");
     browser.sleep(10000);
 
-    browser.navigate().back();    
+    browser.navigate().back();
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.search), 100000, "resource content not validated");
     filter2.search.sendKeys("Resource");
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchbutton), 20000, "searchbutton content not validated");
     filter2.searchbutton.click();
-    filter2.appliedFilters1.getText().then(elementText =>{
+    filter2.appliedFilters1.getText().then(elementText => {
         console.log(elementText);
     })
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.appliedFilters1), 20000, "fetchContentName is not available");
-    
+
     expect(filter2.appliedFilters1.getText()).toContain('Resource')
-        console.log("Resource content validated")
-    
+    console.log("Resource content validated")
+
     browser.sleep(10000);
     browser.navigate().back();
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.search), 200000, "selfAssess content not validated");
     filter2.search.sendKeys("selfAssess");
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchbutton), 20000, "collection content not validated");
     filter2.searchbutton.click();
-    filter2.appliedFilters1.getText().then(elementText =>{
+    filter2.appliedFilters1.getText().then(elementText => {
         console.log(elementText);
     })
     expect(filter2.appliedFilters1.getText()).toEqual("SelfAssess")
-        console.log("selfAssess content validated");
-    
+    console.log("selfAssess content validated");
+
     browser.sleep(10000);
     browser.navigate().back();
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.search), 20000, "PracticeResource content not validated");
     filter2.search.sendKeys("PracticeResource");
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchbutton), 20000, "collection content not validated");
     filter2.searchbutton.click();
-    filter2.appliedFilters1.getText().then(elementText =>{
+    filter2.appliedFilters1.getText().then(elementText => {
         console.log(elementText);
     })
     expect(filter2.appliedFilters1.getText()).toEqual("PracticeResource")
-        console.log("PracticeResource content validated")
-    
+    console.log("PracticeResource content validated")
+
     browser.sleep(10000);
     browser.navigate().back();
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.search), 20000, "Class Filter not found");
     filter2.search.sendKeys("LearningOutcomeDefinition");
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchbutton), 20000, "collection content not validated");
     filter2.searchbutton.click();
-    filter2.appliedFilters1.getText().then(elementText =>{
+    filter2.appliedFilters1.getText().then(elementText => {
         console.log(elementText);
     })
     expect(filter2.appliedFilters1.getText()).toEqual("LearningOutcomeDefinition")
-        console.log("LearningOutcomeDefinition content validated")
-    
+    console.log("LearningOutcomeDefinition content validated")
+
     browser.sleep(10000);
     browser.navigate().back();
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.search), 20000, "Class Filter not found");
     filter2.search.sendKeys("ExplanationResource");
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchbutton), 20000, "collection content not validated");
     filter2.searchbutton.click();
-    filter2.appliedFilters1.getText().then(elementText =>{
+    filter2.appliedFilters1.getText().then(elementText => {
         console.log(elementText);
     })
     expect(filter2.appliedFilters1.getText()).toEqual("ExplanationResource")
-        console.log("ExplanationResource content validated")
+    console.log("ExplanationResource content validated")
 
 }
 
-const verifySearchContentInCollectionPage=()=>{
+
+const verifySearchContentInCollectionPage = () => {
 
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown1), 20000, "header drop down content not validated");
-        filter2.workspace.click();
-        browser.sleep(4000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.workspace), 20000, "Workspace content not validated");
-        filter2.workspace.click();
-        browser.sleep(4000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.allMyContents), 20000, "collection content not validated");
-        filter2.allMyContents.click();
-        browser.sleep(4000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search");
-        filter2.searchCollection.sendKeys("Collection");
-        if (expect(filter2.collectionContent.getText()=="collection")){
-            console.log("collection content validated")
-        }
-        filter2.allMyContents.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search");
-        browser.sleep(2000);
-        filter2.searchCollection.sendKeys("TextBook");
-        if (expect(filter2.collectionContent.getText()=="TextBook")){
-            console.log("TextBook content validated")
-        }
-        filter2.allMyContents.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search"); 
-        browser.sleep(2000);
-        filter2.searchCollection.sendKeys("LessonPlan");
-        if (expect(filter2.collectionContent.getText()=="LessonPlan")){
-            console.log("LessonPlan content validated")
-        }
-        filter2.allMyContents.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search"); 
-        browser.sleep(2000);
-        filter2.searchCollection.sendKeys("Resource");
-        if (expect(filter2.collectionContent.getText()=="Resource")){
-            console.log("Resource content validated")
-        }
-        filter2.allMyContents.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search");
-        browser.sleep(2000);
-        filter2.searchCollection.sendKeys("SelfAssess");
-        if (expect(filter2.collectionContent.getText()=="SelfAssess")){
-            console.log("SelfAssess content validated")
-        }
-        filter2.allMyContents.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search");
-        browser.sleep(2000);
-        filter2.searchCollection.sendKeys("PracticeResource");
-        if (expect(filter2.collectionContent.getText()=="PracticeResource")){
-            console.log("PracticeResource content validated")
-        }
-        filter2.allMyContents.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search");
-        browser.sleep(2000);
-        filter2.searchCollection.sendKeys("LearningOutcomeDefinition");
-        if (expect(filter2.collectionContent.getText()=="LearningOutcomeDefinition")){
-            console.log("LearningOutcomeDefinition content validated")
-        }
-        filter2.allMyContents.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search");
-        browser.sleep(2000);
-        filter2.searchCollection.sendKeys("ExplanationResource");
-        if (expect(filter2.collectionContent.getText()=="ExplanationResource")){
-            console.log("ExplanationResource content validated")
-        }
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown1), 20000, "header drop down content not validated");
+    filter2.workspace.click();
+    browser.sleep(4000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.workspace), 20000, "Workspace content not validated");
+    filter2.workspace.click();
+    browser.sleep(4000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.allMyContents), 20000, "collection content not validated");
+    filter2.allMyContents.click();
+    browser.sleep(4000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search");
+    filter2.searchCollection.sendKeys("Collection");
+    if (expect(filter2.collectionContent.getText() == "collection")) {
+        console.log("collection content validated")
+    }
+    filter2.allMyContents.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search");
+    browser.sleep(2000);
+    filter2.searchCollection.sendKeys("TextBook");
+    if (expect(filter2.collectionContent.getText() == "TextBook")) {
+        console.log("TextBook content validated")
+    }
+    filter2.allMyContents.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search");
+    browser.sleep(2000);
+    filter2.searchCollection.sendKeys("LessonPlan");
+    if (expect(filter2.collectionContent.getText() == "LessonPlan")) {
+        console.log("LessonPlan content validated")
+    }
+    filter2.allMyContents.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search");
+    browser.sleep(2000);
+    filter2.searchCollection.sendKeys("Resource");
+    if (expect(filter2.collectionContent.getText() == "Resource")) {
+        console.log("Resource content validated")
+    }
+    filter2.allMyContents.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search");
+    browser.sleep(2000);
+    filter2.searchCollection.sendKeys("SelfAssess");
+    if (expect(filter2.collectionContent.getText() == "SelfAssess")) {
+        console.log("SelfAssess content validated")
+    }
+    filter2.allMyContents.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search");
+    browser.sleep(2000);
+    filter2.searchCollection.sendKeys("PracticeResource");
+    if (expect(filter2.collectionContent.getText() == "PracticeResource")) {
+        console.log("PracticeResource content validated")
+    }
+    filter2.allMyContents.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search");
+    browser.sleep(2000);
+    filter2.searchCollection.sendKeys("LearningOutcomeDefinition");
+    if (expect(filter2.collectionContent.getText() == "LearningOutcomeDefinition")) {
+        console.log("LearningOutcomeDefinition content validated")
+    }
+    filter2.allMyContents.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchCollection), 50000, "Not able to Search");
+    browser.sleep(2000);
+    filter2.searchCollection.sendKeys("ExplanationResource");
+    if (expect(filter2.collectionContent.getText() == "ExplanationResource")) {
+        console.log("ExplanationResource content validated")
+    }
 };
 
-const boardvalueSigleSelect=()=>{
-    try{
+const boardvalueSigleSelect = () => {
+    try {
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.digitalTextbook), 20000, "Digital TextBook content not validated");
         filter2.digitalTextbook.click();
@@ -294,27 +295,26 @@ const boardvalueSigleSelect=()=>{
         filter2.selectBoard.click();
         console.log("Board is selected for TV class")
 
-    
+
         browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.mediumPills), 20000, "Medium Pills not present");
-        expect(filter2.mediumPills.isDisplayed()).toBeTruthy().then(function(){
+        expect(filter2.mediumPills.isDisplayed()).toBeTruthy().then(function () {
             console.log("Medium Pills are validated")
         })
-            
+
         browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectpills), 20000, "Subject pills not present");
         filter2.subjectpills.click();
         browser.sleep(4000);
-        expect(filter2.subjectpills.isDisplayed()).toBeTruthy().then(function(){
+        expect(filter2.subjectpills.isDisplayed()).toBeTruthy().then(function () {
             console.log("subject Pills are validated")
         })
-        }
-        catch(Exception){
-            console.log("err")
-        }
-    }    
+    }
+    catch (Exception) {
+        console.log("err")
+    }
+}
 
-
-const multiSelection=()=>{
-    try{
+const multiSelection = () => {
+    try {
         browser.sleep(4000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.alltab), 20000, "All tabs not found");
         filter2.alltab.click();
@@ -360,12 +360,13 @@ const multiSelection=()=>{
         browser.sleep(2000);
         console.log("Multiple Subject Selected");
     }
-    catch(Exception){
+    catch (Exception) {
         console.log("err")
     }
-} 
+}
 
-    
+
+
 module.exports = {
 
     verifyfilters,
@@ -373,5 +374,6 @@ module.exports = {
     verifySearchContentInCollectionPage,
     boardvalueSigleSelect,
     multiSelection,
-}
+
+};
 

@@ -23,7 +23,7 @@ describe('AU_041,TenantSpecificValidation.', () => {
     it('TenantSpecificValidation',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        signUpPageObject.validateTenantFramework();
+        //signUpPageObject.validateTenantFramework();
         signUpPageObject.languageVerify();
         utility.validateDifferentStateUrl("ap");
         utility.validateDifferentStateUrl("tn");

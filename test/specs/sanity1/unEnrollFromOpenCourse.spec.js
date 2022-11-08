@@ -34,7 +34,7 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        //utility.validateWorkspace();
         tpdPageObj.publishCourseFromUpForReview(courseName)
         utility.userLogout();
         utility.userLogin('Creator');

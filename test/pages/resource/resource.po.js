@@ -1,4 +1,4 @@
-const { element } = require("protractor");
+//const { element } = require("protractor");
 
 var resource = () => {
 
@@ -53,7 +53,7 @@ var resource = () => {
     var toggleShuffleQuestions = element(by.xpath("//input[@id='shuffle0questions']"));
     var toggleAfterShuffled = element(by.xpath("//input[@name='shuffle_questions']"));
     var toggleAfterShowImmediateFDBK = element(by.xpath("//input[@name='show_feedback']"));
-    var btnCopySlide = element(by.xpath("//i[@class='icon-duplicate link']")); 
+    var btnCopySlide = element(by.xpath("//i[@class='icon-duplicate link']"));
     var labelNumberOne = element(by.xpath("//span[contains(text(),'1')]"));
     var labelNumberTwo = element(by.xpath("//span[contains(text(),'2')]"));
     var inputTotalScore = element(by.id('max_score'));
@@ -141,8 +141,8 @@ var resource = () => {
     var searchCollaboratorField = element(by.xpath("//input[@id='user-search']"));
     var suggestionCollaboratorList = element(by.xpath("//li[@class='searchResult ng-scope']"));
     var manageCollaborator = element(by.xpath("//a[contains(text(),'Manage Collaborators')]"));
-    var removeCollaborator = element(by.xpath("//strong[contains(text(),'REMOVE')][1]"));
-    var clickDoneButton = element(by.xpath("//button[@id='done-button']"));
+    var removeCollaborator = element(by.xpath("//a[text()=' Remove ']"));
+    var clickDoneButton = element(by.xpath("//button[text()=' Done ']"));
     var collaboratorTostrMsg = element(by.xpath("//p[contains(text(),'Collaborators updated successfully')]"));
     var closeEditor2 = element(by.xpath("//*[@id='closeButton']"));
 
@@ -266,7 +266,7 @@ var resource = () => {
     var firstItemInSubjectInResource = element(by.xpath("//*[@id='subject']/div[2]/sui-select-option[contains(@class,'item')]"));
     var firstItemInResourceTypeInResource = element(by.xpath("//*[@id='resourceType']/div[3]/sui-select-option[contains(@class,'item')]"));
     var firstQuestionName = element(by.xpath("(//div[contains(@class,'header ng-binding')])[2]"));
-   // var searchTextInQuestion = element(by.xpath("//input[@id='searchText']"));
+    // var searchTextInQuestion = element(by.xpath("//input[@id='searchText']"));
     var searchTextInQuestion = element(by.xpath("//input[@id='searchText']"));
     var createdResorce = element(by.xpath("(//span[@class='sliderCardHeading text-cencapitalize'])[1]"));
     var checkBox1InSelectQuestion = element(by.xpath("(//div[@data-tooltip='select question']//input[@type='checkbox'])[1]"));
@@ -328,10 +328,10 @@ var resource = () => {
     var resourceInFirstColumn = element(by.xpath("//div[@class='cardImageText center aligned ']"));
     var btnEditDetails = element(by.xpath("//span[contains(text(),'Edit Details')]//parent::a"));
     var labelLicense = element(by.xpath("//label[contains(text(),'LICENSE')]//following::div"));
-    var linkCredit = element(by.xpath("//div[contains(text(),' About the content ')]//following::i"));
-    var labelLicenceTerms = element(by.xpath("(//div[contains(@class,'content-metadeta__text  fnormal')])[1]"));
-    var labelMoreDetails = element(by.xpath("(//div[contains(@class,'content-metadeta__text  fnormal')])[2]"));
-    var labelCopyRight = element(by.xpath("(//div[contains(@class,'content-metadeta__text  fnormal')])[3]"));
+    var linkCredit = element(by.xpath("//div[contains(text(),'About the content')]//following::i"));
+    var labelLicenceTerms = element(by.xpath("(//div[contains(@class,'content-metadeta__text fnormal')])[1]"));
+    var labelMoreDetails = element(by.xpath("(//div[contains(@class,'content-metadeta__text fnormal')])[2]"));
+    var labelCopyRight = element(by.xpath("(//div[contains(@class,'content-metadeta__text fnormal')])[3]"));
     var iconPreview = element(by.xpath("(//div[@class='ui button text-part popup-item'])[2]"));
     var nextIconInPreviewBox = element(by.xpath("(//a[@class='nav-icon nav-next'])[2]"));
     var btnCloseInPreview = element(by.xpath("//h5[@class='ui right floated basic icon circular button  mouse-pointer']"));
@@ -346,7 +346,7 @@ var resource = () => {
     var clkUploRequestChanges = element(by.xpath("//button[@tabindex='0']"));
     var clkRejectUploadsc = element(by.xpath("//label[contains(text(),'Language is NOT simple to understand')]//following::button"));
     var clkFeaturedCourseViewAll = element(by.xpath("//span[contains(text(),' courses')]//following::button[1]"));
-    var SltLevelQu= element(by.xpath("//label[contains(text(),'TOPIC')]//following::i[1]"));
+    var SltLevelQu = element(by.xpath("//label[contains(text(),'TOPIC')]//following::i[1]"));
     var saveAndCreateButton = element(by.xpath("//button[@id='save-question-button']"));
     var resoCard = element(by.xpath("//div[@class='sb--card__meta']"));
     var fullscreenclk = element(by.xpath("//span[contains(text(),'Fullscreen')]"));
@@ -356,20 +356,20 @@ var resource = () => {
     var reOrderingLngCheck2 = element(by.xpath("//div[@class='reorder-tabContainer reorder-scroll']//following::span[2]"));
     var reOrderingLngCheck3 = element(by.xpath("//div[@class='reorder-tabContainer reorder-scroll']//following::span[3]"));
     var clkSearchActivity = element(by.xpath("//input[@placeholder='Search activity']"));
-    var clkSearchButton= element(by.xpath("//input[@placeholder='Search activity']//following::button[1]"));
-    var clkAddButtonActivty= element(by.xpath("//input[@placeholder='Search activity']//following::button[2]"));
-    var clkAddTimer= element(by.xpath("//a[@data-content='Add Timer']"));
-    var clkAddProgressBar= element(by.xpath("//a[@data-content='Add Progress bar']"));
-    var labelVeryBad= element(by.xpath("//div[contains(text(),' Very Bad')]"));
-    var labelBad= element(by.xpath("//div[contains(text(),'Bad')]"));
-    var labelAverage= element(by.xpath("//div[contains(text(),'Average')]"));
-    var labelGood= element(by.xpath("//div[contains(text(),'Good')]"));
-    var labelExcellent= element(by.xpath("//div[contains(text(),'Excellent')]"));
-    var clkOtherLabel= element(by.xpath("//label[@for='Other']"));
-    var othercommentSection= element(by.xpath("//textarea[@maxlength='1000']"));
+    var clkSearchButton = element(by.xpath("//input[@placeholder='Search activity']//following::button[1]"));
+    var clkAddButtonActivty = element(by.xpath("//input[@placeholder='Search activity']//following::button[2]"));
+    var clkAddTimer = element(by.xpath("//a[@data-content='Add Timer']"));
+    var clkAddProgressBar = element(by.xpath("//a[@data-content='Add Progress bar']"));
+    var labelVeryBad = element(by.xpath("//div[contains(text(),' Very Bad')]"));
+    var labelBad = element(by.xpath("//div[contains(text(),'Bad')]"));
+    var labelAverage = element(by.xpath("//div[contains(text(),'Average')]"));
+    var labelGood = element(by.xpath("//div[contains(text(),'Good')]"));
+    var labelExcellent = element(by.xpath("//div[contains(text(),'Excellent')]"));
+    var clkOtherLabel = element(by.xpath("//label[@for='Other']"));
+    var othercommentSection = element(by.xpath("//textarea[@maxlength='1000']"));
     var giveRatings2 = element(by.xpath("//div[contains(text(),' Enjoyed this content? ')]//following::i[2]"));
     var giveRatings3 = element(by.xpath("//div[contains(text(),' Enjoyed this content? ')]//following::i[3]"));
-     var giveRatings4 = element(by.xpath("//div[contains(text(),' Enjoyed this content? ')]//following::i[4]"));
+    var giveRatings4 = element(by.xpath("//div[contains(text(),' Enjoyed this content? ')]//following::i[4]"));
     var giveRatings5 = element(by.xpath("//div[contains(text(),' Enjoyed this content? ')]//following::i[5]"));
     var fourRatingContentLabel1 = element(by.xpath("//label[@for='Content is inaccurate']"));
     var fourRatingContentLabel2 = element(by.xpath("//label[@for='Content is not displayed properly']"));
@@ -385,7 +385,7 @@ var resource = () => {
 
     var dropDownLang = element(by.xpath("//i[@class='dropdown icon']"));
     var sltKannadLang = element(by.xpath("//span[contains(text(),'ಕನ್ನಡ')]"));
-    var KannadaLabel1= element(by.xpath("//div[contains(text(),' ತುಂಬಾ ಕೆಟ್ಟದಾಗಿದೆ')]"));
+    var KannadaLabel1 = element(by.xpath("//div[contains(text(),' ತುಂಬಾ ಕೆಟ್ಟದಾಗಿದೆ')]"));
     var KannadaLabel2 = element(by.xpath("//div[contains(text(),'ಕೆಟ್ಟದಾಗಿದೆ')]"));
     var KannadaLabel3 = element(by.xpath("//div[contains(text(),'ಸಾಧಾರಣ')]"));
     var KannadaLabel4 = element(by.xpath("//div[contains(text(),'ಚೆನ್ನಾಗಿದೆ')]"));
@@ -408,11 +408,79 @@ var resource = () => {
     var reviewComment1 = element(by.xpath("//textarea[@id='review-comments']"));
     var reviewerSuggestionColl = element(by.xpath("//div[@data-title='View review comments']"));
     var reviewerSuggestionTitleColl = element(by.xpath("//textarea[@name='rejectedComment']"));
-    var revieDialogCloseColl= element(by.xpath("//textarea[@name='rejectedComment']//following::button"));
+    var revieDialogCloseColl = element(by.xpath("//textarea[@name='rejectedComment']//following::button"));
 
+
+    var clkBoardDdAllTabs = element(by.xpath("//label[contains(text(),'Board')]//following::div[1]"));
+    var sltBoardDdAllTabs = element(by.xpath("//label[contains(text(),'Board')]//following::span[1]"));
+
+    var clkMediumDdAllTabs = element(by.xpath("//label[contains(text(),'Medium')]//following::div[1]"));
+    var sltMediumDdAllTabs = element(by.xpath("//label[contains(text(),'Medium')]//following::span[1]"));
+    var sltMedium2DdAllTabs = element(by.xpath("//label[contains(text(),'Medium')]//following::span[3]"));
+
+    var clkClassDdAllTabs = element(by.xpath("//label[contains(text(),'Class')]//following::div[1]"));
+    var sltClassDdAllTabs = element(by.xpath("//label[contains(text(),'Class')]//following::span[1]"));
+    var sltClass2DdAllTabs = element(by.xpath("//label[contains(text(),'Class')]//following::span[3]"));
+
+    var clkSubjectDdAllTabs = element(by.xpath("//label[contains(text(),'Subject')]//following::div[1]"));
+    var sltSubjectDdAllTabs = element(by.xpath("//label[contains(text(),'Subject')]//following::span[2]"));
+    var sltSubjectDD2dAllTabs = element(by.xpath("//label[contains(text(),'Subject')]//following::span[3]"));
+    var courseToBeClicked = element(by.xpath("//div[@class='sb--card__meta']"));
+
+    var clickQuestionSet = element(by.xpath("(//div[@routerlink='questionset'])"));
+    var sltQuesAudienceType = element(by.xpath("(//select[@id='sb-dropdown'])[4]"));
+    var questionInstruction = element(by.xpath("(//textarea[contains(@placeholder,'Enter Instructions')])"));
+    var questionName = element(by.xpath("(//input[contains(@placeholder,'Enter name of the question set')])"));
+    var questionDescription = element(by.xpath("(//textarea[contains(@placeholder,'Description')])"));
+    var sltQuestionAudienceType = element(by.cssContainingText('option', 'Administrator'));
+    var questionAudienceType = element(by.xpath("(//select[@id='sb-dropdown'])[5]"));
+    var showFeedback = element(by.xpath("(//input[@id='show-feedback'])"));
+    var maxTime = element(by.xpath("//input[@placeholder='HH:mm:ss']"));
+    var warningTime = element(by.xpath("//input[@placeholder='hh:mm:ss']"));
+    var questionAuthor = element(by.xpath("//input[contains(@placeholder,'Author')]"));
+    var createNew = element(by.xpath("//i[contains(@class,'icon plus ng-star-inserted')]"));
+    var questionMCQ = element(by.xpath("//div[text()='Multiple Choice Question ']"));
+    var questionMCQnextBtn = element(by.xpath("//button[text()='Next ']"));
+    var mCQquestionInput = element(by.xpath("(//div[@aria-label='Rich Text Editor, main'])[1]"));
+    var McqOptionInput1 = element(by.xpath("(//div[@aria-label='Rich Text Editor, main'])[2]"));
+    var McqOptionInput2 = element(by.xpath("(//div[@aria-label='Rich Text Editor, main'])[2]"));
+    var sltCorrectAnswer = element(by.xpath("(//input[@id='answer_1'])"));
+    var questionDetailsTitle = element(by.xpath("//input[contains(@placeholder,'Title')]"));
+    var questionSave = element(by.xpath("//button[contains(text(),'Save')]"));
+    var sendForReviewQuestionset = element(by.xpath("(//div[@class='d-flex flex-ai-center ng-star-inserted']//following::button)[3]"));
+    var publishedContent = element(by.xpath("//a[text()=' Published ']"));
+    var clkPreferences = element(by.xpath("//*[contains(text(),'Your preferences ')]"));
+    var assertGusetName = element(by.xpath("//*[contains(text(),'Hi Guest ')]"));
+    var assertPreferencePopup = element(by.xpath("//*[contains(text(),'Browse SUNBIRD Library to find relevant content based on your preferences (Board, Medium and Class)')]"));
+    var clkHome = element(by.xpath("//*[contains(text(),'Home')]"));
+    var  imageCard4= element(by.xpath("(//div[contains(@class,'UpReviewHeader')])"));
+    var browseBySubj = element(by.xpath("//div[contains(text(),'Browse by Subjects')]"));
+    var featured = element(by.xpath("//div[contains(text(),'Featured')]"));
+    var browseByCategories = element(by.xpath("//div[contains(text(),'Browse by Categories')]"));
+    var browseByBoard = element(by.xpath("//div[contains(text(),'Browse by Board')]"));
+    var browseByAudience = element(by.xpath("//div[contains(text(),'Browse by Audience')]"));
+    var assertCbseBoard = element(by.xpath("//label[contains(text(),'Cbse/ncert')]"));
+    var assertIgotBoard = element(by.xpath("//label[contains(text(),'Igot-health')]"));
+    var assertBoardSubContnet = element(by.xpath("//div[contains(text(),'Browse by Subjects')]//following::div[@class='item'][1]"));
+    var assertCategSubContent = element(by.xpath("//div[contains(text(),'Browse by Categories')]//following::div[@class='item'][1]"));
+    var clkExploreTab = element(by.xpath("//*[contains(text(),' Explore ')]"));
+    var assertAudeinceType = element(by.xpath("//div[contains(text(),'Browse by Audience')]//following::label[contains(text(),'School Head Or Officials')]"));
+    var assertAudeinceType2 = element(by.xpath("//div[contains(text(),'Browse by Audience')]//following::label[contains(text(),'Parent/guardian')]"));
+    var clkBackInbrowseBySubjectContentCard = element(by.xpath("//div[contains(text(),'Explore economics from all the boards and mediums on  SUNBIRD')]//preceding::button[1]"));
+    var clkBackInbrowseByBoardInExplore = element(by.xpath("//div[contains(text(),'Explore cbse/ncert from all the boards and mediums on  SUNBIRD')]//preceding::button[1]"));
+    var clkViewAllBtn = element(by.xpath("//button[contains(text(),'View all')]"));
+    var clkCloseBtn = element(by.xpath("//button[contains(text(),'Close ')]"));
+    var clkChangePreferenceBtn = element(by.xpath("//button[contains(text(),'CHANGE PREFERENCE')]"));
+    var assertChangePreferencePopup = element(by.xpath("//div[contains(text(),'To discover relevant content, update the following details:‎')]"));
+    var imageCard4 = element(by.xpath("(//div[contains(@class,'UpReviewHeader')])"));
+    var deleteContent = element(by.xpath("(//i[@class='trash large icon ng-star-inserted'])[1]"));
+    var searchCoursesUpForReview = element(by.xpath("(//div[@class='UpReviewHeader'])[1]"));
+    var toastMsg = element(by.xpath("//*[@class='iziToast-title slideIn']"));
+    var addVedio = element(by.xpath("//a[@data-content='Add Video']"));
+    var addMathtext = element(by.xpath("//a[@data-content='Add Math text']"));
     
 
-
+    
     return {
         ddSelectlanguage,
         labelEnglish,
@@ -449,10 +517,6 @@ var resource = () => {
         labelMoreDetails,
         labelCopyRight,
         sendForReviewInShareViaLink,
-
-
-
-
 
         reload,
         headerCourse1,
@@ -638,12 +702,11 @@ var resource = () => {
         publishResource,
         searchedContentForPublish,
         searchIconUpForReview,
-            upForReview,
+        upForReview,
         saveButton,
         headerCourse,
         searchInput,
         searchIcon,
-        resourceName,
         startCreating,
         workSpace,
         iFrame,
@@ -651,7 +714,7 @@ var resource = () => {
         createQuestion,
         selectFITBTemplate,
         writeQuestion,
-      //  enterTheQuestion,
+        //  enterTheQuestion,
         clickLargeImageIcon,
         checkAppIcon,
         selectAppIcon,
@@ -714,7 +777,7 @@ var resource = () => {
         firstItemInResourceTypeInResource,
         firstQuestionName,
         searchTextInQuestion,
-     //   searchTextInQuestion,
+        //   searchTextInQuestion,
         createdResorce,
         checkBox1InSelectQuestion,
         checkBox2InSelectQuestion,
@@ -840,6 +903,70 @@ var resource = () => {
         reviewerSuggestionColl,
         reviewerSuggestionTitleColl,
         revieDialogCloseColl,
+        clkBoardDdAllTabs,
+        clkMediumDdAllTabs,
+        sltBoardDdAllTabs,
+        sltMediumDdAllTabs,
+        sltMedium2DdAllTabs,
+        sltSubjectDD2dAllTabs,
+        clkClassDdAllTabs,
+        sltClassDdAllTabs,
+        sltClass2DdAllTabs,
+        sltSubjectDdAllTabs,
+        clkSubjectDdAllTabs,
+        courseToBeClicked,
+
+        clickQuestionSet,
+        sltQuesAudienceType,
+        questionInstruction,
+        questionName,
+        questionDescription,
+        questionAudienceType,
+        showFeedback,
+        questionAuthor,
+        questionMCQ,
+        questionMCQnextBtn,
+        mCQquestionInput,
+        McqOptionInput1,
+        McqOptionInput2,
+        sltCorrectAnswer,
+        questionDetailsTitle,
+        sltQuestionAudienceType,
+        maxTime,
+        warningTime,
+        createNew,
+        questionSave,
+        sendForReviewQuestionset,
+        publishedContent,
+        clkPreferences,
+        assertPreferencePopup,
+        clkHome,
+        assertGusetName,
+        imageCard4,
+        browseBySubj,
+        featured,
+        browseByCategories,
+        browseByBoard,
+        browseByAudience,
+        assertIgotBoard,
+        assertCbseBoard,
+        assertBoardSubContnet,
+        assertCategSubContent,
+        clkExploreTab,
+        assertAudeinceType,
+        assertAudeinceType2,
+        clkBackInbrowseBySubjectContentCard,
+        clkBackInbrowseByBoardInExplore,
+        clkViewAllBtn,
+        clkCloseBtn,
+        clkChangePreferenceBtn,
+        assertChangePreferencePopup,
+        deleteContent,
+        searchCoursesUpForReview,
+        toastMsg,
+        addVedio,
+        addMathtext,
+       
     }
 
 
@@ -847,4 +974,4 @@ var resource = () => {
 };
 module.exports = {
     resource
-}   
+}

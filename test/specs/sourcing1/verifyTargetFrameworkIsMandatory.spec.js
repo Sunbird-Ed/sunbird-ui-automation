@@ -19,7 +19,7 @@ describe('verifyTargetFrameworkIsMandatory', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        // utility.userLogout();
+        //utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
@@ -29,6 +29,6 @@ describe('verifyTargetFrameworkIsMandatory', () => {
         utility.userLogin('ContentCreator');
         utility.validateWorkspace();
         sanityfun.TargetFrameworkIsMandatory();
-        // utility.userLogout();   
+           
     })
 });

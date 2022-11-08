@@ -1,4 +1,4 @@
-const { element } = require("protractor");
+//const { element } = require("protractor");
 
 var etb = () => {
 
@@ -13,11 +13,11 @@ var etb = () => {
     var savebutton=element(by.xpath("//div[@id='saveButton']//i"));
     var sendForReview=element(by.xpath("//div[@class='ui button text-part popup-item']//i[@class='send icon']"));
     var continuewButton=element(by.xpath("//button[.='Continue anyway']"));
-    var clickAppIcon=element(by.id("field-app-icon "));
+    var clickAppIcon=element(by.id("icon_appIcon"));
     var checkAppIcon=element(by.xpath("//div[@class='ui image']//img"));
     var selectAppIcon=element(by.buttonText('Select'));
-    var clickBoard=element(by.xpath("//div[contains(text(),'Select Board/Syllabus')]"));
-    var selectBoard=element(by.xpath("//div[contains(text(),'Select Board/Syllabus')]//following::div[2]"));
+    var clickBoard=element(by.xpath("//div[contains(text(),'Select Board')]"));
+    var selectBoard=element(by.xpath("//div[contains(text(),'Select Board')]//following::div[2]"));
     var clickMedium=element(by.xpath("//div[contains(text(),'Select Medium')]"));
     var selectMedium=element(by.xpath("//div[contains(text(),'Select Medium')]//following::div[2]"));
     var clickclass=element(by.xpath("//div[contains(text(),'Select Class')]"));
@@ -50,7 +50,7 @@ var etb = () => {
     var consentCheckBox = element(by.xpath("//input[@type='checkbox']"));
     var closeSendForReviewBox = element(by.xpath("//span[contains(text(),'Edit Details')]//following::i[@class='close link icon']"));
     var clickContentType = element(by.xpath("//select[@id='_selectcontentType']/following::i"));
-    var selectTVLesson = element(by.xpath("//*[text()='TV Lesson']"));
+    var selectTVLesson = element(by.xpath("//span[contains(text(),'Explanation Content')]"));
     var practiceResource = element(by.xpath("//*[contains(text(),'Practice')]"));
     var contentType = element(by.xpath("//*[contains(text(),'Content Type')]/following::sui-select"));
     var practiceResource2 = element(by.xpath("(//*[contains(text(),'Practice')])[2]"));
@@ -65,18 +65,89 @@ var etb = () => {
     var clkPublisher = element(by.xpath("//label[contains(text(),'Publisher')]/following::input"));
     var untitledCourse1 = element(by.xpath("(//input[@id='name'])[1]"));
     var collectionType = element(by.xpath("//*[contains(text(),'Collection Type')]/following::sui-select"));
-    var contentResource = element(by.xpath("//*[contains(text(),'Collection Type')]/following::sui-select-option"));
+    var contentResource = element(by.xpath("//*[contains(text(),'Collection Type')]/following::sui-select-option[2]/span[2]"));
     var allImage = element(by.id("allImagesTab"));
     var myImage = element(by.id("myAssetsTab"));
     var allTextBook = element(by.xpath("//*[contains(text(),'All Textbooks')]"));
-    var firstContentWithDraftstatus = element(by.xpath("(//div[@class='content ']//div)[9]"));
-    var GuestHeaderDropDown=element(by.xpath("(//*[@id='dropdown-menu-list-header']/ngx-avatar/div)[2]"));
-    var themeSwitch=element(by.xpath("//*[contains(text(),'Switch to classic theme')]"));
-    var openBook=element(by.xpath("(//*[contains(@class,'sb--card')])[1]"));
-   var liscenceTerms=element(by.buttonText("//*[contains(text(),'Credits And Licence Info')]"));
-   var firstResource=element(by.xpath("(//*[contains(text(),'270 MB Video')])[1]"));
-   return {
+    var firstContentWithDraftstatus = element(by.xpath("(//div[@class='content ']//div)[1]"));
+    var addResource=element(by.xpath("//div[text()='RESOURCES']/following-sibling::button"));
+    var firstResource=element(by.xpath("//div[text()[normalize-space()='Adarsh Course']]"));
+    var proceedButton=element(by.xpath("//button[text()=' PROCEED ']"));
+    var searchBoxForSearchingBook=element(by.xpath("//input[@placeholder='Search content']"));
+    var classFilter=element(by.xpath("(//div[@class='pill rounded'])[3]"));
+    var mediumFilter=element(by.xpath("//div[text()=' Sanskrit']"));
+    var mediumResult=element(by.xpath("(//span[text()='Medium: English'])[1]"));
+    var classResult=element(by.xpath("(//span[@title='Class 1'])[1]"));
+    var digitalTextBook=element(by.xpath("//a[contains(.,'Digital textbooks')]"));
+    var bookForPlayingContent=element(by.xpath("//h4[@title='bks']"));
+    var h5pContent=element(by.xpath("//div[@title='Sanity h5p-AN']"));
+    var nextButton=element(by.xpath("//button[@title='Next']"));
+    var answerBox=element(by.xpath("/html/body/div//div[@role='list']/div[5]//div[@class='h5p-input']/input[@placeholder='Your answer']"));
+    var checkBox=element(by.xpath("/html/body/div//div[@role='list']/div[5]//div[@class='h5p-input']/button[1]"));
+    var videoButton=element(by.xpath("//span[text()='Video']"));
+    var interactiveButton=element(by.xpath("//span[text()='Interactive']"));
+    var docsButton=element(by.xpath("//span[text()='Docs']"));
+    var videoConetentPlaying=element(by.xpath("//h4[@title='Sanity Mp4-AN']"));
+    var dashBoardButton=element(by.xpath("//li[text()=' Admin dashboard ']"));
+    var reports=element(by.xpath("//a[contains(.,'Reports')]"));
+    var datasets=element(by.xpath("//a[text()=' Reports']/following-sibling::a"));
+    var dashboardSearchox=element(by.xpath("(//input[@type='search'])[1]"));
+    var lastPublishedDate=element(by.xpath(("//th[text()='Last Published Date'])[1]")));
+    var courseConsumptionReport=element(by.xpath("//p[text()=' Course consumption Report']"));
+    var lastUpdatedOn=element(by.xpath("(//span[text()='Last updated on : '])[2]"));
+    var districtWiseETBReport=element(by.xpath("//p[text()=' District wise performance on ETB content plays']"));
+    var distwiseETBconsumptionReport=element(by.xpath("//div[text()=' District Wise Etb Consumption ']"));
+    var clkAdditionalCategdropDown=element(by.xpath("//div[contains(text(),'Select Additional Category')]"));
+    var sltTVLessonInAddCatogry=element(by.xpath("//div[contains(text(),'TV Lesson')]"));
+    var clkTvClassHeader = element(by.xpath("//a[contains(text(),' TV classes ')]"));
+    var firstTvLessonContent=element(by.xpath("//div[@class='sb--card__info']"));
+    var liscenceTerms = element(by.xpath("//*[contains(text(),'Credits')]"));
+    var searchContentInGroup = element(by.xpath("//input[contains(@placeholder,'Type to search for content')]"));
+    var searchButtonForGroup = element(by.xpath("//input[contains(@placeholder,'Type to search for content')]//following::button[1]"));
+    var groupFilterBoard = element(by.xpath("//li[contains(text(),'Select Board')]"));
+    var selectGroupFilterBoard = element(by.xpath("//span[contains(text(),'state (tamil nadu)')]"));
+    var groupFilterMedium = element(by.xpath("//li[contains(text(),'Select Medium')]"));
+    var selectFilterMedium = element(by.xpath("//span[contains(text(),'english')]"));
+    //var selectFilterMedium = element(by.xpath("//span[contains(text(),'english')]"));
+    var groupFilterClass = element(by.xpath("//li[contains(text(),'Select Class')]"));
+    var selectFilterClass = element(by.xpath("//span[contains(text(),'class 11')]"));
+    var groupFilterSubject = element(by.xpath("//li[contains(text(),'Select Subject')]"));
+    var selectFilterSubject = element(by.xpath("//span[contains(text(),'accountancy')]"));
+    var groupFilterContentType = element(by.xpath("//li[contains(text(),'Select Content type')]"));
+    var selectFilterContentType = element(by.xpath("//span[contains(text(),'course')]"));
+
+
+
+
+    return {
         bookName,
+        distwiseETBconsumptionReport,
+        dashBoardButton,
+        districtWiseETBReport,
+        reports,
+        datasets,
+        dashboardSearchox,
+        lastPublishedDate,
+        courseConsumptionReport,
+        lastUpdatedOn,
+        videoButton,
+        interactiveButton,
+        docsButton,
+        videoConetentPlaying,
+        answerBox,
+        checkBox,
+        nextButton,
+        digitalTextBook,
+        h5pContent,
+        bookForPlayingContent,
+        mediumResult,
+        classResult,
+        classFilter,
+        mediumFilter,
+        searchBoxForSearchingBook,
+        addResource,
+        proceedButton,
+        firstResource,
         startcreating,
         clickNewChild,
         untitleName,
@@ -142,11 +213,23 @@ var etb = () => {
         clkPublisher,
         allTextBook,
         firstContentWithDraftstatus,
-        GuestHeaderDropDown,
-        themeSwitch,
+        clkAdditionalCategdropDown,
+        sltTVLessonInAddCatogry,
+        clkTvClassHeader,
+        firstTvLessonContent,
         liscenceTerms,
-        openBook,
-        firstResource,
+        searchContentInGroup,
+        searchButtonForGroup,
+        groupFilterBoard,
+        selectGroupFilterBoard,
+        groupFilterMedium,
+        selectFilterMedium,
+        groupFilterClass,
+        selectFilterClass,
+        groupFilterSubject,
+        selectFilterSubject,
+        groupFilterContentType,
+        selectFilterContentType,
   };
 
 };

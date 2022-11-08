@@ -1,6 +1,8 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
+const EnrollTBFCPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
+const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
 describe('AddCollectionUsingDifferentApproachAndResource Verify', () => {
 
@@ -13,16 +15,24 @@ describe('AddCollectionUsingDifferentApproachAndResource Verify', () => {
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
     });
+
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
+    
     it('verifyMCSbookDisplayedPostSearching',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        browser.sleep(3000);
-        utility.userLogin('Book Creator');
-        etbFun.verifyMCSBookPostSearch();  
+        utility.userLogin('Creator');
+        let bookName = sanityfun.createBook();
+        utility.userLogout();
+        utility.userLogin('Reviewer');
+        EnrollTBFCPageObj.publishCourseFromUpForReview(bookName)
+        utility.userLogout();
+        utility.userLogin('Creator');
+        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(bookName);
+        // etbFun.verifyMCSBookPostSearch();  
     })
 });

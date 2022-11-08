@@ -1,10 +1,13 @@
 const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
-const etbpage = require(protractor.basePath + '/test/pages/etb/etb.po.js');
+const etbpage = require(protractor.basePath + '/test/pages/ETB/etb.po.js');
 const data = require(protractor.basePath + '/test/testdata/login/login.td.json');
 const wait = require(protractor.basePath + '/helper/waiters.js');
 const faker = require(protractor.basePath + '/test/pathFolder/faker.js');
 var content = ccpage.contentCreation();
 var etbv = etbpage.etb();
+const sanityPage = require(protractor.basePath + '/test/pages/userOnBoarding/SanityPage.js');
+const resourcePag = require(protractor.basePath + '/test/pages/resource/resource.po.js');
+var resov = resourcePag.resource();
 
 
 const createLessonPlan = () => {
@@ -24,7 +27,7 @@ const createLessonPlan = () => {
         content.name.sendKeys(lessonName);
         browser.sleep(2000);
 
-      
+
         browser.executeScript("arguments[0].scrollIntoView();", etbv.collectionType);
         wait.waitForElementVisibility(etbv.collectionType, 30000, "collectionType button not available");
         etbv.collectionType.click();
@@ -72,7 +75,7 @@ const createLessonPlan = () => {
         // browser.sleep(5000);
         // content.checkboxFirst.click();
         // browser.sleep(1000);
-        
+
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.proceed), 30000, "proceed is not available");
         content.proceed.click();
         browser.sleep(1000);
@@ -91,7 +94,7 @@ const sendForReviewTheLessonPlan = () => {
     browser.sleep(1000);
     browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.sendForReview), 20000, "send for review not available");
     content.sendForReview.click();
-   
+
     browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.clickAppIcon), 50000, "clickAppIcon button not available");
     etbv.clickAppIcon.click();
 
@@ -133,7 +136,7 @@ const sendForReviewTheLessonPlan = () => {
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.year2020), 20000, "year2020 not available");
     content.year2020.click();
     browser.sleep(500);
-    browser.executeScript("arguments[0].scrollIntoView();",  etbv.yearOfCreation);
+    browser.executeScript("arguments[0].scrollIntoView();", etbv.yearOfCreation);
     etbv.yearOfCreation.click();
     etbv.yearOfCreation.clear();
     etbv.yearOfCreation.sendKeys("2020");
@@ -188,7 +191,7 @@ const navigateToLibraryAndSearchForResource = (content) => {
     }
 }
 const deleteCreatedItems = () => {
-  // var name;
+    // var name;
     try {
         console.log("User is trying to delete Items which are created");
         browser.sleep(1000);
@@ -200,7 +203,7 @@ const deleteCreatedItems = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.published), 20000, "published page not loaded");
         content.published.click();
         browser.sleep(2000);
-        
+
         // browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
         // content.firstCourseCardName.getText().then(function(input){
         //     name=input;
@@ -224,9 +227,9 @@ const deleteCreatedItems = () => {
         // content.firstCourseCardName.getText().then(function(input){
         //     console.log(input);
         // expect(input).not.toEqual(name);
-        
+
         // });
-        
+
         console.log("Created content is successfully deleted from Published");
     }
     catch (exception) {
@@ -244,191 +247,340 @@ const previewTheResource = () => {
         console.log("Failed to preview the selected resource");
     }
 }
+
+
+
+
+
+
 const deleteDraftItems = () => {
     var name;
-     try {
-         console.log("User is trying to delete draft Items which are created");
+    try {
+        console.log("User is trying to delete draft Items which are created");
         //  browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
         //  content.workSpace.click();
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.drafts), 20000, "drafts page not loaded");
-         content.drafts.click();
-         browser.sleep(2000);
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
-         content.firstCourseCardName.getText().then(function(input){
-             name=input;
-             console.log(name);
-         });
-         browser.executeScript('window.scrollTo(0,200);').then(function () {
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.drafts), 20000, "drafts page not loaded");
+        content.drafts.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.firstCourseCardName), 20000, "  deleteButton is not available");
+        content.firstCourseCardName.getText().then(function (input) {
+            name = input;
+            console.log(name);
+        });
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
             console.log('++++++SCROLLED Down+++++');
         });
-         browser.sleep(1000);
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
-         content.deleteButton.click();
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.yesButtonPopup), 20000, "yesButtonPopup is not available");
-         content.yesButtonPopup.click();
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.toastMsg), 20000, "toastmsg is not available");
-         content.toastMsg.getText().then(function(input){
-             console.log(input);
-             expect(input).toEqual("Content deleted successfully...");
-             });
-         browser.sleep(2000);
-         content.firstCourseCardName.getText().then(function(input){
-             console.log(input);
-         //expect(input).not.toEqual(name);
-         browser.sleep(2000);
-         });
-         
-         console.log("draft content is successfully deleted from Published");
-     }
-     catch (exception) {
-         console.log("Failed to delete draft Items ");
-     }
- }
- const deleteAllMyContentItems = () => {
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
+        content.deleteButton.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.yesButtonPopup), 20000, "yesButtonPopup is not available");
+        content.yesButtonPopup.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.toastMsg), 20000, "toastmsg is not available");
+        content.toastMsg.getText().then(function (input) {
+            console.log(input);
+            expect(input).toEqual("Content deleted successfully...");
+        });
+        browser.sleep(2000);
+        content.firstCourseCardName.getText().then(function (input) {
+            console.log(input);
+            //expect(input).not.toEqual(name);
+            browser.sleep(2000);
+        });
+
+        console.log("draft content is successfully deleted from Published");
+    }
+    catch (exception) {
+        console.log("Failed to delete draft Items ");
+    }
+}
+const deleteAllMyContentItems = () => {
     var name;
-     try {
-         console.log("User is trying to delete allmy content Items which are created");
-         browser.sleep(1000);
+    try {
+        console.log("User is trying to delete allmy content Items which are created");
+        browser.sleep(1000);
         //  browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
         //  content.headerDropdown.click();
         //  browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
         //  content.workSpace.click();
         //  browser.sleep(1000);
-        browser.executeScript('window.scrollTo(0,0);').then(function(){
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
             console.log('++++++SCROLLED UP+++++');
         });
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.allMyContent), 20000, "allMyContent page not loaded");
-         content.allMyContent.click();
-         browser.sleep(2000);
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
-         content.searchCoursesUpForReview.getText().then(function(input){
-             name=input;
-             console.log(name);
-         });
-         browser.executeScript('window.scrollTo(0,200);').then(function () {
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.allMyContent), 20000, "allMyContent page not loaded");
+        content.allMyContent.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
+        content.searchCoursesUpForReview.getText().then(function (input) {
+            name = input;
+            console.log(name);
+        });
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
             console.log('++++++SCROLLED Down+++++');
         });
 
-         browser.sleep(1000);
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
-         content.deleteButton.click();
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.yesButtonPopup), 20000, "yesButtonPopup is not available");
-         content.yesButtonPopup.click();
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.toastMsg), 20000, "toastmsg is not available");
-         content.toastMsg.getText().then(function(input){
-             console.log(input);
-             expect(input).toEqual("Content deleted successfully...");
-             });
-         browser.sleep(2000);
-         content.searchCoursesUpForReview.getText().then(function(input){
-             console.log(input);
-         //expect(input).not.toEqual(name);
-         
-         });
-         
-         console.log("All my content content is successfully deleted from Published");
-     }
-     catch (exception) {
-         console.log("Failed to delete all my content Items ");
-     }
- }
- const deleteCreatedItem = (contentData) => {
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
+        content.deleteButton.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.yesButtonPopup), 20000, "yesButtonPopup is not available");
+        content.yesButtonPopup.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.toastMsg), 20000, "toastmsg is not available");
+        content.toastMsg.getText().then(function (input) {
+            console.log(input);
+            //expect(input).toEqual("Content deleted successfully...");
+        });
+        browser.sleep(2000);
+        content.searchCoursesUpForReview.getText().then(function (input) {
+            console.log(input);
+            //expect(input).not.toEqual(name);
+
+        });
+
+        console.log("All my content content is successfully deleted from Published");
+    }
+    catch (exception) {
+        console.log("Failed to delete all my content Items ");
+    }
+}
+const deleteCreatedItem = (contentData) => {
     var name;
-     try {
-         console.log("User is trying to delete Items which are created");
-         browser.sleep(1000);
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
-         content.headerDropdown.click();
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
-         content.workSpace.click();
-         browser.sleep(1000);
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.published), 20000, "published page not loaded");
-         content.published.click();
-         browser.sleep(2000);
-         
-         content.SearchInPublished.click();
-         content.SearchInPublished.sendKeys(contentData);
-         browser.sleep(1000);
-         browser.executeScript('window.scrollTo(0,200);').then(function () {
+    try {
+        console.log("User is trying to delete Items which are created");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.published), 20000, "published page not loaded");
+        content.published.click();
+        browser.sleep(2000);
+
+        content.SearchInPublished.click();
+        content.SearchInPublished.sendKeys(contentData);
+        browser.sleep(1000);
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
             console.log('++++++SCROLLED Down+++++');
         });
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
-         content.firstCourseCardName.getText().then(function(input){
-             name=input;
-             console.log(name);
-         });
-         browser.sleep(1000);
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
-         content.deleteButton.click();
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.yesButtonPopup), 20000, "yesButtonPopup is not available");
-         content.yesButtonPopup.click();
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.toastMsg), 20000, "toastmsg is not available");
-         content.toastMsg.getText().then(function(input){
-             console.log(input);
-             expect(input).toEqual("Content deleted successfully...");
-             });
-         browser.sleep(2000);
-         content.firstCourseCardName.getText().then(function(input){
-             console.log(input);
-         expect(input).not.toEqual(name);
-         
-         });
-         
-         console.log("Created content is successfully deleted from Published");
-     }
-     catch (exception) {
-         console.log("Failed to delete Items ");
-     }
- }
- const deleteAllMyContentItem = (content) => {
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
+        content.firstCourseCardName.getText().then(function (input) {
+            name = input;
+            console.log(name);
+        });
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
+        content.deleteButton.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.yesButtonPopup), 20000, "yesButtonPopup is not available");
+        content.yesButtonPopup.click();
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.toastMsg), 20000, "toastmsg is not available");
+        // content.toastMsg.getText().then(function (input) {
+        //     console.log(input);
+        //     expect(input).toEqual("Content deleted successfully...");
+        // });
+        browser.sleep(2000);
+        content.firstCourseCardName.getText().then(function (input) {
+            console.log(input);
+            expect(input).not.toEqual(name);
+
+        });
+
+        console.log("Created content is successfully deleted from Published");
+    }
+    catch (exception) {
+        console.log("Failed to delete Items ");
+    }
+}
+const deleteAllMyContentItem = (content) => {
     var name;
-     try {
-         console.log("User is trying to delete allmy content Items which are created");
-         browser.sleep(1000);
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
-         content.headerDropdown.click();
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
-         content.workSpace.click();
-         browser.sleep(1000);
-        browser.executeScript('window.scrollTo(0,0);').then(function(){
+    try {
+        console.log("User is trying to delete allmy content Items which are created");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.sleep(1000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
             console.log('++++++SCROLLED UP+++++');
         });
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.allMyContent), 20000, "allMyContent page not loaded");
-         content.allMyContent.click();
-         browser.sleep(2000);
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
-         content.searchCoursesUpForReview.getText().then(function(input){
-             name=input;
-             expect(name).toEqual(content);
-             console.log("Verified content in all my content"+name);
-         });
-         browser.executeScript('window.scrollTo(0,200);').then(function () {
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.allMyContent), 20000, "allMyContent page not loaded");
+        content.allMyContent.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
+        content.searchCoursesUpForReview.getText().then(function (input) {
+            name = input;
+            expect(name).toEqual(content);
+            console.log("Verified content in all my content" + name);
+        });
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
             console.log('++++++SCROLLED Down+++++');
         });
 
-         browser.sleep(1000);
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
-         content.deleteButton.click();
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.yesButtonPopup), 20000, "yesButtonPopup is not available");
-         content.yesButtonPopup.click();
-         browser.wait(protractor.ExpectedConditions.visibilityOf(content.toastMsg), 20000, "toastmsg is not available");
-         content.toastMsg.getText().then(function(input){
-             console.log(input);
-             expect(input).toEqual("Content deleted successfully...");
-             });
-         browser.sleep(2000);
-         content.searchCoursesUpForReview.getText().then(function(input){
-             console.log(input);
-         //expect(input).not.toEqual(name);
-         
-         });
-         
-         console.log("All my content content is successfully deleted from Published");
-     }
-     catch (exception) {
-         console.log("Failed to delete all my content Items ");
-     }
- }
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
+        content.deleteButton.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.yesButtonPopup), 20000, "yesButtonPopup is not available");
+        content.yesButtonPopup.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.toastMsg), 20000, "toastmsg is not available");
+        content.toastMsg.getText().then(function (input) {
+            console.log(input);
+            expect(input).toEqual("Content deleted successfully...");
+        });
+        browser.sleep(2000);
+        content.searchCoursesUpForReview.getText().then(function (input) {
+            console.log(input);
+            //expect(input).not.toEqual(name);
+
+        });
+
+        console.log("All my content content is successfully deleted from Published");
+    }
+    catch (exception) {
+        console.log("Failed to delete all my content Items ");
+    }
+}
+
+const searchAnddeleteAllMyContentItems = (content) => {
+    var name;
+    try {
+        console.log("User is trying to delete allmy content Items which are created");
+        
+        browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        // content.headerDropdown.click();
+        // browser.sleep(100);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        // content.workSpace.click();
+        // browser.sleep(4000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED up+++++');
+        });
+        browser.executeScript("arguments[0].scrollIntoView();", resov.allMyContent);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.allMyContent), 40000, "drafts is not available");
+        resov.allMyContent.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchForReview), 20000, "allMyContent page not loaded");
+        resov.searchForReview.sendKeys(content);
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchCoursesUpForReview), 20000, "  deleteButton is not available");
+        resov.searchCoursesUpForReview.getText().then(function (input) {
+            name = input;
+            console.log(name);
+        });
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.deleteContent), 20000, "  deleteButton is not available");
+        resov.deleteContent.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.yesButtonPopup), 20000, "yesButtonPopup is not available");
+        resov.yesButtonPopup.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.toastMsg), 20000, "toastmsg is not available");
+        resov.toastMsg.getText().then(function (input) {
+            console.log(input);
+            
+        });
+        browser.sleep(2000);
+        resov.searchCoursesUpForReview.getText().then(function (input) {
+            console.log(input);
+        });
+
+        console.log("All my content content is successfully deleted from Published");
+    }
+    catch (exception) {
+        console.log("Failed to delete all my content Items ");
+    }
+}
+
+const searchAnddeleteDraftItems = (content) => {
+    var name;
+    try {
+        console.log("User is trying to delete draft Items which are created");
+        
+        browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        // content.headerDropdown.click();
+        // browser.sleep(100);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        // content.workSpace.click();
+        // browser.sleep(4000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED up+++++');
+        });
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.drafts), 40000, "drafts is not available");
+        resov.drafts.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchForReview), 20000, "allMyContent page not loaded");
+        resov.searchForReview.sendKeys(content);
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchCoursesUpForReview), 20000, "  deleteButton is not available");
+        resov.searchCoursesUpForReview.getText().then(function (input) {
+            name = input;
+            console.log(name);
+        });
+        //browser.sleep(1000);
+        browser.executeScript('window.scrollTo(0,50);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.deleteButton), 20000, "  deleteButton is not available");
+        resov.deleteButton.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.yesButtonPopup), 20000, "yesButtonPopup is not available");
+        resov.yesButtonPopup.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.toastMsg), 20000, "toastmsg is not available");
+        resov.toastMsg.getText().then(function (input) {
+            console.log(input);
+            
+        });
+
+        console.log("Draft content is successfully deleted from draft section");
+    }
+    catch (exception) {
+        console.log("Failed to delete all draft Items ");
+    }
+}
+const searchAnddeleteDraftItemsWithWorkspace = (content) => {
+    var name;
+    try {
+        console.log("User is trying to delete draft Items which are created");
+        
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.sleep(100);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.sleep(4000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED up+++++');
+        });
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.drafts), 40000, "drafts is not available");
+        resov.drafts.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchForReview), 20000, "allMyContent page not loaded");
+        resov.searchForReview.sendKeys(content);
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchCoursesUpForReview), 20000, "  deleteButton is not available");
+        resov.searchCoursesUpForReview.getText().then(function (input) {
+            name = input;
+            console.log(name);
+        });
+        //browser.sleep(1000);
+        browser.executeScript('window.scrollTo(0,50);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.deleteButton), 20000, "  deleteButton is not available");
+        resov.deleteButton.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.yesButtonPopup), 20000, "yesButtonPopup is not available");
+        resov.yesButtonPopup.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.toastMsg), 20000, "toastmsg is not available");
+        resov.toastMsg.getText().then(function (input) {
+            console.log(input);
+            
+        });
+
+        console.log("Draft content is successfully deleted from draft section");
+    }
+    catch (exception) {
+        console.log("Failed to delete all draft Items ");
+    }
+}
+
+
+
+
 
 module.exports = {
     createLessonPlan,
@@ -441,5 +593,9 @@ module.exports = {
     deleteAllMyContentItems,
     deleteCreatedItem,
     deleteAllMyContentItem,
+    searchAnddeleteAllMyContentItems,
+    searchAnddeleteDraftItems,
+    searchAnddeleteDraftItemsWithWorkspace,
+
 
 }

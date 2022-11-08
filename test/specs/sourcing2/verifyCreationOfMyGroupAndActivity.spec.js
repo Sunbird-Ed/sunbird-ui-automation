@@ -17,21 +17,21 @@ describe('Verify Create group add member and add activity', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+       // utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('verifyCreationOfMyGroupAndActivity ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Mentor');
+        utility.userLogin('Creator');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMemberandAddActivity();
         utility.userLogout();
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.groupMemberCourseConsumptionstatus();
         utility.userLogout();
-        utility.userLogin('Mentor');
-        EnrollTBFCPageObj.verifylastUpdatedandCourseConsumption();
-        utility.userLogout();
+        // utility.userLogin('Creator');
+        // EnrollTBFCPageObj.verifylastUpdatedandCourseConsumption();
+        // utility.userLogout();
      
     })
 });

@@ -1,7 +1,10 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
+const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js');
+const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
+
 describe('editContentAndSendForReview', () => {
 
     beforeEach(() => {
@@ -20,34 +23,19 @@ describe('editContentAndSendForReview', () => {
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
+
     it('editContentAndSendForReview',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Book Creator');
-        etbFun.navigateToWorkspace('Book');
-        let courseName=etbFun.checkBookInDraftSection();
-        etbPageObj.sendForReviewTheBook();
-        etbFun.reviewInSubmissions(courseName);
+        utility.userLogin('Creator');
+        let bookName = sanityfun.createBook();
+        console.log(bookName);
         utility.userLogout();
         utility.userLogin('Reviewer');
-        etbFun.rejectTheContent(courseName)
-        utility.userLogout();
-        utility.userLogin('Book Creator');
-        etbFun.editQRCodeAndSubmit();
-        utility.userLogout();
-        utility.userLogin('Reviewer');
-        etbFun.searchInUpForReview(courseName)
-        etbFun.publishAndSearch1(courseName);
+        tpdPageObj.publishCourseFromUpForReview(bookName);
         utility.userLogout();
         utility.userLogin('Creator');
-        etbFun.navigateToWorkspaceFeatures('ALL_MY_CONTENT');
-        etbFun.searchBookInAllMyContent(courseName);
-      
-        
+        tpdPageObj.contentSearchInPublishedAndEdit(bookName);
     })
-   
-    
-
- 
 });
    

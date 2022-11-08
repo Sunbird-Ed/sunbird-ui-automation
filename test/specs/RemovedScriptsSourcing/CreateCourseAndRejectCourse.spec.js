@@ -29,18 +29,8 @@ describe('Course reviewer is able to rejects the course .', () => {
         utility.userLogin('Creator');
         utility.validateWorkspace();
         let courseName=sanityfun.createCourseAndSendForReview();
-        // tpdPageObj.createCourse();
-        // let courseName=tpdPageObj.sendForReviewCourseWithName();
-      //resourcePageObj.reviewInSubmissions(courseName);
         utility.userLogout();
         utility.userLogin('Reviewer');
-        // resourcePageObj.rejectLessonPlan(courseName)
-        // utility.userLogout();
-        // utility.userLogin('Creator');
-        // tpdPageObj.editTheCourseInDraft();
-        // tpdPageObj.sendForReviewTheRejectedCourse();
-        // utility.userLogout();
-        // utility.userLogin('Reviewer');
         utility.validateWorkspace();
         tpdPageObj.publishCourseFromUpForReview(courseName);;
         utility.userLogout();

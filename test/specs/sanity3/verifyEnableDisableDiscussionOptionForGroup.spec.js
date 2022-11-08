@@ -26,8 +26,6 @@ describe('verifyEnableDisableDiscussionOptionForGroup in groups', () => {
         utility.handleLocationPopup();
         utility.userLogin('Reviewer');
         sanityPage.verifyEnableAndDisableDiscussionForGroup2();
-       
-
-
+    
     });
 });

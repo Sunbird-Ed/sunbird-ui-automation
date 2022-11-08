@@ -1,46 +1,39 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js');
-const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
-const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
-describe('AU_035,EditLimitedSharingBookDeleteFromDraftPublishedAllMyContentShareViaLink.', () => {
+let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
+const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
+const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPageObj.js');
+const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
+
+describe('Create Book save and send for review and publish.', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
-        var Url=getAppURL.ConfigurePath().AppURL;
-
-        var AppendExplore='/explore';
-        browser.get(Url+AppendExplore, 40000);
+        var Url = getAppURL.ConfigurePath().AppURL;
+        var AppendExplore = '/explore';
+        browser.get(Url + AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
-        browser.driver.manage().window().maximize(); 
-       
+        browser.driver.manage().window().maximize();
+
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         utility.userLogout();
         browser.manage().deleteAllCookies();
-        
+
     });
-    it('EditLimitedSharingBookDeleteFromDraftPublishedAllMyContentShareViaLink',function(){
+    it('CreateBookAndVerify', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Book Creator');
-        let bookName= etbPageObj.createBook();
-        console.log(bookName);
-        etbPageObj.sendForReviewTheBook();
+        utility.userLogin('Creator');
+        let bookName = sanityfun.createBook();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        resourcePageObj.rejectLessonPlan(bookName)
+        tpdPageObj.publishCourseFromUpForReview(bookName);
         utility.userLogout();
-
-        utility.userLogin('Book Creator');
-        utility.validateWorkspace();
-        lspPageObj.deleteCreatedItems();      
-         
+        utility.userLogin('Creator');
+        //utility.validateWorkspace();
+        lspPageObj.deleteCreatedItems();
     })
-
-   
-   
 });
-   
+

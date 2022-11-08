@@ -31,17 +31,17 @@ const userLogin = (roleName) => {
         browser.sleep(4000);
         wait.waitForElementVisibility(content.headerDropdown1, 20000);
         content.headerDropdown1.click();
-        browser.sleep(3000);
+        browser.sleep(300);
         browser.executeScript("arguments[0].scrollIntoView();",content.loginLink);
-        browser.sleep(2000);
+        browser.sleep(200);
         wait.waitForElementVisibility(content.loginLink, 20000);
         content.loginLink.click();
-        browser.sleep(3000);
+        browser.sleep(300);
         wait.waitForElementVisibility(content.userName, 20000);
         content.userName.sendKeys(cred[0]['Username']);
-        browser.sleep(1000);
+        browser.sleep(100);
         content.password.sendKeys(cred[0]['Password']);
-        browser.sleep(3000);
+        browser.sleep(100);
 
         content.login.click();
         browser.sleep(3000);
@@ -76,12 +76,12 @@ const handleLocationPopup = () => {
         // content.sunbirdOkMsg.click();
         // browser.navigate().refresh();
 
-        browser.sleep(3000);
+        browser.sleep(500);
         wait.waitForElementVisibility(content.Teacher, 30000);
         content.Teacher.click();
         wait.waitForElementVisibility(content.Continue, 20000);
         content.Continue.click();
-        browser.sleep(4000);
+        browser.sleep(500);
 
         // wait.waitForElementVisibility(content.state, 20000);
         // content.state.click();
@@ -93,7 +93,7 @@ const handleLocationPopup = () => {
         // content.selectDistrict.click();
         // browser.sleep(2000);
         browser.executeScript("arguments[0].scrollIntoView();",content.submitForm);
-        browser.sleep(2000);
+        browser.sleep(200);
 
         wait.waitForElementVisibility(content.submitForm, 20000);
         content.submitForm.click();
@@ -111,12 +111,12 @@ const userLogout = () => {
         browser.sleep(4000);
         wait.waitForElementVisibility(content.headerDropdown, 20000);
         content.headerDropdown.click();
-        browser.sleep(3000);
+        browser.sleep(300);
         browser.executeScript("arguments[0].scrollIntoView();",content.logout);
-        browser.sleep(2000);
+        browser.sleep(200);
         wait.waitForElementVisibility(content.logout, 20000);
         content.logout.click();
-        browser.sleep(3000);
+        browser.sleep(300);
         browser.get(Url + AppendExplore, 40000);
         browser.sleep(2000);
     } catch (err) {
@@ -295,7 +295,7 @@ const handleDropDown=()=>{
         browser.sleep(5000); 
         wait.waitForElementVisibility(content.selectBoardValue, 30000);
         content.selectBoardValue.click();
-        browser.sleep(7000); 
+        browser.sleep(11000); 
         wait.waitForElementVisibility(content.mediumDropdown, 30000);
         content.mediumDropdown.click();
         browser.sleep(3000); 
@@ -321,7 +321,37 @@ const handleDropDown=()=>{
         console.log(err);
     }
 }
+const handleLocationPopupForSchoolHead = () => {
+    try {
+        // wait.waitForElementVisibility(content.sunbirdOkMsg, 30000);
+        // content.sunbirdOkMsg.click();
+        // browser.navigate().refresh();
 
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.clkSchoolHeader, 30000);
+        content.clkSchoolHeader.click();
+        wait.waitForElementVisibility(content.Continue, 20000);
+        content.Continue.click();
+        browser.sleep(4000);
+
+        // wait.waitForElementVisibility(content.state, 20000);
+        // content.state.click();
+        // wait.waitForElementVisibility(content.selectState, 20000);
+        // content.selectState.click();
+        // wait.waitForElementVisibility(content.district, 20000);
+        // content.district.click();
+        // wait.waitForElementVisibility(content.selectDistrict, 20000);
+        // content.selectDistrict.click();
+        // browser.sleep(2000);
+        browser.executeScript("arguments[0].scrollIntoView();",content.submitForm);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(content.submitForm, 20000);
+        content.submitForm.click();
+    } catch (err) {
+        console.error("Failed to handle location pop up, " + err);
+    }
+}
 
 module.exports = {
     verifyAdminDashBoard,
@@ -338,6 +368,6 @@ module.exports = {
     validateSecondTimeLocationPopup,
     handleLocationPopupAsStudent,
     handleLocationPopupAsOther,
-
+    handleLocationPopupForSchoolHead,
 }
 

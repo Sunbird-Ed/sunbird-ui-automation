@@ -28,8 +28,5 @@ describe('verfiyUserAbleToJoinDiscussionForum', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityPage.verifyDiscussionForum();
-       
-
-
     });
 });

@@ -27,7 +27,7 @@ describe('PostInDiscussionForm', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
          utility.userLogin('Creator');
-     sanityPage.verifyDiscussionForum();
+        sanityPage.verifyDiscussionForum();
        
 
 

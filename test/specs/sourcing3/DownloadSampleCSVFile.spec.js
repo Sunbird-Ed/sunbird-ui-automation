@@ -1,6 +1,8 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
+const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
+
 
 describe('DownloadSampleCSVFile', () => {
     beforeEach(() => {
@@ -13,11 +15,9 @@ describe('DownloadSampleCSVFile', () => {
         browser.driver.manage().window().maximize(); 
        
     });
-
-
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+        //utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('DownloadSampleCSVFile',function(){
@@ -25,10 +25,9 @@ describe('DownloadSampleCSVFile', () => {
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Creator');
-        etbFun.navigateToWorkspace();
-        etbFun.downloadSampleCSVFile();
-       
+        // etbFun.navigateToWorkspace();
+        // etbFun.downloadSampleCSVFile();
+        sanityFun.dowloadSampleCSV()
     })
-    
 });
    

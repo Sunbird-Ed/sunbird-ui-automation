@@ -1,6 +1,8 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const addMCAVPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
+const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
+
 
 describe('able to addCollaborator and callobarator can edit and sendforreview ,checkthe course in submission for review', () => {
 
@@ -22,19 +24,11 @@ describe('able to addCollaborator and callobarator can edit and sendforreview ,c
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        let courseName = addMCAVPageObj.searchCollaboratorBySearchField();
-        utility.userLogout();
-        utility.userLogin('Mentor');
-        addMCAVPageObj.collaboratorSendTheCourseForReview(courseName);
-        addMCAVPageObj.saveAndSendNewCourseForReview();
+        let courseName = sanityFun.CreateCourseAndSaveAsDraft1();
+        addMCAVPageObj.searchCollaboratorBySearchField(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
         addMCAVPageObj.checkTheCourseInReviewSubmision(courseName);
       
-      
     })
-    
-   
-   
-    
 });

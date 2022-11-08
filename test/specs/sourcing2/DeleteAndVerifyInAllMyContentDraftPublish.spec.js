@@ -28,11 +28,7 @@ describe('AU_031,DeleteAndVerifyInAllMyContentDraftPublish', () => {
         utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();
         lspPageObj.deleteDraftItems();
-        lspPageObj.deleteAllMyContentItems();
-       
+        lspPageObj.deleteAllMyContentItems(); 
     })
-
-   
-   
 });
    

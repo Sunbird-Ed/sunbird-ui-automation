@@ -1,7 +1,7 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
+const etbFun = require(protractor.basePath + '/test/pageObject/etbPageObj.js');
 
 describe('searchQRCode In Explore LibraryPage', () => {
 
@@ -18,9 +18,8 @@ describe('searchQRCode In Explore LibraryPage', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        
-        
     });
+    
     it('searchWithQRCodeInExplorePage',function(){
       utility.handleDropDown();
         utility.handleLocationPopup();
@@ -28,9 +27,7 @@ describe('searchQRCode In Explore LibraryPage', () => {
         var Url=getAppURL.ConfigurePath().AppURL;
         var AppendGet='/get';
         browser.get(Url+AppendGet, 40000);
-        sanityFun.searchQRCodeInGet();
-
-
+        sanityFun.searchQRCodeInGetPage();
     });
 });
    

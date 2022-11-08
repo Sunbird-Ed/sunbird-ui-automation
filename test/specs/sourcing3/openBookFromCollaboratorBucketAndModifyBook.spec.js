@@ -1,6 +1,7 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
+const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
 describe('openBookFromCollaboratorBucketAndModifyBook', () => {
 
@@ -15,30 +16,26 @@ describe('openBookFromCollaboratorBucketAndModifyBook', () => {
        
     });
 
-
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+        //utility.userLogout();
         browser.manage().deleteAllCookies();
     });
+
     it('openBookFromCollaboratorBucketAndModifyBook',function(){
+        
         utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Book Creator');
-        etbFun.navigateToWorkspace('Book');
-        etbFun.addCollaboratorForBook();
+        let BookName = sanityfun.createBookSaveAsDraft();
+        sanityfun.addCollboratortoDraftAndSaveBook(BookName);
         utility.userLogout();
-       utility.userLogin('Creator');
-       etbFun.navigateToWorkspace1('Collaborations');
-       etbFun.editTextBookInCollaboratorBucketAndVerify('BookA');
-       etbFun.saveAndSendBookForReview();
+        utility.userLogin('Creator');
+        etbFun.navigateToWorkspace1();
+        etbFun.editTextBookInCollaboratorBucketAndVerify(BookName);
+        
        
     })
-    
-    
-    
-
- 
 });
    

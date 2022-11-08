@@ -29,6 +29,7 @@ describe('VerifyCreateCourseForFrameworks', () => {
         // utility.validateWorkspace();
         sanityfun.createCourseForFramework("k12");
         utility.userLogout();
+        utility.userLogin('ContentCreator');
         sanityfun.createCourseForFramework("CPD");
     })
 });

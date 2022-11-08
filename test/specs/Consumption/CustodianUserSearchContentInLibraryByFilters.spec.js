@@ -1,7 +1,7 @@
-const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
-let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 
+const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
+const etbFun = require(protractor.basePath + '/test/pageObject/etbPageObj.js');
+let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 describe('multiselectInAllTabs', () => {
 
     beforeEach(() => {
@@ -34,4 +34,3 @@ describe('multiselectInAllTabs', () => {
 
  
 });
-   

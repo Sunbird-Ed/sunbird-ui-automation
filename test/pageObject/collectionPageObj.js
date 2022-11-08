@@ -1,5 +1,5 @@
 const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
-const etbpage = require(protractor.basePath + '/test/pages/etb/etb.po.js');
+const etbpage = require(protractor.basePath + '/test/pages/ETB/etb.po.js');
 const data = require(protractor.basePath + '/test/testdata/login/login.td.json');
 const wait = require(protractor.basePath + '/helper/waiters.js');
 const faker = require(protractor.basePath + '/test/pathFolder/faker.js');
@@ -17,21 +17,21 @@ const createCollection = () => {
         console.log("User is trying to create a collection")
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
         content.headerDropdown.click();
-        browser.sleep(1000);
+        browser.sleep(200);
         browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
         ccpage.contentCreation().workSpace.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.collection), 20000, "collection page not loaded");
         content.collection.click();
-        browser.sleep(2000);
+        browser.sleep(200);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.name), 20000, "Course creation editor never loaded");
         collectionName = "CollectionA" + faker.randomData().firstname;
         content.name.sendKeys(collectionName);
-        browser.sleep(2000);
+        browser.sleep(200);
 
         browser.executeScript("arguments[0].scrollIntoView();", etbv.collectionType);
         wait.waitForElementVisibility(etbv.collectionType, 30000, "collectionType button not available");
         etbv.collectionType.click();
-        browser.sleep(2000);
+        browser.sleep(200);
         browser.executeScript("arguments[0].scrollIntoView();", etbv.contentResource);
         etbv.contentResource.click();
 
@@ -46,19 +46,19 @@ const createCollection = () => {
         // sanityPage.SanityElement().clkKeyworkCollection.sendKeys('Keyword');
         // browser.sleep(1000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkKeyworkCollection), 20000, "tag not available");
-        sanityPage.SanityElement().clkKeyworkCollection.sendKeys('test');
-        browser.actions().sendKeys(protractor.Key.ENTER).perform();
-        browser.sleep(2000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkKeyworkCollection), 20000, "tag not available");
+        // sanityPage.SanityElement().clkKeyworkCollection.sendKeys('test');
+        // browser.actions().sendKeys(protractor.Key.ENTER).perform();
+        // browser.sleep(2000);
         browser.executeScript('window.scrollTo(0,400);').then(function () {
             console.log('++++++SCROLLED Down+++++');
         });
         browser.sleep(4000);
 
         sanityPage.SanityElement().courseadditionalCategory.click();
-        browser.sleep(3000);
+        browser.sleep(200);
         sanityPage.SanityElement().selectAdditionalForcollection.click();
-        browser.sleep(3000);
+        browser.sleep(200);
 
 
         browser.executeScript('window.scrollTo(0,800);').then(function () {
@@ -68,17 +68,17 @@ const createCollection = () => {
         browser.sleep(4000);
 
         sanityPage.SanityElement().selectBoardForcollection.click();
-        browser.sleep(3000);
+        browser.sleep(200);
         sanityPage.SanityElement().selectBoardValueForcollection.click();
-        browser.sleep(3000);
+        browser.sleep(200);
 
         sanityPage.SanityElement().selectMediumForcollection.click();
-        browser.sleep(3000);
+        browser.sleep(200);
         sanityPage.SanityElement().selectMediumValueForcollection.click();
-        browser.sleep(3000);
+        browser.sleep(200);
 
         sanityPage.SanityElement().selectClassForCourse.click();
-        browser.sleep(3000);
+        browser.sleep(200);
         sanityPage.SanityElement().selectClassValueForcollection.click();
         browser.sleep(3000);
 
@@ -283,17 +283,18 @@ const shareTheConentUsingLink = (contentName) => {
         console.error("Failed to verify Share Content");
     }
 }
+
 const verifyCollection = () => {
     var collectionname;
     var toContent;
     try {
 
-        //   browser.actions().sendKeys(protractor.Key.chord(protractor.Key.CONTROL, 'v')).perform();
+        //         browser.actions().sendKeys(protractor.Key.chord(protractor.Key.CONTROL, 'v')).perform();
         //   browser.actions().sendKeys(protractor.Key.chord(protractor.Key.ENTER)).perform();
         //   browser.sleep(9000);
 
 
-        //   browser.actions().sendKeys(protractor.Key.chord(protractor.Key.CONTROL, 'v')).perform();
+        // browser.actions().sendKeys(protractor.Key.chord(protractor.Key.CONTROL, 'v')).perform();
 
 
 
@@ -301,7 +302,7 @@ const verifyCollection = () => {
         browser.get(ss);
         browser.sleep(2000);
         console.log("Add Copied link in URL");
-        collectionname = content.fetchContentName.getText();
+        collectionname = content.fetchContentName.getText()
         expect(collectionname).toEqual(contentNameFetch);
         console.log("Content Shared Succesfully  " + contentNameFetch);
 
@@ -327,6 +328,7 @@ const verifyCollection = () => {
         console.log("failed to verify");
     }
 }
+
 const verifyResource = () => {
     var Resourcename;
     var cont;
@@ -337,7 +339,6 @@ const verifyResource = () => {
         Resourcename = content.fetchContentName.getText();
         expect(Resourcename).toEqual(contentNameFetch);
         console.log("Content Shared Succesfully  " + contentNameFetch);
-
         // try
         // {
         //     content.playSharedContent.click();
@@ -345,7 +346,6 @@ const verifyResource = () => {
         //     console.log("Content is playing");
         //      cont= content.fetchContentName.getText();
         //     console.log("TOC Content Played Succesfully  " + cont);
-
         // }
         // catch(exception)
         // {
@@ -371,6 +371,7 @@ const clickTrainingPage = () => {
         console.log("Failed on Clicking Training Page");
     }
 }
+
 const ZoomInZoomout = () => {
     try {
         console.log("User is trying to ZoomInZoomout");
@@ -390,6 +391,7 @@ const ZoomInZoomout = () => {
         console.log("Failed on ZoomInZoomout");
     }
 }
+
 
 module.exports = {
     createCollection,

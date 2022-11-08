@@ -1,81 +1,56 @@
+
 let SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 let AllureReporter = require('jasmine-allure-reporter');
 var HtmlReporter = require('protractor-beautiful-reporter');
 
 
 exports.config = {
-    // seleniumAddress: 'http://localhost:4444/wd/hub',
+    //seleniumAddress: 'http://localhost:4444/wd/hub',
     directConnect: true,
-    //allScriptsTimeout: 100000,
+    allScriptsTimeout: 100000,
 
     framework: 'jasmine2',
     restartBrowserBetweenTests: false,
     waitForAngularEnabled: false,
     suites: {
 
-        //sanity1: 'test/specs/sanity1/*.spec.js',
-        //sanity2: 'test/specs/sanity2/*.spec.js',
-        //sanity3: 'test/specs/sanity3/*.spec.js',
-
+        // sanity1: 'test/specs/sanity1/*.spec.js',
         // sanity2: 'test/specs/sanity2/*.spec.js',
-        // sanity3: 'test/specs/sanity2/CreateCourseAndVerify.spec.js',
-        //sanity3: 'test/specs/sanity3/verifyTheBestScoreDisplayedinCourseToc.spec.js',
-        //sanity3: 'test/specs/sanity3/downloadUsersCsvData.spec.js',
-        //userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
-        //collaborationAndInteraction: 'test/specs/collaborationAndInteraction/*.spec.js',
+        // sanity3: 'test/specs/sanity3/*.spec.js',
 
-        // sourcing1: 'test/specs/sourcing1/*.spec.js',
-        //  sourcing2: 'test/specs/sourcing2/*.spec.js',
-        //  sourcing3: 'test/specs/sourcing3/*.spec.js',
+        // sanity1: 'test/specs/TPDCollobaration/verifyDiscussionForum.spec.js',
+        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
+        // collaborationAndInteraction: 'test/specs/Consumption/*.spec.js',
 
-        TPDCollobration: 'test/specs/TPDCollobaration/*.spec.js',
-        //   useronboarding: 'test/specs/userOrgAndCredentials/*.spec.js',
+        sourcing1: 'test/specs/sourcing1/*.spec.js',
+        sourcing2: 'test/specs/sourcing2/*.spec.js',
+        sourcing3: 'test/specs/sourcing3/*.spec.js',
+
+        // TPDCollobration: 'test/specs/TPDCollobaration/*.spec.js',
+        // useronboarding: 'test/specs/Consumption/*.spec.js',
         // contentcreation: 'test/specs/content-creation/*.spec.js',
         // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
-        //tpd1: 'test/specs/tpd/VerifyPagenationAndViewAllCourseSection.spec.js', 
 
-        //tpd2: 'test/specs/TPD2/ShareModule.spec.js', 
-        //    tpd3: 'test/specs/TPDCollobaration/*.spec.js',
+        // tpd1: 'test/specs/tpd/*.spec.js',
+        // tpd2: 'test/specs/TPD2/*.spec.js',
+        // tpd3: 'test/specs/TPDCollobaration/*.spec.js',
 
-        //    ETB: 'test/specs/ETBSpecs/*.spec.js',  
-        //smoke : 'test/specs/smoke/CreateCourseAndVerify.spec.js', 
-
-        //sample-execution
-
-        //  VerifyHideActionOnEledment1:['test/specs/tpd/EditCertificateRequirementFromNoToYes.spec.js'],
-        //    VerifyHideActionOnEledment3:['test/specs/ETBSpecs/copyBookAndSendForReview.spec.js'],
-        //     VerifyHideActionOnElement2:['test/specs/ETBSpecs/generateQRCode.spec.js'],
-        //    VerifyHideActionOnEledment4:['test/specs/ETBSpecs/VerifyCopyRightDetails.spec.js'],
-        // searchSelfAssesmentInLibSearch:['test/specs/ETBSpecs/CreateBookInRegionalLanguageUsingTOCUploadAndDownload.spec.js'],
-        //  VerifyHideActionOnEledment5:['test/specs/ETBSpecs/DownloadQrcodeInDraftPublishedAndLimitedSharing.spec.js'],
-        // VerifyHideActionOnEledment6:['test/specs/ETBSpecs/CreateBookWithNoContentAndFilledEditDetailsForm.spec.js'],
-        //  VerifyHideActionOnEledment7:['test/specs/ETBSpecs/TenantSpecificValidation.spec.js'],
-        // unEnrollFromOpenCourse:['test/specs/sanity1/unEnrollFromOpenCourse.spec.js'],
-        //CreateOpenBatchCourseForPublicUser:['test/specs/sanity1/CreateOpenBatchCourseForPublicUser.spec.js'],
-        //verifyBlockClusterSchoolForSelectedState:['test/specs/sanity1/verifyBlockClusterSchoolForSelectedState.spec.js'],
-        //   verifyCourseProgressNowForUser:['test/specs/sanity1/verifyCourseProgressNowForUser.spec.js'],
-        //   verifycustodianAndSSOUserMerge:['test/specs/sanity1/verifycustodianAndSSOUserMerge.spec.js'],
-        //   verifyIGOTPages:['test/specs/sanity1/verifyIGOTPages.spec.js'],
-        //   verifyMCSbookDisplayedPostSearching:['test/specs/sanity1/verifyMCSbookDisplayedPostSearching.spec.js'],
-        //unEnrollFromOpenCourse:['test/specs/sanity1/unEnrollFromOpenCourse.spec.js'],
-        // verifyCloseBtnDispalyedDissusionForum:['test/specs/sanity2/verifyCloseBtnDispalyedDissusionForum.spec.js'],
-        //   ValidateCreateBatchAndConsentFormWhileEnroll:['test/specs/sanity2/ValidateCreateBatchAndConsentFormWhileEnroll.spec.js'],
-        //   TimerVerification:['test/specs/sanity2/TimerVerification.spec.js'],
-        //   unEnrollFromOpenCourse:['test/specs/sanity1/unEnrollFromOpenCourse.spec.js'],
-        //   CreateOpenBatchCourseForPublicUser:['test/specs/sanity3/CreateOpenBatchCourseForPublicUser.spec.js'],
-        // EditAnDeleteTopicPostDissuscionForum:['test/specs/sanity2/EditAnDeleteTopicPostDissuscionForum.spec.js'],
-        // verifyCloseBtnDispalyedDissusionForum:['test/specs/sanity2/verifyCloseBtnDispalyedDissusionForum.spec.js'],
-        // verifyEnableDisableDiscussionOptionForGroup:['test/specs/sanity3/verifyEnableDisableDiscussionOptionForGroup.spec.js'],
-        //Regession
-        //VerifyNoDeleteOptionInSubmittedForReview:['test/specs/sourcing1/VerifyNoDeleteOptionInSubmittedForReview.spec.js'],
-        //CreateQuestionFITBAndConsume:['test/specs/sourcing2/CreateQuestionFITBAndConsume.spec.js'],
-        //RejectTheLessonPlan:['test/specs/sourcing3/RejectTheLessonPlan.spec.js'],
-        //EnrollingToBatchForCourse:['test/specs/sourcing3/EnrollingToBatchForCourse.spec.js'],
-        //EnrollToCourseInOpenBatch:['test/specs/sourcing3/EnrollToCourseInOpenBatch.spec.js'],
-        //RejectTheCollectionAndVerifyInDraft:['test/specs/sourcing3/RejectTheCollectionAndVerifyInDraft.spec.js'],
-        //CreateCollectionVerifyInDraftReviewAndPublish:['test/specs/sourcing2/CreateCollectionVerifyInDraftReviewAndPublish.spec.js'],
-        //AddRemoveAndDeleteCollaboratorFromBook:['test/specs/sourcing2/AddRemoveAndDeleteCollaboratorFromBook.spec.js'],
-        //VerifyAddDeleteAndUpdateChildOrSibling:['test/specs/sourcing1/VerifyAddDeleteAndUpdateChildOrSibling.spec.js'],
+        // ETB: 'test/specs/ETBSpecs/*.spec.js',
+        // smoke: 'test/specs/smoke/CreateCourseAndVerify.spec.js',
+        // sample- execution
+        //  VerifyHideActionOnEledment1: ['test/specs/tpd/EditCertificateRequirementFromNoToYes.spec.js'],
+        //  VerifyHideActionOnEledment3: ['test/specs/ETBSpecs/copyBookAndSendForReview.spec.js'],
+        //  VerifyHideActionOnElement2: ['test/specs/ETBSpecs/generateQRCode.spec.js'],
+        //  VerifyHideActionOnEledment4: ['test/specs/ETBSpecs/VerifyCopyRightDetails.spec.js'],
+        //  searchSelfAssesmentInLibSearch: ['test/specs/ETBSpecs/CreateBookInRegionalLanguageUsingTOCUploadAndDownload.spec.js'],
+        //  VerifyHideActionOnEledment5: ['test/specs/ETBSpecs/DownloadQrcodeInDraftPublishedAndLimitedSharing.spec.js'],
+        // GuestProfileVerification: ['test/specs/Consumption/GuestProfileVerification.spec.js'],
+        // OnBoardingCardWithoutLogin: ['test/specs/Consumption/OnBoardingCardWithoutLogin.spec.js'],
+        // SelectedPreferenceInProfileSection: ['test/specs/Consumption/SelectedPreferenceInProfileSection.spec.js'],
+        // NavigateToTabUsingKeyBoard: ['test/specs/Consumption/NavigateToTabUsingKeyBoard.spec.js'],
+        // VerifySchoolHeadInsteadOfAdministratorInEditProfilePage: ['test/specs/Consumption/VerifySchoolHeadInsteadOfAdministratorInEditProfilePage.spec.js'],
+        //BrowseSubjectAndCategoriesInHomeTab: ['test/specs/sanity2/CreateBookAndVerify.spec.js'],
+        //   BrowseSectionInExplorePage: ['test/specs/sanity3/CreateOpenBatchCourseForPublicUser.spec.js'],
 
     },
     allScriptsTimeout: 40000,
@@ -94,7 +69,7 @@ exports.config = {
         version: '78.0.3904.108',
         platform: 'Any',
         shardTestFiles: true,
-        maxInstances: 3,
+        maxInstances: 2,
         chromeOptions: {
             prefs: {
                 profile: {

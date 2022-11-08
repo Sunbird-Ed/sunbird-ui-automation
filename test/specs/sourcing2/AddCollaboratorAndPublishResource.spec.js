@@ -12,18 +12,17 @@ describe('Content creator is able to add a collaborator in all the types of cont
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('AddCollaboratorAndPublishResource',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Mentor');
+        utility.userLogin('Creator');
         let resourceName=addCAPRPageObj.createResource();
         addCAPRPageObj.addCollaboratorOnly();
         utility.userLogout();
@@ -33,10 +32,5 @@ describe('Content creator is able to add a collaborator in all the types of cont
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
-
     })
-    
-   
-   
-    
 });

@@ -34,11 +34,6 @@ describe('Create Resource save and send for review and publish.', () => {
         utility.userLogin('Creator');
         utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();
-        
-
     })
-
-    
-   
 });
    

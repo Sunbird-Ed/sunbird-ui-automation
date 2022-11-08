@@ -1,7 +1,7 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
-const searchedCotentsValidation = require(protractor.basePath+'/test/pageObject/ETBPageObj/EtbPageObj.js');
+const searchedCotentsValidation = require(protractor.basePath+'/test/pageObject/etbPageObj.js');
 
 
 describe('Verify searched contents', () => {

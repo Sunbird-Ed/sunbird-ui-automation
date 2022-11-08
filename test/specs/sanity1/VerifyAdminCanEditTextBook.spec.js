@@ -1,7 +1,9 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const sanityPage = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 const etpPage=require(protractor.basePath + '/test/pageObject/etbPageObj.js')
+const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
+const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
+
 describe('VerifyAdminCanEditTextBook', () => {
 
     beforeEach(() => {
@@ -16,19 +18,15 @@ describe('VerifyAdminCanEditTextBook', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
+        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
     it('VerifyAdminCanEditTextBook',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Admin3');
-        etpPage.adminCanEditTextBook()
-     
-       
-        
+        utility.userLogin('ContentCreator');
+        let bookName= sanityfun.createBookSaveAsDraft();
+        tpdPageObj.contentSearchInDraftAndEdit(bookName)
     })
-
-   
-   
 });

@@ -21,7 +21,7 @@ describe('GenerateQRCodeWhenRequiredFieldSetToYes', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+        //utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
@@ -29,14 +29,12 @@ describe('GenerateQRCodeWhenRequiredFieldSetToYes', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        let bookName= etbPageObj.createBook();
-        console.log(bookName);
-        etbPageObj.editFormEditals();
-        sanityFun.generateAndDownlaodQrCode();
-         
+        // let bookName= sanityFun.createBook();
+        // console.log(bookName);
+        //etbPageObj.editFormEditals();
+        // sanityFun.generateAndDownlaodQrCode();
+        sanityFun.generateQRCodeswithYesButton();
+        sanityFun.downloadQRCode2();
     })
-
-   
-   
 });
    

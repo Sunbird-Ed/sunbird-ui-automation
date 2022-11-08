@@ -25,17 +25,17 @@ describe('Vefy, Content creator is able to get the contnet in Library section by
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         var content=custUACATSACCPageObj.searchContentInLibraryAndFetchFirstContent('Resource');
-        custUACATSACCPageObj.searchContentInLibrary(content);
+        custUACATSACCPageObj.searchContentInLibrary('Resource');
         custUACATSACCPageObj.navigateToLibraryAndSearchForLessonPlan();
-        custUACATSACCPageObj.consumeTheCourseInLibrarySection();
-        custUACATSACCPageObj.applyFilterInLibrarySection();
+        // custUACATSACCPageObj.consumeTheCourseInLibrarySection();
+        // custUACATSACCPageObj.applyFilterInLibrarySection();
         utility.userLogout();
         utility.userLogin('CustodianUser');
         var content=custUACATSACCPageObj.searchContentInLibraryAndFetchFirstContent('Resource');
-        custUACATSACCPageObj.searchContentInLibrary(content);
+        custUACATSACCPageObj.searchContentInLibrary('Resource');
         custUACATSACCPageObj.navigateToLibraryAndSearchForLessonPlan();
-        custUACATSACCPageObj.consumeTheCourseInLibrarySection();
-        custUACATSACCPageObj.applyFilterInLibrarySection();
+        // custUACATSACCPageObj.consumeTheCourseInLibrarySection();
+        // custUACATSACCPageObj.applyFilterInLibrarySection();
         
     })
    

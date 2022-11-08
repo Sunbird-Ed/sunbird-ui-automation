@@ -1,20 +1,18 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
-const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
-const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
+let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
+const EnrollTBFCPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
+const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPageObj.js');
+const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
-describe('verifyCertificateRelatedScenario', () => {
+describe('verifyCertificateRelatedScenarios', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
-        var Url=getAppURL.ConfigurePath().AppURL;
-        var AppendExplore='/explore';
-        browser.get(Url+AppendExplore, 40000);
+        var Url = getAppURL.ConfigurePath().AppURL;
+        var AppendExplore = '/explore';
+        browser.get(Url + AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
-        browser.driver.manage().window().maximize(); 
-       
-    
+        browser.driver.manage().window().maximize();
     });
 
     afterEach(() => {
@@ -22,30 +20,27 @@ describe('verifyCertificateRelatedScenario', () => {
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('verifyCertificateRelatedScenario',function(){
+
+    it('verifyCertificateRelatedScenarios', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
-        let courseName=sanityfun.createCourseAndSendForReview();
-    //     EnrollTBFCPageObj.createCourse();
-    //    let coursename=EnrollTBFCPageObj.sendForReviewCourseWithName();
+        let courseName = sanityfun.createCourseAndSendForReview();
+        //     EnrollTBFCPageObj.createCourse();
+        //    let coursename=EnrollTBFCPageObj.sendForReviewCourseWithName();
         utility.userLogout();
 
         utility.userLogin('Reviewer');
         EnrollTBFCPageObj.publishCourseFromUpForReview(courseName);
         utility.userLogout();
-    
+        
+        //let courseName="courseAMario"
         utility.userLogin('Mentor');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         EnrollTBFCPageObj.editCertificateRequirement();
-        EnrollTBFCPageObj.certficateTemplateCreation();
+        //EnrollTBFCPageObj.newCertificateTemplateCreation();
+        //EnrollTBFCPageObj.certficateTemplateCreation();
         //EnrollTBFCPageObj.CheckCertificateOptions();
-   
-      
     })
-    
-   
-   
-    
 });

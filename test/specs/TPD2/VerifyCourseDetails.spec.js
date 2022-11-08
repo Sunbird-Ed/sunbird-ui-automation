@@ -26,9 +26,6 @@ describe('VerifyCourseDetails', () => {
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         searchCBFPPageObj.startLeaning();
-        
-       
-       
     });
 });
    

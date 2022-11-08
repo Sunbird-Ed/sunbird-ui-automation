@@ -28,6 +28,7 @@ describe('VrifyViewAndEditDetailsFormForResource', () => {
         resourcePageObj.sendForReviewTheResource();
         utility.userLogout();
         utility.userLogin('Reviewer');
+        //let contentName = "do_21337527559235174411623"
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
         utility.userLogin('Public User1');

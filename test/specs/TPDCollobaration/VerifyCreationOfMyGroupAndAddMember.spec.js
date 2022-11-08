@@ -1,6 +1,6 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
+const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 describe('VerifyCreationOfMyGroupAndAddMember', () => {
 
@@ -24,7 +24,7 @@ describe('VerifyCreationOfMyGroupAndAddMember', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
-        EnrollTBFCPageObj.verifyCreateMyGroupAddMember();
+        EnrollTBFCPageObj.addGrpAndDeleteGrp();
        
      
     })

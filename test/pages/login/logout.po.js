@@ -6,6 +6,6 @@ let LogOut = () => {
         logoutLink
     }
 };
-module.exports={
+module.exports = {
     LogOut
 }

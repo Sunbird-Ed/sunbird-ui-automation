@@ -3,6 +3,7 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
+const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
 describe('AddETextBookContentAndConsume.', () => {
 
@@ -26,18 +27,14 @@ describe('AddETextBookContentAndConsume.', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        let bookName= etbPageObj.createBook();
-        console.log(bookName);
-        etbFun.addCollectionInAddResoucePage('etextbook');
-
-        etbPageObj.sendForReviewTheBook();
+        let bookName = sanityfun.createBook();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        etbPageObj.publishTheBookFromUpForReview(bookName);
+        tpdPageObj.publishCourseFromUpForReview(bookName);
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
-        lspPageObj.deleteCreatedItems();      
+        //utility.validateWorkspace();
+        lspPageObj.deleteCreatedItems();
          
     })
 

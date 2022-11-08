@@ -32,7 +32,7 @@ describe('Course Enrolled By the user should dispay in descending order', () => 
         utility.userLogout();
         utility.userLogin('Mentor');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(coursename);
-        EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
+        //EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
         EnrollTBFCPageObj.createOpenBatchWithEnrolmentDate();
         utility.userLogout();
         utility.userLogin('Public User1');
@@ -45,14 +45,5 @@ describe('Course Enrolled By the user should dispay in descending order', () => 
         utility.userLogout();
         utility.userLogin('Mentor');
         lspPageObj.deleteCreatedItems();
-        
-
-
-      
-      
     })
-    
-   
-   
-    
 });

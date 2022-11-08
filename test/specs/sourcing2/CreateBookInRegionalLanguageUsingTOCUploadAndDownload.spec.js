@@ -18,21 +18,20 @@ describe('AU_030,CreateBookInRegionalLanguageUsingTOCUploadAndDownload', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+        //utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CreateBookInRegionalLanguageUsingTOCUploadAndDownload',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        etbPage.createBookWithRegionalLanguage("ಕನ್ನಡ");
-        etbPage.createBookWithRegionalLanguage("தமிழ்");
-        etbPage.createBookWithRegionalLanguage("తెలుగు");
-        etbPage.createBookWithRegionalLanguage("हिन्दी");
-        etbPage.createBookWithRegionalLanguage("मराठी");
-        etbPage.createBookWithRegionalLanguage("অসমীয়া");
-        sanityFun.uploadCSVFile();
-        sanityFun.tocDownload();
+        sanityFun.createBookWithRegionalLanguage("ಕನ್ನಡ");
+        sanityFun.createBookWithRegionalLanguage("தமிழ்");
+        sanityFun.createBookWithRegionalLanguage("తెలుగు");
+        sanityFun.createBookWithRegionalLanguage("हिन्दी");
+        sanityFun.createBookWithRegionalLanguage("मराठी");
+        sanityFun.createBookWithRegionalLanguage("অসমীয়া");
+        sanityFun.dowloadSampleCSV();
        
 
       

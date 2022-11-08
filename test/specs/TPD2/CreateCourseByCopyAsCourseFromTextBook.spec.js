@@ -1,36 +1,36 @@
 
-
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
-let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
+let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EtbPageObj = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
 
-describe('CreateCourseByCopyAsCourseFromTextBook', () => {
+describe('CopyBookAsCourseAndSendForReview', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
-        var Url=getAppURL.ConfigurePath().AppURL;
-        var AppendExplore='/explore';
-        browser.get(Url+AppendExplore, 40000);
+        var Url = getAppURL.ConfigurePath().AppURL;
+        var AppendExplore = '/explore';
+        browser.get(Url + AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
-        browser.driver.manage().window().maximize(); 
-       
+        browser.driver.manage().window().maximize();
+
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         utility.userLogout();
         browser.manage().deleteAllCookies();
-        
+
     });
-    
-    it('CreateCourseByCopyAsCourseFromTextBook',function(){
+
+    it('CopyBookAsCourseAndSendForReview', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         sanityFun.copyBookAsCourse('PortalContent');
-        EtbPageObj.sendCopiedBookForReview();
+        //    EtbPageObj.sendCopiedBookForReview();
+        sanityFun.sendCopiedBookForReview();
 
     });
 });
-   
+
 

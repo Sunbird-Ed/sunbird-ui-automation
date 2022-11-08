@@ -1,8 +1,8 @@
-const { element } = require("protractor");
+//const { element } = require("protractor");
 
 let UserOnBoarding = () => {
-  
- let dropdownProfile = element(by.xpath("(//div[@class='avatar-content'])[2]"));
+
+    let dropdownProfile = element(by.xpath("(//div[@class='avatar-content'])[2]"));
 
     let clkAdminDashBoard = element(by.xpath("//*[contains(text(), 'Admin dashboard')]"));
     let assertReportPulse = element(by.xpath("//*[contains(text(),'Pulse of the Nation Learning')]"));
@@ -23,7 +23,7 @@ let UserOnBoarding = () => {
     var usrExternalID = element(by.xpath("//input[@id='user_external_id']"));
     var schoolExternalID = element(by.xpath("//input[@id='school_external_id']"));
     var submitState = element(by.xpath("//input[@value='submit']"));
-    let verifyClassSec = element(by.xpath("//div[@id='class1']"));
+    let verifyClassSec = element(by.xpath("(//span[text()='Class 1'])[1]"));
     let clkManage = element(by.xpath("//*[contains(text(),'Manage')]"));
     let ClickSelectFile = element(by.xpath("//div[contains(text(),'Select file')]"));
     let clkSltFile = element(by.xpath("//input[@class='sb-btn-upload']"));
@@ -48,7 +48,7 @@ let UserOnBoarding = () => {
     var uploadStatus = element(by.xpath("//a[contains(text(),'Check Upload Status')]"));
     var organizationUpload = element(by.xpath("//a[contains(text(),'Upload Organizations')]"));
     var uploadCSV = element(by.xpath("//button[contains(text(),'UPLOAD ORGANIZATIONS CSV')]"));
-    var clkAddRecoveryID = element(by.xpath("//i[contains(@class,'mail blue icon')]//following::span[1]"));
+    var clkAddRecoveryID = element(by.xpath("//div[contains(@aria-label,'Add recovery account')]"));
     var emailIdTextBox = element(by.xpath("//input[@type='email']"));
     //  var clkMerge = element(by.xpath("//button[@class='sb-btn sb-btn-normal sb-btn-primary']"));
     var logout = element(by.xpath("//div[@id='dropdown-menu-list-header']//a[.='Logout']"));
@@ -97,21 +97,21 @@ let UserOnBoarding = () => {
     var andhraOption = element(by.xpath("(//*[contains(text(),'Andhra Pradesh')])[1]"));
     var assamOption = element(by.xpath("(//*[contains(text(),'Assam')])[1]"));
     var editPersonalDetail = element(by.xpath("//*[text()='Edit']"));
-    var userName = element(by.xpath("//input[@placeholder='Full name']"));
-    var stateName = element(by.xpath("//*[@name='state']"));
-    var districtName = element(by.xpath("//*[@name='district']"));
+    var userName = element(by.xpath("//div[@class='profile-user-label font-w-bold d-flex text-center relative position']"));
+    var stateName = element(by.xpath("//div[contains(text(),'State')]"));
+    var districtName = element(by.xpath("//div[contains(text(),'District')]"));
     var closeEditDetail = element(by.xpath("(//i[@class='close icon'])[2]"));
-    var CustodianUserpageTnC=element(by.xpath("//input[@id='tnc']/following-sibling::label[1]"));
-    var welcomeIgotText=element(by.xpath("//h1[text()='Welcome to IGOT']"));
-    var IgotCourse=element(by.xpath("//a[contains(@class,'item item--courses')]"));
-    var selectRoleFilter=element(by.xpath("//label[contains(text(),'Class')]/following::sui-multi-select[1]"));
-    var selectRole=element(by.xpath("//label[contains(text(),'Class')]/following::sui-multi-select[1]/div[2]/sui-select-option[1]/span[2]"));
-    var Applybutton=element(by.xpath("//button[text()=' Apply ']"));
-    var FirstContent=element(by.xpath("(//div[@class='sb--card__meta']//h4)[1]"));
-    var JoinCourse=element(by.xpath("//button[text()='Join Course']"));
-    var logInPermission=element(by.xpath("//div[contains(@class,'fsmall px-0')]"));
-    var loginButtonForLoginPage=element(by.xpath("//a[contains(@class,'sb-btn sb-btn-normal')]"));
-    var welComeToDikshaHeader=element(by.xpath("//div[text()='Welcome to DIKSHA']"));
+    var CustodianUserpageTnC = element(by.xpath("//input[@id='tnc']/following-sibling::label[1]"));
+    var welcomeIgotText = element(by.xpath("//h1[text()='Welcome to IGOT']"));
+    var IgotCourse = element(by.xpath("//a[contains(@class,'item item--courses')]"));
+    var selectRoleFilter = element(by.xpath("//label[contains(text(),'Class')]/following::sui-multi-select[1]"));
+    var selectRole = element(by.xpath("//label[contains(text(),'Class')]/following::sui-multi-select[1]/div[2]/sui-select-option[1]/span[2]"));
+    var Applybutton = element(by.xpath("//button[text()=' Apply ']"));
+    var FirstContent = element(by.xpath("(//div[@class='sb--card__meta']//h4)[1]"));
+    var JoinCourse = element(by.xpath("//button[text()='Join Course']"));
+    var logInPermission = element(by.xpath("//div[contains(@class,'fsmall px-0')]"));
+    var loginButtonForLoginPage = element(by.xpath("//a[contains(@class,'sb-btn sb-btn-normal')]"));
+    var welComeToDikshaHeader = element(by.xpath("//div[text()='Welcome to DIKSHA']"));
     var report = element(by.xpath("//*[contains(text(),'Reports')]"));
     var dataset = element(by.xpath("//*[contains(text(),'Datasets')]"));
     var serialNo = element(by.xpath("//*[contains(text(),'Serial No.')]"));
@@ -121,7 +121,7 @@ let UserOnBoarding = () => {
     var updatedFrequency = element(by.xpath("//*[contains(text(),'Update Frequency')]"));
     var status = element(by.xpath("//*[contains(text(),'Status')]"));
     var contentName = element(by.xpath("//div[@class='sb-media-body']/h6"));
-	 var selectcsvfile = element(by.xpath("//*[contains(text(),'Select .csv file')]"));
+    var selectcsvfile = element(by.xpath("//*[contains(text(),'Select .csv file')]"));
     var uploadcsvfile = element(by.xpath("//*[contains(text(),'Upload .csv file')]"));
     var validationToasterMsg = element(by.xpath("//*[@class='iziToast-texts']"));
     var clkCheckBox = element(by.xpath("//input[@type='checkbox']"));
@@ -138,26 +138,26 @@ let UserOnBoarding = () => {
     var HelpCenterPageAssert = element(by.xpath("//h4[contains(text(),'FAQs')]"));
     var clkEditProfile = element(by.xpath("//span[contains(text(),'Subjects :')]//following::button[contains(text(),'Edit')]"));
     var clkBoardEdit = element(by.xpath("//label[contains(text(),'Board')]//following::sui-select"));
-    var verifyIGotHealthValue = element(by.xpath("//label[contains(text(),'Board')]//following::span[6]"));
+    var verifyIGotHealthValue = element(by.xpath("(//label[contains(text(),'Board')]//following::span)[7]"));
     var clkMediumDropDown = element(by.xpath("//label[contains(text(),'Medium')]//following::sui-multi-select"));
-    var sltMediumDropDown = element(by.xpath("//label[contains(text(),'Medium')]//following::span[2]"));
+    var sltMediumDropDown = element(by.xpath("(//label[contains(text(),'Medium')]//following::span)[3]"));
     var closeMediumIcon = element(by.xpath("//label[contains(text(),'Medium')]//following::i[@class='dropdown icon']"));
     var closeClassIcon = element(by.xpath("//label[contains(text(),'Class')]//following::i[@class='dropdown icon']"));
     var closeSubjectIcon = element(by.xpath("//label[contains(text(),'Subject')]//following::i[@class='dropdown icon']"));
     var clkClassDropDown = element(by.xpath("//label[contains(text(),'Class')]//following::sui-multi-select"));
-    var sltClassDropDown = element(by.xpath("//label[contains(text(),'Class')]//following::span[2]"));
+    var sltClassDropDown = element(by.xpath("(//label[contains(text(),'Class')]//following::span)[3]"));
     var clkSubjectDropDown = element(by.xpath("//label[contains(text(),'Subject')]//following::sui-multi-select"));
     var sltSubjectDropDown = element(by.xpath("//label[contains(text(),'Subject')]//following::span[2]"));
-    var clkSubmitProfile= element(by.xpath("//label[contains(text(),'Subject')]//following::button[contains(text(),' Submit ')]"));
-    var assertUpdateToastrMsg= element(by.xpath("//*[contains(text(),'Profile updated successfully...')]"));
-    var assertProfileBoardValue= element(by.xpath("//span[contains(text(),'Board')]//following::span[contains(text(),'IGOT-Health')]"));
+    var clkSubmitProfile = element(by.xpath("//label[contains(text(),'Subject')]//following::button[contains(text(),' Submit ')]"));
+    var assertUpdateToastrMsg = element(by.xpath("//*[contains(text(),'Profile updated successfully...')]"));
+    var assertProfileBoardValue = element(by.xpath("//span[contains(text(),'Board')]//following::span[contains(text(),'IGOT-Health')]"));
     var clkEditStateAndDistritProfile = element(by.xpath("//div[contains(text(),'State')]//following::button[contains(text(),'Edit')]"));
-    var profileName= element(by.xpath("//input[@name='name']"));
-    var clkStateDropdown= element(by.xpath("//label[contains(text(),'State:')]//following::i[@class='dropdown icon']"));
-    var sltStateDropdown= element(by.xpath("//label[contains(text(),'State:')]//following::span[contains(text(),'Andhra Pradesh')]"));
-    var clkDistrictDropdown= element(by.xpath("//label[contains(text(),'District:')]//following::i[@class='dropdown icon']"));
-    var sltDistrictDropdown= element(by.xpath("//label[contains(text(),'District:')]//following::span[contains(text(),'Anantapur')]"));
-    var districtSubmitClk= element(by.xpath("//label[contains(text(),'District:')]//following::button[contains(text(),'Submit')]"));
+    var profileName = element(by.xpath("//input[@name='name']"));
+    var clkStateDropdown = element(by.xpath("(//div[contains(@id,'state')])[2]"));
+    var sltStateDropdown = element(by.xpath("(//div[contains(text(),'State')]//following::span[contains(text(),'Andhra Pradesh')])[3]"));
+    var clkDistrictDropdown = element(by.xpath("(//div[contains(@id,'district')]//following::div[@class='cfe-multiselect-field-label-container list-border'])[4]"));
+    var sltDistrictDropdown = element(by.xpath("//span[contains(text(),'District')]//following::span[text()='Anantapur']"));
+    var districtSubmitClk = element(by.xpath("(//div[contains(text(),'District')]//following::button[contains(text(),'Submit')])[2]"));
     var clkRegisterlink = element(by.xpath("//span[@class='registerLink']"));
     var RegisteronDikshaLabel = element(by.xpath("//div[contains(text(),' Register on DIKSHA')]"));
     var nameLabel = element(by.xpath("//label[contains(text(),'Name')]"));
@@ -170,13 +170,13 @@ let UserOnBoarding = () => {
     var sltInValidYear = element(by.xpath("//span[contains(text(),'2020')]"));
     var verifyParentMsg = element(by.xpath("//label[contains(text(),' Enter mobile number or email address ')]"));
     var verifyParentMsg2 = element(by.xpath("//span[contains(text(),'of your parent or guardian')]"));
- 
+
     var verifyPasswordPolicyErrMsg = element(by.xpath("//label[contains(text(),'Your password must contain a minimum of 8 characters. It must include numerals, lower and upper case alphabets and special characters, without any spaces')]"));
 
     var registerPassword = element(by.xpath("//input[@placeholder='Enter password']"));
     var registerConfPassword = element(by.xpath("//input[@placeholder='Re-enter the password']"));
     var clkEmailCheckbox = element(by.xpath("//label[@for='email']"));
-    var TypeEmail= element(by.xpath("//input[@placeholder='Email address']"));
+    var TypeEmail = element(by.xpath("//input[@placeholder='Email address']"));
 
     var clkForgotPassword = element(by.xpath("//div[@id='fgtPortalFlow']"));
     var assertOTPPage = element(by.xpath("//div[contains(text(),'One Time Password (OTP)')]"));
@@ -195,9 +195,9 @@ let UserOnBoarding = () => {
 
     var checkBoxEmail = element(by.xpath("(//*[contains(@class,'ui radio checkbox')])[2]"));
 
-    
 
-    
+
+
 
     return {
 
@@ -316,67 +316,67 @@ let UserOnBoarding = () => {
         contentName,
         selectcsvfile,
         uploadcsvfile,
-        validationToasterMsg,      
+        validationToasterMsg,
         AddUserClk,
         entUSrName,
         ClkCancelButton,
         AddUsrCreationBtn,
         clkCheckBox,
-    clkCheckBoxContinue,
-    clkChangeUser,
-    clkHelp,
-    verifyFAQ,
-    firstQuestionClk,
-    clkNoButton,
-    clkTypeHere,
-    clkSubmitFaq,
-    verifySuccessResponceMsg,
-    clkGoToHelpCenter,
-    HelpCenterPageAssert,
-    clkEditProfile,
-    clkBoardEdit,
-    verifyIGotHealthValue,
-    closeMediumIcon,
-    clkMediumDropDown,
-    sltMediumDropDown,
-    clkClassDropDown,
-    sltClassDropDown,
-    clkSubjectDropDown,
-    sltSubjectDropDown,
-    clkSubmitProfile,
-    closeClassIcon,
-    closeSubjectIcon,
-    assertUpdateToastrMsg,
-    assertProfileBoardValue,
-    clkEditStateAndDistritProfile,
-    profileName,
-    clkStateDropdown,
-    sltStateDropdown,
-    clkDistrictDropdown,
-    sltDistrictDropdown,
-    districtSubmitClk,
-    clkRegisterlink,
-    RegisteronDikshaLabel,
-    nameLabel,
-    termsandConditionlabel1,
-    dikshaTermsandUse,
-    clkTermsCheckbox,
-    registerLabel,
-    clkYearDropdown,
-    sltValidYear,
-    sltInValidYear,
-    verifyParentMsg,
-    verifyParentMsg2,
-    verifyPasswordPolicyErrMsg,
-    registerPassword,
-    registerConfPassword,
-    clkEmailCheckbox,
-    TypeEmail,
-    clkForgotPassword,
-    typeName,
-    assertOTPPage,
-    helpButton,
-    reportButton,
+        clkCheckBoxContinue,
+        clkChangeUser,
+        clkHelp,
+        verifyFAQ,
+        firstQuestionClk,
+        clkNoButton,
+        clkTypeHere,
+        clkSubmitFaq,
+        verifySuccessResponceMsg,
+        clkGoToHelpCenter,
+        HelpCenterPageAssert,
+        clkEditProfile,
+        clkBoardEdit,
+        verifyIGotHealthValue,
+        closeMediumIcon,
+        clkMediumDropDown,
+        sltMediumDropDown,
+        clkClassDropDown,
+        sltClassDropDown,
+        clkSubjectDropDown,
+        sltSubjectDropDown,
+        clkSubmitProfile,
+        closeClassIcon,
+        closeSubjectIcon,
+        assertUpdateToastrMsg,
+        assertProfileBoardValue,
+        clkEditStateAndDistritProfile,
+        profileName,
+        clkStateDropdown,
+        sltStateDropdown,
+        clkDistrictDropdown,
+        sltDistrictDropdown,
+        districtSubmitClk,
+        clkRegisterlink,
+        RegisteronDikshaLabel,
+        nameLabel,
+        termsandConditionlabel1,
+        dikshaTermsandUse,
+        clkTermsCheckbox,
+        registerLabel,
+        clkYearDropdown,
+        sltValidYear,
+        sltInValidYear,
+        verifyParentMsg,
+        verifyParentMsg2,
+        verifyPasswordPolicyErrMsg,
+        registerPassword,
+        registerConfPassword,
+        clkEmailCheckbox,
+        TypeEmail,
+        clkForgotPassword,
+        typeName,
+        assertOTPPage,
+        helpButton,
+        reportButton,
     }
 };
 module.exports = {

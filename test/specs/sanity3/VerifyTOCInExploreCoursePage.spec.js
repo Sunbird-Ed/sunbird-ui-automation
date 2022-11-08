@@ -22,7 +22,6 @@ describe('VerifyTOCInExploreCoursePage.spec', () => {
     });
     it('VerifyTOCInExploreCoursePage.spec',function(){
         utility.handleDropDown();
-
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         searchCBFPPageObj.courseSearchFilter();

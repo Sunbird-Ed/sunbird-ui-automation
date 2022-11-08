@@ -37,8 +37,5 @@ describe('ontent reviewer is able to Publish/Reject content.( Lesson Plan).', ()
         resourcePageObj.editTheContentInDraft();
         
     })
-
-    
-   
 });
    

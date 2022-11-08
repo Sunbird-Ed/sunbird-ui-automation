@@ -19,7 +19,6 @@ describe('verifyEnableDisableOptionForDiscussionForum', () => {
     });
     it('EditAnDeleteTopicPostDissuscionForum',function(){
         utility.handleDropDown();
-
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityPage.editAndDelteTopic();

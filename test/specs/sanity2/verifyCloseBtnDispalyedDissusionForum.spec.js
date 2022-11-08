@@ -27,7 +27,5 @@ describe('verifyCloseBtnDispalyedDissusionForum.spec', () => {
         utility.userLogin('Reviewer');
         sanityPage.verifyEnableAndDisableDiscussionForGroup2();
        
-
-
     });
 });

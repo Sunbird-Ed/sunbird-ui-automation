@@ -28,4 +28,3 @@ describe('Verify searched contents', () => {
         searchedCotentsValidation.multiSelection();
     });
 });
-   

@@ -21,8 +21,9 @@ describe('Usr is able to search the content in library', () => {
     it('CustodianUserTryToConsumeContent',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('CustodianUser');
+        utility.userLogin('Public User1');
         var content =  custUTTCCPageObj.searchContentInLibraryAndFetchFirstContent('Book');
+        console.log(content);
         custUTTCCPageObj.navigateToLibraryAndSearchForBook(content);
        
       

@@ -1,10 +1,11 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
+const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const addCTLPPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
-const removeACPageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
+const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
-describe('Lointo Application with Creator user,Remove the Added Collobartor,Logout', () => {
+describe('RemoveAddedCollaborator', () => {
 
+    
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -14,22 +15,30 @@ describe('Lointo Application with Creator user,Remove the Added Collobartor,Logo
         browser.driver.manage().window().maximize(); 
        
     });
+
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
+
     it('RemoveAddedCollaborator',function(){
+        
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        addCTLPPageObj.createLessonPlan() ;
-        removeACPageObj.removeCollaborator();
-       
-         
-       
-
-    });
- 
-     
+        browser.sleep(3000);
+        utility.userLogin('Book Creator');
+        let BookName = sanityfun.createBookSaveAsDraft();
+        sanityfun.addCollboratortoDraftAndSaveBook(BookName);
+        sanityfun.removeCollboratortoDraftAndSaveBook(BookName);
+        
+    })
 });
+   
+
+
+
+
+
+
+

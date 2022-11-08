@@ -1,6 +1,7 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
+const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
 describe('AddCollectionUsingDifferentApproachAndResource Verify', () => {
 
@@ -26,10 +27,7 @@ describe('AddCollectionUsingDifferentApproachAndResource Verify', () => {
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Book Creator');
-        etbFun.navigateToWorkspace();
-        etbFun.addResourceFromExploreSuggestion();
-        etbFun.addCollectionInAddResoucePage('Collection');
-        etbFun.addCollectionInExploreSuggestion();
+        let bookName = sanityfun.createBook();
 
 
 

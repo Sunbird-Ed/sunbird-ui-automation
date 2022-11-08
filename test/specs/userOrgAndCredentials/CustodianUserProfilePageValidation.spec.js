@@ -11,8 +11,6 @@ describe('CustodianUserProfilePageValidation', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
@@ -24,9 +22,8 @@ describe('CustodianUserProfilePageValidation', () => {
     it('CustodianUserProfilePageValidation',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Custod2');
-        usrOnBoardfun.custodianUsersProfilePageValidations();
-        
+        utility.userLogin('Custodian3');
+        usrOnBoardfun.custodianUsersProfilePageValidations();   
     });
 });
    

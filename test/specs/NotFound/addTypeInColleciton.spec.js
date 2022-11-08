@@ -33,11 +33,7 @@ describe('Create Collection save and send for review and publish.', () => {
         utility.userLogout();
         utility.userLogin('Creator');
         utility.validateWorkspace();
-        lspPageObj.deleteCreatedItems();
-        
+        lspPageObj.deleteCreatedItems();  
     })
-
-    
-   
 });
    

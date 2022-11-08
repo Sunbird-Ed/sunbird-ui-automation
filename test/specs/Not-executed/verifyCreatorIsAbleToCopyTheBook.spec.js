@@ -17,7 +17,7 @@ describe('Verify Creator is able to copy the book', () => {
    
   afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+        //utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

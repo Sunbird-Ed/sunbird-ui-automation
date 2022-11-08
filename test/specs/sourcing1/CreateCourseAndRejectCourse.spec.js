@@ -33,12 +33,7 @@ describe('After Rejecting course Add New Resource , again publish', () => {
         resourcePageObj.rejectCourse(courseName)
         utility.userLogout();
         utility.userLogin('Creator');
-        tpdPageObj.editTheCourseInDraftAddNewResource();
-       
-       
+        tpdPageObj.contentSearchInDraftAndEdit(courseName);
     })
-
-   
-   
 });
    

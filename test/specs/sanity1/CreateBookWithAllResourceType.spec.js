@@ -1,6 +1,7 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js');
+const etbPageObj = require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
+const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 
 describe('Create Book with all resource type, save and send for review and publish.', () => {
@@ -20,7 +21,6 @@ describe('Create Book with all resource type, save and send for review and publi
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
@@ -29,18 +29,9 @@ describe('Create Book with all resource type, save and send for review and publi
         utility.handleLocationPopup();
         utility.userLogin('Book Creator');
         let bookName=etbPageObj.createBookWithAllResourceType();
-        etbPageObj.sendForReviewTheBook();
         utility.userLogout();
-        utility.userLogin('Book Reviewer');
-        etbPageObj.publishTheBookFromUpForReview(bookName);
-        utility.userLogout();
-        utility.userLogin('Book Creator');
-        utility.validateWorkspace();
-        lspPageObj.deleteCreatedItems();
-       
+        utility.userLogin('Reviewer');
+        tpdPageObj.publishCourseFromUpForReview(bookName); 
     })
-
-   
-   
 });
    

@@ -32,7 +32,6 @@ describe('VerifyChangingLanguageWhileConsuming for Kannada Language', () => {
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
-
         utility.userLogin('Public User1');
         tpdPageObj.ChangeLangWhileConsuming(contentName);
        

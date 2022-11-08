@@ -1,7 +1,7 @@
-const { element } = require("protractor");
+//const { element } = require("protractor");
 
-let EtbElem1=()=>{
-    
+let EtbElem1 = () => {
+
     var search = element(by.xpath("//*[@id='keyword']"));
     var workspace = element(by.xpath("(//*[contains(text(),' Workspace ')])[1]"));
     var collection = element(by.xpath("//span[contains(text(),'Collection')]"));
@@ -16,7 +16,7 @@ let EtbElem1=()=>{
     var LearningOutcomeDefinition = element(by.xpath("//div[contains(text(),'LearningOutcomeDefinition')]"));
     var ExplanationResource = element(by.xpath("//div[contains(text(),'ExplanationResource')]"));
     var digitalTextbook = element(by.xpath("//*[contains(text(),' Digital textbooks ')]"));
-    var alltab = element(by.xpath("//*[contains(@class,'item item--all')]"));
+    //var alltab = elemment(by.xpath("//*[contains(@class,'item item--all')]"));
     var searchbutton = element(by.xpath("//*[contains(text(),'Search')]"));
     var appliedFilters1 = element(by.xpath("//*[contains(@class,'sb-grid dynamic-section-card ')]/div[3]//*[contains(@class,'sb--card__type')]"));
     var appliedFilters2 = element(by.xpath("//*[contains(@class,'sb--card__type')]"));
@@ -24,36 +24,40 @@ let EtbElem1=()=>{
     var boardSelection = element(by.xpath("//div[contains(@class,'cfe-multiselect-field-label-container list-border')]/child::ul/span"));
     var selectBoard = element(by.xpath("//span[contains(text(),'CBSE')]/parent::div"));
     var reset = element(by.xpath("//*[contains(@class,'sb-btn sb-btn-x')]"));
-    var mediumPills= element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-label-container list-border')])[2]"));
     var mediumValidation = element(by.xpath("//*[contains(text(),'Select Medium')]"));
     var subjectpills = element(by.xpath("//*[contains(text(),'Select Subject')]"));
-    var hindi = element(by.xpath("//div[contains(@class,'cfe-multiselect-dropdown sb-modal')]//span[text()='hindi']"));
-    var english = element(by.xpath("//div[contains(@class,'cfe-multiselect-dropdown sb-modal')]//span[text()='english']"));
-    var classSelect= element(by.xpath("//*[contains(text(),'Select Class')]"));
-    var selectClass1 = element(by.xpath("//*[contains(text(),'class 11')]"));
+    var classSelect = element(by.xpath("//*[contains(text(),'Select Class')]"));
     var selectClass2 = element(by.xpath("//*[contains(text(),'class 12')]"));
     var subjectselect = element(by.xpath("//*[contains(text(),'Select Subject')]"));
-    var subjectSelection1 = element(by.xpath("//*[contains(text(),'accountancy')]"));
-    var subjectSelection2 = element(by.xpath("//*[contains(text(),'biology')]"));
 
     var digitalTextbooksFilter = element(by.xpath("//h1[contains(text(),'Digital textbooks')]"));
-    var coursesFilter=element(by.xpath("//*[contains(@class,'item item')][2]"));
-    var tvClassesFilter=element(by.xpath("//*[contains(@class,'item item')][3]"));
-    var allFilter=element(by.xpath("//*[contains(@class,'item item')][4]"));
-    
-    var mediumValidation= element(by.xpath("//div[contains(@class,'cfe-multiselect-pills-item selected-option')]/span[ contains(text(),'English')]"));
+    var coursesFilter = element(by.xpath("//*[contains(@class,'item item')][2]"));
+    var tvClassesFilter = element(by.xpath("//*[contains(@class,'item item')][3]"));
+    var allFilter = element(by.xpath("//*[contains(@class,'item item')][4]"));
+
+    var mediumValidation = element(by.xpath("//div[contains(@class,'cfe-multiselect-pills-item selected-option')]/span[ contains(text(),'English')]"));
     var classesValidation = element(by.xpath("//div[contains(@class,'cfe-multiselect-pills-item selected-option')]/span[ contains(text(),'Class 1')]"));
     var mediumValidation1 = element(by.xpath("div[contains(@class,'cfe-multiselect-pills-item')]/span[ contains(text(),'English')]"));
     var boardValidation = element(by.xpath("//*[contains(text(),'CBSE')]//parent::ul"));
     var subjectValidation = element(by.xpath("//*[contains(text(),'Select Subject')]"));
     var published_byValidation = element(by.xpath("//*[contains(text(),'Select Published by')]"));
     var publishedUsertypeValidation = element(by.xpath("//*[contains(text(),'Select User Type')]"));
-    var classSelect1=element(by.xpath("(//*[contains(@id,'Capa_1')])[3]"));
+    var classSelect1 = element(by.xpath("(//*[contains(@id,'Capa_1')])[3]"));
     var subjectSelect1 = element(by.xpath("(//*[contains(@id,'Capa_1')])[4]"));
-    var tvClass = element(by.xpath("//a[text()=' TV classes ']"));
-  
 
-    return{
+
+
+
+    var alltab = element(by.xpath("//*[contains(@class,'item item--all')]"));
+    var mediumPills = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-label-container list-border')])[2]"));
+    var hindi = element(by.xpath("//div[contains(@class,'cfe-multiselect-dropdown sb-modal')]//span[text()='hindi']"));
+    var english = element(by.xpath("//div[contains(@class,'cfe-multiselect-dropdown sb-modal')]//span[text()='english']"));
+    var selectClass1 = element(by.xpath("//*[contains(text(),'class 11')]"));
+    var subjectSelection1 = element(by.xpath("//*[contains(text(),'accountancy')]"));
+    var subjectSelection2 = element(by.xpath("//*[contains(text(),'biology')]"));
+    var tvClass = element(by.xpath("//a[text()=' TV classes ']"));
+
+    return {
         search,
         mediumValidation1,
         collection,
@@ -69,7 +73,7 @@ let EtbElem1=()=>{
         LearningOutcomeDefinition,
         ExplanationResource,
         digitalTextbook,
-        alltab,
+        //alltab,
         appliedFilters1,
         appliedFilters2,
         appliedFilters3,
@@ -100,10 +104,11 @@ let EtbElem1=()=>{
         workspace,
         classSelect1,
         subjectSelect1,
+        alltab,
         tvClass,
-                
+
     }
 }
-module.exports={
+module.exports = {
     EtbElem1
- }
+}

@@ -24,20 +24,15 @@ describe('SearchTVLesonTypeContent review and publish.', () => {
     it('SearchTVLesonTypeContent',function(){
        utility.handleDropDown();
         utility.handleLocationPopup();
-        // utility.userLogin('Creator');
-        // let resourceName=resourcePageObj.createResource();
-        // resourcePageObj.sendForReviewTheResourceWithTVLessonInAdditionalCateg();
-        // utility.userLogout();
-        // utility.userLogin('Reviewer');
-        // resourcePageObj.publishTheResourceFromUpForReview(resourceName);
-        // utility.userLogout();
         utility.userLogin('Creator');
-        sanityfun.TVClassSearch('ResourceAEllsworth');
-
-
+        let resourceName=resourcePageObj.createResource();
+        resourcePageObj.sendForReviewTheResourceWithTVLessonInAdditionalCateg();
+        utility.userLogout();
+        utility.userLogin('Reviewer');
+        resourcePageObj.publishTheResourceFromUpForReview(resourceName);
+        utility.userLogout();
+        utility.userLogin('Creator');
+        sanityfun.TVClassSearch(resourceName);
     })
-
-    
-   
 });
    

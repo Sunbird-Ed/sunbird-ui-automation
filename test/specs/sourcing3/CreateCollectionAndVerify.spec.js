@@ -22,7 +22,7 @@ describe('Create Collection save and send for review and publish.', () => {
         browser.manage().deleteAllCookies();
         
     });
-    it('CreateCollectionAndVerify',function(){
+    it('CreateCollectionAndVerify ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');

@@ -19,16 +19,13 @@ describe('VerifyCourseDetails', () => {
         browser.waitForAngularEnabled(false);
         utility.userLogout();
         browser.manage().deleteAllCookies();
-        
     });
+    
     it('VerifyCourseDetails',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         searchCBFPPageObj.startLeaning();
-        
-       
-       
     });
 });
    

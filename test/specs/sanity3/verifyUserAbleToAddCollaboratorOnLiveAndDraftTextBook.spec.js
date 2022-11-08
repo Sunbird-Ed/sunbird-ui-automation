@@ -6,6 +6,7 @@ const addSARCATTPRPageObj = require(protractor.basePath+'/test/pageObject/resour
 const collectionPageObj = require(protractor.basePath+'/test/pageObject/collectionPageObj.js');
 const etbPage = require(protractor.basePath + '/test/pageObject/etbPageObj.js');
 const sanityPage=require(protractor.basePath +'/test/pageObject/SanityPageObj.js')
+
 describe('verifyUserAbleToAddCollaboratorOnLiveAndDraftTextBook', () => {
 
     beforeEach(() => {
@@ -21,17 +22,15 @@ describe('verifyUserAbleToAddCollaboratorOnLiveAndDraftTextBook', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout(); 
+        //utility.userLogout(); 
         browser.manage().deleteAllCookies();
     });
     it('verifyUserAbleToAddCollaboratorOnLiveAndDraftTextBook ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        sanityPage.addCollboratortoDraftAndSaveBook();
-        //sanityPage.addCollboratortoLiveAndSaveBook();
-
+        let bookName=sanityPage.createBookSaveAsDraft();
+        sanityPage.addCollboratortoDraftAndSaveBook(bookName);
+        
     });
-   
-      
 });

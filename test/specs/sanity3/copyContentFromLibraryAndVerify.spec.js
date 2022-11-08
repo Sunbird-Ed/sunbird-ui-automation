@@ -15,7 +15,7 @@ describe('Copy Content From Library', () => {
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+        //utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
@@ -26,8 +26,6 @@ describe('Copy Content From Library', () => {
         utility.userLogin('Creator');
         var Book = "BookA";
         sanityFun.copyContentFromLib(Book);
-       
-
     });
 });
    

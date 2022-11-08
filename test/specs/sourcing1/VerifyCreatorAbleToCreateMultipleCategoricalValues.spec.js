@@ -28,6 +28,6 @@ describe('VerifyCreatorAbleToCreateMultipleCategoricalValues', () => {
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         utility.validateWorkspace();
-        sanityfun.TargetFrameworkWithMultipleCategoricalValues();      
+        sanityfun.TargetFrameworkWithMultipleCategoricalValues("CPD");      
     })
 });

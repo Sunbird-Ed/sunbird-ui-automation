@@ -24,9 +24,9 @@ describe('FilterResultforGuestUser.spec', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
-        etbFun.filterResultForGuestUser();
+        etbFun.librarysearchFilter();
        
-        
+
     })
     
     

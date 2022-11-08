@@ -3,7 +3,7 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 
-describe('Verify that default license is  displayed in edit  details && Verify on click of credit link, Copyright and attributions values are displayed.', () => {
+describe('VerifyDefaultLicenseIsDisplayed', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -18,10 +18,10 @@ describe('Verify that default license is  displayed in edit  details && Verify o
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+        //utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('AU_073, AU_081-VerifyDefaultLicence && CreditLink and Copyright',function(){
+    it('VerifyDefaultLicenseIsDisplayed',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
@@ -35,6 +35,7 @@ describe('Verify that default license is  displayed in edit  details && Verify o
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
         utility.userLogout();
         utility.userLogin('Creator');
+        //let resourceName="do_31257982244631347219877"
         resourcePageObj.navigateToLibraryAndSearchContent(resourceName);
         resourcePageObj.copyrightAndAttributes();
 

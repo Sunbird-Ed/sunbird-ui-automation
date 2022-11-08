@@ -19,6 +19,9 @@ var upload = () => {
     var learningResource = element(by.xpath("//select[@id='_selectPrimaryCategory']/option[2]"));
     var saveupload = element(by.xpath("//div[@data-content='Save content']"));
     var close = element(by.xpath("//button[text()='Close']"))
+    var closeEditor = element(by.xpath("//i[@class='remove icon custom-cursor']"))
+
+
     return {
         clickuploadContent,
         close,
@@ -35,7 +38,8 @@ var upload = () => {
         clkEditDetails,
         selectOne,
         learningResource,
-        saveupload
+        saveupload,
+        closeEditor,
     };
 
 };

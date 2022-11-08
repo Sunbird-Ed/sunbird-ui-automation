@@ -2,7 +2,7 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
-describe('editLocationDetailsAsGuestUser', () => {
+describe('validateNCERTinHomeTab', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -17,10 +17,10 @@ describe('editLocationDetailsAsGuestUser', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-    
+        
     });
 
-    it('editLocationDetailsAsGuestUser',function(){
+    it('validateNCERTinHomeTab',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         sanityfun.verifyHomeTab();

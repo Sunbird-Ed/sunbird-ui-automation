@@ -33,14 +33,14 @@ var contentCreation = () => {
   var headerDropdown = element(by.xpath("(//div[@class='avatar-container'])[2]"));
   var headerDropdown1 = element(by.xpath("(//div[@class='avatar-container'])[2]"));
   var headerDropdown2 = element(by.xpath("(//div[@class='avatar-container'])[2]"));
-  var classicThemeHeaderDropdown = element(by.xpath("//following::div[@class='avatar-content']"));
+  var classicThemeHeaderDropdown = element(by.xpath("//following::div[@class='avatar-content'][1]"));
   var workspaceHeaderDropDwn = element(by.xpath("(//div[@class='avatar-container'])[2]"));
   var logout = element(by.xpath("//li[contains(text(),' Logout ')]"));
   var dog = element(by.css('name'));
   var district = element(by.xpath("//li[contains(text(),'Select District')]"));
   var selectDistrict = element(by.xpath("//li[contains(text(),'Select District')]//following::div[2]"));
   var submitForm = element(by.xpath("//button[contains(text(),'Submit')]"));
-  var btnSubmit = element(by.xpath("(//button[contains(text(),'Submit')])"));
+  var btnSubmit = element(by.xpath("//button[contains(text(),'Submit')]"));
   var resourceSearch = element(by.id("resourceSearch"));
   var selectResourceType2 = element(by.xpath("//input[@id='resourceSearch']/following::li[1]"));
   var clickAddbutton = element(by.xpath("//button[@class='ui small button blueBackGround whiteColor']"));
@@ -139,7 +139,8 @@ var contentCreation = () => {
   var clickShare = element(by.xpath("//*[contains(text(),'Share')]"));
   var clickCopy = element(by.xpath("//button[@class='ui basic primary button']"));
 
-  var closeIconInShare = element(by.xpath("//i[@class='close icon ng-star-inserted']")); var playSharedContent = element(by.xpath("//*[contains(@class,'sb-pageSection-title')]//following::h3[1]"));
+  var closeIconInShare = element(by.xpath("//i[@class='close icon ng-star-inserted']"));
+  var playSharedContent = element(by.xpath("//*[contains(@class,'sb-pageSection-title')]//following::h3[1]"));
   var closeicon = element(by.xpath("//i[@class='close icon']"));
   var closeUploadContent = element(by.id("closeButton"));
   var closeSave = element(by.xpath("//button[contains(text(),'Close')]"));
@@ -373,7 +374,7 @@ var contentCreation = () => {
   var allMyContent = element(by.xpath("//a[contains(text(),'All My Content')]"));
 
   var selectState = element(by.xpath("((//select[contains(@class,'ui dropdown selection fields-dropdown')])[1]//following::option[1])[1]"));
-  var collecclick = element(by.xpath("(//h4[contains(@class,'sb--card__title')])[2]"));
+  var collecclick = element(by.xpath("(//h4[contains(@class,'sb--card__title')])[1]"));
   var getcopyshardata = element(by.xpath("//input[@id='copyLinkData']"));
   var verifyDataAfterFilter = element(by.xpath("//div[@class='sb--card__meta2_data']"));
 
@@ -460,7 +461,7 @@ var contentCreation = () => {
   var BMCSchoolCluster = element(by.xpath("(//*[contains(text(),'Select School')])[1]"));
 
 
-  
+
   var profileName = element(by.xpath("//*[contains(@class,'profile-user-label font-w-bold d-flex')]"));
   var profileButton = element(by.xpath("//*[@class='icon-svg icon-svg--sm icon-profileuser mr-8']"));
   var guestName = element(by.xpath("//*[contains(@class,'sb-textbox ng-pristine ng-valid ng-touched')]"));
@@ -517,16 +518,16 @@ var contentCreation = () => {
   var themeChange = element(by.xpath("(//span[text()='Switch to classic theme'])"));
   var stateDropdownsso = element(by.xpath("//*[contains(text(),'State Andhrapradesh')]"));
 
-  var muteButton= element(by.xpath("//button[@title='Mute']"));
-  var UnmuteButton= element(by.xpath("//button[@title='Unmute']"));
+  var muteButton = element(by.xpath("//button[@title='Mute']"));
+  var UnmuteButton = element(by.xpath("//button[@title='Unmute']"));
   var clkcheckBoxPublising = element.all(by.xpath("//div[@class='sb-checkbox sb-checkbox-primary ng-star-inserted']//following::input"));
   //var clkcheckBoxPublising = element.all(by.xpath("//div[@class='sb-checkbox sb-checkbox-primary']"));
 
-  var GlobalSearch= element(by.xpath("(//input[@name='filter_search'])[1]"));
+  var GlobalSearch = element(by.xpath("(//input[@name='filter_search'])[1]"));
   var selectIGOTboardValue = element(by.xpath("//span[text()='IGOT-Health']"));
-  var clkSchoolHeader= element(by.xpath("//div[contains(text(),'School head OR Officials')]"));
-  var SSOStateSelect1=element(by.xpath("//span[text()='Preprod Client']"));
-  var SSOStateSelect1=element(by.xpath("//div[@class='menu transition hidden']//following::span[2]"));
+  var clkSchoolHeader = element(by.xpath("//div[contains(text(),'School head OR Officials')]"));
+  var SSOStateSelect1 = element(by.xpath("//span[text()='Preprod Client']"));
+  var SSOStateSelect1 = element(by.xpath("//div[@class='menu transition hidden']//following::span[2]"));
 
   var qrCodeRequred = element(by.xpath("//input[@id='dialcode-required_yes']"));
   var guestIcon = element(by.xpath("//div[contains(text(),'Guest ')]"));
@@ -572,7 +573,153 @@ var contentCreation = () => {
   var reviewComments = element(by.xpath("//span[@data-title='View review comments']"));
   var commentsInput = element(by.xpath("//textarea[@id='wmd-input']"));
   var commentBoxClose = element(by.xpath("//button[text()='Close']"));
+  var SelectBoardValue2 = element(by.xpath("//span[contains(text(),'State (Assam)')]"));
+  var mediumDropdown3 = element(by.xpath("//sui-multi-select[contains(@id,'medium')]"));
+  var selectmediumvalue2 = element(by.xpath("//*[@id='medium']/div/sui-select-option/span[contains(text(),'Hindi')]"));
+  var classDropdown = element(by.xpath("//sui-multi-select[contains(@id,'gradeLevel')]"));
+  var selectClassValue = element(by.xpath("((//label[contains(text(),'Class')])//following::span[2])[2]"));
+  var editProfile = element(by.xpath("(//*[contains(@class,'sb-btn sb-btn-primary')])[2]"));
+  var collectionDescription = element(by.xpath("//input[@placeholder='Description']"));
+
+  var HelpLink = element(by.xpath("//*[@id='overlaySidebarID']/div[2]/div/ul/li[5]"));
+  var FAQLogin = element(by.xpath("//div[normalize-space()='Login']"));
+  var FAQProfile = element(by.xpath("//div[@class='listView-compt__item d-flex flex-ai-center']"));
+  var FAQCourseAndCertificate = element(by.xpath("//div[normalize-space()='Course & certificates']"));
+  var assertConsume = element(by.xpath("//div[@class='title animated fadeInDown']"));
+  var logincourseconsume = element(by.xpath("//button[@id='login']"));
+
+  var boardSelection = element(by.xpath("//div[contains(text(),' To discover relevant content, update the following details:‎ ')]"));
+  var HelpList = element(by.xpath("//*[@id='overlaySidebarID']/div[2]/div/ul/li[6]"));
+  var submitFeedback1 = element(by.xpath("//button[contains(text(),' Submit feedback ')]"));
+  var selectSubCatagory = element(by.xpath("//li[@class='cfe-multiselect-field-label placeholder']"));
+  var TextArea = element(by.xpath("//textarea[@id='details']"));
+  var ReportOtherIssue = element(by.xpath("//button[@class='sb-btn sb-btn-outline-primary sb-btn-normal w-100']"));
+  var selectCatagory = element(by.xpath("//div[@class='cfe-multiselect-field-label-container list-border']"));
+  var AddCertificate = element(by.xpath("//*[@id='batches']/div/div/div/div/div[2]/div/div/a"));
+  var AddNewCertificate = element(by.xpath("//*[@id='addNewCert']"));
+  var IssueCertificateTo = element(by.xpath("//label[text()='Issue certificate to']"));
+  var defaultValue = element(by.xpath("//input[@placeholder='100%']"));
+
+  var editBMC = element(by.xpath("(//*[contains(@class,'sb-btn sb-btn-primary')])[2]"));
+  var updateBoardValue = element(by.xpath("//span[contains(text(),'CBSE/NCERT')]"));
+  var updateGradeLevelValue = element(by.xpath("//*[@id='gradeLevel']/div[2]/sui-select-option[2]/span[contains(text(),'Class 2')]"));
+  var HomeTab = element(by.xpath("//a[text()=' Home ']"));
+  var BoardUpdated = element(by.xpath("//span[text()='CBSE']"));
+  var MedUpdated = element(by.xpath("//span[text()='Hindi']"));
+  var LevelUpdated = element(by.xpath("//span[text()='Class 2']"));
+  var plusIcon = element(by.xpath("//img[@src='assets/images/plus-icon.svg']"));
+  var bestAttemptScore = element(by.xpath("//input[@placeholder='Best attempt score']"));
+  var selectDropDown = element(by.xpath("//sui-select[@formcontrolname='scoreRange']"));
+  var scoreRule = element(by.xpath("//label[text()='Score Rule']"));
+  var greaterThan = element(by.xpath("//div[text()=' Greater than or equal to']"));
+  var deleteAllMyContent = element(by.xpath("(//i[contains(@class,'trash large icon')])[1]"));
+  var clkBoardReview = element(by.xpath("(//input[contains(@class,'search')]//following::div[contains(text(),'Select Board/Syllabus')])[2]"));
+  var clkUploadBucket = element(by.xpath("//a[@mattooltip='View all your uploads']"));
+  var sltCourseCard = element(by.xpath("//div[@class='sb--card__meta1 text-left']"));
+
+  var createdOn = element(by.xpath("(//div[@class='pb-24 ng-star-inserted']//following::div[text()=' Created on']//following::div[@class='content-metadeta__text  fnormal sb-color-gray-400'])[1]"));
+  var assertAuthor = element(by.xpath("//div[@class='pb-24 ng-star-inserted'][1]"));
+  var assertCreatedBy = element(by.xpath("//div[@class='pb-24 ng-star-inserted'][2]"));
+  var assertPubishedBy = element(by.xpath("//div[@class='pb-24']"));
+  var assertCreditLink = element(by.xpath("//div[@class='pb-24 ng-star-inserted']//following::a[@title='Credits']"));
+  var assertLiscence = element(by.xpath("//div[@class='pb-24 ng-star-inserted']//following::a[@title='Credits']//following::div[1]"));
+
+  var assertquestionSet = element(by.xpath("//i[@class='my-icon file text outline icon']//following::span[text()='QuestionSet']"));
+  var summaryTypeValues = element(by.xpath("//select[@id='sb-dropdown']//following::option[text()='Select Summary Type ']"));
+  var questionSetsummaryType = element(by.xpath("//select[@class='sb-dropdown-select ng-pristine ng-valid ng-touched' and @id='sb-dropdown']"));
+
+  var headerDropdownForClassTheme = element(by.xpath("//a[contains(text(),' Login ')]//following::div[contains(text(),'G')]"));
+
+
+  var QuestionSetImage1 = element(by.xpath("//span[text()='1']//following::img[1]"));
+  var QuestinSetTitle1 = element(by.xpath("(//div[text()=' QuestionSet with complete score '])[1]"));
+  var totalNoOfQuestions1 = element(by.xpath("//span[text()='4']"));
+  var totalNoOfQuestions2 = element(by.xpath("//span[text()='3']"));
+  var durationQuestionSet1 = element(by.xpath("(//span[text()='7:00'])[2]"));
+  var instructionQuestionSet1 = element(by.xpath("//div[text()='complete score']"));
+  var nextSlideIconStep1 = element(by.xpath("//div[@aria-label='next slide']"));
+  var selectAnswer1 = element(by.xpath("(//input[@aria-checked='mcqOption.selected'])[1]"));
+  var assertFeedback = element(by.xpath("//div[@class='quml-alert']//following::div[@class='quml-alert__body']"));
+  var selectAnswer2 = element(by.xpath("(//input[@aria-checked='mcqOption.selected'])[3]"));
+  var selectAnswer3 = element(by.xpath("(//input[@aria-checked='mcqOption.selected'])[5]"));
+  var contentFeedback = element(by.xpath("//button[text()=' Submit ']//preceding::i[2]"));
+  var submitcontentFeedback = element(by.xpath("//button[text()=' Submit ']"));
+  var assertNoSubmitOption = element(by.xpath("//div[text()=' Enjoyed this content? ']"));
+  var assertComplete = element(by.xpath("//span[text()='QuestionSet with complete score']"));
+  var userConsumedQuestionSet = element(by.xpath("//*[@id='summary/card1']//following::*[@id='Group']"));
+  var questionSetOnlyWithScore = element(by.xpath("//span[text()='QuestionSet with only score aug19']"));
+  var QuestinSetTitle2 = element(by.xpath("(//div[text()=' QuestionSet with only score aug19 '])[1]"));
+  var instructionQuestionSet2 = element(by.xpath("//div[text()='only score']"));
+  var QuestinSetTitle3 = element(by.xpath("(//div[text()=' QuestionSet with only duration aug19 '])[1]"));
+  var instructionQuestionSet3 = element(by.xpath("//div[text()='duration only']"));
+  var selectAnswer22 = element(by.xpath("(//input[@aria-checked='mcqOption.selected'])[4]"));
+  var selectAnswer33 = element(by.xpath("(//input[@aria-checked='mcqOption.selected'])[6]"));
+  var questionSetOnlyWithDuration = element(by.xpath("//span[text()='QuestionSet with only duration aug19']"));
+  var assertDuration = element(by.xpath("//*[@id='summary/card1']//following::*[@id='Group']//following::*[contains(@id,'Icon')]//following::*[2]"));
+  var selSubjectiveAnswer3 = element(by.xpath("//button[text()='Show Answer']"));
+  var subjectiveAnswer3 = element(by.xpath("(//p[text()='Testing 3'])[2]"));
+  var subjectiveAnswer4 = element(by.xpath("(//p[text()='Testing 4'])[2]"));
+  var completeQuestionSet = element(by.xpath("//span[text()='Complete QuestionSet']"));
+  var questionSetTitleComplete = element(by.xpath("//div[text()=' Complete QuestionSet ']"));
+  var questionSetInstComplete = element(by.xpath("//p[text()='Instructions']"));
+  var questionSetTitleScore = element(by.xpath("(//div[text()=' Score QuestionSet '])[1]"));
+  var questionSetdurationScore = element(by.xpath("(//span[text()='6:00'])[2]"));
+  var questionSetInstScore = element(by.xpath("//p[text()='Score QuestionSet']"));
+  var scoreQuestionSet = element(by.xpath("//span[text()='Score QuestionSet']"));
+  var questionSetTitleDuration = element(by.xpath("(//div[text()=' Duration QuestionSet '])[1]"));
+  var questionSetInstDuration = element(by.xpath("//p[text()='Duration QuestionSet']"));
+  var durationQuestionSet = element(by.xpath("//span[text()='Duration QuestionSet']"));
+  var subjectiveAnswer = element(by.xpath("//p[text()='Testing']"));
+
+  var questioSetTtitlewithSolution = element(by.xpath("(//div[text()=' QuestionSet with solution '])[1]"));
+  var questionSetInstwithSoln = element(by.xpath("//p[text()='QuestionSet with solution']"));
+  var questionSetwithSolution = element(by.xpath("(//div[text()=' QuestionSet with solution '])[2]"));
+  var submitQuestionSet = element(by.xpath("//button[text()='Submit']"));
+  var viewSolution = element(by.xpath("//span[text()='View Solution']"));
+  var Solution1 = element(by.xpath("(//div[text()='Solution'])[2]//following::div[1]//following::p[1]"));
+  var buttonDone = element(by.xpath("//button[text()='Done']"));
+  var SubjectiveAns3 = element(by.xpath("//div[text()='Answer']//following::p[1]"));
+  var SubjectiveSol3 = element(by.xpath("//div[text()='Solution']//following::p[1]"));
+  var clkProfile1 = element(by.xpath("//div[text()=' Add another user ']//following::i[1]"));
+  var joinCourse1 = element(by.xpath("//button[text()='Join Course']"));
+  var checkBox1 = element(by.xpath("//input[@type='checkbox']"));
+  var buttonShare = element(by.xpath("//button[text()='Share']"));
+  var selQuestionSet = element(by.xpath("//h4[text()=' QuestionSet ']//following::img[1]"));
+  var exceedMaximumNoOfAttempts = element(by.xpath("//div[text()=' You have exceeded the maximum number of attempts that can be submitted ']"));
+  var Replay = element(by.xpath("//div[text()='Replay']"));
+  var OneAttemptRemaining = element(by.xpath("//span[text()='Attempt no 1/2 ']"));
+  var closeWarning = element(by.xpath("//a[text()=' Close ']"));
+  var courseCompleted = element(by.xpath("//div[text()='100% Completed']"));
+  var questionSetTitl1 = element(by.xpath("//div[text()=' 0/4 ']//following::div[6]"));
+  var questionSetInstruction1 = element(by.xpath("//div[text()='Instructions']//following::p[1]"));
+  var questionSetWarningTime = element(by.xpath("//span[contains(text(),'0:')]"));
+
+  var selectMediumValue1= element(by.xpath("//span[text()='english']"));
+  var selecClassValue1 = element(by.xpath("((//label[contains(text(),'Class')])//following::span[2])"));
+ 
+  var masterOrgDropdown = element(by.xpath("//div[@id='tenant']"));
+  var externalID = element(by.xpath("//input[@id='declared-ext-id']"));
+  var phoneNumber = element(by.xpath("//input[@id='declared-phone']"));
+  var emailID = element(by.xpath("//input[@id='declared-email']"));
+  var optionalFieldID = element(by.xpath("//label[@for='declared-ext-id']"));
+  var optionalFieldphoneNumber = element(by.xpath("//label[@for='declared-phone']"));
+  var optionalFieldEmailID = element(by.xpath("//label[@for='declared-email']"));
+  var sltStateDropdown = element(by.xpath("//span[text()='Andhra Pradesh']"));
+  var consentCheckBox = element(by.xpath("//div[@class='sb-checkbox']//following::label[@class='label-html']"));
+
+  var profileEdit = element(by.xpath("//button[@aria-label='Edit Personal Details']"));
+  var profileRole = element(by.xpath("(//div[@id='persona']//following::span)[1]"));
+  var roleValues = element(by.xpath("(//div[@id='persona']//following::div[contains(@class,'cfe-multiselect-dropdown sb-modal-dropdown-web cfe-dropdown-web')])[1]"));
+
+  var reportIssueCategoryDrpdwn = element(by.xpath("//div[@id='category']//following::li[text()='Select Category']"));
+  var sltReportIssueCategoryDrpdwn= element(by.xpath("//div[@id='category']//following::span[text()='Content']"));
+  var reportIssueSubcategoryDrpdwn = element(by.xpath("//div[@id='subcategory']//following::li[text()='Select Subcategory']"));
+  var sltReportIssueSubcategoryDrpdwn = element(by.xpath("//div[@id='subcategory']//following::span[text()='Content Quality']"));
+  var reportIssueTextArea = element(by.xpath("//textarea[@id='details']"));
+
   
+
+
   return {
     closeIcon,
     boardDropdown,
@@ -695,7 +842,6 @@ var contentCreation = () => {
     previewClick,
     searchInput,
     clickLibray,
-
     searchPublishedCourses,
     fetchContentName,
     clickShare,
@@ -789,7 +935,6 @@ var contentCreation = () => {
     assignedToMe,
     batchDropDownIcon,
     upcomingBatches,
-
     untitledCollection,
     advancedFilter,
     difficulty,
@@ -820,7 +965,6 @@ var contentCreation = () => {
     courseNameInContentPlayer,
     clickProfileIcon,
     viewMoreButton,
-
     filterIcon,
     clickFilterBoard,
     selectFilterBoard,
@@ -841,7 +985,6 @@ var contentCreation = () => {
     firstLink,
     lastLink,
     previousLink,
-
     requestChangesButton,
     requestChangesComment,
     requestChangesBlueButton,
@@ -903,7 +1046,6 @@ var contentCreation = () => {
     toastMsg,
     firstCourseCardName,
     allMyContent,
-
     btnBack,
     boardPostSelect,
     mediumPostSelect,
@@ -1091,6 +1233,180 @@ var contentCreation = () => {
     reviewComments,
     commentsInput,
     commentBoxClose,
+    SelectBoardValue2,
+    mediumDropdown3,
+    selectmediumvalue2,
+    classDropdown,
+    selectClassValue,
+    editProfile,
+    collectionDescription,
+    HelpLink,
+    FAQLogin,
+    FAQProfile,
+    FAQCourseAndCertificate,
+    boardSelection,
+    assertConsume,
+    logincourseconsume,
+    HelpList,
+    submitFeedback1,
+    selectSubCatagory,
+    TextArea,
+    ReportOtherIssue,
+    selectCatagory,
+    AddCertificate,
+    AddNewCertificate,
+    IssueCertificateTo,
+    defaultValue,
+    editBMC,
+    updateBoardValue,
+    updateGradeLevelValue,
+    HomeTab,
+    BoardUpdated,
+    MedUpdated,
+    LevelUpdated,
+    plusIcon,
+    bestAttemptScore,
+    selectDropDown,
+    scoreRule,
+    greaterThan,
+    deleteAllMyContent,
+    clkBoardReview,
+    clkUploadBucket,
+    sltCourseCard,
+    createdOn,
+    assertAuthor,
+    assertCreatedBy,
+    assertPubishedBy,
+    assertCreditLink,
+    assertLiscence,
+    assertquestionSet,
+    summaryTypeValues,
+    questionSetsummaryType,
+    headerDropdownForClassTheme,
+
+    QuestionSetImage1,
+  QuestinSetTitle1,
+  selectAnswer2,
+  totalNoOfQuestions1,
+  totalNoOfQuestions2,
+  durationQuestionSet1,
+  instructionQuestionSet1,
+  nextSlideIconStep1,
+  selectAnswer1,
+  assertFeedback,
+  selectAnswer3,
+  contentFeedback,
+  userConsumedQuestionSet,
+  assertComplete,
+  submitcontentFeedback,
+  assertNoSubmitOption,
+  questionSetOnlyWithScore,
+  QuestinSetTitle2,
+  instructionQuestionSet2,
+  selectAnswer22,
+  instructionQuestionSet3,
+  selectAnswer33,
+  QuestinSetTitle3,
+
+  questionSetOnlyWithDuration,
+  assertDuration,
+  questionSetTitleDuration,
+  durationQuestionSet,
+  selSubjectiveAnswer3,
+  subjectiveAnswer,
+  questionSetInstDuration,
+  scoreQuestionSet,
+  questionSetInstScore,
+  subjectiveAnswer3,
+  questionSetTitleScore,
+  questionSetdurationScore,
+  questionSetInstComplete,
+  completeQuestionSet,
+  questionSetTitleComplete,
+  subjectiveAnswer4,
+  questioSetTtitlewithSolution,
+  questionSetInstwithSoln,
+  questionSetwithSolution,
+  submitQuestionSet,
+  viewSolution,
+  buttonDone,
+  Solution1,
+  SubjectiveAns3,
+  SubjectiveSol3,
+  clkProfile1,
+  joinCourse1,
+  checkBox1,
+  buttonShare,
+  selQuestionSet,
+  exceedMaximumNoOfAttempts,
+  Replay,
+  OneAttemptRemaining,
+  courseCompleted,
+  questionSetInstruction1,
+  questionSetTitl1,
+  questionSetWarningTime,
+  closeWarning,
+  selectMediumValue1,
+  selecClassValue1,
+    QuestinSetTitle1,
+    selectAnswer2,
+    totalNoOfQuestions1,
+    totalNoOfQuestions2,
+    durationQuestionSet1,
+    instructionQuestionSet1,
+    nextSlideIconStep1,
+    selectAnswer1,
+    assertFeedback,
+    selectAnswer3,
+    contentFeedback,
+    userConsumedQuestionSet,
+    assertComplete,
+    submitcontentFeedback,
+    assertNoSubmitOption,
+    questionSetOnlyWithScore,
+    QuestinSetTitle2,
+    instructionQuestionSet2,
+    selectAnswer22,
+    instructionQuestionSet3,
+    selectAnswer33,
+    QuestinSetTitle3,
+
+    questionSetOnlyWithDuration,
+    assertDuration,
+    questionSetTitleDuration,
+    durationQuestionSet,
+    selSubjectiveAnswer3,
+    subjectiveAnswer,
+    questionSetInstDuration,
+    scoreQuestionSet,
+    questionSetInstScore,
+    subjectiveAnswer3,
+    questionSetTitleScore,
+    questionSetdurationScore,
+    questionSetInstComplete,
+    completeQuestionSet,
+    questionSetTitleComplete,
+    subjectiveAnswer4,
+    masterOrgDropdown,
+    externalID,
+    phoneNumber,
+    emailID,
+    optionalFieldID,
+    optionalFieldphoneNumber,
+    optionalFieldEmailID,
+    sltStateDropdown,
+    consentCheckBox,
+    profileEdit,
+    profileRole,
+    roleValues,
+    profileEdit,
+    profileRole,
+    roleValues,
+    reportIssueCategoryDrpdwn,
+    sltReportIssueCategoryDrpdwn,
+    reportIssueSubcategoryDrpdwn,
+    sltReportIssueSubcategoryDrpdwn,
+    reportIssueTextArea,
   }
 }
 

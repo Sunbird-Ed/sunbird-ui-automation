@@ -20,7 +20,6 @@ describe('content reviewer is able to Publish/Reject VerifyInDraftReviewAndPubli
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
 
     });
@@ -31,20 +30,11 @@ describe('content reviewer is able to Publish/Reject VerifyInDraftReviewAndPubli
         let collectionName = collectionPageObj.createCollection();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(collectionName)
-        utility.userLogout();
+        tpdPageObj.publishCourseFromUpForReview(collectionName);
+                utility.userLogout();
         utility.userLogin('Creator');
-        tpdPageObj.contentSearchInDraftAndEdit(collectionName);
-        // utility.userLogin('Creator');
-        // let collectionName=collectionPageObj.createCollection();
-        // collectionPageObj.sendForReviewTheCollection();
-        //resourcePageObj.reviewInSubmissions(collectionName);
-        //utility.userLogout();
-        // utility.userLogin('Reviewer');
-        // resourcePageObj.rejectLessonPlan(collectionName)
-        // utility.userLogout();
-        // utility.userLogin('Creator');
-        // resourcePageObj.editTheContentInDraftForCollections();
+      //  tpdPageObj.contentSearchInDraftAndEdit(collectionName);
+      tpdPageObj.updateCollectionAndSendForReviewFromDraft(collectionName);
 
     })
 });

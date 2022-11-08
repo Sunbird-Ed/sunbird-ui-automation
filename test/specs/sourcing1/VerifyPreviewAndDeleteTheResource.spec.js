@@ -27,7 +27,7 @@ describe('Veri that user is able to preview and delete the resource', () => {
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResource();
         resourcePageObj.sendForReviewTheResource();
-        resourcePageObj.previewResource();
+        //resourcePageObj.previewResource();
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);

@@ -64,10 +64,10 @@ const languageVerify = () => {
     browser.sleep(2000);
     browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
     ccpage.contentCreation().headerDropdown.click();
-    browser.wait(protractor.ExpectedConditions.visibilityOf(signUp.logoutInHindi), 20000, "logoutInHindi is not available");
-    signUp.logoutInHindi.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(signUp.loginInHindi), 20000, "logoutInHindi is not available");
+    signUp.loginInHindi.click();
     browser.sleep(2000);
-    //expect(content.userName.isDisplayed()).toBeTruthy(); 
+    expect(content.userName.isDisplayed()).toBeTruthy(); 
 }
 const verifyLocationUpdateForUser = () => {
 
@@ -694,7 +694,6 @@ const navigateToCourseAndSearchForOpenBatch = (courseName) => {
         searchObj.searchIcon.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.searchPublishedCourses), 40000, "searchIcon is not available");
         searchObj.searchPublishedCourses.click();
-
 
     }
     catch (e) {

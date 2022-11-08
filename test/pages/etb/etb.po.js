@@ -116,7 +116,12 @@ var etb = () => {
     var groupFilterContentType = element(by.xpath("//li[contains(text(),'Select Content type')]"));
     var selectFilterContentType = element(by.xpath("//span[contains(text(),'course')]"));
 
-
+    var questionCollType = element(by.xpath("//*[contains(text(),'Collection Type')]/following::sui-select-option[3]/span[2]"));
+    var contentCollType = element(by.xpath("//*[contains(text(),'Collection Type')]/following::sui-select-option[1]/span[2]"));
+    var collectionAppIcon = element(by.id("icon_appIcon"));
+    var collAllImage = element(by.xpath("//a[text()='All Image']"));
+    var collMyImage = element(by.xpath("//a[contains(text(),'My Images')]"));
+    var collAppIcon = element(by.xpath("//div[@class='sb-image-section relative position']//following::img"));
 
 
     return {
@@ -230,6 +235,13 @@ var etb = () => {
         selectFilterSubject,
         groupFilterContentType,
         selectFilterContentType,
+        questionCollType,
+        contentCollType,
+        collectionAppIcon,
+        collAllImage,
+        collMyImage,
+        collAppIcon,
+
     };
 
 };

@@ -7,7 +7,7 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 
 
-describe('verifyDistrictDetailsInProfile', () => {
+describe('verifyCourseCardAttributes', () => {
     
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -24,7 +24,7 @@ describe('verifyDistrictDetailsInProfile', () => {
         browser.manage().deleteAllCookies();
     });
     
-    it('verifyDistrictDetailsInProfile',function(){
+    it('verifyCourseCardAttributes',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');

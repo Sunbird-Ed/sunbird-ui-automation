@@ -23,12 +23,6 @@ describe('Usr is able to search the content in library', () => {
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         var content =  custUTTCCPageObj.searchContentInLibraryAndFetchFirstContent('Book');
-        console.log(content);
         custUTTCCPageObj.navigateToLibraryAndSearchForBook(content);
-       
-      
-       
     });
- 
-     
 });

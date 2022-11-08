@@ -1,3 +1,6 @@
+//const { browser } = require("protractor");
+
+const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const sanityPage = require(protractor.basePath + '/test/pages/userOnBoarding/SanityPage.js');
 const etbPage = require(protractor.basePath + '/test/pages/ETB/EtbPage.js');
 const wait = require(protractor.basePath + '/helper/waiters.js');
@@ -17,6 +20,7 @@ var frme = by.tagName('iframe');
 var san = sanityPage.SanityElement();
 var sanity = sanityPage.SanityElement();
 var tpd = tpdpage.tpdPage();
+
 
 
 
@@ -111,8 +115,6 @@ const editFormEditals = () => {
     } catch (err) {
         console.log(err);
     }
-
-
 }
 
 
@@ -1319,7 +1321,7 @@ const checkBookInDraftSection = () => {
         console.log('User is clicked on start creating button');
         browser.sleep(5000);
         //browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-       // browser.sleep(5000);
+        // browser.sleep(5000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clickUseEditor), 40000, "clickUseEditor is not available");
         etbPage.EtbElem().clickUseEditor.click();
         browser.sleep(1000);
@@ -1756,8 +1758,8 @@ const librarysearchFilter = () => {
                         console.log("User successfully navigated To Library And Search For Book");
                     });
                 });
-             }
-         }
+            }
+        }
         catch (Exception) {
             console.log('Filters are applied but could not get the resultant Content');
         }
@@ -1956,7 +1958,6 @@ const verifyShallowBookInLibrarySection = (ShallowBookName) => {
 
 const verifyLicenceLabelEditPage = () => {
     try {
-        browser.sleep(5000);
 
         browser.sleep(5000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbpage1.etb().editDetails), 30000, "Edit Detials button not available");
@@ -1976,8 +1977,6 @@ const verifyLicenceLabelEditPage = () => {
                 console.log('License Content Displayed in Book Verfied Succesfully')
             }
         });
-
-
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.closeEditPopUp), 20000, "closeEditPopUp button not available");
         etbv.closeEditPopUp.click();
@@ -1990,8 +1989,6 @@ const verifyLicenceLabelEditPage = () => {
     } catch (err) {
         console.log(err);
     }
-
-
 }
 
 const openPublishedpageDownloadQrCodeCsv = () => {
@@ -2204,42 +2201,62 @@ const CheckJoinButtonOptions = () => {
 
     try {
         browser.sleep(1000);
-        console.log('verifying the library search by applying filters');
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().linkCourse), 40000, "headerLibrary is not available");
-        etbPage.EtbElem().linkCourse.click();
 
+        console.log('verifying the library search by applying filters');
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(tpd.searchInput), 20000, "searchInput not available");
+        tpd.searchInput.sendKeys("AutomationCourseContent");
+        tpd.searchIcon.click();
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clickCourse), 40000, "courseToBeClicked is not available");
         etbPage.EtbElem().clickCourse.click();
         browser.sleep(2000);
-        // browser.executeScript('window.scrollTo(0,0);').then(function(){
-        //     console.log('++++++SCROLLED UP+++++');
-        // });
-        browser.wait(protractor.ExpectedConditions.visibilityOf(tpd.firstCourseModule), 40000, "firstCourseModule is not available");
-        tpd.firstCourseModule.click();
+
+        expect(tpd.joinCourse.isDisplayed()).toBeTruthy().then(function () {
+            tpd.joinCourse.click();
+        })
         browser.sleep(2000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(tpd.batchmsg), 40000, "batchmsg is not available");
-        tpd.batchmsg.getText().then(function (input) {
-            expect(input).toEqual("To access the course you have to log in and join the course");
-        });
-        browser.wait(protractor.ExpectedConditions.visibilityOf(tpd.closemsg), 40000, "closemsg is not available");
-        tpd.closemsg.click();
+        tpd.assertCourseloginpopUp.getText().then(function (input) {
+            expect(input).toEqual("To access the course you have to log in and join the course")
+            console.log("login popup msg is validated during join course as a guest user");
+        })
+        browser.sleep(2000);
+        (tpd.loginPopup).getText().then(function (input) {
+            expect(input).toEqual("Login")
+            console.log("Login is validated");
+            tpd.loginPopup.click();
+
+        })
+
+        browser.sleep(1000);
+        //utility.userLoginPopup('public User1');
+        //tpd.joinCourse.click();
+        //browser.sleep(1000);
+        content.userName.sendKeys("usersun@gmail.com");
+        browser.sleep(100);
+        content.password.sendKeys("password");
+        browser.sleep(100);
+        wait.waitForElementVisibility(content.logincourseconsume, 20000);
+        content.logincourseconsume.click();
+        browser.sleep(15000);
+        // tpd.startlearningButton.isDisplayed().toBeTruthy();
+        // browser.executeScript("arguments[0].scrollIntoView();", tpd.batchDetails);
+        // tpd.batchDetails.click();
         browser.sleep(4000);
-        browser.executeScript('window.scrollTo(0,0);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().btnJoinCourse), 40000, "btnJoinCourse is not available");
-        expect(etbPage.EtbElem().btnJoinCourse.isDisplayed()).toBeTruthy();
-        console.log("User successfully navigated To course And Search For course");
-
+        browser.executeScript("arguments[0].scrollIntoView();", tpd.credits);
+        tpd.credits.click();
+        expect(tpd.createdBy.isDisplayed()).toBeTruthy().then(function () {
+            // browser.executeScript("arguments[0].scrollIntoView();", tpd.createdBy);
+            (tpd.createdBy.getText()).then(function (input) {
+                console.log(input);
+                browser.sleep(1000);
+            })
+        })
+        tpd.createdByname.getText().then(function (input1) {
+            console.log("created by" + input1);
+        })
     }
-
-
-
-
     catch (Exception) {
         console.log('Failed on searching course by applying filters');
-
     }
 }
 
@@ -2743,6 +2760,25 @@ const verifyUserAccessLiscenceTerms = () => {
     }
 }
 
+const userLoginPopup = (roleName) => {
+    try {
+        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', roleName);
+        browser.sleep(4000);
+        wait.waitForElementVisibility(content.userName, 20000);
+        content.userName.sendKeys(cred[0]['Username']);
+        browser.sleep(100);
+        content.password.sendKeys(cred[0]['Password']);
+        browser.sleep(100);
+        content.login.click();
+        browser.sleep(3000);
+
+    } catch (Err) {
+        console.error("Failed to user login, " + Err);
+    }
+
+}
+
 
 module.exports = {
     navigateToWorkspace,
@@ -2801,5 +2837,6 @@ module.exports = {
     TVClassSearch,
     verifyUserAccessLiscenceTerms,
     verifyMCSBookPostSearch,
-    publishTheBookFromUpForReview
+    publishTheBookFromUpForReview,
+    userLoginPopup,
 }

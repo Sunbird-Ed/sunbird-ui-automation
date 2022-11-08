@@ -7,56 +7,66 @@ var HtmlReporter = require('protractor-beautiful-reporter');
 exports.config = {
     //seleniumAddress: 'http://localhost:4444/wd/hub',
     directConnect: true,
-    allScriptsTimeout: 100000,
+    // allScriptsTimeout: 100000,
 
     framework: 'jasmine2',
     restartBrowserBetweenTests: false,
     waitForAngularEnabled: false,
     suites: {
 
-        // sanity1: 'test/specs/sanity1/*.spec.js',
-        // sanity2: 'test/specs/sanity2/*.spec.js',
-        // sanity3: 'test/specs/sanity3/*.spec.js',
+        sanity1: 'test/specs/sanity1/*.spec.js',
+        sanity2: 'test/specs/sanity2/*.spec.js',
+        sanity3: 'test/specs/sanity3/*.spec.js',
+        
 
-        // sanity1: 'test/specs/TPDCollobaration/verifyDiscussionForum.spec.js',
+         
+
+        //sanity1: 'test/specs/Consumption/validateContributionSectionInCreatorProfile.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
-        // collaborationAndInteraction: 'test/specs/Consumption/*.spec.js',
+        // sanity1: 'test/specs/sourcing1/VerifyCreationOfMyGroupAndAddMember.spec.js',
+        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
+       //  Consumption: 'test/specs/Consumption/*.spec.js',
 
-        sourcing1: 'test/specs/sourcing1/*.spec.js',
-        sourcing2: 'test/specs/sourcing2/*.spec.js',
-        sourcing3: 'test/specs/sourcing3/*.spec.js',
+        // sourcing1: 'test/specs/sourcing1/*.spec.js',
+        // sourcing2: 'test/specs/sourcing2/*.spec.js',
+        // sourcing3: 'test/specs/sourcing3/*.spec.js',
+        // sourcing21: 'test/specs/so8/*.spec.js',
 
         // TPDCollobration: 'test/specs/TPDCollobaration/*.spec.js',
         // useronboarding: 'test/specs/Consumption/*.spec.js',
         // contentcreation: 'test/specs/content-creation/*.spec.js',
         // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
 
-        // tpd1: 'test/specs/tpd/*.spec.js',
-        // tpd2: 'test/specs/TPD2/*.spec.js',
+        // tpd1: 'test/specs/RemovedScriptSourcing4.2/verifyCopyRightDetails.spec.js',
+        // tpd2: 'test/specs/TPD2/ShareModule.spec.js',
         // tpd3: 'test/specs/TPDCollobaration/*.spec.js',
 
         // ETB: 'test/specs/ETBSpecs/*.spec.js',
         // smoke: 'test/specs/smoke/CreateCourseAndVerify.spec.js',
         // sample- execution
-        //  VerifyHideActionOnEledment1: ['test/specs/tpd/EditCertificateRequirementFromNoToYes.spec.js'],
-        //  VerifyHideActionOnEledment3: ['test/specs/ETBSpecs/copyBookAndSendForReview.spec.js'],
-        //  VerifyHideActionOnElement2: ['test/specs/ETBSpecs/generateQRCode.spec.js'],
-        //  VerifyHideActionOnEledment4: ['test/specs/ETBSpecs/VerifyCopyRightDetails.spec.js'],
-        //  searchSelfAssesmentInLibSearch: ['test/specs/ETBSpecs/CreateBookInRegionalLanguageUsingTOCUploadAndDownload.spec.js'],
-        //  VerifyHideActionOnEledment5: ['test/specs/ETBSpecs/DownloadQrcodeInDraftPublishedAndLimitedSharing.spec.js'],
+        // VerifyHideActionOnEledment1: ['test/specs/tpd/EditCertificateRequirementFromNoToYes.spec.js'],
+        // VerifyHideActionOnEledment3: ['test/specs/ETBSpecs/copyBookAndSendForReview.spec.js'],
+        // VerifyHideActionOnElement2: ['test/specs/ETBSpecs/generateQRCode.spec.js'],
+        // VerifyHideActionOnEledment4: ['test/specs/ETBSpecs/VerifyCopyRightDetails.spec.js'],
+        // searchSelfAssesmentInLibSearch: ['test/specs/ETBSpecs/CreateBookInRegionalLanguageUsingTOCUploadAndDownload.spec.js'],
+        // VerifyHideActionOnEledment5: ['test/specs/ETBSpecs/DownloadQrcodeInDraftPublishedAndLimitedSharing.spec.js'],
         // GuestProfileVerification: ['test/specs/Consumption/GuestProfileVerification.spec.js'],
         // OnBoardingCardWithoutLogin: ['test/specs/Consumption/OnBoardingCardWithoutLogin.spec.js'],
         // SelectedPreferenceInProfileSection: ['test/specs/Consumption/SelectedPreferenceInProfileSection.spec.js'],
         // NavigateToTabUsingKeyBoard: ['test/specs/Consumption/NavigateToTabUsingKeyBoard.spec.js'],
-        // VerifySchoolHeadInsteadOfAdministratorInEditProfilePage: ['test/specs/Consumption/VerifySchoolHeadInsteadOfAdministratorInEditProfilePage.spec.js'],
-        //BrowseSubjectAndCategoriesInHomeTab: ['test/specs/sanity2/CreateBookAndVerify.spec.js'],
-        //   BrowseSectionInExplorePage: ['test/specs/sanity3/CreateOpenBatchCourseForPublicUser.spec.js'],
+        // TimerVerification: ['test/specs/sanity2/TimerVerification.spec.js'],
+        // ploadContentTypeMp4AndVerify: ['test/specs/sanity3/UploadContentTypeMp4AndVerify.spec.js'],
+        // UploadContentTypeWebmAndVerify: ['test/specs/sanity2/UploadContentTypeWebmAndVerify.spec.js'],
+
+        // TimerVerification: ['test/specs/sanity2/SearchTVLesonTypeContent.spec.js'],
+       // // PublishTVLessonResource: ['test/specs/sanity1/PublishTVLessonResource.spec.js'],
+    //    CreateQuestionAndVerify: ['test/specs/Consumption/SchoolHeadRoleInLocationPopupAndRolePopup.spec.js'],
 
     },
     allScriptsTimeout: 40000,
 
     // suites: {
-    //     contentcreation: 'test/specs/content-creation/*.spec.js',
+    //     contentcreation: 'test/specs/content-creation/*.spec.js',`
     //     sanity: 'spec/sanitytests/*.js',
     //     full: 'spec/*.js'
 
@@ -69,7 +79,7 @@ exports.config = {
         version: '78.0.3904.108',
         platform: 'Any',
         shardTestFiles: true,
-        maxInstances: 2,
+        maxInstances: 1,
         chromeOptions: {
             prefs: {
                 profile: {

@@ -39,7 +39,7 @@ describe('ConsentPopupShouldNotDisplayForMinorUserWhileJoiningCourse', () => {
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('MinorUser');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.consentPopupShouldNotDisplayForMinorUser();
         tpdPageObj.unenrollFromBatch();

@@ -4,6 +4,7 @@ const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js')
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
+const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
 describe('AddETextBookContentAndConsume.', () => {
 

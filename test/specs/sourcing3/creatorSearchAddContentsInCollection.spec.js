@@ -1,8 +1,10 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const useronBoard = require(protractor.basePath+'/test/pageObject/UserOnBoardingPageObj.js');
+const collectionPageObj = require(protractor.basePath+'/test/pageObject/collectionPageObj.js');
+const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 
-describe('VerifySchoolHeadInsteadOfAdministratorInEditProfilePage', () => {
+describe('creatorSearchAddContentsInCollection', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -12,19 +14,24 @@ describe('VerifySchoolHeadInsteadOfAdministratorInEditProfilePage', () => {
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
        
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
+        utility.userLogout();
         browser.manage().deleteAllCookies();
+        
     });
-    it('VerifySchoolHeadInsteadOfAdministratorInEditProfilePage',function(){
+    it('creatorSearchAddContentsInCollection ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        useronBoard.clkProfileForGuestUsers();
+        utility.userLogin('Creator');
+        let collectionName=collectionPageObj.SearchAddContentInCollection();
         
-      
+        
     })
+
     
+   
 });
+   

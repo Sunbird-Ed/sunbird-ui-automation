@@ -1,9 +1,8 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
+const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js');
 
-describe('copyBookAndSendForReview', () => {
+describe('Copy Content From Library', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -14,27 +13,20 @@ describe('copyBookAndSendForReview', () => {
         browser.driver.manage().window().maximize(); 
        
     });
-
-
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+        //utility.userLogout();
         browser.manage().deleteAllCookies();
+        
     });
+    
     it('copyBookAndSendForReview',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        browser.sleep(3000);
         utility.userLogin('Creator');
-        //clicked on copy button twice as first time its not working(app issue)
-        etbFun.clickFirstBookAndCopyInLibrary();
-        etbPageObj.sendForReviewTheBook();
-       
-        
-    })
-    
-    
-
- 
+        var Book = "BookA";
+        sanityFun.copyContentFromLib(Book);
+    });
 });
    
+

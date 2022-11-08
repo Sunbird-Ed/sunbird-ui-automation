@@ -1186,12 +1186,6 @@ const verifyUserAccessLiscenceTerms = () => {
 }
 
 
-
-
-
-
-
-
 module.exports = {
     createBook,
     sendForReviewTheBook,

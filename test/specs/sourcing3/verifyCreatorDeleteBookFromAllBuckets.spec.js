@@ -33,10 +33,10 @@ describe('verifyCreatorDeleteBookFromAllBuckets', () => {
         utility.userLogout();
       
         utility.userLogin('Creator');
-        //let bookName ="Book";
+        let bookName ="Book";
         lspPageObj.deleteCreatedItem(bookName);
-        //lspPageObj.searchAnddeleteDraftItems(bookName);
-        //lspPageObj.searchAnddeleteAllMyContentItems(bookName);
+        lspPageObj.deleteDraftItems();
+        lspPageObj.searchAnddeleteAllMyContentItems(bookName);
        
         
         

@@ -13,11 +13,8 @@ describe('VerifyCreationOfBatch', () => {
         var AppendExplore = '/explore';
         browser.get(Url + AppendExplore, 40000);
         browser.manage().deleteAllCookies();
-
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
-
-
     });
 
     afterEach(() => {
@@ -25,6 +22,7 @@ describe('VerifyCreationOfBatch', () => {
         //  utility.userLogout();
         browser.manage().deleteAllCookies();
     });
+
     it('VerifyCreationOfBatch', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
@@ -38,7 +36,7 @@ describe('VerifyCreationOfBatch', () => {
         utility.userLogout();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        //EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
+        //   EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
         //   EnrollTBFCPageObj.createOpenBatchWithEnrolmentDate();
         EnrollTBFCPageObj.createOpenBatch();
 
@@ -57,12 +55,5 @@ describe('VerifyCreationOfBatch', () => {
         // lspPageObj.deleteCreatedItems();
 
 
-
-
-
     })
-
-
-
-
 });

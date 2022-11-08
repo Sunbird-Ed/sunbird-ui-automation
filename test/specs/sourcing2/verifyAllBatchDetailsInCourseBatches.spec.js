@@ -28,8 +28,6 @@ describe('Course creator should have two section under "Courses Batches" :1.Crea
         utility.userLogin('Creator');
         utility.validateWorkspace();
         let courseName=sanityfun.createCourseAndSendForReview();
-        // tpdPageObj.createCourse();
-        // let courseName=tpdPageObj.sendForReviewCourseWithName();
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
@@ -37,33 +35,21 @@ describe('Course creator should have two section under "Courses Batches" :1.Crea
         utility.userLogout();
         utility.userLogin('Creator');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        tpdPageObj.batchNameAndEndDateIsMandatoryFields();
-        tpdPageObj.createOpenBatchWithEnrolmentDate();
-        tpdPageObj.createUpcomingOpenBatchForCourse();
+        tpdPageObj.createOpenBatch();
         utility.userLogout();
         utility.userLogin('Public User1');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         let fetchCoursename =tpdPageObj.enrollForOpenBatch();
         utility.userLogout();
         utility.userLogin('Creator');
-        tpdPageObj.navigateToWorkspaceFeatures('COURSE_BATCHES');
-        tpdPageObj.validateCourseInAssigToMeSection();
-        tpdPageObj.navigateToWorkspaceFeatures('COURSE_BATCHES');
+        tpdPageObj.navigateToWorkspaceFeatures();
+        tpdPageObj.validateCourseInAssigToMeSection(courseName);
+        tpdPageObj.navigateToWorkspaceFeatures();
         tpdPageObj.verifyCourseInOnGoingBatchSection();
         tpdPageObj.updateBatches();
         tpdPageObj.validateAllBatches();
-        utility.userLogout();
-        utility.userLogin('Mentor');
-        tpdPageObj.navigateToWorkspaceFeatures('COURSE_BATCHES');
-        tpdPageObj.updateBatches();
-        tpdPageObj.verifyBatchEditingFromExpiredCoursesSection();
-        tpdPageObj.verifyPagenation('onGoingViewAll');
-        tpdPageObj.validationMsgWhileAddingMoreThan100Members();
-       
+        
     });
-    
-    
-
  
 });
    

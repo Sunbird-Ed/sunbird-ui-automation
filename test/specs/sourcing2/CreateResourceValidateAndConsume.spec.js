@@ -18,7 +18,6 @@ describe('content creator is able to access the resource section to create resou
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();   
         browser.manage().deleteAllCookies();
     });
     it('CreateResourceValidateAndConsume',function(){
@@ -30,10 +29,7 @@ describe('content creator is able to access the resource section to create resou
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
-        utility.userLogout();
-        utility.userLogin('Creator');
-        utility.validateWorkspace();
-        lessonPlanPageObj.deleteCreatedItems();   
+      
 
     })
 

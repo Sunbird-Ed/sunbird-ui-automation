@@ -22,17 +22,12 @@ describe('Create Course save and send for review and publish.', () => {
         browser.manage().deleteAllCookies();
         
     });
+    
     it('CourseFrameworkValidation',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        utility.validateWorkspace();
-        let courseName=sanityfun.createCourseAndSendForReview();
-      
-       
+        utility.userLogin('ContentCreator');
+        sanityfun.createCourseForFrameworkWithTopicAndSubject("k12"); 
     })
-
-   
-   
 });
    

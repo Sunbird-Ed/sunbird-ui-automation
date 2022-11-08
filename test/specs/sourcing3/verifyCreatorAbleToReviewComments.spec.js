@@ -4,7 +4,7 @@ const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.
 const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPageObj.js');
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
-describe('createBookAndReject', () => {
+describe('verifyCreatorAbleToReviewComments', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -23,7 +23,7 @@ describe('createBookAndReject', () => {
 
     });
     
-    it('createBookAndReject', function () {
+    it('verifyCreatorAbleToReviewComments', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');

@@ -1,4 +1,4 @@
-const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
+ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
@@ -25,7 +25,7 @@ describe('Create SelfAssesmentCourse save and send for review and publish.', () 
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        //utility.validateWorkspace();
         let courseName=tpdPageObj.createCourseAssessment();
         tpdPageObj.sendForReviewTheCourseAssessment();
         utility.userLogout();

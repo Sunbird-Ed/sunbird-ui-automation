@@ -1,3 +1,5 @@
+//const { browser } = require("protractor");
+
 const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
 const etbpage = require(protractor.basePath + '/test/pages/ETB/etb.po.js');
 const data = require(protractor.basePath + '/test/testdata/login/login.td.json');
@@ -8,6 +10,8 @@ var etbv = etbpage.etb();
 const sanityPage = require(protractor.basePath + '/test/pages/userOnBoarding/SanityPage.js');
 const resourcePag = require(protractor.basePath + '/test/pages/resource/resource.po.js');
 var resov = resourcePag.resource();
+const tpdPage = require(protractor.basePath + '/test/pages/tpdPage/tpdpage.po.js');
+var searchObj = tpdPage.tpdPage();
 
 
 const createLessonPlan = () => {
@@ -309,7 +313,7 @@ const deleteAllMyContentItems = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.allMyContent), 20000, "allMyContent page not loaded");
         content.allMyContent.click();
         browser.sleep(2000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteAllMyContent), 20000, "  deleteButton is not available");
         content.searchCoursesUpForReview.getText().then(function (input) {
             name = input;
             console.log(name);
@@ -319,8 +323,8 @@ const deleteAllMyContentItems = () => {
         });
 
         browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
-        content.deleteButton.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteAllMyContent), 20000, "  deleteButton is not available");
+        content.deleteAllMyContent.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.yesButtonPopup), 20000, "yesButtonPopup is not available");
         content.yesButtonPopup.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.toastMsg), 20000, "toastmsg is not available");
@@ -454,7 +458,7 @@ const searchAnddeleteAllMyContentItems = (content) => {
         browser.executeScript('window.scrollTo(0,0);').then(function () {
             console.log('++++++SCROLLED up+++++');
         });
-        browser.executeScript("arguments[0].scrollIntoView();", resov.allMyContent);
+        // browser.executeScript("arguments[0].scrollIntoView();", resov.allMyContent);
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.allMyContent), 40000, "drafts is not available");
         resov.allMyContent.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchForReview), 20000, "allMyContent page not loaded");
@@ -578,6 +582,67 @@ const searchAnddeleteDraftItemsWithWorkspace = (content) => {
     }
 }
 
+const deleteUploadContent = () => {
+    // var name;
+    try {
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+                 console.log('++++++SCROLLED up+++++');
+        })         
+        browser.sleep(3000);
+        console.log("User is trying to delete Items which are created");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.clkUploadBucket), 20000, "published page not loaded");
+        content.clkUploadBucket.click();
+        browser.sleep(2000);
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
+        content.deleteButton.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.yesButtonPopup), 20000, "yesButtonPopup is not available");
+        content.yesButtonPopup.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.toastMsg), 20000, "toastmsg is not available");
+        content.toastMsg.getText().then(function(input){
+            console.log(input);
+            expect(input).toEqual("Content deleted successfully...");
+            });
+
+        console.log("Created content is successfully deleted from Published");
+    
+    }
+    catch (exception) {
+        console.log("Failed to delete Items ");
+    }
+}
+
+const verifyConsentPopup = (content) => {
+    try {
+      browser.sleep(2000);
+      console.log("User is trying to validate consent popup");
+      browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+      sanityPage.SanityElement().clkLibraray.click();
+      browser.sleep(2000);
+      sanityPage.SanityElement().searchConLib.click();
+      browser.sleep(2000);
+      sanityPage.SanityElement().searchConLib.sendKeys(content);
+      browser.sleep(2000);
+      sanityPage.SanityElement().clkSearchLib.click();
+      browser.sleep(5000);
+      content.sltCourseCard.click();
+      browser.sleep(2000);
+      searchObj.joinCourse.click();
+      browser.sleep(2000);
+      browser.executeScript("arguments[0].scrollIntoView();", searchObj.doNotShare);
+      searchObj.doNotShare.click();
+
+    }
+    catch (Exception) {
+      console.log("Failed to validate consent popup");
+    }
+  }
 
 
 
@@ -596,6 +661,8 @@ module.exports = {
     searchAnddeleteAllMyContentItems,
     searchAnddeleteDraftItems,
     searchAnddeleteDraftItemsWithWorkspace,
+    deleteUploadContent,
+    verifyConsentPopup,
 
 
 }

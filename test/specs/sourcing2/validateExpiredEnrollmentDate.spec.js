@@ -1,20 +1,17 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
-const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js');
+const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 
-describe('createResourceAndSaveInDraft', () => {
+describe('validateExpiredEnrollmentDate', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
-
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
-        browser.driver.manage().window().maximize(); 
-       
+        browser.driver.manage().window().maximize();
     });
 
     afterEach(() => {
@@ -22,16 +19,12 @@ describe('createResourceAndSaveInDraft', () => {
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('createResourceAndSaveInDraft',function(){
+
+    it('validateExpiredEnrollmentDate',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        let resourceName=resourcePageObj.createResource();
-        console.log(resourceName);
-        resourcePageObj.sendForReviewTheResource();
-        utility.userLogout();
-        utility.userLogin('Creator');
-        resourcePageObj.contentSearchInDraftAndEditAndValidate(resourceName);
+        utility.userLogin('Public User1');
+        tpdPageObj.validateEndEnrollmentDate();
     })
 });
    

@@ -17,7 +17,7 @@ describe('able to addCollaborator and callobarator can edit and sendforreview ,c
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+       // utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('AddMultipleCollaboratorAndVerify',function(){
@@ -28,6 +28,7 @@ describe('able to addCollaborator and callobarator can edit and sendforreview ,c
         addMCAVPageObj.searchCollaboratorBySearchField(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
+       
         addMCAVPageObj.checkTheCourseInReviewSubmision(courseName);
       
     })

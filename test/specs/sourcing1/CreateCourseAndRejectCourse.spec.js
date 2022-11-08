@@ -5,7 +5,7 @@ const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageO
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js')
 const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
 
-describe('After Rejecting course Add New Resource , again publish', () => {
+describe('CreateCourseAndRejectCourse', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;

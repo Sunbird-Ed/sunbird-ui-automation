@@ -1,3 +1,5 @@
+const { element } = require("protractor");
+
 var signUpPage = () => {
 
     var loginButton = element(by.xpath("//a[contains(text(),'Login')]"));
@@ -68,6 +70,10 @@ var signUpPage = () => {
     var closeIcon = element(by.xpath("//i[contains(@class,'close icon')]"));
     var logoutInHindi = element(by.xpath("//li[contains(text(),' लॉग आउट ')]"));
     var tenantFramework = element(by.xpath("//sui-select[contains(@class,'selection sbt-dropdown sbt-dropdown-bold')]/div/span[2]"));
+    
+    var loginInHindi = element(by.xpath("//a[text()=' लाॅग इन ']"));
+    
+    
     return {
         loginButton,
         username,
@@ -137,6 +143,7 @@ var signUpPage = () => {
         closeIcon,
         logoutInHindi,
         tenantFramework,
+        loginInHindi,
 
 
 

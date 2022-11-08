@@ -14,6 +14,7 @@ describe('Create Book save and send for review and publish.', () => {
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
 
+
     });
 
     afterEach(() => {
@@ -26,11 +27,14 @@ describe('Create Book save and send for review and publish.', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        let bookName = sanityfun.createBook();
+        let bookName= sanityfun.createBook();
         utility.userLogout();
-        utility.userLogin('Creator');
-        //utility.validateWorkspace();
-        lspPageObj.deleteCreatedItems();
+        utility.userLogin('Reviewer');
+        tpdPageObj.publishCourseFromUpForReview(bookName)
+        utility.userLogout();
+       utility.userLogin('Creator');
+       utility.validateWorkspace();
+       lspPageObj.deleteCreatedItems();
     })
 });
 

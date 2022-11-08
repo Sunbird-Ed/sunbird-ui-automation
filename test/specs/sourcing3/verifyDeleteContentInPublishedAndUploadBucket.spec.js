@@ -1,11 +1,12 @@
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
-const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
+const collectionPageObj = require(protractor.basePath + '/test/pageObject/collectionPageObj.js');
 const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPageObj.js');
-const resourcePageObj = require(protractor.basePath + '/test/pageObject/resourcePageObj.js')
-const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
+const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
+const CreateIOBBAMAMFRASPageObj = require(protractor.basePath+'/test/pageObject/contentCreationPageObj.js');
 
-describe('VerifyCreateCourseForFrameworks', () => {
+describe('verifyDeleteContentInPublishedAndUploadBucket', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -14,6 +15,7 @@ describe('VerifyCreateCourseForFrameworks', () => {
         browser.get(Url + AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
+
     });
 
     afterEach(() => {
@@ -22,15 +24,23 @@ describe('VerifyCreateCourseForFrameworks', () => {
         browser.manage().deleteAllCookies();
 
     });
-    it('VerifyCreateCourseForFrameworks', function () {
+
+    it('verifyDeleteContentInPublishedAndUploadBucket', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('ContentCreator');
-        // utility.validateWorkspace();
-        sanityfun.createCourseForFramework("k12");
+        utility.userLogin('Creator');
+        let collectionName = collectionPageObj.createCollectionWithDiffCollectionTypes("digitalTxtbook");
         utility.userLogout();
-        utility.userLogin('ContentCreator');
-        sanityfun.createCourseForFramework("CPD");
+        utility.userLogin('Reviewer');
+        tpdPageObj.publishCourseFromUpForReview(collectionName);
+        utility.userLogout();
+        utility.userLogin('Creator');
+        lspPageObj.deleteCreatedItems(collectionName);
+        lspPageObj.deleteUploadContent();
+
     })
 });
+
+
+
 

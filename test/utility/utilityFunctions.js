@@ -1,4 +1,4 @@
-const { browser } = require("protractor");
+//const { browser } = require("protractor");
 
 const genericFun = require(protractor.basePath + '/test/genericFunctions/GenericFunction.js');
 let getExcelPath = require(protractor.basePath + '/test/pathFolder/changePath.js');
@@ -32,7 +32,7 @@ const userLogin = (roleName) => {
         wait.waitForElementVisibility(content.headerDropdown1, 20000);
         content.headerDropdown1.click();
         browser.sleep(300);
-        browser.executeScript("arguments[0].scrollIntoView();",content.loginLink);
+        browser.executeScript("arguments[0].scrollIntoView();", content.loginLink);
         browser.sleep(200);
         wait.waitForElementVisibility(content.loginLink, 20000);
         content.loginLink.click();
@@ -79,9 +79,10 @@ const handleLocationPopup = () => {
         browser.sleep(500);
         wait.waitForElementVisibility(content.Teacher, 30000);
         content.Teacher.click();
+        browser.sleep(3000);
         wait.waitForElementVisibility(content.Continue, 20000);
         content.Continue.click();
-        browser.sleep(500);
+        browser.sleep(4000);
 
         // wait.waitForElementVisibility(content.state, 20000);
         // content.state.click();
@@ -92,11 +93,11 @@ const handleLocationPopup = () => {
         // wait.waitForElementVisibility(content.selectDistrict, 20000);
         // content.selectDistrict.click();
         // browser.sleep(2000);
-        browser.executeScript("arguments[0].scrollIntoView();",content.submitForm);
+        browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
         browser.sleep(200);
-
         wait.waitForElementVisibility(content.submitForm, 20000);
         content.submitForm.click();
+
     } catch (err) {
         console.error("Failed to handle location pop up, " + err);
     }
@@ -112,7 +113,7 @@ const userLogout = () => {
         wait.waitForElementVisibility(content.headerDropdown, 20000);
         content.headerDropdown.click();
         browser.sleep(300);
-        browser.executeScript("arguments[0].scrollIntoView();",content.logout);
+        browser.executeScript("arguments[0].scrollIntoView();", content.logout);
         browser.sleep(200);
         wait.waitForElementVisibility(content.logout, 20000);
         content.logout.click();
@@ -167,19 +168,19 @@ const mergeAccount = (roleName) => {
         console.error("failed to merge account, " + Exception);
     }
 }
-const validateDifferentStateUrl =(state)=>{
-    try{
+const validateDifferentStateUrl = (state) => {
+    try {
         console.log("User is trying to validate different state");
-        var Url=getAppURL.ConfigurePath().AppURL;
-        var AppendExplore="/"+state+"/";
-        browser.get(Url+AppendExplore, 40000);
+        var Url = getAppURL.ConfigurePath().AppURL;
+        var AppendExplore = "/" + state + "/";
+        browser.get(Url + AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
-        browser.driver.manage().window().maximize(); 
+        browser.driver.manage().window().maximize();
         browser.sleep(1000);
         console.log("User successfully validated different state");
-    }catch(err){
+    } catch (err) {
         console.error("User failed to validate different state");
-    }      
+    }
 }
 
 const handleLocationPopupForOtherExplorer = () => {
@@ -202,7 +203,7 @@ const handleLocationPopupForOtherExplorer = () => {
         content.selectDistrict.click();
         wait.waitForElementVisibility(content.btnSubmit, 20000);
         content.btnSubmit.click();
-       
+
     } catch (err) {
         console.error("Failed to handle location pop up, " + err);
     }
@@ -223,20 +224,18 @@ const userLogoutForGoogle = () => {
         console.error("failed to log out, " + err);
     }
 }
-const validateSecondTimeLocationPopup=()=>{
-    try
-    {
+const validateSecondTimeLocationPopup = () => {
+    try {
         console.log("User is trying to validateSecondTimeLocationPopup");
         wait.waitForElementVisibility(content.headerDropdown, 30000);
-        content.headerDropdown.isDisplayed().then(function(input){
+        content.headerDropdown.isDisplayed().then(function (input) {
             expect(input.toBeTruthy);
             console.log("location popup didn't came second time");
         });
         console.log("User successfully validatedSecondTimeLocationPopup");
     }
-    catch(err)
-    {
-    console.error("failed to validate second time location popup");
+    catch (err) {
+        console.error("failed to validate second time location popup");
     }
 }
 const handleLocationPopupAsStudent = () => {
@@ -287,40 +286,49 @@ const handleLocationPopupAsOther = () => {
         console.error("Failed to handle location pop up, " + err);
     }
 }
-const handleDropDown=()=>{
-    try{
-        browser.sleep(5000);
+
+const handleDropDown = () => {
+    try {
+
+     
+        browser.sleep(9000);
+        wait.waitForElementVisibility(content.boardSelection, 30000);
+        content.boardSelection.click();
+        browser.sleep(3000);
         wait.waitForElementVisibility(content.boardDropdown, 30000);
         content.boardDropdown.click();
-        browser.sleep(5000); 
+        browser.sleep(3000);
         wait.waitForElementVisibility(content.selectBoardValue, 30000);
         content.selectBoardValue.click();
-        browser.sleep(11000); 
+        browser.sleep(11000);
         wait.waitForElementVisibility(content.mediumDropdown, 30000);
         content.mediumDropdown.click();
-        browser.sleep(3000); 
+        browser.sleep(3000);
         wait.waitForElementVisibility(content.selectMediumValue, 30000);
         content.selectMediumValue.click();
-        browser.sleep(4000); 
+        browser.sleep(4000);
         wait.waitForElementVisibility(content.gradeLevelDropDown, 30000);
         content.gradeLevelDropDown.click();
-        browser.sleep(3000); 
+        browser.sleep(3000);
         wait.waitForElementVisibility(content.selectGradeLevelValue, 30000);
         content.selectGradeLevelValue.click();
-        browser.sleep(2000); 
+        browser.sleep(2000);
         // wait.waitForElementVisibility(content.subjectDropdown, 30000);
         // content.subjectDropdown.click();
-        // browser.sleep(1000); 
+        // browser.sleep(1000);
         // wait.waitForElementVisibility(content.selectSubjectValue, 30000);
         // content.selectSubjectValue.click();
-        // browser.sleep(1000); 
+        // browser.sleep(1000);
         wait.waitForElementVisibility(content.submitButtonForDropdowns, 30000);
         content.submitButtonForDropdowns.click();
-        browser.sleep(1000); 
-    }catch(err){
+        browser.sleep(1000);
+    } catch (err) {
         console.log(err);
     }
 }
+
+
+
 const handleLocationPopupForSchoolHead = () => {
     try {
         // wait.waitForElementVisibility(content.sunbirdOkMsg, 30000);
@@ -343,7 +351,7 @@ const handleLocationPopupForSchoolHead = () => {
         // wait.waitForElementVisibility(content.selectDistrict, 20000);
         // content.selectDistrict.click();
         // browser.sleep(2000);
-        browser.executeScript("arguments[0].scrollIntoView();",content.submitForm);
+        browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
         browser.sleep(2000);
 
         wait.waitForElementVisibility(content.submitForm, 20000);
@@ -353,8 +361,35 @@ const handleLocationPopupForSchoolHead = () => {
     }
 }
 
+const userLoginPopup = (roleName) => {
+    try {
+        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', roleName);
+        browser.sleep(4000);
+        // wait.waitForElementVisibility(content.headerDropdown1, 20000);
+        // content.headerDropdown1.click();
+        // browser.sleep(300);
+        // browser.executeScript("arguments[0].scrollIntoView();", content.loginLink);
+        browser.sleep(200);
+        wait.waitForElementVisibility(content.loginLink, 20000);
+        content.loginLink.click();
+        browser.sleep(300);
+        wait.waitForElementVisibility(content.userName, 20000);
+        content.userName.sendKeys(cred[0]['Username']);
+        browser.sleep(100);
+        content.password.sendKeys(cred[0]['Password']);
+        browser.sleep(100);
+
+        content.login.click();
+        browser.sleep(3000);
+        
+    } catch (Err) {
+        console.error("Failed to user login, " + Err);
+}
+}
 module.exports = {
     verifyAdminDashBoard,
+    userLoginPopup,
     handleDropDown,
     userLogin,
     handleLocationPopup,
@@ -370,4 +405,3 @@ module.exports = {
     handleLocationPopupAsOther,
     handleLocationPopupForSchoolHead,
 }
-

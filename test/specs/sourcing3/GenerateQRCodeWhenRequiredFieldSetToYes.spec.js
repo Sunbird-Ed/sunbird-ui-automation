@@ -29,10 +29,6 @@ describe('GenerateQRCodeWhenRequiredFieldSetToYes', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        // let bookName= sanityFun.createBook();
-        // console.log(bookName);
-        //etbPageObj.editFormEditals();
-        // sanityFun.generateAndDownlaodQrCode();
         sanityFun.generateQRCodeswithYesButton();
         sanityFun.downloadQRCode2();
     })

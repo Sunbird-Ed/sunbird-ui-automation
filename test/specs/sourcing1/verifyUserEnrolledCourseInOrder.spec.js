@@ -26,6 +26,7 @@ describe('Course Enrolled By the user should dispay in descending order', () => 
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         let courseName=sanityfun.createCourseAndSendForReview();
+        console.log(courseName);
         // EnrollTBFCPageObj.createCourse();
         // let coursename=EnrollTBFCPageObj.sendForReviewCourseWithName();
         utility.userLogout();
@@ -34,16 +35,16 @@ describe('Course Enrolled By the user should dispay in descending order', () => 
         utility.userLogout();
         utility.userLogin('Mentor');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
-        EnrollTBFCPageObj.createOpenBatchWithEnrolmentDate();
+        EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
+        //let courseName = "courseCDoris";
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.enrollForOpenBatch();
         EnrollTBFCPageObj.checkTheCourseInMyCourseSection(courseName);
-        EnrollTBFCPageObj.navigateToCourseAndSearch(courseName);
-        EnrollTBFCPageObj.ClickOnviewAllAndSearch(courseName)
-        EnrollTBFCPageObj.applyFilterinAllMyContent();
+        //EnrollTBFCPageObj.navigateToCourseAndSearch(courseName);
+        //EnrollTBFCPageObj.ClickOnviewAllAndSearch(courseName)
+        //EnrollTBFCPageObj.applyFilterinAllMyContent();
         utility.userLogout();
         utility.userLogin('Mentor');
         lspPageObj.deleteCreatedItems();

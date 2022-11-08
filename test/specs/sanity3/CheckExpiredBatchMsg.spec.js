@@ -17,16 +17,15 @@ describe('CheckExpiredBatchMsg', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('CheckExpiredBatchMsg ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        let courseName="CourseAMathew";
         utility.userLogin('Public User1');
-        tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        tpdPageObj.enrollForexpiredBatch();
+        
+        tpdPageObj.navigateToCourseAndSearchExpiredBatches();
+     
        
 
         

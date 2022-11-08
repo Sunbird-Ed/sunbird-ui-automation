@@ -1,9 +1,8 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
-const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const resource = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
 
-describe('CheckUpcomingBatchesMessage', () => {
+describe('HomePageDisplayedOnClickCloseBtnFromBrowseBtCategory', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -13,27 +12,20 @@ describe('CheckUpcomingBatchesMessage', () => {
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
        
+    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('CheckUpcomingBatchesMessage ',function(){
+    it('SelectDifferentFiltersAndVerifyFiltersRetainedInAllTheTabs',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        let courseName="CourseATeresa";
-        utility.userLogin('Public User1');
-        tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        tpdPageObj.enrollForUpcomingOpenBatch();
-       
-
+        utility.userLogin('Creator');
+        resource.filterRetainedInAllTabs();
         
-        
+      
     })
-
-   
-   
+    
 });
-   

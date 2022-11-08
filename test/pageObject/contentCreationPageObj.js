@@ -1,3 +1,4 @@
+//const { browser } = require("protractor");
 const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
 const etbpage = require(protractor.basePath + '/test/pages/ETB/etb.po.js');
 const tpdPage = require(protractor.basePath + '/test/pages/tpdPage/tpdpage.po.js');
@@ -160,7 +161,7 @@ const applyFilterInLibrarySection = () => {
 
 }
 const searchContentInLibraryAndFetchFirstContent = (userData) => {
-  var searchContent;
+  var searchContent1;
   try {
     console.log("User is trying to navigate To Library And Search Content anf fetch the first one");
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerLibrary), 20000, "headerLibrary is not available");
@@ -173,9 +174,11 @@ const searchContentInLibraryAndFetchFirstContent = (userData) => {
     browser.sleep(1000);
     content.searchIcon.click();
     browser.sleep(8000);
-    searchContent = content.searchedCard.getText().then(function (value) {
+    var searchContent = content.searchedCard.getText().then(function (value) {
       console.log(value);
     })
+    var searchContent1=Promise.resolve(searchContent);
+    
 
     //  expect(content.searchedCard.getText()).toEqual('Book');
 
@@ -185,22 +188,23 @@ const searchContentInLibraryAndFetchFirstContent = (userData) => {
   catch (Exception) {
     console.log("Failed to navigate To Library And Search Content anf fetch the first one.");
   }
-  return searchContent;
+  return searchContent1 ;
 }
 
 const navigateToLibraryAndSearchForBook = (bookname) => {
 
   try {
+    browser.sleep(5000);
     console.log("User is trying to navigate To Library And Search For Book");
     content.headerLibrary.click();
     browser.sleep(1000);
     content.filterSearch.sendKeys(bookname);
     content.searchIcon.click();
     browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchedCard), 20000, "courseCard is not available");
-    var result = content.searchedCard.getText();
-    content.searchedCard.click();
-    expect(result).toEqual(bookname);
+    //browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchedCard), 20000, "courseCard is not available");
+    // var result = content.searchedCard.getText();
+    // content.searchedCard.click();
+    // expect(result).toEqual(bookname);
 
     console.log("User successfully verified the Book : " + bookname);
     console.log("User successfully navigated To Library And Search For Book");
@@ -256,10 +260,14 @@ const checkConsumptionStatus = (status) => {
     console.log("failed to check consumption status");
   }
 }
-const enrollmentDateEnded = (contentName) => {
+const enrollmentDateEnded = () => {
 
   try {
     console.log("User is trying to Enroll the Course But EnrollDate Is Ended");
+
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    var contentName = cred[7]['CourseName'];
 
     browser.sleep(2000);
     browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.headerCourse), 20000, " headerCourse not loaded");
@@ -1364,7 +1372,7 @@ const searchedContentsDefaultALLtab = (contentData) => {
     content.searchIcon.click();
     browser.sleep(8000);
     searchedMenu = content.allTab.getText().then(function (value) {
-      console.log("Content searched under "+value+" tab.");
+      console.log("Content searched under " + value + " tab.");
     })
     console.log("User is able to get the name of searched content in default ALL tab menu")
 
@@ -1373,6 +1381,231 @@ const searchedContentsDefaultALLtab = (contentData) => {
     console.log("Failed to searched content in default All tab.");
   }
   return searchedMenu;
+}
+
+
+
+const consumeContent = () => {
+  try {
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    var do_id = cred[40]['CourseName'];
+    browser.sleep(2000);
+    console.log("User is trying to consume content");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+    sanityPage.SanityElement().clkLibraray.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
+    browser.sleep(2000);
+    sanityPage.SanityElement().clkSearchLib.click();
+    browser.sleep(1000);
+    content.courseCard.click();
+    browser.sleep(1000);
+    content.zoomIn.click();
+    browser.sleep(1000);
+    for (i = 0; i < 9; i++) {
+      sanityPage.SanityElement().pdfArrowButton.click();
+    }
+    browser.sleep(2000);
+    (content.assertConsume).getText().then(function (input) {
+      console.log(input + " consuming the content.");
+    })
+    content.zoomOut.click();
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "save never loaded");
+    // searchObj.starRating.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.submitRating), 20000, "save never loaded");
+    // searchObj.submitRating.click();
+    //browser.sleep(4000);
+    browser.sleep(1000);
+    
+
+  }
+  catch (Exception) {
+    console.log("Failed to consumed the content properly.");
+  }
+}
+
+const consumeContentPlaylist = () => {
+  try {
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    var do_id = cred[42]['CourseName'];
+    browser.sleep(2000);
+    console.log("User is trying to consume content");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+    sanityPage.SanityElement().clkLibraray.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
+    browser.sleep(2000);
+    sanityPage.SanityElement().clkSearchLib.click();
+    browser.sleep(1000);
+    content.courseCard.click();
+    browser.sleep(1000);
+    content.zoomIn.click();
+    browser.sleep(1000);
+    for (i = 0; i < 9; i++) {
+      sanityPage.SanityElement().pdfArrowButton.click();
+    }
+    browser.sleep(2000);
+    (content.assertConsume).getText().then(function (input) {
+      console.log(input + " consuming the content.");
+    })
+    content.zoomOut.click();
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "save never loaded");
+    // searchObj.starRating.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.submitRating), 20000, "save never loaded");
+    // searchObj.submitRating.click();
+    //browser.sleep(4000);
+    browser.sleep(1000);
+    
+
+  }
+  catch (Exception) {
+    console.log("Failed to consumed the content properly.");
+  }
+}
+
+const consumeDigitalTextBook = () => {
+  try {
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    var do_id = cred[41]['CourseName'];
+    browser.sleep(2000);
+    console.log("User is trying to consume content");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+    sanityPage.SanityElement().clkLibraray.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
+    browser.sleep(2000);
+    sanityPage.SanityElement().clkSearchLib.click();
+    browser.sleep(1000);
+    content.courseCard.click();
+    browser.sleep(1000);
+    content.zoomIn.click();
+    browser.sleep(1000);
+    for (i = 0; i < 9; i++) {
+      sanityPage.SanityElement().pdfArrowButton.click();
+    }
+    browser.sleep(2000);
+    (content.assertConsume).getText().then(function (input) {
+      console.log(input + " consuming the content.");
+    })
+    content.zoomOut.click();
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "save never loaded");
+    // searchObj.starRating.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.submitRating), 20000, "save never loaded");
+    // searchObj.submitRating.click();
+    //browser.sleep(4000);
+    browser.sleep(1000);
+    
+
+  }
+  catch (Exception) {
+    console.log("Failed to consumed the content properly.");
+  }
+}
+
+const consumeContentAndValidate = (contentName) => {
+  try {
+    browser.sleep(2000);
+    console.log("User is trying to consume content");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+    sanityPage.SanityElement().clkLibraray.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.sendKeys(contentName);
+    browser.sleep(2000);
+    sanityPage.SanityElement().clkSearchLib.click();
+    browser.sleep(1000);
+    content.courseCard.getText().then(function(input){
+      expect(input).toEqual(contentName);
+    })
+     content.courseCard.click();
+    // browser.sleep(1000);
+    // content.zoomIn.click();
+    // browser.sleep(1000);
+    // for (i = 0; i < 9; i++) {
+    //   sanityPage.SanityElement().pdfArrowButton.click();
+    // }
+    // browser.sleep(2000);
+    // (content.assertConsume).getText().then(function (input) {
+    //   console.log(input + " consuming the content.");
+    // })
+    // content.zoomOut.click();
+    // // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "save never loaded");
+    // // searchObj.starRating.click();
+    // // browser.sleep(1000);
+    // // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.submitRating), 20000, "save never loaded");
+    // // searchObj.submitRating.click();
+    // //browser.sleep(4000);
+    // browser.sleep(1000);
+    
+
+  }
+  catch (Exception) {
+    console.log("Failed to consumed the content properly.");
+  }
+}
+
+
+const validateContentDetails = () => {
+  try {
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    var do_id = cred[34]['Title'];
+    browser.sleep(2000);
+    console.log("User is trying to consume content");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+    sanityPage.SanityElement().clkLibraray.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
+    browser.sleep(2000);
+    sanityPage.SanityElement().clkSearchLib.click();
+    browser.sleep(1000);
+    content.courseCard.click();
+    browser.sleep(2000);
+    content.createdOn.getText().then(function(createdOn){
+      console.log("validating created on"+createdOn);
+    })
+    content.assertAuthor.getText().then(function(author){
+      console.log("validating author:"+author);
+    })
+    content.assertCreatedBy.getText().then(function(cretedby){
+      console.log("validating CreatedBy:"+cretedby);
+    })
+    content.assertPubishedBy.getText().then(function(publishedby){
+      console.log("validating published by:"+publishedby);
+    })
+    content.assertCreditLink.getText().then(function(creditLink){
+      console.log("validating credit Link:"+creditLink);
+    })
+    content.assertLiscence.getText().then(function(liscence){
+      console.log("validating liscence terms:"+liscence);
+    })
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.attributionInbook), 40000, "attributionInbook is not available");
+    (sanityPage.attributionInbook).getText().then(function (attributionorder) {
+        console.log("Order of Attributions output are" + attributionorder);
+    })
+
+
+
+    
+  }
+  catch (Exception) {
+    console.log("Failed to consumed the content properly.");
+  }
 }
 
 
@@ -1415,6 +1648,11 @@ module.exports = {
   exploreChatBox,
   exploreChatBOT,
   searchedContentsDefaultALLtab,
+  consumeContent,
+  consumeDigitalTextBook,
+  consumeContentPlaylist,
+  consumeContentAndValidate,
+  validateContentDetails,
 
 
 }

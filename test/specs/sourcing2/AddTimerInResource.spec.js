@@ -32,9 +32,8 @@ describe('Add timer Plugin in Resource Edior', () => {
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
-        utility.userLogin('Public User1');
-
-        resourcePageObj.ConsumeResourceAndValidateScoreForMCQ(contentName);
+        // utility.userLogin('Public User1');
+        // resourcePageObj.ConsumeResourceAndValidateScoreForMCQ(contentName);
       
       
     })

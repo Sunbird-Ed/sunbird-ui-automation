@@ -26,6 +26,6 @@ describe('AU_040,ValidateHelpCentreLinks', () => {
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         etbFun.librarysearchFilter();
-    }) 
+    })
 });
    

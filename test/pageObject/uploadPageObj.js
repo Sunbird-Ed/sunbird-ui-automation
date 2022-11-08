@@ -790,7 +790,86 @@ const DropDownForSendForReview = () => {
 
     }
 }
+const uploadContentAndPreviewInAllMyContent = () => {
+    var resourceName;
+    try {
+        console.log("User is trying to upload mp4");
 
+
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.clickuploadContent), 20000, "Upload content didn't click");
+        uploadV.clickuploadContent.click();
+        browser.sleep(4000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(5000);
+        browser.sleep(5000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.selectOne), 20000, "selectOne is not available");
+        uploadV.selectOne.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.learningResource), 20000, "learningResource is not available");
+        uploadV.learningResource.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.enterUrl.click();
+        browser.sleep(2000);
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.browseButton.sendKeys(mp4);
+        browser.sleep(40000);
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.clkEditDetails), 20000, "Failed to click sendForReview");
+        uploadV.clkEditDetails.click();
+        browser.sleep(3000);
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.clickAppIcon), 50000, "clickAppIcon button not available");
+        etbv.clickAppIcon.click();
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(etbv.allImage, 30000, "allImage button not available");
+        etbv.allImage.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(etbv.myImage, 30000, "myImage button not available");
+        etbv.myImage.click();
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.checkAppIcon), 30000, "checkAppIcon button not available");
+        etbv.checkAppIcon.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.selectAppIcon), 30000, "selectAppIcon button not available");
+        etbv.selectAppIcon.click();
+        browser.sleep(500);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.titleName), 30000, "selectAppIcon button not available");
+        etbv.titleName.click();
+        browser.sleep(500);
+        etbv.titleName.clear();
+        resourceName = "UploadPreiview" + faker.randomData().firstname;
+        etbv.titleName.sendKeys(resourceName);
+        DropDownForSendForReview();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.closebutton), 20000, "didn't click browse button");
+        uploadV.closebutton.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.closeEditor), 20000, "didn't click browse button");
+        uploadV.closeEditor.click();
+        browser.sleep(5000);
+        var myAlert = browser.switchTo().alert();
+        myAlert.accept();
+        browser.sleep(7000);
+
+        console.log("User successfully uploaded mp4");
+        return resourceName;
+    } catch (Exception) {
+        console.log("User failed to upload mp4");
+    }
+}
 module.exports = {
     uploadPdf,
     uploadHtml,
@@ -805,6 +884,7 @@ module.exports = {
     saveContent,
     uploadanyPDF,
     DropDownForSendForReview,
+    uploadContentAndPreviewInAllMyContent,
 
 }
 

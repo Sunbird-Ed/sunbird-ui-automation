@@ -20,17 +20,16 @@ describe('AU_033,AddRemoveAndDeleteCollaboratorFromBook', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('AddRemoveAndDeleteCollaboratorFromBook ', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Book Creator');
+        utility.userLogin('Creator');
         let bookName = sanityfun.createBookSaveAsDraft();
-        console.log("book is created : " + bookName);
         sanityfun.addCollborator(bookName);
         // let bookName = "BookBKasandra";
-        sanityfun.removeCollboratortoDraftAndSaveBook(bookName);
+        addSARCATTPRPageObj.removeCollboratortoDraftAndSaveBook(bookName);
+
     });
 });

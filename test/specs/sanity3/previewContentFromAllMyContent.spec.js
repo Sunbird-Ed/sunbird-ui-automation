@@ -1,6 +1,7 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
+const uploadPageObj=require(protractor.basePath+'/test/pageObject/uploadPageObj.js');
 
 describe('previewContentFromAllMyContent', () => {
 
@@ -16,7 +17,6 @@ describe('previewContentFromAllMyContent', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
@@ -24,8 +24,11 @@ describe('previewContentFromAllMyContent', () => {
     it('previewContentFromAllMyContent',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Mentor');
-        sanityFun.previeAllMyContent();
+        utility.userLogin('Creator');
+        let uploadContent=uploadPageObj.uploadContentAndPreviewInAllMyContent();
+        utility.userLogout();
+        utility.userLogin('Creator');
+                sanityFun.previeAllMyContent(uploadContent);
         
     });
 });

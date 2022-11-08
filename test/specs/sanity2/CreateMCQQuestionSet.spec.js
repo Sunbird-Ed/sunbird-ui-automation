@@ -4,7 +4,7 @@ const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePa
 const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 
-describe('Create Question save and send for review and publish.', () => {
+describe('Search Resource save and send for review and publish.', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -19,22 +19,15 @@ describe('Create Question save and send for review and publish.', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        
     });
-    it('CreateQuestionAndVerify',function(){
+    it('CreateMCQQuestionSet',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        let resourceName=resourcePageObj.createQuestion();
-        resourcePageObj.sendForReviewTheResource();
-        utility.userLogout();
-        utility.userLogin('Reviewer');
-        resourcePageObj.publishTheResourceFromUpForReview(resourceName);
-      
-        
-
+        utility.userLogin('ContentCreator');
+        resourcePageObj.addQuestionSetAndTimerWithWarningTime();
+        resourcePageObj.verifyWarningTimeDisplayed();
     })
 
    
-});
    
+});

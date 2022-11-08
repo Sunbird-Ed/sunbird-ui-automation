@@ -27,13 +27,11 @@ describe('verifyLicenseInEditPageBook Verify' , () => {
     it('verifyLicenseInEditPageBook',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        browser.sleep(3000);
 
         utility.userLogin('Creator');
-        let bookName= etbPageObj.createBook();
+        let bookName= sanityFun.createBook();
         console.log(bookName);
         etbFun.verifyLicenceLabelEditPage();
-         
 
        // etbFun.clickFirstBookAndCopyInLibrary();
         //etbPageObj.sendForReviewTheBook();

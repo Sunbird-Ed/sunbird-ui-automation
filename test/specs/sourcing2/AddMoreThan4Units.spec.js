@@ -4,7 +4,7 @@ const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js
 const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPageObj.js');
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
-describe('createCourseAndVerifyWith4ChildNode', () => {
+describe('AddMoreThan4Units', () => {
 
 
     beforeEach(() => {
@@ -25,7 +25,7 @@ describe('createCourseAndVerifyWith4ChildNode', () => {
         browser.manage().deleteAllCookies();
 
     });
-    it('createCourseAndVerifyWith4ChildNode', function () {
+    it('AddMoreThan4Units', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');

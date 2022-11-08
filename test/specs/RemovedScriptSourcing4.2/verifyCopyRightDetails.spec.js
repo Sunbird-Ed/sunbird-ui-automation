@@ -31,7 +31,7 @@ describe('VerifyCopyRight Details Verify' , () => {
         browser.sleep(3000);
 
         utility.userLogin('Creator');
-        let bookName= etbPageObj.createBook();
+        let bookName= sanityFun.createBook();
         console.log(bookName);
         etbFun.verifyLicenceLabelEditPage();
          

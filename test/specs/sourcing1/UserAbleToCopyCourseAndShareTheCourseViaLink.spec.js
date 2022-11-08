@@ -42,9 +42,6 @@ describe('Creator is able to copy course of same or different tenant and can sha
         shareTCPageObj.shareTheConentUsingLink(courseName);
         utility.userLogout();
         shareTCPageObj.verifyCollection();
-
-       
-
     });
 });
    

@@ -1,3 +1,5 @@
+//const { browser } = require('protractor');
+
 const usronBoardPage = require(protractor.basePath + '/test/pages/userOnBoarding/UserOnBoardingPage.js');
 const wait = require(protractor.basePath + '/helper/waiters.js');
 const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
@@ -173,14 +175,21 @@ const addRecoveryID = () => {
         content.headerDropdown.click();
         wait.waitForElementVisibility(userOnboard.clickProfileIcon, 20000, "clickProfileIcon field is not available");
         userOnboard.clickProfileIcon.click();
+        browser.sleep(5000);
+
         wait.waitForElementVisibility(userOnboard.clkAddRecoveryID, 20000, "clkAddRecoveryID field is not available");
         userOnboard.clkAddRecoveryID.click();
+        browser.sleep(3000);
         wait.waitForElementVisibility(userOnboard.emailIdTextBox, 20000, "emailIdTextBox field is not available");
         userOnboard.emailIdTextBox.click();
+        browser.sleep(2000);
         wait.waitForElementVisibility(userOnboard.emailIdTextBox, 20000, "emailIdTextBox field is not available");
         userOnboard.emailIdTextBox.sendKeys("automationUser1@gmail.com");
+        browser.sleep(2000);
         wait.waitForElementVisibility(userOnboard.clkMerge, 20000, "clkMerge field is not available");
         userOnboard.clkMerge.click();
+        browser.sleep(2000);
+
     } catch (Err) {
         console.error("Failed in add recovery id, " + Err);
     }
@@ -1527,6 +1536,179 @@ const verifyHamburgerAndFAQ = () => {
         }
     }
 
+    const validateSubmitConsentForm = () => {
+        try {
+            
+            wait.waitForElementVisibility(content.headerDropdown, 20000);
+            content.headerDropdown.click();
+            wait.waitForElementVisibility(content.linkProfile, 20000);
+            content.linkProfile.click();
+            browser.sleep(3000);
+            expect(content.submitDetailsProfile.isPresent()).toBe(true).then(function(){
+                content.submitDetailsProfile.click();
+                browser.sleep(2000);
+            })
+            expect(content.masterOrgDropdown.isPresent()).toBeTruthy().then(function(){
+                content.masterOrgDropdown.click();
+                browser.sleep(1000);
+                content.sltStateDropdown.click();
+                browser.sleep(1000);
+            })
+            expect(content.optionalFieldID.isPresent()).toBe(true).then(function(){
+                console.log("External ID optional field is validated");
+                browser.sleep(2000);
+            })
+            expect(content.externalID.isPresent()).toBe(true).then(function(){
+                console.log("External ID input field is validated");
+                browser.sleep(2000);
+            })
+            expect(content.optionalFieldphoneNumber.isPresent()).toBe(true).then(function(){
+                console.log("Phone Number optional field is validated");
+                browser.sleep(2000);
+            })
+            expect(content.phoneNumber.isPresent()).toBe(true).then(function(){
+                console.log("Phone Number input field is validated");
+                browser.sleep(2000);
+            })
+            expect(content.optionalFieldEmailID.isPresent()).toBe(true).then(function(){
+                console.log("Email optional field is validated");
+                browser.sleep(2000);
+            })
+            expect(content.emailID.isPresent()).toBe(true).then(function(){
+                console.log("emailID input field is validated");
+                browser.sleep(2000);
+            })
+            expect(content.consentCheckBox.isPresent()).toBe(true).then(function(){
+                console.log("consent checkbox field is validated");
+                content.consentCheckBox.click();
+                browser.sleep(2000);
+            })
+    
+        }
+        catch (e) {
+            console.error("Handled");
+        }
+    }
+
+    const validateUserTypes = () => {
+        try {
+            
+            wait.waitForElementVisibility(content.headerDropdown, 20000);
+            content.headerDropdown.click();
+            wait.waitForElementVisibility(content.linkProfile, 20000);
+            content.linkProfile.click();
+            browser.sleep(3000);
+            expect(content.profileEdit.isPresent()).toBe(true).then(function(){
+                content.profileEdit.click();
+                browser.sleep(2000);
+            })
+            expect(content.profileRole.isPresent()).toBe(true).then(function(){
+                content.profileRole.click();
+                browser.sleep(2000);
+            })
+            expect(content.roleValues.isPresent()).toBe(true).then(function(){
+                content.roleValues.getText().then(function(input){
+                    console.log(input);
+                })
+                browser.sleep(2000);
+            })
+        }
+        catch (e) {
+            console.error("Handled");
+        }
+    }
+
+    const validateReportIssueButtonwithRegionalLanguage = (regionalLanguage) => {
+        try {
+            console.log('Classic Theme enabled');
+            browser.sleep(5000);
+            // wait.waitForElementVisibility(content.headerDropdown, 20000);
+            // content.headerDropdown.click();
+            // browser.sleep(3000);
+            wait.waitForElementVisibility(userOnboard.helpButton, 20000);
+            userOnboard.helpButton.click();
+            browser.sleep(2000);
+            wait.waitForElementVisibility(userOnboard.reportButton, 20000);
+            expect(userOnboard.reportButton.isDisplayed).toBeTruthy();
+            userOnboard.reportButton.click();
+            console.log('Report button validated for classic theme');
+            browser.sleep(3000);
+            expect(content.reportIssueCategoryDrpdwn.isDisplayed).toBeTruthy();
+            content.reportIssueCategoryDrpdwn.click();
+            browser.sleep(2000);
+            expect(content.sltReportIssueCategoryDrpdwn.isDisplayed).toBeTruthy();
+            content.sltReportIssueCategoryDrpdwn.click();
+            browser.sleep(2000);
+            expect(content.reportIssueSubcategoryDrpdwn.isDisplayed).toBeTruthy();
+            content.reportIssueSubcategoryDrpdwn.click();
+            browser.sleep(2000);
+            expect(content.sltReportIssueSubcategoryDrpdwn.isDisplayed).toBeTruthy();
+            content.sltReportIssueSubcategoryDrpdwn.click();
+            browser.sleep(2000);
+            expect(content.reportIssueTextArea.isDisplayed).toBeTruthy();
+            content.reportIssueTextArea.sendKeys(regionalLanguage);
+            browser.sleep(2000);
+    
+        }
+        catch (Exception) {
+            console.log("Failed on Validating SignInPopup on click on Enroll button on latest course in Explore-Course Page");
+        }
+    }
+    
+    const validateReprtIssueWithThemes = () => {
+        try {
+            browser.sleep(5000);
+            wait.waitForElementVisibility(content.headerDropdown, 20000);
+            content.headerDropdown.click();
+            
+            wait.waitForElementVisibility(searchObj.clkSwitchClassicTheme, 20000);
+            searchObj.clkSwitchClassicTheme.click();
+            browser.sleep(3000);
+            wait.waitForElementVisibility(content.classicThemeHeaderDropdown, 20000);
+            content.classicThemeHeaderDropdown.click();
+            browser.sleep(2000);
+            validateReportIssueButtonwithRegionalLanguage("हिन्दी");
+            wait.waitForElementVisibility(content.classicThemeHeaderDropdown, 20000);
+            content.classicThemeHeaderDropdown.click();
+            browser.sleep(2000);
+            wait.waitForElementVisibility(searchObj.clkSwitchJoyFulTheme, 20000);
+            searchObj.clkSwitchJoyFulTheme.click();
+            browser.sleep(5000);
+            
+        }
+        catch (Exception) {
+            console.log("Failed on Validating SignInPopup on click on Enroll button on latest course in Explore-Course Page");
+        }
+    
+    
+    }
+    
+
+    const validateContributionSection = () => {
+        try {
+            wait.waitForElementVisibility(content.headerDropdown, 20000);
+            content.headerDropdown.click();
+            browser.sleep(2000)
+            wait.waitForElementVisibility(content.linkProfile, 20000);
+            content.linkProfile.click();
+            browser.sleep(3000);
+            browser.executeScript('window.scrollTo(0,600);').then(function () {
+                console.log('++++++SCROLLED Down+++++');
+            });
+            userOnboard.contributionSectionInProfile.getText().then(function(input){
+                console.log(input+" is validated")
+            })
+
+            
+        }
+        catch (Exception) {
+            console.log("Failed on Validating SignInPopup on click on Enroll button on latest course in Explore-Course Page");
+        }
+    }
+    
+
+
+
 
 module.exports = {
         verifyAdminDashBoard,
@@ -1571,5 +1753,10 @@ module.exports = {
         SelectedPreferenceInProfileSection,
         submitDetailsNotDisplay,
         verifyHamburgerAndFAQ,
+        validateSubmitConsentForm,
+        validateUserTypes,
+        validateReprtIssueWithThemes,
+        validateContributionSection,
+        
     }
 

@@ -21,8 +21,7 @@ describe('Verify that Report other issue button displayed in portal Help page in
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        //verifyUOpage.drop();
-        verifyUOpage.verifyReportIssueButton();
+        verifyUOpage.validateReprtIssueWithThemes();
     })
 });
    

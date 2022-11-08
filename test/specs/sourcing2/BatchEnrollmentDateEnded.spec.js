@@ -23,14 +23,8 @@ describe('user is not able to Enroll to the Course For EnrollMentDateEnded and J
     it('BatchEnrollmentDateEnded',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        var contentName = 'CourseAEna';
+        //var contentName = 'CourseAEna';
         utility.userLogin('Reviewer');
-        BatchEDEPageObj.enrollmentDateEnded(contentName);
-       
-       
+        BatchEDEPageObj.enrollmentDateEnded();
     })
-    
-   
-   
-    
 });

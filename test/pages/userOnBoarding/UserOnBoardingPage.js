@@ -190,11 +190,12 @@ let UserOnBoarding = () => {
     var AddUserClk = element(by.xpath("//img[@alt='Add user']"));
     var entUSrName = element(by.xpath("//input[@name='name']"));
 
-    var helpButton = element(by.xpath("//*[contains(text(),' Help ')]//child::i"));
-    var reportButton = element(by.xpath("//*[contains(text(),'Report')]"));
+    var helpButton = element(by.xpath("//li[contains(text(),' Help ')]//child::i"));
+    var reportButton = element(by.xpath("//button[contains(text(),' Report other issue ')]"));
 
     var checkBoxEmail = element(by.xpath("(//*[contains(@class,'ui radio checkbox')])[2]"));
 
+    var contributionSectionInProfile = element(by.xpath("//div[@class='ui segments']//child::div[@class='ui segment computer only']"));
 
 
 
@@ -377,6 +378,7 @@ let UserOnBoarding = () => {
         assertOTPPage,
         helpButton,
         reportButton,
+        contributionSectionInProfile,
     }
 };
 module.exports = {

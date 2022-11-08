@@ -28,8 +28,5 @@ describe('PostInDiscussionForm', () => {
         utility.handleLocationPopup();
          utility.userLogin('Creator');
         sanityPage.verifyDiscussionForum();
-       
-
-
     });
 });

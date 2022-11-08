@@ -27,11 +27,13 @@ describe('VerifyChangingLanguageWhileConsuming for Kannada Language', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionFITBWithAllStyles();
+        console.log(contentName);
         resourcePageObj.sendForReviewTheResource();
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
+        let contentName="ResourceAOda";
         utility.userLogin('Public User1');
         tpdPageObj.ChangeLangWhileConsuming(contentName);
        

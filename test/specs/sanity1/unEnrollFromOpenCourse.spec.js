@@ -23,7 +23,6 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('unEnrollFromOpenCourse', function () {
@@ -34,7 +33,6 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        //utility.validateWorkspace();
         tpdPageObj.publishCourseFromUpForReview(courseName)
         utility.userLogout();
         utility.userLogin('Creator');

@@ -9,52 +9,59 @@ const ccpage = require(protractor.basePath + '/test/pages/contentCreation/conten
 var content=ccpage.contentCreation();
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 
-const validateSignInPopupOnClickOnEnroll=()=>{
-   
-    try{
-     console.log("User is in Explore-Course Page");
-     browser.sleep(1000);
-     browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerCourse), 20000, "headerCourse is not available");
-     content.headerCourse.click();
-     browser.sleep(1000);
-     browser.wait(protractor.ExpectedConditions.visibilityOf(content.courseCard), 20000, "courseCard is not available");
-     content.courseCard.click();
-     console.log("Click on Searched Course");
-     browser.sleep(2000);
-     browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.enrollButton), 20000, "enrollButton is not available");
-     verifyCEBObj.enrollButton.click();
-     browser.sleep(2000);
-     expect(verifyCEBObj.assertSignInPopup.isDisplayed).toBeTruthy();
-     
-     
-   console.log("Login has appeared on Click on Enroll button in Explore Course Page");
-   
-    browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj. assertSignInPopup), 20000, "assertSignInPopup is not available");
-    verifyCEBObj. assertSignInPopup.click();
+const validateSignInPopupOnClickOnEnroll = () => {
+
+  try {
+    console.log("User is in Explore-Course Page");
+    browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerCourse), 20000, "headerCourse is not available");
+    // content.headerCourse.click();
+    // browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.GlobalSearch), 20000, "searchtext is not available");
+    content.GlobalSearch.sendKeys("course");
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchIcon), 20000, "searchIcon is not available");
+    content.searchIcon.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.courseCard), 20000, "courseCard is not available");
+    content.courseCard.click();
+    console.log("Click on Searched Course");
+    browser.sleep(2000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.enrollButton), 20000, "enrollButton is not available");
+    verifyCEBObj.enrollButton.click();
+    browser.sleep(2000);
+    expect(verifyCEBObj.assertSignInPopup.isDisplayed).toBeTruthy();
+
+
+    console.log("Login has appeared on Click on Enroll button in Explore Course Page");
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.assertSignInPopup), 20000, "assertSignInPopup is not available");
+    verifyCEBObj.assertSignInPopup.click();
     console.log("User is trying to login");
-   
-    var sheetPath=getExcelPath.ConfigurePath().excelSheetPath;
-   var cred= genericFun.readLoginDataFromExcelFile(sheetPath,'1','Public User1');
-   browser.sleep(1000);
-    
+
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', 'Public User1');
+    browser.sleep(1000);
+
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.userName), 20000, "userName is not available");
     content.userName.sendKeys(cred[0]['Username']);
     content.password.sendKeys(cred[0]['Password']);
     content.login.click();
 
-   console.log("User successfully logged in as user role");   
-         
-   expect(verifyCEBObj.validateTOCForOpenBatchCourse.isDisplayed).toBeTruthy(); 
-   
-   console.log("TOC Page Displayed Succesfully for OpenBatch Course");
-   
+    console.log("User successfully logged in as user role");
 
-   }
-   catch(Exception)
-   {
-           console.log("Failed on Validating SignInPopup on click on Enroll button in Explore-Course Page");
-   }
+    expect(verifyCEBObj.validateTOCForOpenBatchCourse.isDisplayed).toBeTruthy();
+
+    console.log("TOC Page Displayed Succesfully for OpenBatch Course");
+
+
+  }
+  catch (Exception) {
+    console.log("Failed on Validating SignInPopup on click on Enroll button in Explore-Course Page");
+  }
 }
+
+
 const validateSignInPopupOnClickOnEnrollOnLatestCourse=()=>{
    
     try{
@@ -309,31 +316,12 @@ const addUserInProfile=()=>{
      content.yobPopup.getText().then(function(PopupText){
        expect(PopupText).toEqual('Select year of birth*')});
        console.log("YOB popup verified");
-     browser.wait(protractor.ExpectedConditions.visibilityOf(content.yobPopup), 20000, "YOB popup not generated");  
-     content.yobSelectYearDropdown.click();
-     browser.sleep(3000); 
-     browser.wait(protractor.ExpectedConditions.visibilityOf(content.yearSelection), 20000, "Year is not selected");  
-     content.yearSelection.click();
-     browser.sleep(3000);   
-   //   content.yobPopup.getText().then(function(input){
-   //   console.log("Book count : "+input);
-   //   count = input;
-   //  })
-   //   browser.sleep(1000);
-   //   expect(content.BookCount.isDisplayed).toBeTruthy();
-   //   content.BookCount.getText().then(function(input){
-   //   console.log("Book count : "+input);
-   //   count = input;
-   //  })
-   //   expect(count).toEqual(bookCnt);
-   //   console.log("Verified count is same and  : "+count);
     }
      catch(e)
     {
       console.error("Popup Verified");
     }
   }
-
  
 module.exports = {
     validateSignInPopupOnClickOnEnroll,

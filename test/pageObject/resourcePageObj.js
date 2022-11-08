@@ -34,11 +34,12 @@ const createResource = () => {
         browser.sleep(500);
         browser.executeScript("arguments[0].scrollIntoView();", etbv.practiceResource);
         etbv.practiceResource.click();
+        browser.sleep(3000);
 
         resov.startCreating.click();
-        browser.sleep(2000);
+        browser.sleep(4000);
         browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-        browser.sleep(1000);
+        browser.sleep(7000);
         wait.waitForElementVisibility(resov.addShape, 20000, "addShape is not available");
         resov.addShape.click();
         wait.waitForElementVisibility(resov.addTriangle, 20000, "addTriangle is not available");
@@ -156,6 +157,10 @@ const sendForReviewTheResourceAfterEditing = () => {
     wait.waitForElementVisibility(content.saveButoonReview, 20000, "submitForm not available");
     content.saveButoonReview.click();
 
+
+
+
+
     browser.sleep(2000);
     browser.switchTo().defaultContent();
 
@@ -175,21 +180,29 @@ const publishTheResourceFromUpForReview = (nameOfResource) => {
     browser.sleep(3000);
     wait.waitForElementVisibility(content.searchedContentForPublish, 20000, "workspace page not loaded");
     content.searchedContentForPublish.click();
-    browser.sleep(4000);
-    browser.executeScript('window.scrollTo(0,600);').then(function () {
+    browser.sleep(6000);
+    browser.executeScript('window.scrollTo(0,400);').then(function () {
         console.log('++++++SCROLLED Down+++++');
     });
-    browser.sleep(6000);
-    //browser.executeScript("arguments[0].scrollIntoView();", content.publishResource);
+    // browser.executeScript("arguments[0].scrollIntoView();", content.publishResource);
+    // browser.sleep(4000);
+
     wait.waitForElementVisibility(content.publishResource, 20000, "publishResource page not loaded");
     content.publishResource.click();
     browser.sleep(1000);
     content.checkBox.each(function (input) {
         input.click()
     });
+    browser.sleep(3000);
     wait.waitForElementVisibility(content.popupPublishButtons, 20000, "Creation page not loaded");
     content.popupPublishButtons.click();
-    browser.sleep(1000);
+    browser.sleep(4000);
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().assertContentPublishedMsg), 20000, "assertContentPublishedMsg not available");
+    expect(sanityPage.SanityElement().assertContentPublishedMsg.getText()).toEqual('Content published successfully...');
+    console.log('Content published successfully...');
+    browser.sleep(5000);
+
 }
 
 catch (Exception) {
@@ -1647,11 +1660,19 @@ const collaboratorSendTheResourceForReview = (contentname) => {
         content.headerDropdown.click();
         wait.waitForElementVisibility(content.workSpace, 20000);
         content.workSpace.click();
+        browser.sleep(3000);
         wait.waitForElementVisibility(resov.collaborationSection, 20000);
         resov.collaborationSection.click();
         browser.sleep(3000);
 
-        wait.waitForElementVisibility(resov.searchForReview, 20000);
+      
+        browser.executeScript('window.scrollTo(0,0);').then(function(){
+            console.log('++++++SCROLLED UP+++++');
+        });
+        browser.sleep(4000);
+
+
+       // wait.waitForElementVisibility(resov.searchForReview, 20000);
         resov.searchForReview.click();
         resov.searchForReview.sendKeys(contentname);
         // resov.searchIconUpForReview .click();
@@ -1819,9 +1840,9 @@ const rejectLessonPlan = (inputToReject) => {
         });
         console.log('Content should render properly in the content player while reviewing the contents.')
         resov.contentupload.click();
-        browser.sleep(2000);
-        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
         browser.sleep(4000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(6000);
          browser.executeScript("arguments[0].scrollIntoView();", resov.clickRequestChanges);
         wait.waitForElementVisibility(resov.clickRequestChanges, 40000, "clickRequestChanges is not available");
         resov.clickRequestChanges.click();
@@ -1837,10 +1858,15 @@ const rejectLessonPlan = (inputToReject) => {
         browser.sleep(2000);
         resov.rejectReason3.click();
         browser.sleep(5000);
-        wait.waitForElementVisibility(resov.reviewComment, 40000, "reviewComment is not available");
-        resov.reviewComment.click();
-        resov.reviewComment.sendKeys('Testing')
+
+        wait.waitForElementVisibility(resov.reviewComment1, 40000, "reviewComment is not available");
+        resov.reviewComment1.click();
+        resov.reviewComment1.sendKeys('Testing')
+        browser.sleep(3000);
+        browser.executeScript("arguments[0].scrollIntoView();",resov.requestChangesButton);
+
         browser.sleep(2000);
+
         wait.waitForElementVisibility(resov.requestChangesButton, 40000, "requestChangesButton is not available");
         resov.requestChangesButton.click();
         browser.sleep(2000);
@@ -1857,22 +1883,25 @@ const rejectLessonPlan = (inputToReject) => {
 
 const editTheContentInDraft = () => {
     // try {
-        browser.sleep(2000);
+        console.log("user is trying to create a course")
+        browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
         content.headerDropdown.click();
-        console.log('User is trying to see the upload content in up for review page');
-        wait.waitForElementVisibility(content.workSpace, 40000, "workSpace is not available");
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
         content.workSpace.click();
-        wait.waitForElementVisibility(resov.drafts, 70000, "drafts is not available");
-       resov.drafts.click();
-      browser.sleep(8000);
-     
-       wait.waitForElementVisibility(resov.imageCard3, 40000, "imageCard is not available");
-       resov.imageCard3.click();
-        console.log('User should be abel to click on the drafts section to see draft contents')
-        browser.sleep(5000);
-        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-        browser.sleep(8000);
+        browser.sleep(2000);
+    
+            browser.wait(protractor.ExpectedConditions.visibilityOf(resov.drafts), 40000, "drafts is not available");
+            resov.drafts.click();
+            browser.sleep(5000);
+            browser.wait(protractor.ExpectedConditions.visibilityOf(resov.imageCard), 40000, "imageCard is not available");
+            resov.imageCard.click();
+            console.log('User should be able to click on the drafts section to see draft contents')
+            browser.sleep(6000);
+            browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+            browser.sleep(8000);
+    
 
         // wait.waitForElementVisibility(resov.newchild, 40000, "Didn't switched to different frame");
         // resov.newchild.click();
@@ -1886,7 +1915,8 @@ const editTheContentInDraft = () => {
         wait.waitForElementVisibility(resov.reviewerSuggestion, 40000, "resov.reviewerSuggestion is not available");
         console.log('User should be able to click on the content from draft section to update/edit the content.')
         resov.reviewerSuggestion.click();
-    
+             browser.sleep(4000);
+
 
         wait.waitForElementVisibility(resov.reviewerSuggestionTitle, 40000, "resov.reviewerSuggestion is not available");
         expect(resov.reviewerSuggestionTitle.isDisplayed()).toBeTruthy();
@@ -4592,10 +4622,11 @@ const reOrderingWordsWithRegionalLanguage = () => {
 const NoDeleteOptionInSubmittedForReview = () => {
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
     content.headerDropdown.click();
-    wait.waitForElementVisibility(resov.workSpace, 20000);
-    resov.workSpace.click();
-    browser.sleep(1000);
-    browser.navigate().refresh();
+    wait.waitForElementVisibility(content.workSpace, 20000, "workspace page not loaded");
+    content.workSpace.click();
+   
+  
+  //  browser.navigate().refresh();
     wait.waitForElementToBeClickable(resov.submittedForReview, 20000);
     resov.submittedForReview.click();
     browser.sleep(2000);
@@ -4837,11 +4868,20 @@ const rejectUploadedContent = (inputToReject) => {
         resov.rejectReason2.click();
         //browser.sleep(2000);
         resov.rejectReason3.click();
-        //browser.sleep(2000);
+        browser.sleep(3000);
+        // browser.executeScript('window.scrollTo(0,200);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        // });
+
+      //  browser.sleep(2000);
+
+      browser.executeScript("arguments[0].scrollIntoView();",resov.scrollLabelOther);
+      browser.sleep(2000);
+
         wait.waitForElementVisibility(resov.reviewComment, 40000, "reviewComment is not available");
         resov.reviewComment.click();
         resov.reviewComment.sendKeys('Testing')
-        browser.sleep(2000);
+        browser.sleep(4000);
         wait.waitForElementVisibility(resov.clkRejectUploadsc, 40000, "requestChangesButton is not available");
         resov.clkRejectUploadsc.click();
         browser.sleep(2000);
@@ -5160,56 +5200,45 @@ const createQuestionMCQ = async () => {
 }
 
 const editTheContentInDraftForCollections = () => {
-    // try {
-        browser.sleep(2000);
-
-        console.log('User is trying to see the upload content in up for review page');
+    console.log("user is trying to create a course")
+        browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
-    content.headerDropdown.click();
-        wait.waitForElementVisibility(content.workSpace, 40000, "workSpace is not available");
-        content.workSpace.click();
-        wait.waitForElementVisibility(resov.drafts, 70000, "drafts is not available");
-        resov.drafts.click();
-      //  browser.sleep(5000);
-        wait.waitForElementVisibility(resov.imageCard3, 40000, "imageCard is not available");
-        resov.imageCard3.click();
-        console.log('User should be abel to click on the drafts section to see draft contents')
-        browser.sleep(4000);
-        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-        browser.sleep(8000);
-        wait.waitForElementVisibility(resov.newchild, 40000, "Didn't switched to different frame");
-        resov.newchild.click();
+        content.headerDropdown.click();
         browser.sleep(2000);
-        console.log('User should be able to click on New chlid/New siblings button to add nodes into the lessonplan')
-       // wait.waitForElementVisibility(resov.untitledUnitName, 40000, "untitledUnitName is not available");
-        // resov.untitledUnitName.click();
-        // resov.untitledUnitName.clear();
-        // resov.untitledUnitName.sendKeys('content');
-        // browser.sleep(1000);
-        wait.waitForElementVisibility(resov.reviewerSuggestion, 40000, "resov.reviewerSuggestion is not available");
-        console.log('User should be able to click on the content from draft section to update/edit the content.')
-        resov.reviewerSuggestion.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.sleep(2000);
     
+            browser.wait(protractor.ExpectedConditions.visibilityOf(resov.drafts), 40000, "drafts is not available");
+            resov.drafts.click();
+            browser.sleep(5000);
+            browser.wait(protractor.ExpectedConditions.visibilityOf(resov.imageCard), 40000, "imageCard is not available");
+            resov.imageCard.click();
+            console.log('User should be able to click on the drafts section to see draft contents')
+            browser.sleep(6000);
+            browser.sleep(8000);
 
-        wait.waitForElementVisibility(resov.reviewerSuggestionTitle, 40000, "resov.reviewerSuggestion is not available");
-        expect(resov.reviewerSuggestionTitle.isDisplayed()).toBeTruthy();
+      
+        console.log('User should be able to click on New chlid/New siblings button to add nodes into the lessonplan')
+      
+        wait.waitForElementVisibility(resov.reviewerSuggestionColl, 40000, "resov.reviewerSuggestion is not available");
+        console.log('User should be able to click on the content from draft section to update/edit the content.')
+        resov.reviewerSuggestionColl.click();
+             browser.sleep(3000);
+
+
+        wait.waitForElementVisibility(resov.reviewerSuggestionTitleColl, 40000, "resov.reviewerSuggestion is not available");
+        expect(resov.reviewerSuggestionTitleColl.isDisplayed()).toBeTruthy();
 
 
         browser.sleep(1000);
-        // wait.waitForElementToBeClickable(content.save,20000, "Dashboard never loaded");
-        // content.save.click();    
-        // browser.sleep(1000);
-        // resov.closeLinkIcon.click();
-  resov.revieDialogClose.click();
+       
+  resov.revieDialogCloseColl.click();
+  browser.sleep(3000);
 
         console.log('User has successfully verified the uploaded content in up for review page')
 
-   // }
-    // catch (e) {
-    //     console.log('User is not able to see the upload content in the all uploads section');
-
-    // }
-
+   
 }
 const createQuestionFITBAbhi = () => {
     var resourceName;
@@ -5646,6 +5675,7 @@ const createResourceWithTVLesson = () => {
         browser.sleep(500);
         browser.executeScript("arguments[0].scrollIntoView();", etbv.selectTVLesson);
         etbv.selectTVLesson.click();
+        browser.sleep(2000);
 
         resov.startCreating.click();
         browser.sleep(2000);
@@ -6289,6 +6319,80 @@ const sendForReviewTheResourceWithTVLessonInAdditionalCateg = () => {
 
     browser.sleep(5000);
 }
+const rejectCourse = (inputToReject) => {
+    try {
+        console.log('User  is trying to send the request changes for all upload content');
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+    content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.upForReview), 20000,"Creation page not loaded");
+        content.upForReview.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
+        content.searchForReview.click();
+        content.searchForReview.sendKeys(inputToReject);
+        
+        browser.sleep(3000);
+        // wait.waitForElementVisibility(resov.contentupload, 40000, "searchedContentForPublish is not available");
+        // resov.contentupload.getText().then(function (content) {
+        //     console.log('contentupload is  :' + content);
+
+        // });
+        console.log('Content should render properly in the content player while reviewing the contents.')
+        resov.contentupload.click();
+        browser.sleep(4000);
+      //  browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+       // browser.sleep(4000);
+     
+        browser.sleep(2000);
+        resov.clkRejectBtn.click();
+         browser.sleep(2000);
+       
+        wait.waitForElementVisibility(resov.clkcommentBox, 40000, "reviewComment is not available");
+        resov.clkcommentBox.click();
+        resov.clkcommentBox.sendKeys('Testing')
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.clkSubmitReviw, 40000, "requestChangesButton is not available");
+        resov.clkSubmitReviw.click();
+        browser.sleep(2000);
+    }
+    catch (e) {
+        console.log('The reviewer failed to rejects the uploaded content, Exception');
+
+    }
+
+}
+
+const VolumeMuteUnmute =()=>{
+    try
+    {
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.filterSearch, 40000, "  Filter search bar is not available");
+        resov.filterSearch.sendKeys("mp4");
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.searchIcon, 40000, "  searchIcon is not available");
+        resov.searchIcon.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.courseCard, 40000, "  courseCard is not available");
+        content.courseCard.click();
+        browser.sleep(3000);
+        //browser.actions().dragAndDrop(content.muteButton,content.muteButton).mouseUp().perform();
+        wait.waitForElementVisibility(content.muteButton, 40000, "  muteButton is not available");
+        content.muteButton.click();
+        browser.sleep(3000);
+        //browser.actions().dragAndDrop(content.UnmuteButton,content.UnmuteButton).mouseUp().perform();
+        wait.waitForElementVisibility(content.UnmuteButton, 40000, "  UnmuteButton is not available");
+        content.UnmuteButton.click();
+        // browser.sleep(3000);
+    }catch(e)
+    {
+    console.log("volume mute is not validated")
+    }
+}
+
+
+
 
 module.exports = {
     createResource,
@@ -6369,4 +6473,6 @@ module.exports = {
     ValidateRatingContentInRegionalLang,
     ConsumeUploadContent,
     sendForReviewTheResourceWithTVLessonInAdditionalCateg,
+    rejectCourse,
+    VolumeMuteUnmute
 }

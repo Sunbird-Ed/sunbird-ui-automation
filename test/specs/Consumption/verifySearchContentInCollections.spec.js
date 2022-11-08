@@ -20,7 +20,8 @@ describe('Verify searched contents', () => {
       //  utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('verifySearchedContents ',function(){
+    it('verifySearchContentInCollections',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         searchedCotentsValidation.verifySearchContentInCollectionPage();

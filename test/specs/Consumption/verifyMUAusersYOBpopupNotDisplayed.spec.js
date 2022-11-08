@@ -16,13 +16,14 @@ describe('verifyYOBpopUpNotDisplayedToMUAusers', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
+        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     
-    it('verifyYOBpopUpNotDisplayedToMUAusers',function(){
+    it('verifyMUAusersYOBpopupNotDisplayed',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('CustodianUser');
         usrOnBoardfun.VerifyMUAusersYOBpopupNotBedisplayed();
-        utility.handleLocationPopupForOtherExplorer();
     });
 });

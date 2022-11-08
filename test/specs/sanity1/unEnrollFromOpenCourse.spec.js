@@ -1,56 +1,54 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
-const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
-const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
-describe('Verify that user can unenroll the open courses.', () => {
+let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
+const EnrollTBFCPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
+const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPageObj.js');
+const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
+const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
+
+describe('able to create course and enroll consume unEnrollFromOpenCourse', () => {
+
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
-        var Url=getAppURL.ConfigurePath().AppURL;
-        var AppendExplore='/explore';
-        browser.get(Url+AppendExplore, 40000);
+        var Url = getAppURL.ConfigurePath().AppURL;
+        var AppendExplore = '/explore';
+        browser.get(Url + AppendExplore, 40000);
+        browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
-        browser.driver.manage().window().maximize(); 
-       
+        browser.driver.manage().window().maximize();
+
+
     });
+
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('unEnrollFromOpenCourse ',function(){
+    it('unEnrollFromOpenCourse', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Mentor');
+        utility.userLogin('Creator');
         utility.validateWorkspace();
-        let courseName=sanityfun.createCourseAndSendForReview();
-        // tpdPageObj.createCourse();
-        // let courseName=tpdPageObj.sendForReviewCourseWithName();
+        let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
         tpdPageObj.publishCourseFromUpForReview(courseName)
-       // tpdPageObj.publishTheCourseFromUpForReview(courseName);
         utility.userLogout();
-        utility.userLogin('Mentor');
-        tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName); 
-        tpdPageObj.createOpenBatch();
+        utility.userLogin('Creator');
+        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
+        EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
-
         utility.userLogin('Public User1');
-        tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        tpdPageObj.enrollForOpenBatch();
+        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
+        var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch2();
         tpdPageObj.unenrollFromBatch();
-        //utility.userLogout();
 
-        // utility.userLogin('Mentor');
-        // lspPageObj.deleteCreatedItems();
-        
     })
-
-   
-   
 });
-   
+
+
+
+

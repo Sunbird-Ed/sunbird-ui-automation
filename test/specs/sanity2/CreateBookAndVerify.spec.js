@@ -1,7 +1,8 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js');
+const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 
 describe('Create Book save and send for review and publish.', () => {
 
@@ -24,18 +25,18 @@ describe('Create Book save and send for review and publish.', () => {
     it('CreateBookAndVerify',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Book Creator');
-        let bookName= etbPageObj.createBook();
-        console.log(bookName);
-        etbPageObj.sendForReviewTheBook();
+        utility.userLogin('Creator');
+        let bookName= sanityfun.createBook();
+
         utility.userLogout();
-        utility.userLogin('Book Reviewer');
-        etbPageObj.publishTheBookFromUpForReview(bookName);
+        utility.userLogin('Reviewer');
+        tpdPageObj.publishCourseFromUpForReview(bookName)
         utility.userLogout();
-        utility.userLogin('Book Creator');
-        utility.validateWorkspace();
-        lspPageObj.deleteCreatedItems();      
-         
+       utility.userLogin('Creator');
+       utility.validateWorkspace();
+       lspPageObj.deleteCreatedItems();
+
+
     })
 
    

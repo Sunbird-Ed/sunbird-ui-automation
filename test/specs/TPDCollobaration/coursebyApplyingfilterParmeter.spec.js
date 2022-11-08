@@ -17,9 +17,8 @@ describe('Course by applying filter', () => {
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('Course by applying filter',function(){
+    it('Coursebyapplyingfilter',function(){
         utility.handleDropDown();
-
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         EnrollTBFCPageObj.courseByFilter();

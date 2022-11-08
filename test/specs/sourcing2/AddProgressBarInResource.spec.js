@@ -32,10 +32,7 @@ describe('Add Progress bar Plugin in Resource Edior', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
-        utility.userLogout();
-        utility.userLogin('Public User1');
-        resourcePageObj.ConsumeResourceAndValidateScoreForMCQ(contentName);
-      
+        
       
     })
     

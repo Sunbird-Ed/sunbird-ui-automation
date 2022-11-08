@@ -17,7 +17,6 @@ describe('Verify QR Code is Generating', () => {
   
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
@@ -28,7 +27,8 @@ describe('Verify QR Code is Generating', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.generateQRCodes();
-       
+        sanityFun.downloadQRCode();
+
     });
 });
    

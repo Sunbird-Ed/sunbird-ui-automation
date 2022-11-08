@@ -17,7 +17,6 @@ describe('Download  QR Code In Book', () => {
    
   afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
@@ -27,8 +26,8 @@ describe('Download  QR Code In Book', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        sanityFun.downloadQRCode();
-       
+        sanityFun.generateQRCodes();
+        sanityFun.downloadQRCode();       
     });
 });
    

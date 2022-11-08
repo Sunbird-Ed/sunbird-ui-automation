@@ -4,42 +4,45 @@ var HtmlReporter = require('protractor-beautiful-reporter');
 
 
 exports.config = {
-  // seleniumAddress: 'http://localhost:4444/wd/hub',
+    // seleniumAddress: 'http://localhost:4444/wd/hub',
     directConnect: true,
-    allScriptsTimeout: 100000, 
+    //allScriptsTimeout: 100000,
 
     framework: 'jasmine2',
     restartBrowserBetweenTests: false,
     waitForAngularEnabled: false,
     suites: {
-        
 
+        //sanity1: 'test/specs/sanity1/*.spec.js',
+        //sanity2: 'test/specs/sanity2/*.spec.js',
+        //sanity3: 'test/specs/sanity3/*.spec.js',
 
-    sanity1: 'test/specs/sanity1/*.spec.js',
-  sanity2: 'test/specs/sanity2/*.spec.js',
-   sanity3: 'test/specs/sanity3/*.spec.js',
-     // sanity3: 'test/specs/sanity3/verifyTheBestScoreDisplayedinCourseToc.spec.js',
-    //sanity3: 'test/specs/sanity3/downloadUsersCsvData.spec.js',
- //userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
- //Consumption: 'test/specs/Consumption/*.spec.js',
-  //sourcing1: 'test/specs/sourcing1/*.spec.js',
-  //sourcing2: 'test/specs/sourcing2/*.spec.js',
-  //sourcing3: 'test/specs/sourcing3/*.spec.js',
+        // sanity2: 'test/specs/sanity2/*.spec.js',
+        // sanity3: 'test/specs/sanity2/CreateCourseAndVerify.spec.js',
+        //sanity3: 'test/specs/sanity3/verifyTheBestScoreDisplayedinCourseToc.spec.js',
+        //sanity3: 'test/specs/sanity3/downloadUsersCsvData.spec.js',
+        //userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
+        //collaborationAndInteraction: 'test/specs/collaborationAndInteraction/*.spec.js',
 
-  //TPDCollobration: 'test/specs/TPDCollobaration/*.spec.js',
-        //useronboarding: 'test/specs/userOrgAndCredentials/*.spec.js',
-   // contentcreation: 'test/specs/content-creation/*.spec.js',
-   // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
-    //  tpd1: 'test/specs/tpd/*.spec.js', 
-    //  tpd2: 'test/specs/TPD2/*.spec.js', 
-    //   tpd3: 'test/specs/TPDCollobaration/*.spec.js',
+        // sourcing1: 'test/specs/sourcing1/*.spec.js',
+        //  sourcing2: 'test/specs/sourcing2/*.spec.js',
+        //  sourcing3: 'test/specs/sourcing3/*.spec.js',
 
-    //    ETB: 'test/specs/ETBSpecs/*.spec.js',  
-    //  smoke : 'test/specs/smoke/*.spec.js', 
-       
-     //sample-execution
+        TPDCollobration: 'test/specs/TPDCollobaration/*.spec.js',
+        //   useronboarding: 'test/specs/userOrgAndCredentials/*.spec.js',
+        // contentcreation: 'test/specs/content-creation/*.spec.js',
+        // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
+        //tpd1: 'test/specs/tpd/VerifyPagenationAndViewAllCourseSection.spec.js', 
 
-       //  VerifyHideActionOnEledment1:['test/specs/tpd/EditCertificateRequirementFromNoToYes.spec.js'],
+        //tpd2: 'test/specs/TPD2/ShareModule.spec.js', 
+        //    tpd3: 'test/specs/TPDCollobaration/*.spec.js',
+
+        //    ETB: 'test/specs/ETBSpecs/*.spec.js',  
+        //smoke : 'test/specs/smoke/CreateCourseAndVerify.spec.js', 
+
+        //sample-execution
+
+        //  VerifyHideActionOnEledment1:['test/specs/tpd/EditCertificateRequirementFromNoToYes.spec.js'],
         //    VerifyHideActionOnEledment3:['test/specs/ETBSpecs/copyBookAndSendForReview.spec.js'],
         //     VerifyHideActionOnElement2:['test/specs/ETBSpecs/generateQRCode.spec.js'],
         //    VerifyHideActionOnEledment4:['test/specs/ETBSpecs/VerifyCopyRightDetails.spec.js'],
@@ -47,50 +50,73 @@ exports.config = {
         //  VerifyHideActionOnEledment5:['test/specs/ETBSpecs/DownloadQrcodeInDraftPublishedAndLimitedSharing.spec.js'],
         // VerifyHideActionOnEledment6:['test/specs/ETBSpecs/CreateBookWithNoContentAndFilledEditDetailsForm.spec.js'],
         //  VerifyHideActionOnEledment7:['test/specs/ETBSpecs/TenantSpecificValidation.spec.js'],
-       //  VerifyHideActionOnEledment8:['test/specs/sanity2/CreateCourseAndVerify.spec.js'],
-        },
+        // unEnrollFromOpenCourse:['test/specs/sanity1/unEnrollFromOpenCourse.spec.js'],
+        //CreateOpenBatchCourseForPublicUser:['test/specs/sanity1/CreateOpenBatchCourseForPublicUser.spec.js'],
+        //verifyBlockClusterSchoolForSelectedState:['test/specs/sanity1/verifyBlockClusterSchoolForSelectedState.spec.js'],
+        //   verifyCourseProgressNowForUser:['test/specs/sanity1/verifyCourseProgressNowForUser.spec.js'],
+        //   verifycustodianAndSSOUserMerge:['test/specs/sanity1/verifycustodianAndSSOUserMerge.spec.js'],
+        //   verifyIGOTPages:['test/specs/sanity1/verifyIGOTPages.spec.js'],
+        //   verifyMCSbookDisplayedPostSearching:['test/specs/sanity1/verifyMCSbookDisplayedPostSearching.spec.js'],
+        //unEnrollFromOpenCourse:['test/specs/sanity1/unEnrollFromOpenCourse.spec.js'],
+        // verifyCloseBtnDispalyedDissusionForum:['test/specs/sanity2/verifyCloseBtnDispalyedDissusionForum.spec.js'],
+        //   ValidateCreateBatchAndConsentFormWhileEnroll:['test/specs/sanity2/ValidateCreateBatchAndConsentFormWhileEnroll.spec.js'],
+        //   TimerVerification:['test/specs/sanity2/TimerVerification.spec.js'],
+        //   unEnrollFromOpenCourse:['test/specs/sanity1/unEnrollFromOpenCourse.spec.js'],
+        //   CreateOpenBatchCourseForPublicUser:['test/specs/sanity3/CreateOpenBatchCourseForPublicUser.spec.js'],
+        // EditAnDeleteTopicPostDissuscionForum:['test/specs/sanity2/EditAnDeleteTopicPostDissuscionForum.spec.js'],
+        // verifyCloseBtnDispalyedDissusionForum:['test/specs/sanity2/verifyCloseBtnDispalyedDissusionForum.spec.js'],
+        // verifyEnableDisableDiscussionOptionForGroup:['test/specs/sanity3/verifyEnableDisableDiscussionOptionForGroup.spec.js'],
+        //Regession
+        //VerifyNoDeleteOptionInSubmittedForReview:['test/specs/sourcing1/VerifyNoDeleteOptionInSubmittedForReview.spec.js'],
+        //CreateQuestionFITBAndConsume:['test/specs/sourcing2/CreateQuestionFITBAndConsume.spec.js'],
+        //RejectTheLessonPlan:['test/specs/sourcing3/RejectTheLessonPlan.spec.js'],
+        //EnrollingToBatchForCourse:['test/specs/sourcing3/EnrollingToBatchForCourse.spec.js'],
+        //EnrollToCourseInOpenBatch:['test/specs/sourcing3/EnrollToCourseInOpenBatch.spec.js'],
+        //RejectTheCollectionAndVerifyInDraft:['test/specs/sourcing3/RejectTheCollectionAndVerifyInDraft.spec.js'],
+        //CreateCollectionVerifyInDraftReviewAndPublish:['test/specs/sourcing2/CreateCollectionVerifyInDraftReviewAndPublish.spec.js'],
+        //AddRemoveAndDeleteCollaboratorFromBook:['test/specs/sourcing2/AddRemoveAndDeleteCollaboratorFromBook.spec.js'],
+        //VerifyAddDeleteAndUpdateChildOrSibling:['test/specs/sourcing1/VerifyAddDeleteAndUpdateChildOrSibling.spec.js'],
+
+    },
     allScriptsTimeout: 40000,
 
     // suites: {
     //     contentcreation: 'test/specs/content-creation/*.spec.js',
     //     sanity: 'spec/sanitytests/*.js',
     //     full: 'spec/*.js'
-    
+
     // },
 
 
     //Run Only in Chrome Browser
     capabilities: {
         browserName: 'chrome',
-        'goog:chromeOptions': {
-            w3c: false
-            },
         version: '78.0.3904.108',
         platform: 'Any',
         shardTestFiles: true,
-        maxInstances:2,
+        maxInstances: 3,
         chromeOptions: {
             prefs: {
                 profile: {
-                  default_content_settings: {
-                    popups: 0,
-                  },
+                    default_content_settings: {
+                        popups: 0,
+                    },
                 },
                 download: {
-                default_directory: "/home/qualitrix/Documents/diksha-Protractor/downloads/",
-                  //  default_directory: "/home/qualitrix/Documents/diksha-Protractor/test/pageObject",
-                  }
-                },
+                    default_directory: "/home/qualitrix/Documents/diksha-Protractor/downloads/",
+                    //  default_directory: "/home/qualitrix/Documents/diksha-Protractor/test/pageObject",
+                }
+            },
 
-   args: ['--disable-infobars', '--no-sandbox', '--disable-dev-shm-usage',
-//          args: ['--incognito',
+            args: ['--disable-infobars', '--no-sandbox', '--disable-dev-shm-usage',
+                //          args: ['--incognito',
 
                 // '--disable-extensions',
                 // '--verbose',
                 // '--no-sandbox'
                 // '--headless'
                 //,'--start-maximized'
-              //  ,'--incognito'
+                //  ,'--incognito'
                 //,'--disable-setuid-sandbox'
 
             ]
@@ -135,7 +161,7 @@ exports.config = {
         jasmine.getEnv().addReporter(new HtmlReporter({
             baseDirectory: 'Report/screenshots'
             , takeScreenShotsOnlyForFailedSpecs: true
-            }).getJasmine2Reporter());
+        }).getJasmine2Reporter());
         // *************************************************************************************
         // by.addLocator('dropdownText', function (Text, opt_parentElement) {
         //     // This function will be serialized as a string and will execute in the

@@ -19,9 +19,10 @@ describe('Verify that custodian users is displayed with YOB popup and the user i
       //  utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('Custodian users YOB popup submit before onboarding ',function(){
+    it('varifyYOBpopupForCustodianUsers',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('CustUser12');
+        utility.userLogin('Custodian3');
         verifyCEBpageobj.verifyYOBforCustodianUsers();
         
     })

@@ -27,17 +27,6 @@ describe('Verfy No delete Option available for content or draft in submitted for
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         resourcePageObj.NoDeleteOptionInSubmittedForReview();
-        let contentName=resourcePageObj.createQuestionFITBWithAllStyles();
-        resourcePageObj.sendForLimitedSharing(contentName);
-        resourcePageObj.clickingTheResourceFromShareViaLinkBucket();
-        resourcePageObj.sendForReviewInShareVialink();
-        utility.userLogout();
-        utility.userLogin('Reviewer');
-        resourcePageObj.reviewInSubmissions();
-        resourcePageObj.publishTheResourceFromUpForReview(contentName);
-        utility.userLogout();
-        utility.userLogin('Creator');
-        resourcePageObj.deleteCreatedItems();
-
+       
     });
 });

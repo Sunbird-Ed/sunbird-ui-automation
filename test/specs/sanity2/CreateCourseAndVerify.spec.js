@@ -6,14 +6,17 @@ const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js'
 
 describe('Create Course save and send for review and publish.', () => {
 
+    
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
+        browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
        
+    
     });
 
     afterEach(() => {
@@ -28,13 +31,10 @@ describe('Create Course save and send for review and publish.', () => {
         utility.userLogin('Creator');
         utility.validateWorkspace();
         let courseName=sanityfun.createCourseAndSendForReview();
-        //tpdPageObj.createCourse();
-        //let courseName=tpdPageObj.sendForReviewCourseWithName();
-        utility.userLogout();
+               utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
         tpdPageObj.publishCourseFromUpForReview(courseName)
-       // tpdPageObj.publishTheCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
         utility.validateWorkspace();

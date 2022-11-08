@@ -2,7 +2,7 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
 const etbPageObj = require(protractor.basePath+'/test/pageObject/ETBPageObj/EtbPageObj.js');
-const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
 
 describe('TvLessonOptionInResourceSendForReviewfor review and publish.', () => {
 
@@ -33,7 +33,7 @@ describe('TvLessonOptionInResourceSendForReviewfor review and publish.', () => {
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
         utility.userLogout();
         utility.userLogin('Creator');
-        etbPageObj.TVClassSearch(resourceName);
+        sanityfun.TVClassSearch(resourceName);
 
 
     })

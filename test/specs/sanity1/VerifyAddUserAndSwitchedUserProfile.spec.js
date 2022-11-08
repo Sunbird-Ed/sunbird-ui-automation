@@ -19,6 +19,7 @@ describe('verifyBCSforSelectedState', () => {
     });
     
     it('Verify Block Cluster and school in BMC with state Uttar pradesh',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('NewUserSecondTime');
         usrOnBoardfun.AddUserProfileVerification();

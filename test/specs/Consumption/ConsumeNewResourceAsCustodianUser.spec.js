@@ -19,6 +19,7 @@ describe('custodian user should is able to consume the resource contents from li
         browser.manage().deleteAllCookies();
     });
     it('ConsumeNewResourceAsCustodianUser',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResource();
@@ -27,9 +28,7 @@ describe('custodian user should is able to consume the resource contents from li
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
         utility.userLogout();
-        utility.userLogin('CustodianUser');
-        resourcePageObj.navigateToLibraryAndSearchContent(resourceName);
-        
+        utility.userLogin('Public User1');
+        resourcePageObj.navigateToLibraryAndSearchContent(resourceName);  
     })
-   
 });

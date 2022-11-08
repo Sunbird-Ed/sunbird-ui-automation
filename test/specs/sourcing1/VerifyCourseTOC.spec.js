@@ -1,16 +1,14 @@
-//const { protractor } = require("protractor/built/ptor");
-
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
-const ETBFun = require(protractor.basePath+'/test/pageObject/ETBPageObj/EtbPageObj.js');
+const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
+const searchCBFPPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 
-describe('VerifyCourseTOC', () => {
+describe('VerifyCourseTOC in course', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
-        var AppendExplore='/explore-course';
+        var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
@@ -19,14 +17,19 @@ describe('VerifyCourseTOC', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
+        utility.userLogout();
         browser.manage().deleteAllCookies();
-        
         
     });
     it('VerifyCourseTOC',function(){
         utility.handleDropDown();
-        utility.handleLocationPopupForOtherExplorer();
-        ETBFun.CheckJoinButtonOptions();
+        utility.handleLocationPopup();
+        utility.userLogin('Public User1');
+        searchCBFPPageObj.verifyCollapseAllOption();
+        
+       
+       
+    });
+});
+   
 
-});
-});

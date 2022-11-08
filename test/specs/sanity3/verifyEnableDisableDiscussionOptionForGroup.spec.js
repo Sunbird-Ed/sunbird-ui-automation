@@ -3,7 +3,7 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 const sanityPage=require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
-describe('verifyEnableDisableDiscussionOptionForGroup', () => {
+describe('verifyEnableDisableDiscussionOptionForGroup in groups', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -24,7 +24,7 @@ describe('verifyEnableDisableDiscussionOptionForGroup', () => {
     it('verifyEnableDisableDiscussionOptionForGroup',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Admin2');
+        utility.userLogin('Reviewer');
         sanityPage.verifyEnableAndDisableDiscussionForGroup2();
        
 

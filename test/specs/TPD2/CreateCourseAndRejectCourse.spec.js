@@ -4,12 +4,12 @@ const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js')
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js')
 const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
-describe('Course reviewer is able to rejects the course .', () => {
+
+describe('After Rejecting course Add New Resource , again publish', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
-
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
@@ -19,34 +19,22 @@ describe('Course reviewer is able to rejects the course .', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+      //  utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
-    it('CreateCourseAndRejectCourse  ',function(){
+    it('CreateCourseAndRejectCourse',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();
         let courseName=sanityfun.createCourseAndSendForReview();
-        // tpdPageObj.createCourse();
-        // let courseName=tpdPageObj.sendForReviewCourseWithName();
-      //resourcePageObj.reviewInSubmissions(courseName);
         utility.userLogout();
         utility.userLogin('Reviewer');
-        // resourcePageObj.rejectLessonPlan(courseName)
-        // utility.userLogout();
-        // utility.userLogin('Creator');
-        // tpdPageObj.editTheCourseInDraft();
-        // tpdPageObj.sendForReviewTheRejectedCourse();
-        // utility.userLogout();
-        // utility.userLogin('Reviewer');
-        utility.validateWorkspace();
-        tpdPageObj.publishCourseFromUpForReview(courseName);;
+        resourcePageObj.rejectCourse(courseName)
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
-        lspPageObj.deleteCreatedItems();
+        tpdPageObj.editTheCourseInDraftAddNewResource();
        
        
     })

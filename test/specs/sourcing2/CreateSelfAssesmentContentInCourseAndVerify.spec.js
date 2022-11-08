@@ -26,8 +26,8 @@ describe('Create SelfAssesmentCourse save and send for review and publish.', () 
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();
-        tpdPageObj.createCourseWithSelfContentAssesment();
-        let courseName=tpdPageObj.sendForReviewCourseWithName();
+        let courseName=tpdPageObj.createCourseAssessment();
+        tpdPageObj.sendForReviewTheCourseAssessment();
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
@@ -39,8 +39,5 @@ describe('Create SelfAssesmentCourse save and send for review and publish.', () 
        
        
     })
-
-   
-   
 });
    

@@ -14,10 +14,10 @@ describe('verifyEnableDisableOptionForDiscussionForum', () => {
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-       // utility.userLogout();
+        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('EditAnDeleteTopicPostDissuscionForum.spec',function(){
+    it('EditAnDeleteTopicPostDissuscionForum',function(){
         utility.handleDropDown();
 
         utility.handleLocationPopup();

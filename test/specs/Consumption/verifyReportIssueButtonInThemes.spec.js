@@ -17,7 +17,8 @@ describe('Verify that Report other issue button displayed in portal Help page in
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('verify report issue button displayed in both themes',function(){
+    it('verifyReportIssueButtonInThemes',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         //verifyUOpage.drop();

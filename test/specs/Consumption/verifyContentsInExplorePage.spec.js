@@ -21,11 +21,11 @@ describe('Verify searched contents', () => {
       //  utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('verifySearchedContents ',function(){
+    it('verifyContentsInExplorePage',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Admin');
         searchedCotentsValidation.verifySearchContentInExplorePage();
     });
-
 });
    

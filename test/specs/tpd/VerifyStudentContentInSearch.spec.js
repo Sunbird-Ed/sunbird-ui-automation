@@ -24,20 +24,11 @@ describe('VerifyStudentContentInSearch', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
        
-        let coursename="Course teacherStudent";
+        let coursename="Course";//teacherStudent
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(coursename);
-       
-
-        
-        
-        
-
 
       
       
     })
-    
-   
-   
-    
+     
 });

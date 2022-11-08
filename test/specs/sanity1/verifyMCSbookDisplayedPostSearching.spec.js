@@ -18,7 +18,8 @@ describe('AddCollectionUsingDifferentApproachAndResource Verify', () => {
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('AddCollectionUsingDifferentApproachAndResource',function(){
+    it('verifyMCSbookDisplayedPostSearching',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Book Creator');

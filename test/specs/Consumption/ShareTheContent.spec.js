@@ -18,12 +18,13 @@ describe('Logi into Application with mentor user,shareTheConentUsingLink,Logout'
         browser.manage().deleteAllCookies();
     });
     it('ShareTheContent',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         shareTCPageObj.clickLibraryPage();
         let link = shareTCPageObj.shareTheConentUsingLink('Collections');
         utility.userLogout();
-      //  shareTCPageObj.verifyCollection();
+        //shareTCPageObj.verifyCollection();
         utility.userLogin('Mentor');
         shareTCPageObj.clickLibraryPage();
         let linkNew = shareTCPageObj.shareTheConentUsingLink('Resource');
@@ -31,6 +32,4 @@ describe('Logi into Application with mentor user,shareTheConentUsingLink,Logout'
         //shareTCPageObj.verifyResource();
 
     });
- 
-     
 });

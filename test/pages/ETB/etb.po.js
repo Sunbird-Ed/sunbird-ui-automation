@@ -69,13 +69,13 @@ var etb = () => {
     var allImage = element(by.id("allImagesTab"));
     var myImage = element(by.id("myAssetsTab"));
     var allTextBook = element(by.xpath("//*[contains(text(),'All Textbooks')]"));
-    var firstContentWithDraftstatus = element(by.xpath("//td[contains(text(),'Draft')]/../td/h5/div/div"));
-    
-    var GuestHeaderDropDown=element(by.xpath("//*[@id='dropdown-menu-list-header']/ngx-avatar/div"));
+    var firstContentWithDraftstatus = element(by.xpath("(//div[@class='content ']//div)[9]"));
+    var GuestHeaderDropDown=element(by.xpath("(//*[@id='dropdown-menu-list-header']/ngx-avatar/div)[2]"));
     var themeSwitch=element(by.xpath("//*[contains(text(),'Switch to classic theme')]"));
-    var openBook=element(by.xpath("//*[contains(@class,'show-3')][1]"));
-    var liscenceTerms=element(by.buttonText("//*[contains(text(),'Credits And Licence Info')]"));
-    return {
+    var openBook=element(by.xpath("(//*[contains(@class,'sb--card')])[1]"));
+   var liscenceTerms=element(by.buttonText("//*[contains(text(),'Credits And Licence Info')]"));
+   var firstResource=element(by.xpath("(//*[contains(text(),'270 MB Video')])[1]"));
+   return {
         bookName,
         startcreating,
         clickNewChild,
@@ -146,6 +146,7 @@ var etb = () => {
         themeSwitch,
         liscenceTerms,
         openBook,
+        firstResource,
   };
 
 };

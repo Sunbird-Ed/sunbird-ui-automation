@@ -22,6 +22,7 @@ describe('ValidateRatingSecContent.spec', () => {
         browser.manage().deleteAllCookies();
     });
     it('ValidateRatingSecContent',function(){
+        utility.handleDropDown();
 
         utility.handleLocationPopup();
        utility.userLogin('Creator');

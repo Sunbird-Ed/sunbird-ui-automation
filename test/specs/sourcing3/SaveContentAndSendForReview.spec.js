@@ -30,7 +30,6 @@ describe('Verfy, Content creator is able to  i see the content under submitted f
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.rejectUploadedContent(uploadContent)
-        utility.userLogout();
     })
 });
    

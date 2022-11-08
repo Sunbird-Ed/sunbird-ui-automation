@@ -31,8 +31,12 @@ const userLogin = (roleName) => {
         browser.sleep(4000);
         wait.waitForElementVisibility(content.headerDropdown1, 20000);
         content.headerDropdown1.click();
+        browser.sleep(3000);
+        browser.executeScript("arguments[0].scrollIntoView();",content.loginLink);
+        browser.sleep(2000);
         wait.waitForElementVisibility(content.loginLink, 20000);
         content.loginLink.click();
+        browser.sleep(3000);
         wait.waitForElementVisibility(content.userName, 20000);
         content.userName.sendKeys(cred[0]['Username']);
         browser.sleep(1000);
@@ -40,6 +44,8 @@ const userLogin = (roleName) => {
         browser.sleep(3000);
 
         content.login.click();
+        browser.sleep(3000);
+
     } catch (Err) {
         console.error("Failed to user login, " + Err);
     }
@@ -70,12 +76,12 @@ const handleLocationPopup = () => {
         // content.sunbirdOkMsg.click();
         // browser.navigate().refresh();
 
-        browser.sleep(2000);
+        browser.sleep(3000);
         wait.waitForElementVisibility(content.Teacher, 30000);
         content.Teacher.click();
         wait.waitForElementVisibility(content.Continue, 20000);
         content.Continue.click();
-        browser.sleep(5000);
+        browser.sleep(4000);
 
         // wait.waitForElementVisibility(content.state, 20000);
         // content.state.click();
@@ -85,8 +91,9 @@ const handleLocationPopup = () => {
         // content.district.click();
         // wait.waitForElementVisibility(content.selectDistrict, 20000);
         // content.selectDistrict.click();
-
-
+        // browser.sleep(2000);
+        browser.executeScript("arguments[0].scrollIntoView();",content.submitForm);
+        browser.sleep(2000);
 
         wait.waitForElementVisibility(content.submitForm, 20000);
         content.submitForm.click();
@@ -101,9 +108,11 @@ const userLogout = () => {
         var Url = getAppURL.ConfigurePath().AppURL;
         var AppendExplore = '/explore';
         browser.get(Url + AppendExplore, 40000);
-        browser.sleep(3000);
+        browser.sleep(4000);
         wait.waitForElementVisibility(content.headerDropdown, 20000);
         content.headerDropdown.click();
+        browser.sleep(3000);
+        browser.executeScript("arguments[0].scrollIntoView();",content.logout);
         browser.sleep(2000);
         wait.waitForElementVisibility(content.logout, 20000);
         content.logout.click();
@@ -280,16 +289,16 @@ const handleLocationPopupAsOther = () => {
 }
 const handleDropDown=()=>{
     try{
-        browser.sleep(4000);
+        browser.sleep(5000);
         wait.waitForElementVisibility(content.boardDropdown, 30000);
         content.boardDropdown.click();
-        browser.sleep(2000); 
+        browser.sleep(5000); 
         wait.waitForElementVisibility(content.selectBoardValue, 30000);
         content.selectBoardValue.click();
-        browser.sleep(4000); 
+        browser.sleep(7000); 
         wait.waitForElementVisibility(content.mediumDropdown, 30000);
         content.mediumDropdown.click();
-        browser.sleep(1000); 
+        browser.sleep(3000); 
         wait.waitForElementVisibility(content.selectMediumValue, 30000);
         content.selectMediumValue.click();
         browser.sleep(4000); 

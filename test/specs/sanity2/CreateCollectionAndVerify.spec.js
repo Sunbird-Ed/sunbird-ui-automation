@@ -2,6 +2,7 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const collectionPageObj = require(protractor.basePath+'/test/pageObject/collectionPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 
 describe('Create Collection save and send for review and publish.', () => {
 
@@ -26,11 +27,10 @@ describe('Create Collection save and send for review and publish.', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName=collectionPageObj.createCollection();
-        collectionPageObj.sendForReviewTheCollection();
-        utility.userLogout();
-        utility.userLogin('Reviewer');
-        collectionPageObj.publishTheCollectionFromUpForReview(collectionName);
-        utility.userLogout();
+         utility.userLogout();
+         utility.userLogin('Reviewer');
+         tpdPageObj.publishCourseFromUpForReview(collectionName)
+         utility.userLogout();
         utility.userLogin('Creator');
         utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();

@@ -18,7 +18,8 @@ describe('verifyBCSforSelectedState', () => {
         browser.manage().deleteAllCookies();
     });
     
-    it('Verify Block Cluster and school in BMC with state Uttar pradesh',function(){
+    it('verifyBlockClusterSchoolForSelectedState',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('NewUserSecondTime');
         usrOnBoardfun.verifyBCSforSelectedState();

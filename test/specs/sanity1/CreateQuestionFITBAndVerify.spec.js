@@ -30,9 +30,9 @@ describe('is Able to create Question FIB and Consume by other Users and Creator 
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
-        utility.userLogout();
-        utility.userLogin('Creator');
-        lspPageObj.deleteCreatedItems();
+      //  utility.userLogout();
+        // utility.userLogin('Creator');
+        // lspPageObj.deleteCreatedItems();
        
       
     })

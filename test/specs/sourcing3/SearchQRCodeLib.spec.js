@@ -24,11 +24,10 @@ describe('SearchQRCodeLib', () => {
     it('SearchQRCodeLib',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        etbFun.searchWithQRcode();
-        var Url=getAppURL.ConfigurePath().AppURL;
+               var Url=getAppURL.ConfigurePath().AppURL;
         var AppendGet='/get';
         browser.get(Url+AppendGet, 40000);
-        sanityFun.searchQRCodeInGet();
+        sanityFun.searchQRCodeInGetPage();
 
 
     });

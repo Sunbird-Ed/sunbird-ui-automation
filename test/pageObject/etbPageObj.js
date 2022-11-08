@@ -1,6 +1,7 @@
 const ccpage = require( protractor.basePath +'/test/pages/contentCreation/contentCreation.po.js');
 const etbpage = require(protractor.basePath + '/test/pages/etb/etb.po.js');
 const data = require(protractor.basePath + '/test/testdata/login/login.td.json');
+const resourcePag = require(protractor.basePath + '/test/pages/resource/resource.po.js');
 const wait = require(protractor.basePath + '/helper/waiters.js');
 const faker = require(protractor.basePath + '/test/pathFolder/faker.js');
 const sanityPage= require(protractor.basePath + '/test/pages/userOnBoarding/SanityPage.js');
@@ -10,6 +11,7 @@ const genericFun = require(protractor.basePath + '/test/genericFunctions/Generic
 let getExcelPath = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
+var resov = resourcePag.resource();
 const createBook=()=>{
     var bookname;
     try{
@@ -624,7 +626,6 @@ const createBookWithRegionalLanguage=(Regional)=>{
 }
 }
 const adminCanEditTextBook=()=>{
-
     try{
         browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
         ccpage.contentCreation().headerDropdown.click();
@@ -640,69 +641,396 @@ const adminCanEditTextBook=()=>{
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.firstContentWithDraftstatus), 20000, "1st book not loaded");
         etbv.firstContentWithDraftstatus.click();
         browser.sleep(8000);
-        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-        content.addResource.click(); 
-        browser.sleep(3000);
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.resourceSearch), 30000, "resourceSearch not available");
-        // content.resourceSearch.click();
-        // content.resourceSearch.sendKeys("pdf");
-        // browser.sleep(1000);
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectResourceType2), 30000, "selectResourceType not available");
-        // content.selectResourceType2.click();
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickAddbutton), 30000, "clickAddbutton not available");
-        // content.clickAddbutton.click();
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.proceed), 30000, "proceed is not available");
-        // content.proceed.click();
-        // browser.sleep(2000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.addResource), 20000, "Add resource not loaded");
-        etbv.addResource.click();
         browser.sleep(5000);
-        //browser.actions().click(etbv.addResource).perform();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.firstResource), 20000, "1st resource not loaded");
-        etbv.firstResource.click();
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.proceedButton), 20000, "proceed button not loaded");
-        etbv.proceedButton.click();
-        browser.sleep(2000);
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.save), 20000, "Dashboard never loaded");
-        browser.sleep(3000);
-        content.save.click();
-        browser.sleep(6000);
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.sendForReview), 20000, "send for review not available");
-        content.sendForReview.click();
-        browser.sleep(6000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.continuewButton), 50000, "contuinew button not available");
-        etbv.continuewButton.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.clickAppIcon), 50000, "clickAppIcon button not available");
-        etbv.clickAppIcon.click();
-        browser.sleep(2000);
-        browser.sleep(2000);
-        wait.waitForElementVisibility(etbv.myImage, 30000, "myImage button not available");
-        etbv.myImage.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.checkAppIcon), 30000, "checkAppIcon button not available");
-        etbv.checkAppIcon.click();
-        browser.sleep(500);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.selectAppIcon), 30000, "selectAppIcon button not available");
-        etbv.selectAppIcon.click();
-        browser.sleep(500);
-        browser.sleep(500);    
-        browser.executeScript("arguments[0].scrollIntoView();",  etbv.yearOfCreation);
-        etbv.yearOfCreation.click();
-        etbv.yearOfCreation.clear();
-        etbv.yearOfCreation.sendKeys("2021");      
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.saveform), 20000, "submitForm not available");
-        content.saveform.click();
-        browser.sleep(7000);
+
+        // browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        // content.addResource.click(); 
+        // browser.sleep(3000);
+
 
         
 
-        
-       
+    //     browser.executeScript('window.scrollTo(0,800);').then(function () {
+    //         console.log('++++++SCROLLED Down+++++');
+    //     });
+    //     browser.sleep(4000);
+
+    //  sanityPage.SanityElement().selectBoardForcollection.click();
+    //  browser.sleep(3000);
+    //  sanityPage.SanityElement().selectBoardValueForcollection.click();
+    //  browser.sleep(3000);
+     
+    //     sanityPage.SanityElement().selectMediumForcollection.click();
+    //     browser.sleep(3000);
+    //      sanityPage.SanityElement().selectMediumValueForcollection.click();
+    //  browser.sleep(3000);
+
+    //     sanityPage.SanityElement().selectClassForCourse.click();
+    //     browser.sleep(3000);
+    //  sanityPage.SanityElement().selectClassValueForcollection.click();
+    //  browser.sleep(3000);
+  
+      
+    //      browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectSubjectForCourse), 20000,"subject covered not loaded");
+    //      sanityPage.SanityElement().selectSubjectForCourse.click();
+    //      browser.sleep(3000);
+    //   sanityPage.SanityElement().selectSubjectValueForcollection.click();
+    //   browser.sleep(3000); 
+
+    //   browser.executeScript("arguments[0].scrollIntoView();",sanityPage.SanityElement().selectCopyRightYear);
+    //   browser.sleep(1000);
+    //         sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
+    //   browser.sleep(3000);
+ 
+    //   sanityPage.SanityElement().saveAsDraft.click();
+    //   browser.sleep(5000);   
+
+
+      sanityPage.SanityElement().addChild.click();
+      browser.sleep(3000); 
+  
+      sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+      browser.sleep(3000);
+  
+      sanityPage.SanityElement().addFromLibraryButton.click();
+      browser.sleep(3000); 
+      sanityPage.SanityElement().selectButton.click();
+      browser.sleep(3000); 
+      sanityPage.SanityElement().addContent.click();
+      browser.sleep(3000); 
+      sanityPage.SanityElement().contentFromLibrayBackButton.click();
+      browser.sleep(4000); 
+
+      sanityPage.SanityElement().saveAsDraft.click();
+      browser.sleep(5000);   
+
+
+    //   browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000,"submit Button not loaded");
+    //   sanityPage.SanityElement().submitForreviewButton.click();
+    //   browser.sleep(3000); 
+    //   sanityPage.SanityElement().termsAndConditionCheckbox.click();
+    //   browser.sleep(3000); 
+    //   sanityPage.SanityElement().NewCoursesubmitButton.click();
+    //   browser.sleep(4000); 
+      
+
+
     }  catch(err){
         console.error(err);
 }
 }
+
+const searchContentInExplorePage = (Consume) => {
+    try {
+
+            wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary not loaded");
+            resov.headerLibrary.click();
+            browser.sleep(1000);
+            console.log("Clicked on Library");
+            wait.waitForElementVisibility(resov.filterSearch, 20000, "filterSearch not loaded");
+            resov.filterSearch.click();
+            resov.filterSearch.sendKeys(Consume);
+            resov.searchIcon.click();
+            browser.sleep(1000);
+            console.log("Clicked on Search Icon");
+            wait.waitForElementVisibility(resov.resoCard, 20000, "courseCard not loaded");
+            resov.resoCard.click();
+            browser.sleep(3000);
+         
+
+
+    }
+    catch (Exception) {
+        console.log('Failed on searching library by applying filters');
+
+    }
+
+}
+const searchWithQRcode = () => {
+    try {
+        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+        browser.sleep(1000);
+        console.log('user is trying to search content using QR code');
+        console.log('user is verifying-SUN-2063');
+        console.log('user is trying to search content using QR code');
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().enterQRcodeButton), 40000, "enterQRcodeButton is not available");
+        // etbPage.EtbElem().enterQRcodeButton.click();
+        // browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary not loaded");
+        resov.headerLibrary.click();
+        browser.sleep(4000);
+        console.log("Clicked on Library");
+        wait.waitForElementVisibility(resov.filterSearch, 20000, "filterSearch not loaded");
+        resov.filterSearch.click();
+        resov.filterSearch.sendKeys(cred[18]['CourseDescription']);
+        resov.searchIcon.click();
+        browser.sleep(4000);
+        console.log("Clicked on Search Icon");
+        expect(resov.resoCard.isDisplayed()).toBeTruthy();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.resoCard, 20000, "courseCard not loaded");
+        resov.resoCard.click();
+        browser.sleep(5000);
+
+
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().EnterQRCodeBox), 40000, "enterQRcodeButton is not available");
+        // etbPage.EtbElem().EnterQRCodeBox.click();
+        // browser.sleep(1000);
+        // etbPage.EtbElem().EnterQRCodeBox.sendKeys(cred[18]['CourseDescription']);
+        // browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().SearchQRCode), 40000, "enterQRcodeInSearchField is not available");
+        // etbPage.EtbElem().SearchQRCode.click();
+        // browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().enterQRcodeInSearchField), 40000, "enterQRcodeInSearchField is not available");
+        // etbPage.EtbElem().enterQRcodeInSearchField.click();
+        // etbPage.EtbElem().enterQRcodeInSearchField.sendKeys(cred[18]['CourseDescription']);
+        // browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().submitQRcode), 40000, "enterQRcodeInSearchField is not available");
+        // etbPage.EtbElem().submitQRcode.click();
+        // browser.sleep(1000);
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkEnterQRCode), 20000, "Enter QR Code is not available");
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().linkedQRcodeContent), 40000, "enterQRcodeInSearchField is not available");
+        // etbPage.EtbElem().linkedQRcodeContent.getText().then(function (content) {
+        //     console.log('Linked contents are:' + content);
+        // });
+        // browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().QrcontentClk), 40000, "QrcontentClk is not available");
+        // etbPage.EtbElem().QrcontentClk.click();
+        // console.log('Content Opened Successfully')
+        // console.log('Searched contents are verified');
+        // browser.sleep(1000);
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+
+
+const searchWithInvalidQRcode = () => {
+    try {
+
+        browser.sleep(4000);
+
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary not loaded");
+        resov.headerLibrary.click();
+        browser.sleep(5000);
+        console.log("Clicked on Library");
+        wait.waitForElementVisibility(resov.filterSearch, 20000, "filterSearch not loaded");
+        resov.filterSearch.click();
+        resov.filterSearch.sendKeys('C2H4CD');
+        resov.searchIcon.click();
+        browser.sleep(3000);
+        console.log("Clicked on Search Icon");
+        // wait.waitForElementVisibility(resov.resoCard, 20000, "courseCard not loaded");
+        // resov.resoCard.click();
+        // browser.sleep(1000);
+
+
+        // browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().headerLibrary), 40000, "headerLibrary is not available");
+        // etbPage.EtbElem().headerLibrary.click();
+        // console.log('user is trying to search content using invalid QR code');
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().enterQRcodeButton), 40000, "enterQRcodeButton is not available");
+        // etbPage.EtbElem().enterQRcodeButton.click();
+        // browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().enterQRcodeInSearchField), 40000, "enterQRcodeInSearchField is not available");
+        // etbPage.EtbElem().enterQRcodeInSearchField.click();
+        // etbPage.EtbElem().enterQRcodeInSearchField.sendKeys('C2H4CD');
+        // browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().submitQRcode), 40000, "enterQRcodeInSearchField is not available");
+        // etbPage.EtbElem().submitQRcode.click();
+        // browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().EnterQRCodeBox), 40000, "enterQRcodeButton is not available");
+        // etbPage.EtbElem().EnterQRCodeBox.click();
+        // browser.sleep(1000);
+        // etbPage.EtbElem().EnterQRCodeBox.sendKeys('C2H4CD');
+        // browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().SearchQRCode), 40000, "enterQRcodeInSearchField is not available");
+        // etbPage.EtbElem().SearchQRCode.click();
+        // browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().contentNotAdded), 40000, "contentNotAdded is not available");
+        // etbPage.EtbElem().contentNotAdded.getText().then(function (actualContent) {
+        //     console.log("Content Present is  :" + actualContent);
+        //     var expectedContent = "did not match any content";
+        //     expect(actualContent).toContain(expectedContent)
+        //     {
+        //         console.log('Content not added yet')
+        //     }
+        // });
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().contentWillGetAddedInFutureMessage), 40000, "contentWillGetAddedInFutureMessage is not available");
+        // etbPage.EtbElem().contentWillGetAddedInFutureMessage.getText().then(function (futureMessage) {
+        //     console.log("Content Present is  :" + futureMessage);
+        //     var expectedContent = "Your state will soon add content for this QR code. It will be available shortly";
+        //     expect(futureMessage).toContain(expectedContent)
+        //     {
+        //         console.log('Your state will soon add content for this QR code. It will be available shortly')
+        //     }
+        // });
+        console.log('Searched contents are verified');
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+const librarysearchFilter = () => {
+    try {
+        browser.sleep(1000);
+        console.log('verifying the library search by applying filters');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().headerLibrary), 40000, "headerLibrary is not available");
+        etbPage.EtbElem().headerLibrary.click();
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().filterSearch), 40000, "filterSearch is not available");
+        etbPage.EtbElem().filterSearch.click();
+        etbPage.EtbElem().filterSearch.sendKeys('Textbook');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().searchIcon), 40000, "searchIcon is not available");
+        etbPage.EtbElem().searchIcon.click();
+
+        browser.sleep(4000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clickFilter), 40000, "clickFilterBoard is not available");
+        // etbPage.EtbElem().clickFilter.click();
+        // browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clickFilterBoard), 40000, "clickFilterBoard is not available");
+        etbPage.EtbElem().clickFilterBoard.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().selectFilterBoard), 40000, "selectFilterBoard is not available");
+        etbPage.EtbElem().selectFilterBoard.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clickFilterMedium), 40000, "clickFilterMedium is not available");
+        etbPage.EtbElem().clickFilterMedium.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().selectFilterMedium), 40000, "selectFilterMedium is not available");
+        etbPage.EtbElem().selectFilterMedium.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clickFilterClass), 40000, "clickFilterClass is not available");
+        etbPage.EtbElem().clickFilterClass.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().selectFilterClass), 40000, "selectFilterClass is not available");
+        etbPage.EtbElem().selectFilterClass.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clickFilterSubject), 40000, "clickFilterSubject is not available");
+        etbPage.EtbElem().clickFilterSubject.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().selectFilterSubject), 40000, "selectFilterSubject is not available");
+        etbPage.EtbElem().selectFilterSubject.click();
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clickSubmit), 40000, "clickSubmit is not available");
+        // etbPage.EtbElem().clickSubmit.click();
+        browser.sleep(1000);
+
+        try {
+            expect(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().courseToBeClicked)).toBeTruthy()
+            browser.sleep(1000);
+            if (protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().courseToBeClicked)) {
+                browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().courseToBeClicked), 40000, "courseToBeClicked is not available");
+                etbPage.EtbElem().courseToBeClicked.getText().then(function (value) {
+                    console.log("Filters are applied and :" + value + " is the resultant Content");
+                    console.log('Filter are applied');
+                    browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().headerLibrary), 40000, "headerLibrary is not available");
+                    etbPage.EtbElem().headerLibrary.click();
+                    browser.sleep(1000);
+                    browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().filterSearch), 40000, "filterSearch is not available");
+                    etbPage.EtbElem().filterSearch.clear();
+                    etbPage.EtbElem().filterSearch.click();
+                    etbPage.EtbElem().filterSearch.sendKeys(value);
+                    browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().searchIcon), 40000, "searchIcon is not available");
+                    etbPage.EtbElem().searchIcon.click();
+                    browser.sleep(1000);
+                    browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().courseToBeClicked), 40000, "courseToBeClicked is not available");
+                    etbPage.EtbElem().courseToBeClicked.getText().then(function (Book) {
+                        console.log("courseToBeClicked text :" + Book);
+
+                        browser.sleep(1000);
+                        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().courseCard1), 40000, "courseCard is not available");
+                        etbPage.EtbElem().courseCard1.click();
+                        //console.log("User successfully verified the Book : " + bookName2);
+                        console.log("User successfully navigated To Library And Search For Book");
+                    });
+                });
+
+
+            }
+        }
+        catch (Exception) {
+            console.log('Filters are applied but could not get the resultant Content');
+        }
+
+    }
+    catch (Exception) {
+        console.log('Failed on searching library by applying filters');
+
+    }
+
+}
+const verifyNoDefaultValuSltinFilter = () => {
+    try {
+        browser.sleep(1000);
+        console.log('verifying the library search by applying filters');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(tpd.courses), 40000, "tpd.courses is not available");
+        tpd.courses.click();
+        browser.sleep(3000);
+
+
+        var Organization = etbPage.EtbElem().OrganizationNoDefDD.getText();
+        expect(Organization.getText()).toEqual('Select Organization Name');
+
+        var MediumNoDefDD = etbPage.EtbElem().MediumNoDefDD.getText();
+        expect(MediumNoDefDD.getText()).toEqual('Select Medium');
+
+        var ClassNoDefDD = etbPage.EtbElem().ClassNoDefDD.getText();
+        expect(ClassNoDefDD.getText()).toEqual('Select Class');
+
+        var subjectNoDefDD = etbPage.EtbElem().subjectNoDefDD.getText();
+        expect(subjectNoDefDD.getText()).toEqual('Select Subject');
+
+
+        browser.sleep(1000);
+
+    }
+    catch (Exception) {
+        console.log('Failed on verifyNoDefaultValuSltinFilter');
+
+    }
+}
+
+const contentInSubjectWiseInAllTabs = () => {
+    try {
+
+
+
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary not loaded");
+        resov.headerLibrary.click();
+        browser.sleep(1000);
+        console.log("Clicked on Library");
+        wait.waitForElementVisibility(resov.filterSearch, 20000, "filterSearch not loaded");
+        resov.filterSearch.click();
+        resov.filterSearch.sendKeys('Textbook');
+        resov.searchIcon.click();
+        browser.sleep(2000);
+        console.log("Clicked on Search Icon");
+        expect(resov.resoCard.isDisplayed()).toBeTruthy();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.resoCard, 20000, "courseCard not loaded");
+        resov.resoCard.click();
+        browser.sleep(3000);
+     
+
+
+
+
+
+
+    }
+    catch (Exception) {
+        console.log('Failed on veriyfing contentInSubjectWise in ALLTabs');
+
+    }
+}
+
 module.exports = {
     createBook,
     sendForReviewTheBook,
@@ -715,4 +1043,10 @@ module.exports = {
     createBookWithSpecificResourceType,
     createBookWithRegionalLanguage,
     adminCanEditTextBook,
+    searchContentInExplorePage,
+    searchWithInvalidQRcode,
+    searchWithQRcode,
+    librarysearchFilter,
+    contentInSubjectWiseInAllTabs,
+    verifyNoDefaultValuSltinFilter,
 }

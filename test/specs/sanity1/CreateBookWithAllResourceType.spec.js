@@ -10,10 +10,13 @@ describe('Create Book with all resource type, save and send for review and publi
         var Url=getAppURL.ConfigurePath().AppURL;
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
+        browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
        
+    
     });
+
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);

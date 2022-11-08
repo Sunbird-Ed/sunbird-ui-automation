@@ -27,7 +27,7 @@ describe('CreateCourseByCopyAsCourseFromTextBook', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        sanityFun.copyBookAsCourse('Textbook');
+        sanityFun.copyBookAsCourse('PortalContent');
         EtbPageObj.sendCopiedBookForReview();
 
     });

@@ -18,7 +18,8 @@ describe('Verify SSO user merged with Custodian User', () => {
         browser.manage().deleteAllCookies();
     });
     
-    it('Verify SSO user merged with Custodian User',function(){
+    it('verifycustodianAndSSOUserMerge',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin();
         usrOnBoardfun.verifySSOAndCustodianMerge();

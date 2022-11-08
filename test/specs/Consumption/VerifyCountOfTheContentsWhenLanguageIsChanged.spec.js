@@ -23,6 +23,7 @@ describe('Veriy that user is able to create colleciton by adding,deleting nodes 
     });
 
     it('VerifyCountOfTheContentsWhenLanguageIsChanged',function(){
+        utility.handleDropDown();
 
         utility.handleLocationPopup();
         utility.userLogin('Creator');

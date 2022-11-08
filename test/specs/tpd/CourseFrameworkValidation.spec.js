@@ -12,14 +12,12 @@ describe('CourseFrameworkValidation', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         utility.userLogout();
-        browser.manage().deleteAllCookies();
-        
+        browser.manage().deleteAllCookies();  
     });
     it('CourseFrameworkValidation',function(){
         utility.handleDropDown();
@@ -27,13 +25,7 @@ describe('CourseFrameworkValidation', () => {
         utility.userLogin('Mentor');
         utility.validateWorkspace();
         tpdPageObj.checkForGenericCourseFramework();
-        tpdPageObj.checkForCurriculumCourseFramework();
-        
-       
-        
+        tpdPageObj.checkForCurriculumCourseFramework(); 
     })
-
-   
-   
 });
    

@@ -27,18 +27,16 @@ describe('Course creator is able to create course in regional language.', () => 
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();
-        tpdPageObj.createCourseWithRegionalLanguage();
-        let courseName=tpdPageObj.sendForReviewCourseWithName();
+        let courseName= tpdPageObj.createCourseWithRegionalLanguage();
         utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishTheCourseFromUpForReview(courseName);
+        tpdPageObj.publishCourseFromUpForReview(courseName)
+       // tpdPageObj.publishTheCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
         utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();
-       
-       
     })
 
    

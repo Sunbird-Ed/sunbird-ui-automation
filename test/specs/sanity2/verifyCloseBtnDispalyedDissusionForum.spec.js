@@ -24,7 +24,7 @@ describe('verifyCloseBtnDispalyedDissusionForum.spec', () => {
     it('verifyCloseBtnDispalyedDissusionForum',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Admin2');
+        utility.userLogin('Reviewer');
         sanityPage.verifyEnableAndDisableDiscussionForGroup2();
        
 

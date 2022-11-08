@@ -20,6 +20,7 @@ describe('ConsumeThePdfWithZoomFunctionality', () => {
         browser.manage().deleteAllCookies();
     });
     it('ConsumeThePdfWithZoomFunctionality',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName=collectionPageObj.createCollection();

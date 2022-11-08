@@ -4,7 +4,7 @@ const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySig
 const searchedCotentsValidation = require(protractor.basePath + '/test/pageObject/ETBPageObj/search.js');
 
 
-describe('Verify searched contents', () => {
+describe('verifysingleSeletion', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -18,10 +18,11 @@ describe('Verify searched contents', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-         utility.userLogout();
+        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('verifySearchedContents ',function(){
+    it('verifysingleSeletion',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Admin');
         searchedCotentsValidation.boardvalueSigleSelect();

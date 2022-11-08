@@ -17,12 +17,12 @@ describe('Verify searched contents', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+        //utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('verifySearchedContents ',function(){
+    it('verifyUserAcessLicenseTerms',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
-        uyility.
         searchedCotentsValidation.verifyUserAccessLiscenceTerms();
     });
 

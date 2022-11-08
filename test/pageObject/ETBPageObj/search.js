@@ -1,6 +1,3 @@
-const { browser } = require("protractor");
-
-
 const filt2 = require(protractor.basePath + '/test/pages/ETB/etbPage1.js');
 var filter2=filt2.EtbElem1();
 const data = require(protractor.basePath + '/test/testdata/login/login.td.json');
@@ -120,10 +117,11 @@ const verifySearchContentInExplorePage=()=>{
     browser.sleep(4000);
     
     filter2.appliedFilters1.getText().then(elementText =>{
-        console.log(elementText)
+        console.log(elementText);
     })
-    expect(filter2.appliedFilters1.getText()).toEqual('TextBook');
-        console.log("Textbook content validated")  
+
+    expect(filter2.appliedFilters1.getText()).toEqual('Resource');
+        console.log("Textbook content validated");
     browser.sleep(10000);
     browser.navigate().back();
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.search), 80000, "lessonPlan content validated");
@@ -133,8 +131,8 @@ const verifySearchContentInExplorePage=()=>{
     filter2.appliedFilters1.getText().then(elementText =>{
         console.log(elementText);
     })
-    expect(filter2.appliedFilters1.getText()).toContain("LessonPlanResource");
-        console.log("lessonPlan content validated")
+    expect(filter2.appliedFilters1.getText()).toContain("LessonPlan");
+        console.log("lessonPlan content validated");
     browser.sleep(10000);
 
     browser.navigate().back();    
@@ -160,7 +158,7 @@ const verifySearchContentInExplorePage=()=>{
         console.log(elementText);
     })
     expect(filter2.appliedFilters1.getText()).toEqual("SelfAssess")
-        console.log("selfAssess content validated")
+        console.log("selfAssess content validated");
     
     browser.sleep(10000);
     browser.navigate().back();
@@ -198,11 +196,7 @@ const verifySearchContentInExplorePage=()=>{
     expect(filter2.appliedFilters1.getText()).toEqual("ExplanationResource")
         console.log("ExplanationResource content validated")
 
-    
-    return{
-        verifySearchContentInExplorePage,
-     }
-};
+}
 
 const verifySearchContentInCollectionPage=()=>{
 
@@ -273,86 +267,104 @@ const verifySearchContentInCollectionPage=()=>{
 };
 
 const boardvalueSigleSelect=()=>{
+    try{
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.digitalTextbook), 20000, "Digital TextBook content not validated");
         filter2.digitalTextbook.click();
         browser.sleep(4000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.reset), 20000, "Reset button not validated");
         filter2.reset.click();
+        console.log("Reset is selected");
         browser.sleep(4000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.boardSelection), 50000, "Board not selected");
         filter2.boardSelection.click();
         browser.sleep(4000);
         filter2.selectBoard.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.clkTVClasses), 50000, "Classes not clicked");
-        filter2.clkTVClasses.click();
+        console.log("Board is selected");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.tvClass), 50000, "Classes not clicked");
+        filter2.tvClass.click();
+        console.log("Selected Board is validated in TV class");
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.reset), 20000, "Reset not validated");
         filter2.reset.click();
         browser.sleep(4000);
+        console.log("Reset is validated for TV Class")
         filter2.boardSelection.click();
         browser.sleep(3000);
         filter2.selectBoard.click();
+        console.log("Board is selected for TV class")
+
     
         browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.mediumPills), 20000, "Medium Pills not present");
-        if (filter2.mediumPills.isDisplayed()) {
+        expect(filter2.mediumPills.isDisplayed()).toBeTruthy().then(function(){
             console.log("Medium Pills are validated")
-        }
-    
+        })
+            
         browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectpills), 20000, "Subject pills not present");
         filter2.subjectpills.click();
         browser.sleep(4000);
-        if (filter2.subjectpills.isDisplayed()) {
-            console.log("Subject pills are validated")
+        expect(filter2.subjectpills.isDisplayed()).toBeTruthy().then(function(){
+            console.log("subject Pills are validated")
+        })
         }
-        return{
-            boardvalueSigleSelect,
+        catch(Exception){
+            console.log("err")
         }
-};
+    }    
+
 
 const multiSelection=()=>{
+    try{
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.alltab), 20000, "All tabs not found");
+        filter2.alltab.click();
+        browser.sleep(2000);
+        console.log("All Tabs Selected")
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.mediumPills), 20000, "Medium pills not present");
+        filter2.mediumPills.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.english), 20000, "english Subject not present");
+        filter2.english.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.mediumPills), 20000, "Medium pills not present");
+        filter2.mediumPills.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.hindi), 20000, "hindi Subject not present");
+        filter2.hindi.click();
+        browser.sleep(2000);
+        console.log("Multiple medium Selected");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.classSelect), 20000, "class not present");
+        filter2.classSelect.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.selectClass1), 20000, "Class 1 not selected");
+        filter2.selectClass1.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.classSelect1), 20000, "class not present");
+        filter2.classSelect1.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.selectClass2), 20000, "class 2 not present");
+        filter2.selectClass2.click();
+        browser.sleep(2000);
+        console.log("Multiple Class Selected");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectselect), 20000, "Subject not selected");
+        filter2.subjectselect.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectSelection1), 20000, "subject1 not present");
+        filter2.subjectSelection1.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectSelect1), 20000, "Subject not selected");
+        filter2.subjectSelect1.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectSelection2), 20000, "subject2 not present");
+        filter2.subjectSelection2.click();
+        browser.sleep(2000);
+        console.log("Multiple Subject Selected");
+    }
+    catch(Exception){
+        console.log("err")
+    }
+} 
 
-    browser.sleep(4000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.alltab), 20000, "All tabs not found");
-    filter2.alltab.click();
-    browser.sleep(4000);
-    
-    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.mediumPills), 20000, "Medium pills not present");
-    filter2.mediumPills.click();
-    browser.sleep(4000);
-
-    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.hindi), 20000, "Hindi Subject not present");
-    filter2.hindi.click();
-    browser.sleep(4000);
-
-    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.classSelect), 20000, "class not present");
-    filter2.classSelect.click();
-    browser.sleep(4000);
-
-    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.selectClass1), 20000, "Class 1 not selected");
-    filter2.selectClass1.click();
-    browser.sleep(4000);
-
-    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.selectClass2), 20000, "class 2 not present");
-    filter2.selectClass2.click();
-    browser.sleep(4000);
-
-    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectselect), 20000, "Subject not selected");
-    filter2.subjectselect.click();
-    browser.sleep(4000);
-
-    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectSelection1), 20000, "subject1 not present");
-    filter2.subjectSelection1.click();
-    browser.sleep(4000);
-
-    browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectSelection2), 20000, "subject2 not present");
-    filter2.subjectSelection2.click();
-    browser.sleep(4000);
-    
-    return{
-        multiSelection,
-        }
-};
     
 module.exports = {
 
@@ -361,6 +373,5 @@ module.exports = {
     verifySearchContentInCollectionPage,
     boardvalueSigleSelect,
     multiSelection,
-    
-};   
+}
 

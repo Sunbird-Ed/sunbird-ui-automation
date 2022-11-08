@@ -155,11 +155,11 @@ var resource = () => {
     var rejectReason1 = element(by.xpath("(//h5[.='Appropriateness']/..//input[@class='listItem'])[1]"));
     var rejectReason2 = element(by.xpath("(//h5[.='Content details']/..//input[@class='listItem'])[1]"));
     var rejectReason3 = element(by.xpath("(//h5[.='Usability']/..//input[@class='listItem'])[1]"));
-    var reviewComment = element(by.xpath("//textarea"));
+    var reviewComment = element(by.xpath("//textarea[@rows='3']"));
     var requestChangesButton = element(by.xpath("//button[contains(.,'Cancel')]/following::button[2]"));
     var untitledUnitName = element(by.xpath("//input[@placeholder='Enter title for unit']"));
     var reviewerSuggestion = element(by.xpath("//i[@class='fa fa-comment']"));
-    var reviewerSuggestionTitle = element(by.xpath("(//span[@class='ng-binding'])[4]"));
+    var reviewerSuggestionTitle = element(by.xpath("//textarea[@id='review-comments']"));
     var closeLinkIcon = element(by.xpath("//div[@class='right aligned column']/i"));
     var closePageIcon = element(by.xpath("//i[@class='remove icon custom-cursor']"));
     var drafts = element(by.xpath("//a[contains(text(),'Drafts')]"));
@@ -344,7 +344,7 @@ var resource = () => {
     var imageCard3 = element(by.xpath("//div[@class='cardImageText center aligned ']"));
     var revieDialogClose = element(by.xpath("//span[contains(text(),'Reviewer Suggestions')]//following::i"));
     var clkUploRequestChanges = element(by.xpath("//button[@tabindex='0']"));
-    var clkRejectUploadsc = element(by.xpath("//button[@class='sb-btn sb-btn-normal sb-btn-primary']"));
+    var clkRejectUploadsc = element(by.xpath("//label[contains(text(),'Language is NOT simple to understand')]//following::button"));
     var clkFeaturedCourseViewAll = element(by.xpath("//span[contains(text(),' courses')]//following::button[1]"));
     var SltLevelQu= element(by.xpath("//label[contains(text(),'TOPIC')]//following::i[1]"));
     var saveAndCreateButton = element(by.xpath("//button[@id='save-question-button']"));
@@ -401,6 +401,14 @@ var resource = () => {
     var htmlCloseButton = element(by.xpath("//h3[contains(text(),'CLOSE ME')]"));
     var CloseButtonVideo = element(by.xpath("//div[@class='video-close-btn']"));
     var nxtButtonUpload = element(by.xpath("//a[@class='nav-icon nav-next']"));
+    var clkRejectBtn = element(by.xpath("//button[contains(text(),' Reject ')]"));
+    var clkcommentBox = element(by.xpath("//textarea[@name='rejectComment']"));
+    var clkSubmitReviw = element(by.xpath("//button[@id='submitReview']"));
+    var scrollLabelOther = element(by.xpath("//label[contains(text(),'Other Issue(s) (if there are any other issues, tick this and provide details in the comments box)')]"));
+    var reviewComment1 = element(by.xpath("//textarea[@id='review-comments']"));
+    var reviewerSuggestionColl = element(by.xpath("//div[@data-title='View review comments']"));
+    var reviewerSuggestionTitleColl = element(by.xpath("//textarea[@name='rejectedComment']"));
+    var revieDialogCloseColl= element(by.xpath("//textarea[@name='rejectedComment']//following::button"));
 
     
 
@@ -630,8 +638,7 @@ var resource = () => {
         publishResource,
         searchedContentForPublish,
         searchIconUpForReview,
-        searchForReview,
-        upForReview,
+            upForReview,
         saveButton,
         headerCourse,
         searchInput,
@@ -825,6 +832,14 @@ var resource = () => {
         htmlCloseButton,
         CloseButtonVideo,
         nxtButtonUpload,
+        clkRejectBtn,
+        clkcommentBox,
+        clkSubmitReviw,
+        scrollLabelOther,
+        reviewComment1,
+        reviewerSuggestionColl,
+        reviewerSuggestionTitleColl,
+        revieDialogCloseColl,
     }
 
 

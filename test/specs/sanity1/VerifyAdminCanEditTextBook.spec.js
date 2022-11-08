@@ -16,7 +16,6 @@ describe('VerifyAdminCanEditTextBook', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
@@ -25,12 +24,7 @@ describe('VerifyAdminCanEditTextBook', () => {
         utility.handleLocationPopup();
         utility.userLogin('Admin3');
         etpPage.adminCanEditTextBook()
-        //sanityPage.openBookFromDraftAndDownloadQRCode();
-        // utility.validateWorkspace();
-        // tpdPageObj.checkForCurriculumCourseFramework();
-        // tpdPageObj.checkEditFormOfCurriculumframework();
-
-        
+     
        
         
     })

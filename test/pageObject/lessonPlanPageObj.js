@@ -11,7 +11,7 @@ const createLessonPlan = () => {
     var lessonName;
     try {
         console.log("User is trying to create lesson plan")
-        browser.sleep(1000);
+        browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
         content.headerDropdown.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
@@ -35,7 +35,13 @@ const createLessonPlan = () => {
 
 
         content.startCreating.click();
+        browser.sleep(9000);
+        browser.sleep(9000);
+        browser.sleep(9000);
+        browser.sleep(9000);
+
         browser.sleep(8000);
+
         browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
         browser.sleep(4000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.newchild), 20000, "Didn't switched to different frame");

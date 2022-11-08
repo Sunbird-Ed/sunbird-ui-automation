@@ -18,11 +18,9 @@ describe('Add timer Plugin in Resource Edior', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('AddTimerInResource',function(){
-        utility.handleDropDown();
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');

@@ -2,8 +2,9 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const collectionPageObj = require(protractor.basePath+'/test/pageObject/collectionPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js')
 
-describe('ceate Collection save and send for review and publish.', () => {
+describe('content reviewer is able to Publish/Reject VerifyInDraftReviewAndPublish.spec.', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -23,18 +24,18 @@ describe('ceate Collection save and send for review and publish.', () => {
         
     });
     it('CreateCollectionVerifyInDraftReviewAndPublish',function(){
-         utility.handleDropDown();
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName=collectionPageObj.createCollection();
         collectionPageObj.sendForReviewTheCollection();
-        utility.userLogout();
+        resourcePageObj.reviewInSubmissions(collectionName);
+         utility.userLogout();
         utility.userLogin('Reviewer');
-        collectionPageObj.publishTheCollectionFromUpForReview(collectionName);
+        resourcePageObj.rejectLessonPlan(collectionName)
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
-        lspPageObj.deleteCreatedItems();
+        resourcePageObj.editTheContentInDraftForCollections();
         
     })
 

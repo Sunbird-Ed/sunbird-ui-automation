@@ -3,6 +3,7 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js')
+const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
 
 describe('After Rejecting course Add New Resource , again publish', () => {
 
@@ -18,7 +19,7 @@ describe('After Rejecting course Add New Resource , again publish', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+      //  utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
@@ -27,23 +28,13 @@ describe('After Rejecting course Add New Resource , again publish', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();
-        tpdPageObj.createCourse();
-        let courseName=tpdPageObj.sendForReviewCourseWithName();
+        let courseName=sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        resourcePageObj.rejectLessonPlan(courseName)
+        resourcePageObj.rejectCourse(courseName)
         utility.userLogout();
         utility.userLogin('Creator');
         tpdPageObj.editTheCourseInDraftAddNewResource();
-        tpdPageObj.sendForReviewTheRejectedCourse();
-        utility.userLogout();
-        utility.userLogin('Reviewer');
-        utility.validateWorkspace();
-        tpdPageObj.publishTheCourseFromUpForReview(courseName);
-        utility.userLogout();
-        utility.userLogin('Creator');
-        utility.validateWorkspace();
-        lspPageObj.deleteCreatedItems();
        
        
     })

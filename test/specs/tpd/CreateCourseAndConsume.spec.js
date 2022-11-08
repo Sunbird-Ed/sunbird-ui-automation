@@ -2,8 +2,9 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
 
-describe('CreateCourseAndConsume.', () => {
+describe('Create Course save and send for review and publish.', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -21,17 +22,16 @@ describe('CreateCourseAndConsume.', () => {
         browser.manage().deleteAllCookies();
         
     });
-    it('CreateCourseAndConsume  ',function(){
-        utility.handleDropDown();
+    it('CreateCourseAndConsume',function(){
+       utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();
-        tpdPageObj.createCourse();
-        let courseName=tpdPageObj.sendForReviewCourseWithName();
-        utility.userLogout();
+        let courseName=sanityfun.createCourseAndSendForReview();
+             utility.userLogout();
         utility.userLogin('Reviewer');
         utility.validateWorkspace();
-        tpdPageObj.publishTheCourseFromUpForReview(courseName);
+        tpdPageObj.publishCourseFromUpForReview(courseName)
         utility.userLogout();
         utility.userLogin('Creator');
         utility.validateWorkspace();

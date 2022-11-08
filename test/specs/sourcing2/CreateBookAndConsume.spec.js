@@ -1,14 +1,14 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js');
+const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 
-describe('CreateBookAndConsume.', () => {
+describe('Create Book save and send for review and publish.', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
-
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
@@ -18,7 +18,6 @@ describe('CreateBookAndConsume.', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
@@ -26,17 +25,16 @@ describe('CreateBookAndConsume.', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        let bookName= etbPageObj.createBook();
-        console.log(bookName);
-        etbPageObj.sendForReviewTheBook();
+        let bookName= sanityfun.createBook();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        etbPageObj.publishTheBookFromUpForReview(bookName);
+        tpdPageObj.publishCourseFromUpForReview(bookName)
         utility.userLogout();
-        utility.userLogin('Creator');
-        utility.validateWorkspace();
-        lspPageObj.deleteCreatedItems();      
-         
+       utility.userLogin('Creator');
+       utility.validateWorkspace();
+       lspPageObj.deleteCreatedItems();
+
+
     })
 
    

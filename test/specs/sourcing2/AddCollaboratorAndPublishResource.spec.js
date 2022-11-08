@@ -1,6 +1,7 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const addCAPRPageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
+const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
 
 describe('Content creator is able to add a collaborator in all the types of content.', () => {
 
@@ -17,7 +18,6 @@ describe('Content creator is able to add a collaborator in all the types of cont
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('AddCollaboratorAndPublishResource',function(){
@@ -30,9 +30,10 @@ describe('Content creator is able to add a collaborator in all the types of cont
         utility.userLogin('Creator');
         addCAPRPageObj.collaboratorSendTheResourceForReview(resourceName);
         addCAPRPageObj.sendForReviewTheResource();
+        utility.userLogout();
+        utility.userLogin('Reviewer');
+        resourcePageObj.publishTheResourceFromUpForReview(resourceName);
 
-
-       // addCAPRPageObj.checkTheCourseInReviewSubmision(resourceName);
     })
     
    

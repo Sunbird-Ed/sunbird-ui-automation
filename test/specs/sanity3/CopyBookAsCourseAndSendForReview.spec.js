@@ -1,9 +1,8 @@
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js');
-const EtbPageObj = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
 const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
-const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
+let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
+const EtbPageObj = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
 
 describe('CopyBookAsCourseAndSendForReview', () => {
 
@@ -16,38 +15,22 @@ describe('CopyBookAsCourseAndSendForReview', () => {
         browser.driver.manage().window().maximize(); 
        
     });
-
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
+    
     it('CopyBookAsCourseAndSendForReview',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Book Creator');
-        let bookName= etbPageObj.createBook();
-        console.log(bookName);
-        etbPageObj.sendForReviewTheBook();
-        utility.userLogout();
-        utility.userLogin('Book Reviewer');
-        etbPageObj.publishTheBookFromUpForReview(bookName);
-        utility.userLogout();
         utility.userLogin('Creator');
-        sanityFun.copyBookAsCourse(bookName);
-       // let courseName=sanityFun.createCourseAndSendForReview();
-      // tpdPageObj.publishCourseFromUpForReview(bookName);
+        sanityFun.copyBookAsCourse('PortalContent');
+   //    EtbPageObj.sendCopiedBookForReview();
+   sanityFun.sendCopiedBookForReview();
 
-        //EtbPageObj.sendCopiedBookForReview();
-
-
-        // utility.validateWorkspace();
-        // lspPageObj.deleteCreatedItems();      
-         
-    })
-
-   
-   
+    });
 });
    
+

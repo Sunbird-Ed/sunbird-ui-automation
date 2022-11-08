@@ -18,15 +18,14 @@ describe('Verify searched contents', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-      //  utility.userLogout();
+        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('verifySearchedContents ',function(){
+    it('verifyMultiSelection',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Admin');
         searchedCotentsValidation.multiSelection();
-       
     });
-
 });
    

@@ -18,7 +18,6 @@ describe('Creator is able to copy course of same or different tenant and can sha
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        //utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });

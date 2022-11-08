@@ -1314,6 +1314,8 @@ const exploreChatBox=()=>{
 const exploreChatBOT=()=>{
   
   try{
+    browser.sleep(3000);
+
     wait.waitForElementVisibility(content.clkChatBox, 30000, "clkChatBox button not available");
           content.clkChatBox.click();
           wait.waitForElementVisibility(content.closeChatBox, 30000, "clkChatBox button not available");

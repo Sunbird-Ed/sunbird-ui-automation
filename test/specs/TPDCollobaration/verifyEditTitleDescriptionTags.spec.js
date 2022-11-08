@@ -1,8 +1,9 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-const usrOnBoardfun = require(protractor.basePath + '/test/pageObject/UserOnBoardingPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
+const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
+const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 
-describe('NewRegisterCustodianUserYobVerification', () => {
+describe('verifyEditTitleDescriptionTags', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -20,13 +21,11 @@ describe('NewRegisterCustodianUserYobVerification', () => {
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    
-    it('NewRegisterCustodianUserYobVerification',function(){
+    it('verifyEditTitleDescriptionTags',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin();
-        usrOnBoardfun.NewCustodianUsers();
-        
-    });
+        utility.userLogin('Admin');
+        EnrollTBFCPageObj.EditTitleDescriptionTags();
+       
+    })
 });
-   
-

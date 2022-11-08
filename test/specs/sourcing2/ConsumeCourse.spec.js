@@ -1,35 +1,61 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const searchCBFPPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
+const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
+const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const sanityfun =require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
+const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 
-describe('ConsumeCourse', () => {
+describe('able to create course and enroll consume ConsumeCourse', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
+        browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
        
+    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         utility.userLogout();
         browser.manage().deleteAllCookies();
-        
     });
     it('ConsumeCourse',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
-        searchCBFPPageObj.startLeaning();
-        
-       
-       
-    });
+        utility.userLogin('Creator');
+        utility.validateWorkspace();
+        let courseName=sanityfun.createCourseAndSendForReview();
+        utility.userLogout();
+   utility.userLogin('Reviewer');
+   utility.validateWorkspace();
+   tpdPageObj.publishCourseFromUpForReview(courseName)
+   utility.userLogout();
+
+        utility.userLogin('Creator');
+        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
+        EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
+     ///   EnrollTBFCPageObj.createOpenBatchWithEnrolmentDate();
+     EnrollTBFCPageObj.createOpenBatch();
+  
+     utility.userLogout();
+
+         utility.userLogin('Public User1');
+        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
+         var fetchCoursename= EnrollTBFCPageObj.enrollForOpenBatch();
+         utility.userLogout();
+
+
+        utility.userLogin('Creator');
+        tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName); 
+        tpdPageObj.checklastUpdatedOption();
+    })
+
+   
+   
 });
    
-

@@ -1,4 +1,4 @@
-const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
+ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
 const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js');

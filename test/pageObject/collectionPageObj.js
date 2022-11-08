@@ -1,76 +1,139 @@
-const ccpage = require(protractor.basePath +'/test/pages/contentCreation/contentCreation.po.js');
+const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
 const etbpage = require(protractor.basePath + '/test/pages/etb/etb.po.js');
 const data = require(protractor.basePath + '/test/testdata/login/login.td.json');
 const wait = require(protractor.basePath + '/helper/waiters.js');
 const faker = require(protractor.basePath + '/test/pathFolder/faker.js');
-var content=ccpage.contentCreation();
-var etbv=etbpage.etb();
+var content = ccpage.contentCreation();
+var etbv = etbpage.etb();
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
+const sanityPage = require(protractor.basePath + '/test/pages/userOnBoarding/SanityPage.js');
+var san = sanityPage.SanityElement();
+var sanity = sanityPage.SanityElement();
+
+const createCollection = () => {
+
+    var collectionName;
+    try {
+        console.log("User is trying to create a collection")
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.collection), 20000, "collection page not loaded");
+        content.collection.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.name), 20000, "Course creation editor never loaded");
+        collectionName = "CollectionA" + faker.randomData().firstname;
+        content.name.sendKeys(collectionName);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", etbv.collectionType);
+        wait.waitForElementVisibility(etbv.collectionType, 30000, "collectionType button not available");
+        etbv.collectionType.click();
+        browser.sleep(2000);
+        browser.executeScript("arguments[0].scrollIntoView();", etbv.contentResource);
+        etbv.contentResource.click();
+
+        content.startCreating.click();
+        browser.sleep(4000);
+        browser.sleep(8000);
+
+        // browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        //  browser.sleep(4000);
+        // sanityPage.SanityElement().clkKeyworkCollection.click();
+        // browser.sleep(1000);
+        // sanityPage.SanityElement().clkKeyworkCollection.sendKeys('Keyword');
+        // browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkKeyworkCollection), 20000, "tag not available");
+        sanityPage.SanityElement().clkKeyworkCollection.sendKeys('test');
+        browser.actions().sendKeys(protractor.Key.ENTER).perform();
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,400);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(4000);
+
+        sanityPage.SanityElement().courseadditionalCategory.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().selectAdditionalForcollection.click();
+        browser.sleep(3000);
 
 
-const createCollection=()=>{
-   var collectionName;
-    try{
-    console.log("User is trying to create a collection")
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
-    content.headerDropdown.click();
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
-    ccpage.contentCreation().workSpace.click();
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.collection), 20000,"collection page not loaded");
-    content.collection.click();
-    browser.sleep(2000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.name), 20000, "Course creation editor never loaded");
-    collectionName="CollectionA"+faker.randomData().firstname;
-    content.name.sendKeys(collectionName);
-    browser.sleep(2000);
-    
-    browser.executeScript("arguments[0].scrollIntoView();", etbv.collectionType);
-    wait.waitForElementVisibility(etbv.collectionType, 30000, "collectionType button not available");
-    etbv.collectionType.click();
-    browser.sleep(2000);
-    browser.executeScript("arguments[0].scrollIntoView();", etbv.contentResource);
-    etbv.contentResource.click();  
+        browser.executeScript('window.scrollTo(0,800);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
 
-    content.startCreating.click();
-    browser.sleep(4000);
-    browser.sleep(8000);
+        browser.sleep(4000);
 
-    browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-    browser.sleep(4000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.newchild), 20000, "Didn't switched to different frame");
-    content.newchild.click();
-    // browser.wait(protractor.ExpectedConditions.visibilityOf(content.titleN), 20000, "title not available");
-    // content.titleN.click();
-    // content.titleN.clear();
-    // content.titleN.sendKeys('collectiona12');
-    content.addResource.click(); 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.resourceSearch), 30000, "resourceSearch not available");
-    browser.sleep(3000);
-    content.resourceSearch.click();
-    content.resourceSearch.sendKeys("pdf");
-    browser.sleep(2000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectResourceType2), 30000, "selectResourceType not available");
-    content.selectResourceType2.click();
-    browser.sleep(2000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickAddbutton), 30000, "clickAddbutton not available");
-    content.clickAddbutton.click();
-    browser.sleep(2000);
-    //content.checkboxFirst.click();
-    browser.sleep(2000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.proceed), 30000, "proceed is not available");
-    content.proceed.click();
-    browser.sleep(2000);
-    browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.save), 20000, "Dashboard never loaded");
-    content.save.click();      
-    browser.sleep(1000);
-    console.log("User successfully created a collection");
-    return collectionName;
-    }catch(Exception){
+        sanityPage.SanityElement().selectBoardForcollection.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().selectBoardValueForcollection.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().selectMediumForcollection.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().selectMediumValueForcollection.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().selectClassForCourse.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().selectClassValueForcollection.click();
+        browser.sleep(3000);
+
+
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectSubjectForCourse), 20000, "subject covered not loaded");
+        sanityPage.SanityElement().selectSubjectForCourse.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().selectSubjectValueForcollection.click();
+        browser.sleep(3000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", sanityPage.SanityElement().selectCopyRightYear);
+        browser.sleep(1000);
+        sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
+        sanityPage.SanityElement().addFromLibraryButton.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().selectButton), 20000,"Select content Button not loaded");
+        sanityPage.SanityElement().selectButton.click();
+        browser.sleep(3000);
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addContent), 20000,"Add content content Button not loaded");
+        sanityPage.SanityElement().addContent.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().contentFromLibrayBackButton), 20000,"Back Button not loaded");
+        sanityPage.SanityElement().contentFromLibrayBackButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000, "submit Button not loaded");
+        sanityPage.SanityElement().submitForreviewButton.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().termsAndConditionCheckbox.click();
+        browser.sleep(3000);
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.NewCoursesubmitButton), 20000,"submit for review Button not loaded");
+        sanityPage.SanityElement().NewCoursesubmitButton.click();
+        browser.sleep(3000);
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().termsAndConditionCheckbox), 20000,"terms and condition checkbox Button not loaded");
+
+
+        console.log("User successfully created a collection");
+        return collectionName;
+    } catch (Exception) {
         console.log("User failed to create a collection");
     }
 }
-const sendForReviewTheCollection=()=>{
+const sendForReviewTheCollection = () => {
     browser.sleep(1000);
     browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.sendForReview), 20000, "send for review not available");
     content.sendForReview.click();
@@ -91,11 +154,15 @@ const sendForReviewTheCollection=()=>{
     browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.selectAppIcon), 50000, "selectAppIcon button not available");
     etbv.selectAppIcon.click();
     browser.sleep(1000);
-    // browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.clickBoard), 30000, "board button not available");
+    //  browser.executeScript("arguments[0].scrollIntoView();", etbv.clickBoard);
+    // browser.sleep(1000);
+    //  browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.clickBoard), 30000, "board button not available");
     // etbv.clickBoard.click();
     // browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.selectBoard), 30000, "contuinew button not available");
     // etbv.selectBoard.click();
+    // browser.sleep(1000);
     // etbv.clickMedium.click();
+    // browser.sleep(1000);
     // browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.selectMedium), 30000, "contuinew button not available");
     // etbv.selectMedium.click();
     // browser.executeScript("arguments[0].scrollIntoView();", etbv.clickclass);
@@ -118,14 +185,14 @@ const sendForReviewTheCollection=()=>{
     browser.sleep(2000);
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.saveform), 20000, "submitForm not available");
     content.saveform.click();
-    browser.sleep(3000);
+    browser.sleep(6000);
 }
-const publishTheCollectionFromUpForReview=(collectionname)=>{
+const publishTheCollectionFromUpForReview = (collectionname) => {
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
     content.headerDropdown.click();
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
     content.workSpace.click();
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.upForReview), 20000,"Creation page not loaded");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.upForReview), 20000, "Creation page not loaded");
     content.upForReview.click();
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
     content.searchForReview.click();
@@ -144,32 +211,29 @@ const publishTheCollectionFromUpForReview=(collectionname)=>{
     // input.click()});
     browser.sleep(6000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.popupPublishButton1), 20000,"Creation page not loaded");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.popupPublishButton1), 20000, "Creation page not loaded");
     content.popupPublishButton1.click();
     console.log("published the collection");
     browser.switchTo().defaultContent();
     browser.sleep(1000);
 }
-const clickLibraryPage=()=>{
-    try
-    {
+const clickLibraryPage = () => {
+    try {
         console.log("User is trying to click library page");
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickLibray), 20000, "clickLibray is not available");
         content.clickLibray.click();
         browser.sleep(1000);
     }
-    catch(Exception)
-    {
-        console.log( "Failed on Clicking Library Page");
+    catch (Exception) {
+        console.log("Failed on Clicking Library Page");
     }
 }
 
-const shareTheConentUsingLink=(contentName)=>{
+const shareTheConentUsingLink = (contentName) => {
     var contentNameFetch;
     var link;
-   
-    try
-    {
+
+    try {
         console.log("User is trying to verify Course can be shared via link  " + contentName);
         content.searchInput.sendKeys(contentName);
         console.log("course name Entered   " + contentName);
@@ -185,24 +249,24 @@ const shareTheConentUsingLink=(contentName)=>{
         // browser.wait(protractor.ExpectedConditions.visibilityOf(content.fetchContentName), 20000, "fetchContentName is not available");
         //  contentNameFetch = content.fetchContentName.getText();
         //  console.log("Content " + contentNameFetch);
-       
+
 
         content.clickShare.click();
         console.log("Click on Search icon");
-        browser.sleep(1000); 
+        browser.sleep(1000);
         content.clickCopy.click();
         console.log("Clicked on CopyLink");
         browser.sleep(1000);
 
-      
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.closeIconInShare), 20000, "closeIconInShare is not available");
-        browser.sleep(1000);
-        content.closeIconInShare.click();
-        console.log("Click on copyClose icon");
-        browser.sleep(1000);
-        // content.closeicon.click();
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.closeIconInShare), 20000, "closeIconInShare is not available");
         // browser.sleep(1000);
-        
+        // content.closeIconInShare.click();
+        // console.log("Click on copyClose icon");
+        // browser.sleep(1000);
+        content.closeicon.click();
+        browser.sleep(1000);
+
         console.log("Click on main Close icon");
         // navigator.clipboard.readText()
         // .then(Link => {
@@ -211,27 +275,25 @@ const shareTheConentUsingLink=(contentName)=>{
         // .catch(err => {
         //   console.error('Failed to read clipboard contents: ', err);
         // });    
-        
-       return link,
-       contentNameFetch;
-     }
-    catch(exception) 
-    {
+
+        return link,
+            contentNameFetch;
+    }
+    catch (exception) {
         console.error("Failed to verify Share Content");
     }
 }
-const verifyCollection=()=>{
-      var collectionname;
-      var toContent;
-    try
-    {
+const verifyCollection = () => {
+    var collectionname;
+    var toContent;
+    try {
 
-//         browser.actions().sendKeys(protractor.Key.chord(protractor.Key.CONTROL, 'v')).perform();
-//   browser.actions().sendKeys(protractor.Key.chord(protractor.Key.ENTER)).perform();
-//   browser.sleep(9000);
+        //   browser.actions().sendKeys(protractor.Key.chord(protractor.Key.CONTROL, 'v')).perform();
+        //   browser.actions().sendKeys(protractor.Key.chord(protractor.Key.ENTER)).perform();
+        //   browser.sleep(9000);
 
 
-        // browser.actions().sendKeys(protractor.Key.chord(protractor.Key.CONTROL, 'v')).perform();
+        //   browser.actions().sendKeys(protractor.Key.chord(protractor.Key.CONTROL, 'v')).perform();
 
 
 
@@ -239,10 +301,10 @@ const verifyCollection=()=>{
         browser.get(ss);
         browser.sleep(2000);
         console.log("Add Copied link in URL");
-        collectionname =content.fetchContentName.getText()
+        collectionname = content.fetchContentName.getText();
         expect(collectionname).toEqual(contentNameFetch);
         console.log("Content Shared Succesfully  " + contentNameFetch);
-              
+
         // try
         // {
         //     content.playSharedContent.click();
@@ -256,28 +318,26 @@ const verifyCollection=()=>{
         // {
         //     console.log("Exception Handled");
         // }
-        return{
+        return {
             collectionname,
             toContent
         }
     }
-    catch(Exception)
-    {
-        console.log( "failed to verify");
+    catch (Exception) {
+        console.log("failed to verify");
     }
 }
-const verifyResource=()=>{
+const verifyResource = () => {
     var Resourcename;
     var cont;
-    try
-    {
+    try {
         browser.get("https://preprod.ntp.net.in/play/content/do_31257982245632409629620", 40000);
         browser.sleep(2000);
         console.log("Add Copied link in URL");
-        Resourcename=content.fetchContentName.getText();
+        Resourcename = content.fetchContentName.getText();
         expect(Resourcename).toEqual(contentNameFetch);
         console.log("Content Shared Succesfully  " + contentNameFetch);
-              
+
         // try
         // {
         //     content.playSharedContent.click();
@@ -291,32 +351,28 @@ const verifyResource=()=>{
         // {
         //     console.log("Exception Handled");
         // }
-        return{
+        return {
             cont,
             Resourcename,
         }
     }
-    catch(Exception)
-    {
-        console.log( "failed to verify");
+    catch (Exception) {
+        console.log("failed to verify");
     }
 }
-const clickTrainingPage=()=>{
-    try
-    {
+const clickTrainingPage = () => {
+    try {
         console.log("User is trying to click Training page");
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerCourse), 20000, "headerCourse is not available");
         content.headerCourse.click();
         browser.sleep(1000);
     }
-    catch(Exception)
-    {
-        console.log( "Failed on Clicking Training Page");
+    catch (Exception) {
+        console.log("Failed on Clicking Training Page");
     }
 }
-const ZoomInZoomout=()=>{
-    try
-    {
+const ZoomInZoomout = () => {
+    try {
         console.log("User is trying to ZoomInZoomout");
         browser.sleep(3000);
         browser.executeScript('window.scrollTo(0,400);').then(function () {
@@ -330,9 +386,8 @@ const ZoomInZoomout=()=>{
         content.zoomOut.click();
         console.log("User is trying to ZoomInZoomout");
     }
-    catch(Exception)
-    {
-        console.log( "Failed on ZoomInZoomout");
+    catch (Exception) {
+        console.log("Failed on ZoomInZoomout");
     }
 }
 

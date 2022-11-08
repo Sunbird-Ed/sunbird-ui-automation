@@ -18,9 +18,10 @@ describe('Verify that BMC popup is accesible to Guest User', () => {
         browser.manage().deleteAllCookies();
     });
     
-    it('Verify that BMC popup is accesible to Guest User',function(){
+    it('verifyCourseProgressNowForUser',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('TCTestUser');
+        utility.userLogin('NoBoard');
         usrOnBoardfun.verifyUserCourseProgress();
     })
 }); 

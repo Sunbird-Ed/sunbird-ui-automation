@@ -14,8 +14,6 @@ describe('createBookLimitedSharingConsumeViaLink', () => {
         browser.driver.manage().window().maximize(); 
        
     });
-
-
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         utility.userLogout();
@@ -28,16 +26,8 @@ describe('createBookLimitedSharingConsumeViaLink', () => {
         browser.sleep(3000);
         let bookName= etbPageObj.createBook();
         console.log(bookName);
-        
         etbFun.limitedSharing(bookName);
         etbFun.navigateToWorkspace1('Shared Via Link');
-      
-        
-    })
-    
-    
-    
-
- 
+    }) 
 });
    

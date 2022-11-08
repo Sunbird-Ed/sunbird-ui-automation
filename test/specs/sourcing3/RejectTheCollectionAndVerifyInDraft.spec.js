@@ -19,7 +19,6 @@ describe('content reviewer is able to Publish/Reject contents by clicking on Pub
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
@@ -28,12 +27,10 @@ describe('content reviewer is able to Publish/Reject contents by clicking on Pub
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName=collectionPageObj.createCollection();
-        collectionPageObj.sendForReviewTheCollection();
-        resourcePageObj.reviewInSubmissions(collectionName);
          utility.userLogout();
-        utility.userLogin('Reviewer');
-        resourcePageObj.rejectLessonPlan(collectionName)
-        utility.userLogout();
+          utility.userLogin('Reviewer');
+          resourcePageObj.rejectCourse(collectionName)
+       utility.userLogout();
         utility.userLogin('Creator');
         resourcePageObj.editTheContentInDraftForCollections();
         

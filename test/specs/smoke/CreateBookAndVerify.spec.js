@@ -17,27 +17,12 @@ describe('Create Book save and send for review and publish.', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+        //utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
     it('CreateBookAndVerify',function(){
-        utility.handleLocationPopup();
-        utility.userLogin('Book Creator');
-        let bookName= etbPageObj.createBook();
-        console.log(bookName);
-        etbPageObj.sendForReviewTheBook();
-        utility.userLogout();
-        utility.userLogin('Book Reviewer');
-        etbPageObj.publishTheBookFromUpForReview(bookName);
-        utility.userLogout();
-        utility.userLogin('Book Creator');
-        utility.validateWorkspace();
-        lspPageObj.deleteCreatedItems();      
-         
+        utility.writeToExcel();
     })
-
-   
-   
 });
    

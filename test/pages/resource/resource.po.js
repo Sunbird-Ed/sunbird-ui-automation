@@ -1,5 +1,7 @@
 //const { element } = require("protractor");
 
+const { element } = require("protractor");
+
 var resource = () => {
 
     var clickresource = element(by.xpath("//div[@class='content']/..//span[.='Resource']"));
@@ -237,9 +239,9 @@ var resource = () => {
     var clickBoard = element(by.xpath("//div[contains(text(),'Select Board/Syllabus')]"));
     var selectBoard = element(by.xpath("//div[contains(text(),'Select Board/Syllabus')]//following::div[2]"));
     var clickMedium = element(by.xpath("//div[contains(text(),'Select Medium')]"));
-    var selectMedium = element(by.xpath("//div[contains(text(),'Select Medium')]//following::div[2]"));
+    var selectMedium = element(by.xpath("//*[contains(text(),'Select Medium')]//following::div[2]"));
     var clickclass = element(by.xpath("//div[contains(text(),'Select Class')]"));
-    var SelectClass = element(by.xpath("//div[contains(text(),'Select Class')]//following::div[2]"));
+    var SelectClass = element(by.xpath("//*[contains(text(),'Select Class')]//following::div[2]"));
     var clicksubject = element(by.xpath("//div[contains(text(),'Select Subject')]"));
     var selectSubject = element(by.xpath("//div[contains(text(),'Select Subject')]//following::div[2]"));
     var ddYear = element(by.xpath("//select[@id='_selectyear']"));
@@ -321,7 +323,7 @@ var resource = () => {
     var btnCloseEditor = element(by.xpath("//div[contains(@class,'ui basic cancel button ng-scope')]"));
     var labelEnterTheQuestion = element(by.xpath("//span[contains(text(),'Enter the question')]"));
     var linkActiveItemDraft = element(by.xpath("(//a[contains(@class,'item active')])[1]"));
-    var ddSendforreview = element(by.xpath("(//div[@class='ui button text-part popup-item']//following::i[2]//parent::div)[1]"));
+    var ddSendforreview = element(by.xpath("(//div[@class='ui button text-part popup-item']//following::i[@class='dropdown icon'])[1]"));
     var sendForReviewInShareViaLink = element(by.xpath("//div[contains(@data-content,'Send for review')]"));
     var linkLimitedSharing = element(by.xpath("//div[contains(text(),'Limited sharing')]"));
     var linkShareViaLink = element(by.xpath("//a[contains(text(),' Shared via link ')]"));
@@ -423,7 +425,7 @@ var resource = () => {
     var sltClass2DdAllTabs = element(by.xpath("//label[contains(text(),'Class')]//following::span[3]"));
 
     var clkSubjectDdAllTabs = element(by.xpath("//label[contains(text(),'Subject')]//following::div[1]"));
-    var sltSubjectDdAllTabs = element(by.xpath("//label[contains(text(),'Subject')]//following::span[2]"));
+    var sltSubjectDdAllTabs = element(by.xpath("//label[contains(text(),'Subject')]//following::span[1]"));
     var sltSubjectDD2dAllTabs = element(by.xpath("//label[contains(text(),'Subject')]//following::span[3]"));
     var courseToBeClicked = element(by.xpath("//div[@class='sb--card__meta']"));
 
@@ -466,8 +468,8 @@ var resource = () => {
     var clkExploreTab = element(by.xpath("//*[contains(text(),' Explore ')]"));
     var assertAudeinceType = element(by.xpath("//div[contains(text(),'Browse by Audience')]//following::label[contains(text(),'School Head Or Officials')]"));
     var assertAudeinceType2 = element(by.xpath("//div[contains(text(),'Browse by Audience')]//following::label[contains(text(),'Parent/guardian')]"));
-    var clkBackInbrowseBySubjectContentCard = element(by.xpath("//div[contains(text(),' from all the boards and mediums on  SUNBIRD')]//preceding::button[1]"));
-    var clkBackInbrowseByBoardInExplore = element(by.xpath("//div[contains(text(),'Explore cbse/ncert from all the boards and mediums on  SUNBIRD')]//preceding::button[1]"));
+    var clkBackInbrowseBySubjectContentCard = element(by.xpath("//*[@title='Select Language']//following::button[1]"));
+    var clkBackInbrowseByBoardInExplore = element(by.xpath("//*[@title='Select Language']//following::button[1]"));
     var clkViewAllBtn = element(by.xpath("//button[contains(text(),'View all')]"));
     var clkCloseBtn = element(by.xpath("//button[contains(text(),'Close ')]"));
     var clkChangePreferenceBtn = element(by.xpath("//button[contains(text(),'CHANGE PREFERENCE')]"));
@@ -490,7 +492,7 @@ var resource = () => {
     var MediumsAsertSelectedOption = element(by.xpath("//label[contains(text(),'Medium')]//following::span[contains(text(),',')]"));
     var ClassAsserSelctedOption = element(by.xpath("//label[contains(text(),'Class')]//following::span[contains(text(),',')][1]"));
     var clkResetBtn = element(by.xpath("//button[contains(text(),'Reset')]"));
-    var clkViewAllNcertSec = element(by.xpath("//*[contains(text(),' From NCERT ')]/following:: button[contains(text(),' View All')][1]"));
+    var clkViewAllNcertSec = element(by.xpath("//div[contains(text(),'From NCERT ')]//following::button[1]"));
     var aseertCourseData = element(by.xpath("//*[contains(text(),'From NCERT')]//following::div[contains(text(),'Course')]"));
     var assertTextBookData = element(by.xpath("//*[contains(text(),'From NCERT')]//following::div[contains(text(),'TextBook')]"));
     var assertEnrollEndDate = element(by.xpath("//*[contains(text(),'Last date for enrolment:')]"));
@@ -512,7 +514,7 @@ var resource = () => {
     var maxHour = element(by.xpath("//input[@name='hour']"));
     var maxHourValue = element(by.xpath("//option[@value='01']"));
     var Qtype = element(by.xpath("//input[contains(@class,'sb-textbox')]"));
-    var createNew1 = element(by.xpath("//button[contains(@class,'sb-btn sb-btn-normal sb-btn-primary mt-10 mr-30')]"));
+    var createNew1 = element(by.xpath("//button[contains(text(),'Create New ')]"));
     var createNew2 = element(by.xpath("//i[@class='icon plus']"));
     var McqOptionInput22 = element(by.xpath("(//div[@aria-label='Rich Text Editor, main'])[3]"));
     var sltCorrectAnswer1 = element(by.xpath("//label[@for='answer_1']"));
@@ -589,9 +591,15 @@ var resource = () => {
     var lessonPlanRequestChanges = element(by.xpath("//div[@id='reviewButton']//following::*[text()='Request Changes']"));
     var commentbox = element(by.xpath("//textarea[@id='review-comments']"));
     var footerRequestChanges = element(by.xpath("//div[@id='review-footer']//following::button[contains(text(),'Request changes')][2]"));
-
-
-
+    var selectContentType = element(by.xpath("//*[contains(text(),'Select Content type')]"));
+    var contentTypeValue = element(by.xpath("//span[contains(text(),'content playlist')]"));
+    var assertBoard = element(by.xpath("(//span[contains(text(),'CBSE/NCERT')])[1]"));
+    var assertMedium = element(by.xpath("(//span[contains(text(),' assamese')])[1]"));
+    var assertClass = element(by.xpath("(//span[contains(text(),' kg')])[1]"));
+    var createNewBtn = element(by.xpath("//button[contains(text(),'Create New')]"));
+    var limitSharingdrpdwn = element(by.model("hideLimitedSharingBtn"));
+    var assertTermsNcond = element(by.xpath("//*[contains(text(),'Terms and Privacy')]"));
+    var switchToClassicTheme = element(by.xpath("//*[contains(@title,'Close sidebar')]//following::span[contains(text(),'Switch to classic theme')]"));
 
     return {
         ddSelectlanguage,
@@ -1189,6 +1197,15 @@ var resource = () => {
         lessonPlanRequestChanges,
         commentbox,
         footerRequestChanges,
+        selectContentType,
+        contentTypeValue,
+        assertBoard,
+        assertMedium,
+        assertClass,
+        createNewBtn,
+        limitSharingdrpdwn,
+        assertTermsNcond,
+        switchToClassicTheme,
     }
 
 };

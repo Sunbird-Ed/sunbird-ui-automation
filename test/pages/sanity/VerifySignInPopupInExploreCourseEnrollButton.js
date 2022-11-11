@@ -27,6 +27,8 @@ var VerifySignInPopupInExploreCourseEnrollButton = () => {
     var switchUser = element(by.xpath("//button[contains(text(), 'Change user')]"));
     var declaration = element(by.xpath("//span[contains(text(),' I agree')]/../input"));
     var continueDeclaration = element(by.xpath("//button[contains(text(),'Continue')]"));
+
+    
     return {
         loginButton,
         username,

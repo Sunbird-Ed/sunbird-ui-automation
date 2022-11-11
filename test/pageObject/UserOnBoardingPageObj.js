@@ -1470,7 +1470,6 @@ const clkProfileForGuestUsers = () => {
         expect(content.guestIcon).toBeTruthy();
         browser.sleep(2000);
 
-
     }
     catch (e) {
         console.error("Handled");

@@ -21,7 +21,7 @@ describe('VerifyActivityDashBoard', () => {
     it('VerifyActivityDashBoard',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('Mentor2');
         EnrollTBFCPageObj.ActivityDashboard();
        
     })

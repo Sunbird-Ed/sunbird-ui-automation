@@ -18,6 +18,8 @@ const etbpage2 = require(protractor.basePath + '/test/pages/ETB/EtbPage.js');
 const etbpage1 = require(protractor.basePath + '/test/pages/ETB/etb.po.js');
 var resov = resourcePag.resource();
 
+
+ 
 const createBook = () => {
     var bookname;
     try {
@@ -1080,9 +1082,6 @@ const contentInSubjectWiseInAllTabs = () => {
 
 const multiselectForAllTabs = () => {
     try {
-
-
-
         wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary not loaded");
         resov.headerLibrary.click();
         browser.sleep(1000);
@@ -1213,6 +1212,9 @@ const searchContentInExplorePagewithoutBack = (Consume) => {
 }
 
 
+
+
+
 module.exports = {
     createBook,
     sendForReviewTheBook,
@@ -1234,4 +1236,5 @@ module.exports = {
     multiselectForAllTabs,
     verifyUserAccessLiscenceTerms,
     searchContentInExplorePagewithoutBack,
+
 }

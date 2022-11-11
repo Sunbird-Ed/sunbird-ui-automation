@@ -25,7 +25,7 @@ describe('PostInDiscussionForm', () => {
     it('PostInDiscussionForm ', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('OrgAdmin');
         sanityPage.verifyDiscussionForum();
     });
 });

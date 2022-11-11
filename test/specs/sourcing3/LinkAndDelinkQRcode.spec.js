@@ -30,12 +30,7 @@ describe('AU_024,LinkAndDelinkQRcode', () => {
         utility.userLogin('Creator');
         etbFun.navigateToWorkspace();
         let bookName= etbFun.linkAndDelinkQRcode();
-        console.log(bookName);
-       
-         
+        console.log(bookName);   
     })
-
-   
-   
 });
    

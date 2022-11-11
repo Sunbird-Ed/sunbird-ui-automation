@@ -48,7 +48,6 @@ describe('VerifyExpiredBatchVisible' , () => {
         utility.userLogin('Public User1');
         tpdPageObj.ExpiredBatchVisible(coursename);
         utility.userLogout();
-
         utility.userLogin('Creator');
         lspPageObj.deleteCreatedItems();
         

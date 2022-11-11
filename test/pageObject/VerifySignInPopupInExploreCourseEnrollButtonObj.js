@@ -9,6 +9,9 @@ const ccpage = require(protractor.basePath + '/test/pages/contentCreation/conten
 var content = ccpage.contentCreation();
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 
+
+
+
 const validateSignInPopupOnClickOnEnroll = () => {
   try {
     console.log("User is in Explore-Course Page");
@@ -253,12 +256,16 @@ const addUserInProfile = () => {
     // console.log("Verified selected user is switched : "+input);
     //});
 
+    return userName;
+
 
   }
   catch (Exception) {
     console.log("Failed on adding user");
   }
 }
+
+
 const validateTextBookCount = () => {
   var count;
   try {

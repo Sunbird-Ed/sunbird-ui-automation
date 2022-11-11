@@ -1407,7 +1407,7 @@ const submitForReview = () => {
         browser.sleep(3000);
         //browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.NewCoursesubmitButton), 20000,"submit for review Button not loaded");
         sanityPage.SanityElement().NewCoursesubmitButton.click();
-        browser.sleep(3000);
+        browser.sleep(8000);
 
     } catch (Exception) {
         console.log("User failed to create a collection");

@@ -18,7 +18,7 @@ describe('Loading animation is shown on the screens After Clicking Back Button',
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('verifyLoadingAnimationAfterClickingBackButton ',function(){
+    it('LoadingAnimationIsShownOntheScreenAfterClickingBackButton ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('deleteMember1');

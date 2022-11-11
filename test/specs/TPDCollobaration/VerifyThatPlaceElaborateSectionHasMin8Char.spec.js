@@ -19,7 +19,7 @@ describe('Verify that, Please elaborate section has “Type here (minimum 8 char
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('VerifyThatPleaseElaborateSectionHasMin8Char ',function(){
+    it('VerifyThatPlaceElaborateSectionHasMin8Char ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('LoadAnimation');

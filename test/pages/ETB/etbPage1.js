@@ -42,25 +42,25 @@ let EtbElem1 = () => {
     var subjectValidation = element(by.xpath("//*[contains(text(),'Select Subject')]"));
     var published_byValidation = element(by.xpath("//*[contains(text(),'Select Published by')]"));
     var publishedUsertypeValidation = element(by.xpath("//*[contains(text(),'Select User Type')]"));
-    var classSelect1 = element(by.xpath("(//*[contains(@id,'Capa_1')])[3]"));
+    var classSelect1 = element(by.xpath("//*[contains(text(),'Class 10')]"));
     var subjectSelect1 = element(by.xpath("(//*[contains(@id,'Capa_1')])[4]"));
     var alltab = element(by.xpath("//*[contains(@class,'item item--all')]"));
     var mediumPills = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-label-container list-border')])[2]"));
     var hindi = element(by.xpath("//div[contains(@class,'cfe-multiselect-dropdown sb-modal')]//span[text()='hindi']"));
     var english = element(by.xpath("//div[contains(@class,'cfe-multiselect-dropdown sb-modal')]//span[text()='english']"));
-    var selectClass1 = element(by.xpath("//*[contains(text(),'class 11')]"));
+    var selectClass1 = element(by.xpath("//*[contains(text(),'Class 11')]"));
     var subjectSelection1 = element(by.xpath("//*[contains(text(),'accountancy')]"));
     var subjectSelection2 = element(by.xpath("//*[contains(text(),'biology')]"));
     var tvClass = element(by.xpath("//a[text()=' TV classes ']"));
-    var assertCollection = element(by.xpath("//div[contains(text(),'Collection')]"));
+    var assertCollection = element(by.xpath("//div[contains(text(),'Content Playlist')]"));
     var clkExplore = element(by.xpath("//*[contains(text(),'Explore')]"));
     var assertTextBook = element(by.xpath("//*[contains(text(),'TextBook')]"));
     var assertResource = element(by.xpath("//div[contains(text(),'Resource')]"));
-    var assertLessonPlan = element(by.xpath("//div[contains(text(),'LessonPlan')]"));
-    var assertSelfAssess = element(by.xpath("//div[contains(text(),'SelfAssess')]"));
-    var assertPractiseResourse = element(by.xpath("//div[contains(text(),'PracticeResource')]"));
+    var assertLessonPlan = element(by.xpath("//div[contains(text(),'Lesson Plan')]"));
+    var assertSelfAssess = element(by.xpath("//div[contains(text(),'Assessment')]"));
+    var assertPractiseResourse = element(by.xpath("//div[contains(text(),'Practice')]"));
     var assertLearningOutCome = element(by.xpath("//div[contains(text(),'LearningOutcomeDefinition')]"));
-    var assertExplanationResource = element(by.xpath("//div[contains(text(),'ExplanationResource')]"));
+    var assertExplanationResource = element(by.xpath("//div[contains(text(),'Explanation')]"));
 
 
     return {

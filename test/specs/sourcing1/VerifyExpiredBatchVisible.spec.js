@@ -27,8 +27,6 @@ describe('VerifyExpiredBatchVisible' , () => {
         utility.handleLocationPopup();
         browser.sleep(15000);
         utility.userLogin('Creator');
-       
-        utility.validateWorkspace();
         tpdPageObj.createCourse();
         let coursename=tpdPageObj.sendForReviewCourseWithName();
         utility.userLogout();

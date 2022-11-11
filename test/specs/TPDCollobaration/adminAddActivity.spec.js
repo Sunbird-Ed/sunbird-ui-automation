@@ -11,17 +11,15 @@ describe('Verify adminAddActivity', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('adminAddActivity ',function(){
         utility.handleDropDown();
-
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMemberandAddActivity();
@@ -29,9 +27,6 @@ describe('Verify adminAddActivity', () => {
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.groupMemberCourseConsumptionstatus();
         utility.userLogout();
-        utility.userLogin('Mentor');
-        EnrollTBFCPageObj.verifylastUpdatedandCourseConsumption();
-        utility.userLogout();
-     
+       
     })
 });

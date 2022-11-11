@@ -16,27 +16,27 @@ exports.config = {
         sanity1: 'test/specs/sanity1/*.spec.js',
         sanity2: 'test/specs/sanity2/*.spec.js',
         sanity3: 'test/specs/sanity3/*.spec.js',
-
-        //sourcing1: 'test/specs/sourcing1/*.spec.js',
-        //sourcing2: 'test/specs/sourcing2/*.spec.js',
+ 
+        // sourcing1: 'test/specs/sourcing1/*.spec.js',
+        // sourcing2: 'test/specs/sourcing2/*.spec.js',
         // sourcing3: 'test/specs/sourcing3/*.spec.js',
         // sourcing4: 'test/specs/sourcing4/*.spec.js',
 
-        //sanity1: 'test/specs/Consumption/validateRecentlyPublishedCoursesLabel.spec.js',
-        //sanity1: 'test/specs/TPDCollobaration/verifyThatUserCanClearAllNotificationsInOneGo.spec.js',
+        //sanity1: 'test/specs/consumption1/*.spec.js',
+
+        //sanity1: 'test/specs/consumption1/validateEnddateCannotBeLesserThanStartDate.spec.js',
         // userOrgAndCredentials: 'test/specs/sourcing1/VerifyCreatorAbleToCreateMultipleCategoricalValues.spec.js',
         // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
 
-        // sanity1: 'test/specs/Consumption/validateEnableDiscussionAndStartDiscussionInCourse.spec.js',
-
-        //userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
+        //sanity1: 'test/specs/consumption4/verifyTrackableCollectionIsPresentInMyCourseSectionAndMyLearningSection.spec.js',
+        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
 
-        //TPDCollobration: 'test/specs/TPDCollobaration/*.spec.js',
+        // TPD: 'test/specs/TPD2/*.spec.js',
+        // TpdCollaboration : 'test/specs/TPDCollobaration/*.spec.js',
         // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
         // Consumption: 'test/specs/Consumption/*.spec.js',
-
 
         // sourcing3: 'test/specs/sourcing3/*.spec.js',
         // sourcing4: 'test/specs/sourcing4/*.spec.js',
@@ -45,8 +45,8 @@ exports.config = {
         // sourcing3: 'test/specs/sourcing3/*.spec.js',
         // sourcing21:'test/specs/so8/*.spec.js',
 
-
-        //useronboarding: 'test/specs/Consumption/*.spec.js',
+        // consumption: 'test/specs/Consumption/*.spec.js',
+        // consumption:  test\specs\consumption1
         // contentcreation: 'test/specs/content-creation/*.spec.js',
         // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
         // tpd1: 'test/specs/sourcing2/CreateLessonPlanSaveAndSendForReviewAndPublish.spec.js',
@@ -56,7 +56,6 @@ exports.config = {
 
         // ETB: 'test/specs/ETBSpecs/*.spec.js',
         // smoke: 'test/specs/smoke/CreateCourseAndVerify.spec.js',
-        // sample- execution
         // VerifyHideActionOnEledment1: ['test/specs/tpd/EditCertificateRequirementFromNoToYes.spec.js'],
         // VerifyHideActionOnEledment3: ['test/specs/ETBSpecs/copyBookAndSendForReview.spec.js'],
         // VerifyHideActionOnElement2: ['test/specs/ETBSpecs/generateQRCode.spec.js'],
@@ -67,7 +66,7 @@ exports.config = {
         // OnBoardingCardWithoutLogin: ['test/specs/Consumption/OnBoardingCardWithoutLogin.spec.js'],
         // SelectedPreferenceInProfileSection: ['test/specs/Consumption/SelectedPreferenceInProfileSection.spec.js'],
         // NavigateToTabUsingKeyBoard: ['test/specs/Consumption/NavigateToTabUsingKeyBoard.spec.js'],
-        //  TimerVerification: ['test/specs/sanity2/CreateCourseAndVerify.spec.js'],
+        // TimerVerification: ['test/specs/Consumption/verifyContentsInExplorePage.spec.js'],
 
     },
 
@@ -87,7 +86,7 @@ exports.config = {
         version: '78.0.3904.108',
         platform: 'Any',
         shardTestFiles: true,
-        maxInstances: 1,
+        maxInstances: 3,
         chromeOptions: {
             prefs: {
                 profile: {

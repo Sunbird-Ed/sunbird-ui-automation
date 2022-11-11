@@ -20,7 +20,7 @@ describe('verifyUpdateDiscussionForumPost', () => {
         utility.handleDropDown();
 
         utility.handleLocationPopup();
-        utility.userLogin('Mentor2');
+        utility.userLogin('OrgAdmin');
         sanityPage.updateDiscussionForumPost();
     });
 });

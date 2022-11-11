@@ -119,7 +119,7 @@ var contentCreation = () => {
   var headerLibrary = element(by.xpath("//*[contains(@class,'textbooks')]"));
   var filterSearch = element(by.xpath("//input[@name='filter_search']"));
   var searchIcon = element(by.xpath("//button[contains(.,'Search')]"));
-  var courseCard = element(by.xpath("//div[@class='sb--card__meta']"));
+  var courseCard = element(by.xpath("(//div[contains(@class,'sb--card__meta')])[1]"));
   var firstCourseCardContentName = element(by.xpath("//*[@class='sliderCardHeading text-cencapitalize']"));
   var deleteButton = element(by.xpath("(//i[@class='trash large icon'])[1]"));
   var yesButtonPopup = element(by.xpath("//button[contains(.,'Yes')]"))
@@ -432,14 +432,14 @@ var contentCreation = () => {
   var selectMediumValue = element(by.xpath("//*[@id='medium']/div/sui-select-option/span[contains(text(),'English')]"));
   //  var selectGradeLevelValue=element(by.xpath("//*[@id='gradeLevel']/div[2]/sui-select-option[2]/span[contains(text(),'Class 1')]"));
   var selectGradeLevelValue = element(by.xpath("//label[contains(text(),'Class')]//following::span[3]"));
-  //var selectGradeLevelValue=element(by.xpath("//label[contains(text(),'Class')]//following::span[2]"));
+  var selectGradeLevelValue2=element(by.xpath("//label[contains(text(),'Class')]//following::span[7]"));
 
   var selectSubjectValue = element(by.xpath("//*[@id='subject']/div[2]/sui-select-option[1]/span[contains(text(),'Accountancy')]"));
 
   var district1 = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-caret caret-down')])[7]"));
   var searchButton2 = element(by.xpath("//*[contains(text(),'Search')]"));
   var courseProgress = element(by.xpath("//div[contains(@class,'course__progress')]//div[3]"));
-  var continueLearning = element(by.xpath("//input[@id='keyword']//following::*[contains(text(),'Continue learning')]"));
+  var continueLearning = element(by.xpath("//*[contains(text(),'AutomationCourseContent ')]//following::button[contains(text(),'Continue learning')]"));
   var kebabMenu = element(by.xpath("//div[contains(@class,'kabab-menu pull-right ng-star-inserted')]"));
   var joinCourse = element(by.xpath("(//*[contains(@class,'sb-btn sb-btn-secondary sb-btn-normal ml-auto textbook__addbtn')])[1]"));
   var checkbox = element(by.xpath("(//input[contains(@class,'mr-8 ng-valid ng-touched ng-dirty')])"));
@@ -475,7 +475,7 @@ var contentCreation = () => {
   var addToGroup = element(by.xpath("(//*[contains(text(),'Add to group')])[7]"));
   var subSelectValue = element(by.xpath("//*[contains(text(),'CBSE/NCERT')]"));
   var MedSelect = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-label-container list-border')])[2]"))
-  var MedSelectValue = element(by.xpath("(//*[contains(text(),'english')])[2]"));
+  var MedSelectValue = element(by.xpath("(//*[contains(text(),'english')])[1]"));
   var statelogin = element(by.xpath("//*[@id='stateButton']"));
   var stateDropdown = element(by.xpath("//*[contains(text(),'State Andhrapradesh')]"));
   var stateSubmit = element(by.xpath("//*[contains(@class,'sb-btn-primary')]"));
@@ -572,7 +572,7 @@ var contentCreation = () => {
   var commentBoxClose = element(by.xpath("//button[text()='Close']"));
   var SelectBoardValue2 = element(by.xpath("//span[contains(text(),'State (Assam)')]"));
   var mediumDropdown3 = element(by.xpath("//sui-multi-select[contains(@id,'medium')]"));
-  var selectmediumvalue2 = element(by.xpath("//*[@id='medium']/div/sui-select-option/span[contains(text(),'Hindi')]"));
+  var selectmediumvalue2 = element(by.xpath("//*[@id='medium']/div/sui-select-option/span[contains(text(),'Tamil')]"));
   var classDropdown = element(by.xpath("//sui-multi-select[contains(@id,'gradeLevel')]"));
   var selectClassValue = element(by.xpath("((//label[contains(text(),'Class')])//following::span[2])[2]"));
   var editProfile = element(by.xpath("(//*[contains(@class,'sb-btn sb-btn-primary')])[2]"));
@@ -632,7 +632,7 @@ var contentCreation = () => {
   var QuestinSetTitle1 = element(by.xpath("(//div[text()=' QuestionSet with complete score '])[1]"));
   var totalNoOfQuestions1 = element(by.xpath("//span[text()='4']"));
   var totalNoOfQuestions2 = element(by.xpath("//span[text()='3']"));
-  var durationQuestionSet1 = element(by.xpath("(//span[text()='1:00'])[2]"));
+  var durationQuestionSet1 = element(by.xpath("(//span[text()='1:00'])"));
   var instructionQuestionSet1 = element(by.xpath("//div[text()='complete score']"));
   var nextSlideIconStep1 = element(by.xpath("//div[@aria-label='next slide']"));
   var selectAnswer1 = element(by.xpath("(//input[@id='option-checkbox'])[1]"));
@@ -660,7 +660,7 @@ var contentCreation = () => {
   var questionSetTitleComplete = element(by.xpath("//div[text()=' Complete QuestionSet ']"));
   var questionSetInstComplete = element(by.xpath("//p[text()='Instructions']"));
   var questionSetTitleScore = element(by.xpath("(//div[text()=' Score QuestionSet '])[1]"));
-  var questionSetdurationScore = element(by.xpath("(//span[text()='6:00'])[2]"));
+  var questionSetdurationScore = element(by.xpath("//span[text()='6:00']"));
   var questionSetInstScore = element(by.xpath("//p[text()='Score QuestionSet']"));
   var scoreQuestionSet = element(by.xpath("//span[text()='Score QuestionSet']"));
   var questionSetTitleDuration = element(by.xpath("(//div[text()=' Duration QuestionSet '])[1]"));
@@ -787,10 +787,11 @@ var contentCreation = () => {
   var searchButtonInProfPage = element(by.xpath("//div[@id='search-input-container']//following::button[@title='Search in Users']"));
   var changePreference = element(by.xpath("//input[contains(@id,'keyword')]//following::button[contains(text(),'CHANGE PREFERENCE')]"));
   var boardValueSelection = element(by.xpath("//span[contains(text(),'State (Tamil Nadu)')]"));
+  var boardValueSelection2 = element(by.xpath("//span[contains(text(),'State (Assam)')]"));
   var backbutton = element(by.xpath("//input[@id='keyword']//following::span[contains(text(),'Back')]"));
   var liscenceDropdown = element(by.xpath("//div[@id='search-input-container']//following::span[contains(text(),'Credits & license info')]"));
   var liscenceterms = element(by.xpath("//div[@id='search-input-container']//following::span[contains(text(),'Credits & license info')]//following::div[21]"))
-  var loginPopup = element(by.xpath("//div[contains(text(),' Access course ')]//following::a[contains(text(),' Login ')]"));
+  var loginPopup = element(by.xpath("//div[contains(text(),'Access course')]//following::*[contains(text(),'Login')]"));
   var usernamePopUp = element(by.xpath("//*[@id='kc-form-login']//following::*[@id='username']"));
   var passwordPopUp = element(by.xpath("//*[@id='kc-form-login']//following::*[@id='password']"));
   var loginpopUpMsg = element(by.xpath("//div[contains(text(),'Access course')]//following::*[contains(text(),'Login')]"));
@@ -855,7 +856,25 @@ var contentCreation = () => {
   var leaveCoursePopUp = element(by.xpath("//div[contains(text(),' Batch Unenrolment ')]//following::button[contains(text(),' Leave course ')]"));
   var nextArrow = element(by.xpath("//button[contains(@aria-label,'Next')]"));
   var prevArrowBtn = element(by.xpath("//button[contains(@aria-label,'Previous')]"));
-
+  var pagenummberInput = element(by.xpath("//span[@aria-label='Go to page']//preceding::input[contains(@type,'number')]"));
+  var rightArrowSearchbutton = element(by.xpath("//*[contains(@alt,'arrow-right')]"));
+  var assertPageNotFoundMsg = element(by.xpath("//div[contains(text(),'Page Not Found')]"));
+  var assertPercentageOfCompletion = element(by.xpath("//label[contains(@id,'overlay-button')]//following::div[contains(@class,'sb-epub-reading-status ng-star-inserted')]"));
+  var clicktheCourse = element(by.xpath("(//div[@role='button']//following::div)[2]//following::div[contains(@class,'certificate-course-content pl-8')]"));
+  var filterBy = element(by.xpath("//input[contains(@id,'search-for-content-group')]//following::button[contains(text(),'Filter by')]"));
+  var selectTamilboard = element(by.xpath("//span[contains(text(),'state (tamil nadu)')]"));
+  var assertPlussignfollowedWithMed = element(by.xpath("//span[contains(text(),'Medium:')]//following::span[contains(text(),'English')]//following::span[contains(text(),'+')][1]"));
+  var assertPlussignfollowedWithClass = element(by.xpath("//span[contains(text(),'Medium:')]//following::span[contains(text(),'English')]//following::span[contains(text(),'+')][2]"));
+  var assertShareButtonInQuestionSet = element(by.xpath("//*[contains(@id,'sidebar-list')]//following-sibling::*[contains(text(),'Share')]"));
+  var selectDur3 = element(by.xpath("(//input[@id='option-checkbox'])[6]"));
+  var blurredInstruction = element(by.xpath("(//div[contains(@id,'answer-container') and @class='option-container-blurred'])[2]"));
+  var boardelements = element.all(by.css("div.menu.transition.visible"));
+  var explorePageDropdownElements = element.all(by.css("div.cfe-multiselect-dropdown.sb-modal-dropdown-web.cfe-dropdown-web.ng-star-inserted"));
+  var selectBoardValueInExplorePage = element(by.xpath("//span[contains(text(),'state (tamil nadu)')]"));
+  var selectExplorepageMedium = element(by.xpath("//*[contains(text(),'Select Medium')]"));
+  var selectExplorePageMediumValue = element(by.xpath("(//span[contains(text(),'english')])[1]"));
+  
+  
 
   return {
     closeIcon,
@@ -1676,6 +1695,25 @@ var contentCreation = () => {
     leaveCoursePopUp,
     nextArrow,
     prevArrowBtn,
+    pagenummberInput,
+    rightArrowSearchbutton,
+    assertPageNotFoundMsg,
+    assertPercentageOfCompletion,
+    clicktheCourse,
+    filterBy,
+    selectTamilboard,
+    selectDur3,
+    boardValueSelection2,
+    selectGradeLevelValue2,
+    assertPlussignfollowedWithMed,
+    assertPlussignfollowedWithClass,
+    assertShareButtonInQuestionSet,
+    blurredInstruction,
+    boardelements,
+    explorePageDropdownElements,
+    selectBoardValueInExplorePage,
+    selectExplorepageMedium,
+    selectExplorePageMediumValue,
   }
 }
 

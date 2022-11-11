@@ -29,11 +29,10 @@ describe('VerifyCopyRight Details Verify' , () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         browser.sleep(3000);
-
         utility.userLogin('Creator');
         let bookName= sanityFun.createBook();
         console.log(bookName);
-        etbFun.verifyLicenceLabelEditPage();
+       // etbFun.verifyLicenceLabelEditPage();
          
 
        // etbFun.clickFirstBookAndCopyInLibrary();

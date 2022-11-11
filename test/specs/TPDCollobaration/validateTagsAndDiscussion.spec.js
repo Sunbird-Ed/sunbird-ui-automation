@@ -24,7 +24,7 @@ describe('validateTagsAndDiscussion', () => {
     it('validateTagsAndDiscussion ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Mentor');
+        utility.userLogin('OrgAdmin');
         sanityfun.enableDisableDiscussionForumToValidateTags();
     })
 });

@@ -19,6 +19,7 @@ describe('Verify Create group add member and add activity', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+    
     it('verifyCreationOfMyGroupAndActivity ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();

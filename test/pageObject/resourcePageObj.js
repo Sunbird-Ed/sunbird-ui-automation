@@ -273,16 +273,16 @@ const sendForLimitedSharing = (resourcename) => {
     browser.sleep(2000);
     browser.navigate().refresh();
     browser.sleep(4000);
-    wait.waitForElementVisibility(resov.linkShareViaLink, 20000);
-    resov.linkShareViaLink.click();
-    browser.sleep(3000);
-    wait.waitForElementVisibility(resov.resourceInFirstColumn, 20000);
+    // wait.waitForElementVisibility(resov.linkShareViaLink, 20000);
+    // resov.linkShareViaLink.click();
+    // browser.sleep(3000);
+    //wait.waitForElementVisibility(resov.resourceInFirstColumn, 20000);
     // resov.resourceInFirstColumn.getText().then(function (resoValue) {
     //     console.log("Resource in ShareViaLink :" + resoValue);
     //     console.log("Resource Name :" + resourcename)
     //     // expect(resoValue).toBe(resourcename);
     // })
-    expect(resov.resourceInFirstColumn.isDisplayed()).toBeTruthy();
+    // expect(resov.resourceInFirstColumn.isDisplayed()).toBeTruthy();
 
 }
 
@@ -6757,13 +6757,22 @@ const HomePageDisplayedOnClickCloseBtnFromBrowseBtCategory = () => {
 
         expect(resov.resoCard.isDisplayed()).toBeTruthy()
         browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,250);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
         wait.waitForElementVisibility(resov.clkViewAllBtn, 40000, "  clkViewAllBtn search bar is not available");
         resov.clkViewAllBtn.click();
         browser.sleep(4000);
         expect(resov.resoCard.isDisplayed()).toBeTruthy()
+        browser.sleep(4000);
         expect(resov.clkCloseBtn.isDisplayed()).toBeTruthy()
         resov.clkCloseBtn.click();
         browser.sleep(4000);
+        browser.executeScript('window.scrollTo(0,250);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
         expect(resov.clkViewAllBtn.isDisplayed()).toBeTruthy()
         browser.sleep(2000);
         wait.waitForElementVisibility(resov.clkBackInbrowseBySubjectContentCard, 40000, "  Filter search bar is not available");
@@ -6787,6 +6796,9 @@ const HomePageDisplayedOnClickCloseBtnFromBrowseBtCategory = () => {
         expect(resov.resoCard.isDisplayed()).toBeTruthy()
         browser.sleep(4000);
 
+       browser.executeScript('window.scrollTo(0,250);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
         wait.waitForElementVisibility(resov.clkViewAllBtn, 40000, "  clkViewAllBtn search bar is not available");
         resov.clkViewAllBtn.click();
         browser.sleep(4000);
@@ -6794,6 +6806,11 @@ const HomePageDisplayedOnClickCloseBtnFromBrowseBtCategory = () => {
         expect(resov.clkCloseBtn.isDisplayed()).toBeTruthy()
         resov.clkCloseBtn.click();
         browser.sleep(4000);
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,250);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
         expect(resov.clkViewAllBtn.isDisplayed()).toBeTruthy()
         browser.sleep(2000);
 
@@ -6847,7 +6864,6 @@ const contentSearchInDraftAndEditAndValidate = (corseNames) => {
         console.log('User not able to search and edit draft');
 
     }
-
 }
 
 const createResourceAndValidateIcons = () => {
@@ -7108,21 +7124,16 @@ const filterRetainedFromHomeTabToAnother = () => {
         wait.waitForElementVisibility(resov.sltMediuFilter1, 40000, "  clkViewAllBtn search bar is not available");
         resov.sltMediuFilter1.click();
         browser.sleep(4000);
-
         expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
         browser.sleep(3000);
-
         wait.waitForElementVisibility(resov.ClkClassFilter, 40000, "  clkViewAllBtn search bar is not available");
         resov.ClkClassFilter.click();
         browser.sleep(4000);
         wait.waitForElementVisibility(resov.sltClassFilter1, 40000, "  clkViewAllBtn search bar is not available");
         resov.sltClassFilter1.click();
         browser.sleep(4000);
-
         expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
         browser.sleep(3000);
-
-
         wait.waitForElementVisibility(resov.clkHome, 40000, "  Filter search bar is not available");
         resov.clkHome.click();
         browser.sleep(4000);
@@ -7137,9 +7148,6 @@ const filterRetainedFromHomeTabToAnother = () => {
         browser.sleep(3000);
         expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
         browser.sleep(3000);
-
-
-
         wait.waitForElementVisibility(resov.clkHome, 40000, "  Filter search bar is not available");
         resov.clkHome.click();
         browser.sleep(4000);
@@ -7154,15 +7162,24 @@ const filterRetainedFromHomeTabToAnother = () => {
         browser.sleep(3000);
         expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
         browser.sleep(3000);
-
-
-
         wait.waitForElementVisibility(resov.clkHome, 40000, "  Filter search bar is not available");
         resov.clkHome.click();
         browser.sleep(4000);
         wait.waitForElementVisibility(resov.clkTVClasses, 40000, "  Filter search bar is not available");
         resov.clkTVClasses.click();
         browser.sleep(4000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        browser.sleep(2000);
+        expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+        browser.sleep(3000);
+        expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+        browser.sleep(3000);
+        browser.refresh();
+        browser.refresh();
+        browser.refresh();
+        browser.sleep(3000);
         browser.executeScript('window.scrollTo(0,0);').then(function () {
             console.log('++++++SCROLLED UP+++++');
         });
@@ -7185,10 +7202,11 @@ const viewAllInNCERTab = () => {
         wait.waitForElementVisibility(resov.clkHome, 40000, "  Filter search bar is not available");
         resov.clkHome.click();
         browser.sleep(4000);
-        browser.executeScript('window.scrollTo(0,1500);').then(function () {
+        browser.executeScript('window.scrollTo(0,2000);').then(function () {
             console.log('++++++SCROLLED Down+++++');
         });
-
+        browser.sleep(3000);
+       
         browser.sleep(3000);
 
         expect(resov.clkViewAllNcertSec.isDisplayed()).toBeTruthy()
@@ -8401,8 +8419,8 @@ const createQuestionSetWithDifferentLayouts = () => {
         browser.sleep(5000);
 
 
-        wait.waitForElementVisibility(resov.createNew1, 20000, "Createnew button not found");
-        resov.createNew1.click();
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
         browser.sleep(3000);
 
         wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
@@ -8478,8 +8496,8 @@ const createQuestionSetWithDifferentLayouts = () => {
         browser.sleep(3000);
 
 
-        wait.waitForElementVisibility(resov.createNew1, 20000, "Createnew button not found");
-        resov.createNew1.click();
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
         browser.sleep(3000);
 
         wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
@@ -8558,8 +8576,8 @@ const createQuestionSetWithDifferentLayouts = () => {
         browser.sleep(3000);
 
 
-        wait.waitForElementVisibility(resov.createNew1, 20000, "Createnew button not found");
-        resov.createNew1.click();
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
         browser.sleep(3000);
 
         wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
@@ -8846,8 +8864,8 @@ const verifyUserIsAbleToCreateQUMLTypeContent = () => {
         browser.sleep(5000);
 
 
-        wait.waitForElementVisibility(resov.createNew1, 20000, "Createnew button not found");
-        resov.createNew1.click();
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
         browser.sleep(3000);
 
         wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
@@ -9069,8 +9087,8 @@ const VerifyUserShouldBeAbleToCreateMQCTypeContent = () => {
         browser.sleep(5000);
 
 
-        wait.waitForElementVisibility(resov.createNew1, 20000, "Createnew button not found");
-        resov.createNew1.click();
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
         browser.sleep(3000);
 
         wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
@@ -9338,6 +9356,218 @@ const rejectTheLessonPlan = (inputToReject) => {
 
 
 
+const scrollTabs = async () => {
+    try {
+        expect(resov.clkHome.isPresent()).toBe(true);
+        wait.waitForElementVisibility(resov.clkHome, 40000, "  Filter search bar is not available");
+        resov.clkHome.click();
+        browser.sleep(4000);
+        browser.executeScript('window.scrollTo(0,7000);').then(function () {
+            console.log('++++++SCROLLED down+++++');
+        });
+        expect(resov.assertTermsNcond.isPresent()).toBe(true);
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        expect(resov.clkDigitalTxtBooks.isPresent()).toBe(true);
+        wait.waitForElementVisibility(resov.clkDigitalTxtBooks, 40000, "  Filter search bar is not available");
+        resov.clkDigitalTxtBooks.click();
+        browser.sleep(4000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        browser.sleep(1000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        wait.waitForElementVisibility(resov.clkCourseHeader, 40000, "  Filter search bar is not available");
+        resov.clkCourseHeader.click();
+        browser.sleep(4000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        browser.sleep(1000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        wait.waitForElementVisibility(resov.clkTVClasses, 40000, "  Filter search bar is not available");
+        resov.clkTVClasses.click();
+        browser.sleep(4000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+
+        browser.sleep(2000);
+
+    } catch (e) {
+        console.log("Failed in Filter")
+    }
+}
+
+const userSltFiltersInDifferntTabsByKeyboardEvents= () => {
+    try {
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.clkAllTabs, 40000, "  Filter search bar is not available");
+        resov.clkAllTabs.sendKeys(protractor.Key.ENTER);
+        browser.sleep(4000);
+        wait.waitForElementVisibility(resov.clkBoardDdAllTabs, 40000, "  clkViewAllBtn search bar is not available");
+        resov.clkBoardDdAllTabs.click();
+       // browser.sleep(4000);
+        browser.actions().sendKeys(protractor.Key.TAB).perform();
+        browser.sleep(1000);
+        browser.actions().sendKeys(protractor.Key.ENTER);
+        browser.sleep(1000);
+
+
+        // wait.waitForElementVisibility(resov.assertBoard, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.assertBoard.sendKeys(protractor.Key.ENTER);
+        // browser.sleep(4000);
+        // wait.waitForElementVisibility(resov.clickMedium, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.clickMedium.click();
+        // browser.sleep(4000);
+        // wait.waitForElementVisibility(resov.selectMedium, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.selectMedium.sendKeys(protractor.Key.ENTER);
+        // browser.sleep(4000);
+        // wait.waitForElementVisibility(resov.clickclass, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.clickclass.click();
+        // browser.sleep(4000);
+        // wait.waitForElementVisibility(resov.SelectClass, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.SelectClass.sendKeys(protractor.Key.ENTER);
+        // browser.sleep(4000);
+
+
+
+        
+        // wait.waitForElementVisibility(resov.sltClassFilter1, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.sltClassFilter1.sendKeys(protractor.key.ENTER);
+        // browser.sleep(4000);
+
+        // expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+        // browser.sleep(3000);
+        // browser.executeScript('window.scrollTo(0,0);').then(function () {
+        //     console.log('++++++SCROLLED UP+++++');
+        // });
+        // browser.sleep(2000);
+
+        // wait.waitForElementVisibility(resov.clkResetBtn, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.clkResetBtn.click();
+        // browser.sleep(7000);
+
+
+        // wait.waitForElementVisibility(resov.clkCourseHeader, 40000, "  Filter search bar is not available");
+        // resov.clkCourseHeader.click();
+        // browser.sleep(4000);
+        // wait.waitForElementVisibility(resov.clkMediFilter, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.clkMediFilter.click();
+        // browser.sleep(4000);
+        // wait.waitForElementVisibility(resov.sltMediuFilter1, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.sltMediuFilter1.click();
+        // browser.sleep(4000);
+
+        // expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+        // browser.sleep(3000);
+
+        // wait.waitForElementVisibility(resov.ClkClassFilter, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.ClkClassFilter.click();
+        // browser.sleep(4000);
+        // wait.waitForElementVisibility(resov.sltClassFilter1, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.sltClassFilter1.click();
+        // browser.sleep(4000);
+
+        // expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+        // browser.sleep(3000);
+        // browser.executeScript('window.scrollTo(0,0);').then(function () {
+        //     console.log('++++++SCROLLED UP+++++');
+        // });
+        // browser.sleep(3000);
+
+        // wait.waitForElementVisibility(resov.clkResetBtn, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.clkResetBtn.click();
+        // browser.sleep(7000);
+
+
+        // wait.waitForElementVisibility(resov.clkTVClasses, 40000, "  Filter search bar is not available");
+        // resov.clkTVClasses.click();
+        // browser.sleep(4000);
+        // wait.waitForElementVisibility(resov.clkMediFilter, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.clkMediFilter.click();
+        // browser.sleep(4000);
+        // wait.waitForElementVisibility(resov.sltMediuFilter1, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.sltMediuFilter1.click();
+        // browser.sleep(4000);
+
+        // expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+        // browser.sleep(3000);
+        // wait.waitForElementVisibility(resov.ClkClassFilter, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.ClkClassFilter.click();
+        // browser.sleep(4000);
+        // wait.waitForElementVisibility(resov.sltClassFilter1, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.sltClassFilter1.click();
+        // browser.sleep(4000);
+        // expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+        // browser.sleep(3000);
+        // browser.executeScript('window.scrollTo(0,0);').then(function () {
+        //     console.log('++++++SCROLLED UP+++++');
+        // });
+        // browser.sleep(3000);
+
+        // wait.waitForElementVisibility(resov.clkResetBtn, 40000, "  clkViewAllBtn search bar is not available");
+        // resov.clkResetBtn.click();
+        // browser.sleep(7000);
+
+    } catch (e) {
+        console.log("Failed")
+    }
+}
+
+const userSltDifferentTabsUsingKeyboardEvents = () => {
+    try {
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.clkAllTabs, 40000, "  Filter search bar is not available");
+        resov.clkAllTabs.sendKeys(protractor.Key.ENTER);
+        browser.sleep(4000);
+        wait.waitForElementVisibility(resov.clkHome, 40000, "  Filter search bar is not available");
+        resov.clkHome.sendKeys(protractor.Key.ENTER);
+        browser.sleep(4000);
+        wait.waitForElementVisibility(resov.clkExploreTab, 40000, "  Filter search bar is not available");
+        resov.clkExploreTab.sendKeys(protractor.Key.ENTER);
+        browser.sleep(4000);
+        wait.waitForElementVisibility(resov.clkDigitalTxtBooks, 40000, "  Filter search bar is not available");
+        resov.clkDigitalTxtBooks.sendKeys(protractor.Key.ENTER);
+        browser.sleep(4000);
+        wait.waitForElementVisibility(resov.clkCourseHeader, 40000, "  Filter search bar is not available");
+        resov.clkCourseHeader.sendKeys(protractor.Key.ENTER);
+        browser.sleep(4000);
+        
+        
+    } catch (e) {
+        console.log("Failed")
+    }
+}
+
+const switchToClassicTheme = () => {
+    try {
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.switchToClassicTheme), 20000, "headerDropdown page not loaded");
+        resov.switchToClassicTheme.click();
+        browser.sleep(3000);
+
+    } catch (e) {
+        console.log("Failed")
+    }
+}
+
+
+
+
 module.exports = {
     createResource,
     sendForReviewTheResource,
@@ -9458,4 +9688,8 @@ module.exports = {
     sendForRevInLessonPlanContent,
     editTheResourceInDraft,
     rejectTheLessonPlan,
+    scrollTabs,
+    userSltFiltersInDifferntTabsByKeyboardEvents,
+    userSltDifferentTabsUsingKeyboardEvents,
+    switchToClassicTheme,
 }

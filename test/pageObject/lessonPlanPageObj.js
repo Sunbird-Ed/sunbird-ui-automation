@@ -1,5 +1,7 @@
 //const { browser } = require("protractor");
 
+const { browser } = require("protractor");
+
 const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
 const etbpage = require(protractor.basePath + '/test/pages/ETB/etb.po.js');
 const data = require(protractor.basePath + '/test/testdata/login/login.td.json');
@@ -446,7 +448,7 @@ const searchAnddeleteAllMyContentItems = (content) => {
     var name;
     try {
         console.log("User is trying to delete allmy content Items which are created");
-        
+
         browser.sleep(1000);
         // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
         // content.headerDropdown.click();
@@ -476,7 +478,7 @@ const searchAnddeleteAllMyContentItems = (content) => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.toastMsg), 20000, "toastmsg is not available");
         resov.toastMsg.getText().then(function (input) {
             console.log(input);
-            
+
         });
         browser.sleep(2000);
         resov.searchCoursesUpForReview.getText().then(function (input) {
@@ -494,7 +496,7 @@ const searchAnddeleteDraftItems = (content) => {
     var name;
     try {
         console.log("User is trying to delete draft Items which are created");
-        
+
         browser.sleep(1000);
         // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
         // content.headerDropdown.click();
@@ -526,7 +528,7 @@ const searchAnddeleteDraftItems = (content) => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.toastMsg), 20000, "toastmsg is not available");
         resov.toastMsg.getText().then(function (input) {
             console.log(input);
-            
+
         });
 
         console.log("Draft content is successfully deleted from draft section");
@@ -539,7 +541,7 @@ const searchAnddeleteDraftItemsWithWorkspace = (content) => {
     var name;
     try {
         console.log("User is trying to delete draft Items which are created");
-        
+
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
         content.headerDropdown.click();
@@ -571,7 +573,7 @@ const searchAnddeleteDraftItemsWithWorkspace = (content) => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.toastMsg), 20000, "toastmsg is not available");
         resov.toastMsg.getText().then(function (input) {
             console.log(input);
-            
+
         });
 
         console.log("Draft content is successfully deleted from draft section");
@@ -585,8 +587,8 @@ const deleteUploadContent = () => {
     // var name;
     try {
         browser.executeScript('window.scrollTo(0,0);').then(function () {
-                 console.log('++++++SCROLLED up+++++');
-        })         
+            console.log('++++++SCROLLED up+++++');
+        })
         browser.sleep(3000);
         console.log("User is trying to delete Items which are created");
         browser.sleep(1000);
@@ -604,13 +606,13 @@ const deleteUploadContent = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.yesButtonPopup), 20000, "yesButtonPopup is not available");
         content.yesButtonPopup.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.toastMsg), 20000, "toastmsg is not available");
-        content.toastMsg.getText().then(function(input){
+        content.toastMsg.getText().then(function (input) {
             console.log(input);
             expect(input).toEqual("Content deleted successfully...");
-            });
+        });
 
         console.log("Created content is successfully deleted from Published");
-    
+
     }
     catch (exception) {
         console.log("Failed to delete Items ");
@@ -619,30 +621,97 @@ const deleteUploadContent = () => {
 
 const verifyConsentPopup = (content) => {
     try {
-      browser.sleep(2000);
-      console.log("User is trying to validate consent popup");
-      browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
-      sanityPage.SanityElement().clkLibraray.click();
-      browser.sleep(2000);
-      sanityPage.SanityElement().searchConLib.click();
-      browser.sleep(2000);
-      sanityPage.SanityElement().searchConLib.sendKeys(content);
-      browser.sleep(2000);
-      sanityPage.SanityElement().clkSearchLib.click();
-      browser.sleep(3000);
-      wait.waitForElementVisibility(resov.resoCard, 20000, "courseCard not loaded");
-      resov.resoCard.click();
-      browser.sleep(2000);
-      searchObj.joinCourse.click();
-      browser.sleep(2000);
-      browser.executeScript("arguments[0].scrollIntoView();", searchObj.doNotShare);
-      searchObj.doNotShare.click();
+        browser.sleep(2000);
+        console.log("User is trying to validate consent popup");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+        sanityPage.SanityElement().clkLibraray.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().searchConLib.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().searchConLib.sendKeys(content);
+        browser.sleep(2000);
+        sanityPage.SanityElement().clkSearchLib.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.resoCard, 20000, "courseCard not loaded");
+        resov.resoCard.click();
+        browser.sleep(2000);
+        searchObj.joinCourse.click();
+        browser.sleep(2000);
+        browser.executeScript("arguments[0].scrollIntoView();", searchObj.doNotShare);
+        searchObj.doNotShare.click();
 
     }
     catch (Exception) {
-      console.log("Failed to validate consent popup");
+        console.log("Failed to validate consent popup");
     }
-  }
+}
+
+const verifyProfileSharingUpdate = (content) => {
+    try {
+        browser.sleep(2000);
+        console.log("User is trying to validate consent popup");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+        sanityPage.SanityElement().clkLibraray.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().searchConLib.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().searchConLib.sendKeys(content);
+        browser.sleep(2000);
+        sanityPage.SanityElement().clkSearchLib.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.resoCard, 20000, "courseCard not loaded");
+        resov.resoCard.click();
+        browser.sleep(2000);
+        searchObj.joinCourse.click();
+        browser.sleep(2000);
+        searchObj.termsAndConditions.getText().then(function (input) {
+            var tnc = "I consent to share my details with the administrators of this course. All course administrators are bound by the Privacy Policy and Course Terms in their use of my data.";
+            (input).includes(tnc);
+        })
+        browser.sleep(2000);
+        searchObj.checkBoxConsent.click();
+        browser.sleep(3000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", searchObj.share);
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.share), 20000, "share not available");
+        searchObj.share.click();
+        browser.sleep(4000);
+        
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(5000);
+        wait.waitForElementVisibility(searchObj.profileDataSharingDrpdwn, 20000, "profile data sharing drop down");
+        searchObj.profileDataSharingDrpdwn.click();
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(1000,2000);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(1000);
+        wait.waitForElementVisibility(searchObj.updateButton, 20000, "update button is not found");
+        searchObj.updateButton.click();
+        browser.sleep(2000);
+
+        // wait.waitForElementVisibility(searchObj.sharemyProfileDetails, 20000, "share profile details radio button is not present");
+        // searchObj.shareMyProfileDetails.click();
+        // browser.sleep(2000);
+        // wait.waitForElementVisibility(searchobj.profileDataSharingSaveButton, 20000, "profileDataSharingSaveButton is not enabled");
+        // searchObj.profileDataSharingSaveButton.click();
+        // browser.sleep(2000);
+        // searchObj.termsAndConditions.getText().then(function (input) {
+        //     var tnc = "I consent to share my details with the administrators of this course. All course administrators are bound by the Privacy Policy and Course Terms in their use of my data.";
+        //     (input).includes(tnc);
+        // })
+        // browser.sleep(2000);
+        // searchObj.doNotShare.click();
+
+    }
+    catch (Exception) {
+        console.log("Failed to validate consent popup");
+    }
+}
 
 
 
@@ -663,6 +732,7 @@ module.exports = {
     searchAnddeleteDraftItemsWithWorkspace,
     deleteUploadContent,
     verifyConsentPopup,
+    verifyProfileSharingUpdate,
 
 
 }

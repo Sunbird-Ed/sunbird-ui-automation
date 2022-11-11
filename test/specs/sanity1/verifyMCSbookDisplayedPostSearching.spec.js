@@ -32,6 +32,6 @@ describe('AddCollectionUsingDifferentApproachAndResource Verify', () => {
         utility.userLogout();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(bookName);
-        // etbFun.verifyMCSBookPostSearch();  
+        // etbFun.verifyMCSBookPostSearch();
     })
 });

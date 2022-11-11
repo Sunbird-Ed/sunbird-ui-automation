@@ -18,7 +18,7 @@ describe('Verify Group Admin must be able to download the Metrics for the select
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('verifyDownlaodAsCSVMustBeDisplayedOnTheDashboard ',function(){
+    it('verifyGroupAdminMustBeAbleToDownloadTheMetricsForTheSelectedActivity ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');

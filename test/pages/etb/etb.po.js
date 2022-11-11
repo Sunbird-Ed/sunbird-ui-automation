@@ -101,7 +101,7 @@ var etb = () => {
     var sltTVLessonInAddCatogry = element(by.xpath("//div[contains(text(),'TV Lesson')]"));
     var clkTvClassHeader = element(by.xpath("//a[contains(text(),' TV classes ')]"));
     var firstTvLessonContent = element(by.xpath("//div[@class='sb--card__info']"));
-    var liscenceTerms = element(by.xpath("//*[contains(text(),'Credits')]"));
+    var liscenceTerms = element(by.xpath("//span[contains(text(),'Credits')]"));
     var searchContentInGroup = element(by.xpath("//input[contains(@placeholder,'Type to search for content')]"));
     var searchButtonForGroup = element(by.xpath("//input[contains(@placeholder,'Type to search for content')]//following::button[1]"));
     var groupFilterBoard = element(by.xpath("//li[contains(text(),'Select Board')]"));

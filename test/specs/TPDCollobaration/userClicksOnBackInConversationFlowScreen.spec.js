@@ -27,6 +27,5 @@ describe('User is redirected to the conversation flow screen with no logic added
         EnrollTBFCPageObj.userProvidesMandatoryAndOptionalOnTheConversationListingScreen();
         EnrollTBFCPageObj.userProvidesMandatoryAndOptionalOnTheConversationListingAndClickNext();
         EnrollTBFCPageObj.userClicksOnBackInConversationFlowScreen();
-     
     })
 });

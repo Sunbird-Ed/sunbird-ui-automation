@@ -23,7 +23,5 @@ describe('VerifyCreationOfMyGroupAndAddMember', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMember();
-       
-     
     })
 });

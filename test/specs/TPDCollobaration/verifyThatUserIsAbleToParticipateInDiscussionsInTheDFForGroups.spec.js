@@ -24,6 +24,5 @@ describe('Verify if user click of Tag menu, when there are no tags available, us
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.verifyThatUserIsAbleToParticipateInDiscussionsInTheDFForGroups();
-     
     })
 });

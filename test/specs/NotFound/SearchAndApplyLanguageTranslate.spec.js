@@ -26,7 +26,6 @@ describe('User Is able To ValidatePAGE LANG translation and Regional langauge tr
         utility.userLogin('Creator');
         searchAALTPageObj.vaidatePageLangaugeTranslation();
         utility.userLogout();
-       
         searchAALTPageObj.LangaugeTranslation();
         searchAALTPageObj.SearchCouseWithRegionalLang();
         

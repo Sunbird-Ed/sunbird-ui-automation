@@ -1,5 +1,7 @@
 //const { browser } = require("protractor");
 
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const sanityPage = require(protractor.basePath + '/test/pages/userOnBoarding/SanityPage.js');
 const etbPage = require(protractor.basePath + '/test/pages/ETB/EtbPage.js');
@@ -2242,8 +2244,11 @@ const CheckJoinButtonOptions = () => {
         // browser.executeScript("arguments[0].scrollIntoView();", tpd.batchDetails);
         // tpd.batchDetails.click();
         browser.sleep(4000);
-        browser.executeScript("arguments[0].scrollIntoView();", tpd.credits);
+        browser.executeScript('window.scrollTo(0,100);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
         tpd.credits.click();
+        browser.sleep(3000);
         expect(tpd.createdBy.isDisplayed()).toBeTruthy().then(function () {
             // browser.executeScript("arguments[0].scrollIntoView();", tpd.createdBy);
             (tpd.createdBy.getText()).then(function (input) {
@@ -2251,6 +2256,8 @@ const CheckJoinButtonOptions = () => {
                 browser.sleep(1000);
             })
         })
+        browser.sleep(2000);
+       
         tpd.createdByname.getText().then(function (input1) {
             console.log("created by" + input1);
         })
@@ -2779,6 +2786,198 @@ const userLoginPopup = (roleName) => {
 
 }
 
+const filtersInAllTab = () => {
+    try {
+
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary not loaded");
+        resov.headerLibrary.click();
+        browser.sleep(1000);
+        console.log("Clicked on Library");
+        wait.waitForElementVisibility(resov.filterSearch, 20000, "filterSearch not loaded");
+        resov.filterSearch.click();
+        resov.filterSearch.sendKeys('Textbook');
+        resov.searchIcon.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkBoardDdAllTabs), 40000, "clickFilterBoard is not available");
+        resov.clkBoardDdAllTabs.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltBoardDdAllTabs), 40000, "selectFilterBoard is not available");
+        resov.sltBoardDdAllTabs.click();
+        browser.sleep(2000);
+
+        expect(protractor.ExpectedConditions.visibilityOf(resov.courseToBeClicked)).toBeTruthy()
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkMediumDdAllTabs), 40000, "clickFilterMedium is not available");
+        resov.clkMediumDdAllTabs.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltMediumDdAllTabs), 40000, "selectFilterMedium is not available");
+        resov.sltMediumDdAllTabs.click();
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkMediumDdAllTabs), 40000, "clickFilterMedium is not available");
+        resov.clkMediumDdAllTabs.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltMedium2DdAllTabs), 40000, "selectFilterMedium is not available");
+        resov.sltMedium2DdAllTabs.click();
+        browser.sleep(2000);
+
+
+        expect(protractor.ExpectedConditions.visibilityOf(resov.courseToBeClicked)).toBeTruthy()
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkClassDdAllTabs), 40000, "clickFilterClass is not available");
+        resov.clkClassDdAllTabs.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltClassDdAllTabs), 40000, "selectFilterClass is not available");
+        resov.sltClassDdAllTabs.click();
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkClassDdAllTabs), 40000, "clickFilterClass is not available");
+        resov.clkClassDdAllTabs.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltClass2DdAllTabs), 40000, "selectFilterClass is not available");
+        resov.sltClass2DdAllTabs.click();
+        browser.sleep(2000);
+
+
+        expect(protractor.ExpectedConditions.visibilityOf(resov.courseToBeClicked)).toBeTruthy()
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkSubjectDdAllTabs), 40000, "clickFilterSubject is not available");
+        resov.clkSubjectDdAllTabs.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltSubjectDdAllTabs), 40000, "selectFilterSubject is not available");
+        resov.sltSubjectDdAllTabs.click();
+    }
+    catch (Exception) {
+        console.log('Failed');
+    }
+}
+
+
+const validateFiltersInAllTheTabs = () => {
+    
+    try {
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.clkAllTabs, 20000, "click all tabs not loaded");
+        resov.clkAllTabs.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkBoardDdAllTabs), 40000, "clickFilterBoard is not available");
+        resov.clkBoardDdAllTabs.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltBoardDdAllTabs), 40000, "selectFilterBoard is not available");
+        resov.sltBoardDdAllTabs.click();
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkMediumDdAllTabs), 40000, "clickFilterMedium is not available");
+        resov.clkMediumDdAllTabs.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltMediumDdAllTabs), 40000, "selectFilterMedium is not available");
+        resov.sltMediumDdAllTabs.click();
+        browser.sleep(2000);
+
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkClassDdAllTabs), 40000, "clickFilterClass is not available");
+        resov.clkClassDdAllTabs.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltClassDdAllTabs), 40000, "selectFilterClass is not available");
+        resov.sltClassDdAllTabs.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkDigitalTxtBooks), 40000, "digital textbook is not available");
+        resov.clkDigitalTxtBooks.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkAllTabs, 20000, "click all tabs not loaded");
+        resov.clkAllTabs.click();
+        browser.sleep(3000);
+
+        resov.assertBoard.getText().then(function(input){
+            
+            console.log(input);
+            (input).includes("CBSE/NCERT")
+        })
+        browser.sleep(2000);
+        resov.assertMedium.getText().then(function(input){
+          
+            console.log(input);
+            (input).includes("Assamese");
+        })
+        browser.sleep(2000);
+        resov.assertClass.getText().then(function(input){
+            
+            console.log(input);
+            (input).includes("Kg");
+        })
+
+    }
+    catch (Exception) {
+        console.log('Failed');
+    }
+}
+
+
+
+const validateregionallanguageSelection = () => {
+    
+    try {
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.clkAllTabs, 20000, "click all tabs not loaded");
+        resov.clkAllTabs.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkBoardDdAllTabs), 40000, "clickFilterBoard is not available");
+        resov.clkBoardDdAllTabs.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltBoardDdAllTabs), 40000, "selectFilterBoard is not available");
+        resov.sltBoardDdAllTabs.click();
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkMediumDdAllTabs), 40000, "clickFilterMedium is not available");
+        resov.clkMediumDdAllTabs.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltMediumDdAllTabs), 40000, "selectFilterMedium is not available");
+        resov.sltMediumDdAllTabs.click();
+        browser.sleep(2000);
+
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkClassDdAllTabs), 40000, "clickFilterClass is not available");
+        resov.clkClassDdAllTabs.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltClassDdAllTabs), 40000, "selectFilterClass is not available");
+        resov.sltClassDdAllTabs.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkDigitalTxtBooks), 40000, "digital textbook is not available");
+        resov.clkDigitalTxtBooks.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkAllTabs, 20000, "click all tabs not loaded");
+        resov.clkAllTabs.click();
+        browser.sleep(3000);
+
+        resov.assertBoard.getText().then(function(input){
+            
+            console.log(input);
+            (input).includes("CBSE/NCERT")
+        })
+        browser.sleep(2000);
+        resov.assertMedium.getText().then(function(input){
+          
+            console.log(input);
+            (input).includes("Assamese");
+        })
+        browser.sleep(2000);
+        resov.assertClass.getText().then(function(input){
+            
+            console.log(input);
+            (input).includes("Kg");
+        })
+
+    }
+    catch (Exception) {
+        console.log('Failed');
+    }
+}
 
 module.exports = {
     navigateToWorkspace,
@@ -2839,4 +3038,6 @@ module.exports = {
     verifyMCSBookPostSearch,
     publishTheBookFromUpForReview,
     userLoginPopup,
+    filtersInAllTab,
+    validateFiltersInAllTheTabs,
 }

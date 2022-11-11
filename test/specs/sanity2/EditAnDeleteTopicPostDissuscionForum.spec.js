@@ -12,14 +12,16 @@ describe('verifyEnableDisableOptionForDiscussionForum', () => {
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
     });
+    
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('EditAnDeleteTopicPostDissuscionForum',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('OrgAdmin');
         sanityPage.editAndDelteTopic();
     });
 });

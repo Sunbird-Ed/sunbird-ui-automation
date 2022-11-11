@@ -102,7 +102,7 @@ let SanityElement = () => {
   //var labelDefaultMedium =element(by.xpath("//label[text()='Medium ']"))
   // var labelDefaultClass = element(by.xpath("//div[contains(text(),' Class 10')]"));
   var labelClassOne = element(by.xpath("//div[contains(text(),' Class 1')]"));
-  var firstContent = element(by.xpath("//h4[contains(@class,'sb--card__title')]"));
+  var firstContent = element(by.xpath("//div[contains(@class,'sb--card ng-star-inserted')]"));
   let clkEnterQRCode = element(by.xpath("//button[@title='Enter QR code']"));
   let enterQrCodeInGet = element(by.xpath("//input[@placeholder='Enter QR code']"));
   let ClkCopyAsCourse = element(by.xpath("//button[contains(text(),'Copy as course')]"));
@@ -148,7 +148,7 @@ let SanityElement = () => {
   var myDiscussions = element(by.xpath("//a[contains(text(),'My discussion')]"));
   var categoryCard = element(by.xpath("(//div[@class='category-card-header']//div)[2]"));
   var announcement = element(by.xpath("//div[text()='Announcements']"));
-  var generalDiscussion = element(by.xpath("//div[text()='General Discussion']"));
+  var generalDiscussion = element(by.xpath("//div[contains(text(),'General Discussion')]"));
   var recentPost = element(by.xpath("//*[@id='recent-post']"));
   var bestPost = element(by.xpath("//*[@id='best-post']"));
   var savedPost = element(by.xpath("//*[@id='saved-post']"));
@@ -259,7 +259,7 @@ let SanityElement = () => {
   var viewActivity = element(by.xpath("//span[contains(text(),'View activity')]"));
   var ConsumeCourseforGroups = element(by.xpath("(//img[contains(@src,'common-consumption')])"));
   var coursewithoutAddedToGrpPopUp = element(by.xpath("//div[contains(@class,'ui center aligned segment')]"));
-  var AssertAdmin = element(by.xpath("(//label[contains(@class,'sb__ellipsis')])[1]"));
+  var AssertAdmin = element(by.xpath("//label[contains(@class,'sb__ellipsis')]"));
   var AdminInDashboard = element(by.xpath("(//tr[@role='row']//following::tr)[1]"));
   var ActivityDashboard = element(by.xpath("//button[contains(@title,'Activity Dashboard')]"));
   var clkKeyworkCollection = element(by.xpath("//input[@placeholder='Input the keyword and PRESS enter']"));
@@ -391,7 +391,7 @@ let SanityElement = () => {
   var addCategoryInBook = element(by.xpath("//label[@data-title='Additional Category of the Content']//following::span[text()=' Textbook ']"));
   var sltLessonPlan = element(by.xpath("//input[@type='checkbox']//following::label[text()='Lesson Plan']"));
   var assertAdditionalCategory = element(by.xpath("//label[@data-title='Additional Category of the Content']"));
-  var questionNextSlide = element(by.xpath("//div[contains(@class,'quml-navigation')]//following::div[@aria-label='next slide']"));
+  var questionNextSlide = element(by.xpath("(//*[contains(text(),'i')]//preceding::div[@aria-label='next slide'])[1]"));
   var questionOption1 = element(by.xpath("(//div[contains(@aria-labelledby,'option-checkbox')]//following::span[contains(@class,'checkmark')])[1]"));
   var questionOption2 = element(by.xpath("(//div[contains(@aria-labelledby,'option-checkbox')]//following::span[contains(@class,'checkmark')])[2]"));
   var questionOption3 = element(by.xpath("(//input[@aria-checked='mcqOption.selected'])[3]"));
@@ -466,7 +466,14 @@ let SanityElement = () => {
   var previousButton = element(by.xpath("(//div[@class='d-flex player-slides ml-8']//following::button[contains(@aria-label,'navigation-arrows-previousIcon')])[1]"));
   var searchLibrary = element(by.xpath("//input[contains(@placeholder,'Search Library')]"));
   var contentHierarchyRadbutton = element(by.xpath("//div[contains(text(),' Where do you want to add this content? ')]//following::label[contains(text(),'Collection Unit')]//following::input[contains(@type,'radio')]"));
+  var firstOptionInquestion = element(by.xpath("(//input[contains(@id,'option-checkbox')])[5]"));
+  var closeIconInQuestionSolution = element(by.xpath("(//span[contains(text(),'I')])[1]"));
+  var decreaseResolution =  element(by.xpath("//button[contains(@aria-label,'Decrease font size')]"));
+  var increaseResolution = element(by.xpath("//button[contains(@aria-label,'Increase font size')]"));
+  var resetResolution = element(by.xpath("//button[contains(@aria-label,'Reset to default')]"));
+  
 
+  
   return {
     firstGroup,
     NewCoursesubmitButton,
@@ -913,6 +920,11 @@ let SanityElement = () => {
     previousButton,
     searchLibrary,
     contentHierarchyRadbutton,
+    firstOptionInquestion,
+    closeIconInQuestionSolution,
+    decreaseResolution,
+    increaseResolution,
+    resetResolution,
 
   }
 

@@ -29,10 +29,5 @@ describe('verifyGroupMemberNotifiedWhenAddedToGroup', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         EnrollTBFCPageObj.verifyNotificationBell();
-
-        
-
-       
-     
     })
 });

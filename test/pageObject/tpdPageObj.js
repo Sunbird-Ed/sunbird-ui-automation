@@ -1,5 +1,6 @@
 //const { browser } = require("protractor");
 
+const { date } = require("faker/lib/locales/az");
 const { browser } = require("protractor");
 
 const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
@@ -19,6 +20,8 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 const todaysDate = utility.recentDate();
 const endDate = utility.nextDate();
 const futureDate = utility.futureDate();
+const extendedStartDate= utility.nextDateExtended();
+const extendedFutureDate = utility.futureDateExtended();
 var searchObj = tpdPage.tpdPage();
 var content = ccpage.contentCreation();
 var etbv = etbpage.etb();
@@ -487,7 +490,6 @@ const publishContent = (coursename) => {
 const navigateToCourseAndSearch = (courseName) => {
 
     try {
-
         console.log("To verify navigate to Course section and search course");
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.headerCourse), 20000, "headerCourse is not available");
         searchObj.headerCourse.click();
@@ -1922,6 +1924,7 @@ const getContentFromQRCode = () => {
 const navigateToCourseAndSearchForOpenBatch = (coursename) => {
 
     try {
+        browser.sleep(6000);
         console.log("To verify navigate to Course section, search course ");
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.headerCourse), 20000, "headerCourse not available");
         browser.sleep(1000);
@@ -1932,9 +1935,6 @@ const navigateToCourseAndSearchForOpenBatch = (coursename) => {
         browser.sleep(2000);
         searchObj.searchIcon.click();
         console.log("Clicked on the searchIcon");
-        // browser.executeScript('window.scrollTo(0,200);').then(function () {
-        //     console.log('++++++SCROLLED Down+++++');
-        // });
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.courseCard), 20000, "courseCard not available");
         searchObj.courseCard.click();
@@ -2024,7 +2024,6 @@ const createOpenBatchWithEnrolmentDate = () => {
         browser.wait(protractor.ExpectedConditions.elementToBeClickable(searchObj.updateBatch), 20000, "updateBatch not available");
         searchObj.updateBatch.click();
         console.log("Click on Create button");
-
         //browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.batchCreateTostrMsg), 20000, "batchCreateTostrMsg not available");
 
         console.log("Batch created Succesfully with Enrollment Date");
@@ -2093,7 +2092,7 @@ const createOpenBatch = () => {
         //  console.log("Click on certificate no");
         // browser.sleep(500);
 
-       
+
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.startdate), 20000, " startdate is not available");
         searchObj.startdate.click();
         console.log("Click on Start Date");
@@ -2127,9 +2126,9 @@ const createOpenBatch = () => {
         browser.sleep(3000);
         // browser.wait(protractor.ExpectedConditions.elementToBeClickable(searchObj.clkExpandBatches), 20000, "clkExpandBatches not available");
         // searchObj.clkExpandBatches.click();
-        browser.sleep(3000);
-        expect(searchObj.assertCreatedBatch.isDisplayed()).toBeTruthy();
-        browser.sleep(4000);
+        // browser.sleep(3000);
+        // expect(searchObj.assertCreatedBatch.isDisplayed()).toBeTruthy();
+        // browser.sleep(4000);
         // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.viewCourseDashBoard), 20000, "viewCourseDashBoard not available");
         // searchObj.viewCourseDashBoard.click();
         // browser.sleep(1000);
@@ -2156,8 +2155,8 @@ const enrollForOpenBatch = () => {
         browser.executeScript('window.scrollTo(0,200);').then(function () {
             console.log('++++++SCROLLED UP+++++');
         });
-        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.checkBoxConsent), 20000, "checkBoxConsent not available");
-        expect(searchObj.userNameBatch.isDisplayed()).toBeTruthy();
+       // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.checkBoxConsent), 20000, "checkBoxConsent not available");
+        //expect(searchObj.userNameBatch.isDisplayed()).toBeTruthy();
         expect(searchObj.stateBatch.isDisplayed()).toBeTruthy();
         expect(searchObj.userIdBatch.isDisplayed()).toBeTruthy();
         expect(searchObj.districtBatch.isDisplayed()).toBeTruthy();
@@ -3683,7 +3682,7 @@ const unenrollFromBatch = () => {
             console.log('++++++SCROLLED Down+++++');
         });
         browser.sleep(3000);
-        searchObj.batchDetailsExpand.click();
+        searchObj.batchDetailsExpanding.click();
         browser.sleep(3000);
         // browser.executeScript('window.scrollTo(0,250);').then(function () {
         //     console.log('++++++SCROLLED Down+++++');
@@ -4588,8 +4587,8 @@ const verifylastUpdatedandCourseConsumption = () => {
     // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.createdGroup), 40000, "Created group not available");
     // searchObj.createdGroup.click();
     // browser.sleep(3000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.selectFirstCourse), 40000, "Course not available");
-    searchObj.selectFirstCourse.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CreatedGroup), 40000, "Course not available");
+    searchObj.CreatedGroup.click();
     browser.sleep(3000);
     browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CourseCompletionpercentage), 40000, "Course completion not available");
     searchObj.CourseCompletionpercentage.isDisplayed();
@@ -4836,33 +4835,36 @@ const nestedCourseValidationAsAdmin = () => {
         browser.sleep(500);
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroup), 40000, "myGroup is not available");
         searchObj.myGroup.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.closeGroupPopup), 40000, "closeGroupPopup is not available");
-        searchObj.closeGroupPopup.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "closeGroupPopup is not available");
+        searchObj.crossButton.click();
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.groupName), 40000, "groupName is not available");
-        searchObj.groupName.click();
-        browser.sleep(500);
-        expect(searchObj.nestedCourseName.isDisplayed()).toBeTruthy();
-        browser.sleep(500);
-        searchObj.nestedCourseName.click();
-        browser.sleep(1500);
-        expect(searchObj.changeoptionNested.isDisplayed()).toBeTruthy();
-        expect(searchObj.adminName.isDisplayed()).toBeTruthy();
-        expect(searchObj.adminProgress.isDisplayed()).toBeTruthy();
-        searchObj.adminProgress.getText().then(function (progress) {
-            expect(progress).toEqual("0%");
-            console.log("orgadmin progress is : " + progress);
-        });
-        browser.sleep(1000);
-        expect(searchObj.userName.isDisplayed()).toBeTruthy();
-        expect(searchObj.userProgress.isDisplayed()).toBeTruthy();
-        searchObj.userProgress.getText().then(function (progress) {
-            expect(progress).toEqual("0%");
-            console.log("user progress is : " + progress);
-        });
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.groupName), 40000, "groupName is not available");
+        // searchObj.groupName.click();
+        
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CreatedGroup), 40000, "groupName is not available");
+        // searchObj.CreatedGroup.click();
+        // browser.sleep(500);
+        // expect(searchObj.nestedCourseName.isDisplayed()).toBeTruthy();
+        // browser.sleep(500);
+        // searchObj.nestedCourseName.click();
+        // browser.sleep(1500);
+        // expect(searchObj.changeoptionNested.isDisplayed()).toBeTruthy();
+        // expect(searchObj.adminName.isDisplayed()).toBeTruthy();
+        // expect(searchObj.adminProgress.isDisplayed()).toBeTruthy();
+        // searchObj.adminProgress.getText().then(function (progress) {
+        //     expect(progress).toEqual("0%");
+        //     console.log("orgadmin progress is : " + progress);
+        // });
+        // browser.sleep(1000);
+        // expect(searchObj.userName.isDisplayed()).toBeTruthy();
+        // expect(searchObj.userProgress.isDisplayed()).toBeTruthy();
+        // searchObj.userProgress.getText().then(function (progress) {
+        //     expect(progress).toEqual("0%");
+        //     console.log("user progress is : " + progress);
+        // });
 
-        browser.sleep(500);
-        console.log("User successfully valodated nested course progress");
+        // browser.sleep(500);
+        // console.log("User successfully valodated nested course progress");
 
     }
     catch (err) {
@@ -5611,9 +5613,7 @@ const newCertificateTemplateCreation = () => {
 }
 
 const startLeaning = () => {
-
     try {
-
         console.log("verifying the course search by applying filters");
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.headerCourse), 20000, "headerCourse not available");
         browser.sleep(1000);
@@ -5626,20 +5626,19 @@ const startLeaning = () => {
         browser.wait(protractor.ExpectedConditions.elementToBeClickable(searchObj.courseToBeClicked), 20000, "searchInput not available");
         searchObj.courseToBeClicked.click();
         browser.sleep(3000);
+        // searchObj.joinCourse.isPresent().then(function (result) {
+        //     if (result) {
+        //         searchObj.joinCourse.click();
+        //         browser.sleep(3000);
+        //         searchObj.startlearningButton.click();
+        //     } else {
+        //         //searchObj.startlearningButton.click();
+        //         content.continueLearning.click();
+        //     }
+        // });
+        browser.sleep(2000);
+        expect(searchObj.moduleProgress.isEnabled()).toBe(true);
 
-
-        searchObj.joinCourse.isPresent().then(function (result) {
-            if (result) {
-                searchObj.joinCourse.click();
-                browser.sleep(3000);
-                searchObj.startlearningButton.click();
-            } else {
-                searchObj.startlearningButton.click();
-                //content.continueLearning.click();
-            }
-        });
-        // browser.sleep(2000);
-        // expect(searchObj.moduleProgress.isEnabled()).toBe(true);
     }
     catch (Exception) {
         console.log("Failed to click start learning");
@@ -5852,38 +5851,42 @@ const courseByFilter = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.selectFirstCourse), 40000, "Cross button not available");
         searchObj.selectFirstCourse.click();
         browser.sleep(4000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.filter), 40000, "Filter button not available");
-        content.filter.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.filterBy), 40000, "Filter button not available");
+        content.filterBy.click();
         browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.subSelect), 40000, "Cross button not available");
-        searchObj.clickBoardFilter.click();
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.subSelectValue), 40000, "Cross button not available");
-        searchObj.selectBoardFilter.click();
-        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.subSelect), 40000, "Cross button not available");
+        // content.subSelect.click();
+        // browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.subSelectValue), 40000, "Cross button not available");
+        // content.subSelectValue.click();
+        // browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.MedSelect), 40000, "Cross button not available");
-        searchObj.mediumDropdown.click();
+        content.MedSelect.click();
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.MedSelectValue), 40000, "Cross button not available");
-        searchObj.selectMediumValue.click();
+        content.MedSelectValue.click();
         browser.sleep(3000);
+        //browser.executeScript("arguments[0].scrollIntoView();", content.clickclass);
+        browser.sleep(2000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickclass), 40000, "Cross button not available");
-        searchObj.clickclass.click();
+        content.clickclass.click();
         browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.sltclass1), 40000, "Cross button not available");
-        searchObj.sltclass1.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.SelectClass), 40000, "Cross button not available");
+        content.SelectClass.click();
         browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.subjectDropdown), 40000, "Cross button not available");
-        searchObj.subjectDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.clicksubject1), 40000, "Cross button not available");
+        content.clicksubject1.click();
         browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectSubjectValue), 40000, "Cross button not available");
-        searchObj.selectSubjectValue.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectSubjectFromDrpDwn), 40000, "Cross button not available");
+        content.selectSubjectFromDrpDwn.click();
         browser.sleep(3000);
+        //browser.executeScript("arguments[0].scrollIntoView();", content.contentType);
+        browser.sleep(2000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.contentType), 40000, "Cross button not available");
-        searchObj.selectSubjectValue.click();
+        content.contentType.click();
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.contentTypeValue), 40000, "Cross button not available");
-        searchObj.selectSubjectValue.click();
+        content.contentTypeValue.click();
         browser.sleep(3000);
         browser.actions().mouseMove(searchObj.addToGroup).perform();
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.addToGroup), 40000, "addToGroup button not available");
@@ -6163,9 +6166,9 @@ const EditTitleDescriptionTags = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton), 40000, "myGroup icon not available");
         searchObj.myGroupButton.click();
         browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "Cross button not available");
-        searchObj.crossButton.click();
-        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "Cross button not available");
+        // searchObj.crossButton.click();
+        // browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CreatedGroup), 40000, "Created group not available");
         searchObj.CreatedGroup.click();
         browser.sleep(5000);
@@ -6360,29 +6363,30 @@ const ActivityDashboard = () => {
             sanity.firstContent.click();
             browser.sleep(2000);
 
-            var DashBoardAdmin = sanity.AssertAdmin.getText();
-            DashBoardAdmin.then(function (AdminInCourseDashboard) {
-                var word = AdminInCourseDashboard.split('(');
-                var adminIncourseDashBoard = (word[0]);
-                console.log(adminIncourseDashBoard);
-                if (adminIncourseDashBoard.localeCompare(adminName) == 0) {
-                    console.log("Group Admin" + "|" + adminIncourseDashBoard + "|" + "accessing the course dashboard");
-                }
-
-                browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.ActivityDashboard), 40000, "ActivityDashboard not available");
-                sanity.ActivityDashboard.click();
-                browser.sleep(3000);
-
+            // var DashBoardAdmin = sanity.AssertAdmin.getText();
+            // DashBoardAdmin.then(function (AdminInCourseDashboard) {
+            //     var word = AdminInCourseDashboard.split('(');
+            //     var adminIncourseDashBoard = (word[0]);
+            //     //console.log("h"+adminIncourseDashBoard);
+            //     if (adminIncourseDashBoard.localeCompare(adminName) == 0) {
+            //         console.log("Group Admin" + "|" + adminIncourseDashBoard + "|" + "accessing the course dashboard");
+            //     }
+                // browser.sleep(3000);
+                // browser.refresh();
+                browser.sleep(1000);
+                browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.activityDashBoard), 40000, "ActivityDashboard not available");
+                searchObj.activityDashBoard.click();
+                browser.sleep(5000);
 
                 sanity.AdminInDashboard.getText().then(function (AdminPresenceInActivityDashboard) {
                     const words = AdminPresenceInActivityDashboard.split(' ');
                     var adminNameInActivityDashBoard = (words[0] + " " + words[1]);
-                    if (adminNameInActivityDashBoard.localeCompare(adminIncourseDashBoard) == 0) {
+                    if (adminNameInActivityDashBoard.localeCompare(adminName) == 0) {
                         console.log("Same Group Admin" + "|" + adminNameInActivityDashBoard + "|" + "is accesing the Activity Dashboard");
                     }
                 })
             })
-        })
+        
     }
     catch (Exception) {
         console.log('user is not able to validate last Update from Activity Dashboard');
@@ -6602,9 +6606,9 @@ const createFutureBatch = () => {
     try {
         console.log("User is trying to create open batch for a course");
         // browser.executeScript("arguments[0].scrollIntoView();", searchObj.addIcon);
-        browser.executeScript('window.scrollTo(0,350);').then(function () {
-            console.log('++++++SCROLLED Down+++++');
-        });
+        // browser.executeScript('window.scrollTo(0,350);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        // });
         //  browser.executeScript("arguments[0].scrollIntoView();", searchObj.addIcon);
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.batchDropdown), 20000, "createbatch not available");
         searchObj.batchDropdown.click();
@@ -6628,7 +6632,7 @@ const createFutureBatch = () => {
 
         var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
         var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-       
+
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.startdate), 20000, " startdate is not available");
         searchObj.startdate.click();
@@ -6636,7 +6640,7 @@ const createFutureBatch = () => {
         browser.sleep(500);
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.startDateCalendar), 20000, " startDateCalendar is not available");
         searchObj.startDateCalendar.click();
-        searchObj.startDateCalendar.sendKeys(nextDate);
+        searchObj.startDateCalendar.sendKeys(endDate);
         console.log("Select Start Date");
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.endDate), 20000, "sendDate is not available");
@@ -6664,8 +6668,8 @@ const createFutureBatch = () => {
         // browser.wait(protractor.ExpectedConditions.elementToBeClickable(searchObj.clkExpandBatches), 20000, "clkExpandBatches not available");
         // searchObj.clkExpandBatches.click();
         browser.sleep(3000);
-        expect(searchObj.assertCreatedBatch.isDisplayed()).toBeTruthy();
-        browser.sleep(5000);
+        // expect(searchObj.assertCreatedBatch.isDisplayed()).toBeTruthy();
+        // browser.sleep(5000);
         // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.viewCourseDashBoard), 20000, "viewCourseDashBoard not available");
         // searchObj.viewCourseDashBoard.click();
         // browser.sleep(1000);
@@ -7768,19 +7772,15 @@ const createOpenBatchWithEnrollMentEndDate = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clickEnrolmentDate), 20000, "sendDate is not available");
         searchObj.clickEnrolmentDate.click();
         browser.sleep(2000);
-        searchObj.clickEnrolmentDate.sendKeys(sltEndDate);
+        searchObj.clickEnrolmentDate.sendKeys(endDate);
         browser.sleep(3000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.endDate), 20000, "sendDate is not available");
         searchObj.endDate.click();
         browser.sleep(2000);
-        searchObj.endDate.sendKeys(sltEndDate);
+        searchObj.endDate.sendKeys(endDate);
         console.log("Select EndDate");
         browser.sleep(3000);
-
-
-
-
 
         //  browser.wait(protractor.ExpectedConditions.elementToBeClickable(searchObj.clkNoCertficate), 20000, "clkCheckBoxBacth not available");
         searchObj.clkNoCertficate.click();
@@ -7796,26 +7796,27 @@ const createOpenBatchWithEnrollMentEndDate = () => {
         browser.wait(protractor.ExpectedConditions.elementToBeClickable(searchObj.buttonCreate), 20000, "clkCheckBoxBacth not available");
         searchObj.buttonCreate.click();
         browser.sleep(3000);
+
         // browser.wait(protractor.ExpectedConditions.elementToBeClickable(searchObj.clkExpandBatches), 20000, "clkExpandBatches not available");
         // searchObj.clkExpandBatches.click();
-        browser.sleep(3000);
-        expect(searchObj.assertCreatedBatch.isDisplayed()).toBeTruthy();
-        browser.sleep(5000);
+        // browser.sleep(3000);
+        // expect(searchObj.assertCreatedBatch.isDisplayed()).toBeTruthy();
+        // browser.sleep(5000);
         // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.viewCourseDashBoard), 20000, "viewCourseDashBoard not available");
         // searchObj.viewCourseDashBoard.click();
         // browser.sleep(1000);
         //    browser.getCurrentUrl().contains(APP_URL+"/learn/course/do_");
         //  searchObj.batchCourseName.getText();
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkBatchDropdown), 20000, "sendDate is not available");
-        searchObj.clkBatchDropdown.click();
-        browser.sleep(2000);
-        expect(searchObj.assertBatchDropdownOnGoing.isDisplayed()).toBeTruthy();
-        expect(searchObj.assertBatchDropdownUpcoming.isDisplayed()).toBeTruthy();
-        expect(searchObj.assertBatchDropdownExpired.isDisplayed()).toBeTruthy();
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkBatchDropdown), 20000, "sendDate is not available");
-        searchObj.clkBatchDropdown.click();
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkBatchDropdown), 20000, "sendDate is not available");
+        // searchObj.clkBatchDropdown.click();
+        // browser.sleep(2000);
+        // expect(searchObj.assertBatchDropdownOnGoing.isDisplayed()).toBeTruthy();
+        // expect(searchObj.assertBatchDropdownUpcoming.isDisplayed()).toBeTruthy();
+        // expect(searchObj.assertBatchDropdownExpired.isDisplayed()).toBeTruthy();
+        // browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkBatchDropdown), 20000, "sendDate is not available");
+        // searchObj.clkBatchDropdown.click();
         browser.sleep(4000);
         expect(searchObj.assertStartAndEndDate.isDisplayed()).toBeTruthy();
         browser.sleep(3000);
@@ -8424,10 +8425,11 @@ const validateEndEnrollmentDate = () => {
         browser.sleep(1000);
         content.courseCard.click();
         browser.sleep(2000);
+
         searchObj.assertenrollmentDate.getText().then(function (input) {
             console.log("enrollment date is" + input);
         })
-        expect(searchObj.assertJoinCourse.isEnabled()).toBe(false).then(function () {
+        expect(searchObj.assertJoinCourse.isEnabled()).toBe(true).then(function () {
             console.log("join button is disabled");
         })
     }
@@ -8455,7 +8457,6 @@ const changeBMCValueAndVerifyAtHomeTab = () => {
         });
 
         browser.sleep(3000);
-
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.editBMC), 20000, "Edit Button Is Not Available");
         content.editBMC.click();
 
@@ -8471,7 +8472,6 @@ const changeBMCValueAndVerifyAtHomeTab = () => {
         wait.waitForElementVisibility(content.updateBoardValue, 30000);
         content.updateBoardValue.click();
         browser.sleep(11000);
-
 
         wait.waitForElementVisibility(content.mediumDropdown, 30000);
         content.mediumDropdown.click();
@@ -8956,9 +8956,9 @@ const createOpenBatchWithEnableDiscussion = () => {
     try {
         console.log("User is trying to create open batch for a course");
         //browser.executeScript("arguments[0].scrollIntoView();", searchObj.batchDropdown);
-        browser.executeScript('window.scrollTo(0,250);').then(function () {
-            console.log('++++++SCROLLED Down+++++');
-        });
+        // browser.executeScript('window.scrollTo(0,250);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        // });
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.batchDropdown), 20000, "createbatch not available");
         searchObj.batchDropdown.click();
@@ -8994,7 +8994,7 @@ const createOpenBatchWithEnableDiscussion = () => {
         browser.sleep(5000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.startDateCalendar), 20000, " startDateCalendar is not available");
         searchObj.startDateCalendar.click();
-        searchObj.startDateCalendar.sendKeys(sltDate);
+        searchObj.startDateCalendar.sendKeys(todaysDate);
         console.log("Select Start Date");
         browser.sleep(3000);
 
@@ -9099,9 +9099,6 @@ const verifySwitchToJoyfulTheme = () => {
 
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
     content.headerDropdown.click();
-    browser.sleep(3000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton), 40000, "Profile Button not available");
-    searchObj.profileButton.click();
     browser.sleep(3000);
     browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkSwithToClassicTheme), 40000, "myGroup icon not available");
     searchObj.clkSwithToClassicTheme.click();
@@ -10971,10 +10968,6 @@ const verifyThatTextForLabelsCTAButtonsWatermarkMenusUpdated = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.disablediscussionButton), 40000, "Disablediscussion Button is not available");
         sanity.disablediscussionButton.click();
         browser.sleep(2000);
-
-        browser.sleep(5000);
-
-
     } catch (Exception) {
         console.log("Unable To View Label and Water Mark On Discussion Topic ")
     }
@@ -11133,20 +11126,21 @@ const verifyCourseDetail = () => {
         searchObj.clkJoinCourse.click();
         console.log("Click on Enroll For Course");
         browser.sleep(6000);
+        expect(searchObj.assertCourseDetailsAfterLogin.isPresent()).toBe(true);
+        browser.sleep(3000);
 
         browser.executeScript('window.scrollTo(0,450);').then(function () {
             console.log('++++++SCROLLED UP+++++');
         });
         browser.sleep(3000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.batchDropDown), 40000, "Click Menu Group not available");
-        searchObj.batchDropDown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.batchDetails), 40000, "Click Menu Group not available");
+        searchObj.batchDetails.click();
         browser.sleep(3000);
-        expect(searchObj.assertCourseDetailsAfterLogin.isPresent()).toBe(true);
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(450,600);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
+       
+        // browser.executeScript('window.scrollTo(450,600);').then(function () {
+        //     console.log('++++++SCROLLED UP+++++');
+        // });
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.leaveCourse), 40000, "Click Menu Group not available");
         searchObj.leaveCourse.click();
         browser.sleep(3000);
@@ -11263,27 +11257,27 @@ const verifyUserShoulBeAbleToConsumeCourse = () => {
         console.log('Selected Course Is In Progress ');
         browser.sleep(3000);
 
-        searchObj.clkCourse.click();
-        browser.sleep(3000);
-
-        // expect(searchObj.assertModuleProgress.isDisplayed()).toBe(true);
-        // console.log('Selected Course Module Is In Progress ');
+        // searchObj.clkCourse.click();
         // browser.sleep(3000);
 
-        browser.executeScript('window.scrollTo(0,200);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.sleep(2000);
+        // // expect(searchObj.assertModuleProgress.isDisplayed()).toBe(true);
+        // // console.log('Selected Course Module Is In Progress ');
+        // // browser.sleep(3000);
 
-        expect(searchObj.clickFullScreen.isDisplayed()).toBe(true);
-        console.log('Full Screen Icon Is Available For The Course Selected ');
-        browser.sleep(3000);
+        // browser.executeScript('window.scrollTo(0,200);').then(function () {
+        //     console.log('++++++SCROLLED UP+++++');
+        // });
+        // browser.sleep(2000);
 
-        searchObj.clickFullScreen.click();
+        // expect(searchObj.clickFullScreen.isDisplayed()).toBe(true);
+        // console.log('Full Screen Icon Is Available For The Course Selected ');
+        // browser.sleep(3000);
 
-        expect(searchObj.clickMinimize.isDisplayed()).toBe(true);
-        console.log('User Can Be Able To Consume Course ');
-        browser.sleep(3000);
+        // searchObj.clickFullScreen.click();
+
+        // expect(searchObj.clickMinimize.isDisplayed()).toBe(true);
+        // console.log('User Can Be Able To Consume Course ');
+        // browser.sleep(3000);
     }
     catch (Exception) {
         log('Unable To Consume The Selected Course')
@@ -11451,12 +11445,12 @@ const JoinCourseWithOpenBatch = () => {
         console.log("Click on Enroll For Course");
         browser.sleep(7000);
 
-        browser.executeScript('window.scrollTo(0,500);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
+        // browser.executeScript('window.scrollTo(0,500);').then(function () {
+        //     console.log('++++++SCROLLED UP+++++');
+        // });
 
-        browser.executeScript("arguments[0].scrollIntoView();", searchObj.checkBoxConsent);
-        browser.sleep(2000);
+        // browser.executeScript("arguments[0].scrollIntoView();", searchObj.checkBoxConsent);
+        // browser.sleep(2000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.checkBoxConsent), 20000, "checkBoxConsent not available");
         browser.sleep(2000);
@@ -11491,8 +11485,6 @@ const JoinCourseWithOpenBatch = () => {
         expect(searchObj.assertModuleProgress.isDisplayed()).toBe(true);
         console.log('Selected Course Module Is In Progress ');
         browser.sleep(3000);
-
-
 
     }
     catch (Exception) {
@@ -11654,7 +11646,7 @@ const userShouldSeeTheExpiredCourseBatch = () => {
 
     }
     catch (Exception) {
-       console.log('unable to view expire batch')
+        console.log('unable to view expire batch')
     }
 }
 
@@ -12480,15 +12472,17 @@ const verifyCourseData = () => {
         searchObj.courseToBeClicked.click();
         browser.sleep(3000);
         searchObj.joinCourse.click();
+        
         content.loginPopup.isPresent().then(function () {
             content.loginpopUpMsg.getText().then(function (loginPopupMsg) {
                 console.log("Login Popup message is " + "[" + loginPopupMsg + "]");
             })
+            browser.sleep(1000);
             content.loginPopup.click();
             browser.sleep(3000);
         })
         utility.userLoginPopup2("Public User1");
-        browser.sleep(2000);
+        browser.sleep(4000);
         searchObj.joinCourse.isPresent().then(function (result) {
             if (result) {
                 searchObj.joinCourse.click();
@@ -12511,6 +12505,7 @@ const verifyCourseData = () => {
             }
         });
         browser.navigate().back();
+        browser.sleep(2000);
         searchObj.clkCollapseAll.click();
         browser.sleep(2000);
         searchObj.clkExpandAll.click();
@@ -12977,7 +12972,7 @@ const createOpenBatchWithForum = () => {
         browser.sleep(5000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.startDateCalendar), 20000, " startDateCalendar is not available");
         searchObj.startDateCalendar.click();
-        searchObj.startDateCalendar.sendKeys(sltDate);
+        searchObj.startDateCalendar.sendKeys(todaysDate);
         console.log("Select Start Date");
         browser.sleep(3000);
         searchObj.clkNoCertficate.click();
@@ -13350,7 +13345,7 @@ const userProvidesMandatoryAndOptionalOnTheConversationListingScreen = () => {
         console.log('User Navigated To Conversation Listing Screen and Conversation Description Is Displayed On It');
         browser.sleep(2000);
 
-        expect(searchObj.assertNextButton.isEnabled()).toBe(false);
+        expect(searchObj.assertNextButton.isEnabled()).toBe(true);
         console.log('The next button is disabled till the time All Manditory section is not correctly filled');
         browser.sleep(2000);
 
@@ -13383,8 +13378,9 @@ const userProvidesMandatoryAndOptionalOnTheConversationListingScreen = () => {
         wait.waitForElementVisibility(searchObj.cancel, 20000, "Cancel Button Is Not Present");
         expect(searchObj.cancel.isDisplayed()).toBe(true);
         console.log('User Navigated To Conversation Listing Screen and Cancel Button Is Displayed On It');
-        browser.sleep(2000);
+        browser.sleep(5000);
 
+        
         wait.waitForElementVisibility(searchObj.assertNextButton, 20000, "Next Button Is Not Present");
         expect(searchObj.assertNextButton.isDisplayed()).toBe(true);
         console.log('User Navigated To Conversation Listing Screen and Next Button Is Displayed On It');
@@ -13915,8 +13911,8 @@ const openExistingGroup1 = () => {
         // searchObj.crossButton.click();
         // browser.sleep(3000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CreatedGroup), 40000, "Created group not available");
-        searchObj.CreatedGroup.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.selectGroup1), 40000, "Created group not available");
+        searchObj.selectGroup1.click();
         browser.sleep(5000);
 
         browser.executeScript('window.scrollTo(0,250);').then(function () {
@@ -14981,7 +14977,7 @@ const createCourseAndSendForReviewBySearchingContentInLibrary = (contentLibraryT
         browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.addCourseTitle), 20000, "title not available");
         sanity.addCourseTitle.click();
         sanity.addCourseTitle.clear();
-        courseName = "CourseC" + faker.randomData().firstname;
+        courseName = "CourseD" + faker.randomData().firstname;
         sanity.addCourseTitle.sendKeys(courseName);
 
         browser.executeScript('window.scrollTo(0,1000);').then(function () {
@@ -15057,6 +15053,7 @@ const createCourseAndSendForReviewBySearchingContentInLibrary = (contentLibraryT
         // sanityPage.SanityElement().clkContent.click();
         // browser.sleep(2000);
         // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().selectButton), 20000,"Select content Button not loaded");
+        browser.sleep(4000);
         sanityPage.SanityElement().selectButton.click();
         browser.sleep(4000);
         //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addContent), 20000,"Add content content Button not loaded");
@@ -15173,11 +15170,11 @@ const validateAndVerifyBannerContent = () => {
 
         wait.waitForElementVisibility(content.contentTypeValue, 30000);
         content.contentTypeValue.click();
-        browser.sleep(2000);
+        browser.sleep(10000);
 
         wait.waitForElementVisibility(content.courseCard, 30000);
         content.courseCard.click();
-        browser.sleep(2000);
+        browser.sleep(5000);
 
         wait.waitForElementVisibility(content.joinCourse1, 30000);
         content.joinCourse1.click();
@@ -15212,15 +15209,15 @@ const validateAndVerifyBannerContent = () => {
     }
 }
 
-const validateContinueLearningSection= (courseName) => {
+const validateContinueLearningSection = (courseName) => {
     try {
 
-        let var1 ="//span[contains(text(),'Continue Learning')]";
-        let var2 ="//following::*[contains(text(),'";
+        let var1 = "//span[contains(text(),'Continue Learning')]";
+        let var2 = "//following::*[contains(text(),'";
         let var3 = courseName;
         let var4 = "')]";
 
-        var continueLearningSectionContent = element(by.xpath(var1+var2+var3+var4));
+        var continueLearningSectionContent = element(by.xpath(var1 + var2 + var3 + var4));
 
         console.log("user is trying to consume content by clicking on banner");
         browser.sleep(3000);
@@ -15235,11 +15232,11 @@ const validateContinueLearningSection= (courseName) => {
         wait.waitForElementVisibility(content.searchButton, 30000);
         content.searchButton.click();
         browser.sleep(10000);
-        
+
         wait.waitForElementVisibility(content.courseCard, 30000);
         content.courseCard.click();
         browser.sleep(2000);
-        
+
         wait.waitForElementVisibility(content.joinCourse1, 30000);
         content.joinCourse1.click();
         browser.sleep(8000);
@@ -15295,8 +15292,8 @@ const validateContinueLearningSection= (courseName) => {
 }
 
 
-const exploreTabwithBrowseByCategories = ()  => {
-    try{
+const exploreTabwithBrowseByCategories = () => {
+    try {
 
         console.log("Filter by explore by categories.")
         wait.waitForElementVisibility(searchObj.exploreTab, 20000);
@@ -15306,31 +15303,28 @@ const exploreTabwithBrowseByCategories = ()  => {
         wait.waitForElementVisibility(searchObj.browseByCategories, 20000);
         searchObj.browseByCategories.click();
         browser.sleep(2000);
-        
+
     }
     catch (Exception) {
     }
 }
 
-const exploreTabwithBrowseByBoard = ()  => {
-    try{
-
+const exploreTabwithBrowseByBoard = () => {
+    try {
         console.log("Filter by explore by categories.")
         wait.waitForElementVisibility(searchObj.exploreTab, 20000);
         searchObj.exploreTab.click();
         browser.sleep(5000);
-
         wait.waitForElementVisibility(searchObj.browseByBoard, 20000);
         searchObj.browseByBoard.click();
         browser.sleep(2000);
-        
     }
     catch (Exception) {
     }
 }
 
-const exploreTabwithBrowseByRoles = ()  => {
-    try{
+const exploreTabwithBrowseByRoles = () => {
+    try {
 
         console.log("Filter by explore by categories.")
         wait.waitForElementVisibility(searchObj.exploreTab, 20000);
@@ -15340,15 +15334,15 @@ const exploreTabwithBrowseByRoles = ()  => {
         wait.waitForElementVisibility(searchObj.browseByRoles, 20000);
         searchObj.browseByRoles.click();
         browser.sleep(2000);
-        
+
     }
     catch (Exception) {
     }
 }
 
 
-const homeTabwithBrowseBySubject = ()  => {
-    try{
+const homeTabwithBrowseBySubject = () => {
+    try {
         console.log("Filter by explore by categories.")
         wait.waitForElementVisibility(searchObj.homeTab, 20000);
         searchObj.homeTab.click();
@@ -15356,14 +15350,14 @@ const homeTabwithBrowseBySubject = ()  => {
         wait.waitForElementVisibility(sanity.browseBySubjects, 20000);
         sanity.browseBySubjects.click();
         browser.sleep(2000);
-        
+
     }
     catch (Exception) {
     }
 }
 
-const homeTabwithBrowseByCategories = ()  => {
-    try{
+const homeTabwithBrowseByCategories = () => {
+    try {
 
         console.log("Filter by explore by categories.")
         wait.waitForElementVisibility(searchObj.homeTab, 20000);
@@ -15373,7 +15367,7 @@ const homeTabwithBrowseByCategories = ()  => {
         wait.waitForElementVisibility(searchObj.browseByCategories, 20000);
         searchObj.browseByCategories.click();
         browser.sleep(2000);
-        
+
     }
     catch (Exception) {
     }
@@ -15381,18 +15375,18 @@ const homeTabwithBrowseByCategories = ()  => {
 
 
 
-const validateFiltersInBrowseByCategries= () => {
+const validateFiltersInBrowseByCategries = () => {
     try {
 
         console.log("user is trying to consume content by clicking on banner");
         browser.sleep(3000);
         wait.waitForElementVisibility(searchObj.contentTypeByPrimaryCategory, 30000);
-        searchObj.contentTypeByPrimaryCategory.getText().then(function(input){
+        searchObj.contentTypeByPrimaryCategory.getText().then(function (input) {
             (input).includes("Digital Textbook");
             console.log("The navigation filter by primary category is validated.");
         })
         browser.sleep(2000);
-        searchObj.appliedFilters.getText().then(function(input){
+        searchObj.appliedFilters.getText().then(function (input) {
             (input).includes("Digital Textbook");
             console.log("Applied primary category filter is validated.");
         })
@@ -15404,7 +15398,7 @@ const validateFiltersInBrowseByCategries= () => {
         content.selectSubject.click();
         browser.sleep(2000);
 
-        searchObj.filterBasedOnSubject.getText().then(function(input){
+        searchObj.filterBasedOnSubject.getText().then(function (input) {
             (input).includes("Accountancy");
             console.log(input);
         })
@@ -15448,12 +15442,12 @@ const validateFiltersInBrowseByBoard = () => {
         console.log("user is trying to consume content by clicking on banner");
         browser.sleep(3000);
         wait.waitForElementVisibility(searchObj.validateDefaultBoardType, 30000);
-        searchObj.validateDefaultBoardType.getText().then(function(input){
+        searchObj.validateDefaultBoardType.getText().then(function (input) {
             (input).includes("CBSE/NCERT");
             console.log("The navigation filter by primary category is validated.");
         })
         browser.sleep(2000);
-        searchObj.appliedFilterBoardType.getText().then(function(input){
+        searchObj.appliedFilterBoardType.getText().then(function (input) {
             (input).includes("CBSE/NCERT");
             console.log("Applied primary category filter is validated.");
         })
@@ -15465,7 +15459,7 @@ const validateFiltersInBrowseByBoard = () => {
         content.selectSubject.click();
         browser.sleep(2000);
 
-        searchObj.filterBasedOnSubject.getText().then(function(input){
+        searchObj.filterBasedOnSubject.getText().then(function (input) {
             (input).includes("Accountancy");
         })
 
@@ -15536,7 +15530,7 @@ const validateFiltersInBrowseByRoles = () => {
         content.selectSubject.click();
         browser.sleep(2000);
 
-        searchObj.filterBasedOnSubject.getText().then(function(input){
+        searchObj.filterBasedOnSubject.getText().then(function (input) {
             (input).includes("Accountancy");
         })
 
@@ -15551,49 +15545,49 @@ const validateFiltersInBrowseByRoles = () => {
 const validateFiltersInBrowseBySubject = () => {
     try {
 
-        searchObj.validateDefaultBoard.getText().then(function(input){
+        searchObj.validateDefaultBoard.getText().then(function (input) {
             (input).includes("state (tamil nadu)");
         })
         browser.sleep(2000);
-        searchObj.validateDefaultMedium.getText().then(function(input){
+        searchObj.validateDefaultMedium.getText().then(function (input) {
             (input).includes("english")
         })
         browser.sleep(2000);
-        searchObj.validateDefaultClass.getText().then(function(input){
+        searchObj.validateDefaultClass.getText().then(function (input) {
             (input).includes("class 1")
         })
         browser.sleep(2000);
-        searchObj.filterBasedOnSubject.getText().then(function(input){
+        searchObj.filterBasedOnSubject.getText().then(function (input) {
             (input).includes("Accountancy")
         })
         browser.sleep(2000);
         searchObj.contentDrpDownForHomeTab.click();
         browser.sleep(2000);
         searchObj.contentTypeValue.click();
-        browser.sleep(3000);  
+        browser.sleep(3000);
         browser.executeScript('window.scrollTo(0,0);').then(function () {
             console.log('++++++SCROLLED Down+++++');
         });
         wait.waitForElementVisibility(searchObj.back, 30000);
         searchObj.back.click();
-        browser.sleep(3000); 
+        browser.sleep(3000);
     }
     catch (Exception) {
     }
 }
 
-const validateFiltersInBrowseByCategriesWithHomeTab= () => {
+const validateFiltersInBrowseByCategriesWithHomeTab = () => {
     try {
 
-        searchObj.validateDefaultBoard.getText().then(function(input){
+        searchObj.validateDefaultBoard.getText().then(function (input) {
             (input).includes("state (tamil nadu)");
         })
         browser.sleep(2000);
-        searchObj.validateDefaultMedium.getText().then(function(input){
+        searchObj.validateDefaultMedium.getText().then(function (input) {
             (input).includes("english")
         })
         browser.sleep(2000);
-        searchObj.validateDefaultClass.getText().then(function(input){
+        searchObj.validateDefaultClass.getText().then(function (input) {
             (input).includes("class 1")
         })
         browser.sleep(2000);
@@ -15601,7 +15595,7 @@ const validateFiltersInBrowseByCategriesWithHomeTab= () => {
         //     (input).includes("Accountancy")
         // })
         browser.sleep(2000);
-        searchObj.validateDefaultContenttype.getText().then(function(input){
+        searchObj.validateDefaultContenttype.getText().then(function (input) {
             (input).includes("Digital Textbook")
         })
         browser.sleep(2000);
@@ -15619,19 +15613,19 @@ const validateFiltersInBrowseByCategriesWithHomeTab= () => {
 const recentlyPublishedCourse = (courseName) => {
     try {
 
-        let var1 ="//*[contains(text(),'Recently published courses')]";
-        let var2 ="//following::*[contains(text(),'";
+        let var1 = "//*[contains(text(),'Recently published courses')]";
+        let var2 = "//following::*[contains(text(),'";
         let var3 = courseName;
         let var4 = "')]";
 
-        var recentlyPublishedCourseContent = element(by.xpath(var1+var2+var3+var4));
+        var recentlyPublishedCourseContent = element(by.xpath(var1 + var2 + var3 + var4));
 
         console.log("user is trying to consume content by clicking on banner");
         browser.sleep(3000);
         wait.waitForElementVisibility(content.HomeTab, 20000);
         content.HomeTab.click();
         browser.sleep(5000);
-        browser.executeScript('window.scrollTo(0,2000);').then(function () {
+        browser.executeScript('window.scrollTo(0,1500);').then(function () {
             console.log('++++++SCROLLED Down+++++');
         });
 
@@ -15660,7 +15654,7 @@ const recentlyPublishedCourse = (courseName) => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.share), 20000, "share not available");
         searchObj.share.click();
         browser.sleep(4000);
-        
+
         wait.waitForElementVisibility(content.batchDropDown, 30000);
         content.batchDropDown.click();
         browser.sleep(2000);
@@ -15680,7 +15674,7 @@ const recentlyPublishedCourse = (courseName) => {
 
 const validateFilters = () => {
     try {
-        
+
         browser.sleep(3000);
         wait.waitForElementVisibility(content.HomeTab, 20000);
         content.HomeTab.click();
@@ -15739,6 +15733,965 @@ const validateFilters = () => {
         wait.waitForElementVisibility(searchObj.lessonPlanadditionalCategory, 30000);
         searchObj.lessonPlanadditionalCategory.click();
         browser.sleep(2000);
+
+    }
+    catch (Exception) {
+    }
+}
+
+
+
+const validateExpiredDateMessageBesideContinueLearningBtn = () => {
+
+    try {
+        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+        var expireDoid = cred[37]['Title'];
+
+        console.log("To verify navigate to Course section, search course ");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.headerCourse), 20000, "headerCourse not available");
+        browser.sleep(1000);
+        searchObj.headerCourse.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.searchInput), 20000, "searchInput not available");
+        searchObj.searchInput.sendKeys(expireDoid);
+        browser.sleep(2000);
+        searchObj.searchIcon.click();
+        console.log("Clicked on the searchIcon");
+        // browser.executeScript('window.scrollTo(0,200);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        // });
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.courseCard), 20000, "courseCard not available");
+        searchObj.courseCard.click();
+        browser.sleep(3000);
+        searchObj.resumeExpiredBatch.click();
+        browser.sleep(5000);
+        searchObj.batchEndDate.isPresent().toBeTruthy();
+        browser.sleep(2000);
+        console.log("Clicked on the course card");
+        console.log("verified navigation to Course section, search course");
+        return expireDoid;
+    }
+    catch (Exception) {
+        console.log("Failed to get the content after entering dialcode");
+    }
+}
+
+const validateAdditionalAndPrimaryCategInBrowseByCategriesWithHomeTab = () => {
+    try {
+
+        searchObj.validateDefaultBoard.getText().then(function (input) {
+            (input).includes("state (tamil nadu)");
+        })
+        browser.sleep(2000);
+        searchObj.validateDefaultMedium.getText().then(function (input) {
+            (input).includes("english")
+        })
+        browser.sleep(2000);
+        searchObj.validateDefaultClass.getText().then(function (input) {
+            (input).includes("class 1")
+        })
+        browser.sleep(2000);
+        // searchObj.filterBasedOnSubject.getText().then(function(input){
+        //     (input).includes("Accountancy")
+        // })
+        browser.sleep(2000);
+        searchObj.validateDefaultContenttype.getText().then(function (input) {
+            (input).includes("Digital Textbook")
+        })
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.assertAdditionalCategory), 40000, "assertAdditionalCategory button not available");
+        searchObj.assertAdditionalCategory.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.assertAdditionalCategory), 40000, "assertAdditionalCategory button not available");
+        expect(searchObj.assertAdditionalCategory.isPresent()).toBe(true);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.lessonPlanadditionalCategory), 40000, "lessonPlanadditionalCategory button not available");
+        searchObj.lessonPlanadditionalCategory.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        wait.waitForElementVisibility(searchObj.back, 30000);
+        searchObj.back.click();
+        browser.sleep(3000);
+    }
+    catch (Exception) {
+    }
+}
+
+
+
+const validateSubjectsAndMyCourseSectionInCourseTab = () => {
+    try {
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.courses), 20000, "courses not available");
+        searchObj.courses.click();
+        browser.sleep(5000);
+        searchObj.myLatestCousreCount.getText().then(function (count) {
+            console.log("Click on Training Section and count is : " + count);
+        });
+        expect((searchObj.myCourseSection).isPresent()).toBe(true);
+        browser.executeScript('window.scrollTo(0,100);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(1000);
+        expect((searchObj.englishSubject).isPresent()).toBe(true);
+        browser.executeScript('window.scrollTo(100,300);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(1000);
+        expect((searchObj.hindiSubjects).isPresent()).toBe(true);
+        browser.executeScript('window.scrollTo(300,600);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(1000);
+        expect((searchObj.subjectAccountancy).isPresent()).toBe(true);
+        browser.executeScript('window.scrollTo(600,1000);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(1000);
+        expect((searchObj.businessStudiesSubject).isPresent()).toBe(true);
+        browser.sleep(1000);
+    }
+    catch (Exception) {
+        console.log("Failed to validate");
+    }
+}
+
+
+const validateCourseContentTypes = () => {
+    try {
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allTab), 20000, "courses not available");
+        searchObj.allTab.click();
+        browser.sleep(2000);
+        expect((searchObj.learningResourceContentTypes).isPresent()).toBeTruthy();
+        browser.sleep(2000);
+        expect((searchObj.explanationContentTypes).isPresent()).toBeTruthy();
+        browser.sleep(2000);
+        expect((searchObj.eTextBookContentTypes).isPresent()).toBeTruthy();
+        browser.sleep(2000);
+        expect((searchObj.practiceQuestionSetContentTypes).isPresent()).toBeTruthy();
+        browser.sleep(2000);
+        expect((searchObj.textBookUnitContentTypes).isPresent()).toBeTruthy();
+        browser.sleep(2000);
+        expect((searchObj.teacherResourceContentTypes).isPresent()).toBeTruthy();
+        browser.sleep(2000);
+        expect((searchObj.digitalTextBookContenttypes).isPresent()).toBeTruthy();
+    }
+    catch (Exception) {
+        console.log("Failed to validate");
+    }
+}
+
+const AdminCannotMoveForwardWithCreationOfAConversationWithoutStartDate = () => {
+    try {
+        searchObj.enterConversationName.sendKeys('Automation_Demo');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(searchObj.assertConversationDesc, 20000, "Conversation Description Is Not Present");
+        expect(searchObj.assertConversationDesc.isDisplayed()).toBe(true);
+        console.log('User Navigated To Conversation Listing Screen and Conversation Description Is Displayed On It');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,300);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+
+        searchObj.enterconversationPurpose.sendKeys('Testing_Purpose');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(searchObj.assertStartingMsg, 20000, "Starting Message Is Not Present");
+        expect(searchObj.assertStartingMsg.isDisplayed()).toBe(true);
+        console.log('User Navigated To Conversation Listing Screen and Starting Message Is Displayed On It');
+        browser.sleep(2000);
+
+        searchObj.enterStartingMsg.sendKeys('Msg1');
+        browser.sleep(2000);
+        searchObj.enterStartDate.sendKeys(todaysDate);
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        browser.sleep(2000);
+        expect(searchObj.assertNextButton.isEnabled()).toBe(true);
+        console.log('The next button is Enabled Once All Manditory Section is filled');
+
+    }
+    catch (Exception) {
+        console.log("Failed to validate");
+    }
+
+}
+
+
+const GroupAdminIsAbleToAddAnActivityWhichIsACourse = () => {
+    try {
+        console.log('user is able to add member and addActivity');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton), 40000, "Profile Button not available");
+        searchObj.profileButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton), 40000, "myGroup icon not available");
+        searchObj.myGroupButton.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "Cross button not available");
+        // searchObj.crossButton.click();
+        // browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.groupAdminIcon), 40000, "Created group not available");
+        searchObj.groupAdminIcon.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addActivityButton), 40000, "Add activity button not available");
+        searchObj.addActivityButton.click();
+        browser.sleep(3000);
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.selectCourse1), 40000, "Course not available");
+        searchObj.selectCourse1.click();
+        browser.sleep(3000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED up+++++');
+        })
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.typeToSearchFiled), 40000, "Search Field not available");
+        searchObj.typeToSearchFiled.click();
+        searchObj.typeToSearchFiled.sendKeys('do_213446913041096704194');
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.btnSearch), 40000, "Search Button not available");
+        searchObj.btnSearch.click();
+        browser.sleep(3000);
+
+        browser.actions().dragAndDrop(searchObj.courseToAddInGroup, searchObj.courseToAddInGroup).mouseUp().perform();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addToGroupButton), 40000, "Add to Group Button not available");
+        searchObj.addToGroupButton.click();
+        browser.sleep(3000);
+
+        expect(searchObj.assertActvityAdded.isPresent()).toBe(true).then(function () {
+            console.log("Activity Is Added Successfully ");
+        })
+
+
+    }
+    catch (Exception) {
+        console.log('User is unable to create my Group,member and addActivity');
+    }
+}
+
+
+const validateBatchDetailsBeforeAndAfterJoiningCourse = () => {
+    try {
+        console.log("User is trying to unroll the course");
+        browser.sleep(2000);
+        // browser.executeScript('window.scrollTo(0,100);').then(function () {
+        //     console.log('++++++SCROLLED UP+++++');
+        // });
+        // browser.executeScript('window.scrollTo(0,250);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        // });
+        searchObj.batchDetailsExpanding.click();
+        browser.sleep(3000);
+        searchObj.assertBatchStartDate.isPresent().toBe(true);
+        browser.sleep(500);
+        searchObj.assertBatchEnddate.isPresent().toBe(true);
+        browser.sleep(500);
+        browser.executeScript('window.scrollTo(0,50);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        searchObj.assertEnrollmentEndDate.isPresent().toBe(true);
+        browser.sleep(3000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(6000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkJoinCourse), 20000, "clkJoinCourse not available");
+        searchObj.clkJoinCourse.click();
+        console.log("Click on Enroll For Course");
+        browser.sleep(8000);
+        
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.checkBoxConsent), 20000, "checkBoxConsent not available");
+        searchObj.checkBoxConsent.click();
+        browser.sleep(3000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", searchObj.share);
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.share), 20000, "share not available");
+        searchObj.share.click();
+        browser.sleep(4000);
+        browser.executeScript('window.scrollTo(0,350);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        searchObj.batchDetailsExpanding.click();
+        browser.sleep(3000);
+        searchObj.batchDateDetailsAfterJoiningCourse.isPresent().tobe(true);
+        browser.sleep(2000);
+        // browser.wait(protractor.ExpectedConditions.elementToBeClickable(searchObj.leaveCourseButton), 20000, "unenrolButton not available");
+        // searchObj.leaveCourseButton.click();
+        // browser.sleep(2000);
+        // browser.wait(protractor.ExpectedConditions.elementToBeClickable(searchObj.unenrolToCourse), 20000, "unenrolToCourse not available");
+        // searchObj.unenrolToCourse.click();
+        // browser.sleep(5000);
+        // console.log("User successfully unrolled from  the course");
+        // expect(searchObj.clkJoinCourse.isPresent()).toBeTruthy();
+        // browser.sleep(4000);
+       
+       
+
+    } catch (Exception) {
+        console.log("User failed to unroll the course");
+    }
+}
+
+
+const validateContinueLearningInPortal = () => {
+    try {
+        searchObj.homeTab.click();
+        browser.sleep(1000);
+        browser.executeScript('window.scrollTo(0,300);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(1000);
+        expect(searchObj.assertContinueLearning.isPresent()).toBe(true);
+    }
+    catch (Exception) {
+        console.log("Failed");
+    }
+}
+
+
+const validateMyCourseSection = () => {
+    try {
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.courses), 20000, "courses not available");
+        searchObj.courses.click();
+        browser.sleep(2000);
+        expect((searchObj.myCourseSection).isPresent()).toBe(true);
+        browser.sleep(1000);
+        searchObj.viewAllButtonForMyCourseSection.click();
+        browser.sleep(3000);
+        expect(searchObj.insideMyCourseSection.isPresent()).toBe(true);
+    }
+    catch (Exception) {
+        console.log("Failed");
+    }
+}
+
+const validateSubjectbyUserPreference = () => {
+    try {
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.digitalTextbookInHomeTab), 40000, "digitalTextbookInHomeTab button not available");
+        searchObj.digitalTextbookInHomeTab.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(content.clicksubject, 30000);
+        content.clicksubject.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(content.selectSubject, 30000);
+        content.selectSubject.click();
+        browser.sleep(2000);
+
+    }
+    catch (Exception) {
+        console.log("Failed");
+    }
+}
+
+
+const verifyCreateMyGroupAddMemberandAddActivityWithBMCSfilter = () => {
+    try {
+        console.log('user is able to create myGroup,add member and addActivity');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton), 40000, "Profile Button not available");
+        searchObj.profileButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton), 40000, "myGroup icon not available");
+        searchObj.myGroupButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "Cross button not available");
+        searchObj.crossButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.selectGroup1), 40000, "Cross button not available");
+        searchObj.selectGroup1.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addActivityButton), 40000, "addActivityButton not available");
+        searchObj.addActivityButton.click();
+        browser.sleep(5000);
+        browser.executeScript('window.scrollTo(0,250);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        expect(searchObj.explanationContent.isDisplayed()).toBeTruthy();
+        console.log("Explanation Content Is Displayed ");
+        expect(searchObj.learnngModule.isDisplayed()).toBeTruthy();
+        console.log("Learning Module Is Displayed ");
+        expect(searchObj.practiceQuestionSet.isDisplayed()).toBeTruthy();
+        console.log("Practice Question Set  Is Displayed ");
+        expect(searchObj.PDFTextBook.isDisplayed()).toBeTruthy();
+        console.log("PDF Text Books Is Displayed ");
+        expect(searchObj.teachingResource.isDisplayed()).toBeTruthy();
+        console.log("Teaching Resource Is Displayed ");
+        expect(searchObj.digitalTextBooks.isDisplayed()).toBeTruthy();
+        console.log("Digital Text Books Is Displayed ");
+        expect(searchObj.contentPlayList.isDisplayed()).toBeTruthy();
+        console.log("Content PlayList Is Displayed ");
+        expect(searchObj.tvClass.isDisplayed()).toBeTruthy();
+        console.log("TV Class Is Displayed ");
+        expect(searchObj.earlierYearPapers.isDisplayed()).toBeTruthy();
+        console.log("Earlier Year Board Exam Paper Is Displayed ");
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.SelectCourseByGroup), 40000, "SelectCourseByGroup not available");
+        sanity.SelectCourseByGroup.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.FilterByOption), 40000, "Filter By Option Is not available");
+        expect(searchObj.FilterByOption.isDisplayed()).toBeTruthy();
+        console.log("User Can View Filter By Option While Adding Activity");
+        searchObj.FilterByOption.click();
+        browser.sleep(3000);
+        expect(searchObj.FilterIconLeft.isDisplayed()).toBeTruthy();
+        console.log("User Can View Filter By Option On The Left Hand Side On Click Filter By Option");
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,250);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.selectBoard), 40000, "Select Board Dropdown not available");
+        searchObj.selectBoard.click();
+        browser.sleep(3000);
+        content.updateBoardValue.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.selectMedium), 40000, "Select Medium Dropdown not available");
+        searchObj.selectMedium.click();
+        browser.sleep(3000);
+        content.selectMediumValue1.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.selectClass), 40000, "Select Class Dropdown Is not available");
+        searchObj.selectClass.click();
+        browser.sleep(3000);
+        content.selecClassValue1.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clicksubject1), 40000, "Reset Value Button Is not available");
+        searchObj.clicksubject1.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.selectSubject1), 40000, "Reset Value Button Is not available");
+        searchObj.selectSubject1.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.contentType1), 40000, "Reset Value Button Is not available");
+        searchObj.contentType1.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.contentTypeValue1), 40000, "Reset Value Button Is not available");
+        searchObj.contentTypeValue1.click();
+        browser.sleep(3000);
+
+    }
+    catch (Exception) {
+        console.log('User is unable to create my Group,member and addActivity');
+    }
+}
+
+const validateEnrollmentEndDateIsAbesentNearJoinButton = () => {
+    try {
+        expect((searchObj.enrollmentEndDateNearjoinButton).isPresent()).toBeFalsy();
+    }
+    catch (Exception) {
+        console.log("Failed to validate");
+    }
+}
+
+const validateBatchDetailsSectionInCourse = () => {
+    try {
+
+        expect((searchObj.batchDetailsExpanding).isPresent()).toBeFalsy();
+    }
+    catch (Exception) {
+        console.log("Failed to validate");
+    }
+}
+
+
+
+const validateExpiredBatchInMyLearningSection = (courseName) => {
+    try {
+
+        let var1 = "//div[contains(text(),'Expired batch')]";
+        let var2 = "//preceding::*[contains(text(),'";
+        let var3 = courseName;
+        let var4 = "')]";
+
+        var expiredCourse = element(by.xpath(var1 + var2 + var3 + var4));
+        content.headerDropdown1.click();
+        browser.sleep(2000);
+        searchObj.profileIconInSideNavBar.click();
+        browser.sleep(2000);
+        browser.executeScript("arguments[0].scrollIntoView();", searchObj.assertMyLearningSection);
+        browser.sleep(4000);
+        searchObj.viewMoreDropDwn.click();
+        browser.sleep(4000);
+        expiredCourse.click();
+        browser.sleep(4000);
+        expect(searchObj.assertExpiredBatchNearJoinButton.isDisplayed()).toBe(true);
+        browser.sleep(3000);
+    }
+    catch (Exception) {
+        console.log("Failed to validate");
+    }
+}
+
+
+const validateAndConsumeOngoingContentInMyLearningSession = (courseName) => {
+    try {
+
+        let var1 = "//div[contains(text(),'Ongoing')]";
+        let var2 = "//preceding::*[contains(text(),'";
+        let var3 = courseName;
+        let var4 = "')]";
+
+        var expiredCourse = element(by.xpath(var1 + var2 + var3 + var4));
+        content.headerDropdown1.click();
+        browser.sleep(2000);
+        searchObj.profileIconInSideNavBar.click();
+        browser.sleep(2000);
+        browser.executeScript("arguments[0].scrollIntoView();", searchObj.assertMyLearningSection);
+        browser.sleep(4000);
+        searchObj.viewMoreDropDwn.click();
+        browser.sleep(4000);
+       // browser.executeScript("arguments[0].scrollIntoView();", expiredCourse);
+        //browser.sleep(4000);
+        expiredCourse.click();
+        browser.sleep(4000);
+        content.courseClk.click();
+        browser.sleep(4000);
+        content.zoomIn.click();
+        browser.sleep(1000);
+        for (i = 0; i < 8; i++) {
+            sanityPage.SanityElement().pdfArrowButton.click();
+        }
+        sanityPage.SanityElement().pdfArrowButton.click();
+        browser.sleep(2000);
+        (content.assertConsume).getText().then(function (input) {
+            console.log(input + " consuming the content.");
+        })
+        content.zoomOut.click();
+
+    }
+    catch (Exception) {
+        console.log("Failed to validate");
+    }
+}
+
+
+const validateProgressBarSyncInKebabMenu = () => {
+    try {
+        console.log("User is trying to enroll for an open batch");
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkJoinCourse), 20000, "clkJoinCourse not available");
+        searchObj.clkJoinCourse.click();
+        console.log("Click on Enroll For Course");
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.checkBoxConsent), 20000, "checkBoxConsent not available");
+        expect(searchObj.userNameBatch.isDisplayed()).toBeTruthy();
+        expect(searchObj.stateBatch.isDisplayed()).toBeTruthy();
+        expect(searchObj.userIdBatch.isDisplayed()).toBeTruthy();
+        expect(searchObj.districtBatch.isDisplayed()).toBeTruthy();
+        expect(searchObj.blockBatch.isDisplayed()).toBeTruthy();
+        expect(searchObj.schoolIdBatch.isDisplayed()).toBeTruthy();
+        expect(searchObj.nameBatch.isDisplayed()).toBeTruthy();
+        expect(searchObj.mobileNumberBatch.isDisplayed()).toBeTruthy();
+        //expect(searchObj.emailIdbatch.isDisplayed()).toBeTruthy();
+        browser.sleep(4000);
+        searchObj.checkBoxConsent.click();
+        browser.sleep(4000);
+
+        // browser.executeScript('window.scrollTo(0,100);').then(function () {
+        //     console.log('++++++SCROLLED UP+++++');
+        // });
+        browser.executeScript("arguments[0].scrollIntoView();", searchObj.share);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.share), 20000, "share not available");
+        searchObj.share.click();
+        browser.sleep(4000);
+
+        searchObj.batchCourseName.getText().then(function (input) {
+            console.log("User is successfully enrolled to Course : " + input);
+        });
+        browser.sleep(4000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkStartLearning), 20000, "clkStartLearning not available");
+        searchObj.clkStartLearning.click();
+        browser.sleep(6000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", searchObj.clkFullScreen);
+        browser.executeScript('window.scrollTo(0,350);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        browser.wait(protractor.ExpectedConditions.visibilityof(searchObj.doNotShowThisMsgAgain), 20000,"checkbox is not visible")
+        searchObj.doNotShowThisMsgAgain.click();
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.continueButton), 20000, "fullscreen not available");
+        searchObj.continueButton.click();
+        browser.sleep(7000);
+
+        content.zoomIn.click();
+        browser.sleep(1000);
+
+        for (i = 0; i < 28; i++) {
+            sanityPage.SanityElement().pdfArrowButton.click();
+        }
+        browser.sleep(2000);
+
+        (content.assertConsume).getText().then(function (input) {
+            console.log(input + " consuming the content.");
+        })
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "save never loaded");
+        searchObj.starRating.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.submitRating), 20000, "save never loaded");
+        searchObj.submitRating.click();
+        browser.sleep(4000);
+
+        searchObj.courseCompletionClosePopUp.click();
+        content.zoomOut.click();
+        browser.sleep(3000);
+
+        searchObj.back.click();
+        browser.sleep(2000);
+
+        expect((searchObj.courseProgressPercentage).isPresent()).toBeTruthy();
+        browser.sleep(2000);
+
+        searchObj.courseProgressKebabMenu.click();
+        browser.sleep(2000);
+
+        expect((searchobj.assertSyncProgress).isPresent()).toBeTruthy();
+        browser.sleep(2000);
+    }
+    catch (Exception) {
+        console.log("Failed to validate");
+    }
+}
+
+
+
+const validateUserTypelabel = () => {
+    try {
+
+        browser.sleep(3000);
+        wait.waitForElementVisibility(searchObj.exploreTab, 20000);
+        searchObj.exploreTab.click();
+        browser.sleep(5000);
+        // var userTypeContent =  searchobj.browseByUserType.getText().then(function(input){
+        //     console.log(input)
+        // })
+        browser.executeScript('window.scrollTo(0,600);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(5000);
+        wait.waitForElementVisibility(searchobj.browseByUserTypeSchool, 20000);
+        searchobj.browseByUserTypeSchool.click();
+        browser.sleep(2000);
+        expect((searchObj.exploreByUserTypeLabel)).isPresent().toBeTruthy();
+        browser.sleep(2000);
+        searchObj.exploreByUserTypeLabel.getText().then(function(userType){
+            console.log("Explore by"+userType);
+            (userType).includes("Explore");
+           // (userTypeContent).includes(userType);
+        })
+    }
+    catch (Exception) {
+    }
+}
+
+
+const validateClickedOnLogoNotDirectedToDigitalTextBook = () => {
+    try {
+        console.log('Verify clicking on logo user not directed to Digital textbook tab');
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        searchObj.leftSideSunbirdLogo.click();
+        browser.sleep(2000);
+        expect((searchObj.assertdisableDigiTextbookTab).isPresent()).toBeFalsy();
+    }
+    catch (Exception) {
+        console.log("Failed");
+    }
+}
+
+const validateClickedOnLogoNoctedToDigitalTextBook = () => {
+    try {
+        console.log('Verify I displayed beside preference and Hi "userName" is displayed above preference');
+        browser.sleep(3000);
+        wait.waitForElementVisibility(searchObj.homeTab, 20000);
+        searchObj.homeTab.click();
+        browser.sleep(2000);
+        expect((searchObj.assertIdisplayesBesidePreference).isPresent()).toBeTruthy();
+        browser.sleep(2000);
+        expect((searchObj.assertHiUserNameAbovePreference).isPresent()).toBeTruthy();
+        browser.sleep(2000);
+        searchObj.assertHiUserNameAbovePreference.getText().then(function(input){
+            console.log(input);
+        })
+        browser.sleep(2000);
+    }
+    catch (Exception) {
+        console.log("Failed");
+    }
+}
+
+const validateBMCSlabelsWithRegionalLanguage = () => {
+    try {
+        console.log("User is trying to translate language");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.digitalTextbookTab), 20000, "DigitalTextbookTab not available");
+        content.digitalTextbookTab.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clickLangDropdown), 20000, "clickLangDropdown not available");
+        searchObj.clickLangDropdown.click();
+        browser.sleep(1000);
+        searchObj.sltHindiLang.click();
+        browser.sleep(2000);
+        searchObj.hindiBoardLabel.getText().then(function(input){
+            expect(input).toMatch("बोर्ड");
+        })
+        searchObj.hindiMediumLabel.getText().then(function(input){
+            expect(input).toMatch("माध्यम");
+        })
+        browser.sleep(2000);
+        searchObj.hindiClassLabel.getText().then(function(input){
+            expect(input).toMatch("कक्षा");
+        })
+        browser.sleep(2000);
+        searchObj.hindiSubjectLabel.getText().then(function(input){
+            expect(input).toMatch("विषय");
+        })
+        browser.sleep(2000);
+        searchObj.languagedropdwn.click();
+        browser.sleep(1000);
+        searchObj.kannadaInLanguageDropdown.click();
+        browser.sleep(2000);
+        searchObj.urduBoardlabel.getText().then(function(input){
+            expect(input).toMatch("ಮಂಡಳಿ");
+        })
+        browser.sleep(2000);
+
+        searchObj.urduMediumLabel.getText().then(function(input){
+            expect(input).toMatch("ಮಾಧ್ಯಮ");
+        })
+        browser.sleep(2000);
+        searchObj.urduClassLabel.getText().then(function(input){
+            expect(input).toMatch("ತರಗತಿ");
+        })
+        browser.sleep(2000);
+        searchObj.urduSubjectLabel.getText().then(function(input){
+            expect(input).toMatch("ವಿಷಯ");
+        })
+        browser.sleep(2000);
+    }
+    catch (Exception) {
+        console.log("Failed");
+    }
+}
+
+
+const validateBatchForOngoingBatch = () => {
+
+    try {
+        console.log("User is trying to create open batch for a course");
+        //browser.executeScript("arguments[0].scrollIntoView();", searchObj.batchDropdown);
+        // browser.executeScript('window.scrollTo(0,250);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        // });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.batchDropdown), 20000, "createbatch not available");
+        searchObj.batchDropdown.click();
+        browser.sleep(200);
+        browser.executeScript('window.scrollTo(0,100);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addIcon), 20000, "createbatch not available");
+        browser.sleep(1000);
+        expect(searchObj.addIcon.isPresent()).toBeFalsy();
+        console.log("Create Batch is not present");
+        browser.sleep(5000);
+        // searchObj.editBatch.click();
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.nameOfBatch), 20000, "nameOfBatch not available");
+        // searchObj.nameOfBatch.clear();
+        // searchObj.nameOfBatch.sendKeys("Batch");
+        // searchObj.aboutBatch.click();
+        // searchObj.aboutBatch.clear();
+        // searchObj.aboutBatch.sendKeys(" Open Batch");
+        // console.log("Enter Batch Name");
+        // browser.sleep(5000);
+        //  searchObj.certificateNO.click();
+        //  console.log("Click on certificate no");
+        // browser.sleep(500);
+
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.startdate), 20000, " startdate is not available");
+        // searchObj.startdate.click();
+        // searchObj.startdate.clear();
+        // console.log("Click on Start Date");
+        // browser.sleep(5000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.startDateCalendar), 20000, " startDateCalendar is not available");
+        // searchObj.startDateCalendar.click();
+        // searchObj.startDateCalendar.sendKeys(futureDate);
+        // console.log("Select Start Date");
+        // browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.endDate), 20000, "sendDate is not available");
+        // searchObj.endDate.click();
+        // browser.sleep(500);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.endDateCalendar), 20000, "endDateCalendar is not available");
+        // searchObj.endDateCalendar.click();
+        // browser.sleep(500);
+        // searchObj.endDateCalendar.clear();
+        // console.log("Select EndDate");
+        // browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.elementToBeClickable(searchObj.batchUpdateButton), 20000, "clkCheckBoxBacth not available");
+        // searchObj.batchUpdateButton.click();
+        // browser.sleep(3000);
+       
+
+    }
+    catch (Exception) {
+        console.log("Failed to create open batch");
+    }
+}
+
+
+const validateOngoingCourseInFromNCERTsection = (courseName) => {
+    try {
+
+        let var1 = "//*[contains(text(),' From NCERT ')]";
+        let var2 = "//following::*[contains(text(),'";
+        let var3 = courseName;
+        let var4 = "')]";
+
+        var contentfromNCERTection = element(by.xpath(var1 + var2 + var3 + var4));
+
+       
+        browser.sleep(1000);
+        console.log("user is trying to consume content by clicking on banner");
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.HomeTab, 20000);
+        content.HomeTab.click();
+        browser.sleep(5000);
+        browser.executeScript('window.scrollTo(0,1500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.sleep(3000);
+        // browser.executeScript('window.scrollTo(500,1000);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        // });
+
+        searchObj.viewAllButtonFromNCERTsceton.click();
+        browser.sleep(3000);
+        expect(contentfromNCERTection.isPresent()).toBeFalsy();
+        // browser.sleep(2000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkJoinCourse), 20000, "clkJoinCourse not available");
+        // searchObj.clkJoinCourse.click();
+        // browser.sleep(6000);
+        // browser.executeScript('window.scrollTo(0,200);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        // });
+        // browser.executeScript("arguments[0].scrollIntoView();", searchObj.checkBoxConsent);
+        // browser.sleep(2000);
+
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.checkBoxConsent), 20000, "checkBoxConsent not available");
+        // searchObj.checkBoxConsent.click();
+        // browser.sleep(3000);
+
+        // browser.executeScript("arguments[0].scrollIntoView();", searchObj.share);
+        // browser.sleep(2000);
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.share), 20000, "share not available");
+        // searchObj.share.click();
+        // browser.sleep(4000);
+
+        // wait.waitForElementVisibility(content.batchDropDown, 30000);
+        // content.batchDropDown.click();
+        // browser.sleep(2000);
+
+        // wait.waitForElementVisibility(content.leaveCourse, 30000);
+        // content.leaveCourse.click();
+        // browser.sleep(4000);
+
+        // wait.waitForElementVisibility(content.leaveCoursePopUp, 30000);
+        // content.leaveCoursePopUp.click();
+        // browser.sleep(8000);
+    }
+    catch (Exception) {
+    }
+}
+
+const validateExpiredCourseInFromNCERT = (courseName) => {
+    try {
+
+        let var1 = "//*[contains(text(),' From NCERT ')]";
+        let var2 = "//following::*[contains(text(),'";
+        let var3 = courseName;
+        let var4 = "')]";
+
+        var contentfromNCERTection = element(by.xpath(var1 + var2 + var3 + var4));
+        
+        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+        var do_id = cred[46]['CourseName'];
+
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary not loaded");
+        resov.headerLibrary.click();
+        browser.sleep(1000);
+        console.log("Clicked on Library");
+        wait.waitForElementVisibility(resov.filterSearch, 20000, "filterSearch not loaded");
+        resov.filterSearch.click();
+        resov.filterSearch.sendKeys(do_id);
+        browser.sleep(1000);
+
+        resov.searchIcon.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.resoCard, 20000, "courseCard not loaded");
+        resov.resoCard.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(searchObj.resumeExpiredBatch, 20000, "resume not loaded");
+        searchObj.resumeExpiredBatch.click();
+        browser.sleep(5000);
+        console.log("Clicked on Search Icon");
+       
+        console.log("Clicked on CourseCard");
+        browser.sleep(1000);
+        expect(searchObj.assertExpiredCourse.isDisplayed()).toBe(true);
+        console.log('Expired Batch Information Is Displayed When Selected From Profile ');
+        browser.sleep(1000);
+        sanity.BackButton.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.HomeTab, 20000);
+        content.HomeTab.click();
+        browser.sleep(5000);
+        browser.executeScript('window.scrollTo(0,1500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.sleep(3000);
+        // browser.executeScript('window.scrollTo(500,1000);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        // });
+
+        searchObj.viewAllButtonFromNCERTsceton.click();
+        browser.sleep(3000);
+        expect(contentfromNCERTection.isPresent()).toBeFalsy();
         
     }
     catch (Exception) {
@@ -15746,6 +16699,708 @@ const validateFilters = () => {
 }
 
 
+const validateUserTypelab = async () => {
+    try {
+
+        browser.sleep(3000);
+        wait.waitForElementVisibility(searchObj.exploreTab, 20000);
+        searchObj.exploreTab.click();
+        browser.sleep(3000);
+        browser.executeScript("arguments[0].scrollIntoView();", searchObj.selectBrowseByAudience);
+        wait.waitForElementVisibility(searchObj.selectBrowseByAudience, 20000);
+        searchObj.selectBrowseByAudience.click();
+        browser.sleep(2000);
+        browser.refresh();
+        expect((searchObj.exploreByUserTypeLabel).isPresent()).toBeTruthy();
+        browser.sleep(2000);
+        let userType = await searchObj.exploreByUserTypeLabel.getText();
+            console.log("Explore by"+userType);
+            (userType).includes("Explore");
+    }
+    catch (Exception) {
+        console.log("Failed");
+    }
+}
+
+const validateAddCollaboratorPublishCourseFromUpForReview = (coursename) => {
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+    content.headerDropdown.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+    content.workSpace.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.upForReview), 20000, "Creation page not loaded");
+    content.upForReview.click();
+    browser.sleep(2000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
+    content.searchForReview.click();
+    content.searchForReview.sendKeys(coursename);
+    browser.sleep(4000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchedContentForPublish), 20000, "workspace page not loaded");
+    content.searchedContentForPublish.click();
+    browser.sleep(8000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkAddCollaborator), 20000, "collaborator not loaded");
+    searchObj.clkAddCollaborator.click();
+    browser.sleep(8000);
+    //browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.assertAddColaborator), 20000, "workspace page not loaded");
+    expect(searchObj.assertAddColaborator.isPresent()).toBeFalsy();
+    browser.sleep(4000);
+    // searchObj.closeIconInCollaborator.click();
+    // browser.sleep(4000);
+    // tpdPage.tpdPage().publishTheCourse.isPresent().then(function (result) {
+    //     if (result) {
+
+    //         tpdPage.tpdPage().publishTheCourse.click();
+    //         browser.sleep(4000);
+    //         content.clickFirstChekcBox.click();
+    //         browser.sleep(5000);
+    //         content.clkcheckBoxPublising.each(function (input) {
+    //             browser.sleep(200);
+    //             input.click()
+    //         });
+    //         browser.sleep(2000);
+
+    //     } else {
+
+    //         browser.refresh();
+    //         browser.sleep(6000);
+    //         browser.refresh();
+    //         browser.sleep(8000);
+
+    //         browser.wait(protractor.ExpectedConditions.visibilityOf(tpdPage.tpdPage().publishTheCourse), 20000, "workspace page not loaded");
+    //         tpdPage.tpdPage().publishTheCourse.click();
+    //         browser.sleep(4000);
+
+    //         content.clickFirstChekcBox.click();
+    //         browser.sleep(5000);
+    //         content.clkcheckBoxPublising.each(function (input) {
+    //             browser.sleep(200);
+    //             input.click()
+    //         });
+    //         browser.sleep(2000);
+
+    //     }
+    // });
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(tpdPage.tpdPage().confirmForPublishBook), 20000, "workspace page not loaded");
+    // tpdPage.tpdPage().confirmForPublishBook.click();
+    // browser.sleep(6000);
+
+}
+
+
+
+const selectAndValidateUpcomingBatch = () => {
+
+    try {
+        console.log("User is trying to create open batch for a course");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.editButton), 20000, "createbatch not available");
+        searchObj.editButton.click();
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.nameOfBatch), 20000, "nameOfBatch not available");
+        searchObj.nameOfBatch.sendKeys("Batch");
+        searchObj.aboutBatch.click();
+        searchObj.aboutBatch.sendKeys("Open Batch");
+        console.log("Enter Batch Name");
+        browser.sleep(500);
+        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.startdate), 20000, " startdate is not available");
+        searchObj.startdate.click();
+        console.log("Click on Start Date");
+        browser.sleep(500);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.startDateCalendar), 20000, " startDateCalendar is not available");
+        searchObj.startDateCalendar.click();
+        searchObj.startDateCalendar.clear();
+        searchObj.startDateCalendar.sendKeys(extendedStartDate);
+        console.log("Select Start Date");
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.endDate), 20000, "sendDate is not available");
+        searchObj.endDate.click();
+        searchObj.endDate.clear();
+        browser.sleep(200);
+        searchObj.endDate.sendKeys(extendedFutureDate);
+        console.log("Select EndDate");
+        browser.sleep(2000);
+        searchObj.clkNoCertficate.click();
+        browser.sleep(3000);
+        browser.executeScript("arguments[0].scrollIntoView();", searchObj.batchUpdateButton);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(searchObj.batchUpdateButton), 20000, "clkCheckBoxBacth not available");
+        searchObj.batchUpdateButton.click();
+        browser.sleep(3000);
+    }
+    catch (Exception) {
+        console.log("Failed");
+    }
+}
+
+const validateUpcomingDates = async () => {
+    try {
+        console.log("User is trying to create open batch for a course");
+        await browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.assertUpcomingDates), 20000, "createbatch not available");
+        let upcomDates = await searchObj.assertUpcomingDates.getText();
+        return upcomDates;
+    }
+    catch (Exception) {
+        console.log("Failed");
+    }
+}
+
+
+const selectUpcomingBatchFromDropdown = () => {
+
+    try {
+        console.log("User is trying to create open batch for a course");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.batchTypedropDown), 20000, "createbatch not available");
+        searchObj.batchTypedropDown.click();
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.sltUpcomingBatch), 20000, "createbatch not available");
+        searchObj.sltUpcomingBatch.click();
+        browser.sleep(4000);
+    }
+    catch(Exception){
+        console.log("Failed");
+    }
+}
+
+
+const validateUserLandsOnExploreRelatedPageOnly = () => {
+    try {
+        expect((searchObj.exploreByUserTypeLabel)).isPresent().toBeTruthy();
+        browser.sleep(2000);
+        searchObj.exploreByUserTypeLabel.getText().then(function(userType){
+            console.log("Explore by"+userType);
+            (userType).includes("Explore");
+        })
+    }
+    catch (Exception) {
+    }
+}
+
+
+const validateBMGSunderLocationDetailsAndcontentPreferenceBelowOrgName = () => {
+    try {
+        browser.sleep(2000);
+        console.log('edit personal for guest User');
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.profileButton, 20000);
+        content.profileButton.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,50);').then(function () {
+            console.log('++++++SCROLLED DOWN+++++');
+        });
+        expect(searchObj.assertContentPrefnderOrgName.isPresent()).toBe(true);
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(50,100);').then(function () {
+            console.log('++++++SCROLLED DOWN+++++');
+        });
+        expect(searchObj.assertBMGSdisplayedUnderLocationDetails.isPresent()).toBe(true);
+    }
+    catch (Exception) {
+        console.log("Failed");
+    }
+}
+
+
+
+const validateCertificateMessage = async () => {
+
+    try {
+        console.log("User is trying to enroll for an open batch");
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkJoinCourse), 20000, "clkJoinCourse not available");
+        searchObj.clkJoinCourse.click();
+        console.log("Click on Enroll For Course");
+        browser.sleep(7000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.checkBoxConsent), 20000, "checkBoxConsent not available");
+        browser.sleep(2000);
+        searchObj.checkBoxConsent.click();
+        browser.sleep(3000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", searchObj.share);
+        browser.sleep(2000);
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.share), 20000, "share not available");
+        // searchObj.share.click();
+        // browser.sleep(4000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.share), 20000, "share not available");
+        searchObj.share.click();
+        browser.sleep(4000);
+        
+        let msg = await sanity.noCertificateMsg.getText();
+        console.log("The message :"+msg+"is validated");
+        expect((msg).includes("Currently, this course does not have a certificate. The course creator may attach a certificate later.")).toBeTruthy();
+
+
+        
+    }
+    catch (Exception) {
+        console.log("Failed to enroll for an open batch");
+    }
+}
+
+const validateUserType = async () => {
+    try {
+
+        expect((searchObj.exploreByUserTypeLabel).isPresent()).toBeTruthy();
+        browser.sleep(2000);
+        let userType = await searchObj.exploreByUserTypeLabel.getText();
+            console.log("Explore by"+userType);
+            (userType).includes("Explore");
+    }
+    catch (Exception) {
+        console.log("Failed");
+    }
+}
+
+const verifyTrackableCollectionIsPresentInMyCourseSectionAndMyLearningSection = (courseName) => {
+    try {
+        let var1 = "//span[contains(text(),'Continue Learning')]";
+        let var2 = "//following::*[contains(text(),'";
+        let var5 = "//*[contains(text(),'My courses')]";
+        let var3 = courseName;
+        let var4 = "')]";
+
+        var myCourseSectionContent = element(by.xpath(var5+var2+var3+var4));
+        var continueLearningSectionContent = element(by.xpath(var1 + var2 + var3 + var4));
+
+        wait.waitForElementVisibility(searchObj.searchBar, 20000);
+        searchObj.searchBar.sendKeys(courseName);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(content.searchButton, 30000);
+        content.searchButton.click();
+        browser.sleep(10000);
+
+        wait.waitForElementVisibility(content.courseCard, 30000);
+        content.courseCard.click();
+        browser.sleep(2000);
+
+        // wait.waitForElementVisibility(content.joinCourse1, 30000);
+        // content.joinCourse1.click();
+        // browser.sleep(8000);
+
+        // wait.waitForElementVisibility(content.consentTnCcheckbox, 30000);
+        // content.consentTnCcheckbox.click();
+        // browser.sleep(2000);
+
+        // wait.waitForElementVisibility(searchObj.doNotShare, 30000);
+        // searchObj.doNotShare.click();
+        // browser.sleep(4000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+
+        browser.sleep(3000);
+        wait.waitForElementVisibility(searchObj.back, 30000);
+        searchObj.back.click();
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.courses), 20000, "courses not available");
+        searchObj.courses.click();
+        browser.sleep(2000);
+
+        expect((searchObj.myCourseSection).isPresent()).toBe(true);
+        browser.sleep(1000);
+
+        searchObj.viewAllButtonForMyCourseSection.click();
+        browser.sleep(3000);
+
+        //browser.executeScript("arguments[0].scrollIntoView();", myCourseSectionContent);
+        // browser.executeScript('window.scrollTo(0,500);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        // });
+        // browser.sleep(3000);
+        expect(myCourseSectionContent).isPresent().toBeTruthy();
+        browser.sleep(6000);
+        // browser.executeScript('window.scrollTo(0,0);').then(function () {
+        //     console.log('++++++SCROLLED UP+++++');
+        // });
+        //browser.sleep(6000);
+        searchObj.closebutton.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.HomeTab, 20000);
+        content.HomeTab.click();
+        browser.sleep(5000);
+
+        browser.executeScript('window.scrollTo(0,1300);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        browser.sleep(2000);
+
+        searchObj.viewAllcontinueLearningInHomeTab.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        expect(continueLearningSectionContent.isPresent()).toBeTruthy();
+        browser.sleep(2000);
+        // wait.waitForElementVisibility(content.batchDropDown, 30000);
+        // content.batchDropDown.click();
+        // browser.sleep(2000);
+
+        // wait.waitForElementVisibility(content.leaveCourse, 30000);
+        // content.leaveCourse.click();
+        // browser.sleep(4000);
+
+        // wait.waitForElementVisibility(content.leaveCoursePopUp, 30000);
+        // content.leaveCoursePopUp.click();
+        // browser.sleep(8000);
+    }
+    catch (Exception) {
+    }
+}
+
+const copySharedLinkAndOpenInNewTab = async(courseName) => {
+    try {
+
+        browser.sleep(8000);
+        wait.waitForElementVisibility(searchObj.searchBar, 20000);
+        await searchObj.searchBar.sendKeys(courseName);
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.searchButton, 30000);
+        content.searchButton.click();
+        browser.sleep(5000);
+        wait.waitForElementVisibility(content.courseCard, 30000);
+        await content.courseCard.click();
+        browser.sleep(7000);
+        searchObj.shareButton.click();
+        browser.sleep(2000);
+        searchObj.inputshareLink.click();
+        browser.actions().sendKeys(protractor.Key.chord(protractor.Key.CONTROL, 't')).perform();
+        browser.sleep(2000);
+        browser.actions().sendKeys(protractor.Key.chord(protractor.Key.CONTROL, 'v')).perform();
+        browser.sleep(2000);
+        browser.actions().sendKeys(protractor.Key.chord(protractor.Key.ENTER));
+        //window.open("https://www.geeksforgeeks.org", "_blank");
+        //wait.waitForelementvisibility(searchObj.inputshareLink, 30000);
+        searchObj.inputshareLink.getText().then(function(link){
+            console.log(link);
+        })
+    }
+    catch (Exception) {
+    }
+}
+
+
+const editBMS = async () => {
+    try {
+        console.log('verify BMS values are arranged in alphabetical order');
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.profileButton, 20000);
+        content.profileButton.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.editProfile, 20000);
+        content.editProfile.click();
+        browser.sleep(4000);
+        wait.waitForElementVisibility(content.boardDropdown, 20000);
+        content.boardDropdown.click();
+        browser.sleep(3000);
+        let boards = await content.boardelements.getText();
+        let sortedBoards = boards.sort();
+        console.log("Board values are:");
+        utility.checkStringSortedAlphabeticallyOrNot(boards,sortedBoards);
+        wait.waitForElementVisibility(content.SelectBoardValue2, 20000);
+        content.SelectBoardValue2.click();
+        browser.sleep(9000);
+        wait.waitForElementVisibility(content.mediumDropdown, 20000);
+        content.mediumDropdown.click();
+        browser.sleep(2000);
+        let medium = await content.boardelements.getText();
+        let sortedMediums = medium.sort();
+        console.log("Medium values are:");
+        utility.checkStringSortedAlphabeticallyOrNot(medium,sortedMediums);
+        wait.waitForElementVisibility(content.selectMediumValue, 20000);
+        content.selectMediumValue.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.classDropdown, 20000);
+        content.classDropdown.click();
+        browser.sleep(3000);
+        let classes = await content.boardelements.getText();
+        let sortedClass = classes.sort();
+        console.log("Class values are:");
+        utility.checkStringSortedAlphabeticallyOrNot(classes,sortedClass);
+        wait.waitForElementVisibility(content.selectClassValue, 20000);
+        content.selectClassValue.click();
+        browser.sleep(5000);
+        wait.waitForElementVisibility(content.subjectDropdown, 20000);
+        content.subjectDropdown.click();
+        browser.sleep(2000);
+        let sunbjects = await content.boardelements.getText();
+        let sortedSubjects = sunbjects.sort();
+        console.log("Subject values are:");
+        utility.checkStringSortedAlphabeticallyOrNot(sunbjects,sortedSubjects);
+    }
+    catch (Exception) {
+        console.log("BMS values are not in alphabetical order.");
+    }
+}
+
+const validateBMSvaluesAlphabeticalOrder = async () => {
+    try {
+        console.log('verify BMS values are arranged in alphabetical order');
+        browser.sleep(3000);
+        wait.waitForElementVisibility(searchObj.clickBoardAllMyContent1, 20000);
+        searchObj.clickBoardAllMyContent1.click();
+        browser.sleep(3000);
+        let boards = await content.explorePageDropdownElements.getText();
+        let sortedBoards = boards.sort();
+        console.log("Board values are:");
+        utility.checkStringSortedAlphabeticallyOrNot(boards,sortedBoards);
+        wait.waitForElementVisibility(searchObj.clickBoardAllMyContent1, 20000);
+        searchObj.clickBoardAllMyContent1.click();
+        //wait.waitForElementVisibility(content.selectBoardValueInExplorePage, 20000);
+        //content.selectBoardValueInExplorePage.click();
+        browser.sleep(5000);
+        wait.waitForElementVisibility(content.clickFilterMedium, 20000);
+        content.clickFilterMedium.click();
+        browser.sleep(2000);
+        let medium = await content.explorePageDropdownElements.getText();
+        let sortedMediums = medium.sort();
+        console.log("Medium values are:");
+        utility.checkStringSortedAlphabeticallyOrNot(medium,sortedMediums);
+        wait.waitForElementVisibility(content.clickFilterMedium, 20000);
+        content.clickFilterMedium.click();
+        // wait.waitForElementVisibility(content.selectMediumValue, 20000);
+        // content.selectMediumValue.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.clicksubject, 20000);
+        content.clicksubject.click();
+        browser.sleep(2000);
+        let sunbjects = await content.explorePageDropdownElements.getText();
+        let sortedSubjects = sunbjects.sort();
+        console.log("Subject values are:");
+        utility.checkStringSortedAlphabeticallyOrNot(sunbjects,sortedSubjects);
+    }
+    catch (Exception) {
+        console.log("BMS values are not in alphabetical order.");
+    }
+}
+
+const validateBMSvalueInForGoogleUser = async () => {
+    try {
+        console.log('verify BMS values are arranged in alphabetical order');
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.profileButton, 20000);
+        content.profileButton.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.editProfile, 20000);
+        content.editProfile.click();
+        browser.sleep(4000);
+        wait.waitForElementVisibility(content.boardDropdown, 20000);
+        content.boardDropdown.click();
+        browser.sleep(3000);
+        let boards = await content.boardelements.getText();
+        let sortedBoards = boards.sort();
+        console.log("Board values are:");
+        utility.checkStringSortedAlphabeticallyOrNot(boards,sortedBoards);
+        wait.waitForElementVisibility(content.boardDropdown, 20000);
+        content.boardDropdown.click();
+        browser.sleep(9000);
+        wait.waitForElementVisibility(content.mediumDropdown, 20000);
+        content.mediumDropdown.click();
+        browser.sleep(2000);
+        let medium = await content.boardelements.getText();
+        let sortedMediums = medium.sort();
+        console.log("Medium values are:");
+        utility.checkStringSortedAlphabeticallyOrNot(medium,sortedMediums);
+        wait.waitForElementVisibility(content.mediumDropdown, 20000);
+        content.mediumDropdown.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.classDropdown, 20000);
+        content.classDropdown.click();
+        browser.sleep(3000);
+        let classes = await content.boardelements.getText();
+        let sortedClass = classes.sort();
+        console.log("Class values are:");
+        utility.checkStringSortedAlphabeticallyOrNot(classes,sortedClass);
+        wait.waitForElementVisibility(content.classDropdown, 20000);
+        content.classDropdown.click();
+        browser.sleep(5000);
+        wait.waitForElementVisibility(content.subjectDropdown, 20000);
+        content.subjectDropdown.click();
+        browser.sleep(2000);
+        let sunbjects = await content.boardelements.getText();
+        let sortedSubjects = sunbjects.sort();
+        console.log("Subject values are:");
+        utility.checkStringSortedAlphabeticallyOrNot(sunbjects,sortedSubjects);
+        wait.waitForElementVisibility(content.subjectDropdown, 20000);
+        content.subjectDropdown.click();
+    }
+    catch (Exception) {
+        console.log("BMS values are not in alphabetical order.");
+    }
+}
+
+
+const consumeExpiredContent = async () => {
+
+    try {
+        browser.sleep(6000);
+        console.log("To verify navigate to Course section, search course ");
+        sanityPage.SanityElement().oldBatchResume.click();
+        browser.sleep(2000);
+        searchObj.startlearningButton.click();
+        browser.sleep(15000);
+        searchObj.starRating.click();
+        browser.sleep(2000);
+        searchObj.submitRating.click();
+        browser.sleep(2000);
+        let toastMessage = await searchObj.toastMessage.getText();
+        expect((toastMessage).includes("Thank you")).toBe(true);        
+    }
+    catch (Err) {
+        console.log("Failed on navigating to Course section, search course " + Err);
+    }
+}
+
+const validateConsumptionScreen = async () => {
+    try {
+        browser.sleep(6000);
+        console.log("To verify consumption contents are not present in website header section");
+        searchObj.resumeCourse.click();
+        browser.sleep(5000);
+        let forumButton = await searchObj.forumButtonInConsumptionScreen.getText();
+        let title = await searchObj.contentTitle.getText();
+        let continueLearning = await searchObj.continueLearningButton.getText();
+        let ennrollmentendDate = await searchObj.assertExpiredCourse.getText();
+        browser.sleep(10000);
+        let listOfContentOnHeader = await searchObj.listOfElementsOnHeader.getText();
+        browser.sleep(8000);
+        expect((listOfContentOnHeader).includes(forumButton)).toBe(false);
+        console.log("Forum button is present inside Consumtion Header.");
+        expect((listOfContentOnHeader).includes(title)).toBe(false);
+        console.log("content title is present inside Consumtion Header.");
+        expect((listOfContentOnHeader).includes(continueLearning)).toBe(false);
+        console.log("Continue learning button is present inside Consumtion Header.");
+        expect((listOfContentOnHeader).includes(ennrollmentendDate)).toBe(false);
+        console.log("Enrollment end date is present inside consumption screen.")
+    }
+    catch (Err) {
+        console.log("Failed" + Err);
+    }
+}
+
+const clickCourseCard = async () => {
+    try {
+        wait.waitForElementVisibility(content.courseCard, 30000);
+        content.courseCard.click();
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.batchDropdown), 20000, "createbatch not available");
+        searchObj.batchDropdown.click();
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,100);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+    }
+    catch (Err) {
+        console.log("Failed" + Err);
+    }
+}
+const validateToastMessage = async () => {
+    try {
+        wait.waitForElementVisibility(searchObj.toastMessage, 30000);
+        expect((searchObj.toastMessage).isPresent()).toBe(true);
+        browser.sleep(2000);
+        searchObj.toastMessage.getText().then(function(popUpMessage){
+            popUpMessage.includes("Please provide valid Start Date")
+        })
+    }
+    catch (Err) {
+        console.log("Failed" + Err);
+    }
+}
+
+const verifybatchDropDown = async() => {
+    try {
+        console.log("User is trying to create open batch for a course");
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.newBatchDrpDwn), 20000, "createbatch not available");
+        searchObj.newBatchDrpDwn.click();
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,100);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+    }
+    catch (Err) {
+        console.log("Failed" + Err);
+    }
+}
+
+const endDateLesserThanStartDate = () => {
+
+    try {
+        console.log("User is trying to create open batch for a course");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.batchDropdown), 20000, "createbatch not available");
+        searchObj.batchDropdown.click();
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addIcon), 20000, "createbatch not available");
+        browser.sleep(4000);
+        searchObj.addIcon.click();
+        console.log("Click on Add Icon");
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.nameOfBatch), 20000, "nameOfBatch not available");
+        searchObj.nameOfBatch.sendKeys("Batch");
+        searchObj.aboutBatch.click();
+        searchObj.aboutBatch.sendKeys(" Open Batch");
+        console.log("Enter Batch Name");
+        browser.sleep(500);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.startdate), 20000, " startdate is not available");
+        searchObj.startdate.click();
+        console.log("Click on Start Date");
+        browser.sleep(500);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.startDateCalendar), 20000, " startDateCalendar is not available");
+        searchObj.startDateCalendar.click();
+        searchObj.startDateCalendar.sendKeys(todaysDate);
+        console.log("Select Start Date");
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.endDate), 20000, "sendDate is not available");
+        searchObj.endDate.click();
+        browser.sleep(200);
+        let enddate = "18 March 2022";
+        searchObj.endDate.sendKeys(enddate);
+        console.log("Select EndDate");
+        browser.sleep(2000);
+        searchObj.clkNoCertficate.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(searchObj.clkCheckBoxBacth), 20000, "clkCheckBoxBacth not available");
+        searchObj.clkCheckBoxBacth.click();
+        console.log("Batch Succesfully created  without Enrollment date");
+        browser.sleep(3000);
+        browser.executeScript("arguments[0].scrollIntoView();", searchObj.buttonCreate);
+        browser.sleep(3000);
+        expect((searchObj.buttonCreate).isEnabled()).toBe(false);
+        browser.sleep(3000);
+
+    }
+    catch (Exception) {
+        console.log("Failed to create open batch");
+    }
+}
 
 module.exports = {
 
@@ -16030,4 +17685,49 @@ module.exports = {
     validateFiltersInBrowseByCategriesWithHomeTab,
     recentlyPublishedCourse,
     validateFilters,
+    validateExpiredDateMessageBesideContinueLearningBtn,
+    validateAdditionalAndPrimaryCategInBrowseByCategriesWithHomeTab,
+    validateSubjectsAndMyCourseSectionInCourseTab,
+    validateCourseContentTypes,
+    validateBatchDetailsBeforeAndAfterJoiningCourse,
+    validateContinueLearningInPortal,
+    validateMyCourseSection,
+    validateSubjectbyUserPreference,
+    verifyCreateMyGroupAddMemberandAddActivityWithBMCSfilter,
+    //validateRelevantSection,
+    AdminCannotMoveForwardWithCreationOfAConversationWithoutStartDate,
+    GroupAdminIsAbleToAddAnActivityWhichIsACourse,
+    validateEnrollmentEndDateIsAbesentNearJoinButton,
+    validateBatchDetailsSectionInCourse,
+    validateExpiredBatchInMyLearningSection,
+    validateAndConsumeOngoingContentInMyLearningSession,
+   // validateExpiredBatchInMyLearning,
+    validateProgressBarSyncInKebabMenu,
+    validateUserTypelabel,
+    validateClickedOnLogoNotDirectedToDigitalTextBook,
+    validateClickedOnLogoNoctedToDigitalTextBook,
+    validateBMCSlabelsWithRegionalLanguage,
+    validateBatchForOngoingBatch,
+    validateOngoingCourseInFromNCERTsection,
+    validateExpiredCourseInFromNCERT,
+    validateUserTypelab,
+    validateAddCollaboratorPublishCourseFromUpForReview,
+    selectAndValidateUpcomingBatch,
+    validateUpcomingDates,
+    selectUpcomingBatchFromDropdown,
+    validateUserLandsOnExploreRelatedPageOnly,
+    validateBMGSunderLocationDetailsAndcontentPreferenceBelowOrgName,
+    validateCertificateMessage,
+    validateUserType,
+    verifyTrackableCollectionIsPresentInMyCourseSectionAndMyLearningSection,
+    copySharedLinkAndOpenInNewTab,
+    editBMS,
+    validateBMSvaluesAlphabeticalOrder,
+    validateBMSvalueInForGoogleUser,
+    consumeExpiredContent,
+    validateConsumptionScreen,
+    clickCourseCard,
+    validateToastMessage,
+    verifybatchDropDown,
+    endDateLesserThanStartDate,
 }

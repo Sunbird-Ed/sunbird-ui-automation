@@ -2,6 +2,7 @@ var XLSX = require('xlsx');
 const csvjson = require('csvjson');
 const readFile = require('fs').readFile;
 const { Parser } = require('json2csv');
+
 const ObjectsToCsv = require('objects-to-csv');
 var fs = require('fs');
 var {resolve, join} = require('path');
@@ -36,9 +37,10 @@ module.exports = {
         // var sheetNames= wb.SheetNames;
         var ws = wb.Sheets[sheetname]; 
         var rowIndex = rowindex;
-        XLSX.utils.sheet_add_json(ws, [{colname:data}], {skipHeader: true, origin: colname+rowIndex});
+        XLSX.utils.sheet_to_json(ws, [{colname:data}], {skipHeader: true, origin: colname+rowIndex});
         XLSX.writeFile(wb, excelPath);
     },
+    
     // readParticularDataFromCSVFile : function(filePath) {
       
     //     Papa.parse(filePath.files[0], {

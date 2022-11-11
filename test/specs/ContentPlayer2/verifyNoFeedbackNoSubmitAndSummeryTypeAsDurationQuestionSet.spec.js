@@ -21,7 +21,7 @@ describe('Search Resource save and send for review and publish.', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('verifyNoFeedbackNoSubmitAndSummeryTypeAsCompleteOnQuestionSet ',function(){
+    it('verifyNoFeedbackNoSubmitAndSummeryTypeAsDurationQuestionSet ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Public User1');

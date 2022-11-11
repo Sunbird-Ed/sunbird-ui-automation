@@ -37,7 +37,6 @@ describe('EnrollToTrackableCollection', () => {
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch();
-        // EnrollTBFCPageObj.checkTheCourseInMyCourseSection(fetchCoursename);
         utility.userLogout();
         utility.userLogin('Creator');
         lspPageObj.deleteCreatedItems();

@@ -10,14 +10,13 @@ describe('User clicks on Edit option under the action column to go to Conversati
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('verifyConversationSetupScreenOnClickEditOption',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
@@ -25,7 +24,5 @@ describe('User clicks on Edit option under the action column to go to Conversati
         EnrollTBFCPageObj.verifyCommunicationConsole();
         EnrollTBFCPageObj.userClicksOnThreeDotsInTheActionColumnAndVerify();
         EnrollTBFCPageObj.verifyConversationSetupScreenOnClickEditOption();
-        
-     
     })
 });

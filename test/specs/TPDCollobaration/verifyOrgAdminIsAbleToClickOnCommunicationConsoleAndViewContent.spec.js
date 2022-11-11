@@ -18,7 +18,7 @@ describe('Verify Org Admin must be able to view Communication Console Tab on the
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('verifyOrgAdminMustbeAbleToViewCommunicationConsoleTabOnHamburgerMenu ',function(){
+    it('verifyOrgAdminIsAbleToClickOnCommunicationConsoleAndViewContent ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');

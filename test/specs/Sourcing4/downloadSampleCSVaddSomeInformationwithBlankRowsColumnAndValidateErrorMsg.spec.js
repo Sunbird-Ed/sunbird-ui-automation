@@ -21,30 +21,15 @@ describe('downloadSampleCSVaddSomeInformationwithBlankRowsColumnAndValidateError
     });
 
     it('downloadSampleCSVaddSomeInformationwithBlankRowsColumnAndValidateErrorMsg',function(){
-        // utility.handleDropDown();
-        // utility.handleLocationPopup();
-        // //browser.sleep(20000);
-        // utility.userLogin('Creator');
-        // sanityFun.createBookWithUploadCsv();
-        // sanityFun.writeToCsvFile("qualitrix");
-        // browser.sleep(8000);
-        // var filename = getAppURL.ConfigurePath().downloadLocalPath + "createfoldersamplecsvfile.csv";
-        // sanityFun.uploadFile(filename);
-        // sanityFun.validateInvalidUploadMessage();
-
-
-
-
         utility.handleDropDown();
         //utility.handleLocationPopup();
         browser.sleep(20000);
         utility.userLogin('Creator');
         sanityFun.createBookWithUploadCsv();
-        sanityFun.writetofile();
-        // sanityFun.writeToCsvFile("qualitrix");
-        // browser.sleep(8000);
-        // var filename = getAppURL.ConfigurePath().downloadLocalPath + "createfoldersamplecsvfile.csv";
-        // sanityFun.uploadFile(filename);
-        // sanityFun.validateInvalidUploadMessage();
+        sanityFun.writeToCsvFile("qualitrix");
+        browser.sleep(8000);
+        var filename = getAppURL.ConfigurePath().downloadLocalPath + "createfoldersamplecsvfile.csv";
+        sanityFun.uploadFile(filename);
+        sanityFun.validateInvalidUploadMessage();
     })
 });

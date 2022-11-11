@@ -25,8 +25,8 @@ describe('validateMetadataValuesForCurriculumInrootnode', () => {
     
     it('validateMetadataValuesForCurriculumInrootnode',function(){
         utility.handleDropDown();
-        browser.sleep(30000);
-        //utility.handleLocationPopup();
+        //browser.sleep(30000);
+        utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         utility.validateWorkspace();
         let courseName = sanityfun.validateMetadataValues("k12");

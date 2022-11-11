@@ -73,7 +73,8 @@ module.exports = {
           // console.log(item);
 
           return item;
-        });
+        })
+      })
         //return data[0]['Password'];
         //return data[0]['Username'];
         var finaldata = data[rowno][columnHeaderName];
@@ -83,8 +84,24 @@ module.exports = {
         // return data;
         console.log(finaldata);
         return finaldata;
+  },
+
+  validateParticularDataCSVFile: function (FilePath, rowno, columnHeaderName, validation) {
+    const csvFilePath = FilePath;
+    const csv = require("csvtojson");
+    csv()
+      .fromFile(csvFilePath)
+      .then((jsonObj) => {
+        data = jsonObj.filter((item) => {
+          return item;
+        });
+        var finaldata = data[rowno][columnHeaderName];
+        console.log(finaldata);
+        expect(finaldata).toEqual(validation);
+        return finaldata;
       });
   },
+  
 
   readLatestDownlaodedFileName: function (filePath) {
     //  var file;
@@ -110,14 +127,14 @@ module.exports = {
     });
   },
 
-  writeDataInToCSVlFile: function (fileName, index, header, value) {
+  writeDataInToCSVlFile: function (fileName) {
     readFile(fileName, "utf-8", (err, fileContent) => {
       if (err) {
-        console.log(err); // Do something to handle the error or just throw it
+        //console.log(err); // Do something to handle the error or just throw it
         throw new Error(err);
       }
       let jsonObj = csvjson.toObject(fileContent);
-      jsonObj[index][header] = value;
+      //jsonObj[index][header] = value;
       //console.log(jsonObj);
       var fields = Object.keys(jsonObj[0]);
       const json2csvParser = new Parser({ fields });
@@ -130,19 +147,19 @@ module.exports = {
   },
 
 
-readCSVDataAndValidateSomeAttribute: function (fileName, index, header, value) {
+readCSVDataAndValidateSomeAttribute: function (fileName) {
   readFile(fileName, "utf-8", (err, fileContent) => {
     if (err) {
       console.log(err); // Do something to handle the error or just throw it
       throw new Error(err);
     }
     let jsonObj = csvjson.toObject(fileContent);
-    jsonObj[index][header] = value;
+   // jsonObj[index][header] = value;
     var fields = Object.keys(jsonObj[0]);
     const json2csvParser = new Parser({ fields });
     const csv = json2csvParser.parse(jsonObj);
-    console.log(csv);
-    // csv.includes("Collection Name");
+    
+    //csv[1].includes("milan");
     // csv.includes("Folder Identifier");
     // csv.includes("Level 1 Folder");
     // csv.includes("Level 2 Folder");
@@ -167,3 +184,5 @@ readCSVDataAndValidateSomeAttribute: function (fileName, index, header, value) {
     });
   },
 };
+
+

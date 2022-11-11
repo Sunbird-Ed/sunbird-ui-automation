@@ -21,6 +21,7 @@ describe('upload html, save and send for review and publish.', () =>{
 
     it('UploadContentTypeHtmlAndVerify  ',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent=uploadPageObj.uploadHtml();

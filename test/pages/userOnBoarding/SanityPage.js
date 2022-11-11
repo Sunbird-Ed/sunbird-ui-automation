@@ -1,6 +1,7 @@
 //const { element, by } = require("protractor");
 
 let SanityElement = () => {
+  
   //let dropdownProfile=element(by.xpath("//div[contains(@class,'dropdown right top pointing')]"));
   let dropdownProfile = element(by.xpath("//div[@class='avatar-content']"));
   let profileDropdown = element(by.xpath("//app-header/div/div/div/div[1]/div[2]/div/a[2]/div/ngx-avatar/div/div"));
@@ -139,7 +140,7 @@ let SanityElement = () => {
   var submitButtonAfterAssessment = element(By.xpath("//button[@type='submit']"));
   var firsstStar = element(by.xpath("//sui-rating[contains(@class,'sb-rating ui')]//i[1]"));
   var submitButtonAfterRating = element(by.xpath("//button[text()=' Submit ']"));
-  var baackButton = element(by.xpath("//button[contains(@aria-label,'back')]"));
+  var baackButton = element(by.xpath("//span[contains(text(),'Back')]//.."));
   var bestScore = element(by.xpath("//div[contains(@class,'sbchapter__item__score pr-8')]"));
   var searchButton = element(by.xpath("//button[text()='Search']"));
   var discussionForumFirstBook = element(by.xpath("//div[@class='sb--card__main-area']/following-sibling::div[1]"));
@@ -196,9 +197,10 @@ let SanityElement = () => {
   var SelectBkButton = element(by.xpath("//button[normalize-space()='Back']"));
   var coursePagebackButton = element(by.xpath("//button[text()=' Back ']"));
   var MyCourseOption = element(by.xpath("//span[text()='My courses']"));
-  var viewAllButton = element(by.xpath("//button[text()=' View All ']"));
+  var viewAllButton = element(by.xpath("//button[text()=' View all ']"));
   var closeButton = element(by.xpath("//button[text()='Close ']"));
   var addCourseTitle = element(by.xpath("//input[@placeholder='Title']"));
+  var addCourseName = element(by.xpath("//input[@placeholder='Name']"));
   var courseadditionalCategory = element(by.xpath("(//div[@class='list-border'])[1]//following::li[text()='Select Additional Category']"));
   var courseType = element(by.xpath("(//select[@id='sb-dropdown'])[2]"));
   // var subjectCovered=element(by.xpath("(//div[@class='list-border'])[2]"));
@@ -356,7 +358,7 @@ let SanityElement = () => {
   var searchContentFromLibrary = element(by.xpath("//input[@id='searchInputField']"));
   var assertFAQPage = element(by.xpath("//h4[text()='Help']"));
   var LoginFAQ = element(by.xpath("//div[normalize-space()='Login']"));
-  var ProfileFAQ = element(by.xpath("//div[@class='listView-compt__item d-flex flex-ai-center']"));
+  var ProfileFAQ = element(by.xpath("//div[@class='listView-compt']"));
   var CourseAndCertificateFAQ = element(by.xpath("//div[normalize-space()='Course & certificates']"));
   var assertLoginQuestion = element(by.xpath("//div[text()=' I want to register on DIKSHA ']"));
   var assertProfileQuestion = element(by.xpath("//div[text()=' I forgot my password ']"));
@@ -527,7 +529,52 @@ let SanityElement = () => {
   var selectMediumforTextBook = element(by.xpath("//label[contains(text(),'Medium(s)')]//following::label[contains(text(),'English')]"));
   var selectClassForTextBook = element(by.xpath("//label[contains(text(),'Class(es)')]//following::label[contains(text(),'Class 1')]"));
   var selectsubjectForTextbook = element(by.xpath("//label[contains(text(),'Subject(s)')]//following::label[contains(text(),'Select All')]//..//following::input[contains(@type,'checkbox')]"));
- 
+  var changeFiltersInLibraryPageOfEditor = element(by.xpath("//div[contains(text(),'Change Filters')]"));
+  var contentTypeDropDown = element(by.xpath("//label[contains(text(),'Content Type(s)')]//following::div[1]"));
+  var contentUnselectAll = element(by.xpath("//label[contains(text(),'Unselect All')]"));
+  var courseContentcheckbox = element(by.xpath("//label[contains(text(),'Course')]"));
+  var digitalTextbookCheckBox = element(by.xpath("//label[contains(text(),'Digital Textbook')]"));
+  var questionPaperCheckBox = element(by.xpath("//label[contains(text(),'Question Paper')]"));
+  var filterApplyButton = element(by.xpath("//button[contains(text(),'Apply')]"));
+  var contentPlaylistCheckBox = element(by.xpath("//label[contains(text(),'Content Playlist')]"));
+  var childDropDown1 = element(by.xpath("(//span[contains(text(),'Unit')])[1]"));
+  var childDropDown2 = element(by.xpath("(//span[contains(text(),'Unit')])[2]"));
+  var childDropDown3 = element(by.xpath("(//span[contains(text(),'Unit')])[3]"));
+  var childDropDown4 = element(by.xpath("(//span[contains(text(),'Unit')])[4]"));
+  var contentsOfChildFolder1 = element(by.xpath("(//span[@title='AutomationResource'])[1]"));
+  var contentsOfChildFolder2 = element(by.xpath("(//span[@title='AutomationResource'])[2]"));
+  var contentsOfChildFolder3 = element(by.xpath("(//span[@title='AutomationResource'])[3]"));
+  var contentsOfChildFolder4 = element(by.xpath("(//span[@title='AutomationResource'])[4]"));
+  var alreadyPresentInFolderDialog = element(by.xpath("//button[contains(text(),'Already present in this folder')]"));
+  var assertAddContent = element(by.xpath("//div[contains(text(),' Where do you want to add this content? ')]//following::button[contains(text(),'Add content')]"));
+  var dialogBox = element(by.xpath("//div[contains(text(),'Where do you want to add this content?')]"));
+  var closeButtonForDialogBox = element(by.xpath("//*[contains(@aria-label,'close')]"));
+  var clkRootNode = element(by.xpath("//*[contains(text(),' Folders ')]//following::span[@role='button'][1]//.."));
+  var assertAddedToCollection = element(by.xpath("//*[contains(text(),'Added to collection')]"));
+  var assertChaptersOrder = element(by.xpath("(//span[contains(text(),'Unit')])[2]//following::div[contains(@class,'sbchapter ng-star-inserted')][1]"));
+  var assertOrderOfCourseModules = element(by.xpath("//div[contains(@class,'training-modules my-16')]"))
+  var assertTagDiscussCard = element(by.xpath("//*[contains(text(),'This is my 1st idea')]//following::*[contains(@aria-label,'tags')]"));
+  var assertAddedContent = element(by.xpath("//span[@title='AutomationCourseForDF']"));
+  var clickRight = element(by.xpath("//input[@placeholder='Enter code here']//following::*[contains(@class,'large blue check circle icon')]"));
+  var assertdialCodeStatus = element(by.xpath("//div[contains(@class,'dialcode-status')]"));
+  var assertDoubleQuotes = element(by.xpath("//*[@placeholder='Description']"));
+  var assertCollectionCategory = element(by.xpath("(//*[contains(@class,'sb-modal-dropdown-web')]//following::ul)[1]"));
+  var clkAdditionalCategoryDrpDwn = element(by.xpath("(//div[@class='list-border'])[1]"));
+  var clkLessonPlanInaddCategory = element(by.xpath("(//label[text()='Lesson Plan'])[1]//preceding::input[@type='checkbox'][1]"));
+  var clkAddedContentInGroup = element(by.xpath("(//*[contains(@class,'sb--card__tags')]//following::span)[1]"));
+  var activityDashBoard = element(by.xpath("//*[contains(text(),'Activity Dashboard')]"));
+  var progressOfContentConsumption = element(by.xpath("//*[contains(@aria-label,'Progress%: activate to sort column ascending')]//following::tr"));
+  var sortTheMemberName = element(by.xpath("//*[contains(@aria-label,'Name: activate to sort column descending')]"));
+  var kebabMenuOfActivity = element(by.xpath("//*[contains(@aria-label,'View more actions menu')]"));
+  var removeActivityButton = element(by.xpath("//span[contains(text(),'Remove activity')]"));
+  var removeButton = element(by.xpath("//button[contains(text(),'Remove')]"));
+  var clickActivity = element(by.xpath("//*[contains(@aria-label,'View more actions menu')]//.."));
+  var assertk12 = element(by.xpath("(//option[text()='State (Tamil Nadu)'])[1]"));
+  var assert3Dot7frame = element(by.xpath("(//option[text()='3.7 Framework'])[1]"));
+  var assertTable = element(by.xpath("//*[contains(@role,'grid')]"));
+  var downloadCsv = element(by.xpath("//*[contains(text(),'Download as CSV')]"));
+  var assertZeroProgress = element(by.xpath("//td[contains(text(),'ABC')]//following::td[text()='0']"));
+
   return {
     firstGroup,
     NewCoursesubmitButton,
@@ -1035,6 +1082,52 @@ let SanityElement = () => {
     selectMediumforTextBook,
     selectClassForTextBook,
     selectsubjectForTextbook,
+    addCourseName,
+    changeFiltersInLibraryPageOfEditor,
+    contentTypeDropDown,
+    contentUnselectAll,
+    courseContentcheckbox,
+    digitalTextbookCheckBox,
+    questionPaperCheckBox,
+    filterApplyButton,
+    contentPlaylistCheckBox,
+    childDropDown1,
+    childDropDown2,
+    childDropDown3,
+    childDropDown4,
+    contentsOfChildFolder1,
+    contentsOfChildFolder2,
+    contentsOfChildFolder3,
+    contentsOfChildFolder4,
+    dialogBox,
+    alreadyPresentInFolderDialog,
+    assertAddContent,
+    closeButtonForDialogBox,
+    clkRootNode,
+    assertAddedToCollection,
+    assertChaptersOrder,
+    assertOrderOfCourseModules,
+    assertTagDiscussCard,
+    assertAddedContent,
+    clickRight,
+    assertdialCodeStatus,
+    assertDoubleQuotes,
+    assertCollectionCategory,
+    clkAdditionalCategoryDrpDwn,
+    clkLessonPlanInaddCategory,
+    clkAddedContentInGroup,
+    activityDashBoard,
+    progressOfContentConsumption,
+    sortTheMemberName,
+    kebabMenuOfActivity,
+    removeActivityButton,
+    removeButton,
+    clickActivity,
+    assertk12,
+    assert3Dot7frame,
+    assertTable,
+    downloadCsv,
+    assertZeroProgress,
   }
 
 }

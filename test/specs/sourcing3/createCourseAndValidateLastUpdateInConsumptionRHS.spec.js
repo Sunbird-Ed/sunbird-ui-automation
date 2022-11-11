@@ -26,13 +26,13 @@ describe('createCourseAndValidateLastUpdateInConsumptionRHS', () => {
 
     it('createCourseAndValidateLastUpdateInConsumptionRHS  ', function () {
         utility.handleDropDown();
-        browser.sleep(20000);
-        //utility.handleLocationPopup();
+        //browser.sleep(20000);
+        utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview2(courseName);
+        tpdPageObj.publishCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);

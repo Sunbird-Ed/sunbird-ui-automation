@@ -254,24 +254,15 @@ const validateSecondTimeLocationPopup = () => {
 };
 const handleLocationPopupAsStudent = () => {
   try {
-    wait.waitForElementVisibility(content.sunbirdOkMsg, 30000);
-    content.sunbirdOkMsg.click();
-    // browser.navigate().refresh();
+   
     browser.sleep(2000);
     wait.waitForElementVisibility(content.Student, 30000);
     content.Student.click();
+    browser.sleep(5000);
+
     wait.waitForElementVisibility(content.Continue, 20000);
     content.Continue.click();
-    wait.waitForElementVisibility(content.state, 20000);
-    content.state.click();
-    wait.waitForElementVisibility(content.selectState, 20000);
-    content.selectState.click();
-    wait.waitForElementVisibility(content.district, 20000);
-    content.district.click();
-    wait.waitForElementVisibility(content.selectDistrict, 20000);
-    content.selectDistrict.click();
-    wait.waitForElementVisibility(content.submitForm, 20000);
-    content.submitForm.click();
+    
   } catch (err) {
     console.error("Failed to handle location pop up, " + err);
   }
@@ -303,7 +294,7 @@ const handleLocationPopupAsOther = () => {
 
 const handleLocationPopup = () => {
   try {
-    browser.sleep(6000);
+    browser.sleep(4000);
 
     // content.autocl.isPresent().then(function (result) {
     //     if (result) {
@@ -350,30 +341,34 @@ const handleLocationPopup = () => {
     browser.sleep(2000);
 
     browser.actions().sendKeys(protractor.Key.TAB).perform();
-     browser.sleep(2000);
+    browser.sleep(2000);
 
     wait.waitForElementVisibility(content.submitButtonForDropdowns, 30000);
     content.submitButtonForDropdowns.click();
     browser.sleep(3000);
 
-    browser.sleep(8000);
+    browser.sleep(10000);
 
     wait.waitForElementVisibility(content.state, 20000);
     content.state.click();
     browser.sleep(2000);
+
     wait.waitForElementVisibility(content.selectState, 20000);
     content.selectState.click();
     browser.sleep(4000);
+
     wait.waitForElementVisibility(content.district, 20000);
     content.district.click();
-    browser.sleep(2000);
+    browser.sleep(5000);
+
     wait.waitForElementVisibility(content.selectDistrict, 20000);
     content.selectDistrict.click();
-    browser.sleep(2000);
+    browser.sleep(5000);
     browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
     browser.sleep(1000);
     wait.waitForElementVisibility(content.submitForm, 20000);
     content.submitForm.click();
+
   } catch (err) {
     console.log(err);
   }
@@ -518,6 +513,33 @@ const nextDate = () => {
   }
 };
 
+const backDate = () => {
+  try {
+    var date = new Date();
+    var day = date.getDate()-1;
+    var year = date.getFullYear();
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    var month = monthNames[date.getMonth()];
+    newdate = day + " " + month + " " + year;
+    return newdate;
+  } catch (Err) {
+    console.error("Failed , " + Err);
+  }
+};
+
 const futureDate = () => {
   try {
     var date = new Date();
@@ -643,6 +665,204 @@ const checkStringSortedAlphabeticallyOrNot = (unsortedArr, sortedArr) => {
   }
 };
 
+const handleLocationPopupWithMultiSelect = () => {
+  try {
+    browser.sleep(6000);
+
+    // content.autocl.isPresent().then(function (result) {
+    //     if (result) {
+    //         wait.waitForElementVisibility(content.selectBoardValue, 30000);
+    //         content.selectBoardValue.click();
+    //         browser.sleep(6000);
+    //     }
+    //     else {
+    //         browser.sleep(3000);
+    //         wait.waitForElementVisibility(content.boardDropdown, 30000);
+    //         content.boardDropdown.click();
+    //         browser.sleep(3000);
+    //         wait.waitForElementVisibility(content.selectBoardValue, 30000);
+    //         content.selectBoardValue.click();
+    //         browser.sleep(6000);
+
+    //     }
+    // });
+
+    wait.waitForElementVisibility(content.boardDropdown, 30000);
+    content.boardDropdown.click();
+    browser.sleep(3000);
+    wait.waitForElementVisibility(content.selectBoardValue, 30000);
+    content.selectBoardValue.click();
+    browser.sleep(6000);
+
+    wait.waitForElementVisibility(content.mediumDropdown, 30000);
+    content.mediumDropdown.click();
+    browser.sleep(3000);
+    wait.waitForElementVisibility(content.selectMediumValue, 30000);
+    content.selectMediumValue.click();
+    browser.sleep(3000);
+
+    wait.waitForElementVisibility(content.selectMediumMultipleValue, 30000);
+    content.selectMediumMultipleValue.click();
+    browser.sleep(3000);
+
+
+    browser.actions().sendKeys(protractor.Key.TAB).perform();
+    browser.sleep(3000);
+
+    
+
+    wait.waitForElementVisibility(content.gradeLevelDropDown, 30000);
+    content.gradeLevelDropDown.click();
+    browser.sleep(3000);
+    wait.waitForElementVisibility(content.selectGradeLevelValue, 30000);
+    content.selectGradeLevelValue.click();
+    browser.sleep(2000);
+
+    wait.waitForElementVisibility(content.selectGradeLevelMultipleValue, 30000);
+    content.selectGradeLevelMultipleValue.click();
+    browser.sleep(2000);
+
+    browser.actions().sendKeys(protractor.Key.TAB).perform();
+     browser.sleep(2000);
+
+    wait.waitForElementVisibility(content.submitButtonForDropdowns, 30000);
+    content.submitButtonForDropdowns.click();
+    browser.sleep(3000);
+
+    browser.sleep(8000);
+
+    // wait.waitForElementVisibility(content.state, 20000);
+    // content.state.click();
+    // browser.sleep(2000);
+    // wait.waitForElementVisibility(content.selectState, 20000);
+    // content.selectState.click();
+    // browser.sleep(4000);
+    // wait.waitForElementVisibility(content.district, 20000);
+    // content.distrRetainFilterValueFromHomeTabToAnotherict.click();
+    // browser.sleep(2000);
+    // wait.waitForElementVisibility(content.selectDistrict, 20000);
+    // content.selectDistrict.click();
+    // browser.sleep(2000);
+    browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
+    browser.sleep(1000);
+    wait.waitForElementVisibility(content.submitForm, 20000);
+    content.submitForm.click();
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const handleLocationPopupWithMultiSelectAndUnSelect = () => {
+  try {
+    browser.sleep(6000);
+
+    // content.autocl.isPresent().then(function (result) {
+    //     if (result) {
+    //         wait.waitForElementVisibility(content.selectBoardValue, 30000);
+    //         content.selectBoardValue.click();
+    //         browser.sleep(6000);
+    //     }
+    //     else {
+    //         browser.sleep(3000);
+    //         wait.waitForElementVisibility(content.boardDropdown, 30000);
+    //         content.boardDropdown.click();
+    //         browser.sleep(3000);
+    //         wait.waitForElementVisibility(content.selectBoardValue, 30000);
+    //         content.selectBoardValue.click();
+    //         browser.sleep(6000);
+
+    //     }
+    // });
+
+    wait.waitForElementVisibility(content.boardDropdown, 30000);
+    content.boardDropdown.click();
+    browser.sleep(3000);
+    wait.waitForElementVisibility(content.selectBoardValue, 30000);
+    content.selectBoardValue.click();
+    browser.sleep(6000);
+
+    wait.waitForElementVisibility(content.mediumDropdown, 30000);
+    content.mediumDropdown.click();
+    browser.sleep(3000);
+    wait.waitForElementVisibility(content.selectMediumValue, 30000);
+    content.selectMediumValue.click();
+    browser.sleep(3000);
+
+    wait.waitForElementVisibility(content.selectMediumMultipleValue, 30000);
+    content.selectMediumMultipleValue.click();
+    browser.sleep(3000);
+
+    wait.waitForElementVisibility(content.selectMediumValue, 30000);
+    content.selectMediumValue.click();
+    browser.sleep(3000);
+    browser.actions().sendKeys(protractor.Key.TAB).perform();
+    browser.sleep(3000);
+
+    wait.waitForElementVisibility(content.mediumDropdown, 30000);
+    content.mediumDropdown.click();
+    browser.sleep(3000);
+    wait.waitForElementVisibility(content.selectMediumValue, 30000);
+    content.selectMediumValue.click();
+    browser.sleep(3000);
+    browser.actions().sendKeys(protractor.Key.TAB).perform();
+    browser.sleep(3000);
+
+    
+
+    wait.waitForElementVisibility(content.gradeLevelDropDown, 30000);
+    content.gradeLevelDropDown.click();
+    browser.sleep(3000);
+    wait.waitForElementVisibility(content.selectGradeLevelValue, 30000);
+    content.selectGradeLevelValue.click();
+    browser.sleep(2000);
+    wait.waitForElementVisibility(content.selectGradeLevelMultipleValue, 30000);
+    content.selectGradeLevelMultipleValue.click();
+    browser.sleep(2000);
+
+
+    wait.waitForElementVisibility(content.selectGradeLevelValue, 30000);
+    content.selectGradeLevelValue.click();
+    browser.sleep(2000);
+    browser.actions().sendKeys(protractor.Key.TAB).perform();
+     browser.sleep(2000);
+
+     wait.waitForElementVisibility(content.gradeLevelDropDown, 30000);
+     content.gradeLevelDropDown.click();
+     browser.sleep(3000);
+     wait.waitForElementVisibility(content.selectGradeLevelValue, 30000);
+     content.selectGradeLevelValue.click();
+     browser.sleep(2000);
+ browser.actions().sendKeys(protractor.Key.TAB).perform();
+     browser.sleep(2000);
+
+    wait.waitForElementVisibility(content.submitButtonForDropdowns, 30000);
+    content.submitButtonForDropdowns.click();
+    browser.sleep(3000);
+
+    browser.sleep(8000);
+
+    // wait.waitForElementVisibility(content.state, 20000);
+    // content.state.click();
+    // browser.sleep(2000);
+    // wait.waitForElementVisibility(content.selectState, 20000);
+    // content.selectState.click();
+    // browser.sleep(4000);
+    // wait.waitForElementVisibility(content.district, 20000);
+    // content.distrRetainFilterValueFromHomeTabToAnotherict.click();
+    // browser.sleep(2000);
+    // wait.waitForElementVisibility(content.selectDistrict, 20000);
+    // content.selectDistrict.click();
+    // browser.sleep(2000);
+    browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
+    browser.sleep(1000);
+    wait.waitForElementVisibility(content.submitForm, 20000);
+    content.submitForm.click();
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
 module.exports = {
   verifyAdminDashBoard,
   userLoginPopup,
@@ -670,4 +890,7 @@ module.exports = {
   nextDateExtended,
   rgba2hex,
   checkStringSortedAlphabeticallyOrNot,
+  handleLocationPopupWithMultiSelect,
+  handleLocationPopupWithMultiSelectAndUnSelect,
+  backDate,
 };

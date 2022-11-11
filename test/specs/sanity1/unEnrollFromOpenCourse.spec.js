@@ -27,7 +27,8 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
 
     it('unEnrollFromOpenCourse', function () {
         utility.handleDropDown();
-        utility.handleLocationPopup();
+       //browser.sleep(20000);
+       utility.handleLocationPopup();
         utility.userLogin('Creator');
         utility.validateWorkspace();
         let courseName = sanityfun.createCourseAndSendForReview();

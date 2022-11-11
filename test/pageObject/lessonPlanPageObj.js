@@ -691,20 +691,20 @@ const verifyProfileSharingUpdate = (content) => {
         wait.waitForElementVisibility(searchObj.updateButton, 20000, "update button is not found");
         searchObj.updateButton.click();
         browser.sleep(2000);
-
-        // wait.waitForElementVisibility(searchObj.sharemyProfileDetails, 20000, "share profile details radio button is not present");
-        // searchObj.shareMyProfileDetails.click();
-        // browser.sleep(2000);
-        // wait.waitForElementVisibility(searchobj.profileDataSharingSaveButton, 20000, "profileDataSharingSaveButton is not enabled");
-        // searchObj.profileDataSharingSaveButton.click();
-        // browser.sleep(2000);
-        // searchObj.termsAndConditions.getText().then(function (input) {
-        //     var tnc = "I consent to share my details with the administrators of this course. All course administrators are bound by the Privacy Policy and Course Terms in their use of my data.";
-        //     (input).includes(tnc);
-        // })
-        // browser.sleep(2000);
-        // searchObj.doNotShare.click();
-
+        //wait.waitForElementVisibility(searchObj.sharemyProfileDetails, 20000, "share profile details radio button is not present");
+        searchObj.shareMyProfileDetails.sendKeys(protractor.Key.TAB)
+        browser.sleep(1000);
+        browser.actions().sendKeys(protractor.Key.ENTER);
+        browser.sleep(2000);
+        wait.waitForElementVisibility(searchobj.profileDataSharingSaveButton, 20000, "profileDataSharingSaveButton is not enabled");
+        searchObj.profileDataSharingSaveButton.click();
+        browser.sleep(2000);
+        searchObj.termsAndConditions.getText().then(function (input) {
+            var tnc = "I consent to share my details with the administrators of this course. All course administrators are bound by the Privacy Policy and Course Terms in their use of my data.";
+            (input).includes(tnc);
+        })
+        browser.sleep(2000);
+        searchObj.doNotShare.click();
     }
     catch (Exception) {
         console.log("Failed to validate consent popup");

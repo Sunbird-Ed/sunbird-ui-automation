@@ -13,8 +13,6 @@ describe('Verify Create group add member and add activity', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
@@ -35,6 +33,5 @@ describe('Verify Create group add member and add activity', () => {
         // utility.userLogin('Creator');
         // EnrollTBFCPageObj.verifylastUpdatedandCourseConsumption();
         // utility.userLogout();
-     
     })
 });

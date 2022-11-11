@@ -6,7 +6,6 @@ const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.
 const content = require(protractor.basePath + '/test/pageObject/contentCreationPageObj.js');
 describe('AddChildInCourse', () => {
 
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -15,22 +14,22 @@ describe('AddChildInCourse', () => {
         browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
-
-
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-
     });
+
     it('AddChildInCourse', function () {
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let data = sanityfun.createCourseWithKeyword();
         const keywordName= data.keywordName;
         const courseName = data.courseName;
+        console.log(keywordName);
         utility.userLogout();
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(keywordName);

@@ -136,7 +136,7 @@ let UserOnBoarding = () => {
     var verifySuccessResponceMsg = element(by.xpath("//p[contains(text(),' Thank you for your response!')]"));
     var clkGoToHelpCenter = element(by.xpath("//a[contains(text(),' Go to Help Center ')]"));
     var HelpCenterPageAssert = element(by.xpath("//h4[contains(text(),'FAQs')]"));
-    var clkEditProfile = element(by.xpath("//span[contains(text(),'Subjects :')]//following::button[contains(text(),'Edit')]"));
+    var clkEditProfile = element(by.xpath("(//button[contains(text(),'Edit')])[2]"));
     var clkBoardEdit = element(by.xpath("//label[contains(text(),'Board')]//following::sui-select"));
     var verifyIGotHealthValue = element(by.xpath("(//label[contains(text(),'Board')]//following::span)[7]"));
     var clkMediumDropDown = element(by.xpath("//label[contains(text(),'Medium')]//following::sui-multi-select"));
@@ -195,10 +195,12 @@ let UserOnBoarding = () => {
 
     var checkBoxEmail = element(by.xpath("(//*[contains(@class,'ui radio checkbox')])[2]"));
 
-    var contributionSectionInProfile = element(by.xpath("//div[@class='ui segments']//child::div[@class='ui segment computer only']"));
+    var contributionSectionInProfile = element(by.xpath(" //div[contains(text(),'Contribution(s)')]"));
     var locationPopUp = element(by.xpath("//*[contains(text(),'Your Location')]"));
     var developerOptionDebugModeDropdown = element(by.xpath("//div[text()='Developer options']//following::*[@class='icon icon-svg--primary']"));
     var enableDebugMenu = element(by.xpath("//div[text()='Enable Debug Mode ']//following::*[@class='slider round']"));
+    var forgotLabellink = element(by.xpath("//div[contains(text(),'Forgot password?')]"));
+    var assertForgotpageLink = element(by.xpath("//div[contains(text(),'Recover Account')]"));
 
 
 
@@ -385,6 +387,8 @@ let UserOnBoarding = () => {
         locationPopUp,
         developerOptionDebugModeDropdown,
         enableDebugMenu,
+        forgotLabellink,
+        assertForgotpageLink,
     }
 };
 module.exports = {

@@ -24,6 +24,5 @@ describe('Verifiy user is getting add user option in his profile and able to swi
         utility.handleLocationPopup();
         utility.userLogin('Admin2'); 
         EnrollTBFCPageObj.VerifyAdminIsAbleToAddNewRoleEditAndDelete();
-    })  
+    })
 });
-   

@@ -33,7 +33,7 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.userShouldSeeTheExpiredCourseBatchAndOngoingBatch();
         utility.userLogout();
-        utility.userLogin('VerifyMembers');
+        utility.userLogin('User');
         usrOnBoardfun.AddUserProfileVerification();
         EnrollTBFCPageObj.verifyThatUserCanEnrollToOngoingBatchAlreadyExpiredBatch();
     })

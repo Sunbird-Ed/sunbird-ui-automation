@@ -25,14 +25,12 @@ describe('Create Course with all resource save and send for review and publish.'
     });
     it('CreateCourseWithAllResourceType', function () {
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(courseName)
-       
-
     })
 });
-

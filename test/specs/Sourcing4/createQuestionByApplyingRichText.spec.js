@@ -21,8 +21,8 @@ describe('createQuestionByApplyingRichText', () => {
     
     it('createQuestionByApplyingRichText',function(){
         utility.handleDropDown();
-        browser.sleep(20000);
-        //utility.handleLocationPopup();
+        //browser.sleep(20000);
+        utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionWithRichtextValidation();
         console.log(contentName);

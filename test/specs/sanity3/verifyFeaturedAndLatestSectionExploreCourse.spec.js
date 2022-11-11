@@ -22,8 +22,9 @@ describe('verifyFeaturedAndLatestSectionExploreCourse And Verify ViewAll Sec', (
     
     it('verifyFeaturedAndLatestSectionExploreCourse',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('Public User1');
         sanityFun.clkViewAllInCourseTab();
         
     });

@@ -19,7 +19,7 @@ describe('Verify that, Group Member is notified, When an activity is assigned to
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('verifyGroupMemberIsNotifiedWhenAnActivityIsAdded ',function(){
+    it('verifyGroupMemberIsNotifiedWhenAnActivityAdded ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
@@ -27,7 +27,7 @@ describe('Verify that, Group Member is notified, When an activity is assigned to
         EnrollTBFCPageObj.addActivityToTheExistingGroup();
         EnrollTBFCPageObj.removeActivityFromExistingGroup();
         utility.userLogout();
-        utility.userLogin('ContentCreator');
-        EnrollTBFCPageObj.verifyGroupMemberIsNotifiedWhenAnActivityIsRemoved();
+        utility.userLogin('Public User1');
+        EnrollTBFCPageObj.verifyGroupMemberIsNotifiedWhenAnActivityAdded();
     })
 });

@@ -593,7 +593,6 @@ const verifyNoBoardValue = () => {
         expect(firstPart).not.toEqual("Board :");
         console.log('Board didnt displayed');
     });
-
 }
 const verifyHelpFAQ = () => {
 
@@ -629,29 +628,29 @@ const verifyHelpFAQ = () => {
     userOnboard.clkGoToHelpCenter.click();
     wait.waitForElementVisibility(userOnboard.HelpCenterPageAssert, 20000);
     expect(userOnboard.HelpCenterPageAssert.isDisplayed()).toBeTruthy();
-
-
 }
+
 const updateProfileDetailsForSelfSignedUser = () => {
 
     wait.waitForElementVisibility(content.headerDropdown, 20000);
     content.headerDropdown.click();
+    browser.sleep(3000);
     wait.waitForElementVisibility(content.linkProfile, 20000);
     content.linkProfile.click();
-
+    browser.sleep(3000);
 
     // wait.waitForElementVisibility(userOnboard.labelSubjects, 20000);
     var scrolling = userOnboard.clkEditProfile;
     browser.controlFlow().execute(function () {
         browser.executeScript('arguments[0].scrollIntoView({block:"center"})', scrolling.getWebElement());
     });
-
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.clkEditProfile, 20000);
     userOnboard.clkEditProfile.click();
-
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.clkBoardEdit, 20000);
     userOnboard.clkBoardEdit.click();
-
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.verifyIGotHealthValue, 20000);
     expect(userOnboard.verifyIGotHealthValue.isDisplayed()).toBeTruthy();
     userOnboard.verifyIGotHealthValue.click();
@@ -667,49 +666,53 @@ const updateProfileDetailsForSelfSignedUser = () => {
     browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.clkMediumDropDown, 20000);
     userOnboard.clkMediumDropDown.click();
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.sltMediumDropDown, 20000);
     userOnboard.sltMediumDropDown.click();
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.closeMediumIcon, 20000);
     userOnboard.closeMediumIcon.click();
 
     browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.clkClassDropDown, 20000);
     userOnboard.clkClassDropDown.click();
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.sltClassDropDown, 20000);
     userOnboard.sltClassDropDown.click();
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.closeClassIcon, 20000);
     userOnboard.closeClassIcon.click();
 
     browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.clkSubjectDropDown, 20000);
     userOnboard.clkSubjectDropDown.click();
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.sltSubjectDropDown, 20000);
     userOnboard.sltSubjectDropDown.click();
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.closeSubjectIcon, 20000);
     userOnboard.closeSubjectIcon.click();
-
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.clkSubmitProfile, 20000);
     userOnboard.clkSubmitProfile.click();
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.assertUpdateToastrMsg, 20000);
     expect(userOnboard.assertUpdateToastrMsg.isDisplayed()).toBeTruthy();
-
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.labelBoard, 20000);
     expect(userOnboard.labelBoard.isDisplayed()).toBeTruthy();
-
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.labelMedium, 20000);
     expect(userOnboard.labelMedium.isDisplayed()).toBeTruthy();
-
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.labelClasses, 20000);
     expect(userOnboard.labelClasses.isDisplayed()).toBeTruthy();
-
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.labelSubjects, 20000);
     expect(userOnboard.labelSubjects.isDisplayed()).toBeTruthy();
-
+    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.assertProfileBoardValue, 20000);
     expect(userOnboard.assertProfileBoardValue.isDisplayed()).toBeTruthy();
-
-
-
 }
 
 const updateStateAndDistrictName = () => {
@@ -1778,8 +1781,6 @@ const validateContributionSection = () => {
         userOnboard.contributionSectionInProfile.getText().then(function (input) {
             console.log(input + " is validated")
         })
-
-
     }
     catch (Exception) {
         console.log("Failed on Validating SignInPopup on click on Enroll button on latest course in Explore-Course Page");
@@ -1985,7 +1986,6 @@ const verifyOTPwarningMessage = () => {
             console.log("Warning message is" + input);
         })
         browser.sleep(2000);
-
     }
     catch (Exception) {
         console.log("Not validating OTP warning message.");
@@ -2066,10 +2066,14 @@ const validateTncPopInManage = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.manageOption), 20000, "Manage option page not loaded");
         content.manageOption.click();
         browser.sleep(2000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.adminpolicyInManage), 20000, "Manage option page not loaded");
+        expect((content.assertDownloadDataAccordance).isPresent()).toBe(true);
+        browser.sleep(2000);
+              browser.wait(protractor.ExpectedConditions.visibilityOf(content.adminpolicyInManage), 20000, "Manage option page not loaded");
         content.adminpolicyInManage.click();
         browser.sleep(1000);
         expect((content.tncPopUp).isPresent()).toBe(true);
+        browser.sleep(2000);
+        expect((content.assertDikshaGuidelines).isPresent()).toBe(true);
         browser.sleep(2000);
     }
     catch (Exception) {
@@ -2204,6 +2208,94 @@ const validateDebugMode = () => {
     }
 }
 
+const verifyForgetLabelAndLink = () => {
+
+    wait.waitForElementVisibility(content.headerDropdown, 20000);
+    content.headerDropdown.click();
+    browser.sleep(1000);
+    wait.waitForElementVisibility(content.loginLink, 20000);
+    content.loginLink.click();
+    browser.sleep(4000);
+
+    wait.waitForElementVisibility(userOnboard.forgotLabellink, 20000);
+    expect(userOnboard.forgotLabellink.isDisplayed()).toBeTruthy();
+    wait.waitForElementVisibility(userOnboard.forgotLabellink, 20000);
+    userOnboard.forgotLabellink.click();
+
+    browser.sleep(4000);
+
+    wait.waitForElementVisibility(userOnboard.assertForgotpageLink, 20000);
+    expect(userOnboard.assertForgotpageLink.isDisplayed()).toBeTruthy();
+
+}
+
+
+const verifyNewRegisterHerePage = async () => {
+    try {
+        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+        
+        console.log("validating Register Here page.")
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.loginLink, 20000);
+        content.loginLink.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,150);').then(function () {
+            console.log('++++++SCROLLED down+++++');
+        });
+        wait.waitForElementVisibility(content.RegisterHereLink, 20000)
+        content.RegisterHereLink.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.nameInRegisterPage, 20000)
+        content.nameInRegisterPage.sendKeys(cred[48]['CourseName']);
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.birthYear, 20000)
+        content.birthYear.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.sltBirtYear, 20000)
+        content.sltBirtYear.click();
+        browser.sleep(2000);
+        console.log("Register page is not blank.")
+        wait.waitForElementVisibility(content.continueButton, 20000)
+        content.continueButton.click();
+        browser.sleep(2000);
+        let autoPopulatedRole = await content.assertRoleAutoPopulated.getText();
+        browser.sleep(2000);
+        autoPopulatedRole.includes("Teacher");
+        browser.sleep(2000);
+        content.btnSubmit.click();
+        browser.sleep(2000);
+        expect(content.assertParentGuardianPhone.isPresent()).toBe(true);
+        browser.sleep(2000);
+        expect(content.assertParentGuardianEmail.isPresent()).toBe(true);
+    }
+    catch (Exception) {
+        console.log("Register here page is blank.");
+    }
+}
+const TnCReminderTextInDownloadButton = () => {
+    try {
+        console.log("validating manage option popup is not generete everytime user visit.");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.manageOption), 20000, "Manage option page not loaded");
+        content.manageOption.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.adminpolicyInManage), 20000, "Manage option page not loaded");
+        content.adminpolicyInManage.click();
+        browser.sleep(1000);
+        expect((content.tncPopUp).isPresent()).toBe(true);
+        browser.sleep(2000);
+    }
+    catch (Exception) {
+        console.log("failed");
+    }
+}
+
+
 
 module.exports = {
     verifyAdminDashBoard,
@@ -2264,6 +2356,8 @@ module.exports = {
     validateLocationPopUpInAllPages,
     validateLocationPopUp,
     validateDebugMode,
-
+    verifyForgetLabelAndLink,
+    verifyNewRegisterHerePage,
+    TnCReminderTextInDownloadButton,
 }
 

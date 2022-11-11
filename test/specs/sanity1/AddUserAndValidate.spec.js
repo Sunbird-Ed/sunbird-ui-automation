@@ -21,7 +21,7 @@ describe('Verifiy user is getting add user option in his profile and able to swi
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('AddUserAndValidate ',function(){
+    it('AddUserAndValidate',function(){
         utility.handleDropDown();
         //browser.sleep(20000);
         utility.handleLocationPopup();
@@ -30,4 +30,3 @@ describe('Verifiy user is getting add user option in his profile and able to swi
         utility.handleLocationPopup();  
     })  
 });
-   

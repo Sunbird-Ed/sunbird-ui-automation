@@ -25,8 +25,8 @@ describe('able to create course and enroll consume ValidateCreateBatchAndConsent
 
     it('ValidateCreateBatchAndConsentFormWhileEnroll', function () {
         utility.handleDropDown();
-        //utility.handleLocationPopup();
-        browser.sleep(20000);
+        utility.handleLocationPopup();
+        //browser.sleep(20000);
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();

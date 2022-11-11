@@ -11,7 +11,6 @@ describe('CreateResourceAndVerify.', () => {
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
-
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
@@ -25,8 +24,8 @@ describe('CreateResourceAndVerify.', () => {
 
     it('CreateResourceAndVerify',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
-        utility.handleLocationPopup();
+        browser.sleep(20000);
+        //utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResource();
         resourcePageObj.sendForReviewTheResource();
@@ -35,7 +34,6 @@ describe('CreateResourceAndVerify.', () => {
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
         utility.userLogout();
         utility.userLogin('Creator');
-        //utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();
     })
 });

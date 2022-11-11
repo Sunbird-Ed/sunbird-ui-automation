@@ -27,6 +27,7 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
     });
     it('verifyThatUserShouldBeDisplayedWithCourseCompletionMessage', function () {
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         utility.validateWorkspace();

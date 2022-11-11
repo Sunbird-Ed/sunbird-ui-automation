@@ -11,9 +11,7 @@ describe('VerifyStudentContentInSearch', () => {
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
-        browser.driver.manage().window().maximize(); 
-       
-    
+        browser.driver.manage().window().maximize();
     });
 
     afterEach(() => {
@@ -22,8 +20,8 @@ describe('VerifyStudentContentInSearch', () => {
     });
     it('VerifyStudentContentInSearch',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
-       
+        browser.sleep(20000);
+        //utility.handleLocationPopup();
         let coursename="Course";//teacherStudent
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(coursename);
 

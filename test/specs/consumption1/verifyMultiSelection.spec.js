@@ -1,8 +1,9 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
 const searchedCotentsValidation = require(protractor.basePath + '/test/pageObject/ETBPageObj/search.js');
-
 
 describe('Verify searched contents', () => {
 
@@ -22,6 +23,7 @@ describe('Verify searched contents', () => {
 
     it('verifyMultiSelection',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Admin');
         searchedCotentsValidation.multiSelection();

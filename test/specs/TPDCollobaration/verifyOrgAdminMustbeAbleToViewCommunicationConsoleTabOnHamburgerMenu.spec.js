@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
@@ -20,9 +22,9 @@ describe('Verify Org Admin must be able to view Communication Console Tab on the
     });
     it('verifyOrgAdminMustbeAbleToViewCommunicationConsoleTabOnHamburgerMenu ',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.verifyCommunicationConsole();
-     
     })
 });

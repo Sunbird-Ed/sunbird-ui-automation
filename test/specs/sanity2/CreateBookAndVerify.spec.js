@@ -3,6 +3,7 @@ let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPageObj.js');
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
+const resourcePageObj = require(protractor.basePath + '/test/pageObject/resourcePageObj.js');
 
 describe('Create Book save and send for review and publish.', () => {
 
@@ -13,17 +14,16 @@ describe('Create Book save and send for review and publish.', () => {
         browser.get(Url + AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
-
-
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-
     });
+
     it('CreateBookAndVerify', function () {
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let bookName= sanityfun.createBook();
@@ -31,9 +31,7 @@ describe('Create Book save and send for review and publish.', () => {
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(bookName)
         utility.userLogout();
-       utility.userLogin('Creator');
-       utility.validateWorkspace();
-       lspPageObj.deleteCreatedItems();
+        utility.userLogin('Public User1');
+        resourcePageObj.navigateToLibraryAndSearchContent(bookName);
     })
 });
-

@@ -21,8 +21,8 @@ describe('validateCSVlabelsInsideSampleCSV', () => {
 
     it('validateCSVlabelsInsideSampleCSV',function(){
         utility.handleDropDown();
-        //utility.handleLocationPopup();
-        browser.sleep(20000);
+        utility.handleLocationPopup();
+        //browser.sleep(20000);
         utility.userLogin('Creator');
         sanityFun.createBookWithUploadCsv();
         sanityFun.verifyDownlaodedCSVFile();

@@ -456,14 +456,14 @@ var resource = () => {
     var assertPreferencePopup = element(by.xpath("//*[contains(text(),'Browse SUNBIRD Library to find relevant content based on your preferences (Board, Medium and Class)')]"));
     var clkHome = element(by.xpath("//*[contains(text(),'Home')]"));
     var imageCard4= element(by.xpath("(//div[contains(@class,'UpReviewHeader')])"));
-    var browseBySubj = element(by.xpath("//div[contains(text(),'Browse by Subjects')]"));
+    var browseBySubj = element(by.xpath("//div[contains(text(),'Browse by Sectionss')]"));
     var featured = element(by.xpath("//div[contains(text(),'Featured')]"));
     var browseByCategories = element(by.xpath("//div[contains(text(),'Browse by Categories')]"));
     var browseByBoard = element(by.xpath("//div[contains(text(),'Browse by Board')]"));
     var browseByAudience = element(by.xpath("//div[contains(text(),'Browse by Audience')]"));
     var assertCbseBoard = element(by.xpath("//label[contains(text(),'Cbse/ncert')]"));
     var assertIgotBoard = element(by.xpath("//label[contains(text(),'Igot-health')]"));
-    var assertBoardSubContnet = element(by.xpath("//div[contains(text(),'Browse by Subjects')]//following::div[@role='button'][1]"));
+    var assertBoardSubContnet = element(by.xpath("//div[contains(text(),'Browse by Sectionss')]//following::div[@role='button'][1]"));
     var assertCategSubContent = element(by.xpath("//div[contains(text(),'Browse by Categories')]//following::div[@role='button'][1]"));
     var clkExploreTab = element(by.xpath("//*[contains(text(),' Explore ')]"));
     var assertAudeinceType = element(by.xpath("//div[contains(text(),'Browse by Audience')]//following::label[contains(text(),'School Head Or Officials')]"));
@@ -656,6 +656,110 @@ var resource = () => {
     var assertDefaultdisplayscore = element(by.xpath("(//div[@id='displayScore'])//following::div[1]"));
     var selectDisplayScoreAsNo = element(by.xpath("//div[text()='No']"));
     var displayDropDown = element(by.xpath("(//div[@id='displayScore']//following::input)[1]"));
+    var clkSuperScript = element(by.xpath("(//button[@class='ck ck-button ck-off'])[9]"));
+    var assertSuperScriptQstn = element(by.xpath("//sup[contains(text(),'Bangalore')]"));
+    var clkSuperScriptAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[18]"));
+    var assertSuperScriptAns1 = element(by.xpath("//sup[contains(text(),'BESCOM')]"));
+    var clkSuperScriptAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[27]"));
+    var assertSuperScriptAns2 = element(by.xpath("//sup[contains(text(),'MESCOM')]"));
+    var clkSubScript = element(by.xpath("(//button[@class='ck ck-button ck-off'])[8]"));
+    var assertSubScriptQstn = element(by.xpath("//sub[contains(text(),'Bangalore')]"));
+    var clkSubScriptAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[17]"));
+    var assertSubScriptAns1 = element(by.xpath("//sub[contains(text(),'BESCOM')]"));
+    var clkSubScriptAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[26]"));
+    var assertSubScriptAns2 = element(by.xpath("//sub[contains(text(),'MESCOM')]"));
+    var clkScientificTextAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[20]"));
+    var selScientificAns1 = element(by.xpath("//div[contains(text(),'Area of circle')]"));
+    var clkAddBtn = element(by.xpath("//button[contains(text(),'Add')]"));
+    var assertScientificSymbol1 = element(by.xpath("//div[@class='ck ck-reset_all ck-widget__type-around']"));
+    var clkScientificTextAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[21]"));
+    var selScientificAns2 = element(by.xpath("(//span[@class='katex'])[2]"));
+    var assertScientificSymbol2 = element(by.xpath("(//div[@class='ck ck-reset_all ck-widget__type-around'])[2]"));
+    var clkSymbolOpt = element(by.xpath("//a[contains(text(),'Symbols')]"));
+    var clkLibOpt = element(by.xpath("//a[contains(text(),'Library')]"));
+    var clkAddImgeAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off ck-dropdown__button'])[8]"));
+    var selectSplChar1 = element(by.xpath("(//span[contains(text(),'Special characters')]//following::span[contains(text(),'$')])[2]"));
+    var assertSCAns1 = element(by.xpath("//p[contains(text(),'$')]"));
+    var assertSCAns2 = element(by.xpath("//p[contains(text(),'@')]"));
+    var clkParagraphOpt1 = element(by.xpath("(//span[contains(text(),'Paragraph')])[1]"));
+    var clkHeadingOpt1 = element(by.xpath("(//span[contains(text(),'Heading 1')])[1]"));
+    var assertHeadingOpt1 = element(by.xpath("//h1[contains(text(),'What is The Capital of Karnataka?')]"));
+    var clkParagraphOpt2 = element(by.xpath("(//span[contains(text(),'Paragraph')])[2]"));
+    var clkHeadingOpt2 = element(by.xpath("(//span[contains(text(),'Heading 2')])[2]"));
+    var assertHeadingOpt2 = element(by.xpath("//h2[contains(text(),'Bangalore')]"));
+    var clkParagraphOpt3 = element(by.xpath("(//span[contains(text(),'Paragraph')])[3]"));
+    var clkHeadingOpt3 = element(by.xpath("(//span[contains(text(),'Heading 3')])[3]"));
+    var assertHeadingOpt3 = element(by.xpath("//h3[contains(text(),'Mangalore')]"));
+    var clkHeadingOpt6 = element(by.xpath("(//span[contains(text(),'Heading 6')])[1]"));
+    var assertHeadingOpt6 = element(by.xpath("//h6[contains(text(),'American Currency')]"));
+    var clkHeadingOpt5 = element(by.xpath("(//span[contains(text(),'Heading 5')])[2]"));
+    var assertHeadingOpt5 = element(by.xpath("//h5[contains(text(),'Dollor')]"));
+    var clkPreview = element(by.xpath("//button[contains(text(),'Preview')]"));
+    var clkAlignOptAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off ck-dropdown__button'])[5]"));
+    var clkCenterAlignment = element(by.xpath("(//button[@class='ck ck-button ck-off'])[15]"));
+    var clkAlignOptAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off ck-dropdown__button'])[9]"));
+    var clkRightAlignment = element(by.xpath("(//button[@class='ck ck-button ck-off'])[26]"));
+    var assertCenterAlignment = element(by.xpath("//p[@class='text-center']"));
+    var assertRightAlignment = element(by.xpath("//p[@class='text-right']"));
+    var clkShowQFeedback = element(by.xpath("(//option[contains(text(),'Select Option')])[1]"));
+    var selectYesOptQFeedback = element(by.xpath("(//option[contains(text(),'Yes')])[1]"));
+    var clkShowSolution = element(by.xpath("(//option[contains(text(),'Select Option')])[2]"));
+    var selectYesOptSolution = element(by.xpath("(//option[contains(text(),'Yes')])[2]"))
+    var enterInstructions = element(by.xpath("//p[@data-placeholder='Enter Instructions']"));
+    var chooseType = element(by.xpath("//div[contains(text(),'Choose type')]"));
+    var selectTextImage = element(by.xpath("//div[contains(text(),'Text+Image')]"));
+    var enterSolField = element(by.xpath("(//div[@aria-label='Rich Text Editor, main'])[6]"));
+    var assertInstBeforeEdit = element(by.xpath("//p[contains(text(),'Only 10 Mins')]"));
+    var assertQstnBeforeEdit = element(by.xpath("//p[text()='What is the capital of Karnataka?']"));
+    var assertAnsBeforeEdit = element(by.xpath("//p[text()='Bangalore']"));
+    var assertSolBeforeEdit = element(by.xpath("//p[text()='City']"));
+    var clkBtnDone = element(by.xpath("(//button[text()='Done'])[2]"));
+    var clkClose = element(by.xpath("//p[contains(text(),'What is the capital of Karnataka?')]//preceding::i[1]"));
+    var selSection = element(by.xpath("(//span[@class='fancytree-title'])[2]"));
+    var clkGK = element(by.xpath("//span[contains(text(),'GK1')]"));
+    var clkEditBtn = element(by.xpath("//button[contains(text(),'Edit')]"));
+    var QuestionClear = element(by.xpath("//p[contains(text(),'What is the capital of Karnataka?')]"))
+    var Ans1Clear = element(by.xpath("//p[contains(text(),'Bangalore')]"));
+    var solClear = element(by.xpath("//p[text()='City']"));
+    var assertInstAfterEdit = element(by.xpath("//p[contains(text(),'Only 15 Mins')]"));
+    var assertQstAfterEdit = element(by.xpath("//p[text()='What is the capital?']"));
+    var assertAnsAfterEdit = element(by.xpath("//p[text()='Bengaluru']"));
+    var assertSolAfterEdit = element(by.xpath("//p[text()='Garden City']"));
+
+    var clkChildSection = element(by.xpath("//span[contains(@title,'Section')]"));
+    var clkRootNodeInquestion = element(by.xpath("//*[contains(text(),'Section')]//following::span[@role='button'][1]//.."));
+    var tableDrpdwn1 = element(by.xpath("(//*[@class='ck ck-dropdown']//*[@class='ck ck-icon ck-button__icon'])[1]"));
+    var tableDrpdwn2 = element(by.xpath("(//*[@class='ck ck-dropdown']//*[@class='ck ck-icon ck-button__icon'])[3]"));
+    var tableDrpdwn3 = element(by.xpath("(//*[@class='ck ck-dropdown']//*[@class='ck ck-icon ck-button__icon'])[5]"));
+    var clickTableRc = element(by.xpath("//*[@data-row='1' or @data-column='2']"));
+    var numberedList = element(by.xpath("(//*[@class='ck ck-button ck-off']//*[@class='ck ck-icon ck-button__icon'])[7]"));
+    var numberedList2 = element(by.xpath("(//*[@class='ck ck-button ck-off']//*[@class='ck ck-icon ck-button__icon'])[16]"));
+    var numberedList3 = element(by.xpath("(//*[@class='ck ck-button ck-off']//*[@class='ck ck-icon ck-button__icon'])[24]"));
+
+    var clkImageIconQstn = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[1]"));
+    var clkImageIconAns = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[2]"));
+    var assertQstnImag = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[1]//following::img[1]"));
+    var assertAnsImage = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[2]//following::img[1]"));
+    var assertBoardFilter = element(by.xpath("//div[@id='board']"));
+    var asertAddChildDisabled = element(by.xpath("//button[@class='sb-btn sb-btn-outline-primary sb-btn-normal sb-btn-radius b-none p-0 sb-disabled']"));
+    var clkZoomOut = element(by.xpath("(//div[@class='magnify-icon'])[1]"));
+    var assertLandscap = element(by.xpath("//div[@class='quml-landscape']"));
+    var clkMobIcon = element(by.xpath("//button[@class='w-10 btn-none']"));
+    var assertPortrait = element(by.xpath("//div[@class='quml-header__metadata quml-header__metadata--portrait ng-star-inserted']"));
+    var assertDataRatio = element(by.xpath("//div[@data-ratio='16:9']"));
+    var clkDesktopIcon = element(by.xpath("//button[@class='btn-none']"));
+    var clkImageIconAns2 = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[3]"));
+    var clkZommInPopup = element(by.xpath("//div[@class='image-viewer__zoomin']"));
+    var assertOnZoomIn = element(by.xpath("//img[@style='width: 110%; height: 110%;']"));
+    var selSubConfirmationEnable = element(by.xpath("//option[text()='Enable']"));
+    var selCorrectAns1 = element(by.xpath("(//div[@class='quml-option'])[1]"));
+    var selWrongAns2 = element(by.xpath("(//div[@class='quml-option'])[7]"));
+    var selWrongAns3 = element(by.xpath("(//div[@class='quml-option'])[9]"));
+    var clkZommOutPopup = element(by.xpath("//div[@class='image-viewer__zoomout']"));
+    var assertOnZoomOut = element(by.xpath("//img[@style='width: 100%; height: 100%;']"));
+    var selVideo = element(by.xpath("//div[contains(text(),'Video')]"));
+    var choosevideo1 = element(by.xpath("(//button[text()='Search'])[1]//following::div[2]"));
+    var btnAdd = element(by.xpath("//button[text()='Add']"));
 
     return {
         ddSelectlanguage,
@@ -693,7 +797,6 @@ var resource = () => {
         labelMoreDetails,
         labelCopyRight,
         sendForReviewInShareViaLink,
-
         reload,
         headerCourse1,
         untitledCollection,
@@ -916,7 +1019,7 @@ var resource = () => {
         maxScore,
         levelInQuestion,
         selectEasy,
-        learningOutcome,
+        // learningOutcome,
         selectLearningOutcome,
         submitButtonInQuestion,
         nextButton,
@@ -1316,6 +1419,109 @@ var resource = () => {
         assertDefaultdisplayscore,
         selectDisplayScoreAsNo,
         displayDropDown,
+        clkSuperScript,
+        assertSuperScriptQstn,
+        clkSuperScriptAns1,
+        assertSuperScriptAns1,
+        clkSuperScriptAns2,
+        assertSuperScriptAns2,
+        clkSubScript,
+        assertSubScriptQstn,
+        clkSubScriptAns1,
+        assertSubScriptAns1,
+        clkSubScriptAns2,
+        assertSubScriptAns2,
+        clkScientificTextAns1,
+        selScientificAns1,
+        clkAddBtn,
+        assertScientificSymbol1,
+        clkScientificTextAns2,
+        selScientificAns2,
+        assertScientificSymbol2,
+        clkSymbolOpt,
+        clkLibOpt,
+        clkAddImgeAns1,
+        selectSplChar1,
+        assertSCAns1,
+        assertSCAns2,
+        clkParagraphOpt1,
+        clkHeadingOpt1,
+        assertHeadingOpt1,
+        clkParagraphOpt2,
+        clkHeadingOpt2,
+        assertHeadingOpt2,
+        clkParagraphOpt3,
+        clkHeadingOpt3,
+        assertHeadingOpt3,
+        clkHeadingOpt6,
+        assertHeadingOpt6,
+        clkHeadingOpt5,
+        assertHeadingOpt5,
+        clkPreview,
+        clkAlignOptAns1,
+        clkCenterAlignment,
+        clkAlignOptAns2,
+        clkRightAlignment,
+        assertCenterAlignment,
+        assertRightAlignment,
+        clkShowQFeedback,
+        selectYesOptQFeedback,
+        clkShowSolution,
+        selectYesOptSolution,
+        enterInstructions,
+        chooseType,
+        selectTextImage,
+        enterSolField,
+        assertInstBeforeEdit,
+        assertQstnBeforeEdit,
+        assertAnsBeforeEdit,
+        assertSolBeforeEdit,
+        clkBtnDone,
+        clkClose,
+        selSection,
+        clkGK,
+        clkEditBtn,
+        QuestionClear,
+        Ans1Clear,
+        solClear,
+        assertInstAfterEdit,
+        assertQstAfterEdit,
+        assertAnsAfterEdit,
+        assertSolAfterEdit,
+
+        clkChildSection,
+        clkRootNodeInquestion,
+        tableDrpdwn1,
+        tableDrpdwn2,
+        tableDrpdwn3,
+        clickTableRc,
+        numberedList,
+        numberedList2,
+        numberedList3,
+        clkImageIconQstn,
+        clkImageIconAns,
+        assertQstnImag,
+        assertAnsImage,
+        assertBoardFilter,
+        asertAddChildDisabled,
+        clkZoomOut,
+        assertLandscap,
+        clkMobIcon,
+        assertPortrait,
+        assertDataRatio,
+        clkDesktopIcon,
+        clkImageIconAns2,
+        clkZommInPopup,
+        assertOnZoomIn,
+        selSubConfirmationEnable,
+        selCorrectAns1,
+        selWrongAns2,
+        selWrongAns3,
+        clkZommOutPopup,
+        assertOnZoomOut,
+        selVideo,
+        choosevideo1,
+        btnAdd,
     }
 };
 module.exports = {

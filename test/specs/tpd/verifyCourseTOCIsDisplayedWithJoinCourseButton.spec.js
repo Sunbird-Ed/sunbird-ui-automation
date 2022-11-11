@@ -27,6 +27,5 @@ describe('verifyCourseTOCIsDisplayedWithJoinCourseButton', () => {
         utility.handleDropDown();
         utility.handleLocationPopupForOtherExplorer();
         ETBFun.CheckJoinButtonOptions();
-
 });
 });

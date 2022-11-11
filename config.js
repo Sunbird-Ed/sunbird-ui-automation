@@ -4,7 +4,8 @@ var HtmlReporter = require('protractor-beautiful-reporter');
 
 
 exports.config = {
-   // seleniumAddress: 'http://localhost:4444/wd/hub',
+
+    //seleniumAddress: 'http://localhost:4444/wd/hub',
     directConnect: true,
     //allScriptsTimeout: 10000000000,
 
@@ -16,18 +17,34 @@ exports.config = {
         sanity1: 'test/specs/sanity1/*.spec.js',
         sanity2: 'test/specs/sanity2/*.spec.js',
         sanity3: 'test/specs/sanity3/*.spec.js',
- 
-        // sourcing1: 'test/specs/sourcing1/*.spec.js',
-        // sourcing2: 'test/specs/sourcing2/*.spec.js',
-        // sourcing3: 'test/specs/sourcing3/*.spec.js',
-        // sourcing4: 'test/specs/sourcing4/*.spec.js',
 
-        //sanity1: 'test/specs/Sourcing4/verifyUIisWorkingFineAfterSelectingAllOptionInEditor.spec.js',
-        // sanity1: 'test/specs/Sourcing4/verifySelectAllOption.spec.js',
-        // userOrgAndCredentials: 'test/specs/sourcing1/VerifyCreatorAbleToCreateMultipleCategoricalValues.spec.js',
+        // SunbirdPortal1: 'test/specs/Sunbird_ED_Portal_1/*.spec.js',
+        // SunbirdPortal2: 'test/specs/SUNBIRD_ED_Portal_2/*.spec.js',
+
+        // SunbirdPortal3: 'test/specs/Sunbird_ED_Portal_3/*.spec.js',
+        // SunbirdPortal4: 'test/specs/Sunbird_ED_Portal_4/*.spec.js',
+        // SunbirdPortal5: 'test/specs/Sunbird_ED_Portal_5/*.spec.js',
+
+        // SunbirdUCI: 'test/specs/Sunbird_UCI/*.spec.js',
+        // SunbirdObserv : 'test/specs/Sunbird_Observ/*.spec.js',
+        // SunbirdLern : 'test/specs/Sunbird Lern/*.spec.js',
+
+        //sunbirdKnowledge1: 'test/specs/Sunbird_ED_Portal_5/validateRemoveActivityOnActivityCardAndAfterRemovingActivityValidateTheContentCardNotPresent.spec.js',
+        // sunbirdKnowledge2: 'test/specs/SUNBIRD_Knowledge2/*.spec.js',
+        // sunbirdKnowledge3: 'test/specs/SUNBIRD_Knowledge3/*.spec.js',
+        
+
+        // Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/verifyThatCreatorIsAbleToPreviewTheSubjectiveQuestionVideoAsSolutionInLandscapeMode.spec.js',
+        //sanity1: 'test/specs/SUNBIRD_Knowledge3/validateLocationLabelChangedToPagesDisplayingThePercentage.spec.js',
+
+        // Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/*.spec.js',
+        // sanity1: 'test/specs/SUNBIRD_Inquiry/verifyThatCreatorIsAbleToPreviewTheMCQQuestionWithEquationsInLandscape.spec.js',
+
+        
+        //userOrgAndCredentials: 'test/specs/Sunbird_ED_Portal_3/validateNewRegisterHerePage.spec.js',
         // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
 
-        // sanity1: 'test/specs/consumption4/verifyTrackableCollectionIsPresentInMyCourseSectionAndMyLearningSection.spec.js',
+        //  sanity1: 'test/specs/SUNBIRD_Inquiry/verifyThatCreatorIsAbleToPreviewTheSubjectiveQuestionWithEquationsInLandscapeAndPortraitMode.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
 
@@ -44,23 +61,18 @@ exports.config = {
         // sourcing3: 'test/specs/sourcing3/*.spec.js',
         // sourcing21:'test/specs/so8/*.spec.js',
 
-        // consumption: 'test/specs/Consumption/*.spec.js',
-        // consumption:  test\specs\consumption1
+        // consumption1: 'test/specs/consumption1/*.spec.js',
+        // consumption2: 'test/specs/consumption2/*.spec.js',
+        // consumption3: 'test/specs/consumption3/*.spec.js',
+        // consumption4: 'test/specs/consumption4/*.spec.js',
+
         // contentcreation: 'test/specs/content-creation/*.spec.js',
         // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
         // tpd1: 'test/specs/sourcing2/CreateLessonPlanSaveAndSendForReviewAndPublish.spec.js',
         // tpd1: 'test/specs/TPDCollobaration/verifythatWhenUserClicksOnViewIconUseMustBeDisplayedWithListOfDiscussions.spec.js',
         // tpd2: 'test/specs/TPD2/ShareModule.spec.js',
-        // tpd3: 'test/specs/TPDCollobaration/*.spec.js',
 
-        // ETB: 'test/specs/ETBSpecs/*.spec.js',
-        // smoke: 'test/specs/smoke/CreateCourseAndVerify.spec.js',
-        // VerifyHideActionOnEledment1: ['test/specs/tpd/EditCertificateRequirementFromNoToYes.spec.js'],
-        // VerifyHideActionOnEledment3: ['test/specs/ETBSpecs/copyBookAndSendForReview.spec.js'],
-        // VerifyHideActionOnElement2: ['test/specs/ETBSpecs/generateQRCode.spec.js'],
-        // VerifyHideActionOnEledment4: ['test/specs/ETBSpecs/VerifyCopyRightDetails.spec.js'],
-        // searchSelfAssesmentInLibSearch: ['test/specs/ETBSpecs/CreateBookInRegionalLanguageUsingTOCUploadAndDownload.spec.js'],
-        // VerifyHideActionOnEledment5: ['test/specs/ETBSpecs/DownloadQrcodeInDraftPublishedAndLimitedSharing.spec.js'],
+
 
     },
 
@@ -80,7 +92,7 @@ exports.config = {
         version: '78.0.3904.108',
         platform: 'Any',
         shardTestFiles: true,
-        maxInstances: 3,
+        maxInstances:3,
         chromeOptions: {
             prefs: {
                 profile: {

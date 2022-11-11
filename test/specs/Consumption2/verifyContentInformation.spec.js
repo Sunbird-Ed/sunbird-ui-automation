@@ -28,8 +28,6 @@ describe('verifyContentInformation', () => {
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         utility.validateWorkspace();
-        contentPo.validateContentDetails();
-        
+        contentPo.validateContentDetails();     
     })
 });
-   

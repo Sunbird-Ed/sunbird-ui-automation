@@ -23,8 +23,6 @@ describe('When is able to search a course by using Search filter and Page filter
     it('SearchCourseUsingFilter',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-
-         
         utility.userLogin('Public User1');
         searchCBFPPageObj.courseSearchFilter();
         utility.userLogout();
@@ -37,19 +35,10 @@ describe('When is able to search a course by using Search filter and Page filter
         utility.userLogin('Public User1');
         searchCBFPPageObj.clickOnViewAll();
         utility.userLogout();
-
         var Url=getAppURL.ConfigurePath().AppURL;
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
         searchCBFPPageObj.LangaugeTranslation();
-        searchCBFPPageObj.SearchCouseWithRegionalLang();
-
-      
-       
-
+        //searchCBFPPageObj.SearchCouseWithRegionalLang();
     })
-    
-   
-   
-    
 });

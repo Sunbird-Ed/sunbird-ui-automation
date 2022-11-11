@@ -19,7 +19,7 @@ describe('Verfiy that, Placeholder below Discussion Topic has “Type here (mini
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('VerfiyThatPlaceholderBelowDiscussionTopic ',function(){
+    it('VerfiyThatPlaceholderBelowDiscussionTopicHasMin8Char ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('LoadAnimation');

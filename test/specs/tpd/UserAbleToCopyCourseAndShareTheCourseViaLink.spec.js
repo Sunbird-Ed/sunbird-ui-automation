@@ -18,34 +18,27 @@ describe('Creator is able to copy course of same or different tenant and can sha
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        //utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
     
     it('UserAbleToCopyCourseAndShareTheCourseViaLink',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Mentor');
+        utility.userLogin('Creator');
         var courseName = sanityFun.copyContentFromTraining('Course');
-        resourcePageObj.editTheCourseInDraft();
-        tpdPageObj.sendForReviewTheCourse();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
-        tpdPageObj.publishTheCourseFromUpForReview(courseName);
+        tpdPageObj.publishCourseFromUpForReview2(courseName);
         utility.userLogout();
-        utility.userLogin('SubOrgMentor');
+        utility.userLogin('Creator');
         var courseName = sanityFun.copyContentFromTraining('Course');
         utility.userLogout();
-        utility.userLogin('Mentor');
+        utility.userLogin('Public User1');
         shareTCPageObj.clickTrainingPage();
         shareTCPageObj.shareTheConentUsingLink(courseName);
         utility.userLogout();
-        shareTCPageObj.verifyCollection();
-
-       
-
     });
 });
    

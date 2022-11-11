@@ -120,7 +120,7 @@ const uploadHtml = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
         uploadV.enterUrl.click();
-        browser.sleep(2000);
+        browser.sleep(4000);
 
 
 
@@ -448,6 +448,7 @@ const uploadYoutube = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
         uploadV.enterUrl.sendKeys(UPLOAD_YOUTUBE);
         browser.sleep(3000);
+        browser.executeScript("arguments[0].scrollIntoView();", uploadV.uploadbutton);
         uploadV.uploadButton.click();
         browser.sleep(6000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.sendforRev), 20000, "Failed to click sendForReview");

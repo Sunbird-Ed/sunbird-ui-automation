@@ -37,11 +37,5 @@ describe('Create Course save and send for review and publish.', () => {
         utility.userLogin('Creator');
         utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();
-
-
     })
-
-
-
 });
-

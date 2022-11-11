@@ -22,12 +22,9 @@ describe('Search Resource save and send for review and publish.', () => {
     });
     it('CreateSubjectiveQuestion ',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         resourcePageObj.createSubjectiveQuestionSet();
-    
     })
-
-   
-   
 });

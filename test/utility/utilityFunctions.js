@@ -2,8 +2,7 @@ const { browser } = require("protractor");
 
 const { Workbook, Row, Cell, Worksheet } = require("exceljs");
 var XLSX = require("xlsx");
-const genericFun = require(protractor.basePath +
-  "/test/genericFunctions/GenericFunction.js");
+const genericFun = require(protractor.basePath +"/test/genericFunctions/GenericFunction.js");
 let getExcelPath = require(protractor.basePath +
   "/test/pathFolder/changePath.js");
 let getAppURL = require(protractor.basePath + "/test/pathFolder/changePath.js");
@@ -31,6 +30,8 @@ const verifyAdminDashBoard = () => {
     console.error("Failed to verify admin dashboard, " + Err);
   }
 };
+
+
 const userLogin = (roleName) => {
   try {
     var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
@@ -49,13 +50,13 @@ const userLogin = (roleName) => {
     browser.sleep(100);
     content.password.sendKeys(cred[0]["Password"]);
     browser.sleep(100);
-
     content.login.click();
     browser.sleep(3000);
   } catch (Err) {
     console.error("Failed to user login, " + Err);
   }
 };
+
 const userLoginWithInvalidCredential = (roleName) => {
   try {
     var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
@@ -181,6 +182,8 @@ const mergeAccount = (roleName) => {
     console.error("failed to merge account, " + Exception);
   }
 };
+
+
 const validateDifferentStateUrl = (state) => {
   try {
     console.log("User is trying to validate different state");
@@ -198,9 +201,9 @@ const validateDifferentStateUrl = (state) => {
 
 const handleLocationPopupForOtherExplorer = () => {
   try {
-    wait.waitForElementVisibility(content.sunbirdOkMsg, 20000);
-    content.sunbirdOkMsg.click();
-    browser.sleep(3000);
+    // wait.waitForElementVisibility(content.sunbirdOkMsg, 20000);
+    // content.sunbirdOkMsg.click();
+    // browser.sleep(3000);
     wait.waitForElementVisibility(content.Teacher, 20000);
     content.Teacher.click();
     wait.waitForElementVisibility(content.Continue, 20000);
@@ -320,7 +323,6 @@ const handleLocationPopup = () => {
     //     }
     // });
 
-    browser.sleep(3000);
     wait.waitForElementVisibility(content.boardDropdown, 30000);
     content.boardDropdown.click();
     browser.sleep(3000);
@@ -333,16 +335,28 @@ const handleLocationPopup = () => {
     browser.sleep(3000);
     wait.waitForElementVisibility(content.selectMediumValue, 30000);
     content.selectMediumValue.click();
-    browser.sleep(4000);
+    browser.sleep(5000);
+
+    browser.actions().sendKeys(protractor.Key.TAB).perform();
+    browser.sleep(2000);
+
+    
+
     wait.waitForElementVisibility(content.gradeLevelDropDown, 30000);
     content.gradeLevelDropDown.click();
     browser.sleep(3000);
     wait.waitForElementVisibility(content.selectGradeLevelValue, 30000);
     content.selectGradeLevelValue.click();
     browser.sleep(2000);
+
+    browser.actions().sendKeys(protractor.Key.TAB).perform();
+     browser.sleep(2000);
+
     wait.waitForElementVisibility(content.submitButtonForDropdowns, 30000);
     content.submitButtonForDropdowns.click();
     browser.sleep(3000);
+
+    browser.sleep(8000);
 
     wait.waitForElementVisibility(content.state, 20000);
     content.state.click();

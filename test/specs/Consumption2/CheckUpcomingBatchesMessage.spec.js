@@ -2,6 +2,7 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
 describe('CheckUpcomingBatchesMessage', () => {
 
@@ -17,23 +18,27 @@ describe('CheckUpcomingBatchesMessage', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
+        //utility.userLogout();
         browser.manage().deleteAllCookies();
     });
+
     it('CheckUpcomingBatchesMessage ',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
-        let courseName="CourseATeresa";
+        utility.userLogin('Creator');
+        let courseName = sanityfun.createCourseAndSendForReview();
+        console.log(courseName);
+        utility.userLogout();
+        utility.userLogin('Reviewer');
+        tpdPageObj.publishCourseFromUpForReview(courseName)
+        utility.userLogout();
+        utility.userLogin('Creator');
+        tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
+        tpdPageObj.createFutureBatch();
+        utility.userLogout();
         utility.userLogin('Public User1');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        tpdPageObj.enrollForUpcomingOpenBatch();
-       
-
-        
-        
+        tpdPageObj.enrollForUpcomingOpenBatch();     
     })
-
-   
-   
 });
-   

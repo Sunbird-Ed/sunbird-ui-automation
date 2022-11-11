@@ -1,8 +1,10 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const resource = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
+const searchCBFPPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 
-describe('userSltFiltersInDifferntTabs', () => {
+describe('VerifyFiltersInAllTheTabs', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -11,21 +13,18 @@ describe('userSltFiltersInDifferntTabs', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
-
+    
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('UserCanSelectFiltersInEachTab',function(){
+
+    it('VerifyFiltersInAllTheTabs',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        resource.userSltFiltersInDifferntTabs();
-        
-      
-    })
-    
+        utility.userLogin('Public User1');
+        searchCBFPPageObj.courseSearchFilter();    
+    });
 });

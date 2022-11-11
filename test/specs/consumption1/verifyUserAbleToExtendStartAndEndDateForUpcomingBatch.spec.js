@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
@@ -24,8 +26,8 @@ describe('verifyUserAbleToExtendStartAndEndDateForUpcomingBatch', () => {
     
     it('verifyUserAbleToExtendStartAndEndDateForUpcomingBatch', async function () {
         utility.handleDropDown();
-        utility.handleLocationPopup();
-        utility.userLogin('Creator');
+      utility.handleLocationPopup();
+              utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();
         console.log(courseName);
         utility.userLogout();

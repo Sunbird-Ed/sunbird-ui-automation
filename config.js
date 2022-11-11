@@ -4,7 +4,7 @@ var HtmlReporter = require('protractor-beautiful-reporter');
 
 
 exports.config = {
-    //seleniumAddress: 'http://localhost:4444/wd/hub',
+   // seleniumAddress: 'http://localhost:4444/wd/hub',
     directConnect: true,
     //allScriptsTimeout: 10000000000,
 
@@ -22,13 +22,12 @@ exports.config = {
         // sourcing3: 'test/specs/sourcing3/*.spec.js',
         // sourcing4: 'test/specs/sourcing4/*.spec.js',
 
-        //sanity1: 'test/specs/consumption1/*.spec.js',
-
-        //sanity1: 'test/specs/consumption1/validateEnddateCannotBeLesserThanStartDate.spec.js',
+        //sanity1: 'test/specs/Sourcing4/verifyUIisWorkingFineAfterSelectingAllOptionInEditor.spec.js',
+        // sanity1: 'test/specs/Sourcing4/verifySelectAllOption.spec.js',
         // userOrgAndCredentials: 'test/specs/sourcing1/VerifyCreatorAbleToCreateMultipleCategoricalValues.spec.js',
         // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
 
-        //sanity1: 'test/specs/consumption4/verifyTrackableCollectionIsPresentInMyCourseSectionAndMyLearningSection.spec.js',
+        // sanity1: 'test/specs/consumption4/verifyTrackableCollectionIsPresentInMyCourseSectionAndMyLearningSection.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
 
@@ -62,11 +61,6 @@ exports.config = {
         // VerifyHideActionOnEledment4: ['test/specs/ETBSpecs/VerifyCopyRightDetails.spec.js'],
         // searchSelfAssesmentInLibSearch: ['test/specs/ETBSpecs/CreateBookInRegionalLanguageUsingTOCUploadAndDownload.spec.js'],
         // VerifyHideActionOnEledment5: ['test/specs/ETBSpecs/DownloadQrcodeInDraftPublishedAndLimitedSharing.spec.js'],
-        // GuestProfileVerification: ['test/specs/Consumption/GuestProfileVerification.spec.js'],
-        // OnBoardingCardWithoutLogin: ['test/specs/Consumption/OnBoardingCardWithoutLogin.spec.js'],
-        // SelectedPreferenceInProfileSection: ['test/specs/Consumption/SelectedPreferenceInProfileSection.spec.js'],
-        // NavigateToTabUsingKeyBoard: ['test/specs/Consumption/NavigateToTabUsingKeyBoard.spec.js'],
-        // TimerVerification: ['test/specs/Consumption/verifyContentsInExplorePage.spec.js'],
 
     },
 

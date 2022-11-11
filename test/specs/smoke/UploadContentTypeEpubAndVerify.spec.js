@@ -22,7 +22,9 @@ describe('upload Epub, save and send for review and publish.', () => {
         browser.manage().deleteAllCookies();
     });
     it('UploadContentTypeEpubAndVerify  ',function(){
-        utility.handleLocationPopup();
+        utility.handleDropDown();
+        browser.sleep(20000);
+        //utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent=uploadPageObj.uploadEpub();
          utility.userLogout();

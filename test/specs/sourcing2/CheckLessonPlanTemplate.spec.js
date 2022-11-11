@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const lessonPlanPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
@@ -23,16 +25,10 @@ describe('vrify, content creator is able to create lesson plan', () => {
     });
     it('CheckLessonPlanTemplate',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         let lessonPlan=lessonPlanPageObj.createLessonPlan();
         console.log("Created content name: "+lessonPlan);
-        
-        
-        
     })
-
-   
-   
 });
-   

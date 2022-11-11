@@ -2,7 +2,7 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 
-describe('ObservationTabForSchoolHeader', () => {
+describe('SwitchToDarkThemeForSchoolHeadrerRole', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;

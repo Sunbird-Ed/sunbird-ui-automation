@@ -4,9 +4,7 @@ const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageO
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
-
 describe('verifyDFenabledInGroupAndUserAbletoCreateDF', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;

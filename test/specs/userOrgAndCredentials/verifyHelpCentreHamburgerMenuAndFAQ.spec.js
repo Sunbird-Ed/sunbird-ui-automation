@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
@@ -22,7 +24,8 @@ describe('verifyHelpCentreHamburgerMenuAndFAQ', () => {
     
     it('verifyHelpCentreHamburgerMenuAndFAQ',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
+        browser.sleep(15000);
+      //  utility.handleLocationPopup();
         utility.userLogin('NewCustUser');
         verifyUOpage.verifyHamburgerAndFAQ();
     });

@@ -28,6 +28,6 @@ describe('validateContentsTypesInAllTabs', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.validateCourseContentTypes();
-        utility.userLogout();
+      
     })
 });

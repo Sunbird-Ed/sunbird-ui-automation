@@ -124,7 +124,7 @@ const uploadHtml = () => {
 
 
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.browseButton), 20000, "didn't click browse button");
         uploadV.browseButton.sendKeys(html);
         browser.sleep(40000);
 
@@ -363,8 +363,6 @@ const uploadMp4 = () => {
     var resourceName;
     try {
         console.log("User is trying to upload mp4");
-
-
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
         content.headerDropdown.click();
@@ -427,11 +425,9 @@ const uploadMp4 = () => {
     }
 }
 const uploadYoutube = () => {
-
     var resourceName;
     try {
         console.log("User is trying to upload youtube");
-
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
         content.headerDropdown.click();
@@ -451,7 +447,7 @@ const uploadYoutube = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
         uploadV.enterUrl.sendKeys(UPLOAD_YOUTUBE);
-        browser.sleep(1000);
+        browser.sleep(3000);
         uploadV.uploadButton.click();
         browser.sleep(6000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.sendforRev), 20000, "Failed to click sendForReview");
@@ -478,7 +474,7 @@ const uploadYoutube = () => {
         etbv.titleName.clear();
         resourceName = "ResourceA" + faker.randomData().firstname;
         etbv.titleName.sendKeys(resourceName);
-        DropDownForSendForReview();
+        DropDownAndSendForRevAndValidateLiscence();
         browser.sleep(3000);
         console.log("User successfully uploaded youtube");
         return resourceName;
@@ -778,7 +774,62 @@ const DropDownForSendForReview = () => {
         etbv.yearOfCreation.click();
         etbv.yearOfCreation.clear();
         etbv.yearOfCreation.sendKeys("2020");
-        browser.sleep(1000);
+        browser.sleep(3000);
+        // browser.executeScript("arguments[0].scrollIntoView();", etbv.clickContentType);
+        // wait.waitForElementVisibility(etbv.clickContentType, 30000, "clickContentType button not available");
+        // etbv.clickContentType.click();
+        // browser.sleep(500);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.practiceResource2), 30000, "selectContentType button not available");
+        // etbv.practiceResource2.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.saveform), 20000, "submitForm not available");
+        content.saveform.click();
+        browser.sleep(2000);
+
+    } catch (err) {
+
+    }
+}
+const DropDownAndSendForRevAndValidateLiscence = () => {
+    try {
+        browser.sleep(500);
+        browser.executeScript("arguments[0].scrollIntoView();", etbv.clickBoard);
+        browser.sleep(500);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.clickBoard), 30000, "board button not available");
+        etbv.clickBoard.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.selectBoard), 30000, "contuinew button not available");
+        etbv.selectBoard.click();
+        //   wait.waitForElementVisibility(etbv.clickCurriculum, 30000, "clickCurriculum button not available");
+        //   etbv.clickCurriculum.click();
+        //   wait.waitForElementVisibility(etbv.selectCurriculum, 30000, "selectCurriculum button not available");
+        //   etbv.selectCurriculum.click();
+        //   browser.sleep(500);
+        browser.sleep(500);
+        etbv.clickMedium.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.selectMedium), 30000, "contuinew button not available");
+        etbv.selectMedium.click();
+
+        browser.executeScript("arguments[0].scrollIntoView();", etbv.clickclass);
+        etbv.clickclass.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.SelectClass), 30000, "contuinew button not available");
+        etbv.SelectClass.click();
+        browser.sleep(500);
+
+        etbv.clicksubject.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.selectSubject), 30000, "contuinew button not available");
+        etbv.selectSubject.click();
+        browser.sleep(500);
+
+        //   etbv.clickMedium.click();
+        //   browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.selectMedium), 30000, "contuinew button not available");
+        //   etbv.selectMedium.click();
+        browser.executeScript("arguments[0].scrollIntoView();", etbv.yearOfCreation);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.yearOfCreation), 30000, "contuinew button not available");
+        etbv.yearOfCreation.click();
+        etbv.yearOfCreation.clear();
+        etbv.yearOfCreation.sendKeys("2020");
+        browser.sleep(3000);
+        expect(uploadV.assertLiscenceCCBY.isPresent()).toBe(true);
         // browser.executeScript("arguments[0].scrollIntoView();", etbv.clickContentType);
         // wait.waitForElementVisibility(etbv.clickContentType, 30000, "clickContentType button not available");
         // etbv.clickContentType.click();

@@ -1,10 +1,12 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPageObj.js');
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
-describe('verifyNCERTcreatorSubmitForReview', () => {
+describe('validateNcertCourseTypeInOrgAndTargetFrame', () => {
 
 
     beforeEach(() => {
@@ -22,9 +24,10 @@ describe('verifyNCERTcreatorSubmitForReview', () => {
         browser.manage().deleteAllCookies();
     });
 
-    it('verifyNCERTcreatorSubmitForReview', function () {
+    it('validateNcertCourseTypeInOrgAndTargetFrame', function () {
         utility.handleDropDown();
-        utility.handleLocationPopup();
+        browser.sleep(30000);
+        //utility.handleLocationPopup();
         utility.userLogin('NCERTCC');
         utility.validateWorkspace();
         let courseName = sanityfun.createCourseAndSendForReview();

@@ -11,8 +11,6 @@ describe('Mentor is able To See ViewDashboard ', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
@@ -20,18 +18,11 @@ describe('Mentor is able To See ViewDashboard ', () => {
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
+
     it('VerifyCourseMentorIsAbleToAddOtherMentorInABatchAndViewCourseDashboard',function(){
          utility.handleLocationPopup();
          utility.userLogin('Mentor2');
          verifyCMATAOMIBAVCDPageObj.viewCourseDashBoardDetails();
          verifyCMATAOMIBAVCDPageObj.downloadCSVAndCompare();
-       
-        
-           
-   
-    })
-    
-   
-   
-    
+    }) 
 });

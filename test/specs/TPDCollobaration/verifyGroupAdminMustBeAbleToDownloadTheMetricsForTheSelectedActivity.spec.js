@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
@@ -20,10 +22,11 @@ describe('Verify Group Admin must be able to download the Metrics for the select
     });
     it('verifyGroupAdminMustBeAbleToDownloadTheMetricsForTheSelectedActivity ',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
+        browser.sleep(20000);
+        //utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.verifyDownlaodAsCSVMustBeDisplayedOnTheDashboard();
-        EnrollTBFCPageObj.verifyDownlaodedCSVFile();
+        EnrollTBFCPageObj.verifyDownlaodedCSVFileINDF();
      
     })
 });

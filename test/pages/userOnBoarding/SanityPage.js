@@ -139,7 +139,7 @@ let SanityElement = () => {
   var submitButtonAfterAssessment = element(By.xpath("//button[@type='submit']"));
   var firsstStar = element(by.xpath("//sui-rating[contains(@class,'sb-rating ui')]//i[1]"));
   var submitButtonAfterRating = element(by.xpath("//button[text()=' Submit ']"));
-  var baackButton = element(by.xpath("//button[text()=' Back ']"));
+  var baackButton = element(by.xpath("//button[contains(@aria-label,'back')]"));
   var bestScore = element(by.xpath("//div[contains(@class,'sbchapter__item__score pr-8')]"));
   var searchButton = element(by.xpath("//button[text()='Search']"));
   var discussionForumFirstBook = element(by.xpath("//div[@class='sb--card__main-area']/following-sibling::div[1]"));
@@ -157,7 +157,7 @@ let SanityElement = () => {
   var announcementLink = element(by.xpath("//span[text()=' Announcements ']"));
   var textareaForComment = element(by.xpath("//textarea[contains(@class,'text-content fnormal')]"));
   var postReply = element(by.xpath("//span[text()='Post Reply']"));
-  var startDiscussion = element(by.xpath("//*[contains(text(),'Start Discussion')]"));
+  var startDiscussion = element(by.xpath("//*[contains(@id,'start-discussion')]"));
   // var askQuestion = element(by.xpath("//input[@placeholder='Ask a question or post an idea']"));
   var askQuestion = element(by.xpath("//input[@formcontrolname='question']"));
   var description = element(by.xpath("//textarea[@formcontrolname='description']"));
@@ -209,8 +209,10 @@ let SanityElement = () => {
   var selectSubjectForCourse = element(by.xpath("//li[contains(text(),'Select Subject')]"));
   var selectCopyRightYear = element(by.xpath("//input[@placeholder='Copyright Year']"));
   var selectAdditionalCategory = element(by.xpath("//label[contains(text(),'Textbook')]"));
-  //var selectcourseType = element(by.xpath(("(//option[text()='CBSE'])[1]")));
-  var selectcourseType = element(by.xpath(("//option[text()='Continuous Professional Development']")));
+  var selectcourseTypeForNcert = element(by.xpath("//option[text()='NCERT']"));
+  var selectcourseTypeForK12 = element(by.xpath("//option[text()='K-12 curriculum framework']"));
+  var selectcourseType = element(by.xpath("//option[text()='Continuous Professional Development']"));
+  var selectcourseTypeCBSE = element(by.xpath("//option[text()='CBSE']"));
   var selectSubject = element(by.xpath("//option[contains(text(),'English')]"));
   var selectBoard = element(by.xpath("(//label[contains(@data-title,'Board')])//following::option[2]"));
   var selectMedium = element(by.xpath("//label[contains(text(),'Medium(s) of the audience')]//following::label[contains(text(),'English')]"));
@@ -292,7 +294,7 @@ let SanityElement = () => {
   var coursevalidateWithBMC = element(by.xpath("(//span[contains(@class,'cfe-multiselect')])[6]"));
   var attribution = element(by.xpath("//input[contains(@placeholder,'Attributions')]"));
   var attributionInbook = element(by.xpath("(//*[text()=' Credits and Licence information ']//following::h4[text()='Attributions ']//following::p)[1]"));
-  var clkObservations = element(by.xpath("//a[contains(text(),' Observations ')]"));
+  var clkObservations = element(by.xpath("//input[contains(@id,'keyword')]//following::*[contains(text(),' Observation ')]"));
   var filterSearch = element(by.xpath("//input[@name='filter_search']"));
   var searchIcon = element(by.xpath("//button[contains(.,'Search')]"));
   var firstTvLessonContent = element(by.xpath("//div[@class='sb--card__info']"));
@@ -413,8 +415,8 @@ let SanityElement = () => {
   var optionText = element(by.xpath("//p[contains(text(),'Dharwad')]"));
   var qrCodeRequestButton = element(by.xpath("//i[@role='button']//following::button[text()='Request']"));
   var clkGenerateQrCode3 = element(by.xpath("//i[contains(@class,'icon qrcode')]//following::span[text()=' Generate 2 + 1 QR Codes ']"));
-  let clkGenerateQrCode4 = element(by.xpath("//i[contains(@class,'icon qrcode')]//following::span[text()=' Generate 3 + 1 QR Codes ']"));
-  var clkDownloadQrcode2 = element(by.xpath("//*[contains(text(),' Download 3 +1 QR codes ')]"));
+  let clkGenerateQrCode4 = element(by.xpath("//i[contains(@class,'icon qrcode')]//following::span[text()=' Generate 1 + 1 QR Codes ']"));
+  var clkDownloadQrcode2 = element(by.xpath("//*[contains(text(),'1 QR codes ')]"));
   var submittedForReview = element(by.xpath("//a[contains(@mattooltip,'View all content you have submitted for review')]"));
   var assertQrCodeRequiredField = element(by.xpath("(//label[contains(@data-title,'QR CODE REQUIRED')])"));
   var assertQrCode = element(by.xpath("(//label[contains(text(),' QR code ')])"));
@@ -460,7 +462,7 @@ let SanityElement = () => {
   var roleDropDown = element(by.xpath("//div[@id='persona']"));
   var sho = element(by.xpath("//div[@id='persona']//following::span[contains(text(),'School head OR Officials')]"));
   var studentRole = element(by.xpath("//div[@id='persona']//following::span[contains(text(),'Student')]"));
-  var observationTab = element(by.xpath("//input[contains(@id,'keyword')]//following::a[contains(text(),'Observations')]"));
+  var observationTab = element(by.xpath("//input[contains(@id,'keyword')]//following::*[contains(text(),' Observation ')]"));
   var profileRole = element(by.xpath("//input[contains(@id,'keyword')]//following::div[contains(text(),'Role')]//following::div[1]"));
   var backArrowButton = element(by.xpath("//input[@id='keyword']//following::*[contains(@class,'icon icon-svg--primary')]//parent::i//parent::button"));
   var previousButton = element(by.xpath("(//div[@class='d-flex player-slides ml-8']//following::button[contains(@aria-label,'navigation-arrows-previousIcon')])[1]"));
@@ -471,9 +473,61 @@ let SanityElement = () => {
   var decreaseResolution =  element(by.xpath("//button[contains(@aria-label,'Decrease font size')]"));
   var increaseResolution = element(by.xpath("//button[contains(@aria-label,'Increase font size')]"));
   var resetResolution = element(by.xpath("//button[contains(@aria-label,'Reset to default')]"));
-  
-
-  
+  var liveTitle = element(by.xpath("//td[text()='2']//following::*[@aria-label='file-icon'][1]"));
+  var clkFirstParameter = element(by.xpath("//th[text()='Parameter']//following::tr[@class='odd']"));
+  var assertLastUpdatedDate = element(by.xpath("//*[text()='Status of Project, No. of users']//preceding::span[contains(text(),'Last updated on')]//.."));
+  var assertGraph = element(by.xpath("//span[text()='Graphs']//following::div[contains(@class,'dashboard-graph-statistics')]"));
+  var createdDate = element(by.xpath("(//div[text()=' Created on'])//following-sibling::div"));
+  var arrowBackButton = element(by.xpath("(//span[contains(text(),'Back')]//..)[1]"));
+  var courseInBrowseByCategories = element(by.xpath("//div[contains(text(),'Browse by Categories')]//following::label[text()='Course']"));
+  var clickCourseUnit = element(by.xpath("//*[contains(text(),'Course Unit')]//following::*[contains(@title,'neel_maxattepts')]"));
+  var answerOne = element(by.xpath("//*[contains(text(),'Blue')]"));
+  var redoButton = element(by.xpath("//button[contains(text(),'Redo')]"));
+  var enterName = element(by.xpath("//input[@placeholder='Enter your name']"));
+  var addUserButton = element(by.xpath("//button[text()=' Add user ']"));
+  var messageToast = element(by.xpath("//div[@class='iziToast-body']"));
+  var messageToastCloseButton = element(by.xpath("//button[@class='iziToast-close']"));
+  var assertUpdatedOn = element(by.xpath("//div[contains(text(),' Updated on')]//parent::div"));
+  var assertUserName = element(by.xpath("//div[contains(text(),'User name')]"));
+  var assertUserDistrict = element(by.xpath("//div[contains(text(),'User district')]"));
+  var assertCriteriaMet = element(by.xpath("//div[contains(text(),'Criteria met')]"));
+  var certificateTab = element(by.xpath("//*[contains(@class,'sidebar')]//following::*[contains(text(),'Certificates')]"));
+  var searchCertficateID = element(by.xpath("//input[contains(@placeholder,'Search user')]"));
+  var searchCertficateIDbutton = element(by.xpath("(//button[contains(text(),'Search')])[2]"));
+  var selectBatchDropdwn = element(by.xpath("//*[contains(text(),'Select batch')]"));
+  var asserRigthProgress = element(by.xpath("//li[@class='showFeedBack-progressBar hover-effect ng-star-inserted correct']"));
+  var assertWrongProgress = element(by.xpath("//li[@class='showFeedBack-progressBar hover-effect ng-star-inserted progressBar-border wrong']"));
+  var assertBorderColorOfTheOpt = element(by.xpath("//div[@aria-checked='true']"));
+  //var btnSubmit = element(by.xpath("//button[contains(text(),'Submit')]"));
+  var assertReplayBtn = element(by.xpath("//div[contains(text(),'Replay')]"));
+  var assertTitleEndPage = element(by.xpath("//div[contains(text(),'You just completed')]//following::span[1]"));
+  var assertTitleSubmitPage = element(by.xpath("//div[contains(text(),'Are you ready to submit?')]//following::div[1]"));
+  var clkPreviewBtn = element(by.xpath("//button[contains(text(),'Review')]"));
+  var navigateSubmitPageBtn = element(by.xpath("//li[@class='requiresSubmit cursor-pointer showFeedBack-progressBar hover-effect ng-star-inserted']"));
+  var clkProgressBar1 = element(by.xpath("//div[@aria-label='question number 1']"));
+  var clkProgressBar2 = element(by.xpath("//div[@aria-label='question number 2']"));
+  var clkProgressBar3 = element(by.xpath("//div[@aria-label='question number 3']"));
+  var assertTitle1 = element(by.xpath("(//div[@class='mcq-title'])[1]"));
+  var assertTitle2 = element(by.xpath("(//div[@class='mcq-title'])[2]"));
+  var assertTitle4 = element(by.xpath("(//div[@class='mcq-title'])[3]"));
+  var assertQNo1 = element(by.xpath("(//div[contains(text(),'1/4')])[2]"));
+  var assertQNo2 = element(by.xpath("(//div[contains(text(),'2/4')])[2]"));
+  var assertQNo3 = element(by.xpath("(//div[contains(text(),'3/4')])[2]"));
+  var assertQNo4 = element(by.xpath("(//div[contains(text(),'4/4')])[2]"));
+  var selectContentInLibraryContent = element(by.xpath("//div[contains(text(),'Showing (2) most relevant content')]//following::div[@class='ng-star-inserted'][1]")); 
+  var asserLHSheairarchy = element(by.xpath("//div[contains(text(),' Folders ')]//following::*[contains(@role,'tree')]"));
+  var downloadFolderAsCsv = element(by.xpath("//span[contains(text(),'Download folders as csv file')]"));
+  var nextButtonOnUploadpopUp = element(by.xpath("//button[contains(text(),'Next')]"));
+  var closeButtonOnUploadpopUp = element(by.xpath("//span[contains(text(),' Create folders using csv file ')]//following::button[contains(text(),'Close')]"));
+  var ncertk_12 = element(by.xpath("//option[text()='NCERT']"));
+  var copyContentButton = element(by.xpath("//button[contains(text(),'Copy')]"));
+  var assertCopyOfContent = element(by.xpath("//span[@class='sliderCardHeading text-cencapitalize']"));
+  var assertGroupGuidelinesPopUp = element(by.xpath("//div[contains(text(),'Terms and conditions')]"));
+  var boardForCourse = element(by.xpath("(//option[text()='Select Board/Syllabus '])//.."));
+  var selectMediumforTextBook = element(by.xpath("//label[contains(text(),'Medium(s)')]//following::label[contains(text(),'English')]"));
+  var selectClassForTextBook = element(by.xpath("//label[contains(text(),'Class(es)')]//following::label[contains(text(),'Class 1')]"));
+  var selectsubjectForTextbook = element(by.xpath("//label[contains(text(),'Subject(s)')]//following::label[contains(text(),'Select All')]//..//following::input[contains(@type,'checkbox')]"));
+ 
   return {
     firstGroup,
     NewCoursesubmitButton,
@@ -925,7 +979,62 @@ let SanityElement = () => {
     decreaseResolution,
     increaseResolution,
     resetResolution,
-
+    liveTitle,
+    clkFirstParameter,
+    assertLastUpdatedDate,
+    assertGraph,
+    createdDate,
+    arrowBackButton,
+    courseInBrowseByCategories,
+    clickCourseUnit,
+    answerOne,
+    redoButton,
+    enterName,
+    addUserButton,
+    messageToast,
+    messageToastCloseButton,
+    assertUpdatedOn,
+    assertUserName,
+    assertUserDistrict,
+    assertCriteriaMet,
+    certificateTab,
+    searchCertficateID,
+    searchCertficateIDbutton,
+    selectBatchDropdwn,
+    asserRigthProgress,
+    assertWrongProgress,
+    assertBorderColorOfTheOpt,
+    assertReplayBtn,
+    assertTitleEndPage,
+    assertTitleSubmitPage,
+    clkPreviewBtn,
+    navigateSubmitPageBtn,
+    clkProgressBar1,
+    clkProgressBar2,
+    clkProgressBar3,
+    assertTitle1,
+    assertTitle2,
+    assertTitle4,
+    assertQNo1,
+    assertQNo2,
+    assertQNo3,
+    assertQNo4,
+    selectContentInLibraryContent,
+    asserLHSheairarchy,
+    downloadFolderAsCsv,
+    nextButtonOnUploadpopUp,
+    closeButtonOnUploadpopUp,
+    selectcourseTypeForNcert,
+    ncertk_12,
+    selectcourseTypeForK12,
+    copyContentButton,
+    selectcourseTypeCBSE,
+    assertCopyOfContent,
+    assertGroupGuidelinesPopUp,
+    boardForCourse,
+    selectMediumforTextBook,
+    selectClassForTextBook,
+    selectsubjectForTextbook,
   }
 
 }

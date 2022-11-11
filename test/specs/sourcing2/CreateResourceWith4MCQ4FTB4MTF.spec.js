@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const createRW4M4F4MPageObj = require(protractor.basePath + '/test/pageObject/resourcePageObj.js');
@@ -21,15 +23,16 @@ describe('Crea is Able to CreateQuestionAS4McQ,4MTF,4FLB and its navigate and Co
     });
     it('CreateResourceWith4MCQ4FTB4MTF', function () {
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName = createRW4M4F4MPageObj.createQuestionsWith4MCQ4FTB4MTF();
-        createRW4M4F4MPageObj.sendForReviewTheResource();
-        createRW4M4F4MPageObj.reviewInSubmissions(contentName);
-        utility.userLogout();
-        utility.userLogin('Reviewer');
-        createRW4M4F4MPageObj.publishTheResourceFromUpForReview(contentName);
-        utility.userLogout();
+        // createRW4M4F4MPageObj.sendForReviewTheResource();
+        // createRW4M4F4MPageObj.reviewInSubmissions(contentName);
+        //utility.userLogout();
+        // utility.userLogin('Reviewer');
+        // createRW4M4F4MPageObj.publishTheResourceFromUpForReview(contentName);
+        // utility.userLogout();
 
 
         //     utility.userLogin('Public User1');

@@ -851,6 +851,7 @@ const navigateToLibraryAndSearchForBook = (courseName1) => {
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().filterSearch), 40000, "filterSearch is not available");
         etbPage.EtbElem().filterSearch.click();
+        browser.sleep(4000);
         etbPage.EtbElem().filterSearch.sendKeys(courseName1);
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().searchIcon), 40000, "searchIcon is not available");
@@ -2655,13 +2656,7 @@ const contentInSubjectWiseIncourseTab = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(tpd.courses), 40000, "tpd.courses is not available");
         tpd.courses.click();
         browser.sleep(3000);
-
-
-
-
-        expect(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().CoursecontentInSubjectWise)).toBeTruthy()
-
-
+        expect(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().CoursecontentInSubjectWise)).toBeTruthy();
 
         browser.sleep(1000);
     }

@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
@@ -24,12 +26,10 @@ describe('Verify QR Code is Generating', () => {
     
     it('generateQRCode',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.generateQRCodes();
         sanityFun.downloadQRCode();
-
     });
 });
-   
-

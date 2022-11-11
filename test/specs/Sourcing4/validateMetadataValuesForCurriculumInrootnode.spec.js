@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
@@ -23,7 +25,8 @@ describe('validateMetadataValuesForCurriculumInrootnode', () => {
     
     it('validateMetadataValuesForCurriculumInrootnode',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
+        browser.sleep(30000);
+        //utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         utility.validateWorkspace();
         let courseName = sanityfun.validateMetadataValues("k12");

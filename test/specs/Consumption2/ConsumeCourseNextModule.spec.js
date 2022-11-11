@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
@@ -22,13 +24,9 @@ describe('ConsumeCourseNextModule', () => {
     });
     it('ConsumeCourseNextModule',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
-        searchCBFPPageObj.startLeaning();
-        
-       
-       
+        searchCBFPPageObj.startLeaning();    
     });
 });
-   
-

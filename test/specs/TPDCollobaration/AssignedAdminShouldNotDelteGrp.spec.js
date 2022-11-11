@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
@@ -21,9 +23,9 @@ describe('Verify AssignedAdminShouldNotDelteGrp', () => {
     });
     it('AssignedAdminShouldNotDelteGrp',function(){
         utility.handleDropDown();
-
+        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('staging');
         EnrollTBFCPageObj.addGrpAndDeleteGrp();
        
     })

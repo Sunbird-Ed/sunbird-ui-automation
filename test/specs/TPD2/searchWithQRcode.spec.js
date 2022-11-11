@@ -1,5 +1,5 @@
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
+const etbFun = require(protractor.basePath + '/test/pageObject/etbPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 
 describe('searchWithQRcode', () => {
@@ -17,7 +17,6 @@ describe('searchWithQRcode', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('searchWithQRcode',function(){
@@ -26,9 +25,6 @@ describe('searchWithQRcode', () => {
         browser.sleep(3000);
         utility.userLogin('Public User1');
         etbFun.searchWithQRcode();
-        etbFun.searchWithInvalidQRcode();
-      
-        
+        etbFun.searchWithInvalidQRcode();     
     })
 });
-   

@@ -165,7 +165,7 @@ let UserOnBoarding = () => {
     var dikshaTermsandUse = element(by.xpath("//a[contains(text(),' DIKSHA Terms of Use ')]"));
     var clkTermsCheckbox = element(by.xpath("//input[@id='tncAccepted']"));
     var registerLabel = element(by.xpath("//button[contains(text(),'Register')]"));
-    var clkYearDropdown = element(by.xpath("//div[contains(text(),'Year')]"));
+    var clkYearDropdown = element(by.xpath("//div[@class='mat-select-arrow-wrapper']"));
     var sltValidYear = element(by.xpath("//span[contains(text(),'1993')]"));
     var sltInValidYear = element(by.xpath("//span[contains(text(),'2020')]"));
     var verifyParentMsg = element(by.xpath("//label[contains(text(),' Enter mobile number or email address ')]"));
@@ -197,6 +197,8 @@ let UserOnBoarding = () => {
 
     var contributionSectionInProfile = element(by.xpath("//div[@class='ui segments']//child::div[@class='ui segment computer only']"));
     var locationPopUp = element(by.xpath("//*[contains(text(),'Your Location')]"));
+    var developerOptionDebugModeDropdown = element(by.xpath("//div[text()='Developer options']//following::*[@class='icon icon-svg--primary']"));
+    var enableDebugMenu = element(by.xpath("//div[text()='Enable Debug Mode ']//following::*[@class='slider round']"));
 
 
 
@@ -381,6 +383,8 @@ let UserOnBoarding = () => {
         reportButton,
         contributionSectionInProfile,
         locationPopUp,
+        developerOptionDebugModeDropdown,
+        enableDebugMenu,
     }
 };
 module.exports = {

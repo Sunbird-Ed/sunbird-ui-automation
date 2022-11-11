@@ -22,7 +22,7 @@ describe('SearchTVLesonTypeContent review and publish.', () => {
         browser.manage().deleteAllCookies();
     });
     it('SearchTVLesonTypeContent',function(){
-       utility.handleDropDown();
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResource();

@@ -4,7 +4,7 @@ const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePa
 const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 
-describe('Search Resource save and send for review and publish.', () => {
+describe('verifyUserAbleToResizeImageCreatingQuestionSet.', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -20,7 +20,8 @@ describe('Search Resource save and send for review and publish.', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('verifyAllTypesOfLayoutsRenderedAndPreview ',function(){
+
+    it('verifyUserAbleToResizeImageCreatingQuestionSet',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');

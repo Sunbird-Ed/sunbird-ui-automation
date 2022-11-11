@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
@@ -17,21 +19,22 @@ describe('Verify Create group add member and add activity', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
+    
     it('verifyCreationOfMyGroupAndActivity ',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Mentor');
+        utility.userLogin('Creator');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMemberandAddActivity();
         utility.userLogout();
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.groupMemberCourseConsumptionstatus();
         utility.userLogout();
-        utility.userLogin('Mentor');
-        EnrollTBFCPageObj.verifylastUpdatedandCourseConsumption();
-        utility.userLogout();
+        // utility.userLogin('Creator');
+        // EnrollTBFCPageObj.verifylastUpdatedandCourseConsumption();
+        // utility.userLogout();
      
     })
 });

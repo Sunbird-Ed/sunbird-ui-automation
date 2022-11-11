@@ -20,11 +20,11 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
 
     });
 
-
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('unEnrollFromOpenCourse', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();

@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
@@ -26,7 +28,8 @@ describe('generateAndDownloadQRcodeForOldBook', () => {
     });
     it('generateAndDownloadQRcodeForOldBook', function () {
         utility.handleDropDown();
-        utility.handleLocationPopup();
+        browser.sleep(40000);
+        //utility.handleLocationPopup();
         utility.userLogin('Creator');
         let bookName = sanityfun.createBookSaveAsDraft();
         utility.userLogout();
@@ -38,7 +41,8 @@ describe('generateAndDownloadQRcodeForOldBook', () => {
         utility.userLogin('Reviewer');
         tpdPageObj.publishContentFromUpForReviewBucket2(bookName);
         utility.userLogout();
-        // utility.userLogin('Book Creator');
-        // tpdPageObj.dwnldAndGenerateQRinBookFromPublish(bookName);
+
+        utility.userLogin('Book Creator');
+        tpdPageObj.dwnldAndGenerateQRinBookFromPublish(bookName);
     })
 });

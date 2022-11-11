@@ -18,7 +18,7 @@ describe('verifyUserIsAbleTochangeFilterforAllTab', () => {
         browser.manage().deleteAllCookies();
     });
 
-    it('verifyUserIsAbleTochangeFilterforAllTab',function(){
+    it('selectedFilterRetainedWhenMovingFromOneTabToAnother',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');

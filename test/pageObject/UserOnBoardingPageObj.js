@@ -1175,13 +1175,13 @@ const AddUserProfileVerification = () => {
         content.selectDistrict.click();
         wait.waitForElementVisibility(content.btnSubmit, 20000);
         content.btnSubmit.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
-        content.headerDropdown.click();
-        browser.sleep(1000);
-        verifyCEBObj.availableUser.getText().then(function (input) {
-            expect(input).toEqual(userName);
-            console.log("Verified selected user is switched : " + input);
-        });
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
+        // content.headerDropdown.click();
+        // browser.sleep(1000);
+        // verifyCEBObj.availableUser.getText().then(function (input) {
+        //     expect(input).toEqual(userName);
+        //     console.log("Verified selected user is switched : " + input);
+        // });
     }
     catch (Exception) {
         console.log("Failed on adding user");
@@ -2174,7 +2174,35 @@ const validateLocationPopUpInAllPages = () => {
     }
 }
 
+const validateDebugMode = () => {
+    try {
+        console.log('validate the Faq(s) and helpcentre burger menu');
+        browser.sleep(5000);
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(userOnboard.helpButton, 20000);
+        userOnboard.helpButton.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(4000);
+        wait.waitForElementVisibility(userOnboard.developerOptionDebugModeDropdown, 20000);
+        userOnboard.developerOptionDebugModeDropdown.click();
+        browser.sleep(4000);
+        wait.waitForElementVisibility(userOnboard.enableDebugMenu, 20000);
+        userOnboard.enableDebugMenu.click();
+        browser.sleep(4000);
+        expect((userOnboard.validationToasterMsg).isPresent()).toBe(true);
+        browser.sleep(4000);
 
+       
+    }
+    catch (Exception) {
+        console.log("Failed");
+    }
+}
 
 
 module.exports = {
@@ -2235,6 +2263,7 @@ module.exports = {
     validatingQRcodeSearchAndValidate,
     validateLocationPopUpInAllPages,
     validateLocationPopUp,
+    validateDebugMode,
 
 }
 

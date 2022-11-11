@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
@@ -24,11 +26,9 @@ describe('Veriy ViewAll and Pagenation in Course Section', () => {
 
     it('VerifyPagenationAndViewAllCourseSection',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Reviewer');
         resourcePageObj.VerifyCoursePage();
-       
-
-
     });
 });

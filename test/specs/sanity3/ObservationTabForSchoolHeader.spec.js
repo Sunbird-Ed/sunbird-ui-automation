@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
@@ -22,11 +24,9 @@ describe('ObservationTabForSchoolHeader', () => {
     
     it('ObservationTabForSchoolHeader',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopupForSchoolHead();
         utility.userLogin('ML');
         sanityFun.observationTabVerify();
-        
     });
 });
-   
-

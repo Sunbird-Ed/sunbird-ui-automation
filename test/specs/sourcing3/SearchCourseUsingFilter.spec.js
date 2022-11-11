@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const searchCBFPPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
@@ -21,9 +23,9 @@ describe('When is able to search a course by using Search filter and Page filter
     });
     it('SearchCourseUsingFilter',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
 
-         
         utility.userLogin('Public User1');
         searchCBFPPageObj.courseSearchFilter();
         utility.userLogout();

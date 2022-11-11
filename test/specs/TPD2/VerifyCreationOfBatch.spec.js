@@ -27,11 +27,9 @@ describe('VerifyCreationOfBatch', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
         tpdPageObj.publishContentFromUpForReviewBucket(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
@@ -39,9 +37,7 @@ describe('VerifyCreationOfBatch', () => {
         //   EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
         //   EnrollTBFCPageObj.createOpenBatchWithEnrolmentDate();
         EnrollTBFCPageObj.createOpenBatch();
-
         utility.userLogout();
-
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.navigateToCourseAndVerify(courseName);

@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const collectionPageObj = require(protractor.basePath + '/test/pageObject/collectionPageObj.js');
@@ -25,6 +27,7 @@ describe('CreateCollectionVerifyInDraftReviewAndPublish', () => {
     });
     it('CreateCollectionVerifyInDraftReviewAndPublish', function () {
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName = collectionPageObj.createCollection();

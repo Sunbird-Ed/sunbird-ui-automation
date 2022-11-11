@@ -24,7 +24,7 @@ describe('verifyFeaturedAndLatestSectionExploreCourse And Verify ViewAll Sec', (
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-      //  sanityFun.clkViewAllInCourseTab();
+        sanityFun.clkViewAllInCourseTab();
         
     });
 });

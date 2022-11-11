@@ -29,6 +29,5 @@ describe('consumeFullContentAndVerify', () => {
         utility.handleLocationPopup();
         utility.userLogin('Tntenant');
         cont.consumePdfContentAndVerifyProgress();
-    })
-    
+    }) 
 });

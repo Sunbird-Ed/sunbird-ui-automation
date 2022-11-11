@@ -21,9 +21,9 @@ describe('Verify Tenant Specific Logo', () => {
 
     });
     it('VerifyTenantSpecificLogo',function(){
-    
+        utility.handleDropDown();
+        //browser.sleep(20000);
+        utility.handleLocationPopup();
         sanityFun.verifyTNTenantLogo();
     });
 });
-   
-

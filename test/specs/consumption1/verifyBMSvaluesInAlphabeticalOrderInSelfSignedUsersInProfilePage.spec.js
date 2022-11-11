@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
@@ -20,6 +22,7 @@ describe('verifyBMSvaluesInAlphabeticalOrderInSelfSignedUsersInProfilePage', () 
 
     it('verifyBMSvaluesInAlphabeticalOrderInSelfSignedUsersInProfilePage',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('CustodianUser');
         tpdPageObj.editBMS();

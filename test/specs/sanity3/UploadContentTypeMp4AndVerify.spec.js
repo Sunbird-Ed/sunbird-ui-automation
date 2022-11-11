@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj=require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
@@ -11,7 +13,6 @@ describe('upload Mp4, save and send for review and publish.', () =>{
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
     });
 
     afterEach(() => {
@@ -21,6 +22,7 @@ describe('upload Mp4, save and send for review and publish.', () =>{
 
     it('UploadContentTypeMp4AndVerify ',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent=uploadPageObj.uploadMp4();
@@ -34,8 +36,5 @@ describe('upload Mp4, save and send for review and publish.', () =>{
         utility.userLogin('Creator');
         utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();
-
-
     });
-
 });

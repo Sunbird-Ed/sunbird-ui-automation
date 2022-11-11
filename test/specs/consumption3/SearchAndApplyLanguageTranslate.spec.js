@@ -11,8 +11,6 @@ describe('User Is able To ValidatePAGE LANG translation and Regional langauge tr
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
@@ -23,11 +21,12 @@ describe('User Is able To ValidatePAGE LANG translation and Regional langauge tr
     
     it('SearchAndApplyLanguageTranslate',function(){
         utility.handleDropDown();
-         utility.handleLocationPopup();
+        //browser.sleep(20000);
+        utility.handleLocationPopup();
         utility.userLogin('Creator');
         searchAALTPageObj.vaidatePageLangaugeTranslation();
-        utility.userLogout();
-        searchAALTPageObj.LangaugeTranslation();
-        searchAALTPageObj.SearchCouseWithRegionalLang();
+        // utility.userLogout();
+        // searchAALTPageObj.LangaugeTranslation();
+        // searchAALTPageObj.SearchCouseWithRegionalLang();
     })
 });

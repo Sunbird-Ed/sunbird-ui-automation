@@ -41,10 +41,6 @@ const createLessonPlan = () => {
         // etbv.contentResource.click();
 
         content.startCreating.click();
-        browser.sleep(9000);
-        browser.sleep(9000);
-        browser.sleep(9000);
-        browser.sleep(9000);
         browser.sleep(8000);
 
         browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
@@ -83,7 +79,7 @@ const createLessonPlan = () => {
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.save), 20000, "Dashboard never loaded");
         content.save.click();
-        // browser.switchTo().defaultContent(); 
+        browser.switchTo().defaultContent(); 
         browser.sleep(1000);
         console.log("User successfully created lesson plan")
         return lessonName;
@@ -97,6 +93,8 @@ const createLessonPlan = () => {
 
 const sendForReviewTheLessonPlan = () => {
     browser.sleep(1000);
+    browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+    browser.sleep(3000);
     browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.sendForReview), 20000, "send for review not available");
     content.sendForReview.click();
 
@@ -679,14 +677,14 @@ const verifyProfileSharingUpdate = (content) => {
         searchObj.share.click();
         browser.sleep(4000);
         
-        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+        browser.executeScript('window.scrollTo(0,400);').then(function () {
             console.log('++++++SCROLLED Down+++++');
         });
         browser.sleep(5000);
         wait.waitForElementVisibility(searchObj.profileDataSharingDrpdwn, 20000, "profile data sharing drop down");
         searchObj.profileDataSharingDrpdwn.click();
         browser.sleep(2000);
-        browser.executeScript('window.scrollTo(1000,2000);').then(function () {
+        browser.executeScript('window.scrollTo(400,600);').then(function () {
             console.log('++++++SCROLLED Down+++++');
         });
         browser.sleep(1000);
@@ -713,6 +711,92 @@ const verifyProfileSharingUpdate = (content) => {
     }
 }
 
+const createLessonPlanAndVerifyFilter = () => {
+    var lessonName;
+    try {
+        console.log("User is trying to create lesson plan")
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.lessonPlan), 20000, "content page not loaded");
+        content.lessonPlan.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.name), 20000, "Course creation editor never loaded");
+        lessonName = "LessonA" + faker.randomData().firstname;
+        content.name.sendKeys(lessonName);
+        browser.sleep(2000);
+
+
+        content.startCreating.click();
+        browser.sleep(9000);
+
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.newchild), 20000, "Didn't switched to different frame");
+        content.newchild.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.untitledUnitName), 20000, "title not available");
+        content.untitledUnitName.click();
+        content.untitledUnitName.clear();
+        content.untitledUnitName.sendKeys(lessonName);
+        wait.waitForElementVisibility(content.fieldLessonPlanDesc, 20000);
+        content.fieldLessonPlanDesc.click();
+        browser.sleep(4000);
+        content.fieldLessonPlanDesc.sendKeys(faker.randomData().words);
+        wait.waitForElementVisibility(content.fieldAddNotes, 20000);
+        browser.sleep(500);
+        content.fieldAddNotes.sendKeys(faker.randomData().words);
+        browser.sleep(4000);
+        content.addResource.click();
+        browser.sleep(2000);
+
+        content.assertViewAll.click();
+        browser.sleep(2000);
+
+        content.assertClearAll.click();
+        browser.sleep(2000);
+
+        content.clkContentType1.click();
+        browser.sleep(2000);
+
+        content.content1Val.click();
+        browser.sleep(2000);
+
+        content.clkFindAndSelected.click();
+        browser.sleep(2000);
+
+        content.clkSelectCurriculum.click();
+        browser.sleep(2000);
+
+        content.Curriculam1Val.click();
+        browser.sleep(2000);
+
+        content.clkFindAndSelected.click();
+        browser.sleep(2000);
+
+        content.selMed.click();
+        browser.sleep(2000);
+
+        content.Med1Val.click();
+        browser.sleep(2000);
+
+        content.clkFindAndSelected.click();
+        browser.sleep(2000);
+
+        content.select1stFilteredResult.click();
+        browser.sleep(2000);
+
+        content.clkProceedBtn.click();
+        browser.sleep(2000);
+
+    }
+    catch (Exception) {
+        console.log("User failed to create lesson plan")
+    }
+}
+
+
 
 
 
@@ -733,6 +817,6 @@ module.exports = {
     deleteUploadContent,
     verifyConsentPopup,
     verifyProfileSharingUpdate,
-
+    createLessonPlanAndVerifyFilter,
 
 }

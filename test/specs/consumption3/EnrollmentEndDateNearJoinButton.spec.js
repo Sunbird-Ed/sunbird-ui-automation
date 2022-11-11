@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
@@ -15,8 +17,6 @@ describe('able to create course and enroll consume EnrollmentEndDateNearJoinButt
         browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
-
-
     });
 
     afterEach(() => {
@@ -26,9 +26,10 @@ describe('able to create course and enroll consume EnrollmentEndDateNearJoinButt
 
     it('EnrollmentEndDateNearJoinButton', function () {
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        let courseName = sanityfun.createCourseAndSendForReview();
+        let courseName = tpdPageObj.createCourseAndSendForReviewBySearchingContentInLibrary("pdf_13");
         utility.userLogout();
         console.log(courseName);
         utility.userLogin('Reviewer');
@@ -38,10 +39,8 @@ describe('able to create course and enroll consume EnrollmentEndDateNearJoinButt
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatchWithEnrollMentEndDate();
         utility.userLogout();
-        //let courseName = "CourseCAyana";
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.validateEnrollmentEndDateNearJoinCourse();
     })
 });
-

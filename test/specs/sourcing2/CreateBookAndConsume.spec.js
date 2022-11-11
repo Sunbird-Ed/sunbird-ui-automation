@@ -29,11 +29,5 @@ describe('Create Book save and send for review and publish.', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         tpdPageObj.publishContentFromUpForReviewBucket(bookName)
-  
-
     })
-
-
-
 });
-

@@ -11,16 +11,16 @@ describe('UploadContentWithDifferentTypes', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('UploadContentWithDifferentTypes',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionFITBWithAllStyles();
@@ -30,12 +30,5 @@ describe('UploadContentWithDifferentTypes', () => {
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
-        utility.userLogin('Public User1');
-        resourcePageObj.ConsumeResourceAndValidateScoreForFITB(contentName);
-      
-        
-       
-      
     })
-    
 });

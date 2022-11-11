@@ -11,21 +11,18 @@ describe('HomePageDisplayedOnClickCloseBtnFromBrowseBtCategory', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('HomePageDisplayedOnClickCloseBtnFromBrowseBtCategory',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         resource.HomePageDisplayedOnClickCloseBtnFromBrowseBtCategory();
-        
-      
     })
-    
 });

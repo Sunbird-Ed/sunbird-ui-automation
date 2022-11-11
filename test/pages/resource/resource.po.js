@@ -122,7 +122,7 @@ var resource = () => {
     var teacherInstruction = element(by.xpath("//textarea[@id='instructions']"));
     var backgroundColor = element(by.xpath("//div[@class='sp-preview-inner']"));
     var redColor = element(by.xpath("//span[@title='#ff0000']"));
-    var addQuestionSet = element(by.xpath("//a[@data-content='Add Question Set']"));
+    var addQuestionSet = element(by.xpath("(//div[contains(@id,'toolbar')])//following::a[@data-content='Add Question Set']"));
     var pickQuestion = element(by.xpath("//div[@class='header ng-binding']"));
     var pickQuestionCheckBox = element(by.xpath("//div[@class='seven wide column qb-question-container']//input"));
     var pickQueNextButton = element(by.xpath("//button[contains(text(),'Next')]"));
@@ -228,7 +228,7 @@ var resource = () => {
     var verifyRatingSlideMsg = element(by.xpath("//*[contains(text(),'Thank you for rating this content!')]"));
     var justCompletedMsg = element(by.xpath("//*[contains(text(),'You just completed')]"));
     var ScoreLabel = element(by.xpath("//*[contains(text(),'SCORE')]"));
-    var validateScoreResult = element(by.xpath("//li[@class='ps-score-data endpage-score ps-score-data-padding-top ng-binding']"));
+    var validateScoreResult = element(by.xpath("//*[contains(text(),'SCORE')]//following::ul"));
 
     var Published = element(by.xpath(" //a[contains(.,'Published ')]"));
     var firstCourseCardContentName = element(by.xpath("//*[@class='sliderCardHeading text-cencapitalize']"));
@@ -255,7 +255,7 @@ var resource = () => {
     var deleteSetAnsewerOptions = element(by.xpath("//i[@class='trash large icon delete-icon']"));
     var closePage = element(by.xpath("//i[@class='remove icon custom-cursor']"));
     var firstBook = element(by.xpath("//div[@class='ui image']"));
-    var clickMcQFirstAnswer = element(by.xpath("//div[@class='option-text-container text-only']"));
+    var clickMcQFirstAnswer = element(by.xpath("//div[@aria-label='Select the answer']//following::div[@class='option-text-container text-only']"));
     var courseName = element(by.xpath("//input[@placeholder='Name']"));
     var boardInResource = element(by.id("board"));
     var mediumInResource = element(by.id("medium"));
@@ -327,7 +327,7 @@ var resource = () => {
     var sendForReviewInShareViaLink = element(by.xpath("//div[contains(@data-content,'Send for review')]"));
     var linkLimitedSharing = element(by.xpath("//div[contains(text(),'Limited sharing')]"));
     var linkShareViaLink = element(by.xpath("//a[contains(text(),' Shared via link ')]"));
-    var resourceInFirstColumn = element(by.xpath("//div[@class='cardImageText center aligned ']"));
+    var resourceInFirstColumn = element(by.xpath("//div[contains(@class,'cardImageText center aligned ')]"));
     var btnEditDetails = element(by.xpath("//span[contains(text(),'Edit Details')]//parent::a"));
     var labelLicense = element(by.xpath("//label[contains(text(),'LICENSE')]//following::div"));
     var linkCredit = element(by.xpath("//*[contains(text(),'About the content')]"));
@@ -337,13 +337,13 @@ var resource = () => {
     var iconPreview = element(by.xpath("(//div[@class='ui button text-part popup-item'])[2]"));
     var nextIconInPreviewBox = element(by.xpath("(//a[@class='nav-icon nav-next'])[2]"));
     var btnCloseInPreview = element(by.xpath("//h5[@class='ui right floated basic icon circular button  mouse-pointer']"));
-    var ddSelectlanguage = element(by.xpath("//i[@class='dropdown icon']"));
+    var ddSelectlanguage = element(by.xpath("//*[contains(@aria-label,'Select Language')]//following::div[contains(@class,'mat-select-arrow-wrapper')]"));
     var labelEnglish = element(by.xpath("(//span[contains(text(),'English')])[1]"));
     var labelMyCourses = element(by.xpath("//h4[contains(text(),'courses')]"));
     var btnSlideNext = element(by.xpath("//button[contains(@class,'slick-next slick-arrow')]"));
     var btnViewAll = element(by.xpath("//button[contains(text(),' View All ')]"));
     var btnPagination = element(by.xpath("//a[contains(@class,'sb-item')]"));
-    var imageCard3 = element(by.xpath("//div[@class='cardImageText center aligned ']"));
+    var imageCard3 = element(by.xpath("//div[contains(@class,'cardImageText center aligned')]"));
     var revieDialogClose = element(by.xpath("//span[contains(text(),'Reviewer Suggestions')]//following::i"));
     var clkUploRequestChanges = element(by.xpath("//button[@tabindex='0']"));
     var clkRejectUploadsc = element(by.xpath("//label[contains(text(),'Language is NOT simple to understand')]//following::button"));
@@ -468,8 +468,8 @@ var resource = () => {
     var clkExploreTab = element(by.xpath("//*[contains(text(),' Explore ')]"));
     var assertAudeinceType = element(by.xpath("//div[contains(text(),'Browse by Audience')]//following::label[contains(text(),'School Head Or Officials')]"));
     var assertAudeinceType2 = element(by.xpath("//div[contains(text(),'Browse by Audience')]//following::label[contains(text(),'Parent/guardian')]"));
-    var clkBackInbrowseBySubjectContentCard = element(by.xpath("//*[@title='Select Language']//following::button[1]"));
-    var clkBackInbrowseByBoardInExplore = element(by.xpath("//*[@title='Select Language']//following::button[1]"));
+    var clkBackInbrowseBySubjectContentCard = element(by.xpath("//span[contains(text(),'English')]//following::button[1]"));
+    var clkBackInbrowseByBoardInExplore = element(by.xpath("//span[contains(text(),'English')]//following::button[1]"));
     var clkViewAllBtn = element(by.xpath("//button[contains(text(),'View all')]"));
     var clkCloseBtn = element(by.xpath("//button[contains(text(),'Close ')]"));
     var clkChangePreferenceBtn = element(by.xpath("//button[contains(text(),'CHANGE PREFERENCE')]"));
@@ -480,11 +480,11 @@ var resource = () => {
     var toastMsg = element(by.xpath("//*[@class='iziToast-title slideIn']"));
     var addVedio = element(by.xpath("//a[@data-content='Add Video']"));
     var addMathtext = element(by.xpath("//a[@data-content='Add Math text']"));
-    var clkMediFilter = element(by.xpath("//label[contains(text(),'Medium')]//following::span[1]"));
+    var clkMediFilter = element(by.xpath("//label[contains(text(),'Medium')]//following::div[2]"));
     var sltMediuFilter1 = element(by.xpath("//label[contains(text(),'Medium')]//following::div[5]"));
     var sltMediuFilter2 = element(by.xpath("//label[contains(text(),'Medium')]//following::span[6]"));
-    var ClkClassFilter = element(by.xpath("//label[contains(text(),'Class')]//following::span[1]"));
-    var sltClassFilter1 = element(by.xpath("//label[contains(text(),'Class')]//following::div[5]"));
+    var ClkClassFilter = element(by.xpath("//label[contains(text(),'Class')]//following::div[2]"));
+    var sltClassFilter1 = element(by.xpath("//label[contains(text(),'Class')]//following::div[4]"));
     var sltClassFilter2 = element(by.xpath("//label[contains(text(),'Class')]//following::span[6]"));
     var clkDigitalTxtBooks = element(by.xpath("//a[contains(text(),'Digital textbooks')]"));
     var clkTVClasses = element(by.xpath("//a[contains(text(),'TV classes')]"));
@@ -496,8 +496,8 @@ var resource = () => {
     var aseertCourseData = element(by.xpath("//*[contains(text(),'From NCERT')]//following::div[contains(text(),'Course')]"));
     var assertTextBookData = element(by.xpath("//*[contains(text(),'From NCERT')]//following::div[contains(text(),'TextBook')]"));
     var assertEnrollEndDate = element(by.xpath("//*[contains(text(),'Last date for enrolment:')]"));
-    var QuestionName = element(by.xpath("//input[@placeholder='Enter Name']"));
-    var enterDescription = element(by.xpath("//textarea[@placeholder='Enter Description']"));
+    var QuestionName = element(by.xpath("//input[@placeholder='Name']"));
+    var enterDescription = element(by.xpath("//textarea[@placeholder='Description']"));
     var enterInstruction = element(by.xpath("//div[@contenteditable='true']"));
     var AdditionalCategory = element(by.xpath("//sb-caret-down[@class='caret-down']")); 
     var selAdditionalCategory = element(by.xpath("//label[contains(text(),'Concept Map')]"));
@@ -600,6 +600,62 @@ var resource = () => {
     var limitSharingdrpdwn = element(by.model("hideLimitedSharingBtn"));
     var assertTermsNcond = element(by.xpath("//*[contains(text(),'Terms and Privacy')]"));
     var switchToClassicTheme = element(by.xpath("//*[contains(@title,'Close sidebar')]//following::span[contains(text(),'Switch to classic theme')]"));
+    var addImageQuestionSet = element(by.xpath("//button[@title='Add image']//*[@class='image outline icon']"));
+    var selectImageInQuesSet = element(by.xpath("//div[text()='Select Image']//following::div[9]"));
+    var clickImage = element(by.xpath("//label[text()='Question']//following::*[@class='image ck-widget ck-widget_selected']"));
+    var clickZoom = element(by.xpath("//div[@class='ck-balloon-rotator__content']"));
+    var assertBorad = element(by.xpath("//span[contains(text(),'CBSE')]"));
+    var asseertMedim = element(by.xpath("//span[contains(text(),'Hindi')]"));
+    var assertClass1 = element(by.xpath("//span[contains(text(),'Class 1')]"));
+    var slideDropDown = element(by.xpath("(//div[contains(@data-content,'Add Slide')]//following::div[contains(@class,'dropdownarrowwrapper')])[1]"));
+    var selectArrangeSequesnce = element(by.xpath("//a[contains(text(),'Arrange in Sequence')]/following::div[3]"));
+    var clickBoldLetter = element(by.xpath("(//*[contains(@class,'cke_toolgroup')]//following::*[@title='Bold (Ctrl+B)'])[2]"));
+    var sizeDropDown = element(by.xpath("(//*[contains(@id,'cke_993_text')])"));
+    var assertErrorUploadingMessage = element(by.xpath("//*[contains(text(),'Error in processing the file')]//following::div[contains(text(),'Upload file again')]"));
+    var previewButtonInEditor = element(by.xpath("//div[@data-content='Preview']"));
+    var clkNxtSlide = element(by.xpath("(//div[contains(text(),'Questions')]//preceding::div[@aria-label='next slide'])[1]"));
+    var clkClosePreview = element(by.xpath("//div[contains(text(),'Question Set Preview')]//preceding::i[1]"));
+    var assertInstruction = element(by.xpath("//p[contains(text(),'Answer All')]"));
+    var clkBoldQstn = element(by.xpath("(//button[@class='ck ck-button ck-off'])[1]"));
+    var assertQstnBold = element(by.xpath("//strong[contains(text(),'What is the capital of Karnataka?')]"));
+    var clkBoldAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[10]"));
+    var clkBoldAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[19]"));
+    var assertBoldAns1 = element(by.xpath("//strong[contains(text(),'Bangalore')]"));
+    var assertBoldAns2 = element(by.xpath("//strong[contains(text(),'Mangalore')]"));
+    var clkItalicQstn = element(by.xpath("(//button[@class='ck ck-button ck-off'])[2]"));
+    var assertQstnItalic = element(by.xpath("//i[contains(text(),'What is the capital of Karnataka?')]"));
+    var clkItalicAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[11]"));
+    var assertItalicAns1 = element(by.xpath("//i[contains(text(),'Bangalore')]"));
+    var clkItalicAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[20]"));
+    var assertItalicAns2 = element(by.xpath("//i[contains(text(),'Mangalore')]"));  
+    var clkUnderlineQstn = element(by.xpath("(//button[@class='ck ck-button ck-off'])[3]"));
+    var assertQstnUnderline = element(by.xpath("//u[contains(text(),'What is the capital of Karnataka?')]"));
+    var clkUnderlineAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[12]"));
+    var assertUnderlineAns1 = element(by.xpath("//u[contains(text(),'Bangalore')]"));
+    var clkUnderlineAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[21]"));
+    var assertUnderlineAns2 = element(by.xpath("//u[contains(text(),'Mangalore')]")); 
+    var assertQstnBoldSub = element(by.xpath("//strong[contains(text(),'Describe Bangalore')]"));
+    var assertBoldAnsSub = element(by.xpath("//strong[contains(text(),'Bangalore Is Capital Of KARNATAKA')]"));
+    var assertQstnItalicSub = element(by.xpath("//i[contains(text(),'Describe Bangalore')]"));
+    var assertItalicAnsSub = element(by.xpath("//i[contains(text(),'Bangalore Is Capital Of KARNATAKA')]"));
+    var assertQstnUnderlineSub = element(by.xpath("//u[contains(text(),'Describe Bangalore')]"));
+    var assertUnderlineAnsSub = element(by.xpath("//u[contains(text(),'Bangalore Is Capital Of KARNATAKA')]"));
+    var clkDropDownFontQstn = element(by.xpath("(//button[@class='ck ck-button ck-off ck-dropdown__button'])[3]"));
+    var fontSizeSelectedForQstn = element(by.xpath("//span[text()='14']"));
+    var assertFontForQstn = element(by.xpath("//span[@class='fs-14']"));
+    var clkDropDownFontAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off ck-dropdown__button'])[7]"));
+    var fontSizeSelectedForAns1 = element(by.xpath("(//span[text()='18'])[2]"));
+    var assertFontForAns1 = element(by.xpath("//span[@class='fs-18']"));
+    var clkDropDownFontAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off ck-dropdown__button'])[11]"));
+    var fontSizeSelectedForAns2 = element(by.xpath("(//span[text()='20'])[3]"));
+    var assertFontForAns2 = element(by.xpath("//span[@class='fs-20']"));
+    var assertScoreMsgeWhenDisplayScoreIsYes = element(by.xpath("//div[contains(text(),'Your score is')]"));
+    var selectFirstOption = element(by.xpath("(//div[@aria-label='Select the answer']//following::span)[1]"));
+    var clkNextButtonInPreviewWindow = element(by.xpath("(//*[@alt='Navigate to Next'])"));
+    var clkSubmitButtonInPreviewWindow = element(by.xpath("(//button[text()=' Submit '])"));
+    var assertDefaultdisplayscore = element(by.xpath("(//div[@id='displayScore'])//following::div[1]"));
+    var selectDisplayScoreAsNo = element(by.xpath("//div[text()='No']"));
+    var displayDropDown = element(by.xpath("(//div[@id='displayScore']//following::input)[1]"));
 
     return {
         ddSelectlanguage,
@@ -695,7 +751,6 @@ var resource = () => {
         imageCard,
         selectImage,
         addHotspot,
-        saveIcon,
         closeButtonMsg,
         clickActionTabInResourceCreation,
         clickPlusIconInActionTab,
@@ -868,7 +923,6 @@ var resource = () => {
         questionSetTitle,
         addbutton,
         saveIcon,
-        closeButtonMsg,
         sendForReview,
         clickAppIcon,
         checkAppIcon,
@@ -1206,8 +1260,63 @@ var resource = () => {
         limitSharingdrpdwn,
         assertTermsNcond,
         switchToClassicTheme,
+        addImageQuestionSet,
+        selectImageInQuesSet,
+        clickImage,
+        clickZoom,
+        assertBorad,
+        asseertMedim,
+        assertClass1,
+        slideDropDown,
+        selectArrangeSequesnce,
+        clickBoldLetter,
+        sizeDropDown,
+        assertErrorUploadingMessage,
+        previewButtonInEditor,
+        clkNxtSlide,
+        clkClosePreview,
+        assertInstruction,
+        clkBoldQstn,
+        assertQstnBold,
+        clkBoldAns1,
+        clkBoldAns2,
+        assertBoldAns1,
+        assertBoldAns2,
+        clkItalicQstn,
+        assertQstnItalic,
+        clkItalicAns1,
+        assertItalicAns1,
+        clkItalicAns2,
+        assertItalicAns2,
+        clkUnderlineQstn,
+        assertQstnUnderline,
+        clkUnderlineAns1,
+        assertUnderlineAns1,
+        clkUnderlineAns2,
+        assertUnderlineAns2,
+        assertQstnBoldSub,
+        assertBoldAnsSub,
+        assertQstnItalicSub,
+        assertItalicAnsSub,
+        assertQstnUnderlineSub,
+        assertUnderlineAnsSub,
+        clkDropDownFontQstn,
+        fontSizeSelectedForQstn,
+        assertFontForQstn,
+        clkDropDownFontAns1,
+        fontSizeSelectedForAns1,
+        assertFontForAns1,
+        clkDropDownFontAns2,
+        fontSizeSelectedForAns2,
+        assertFontForAns2,
+        assertScoreMsgeWhenDisplayScoreIsYes,
+        selectFirstOption,
+        clkNextButtonInPreviewWindow,
+        clkSubmitButtonInPreviewWindow,
+        assertDefaultdisplayscore,
+        selectDisplayScoreAsNo,
+        displayDropDown,
     }
-
 };
 module.exports = {
     resource

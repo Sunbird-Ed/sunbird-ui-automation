@@ -13,17 +13,14 @@ describe('Create Book with all resource type, save and send for review and publi
         browser.get(Url+AppendExplore, 40000);
         browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
-        browser.driver.manage().window().maximize(); 
-       
-    
+        browser.driver.manage().window().maximize();     
     });
-
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        
     });
+    
     it('CreateBookWithAllResourceType',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
@@ -34,4 +31,3 @@ describe('Create Book with all resource type, save and send for review and publi
         tpdPageObj.publishCourseFromUpForReview(bookName); 
     })
 });
-   

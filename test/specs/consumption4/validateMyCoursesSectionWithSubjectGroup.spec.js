@@ -23,6 +23,7 @@ describe('validateMyCoursesSectionWithSubjectGroup', () => {
 
     it('validateMyCoursesSectionWithSubjectGroup', function () {
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('User');
         tpdPageObj.validateSubjectsAndMyCourseSectionInCourseTab();

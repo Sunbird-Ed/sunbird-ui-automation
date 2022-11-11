@@ -11,9 +11,7 @@ describe('Crea is Able to create Question MCQ and Consume by other Users and Cre
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
-        browser.driver.manage().window().maximize(); 
-       
-    
+        browser.driver.manage().window().maximize();  
     });
 
     afterEach(() => {
@@ -21,9 +19,11 @@ describe('Crea is Able to create Question MCQ and Consume by other Users and Cre
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
+    
     it('CreateQuestionMCQAndConsume',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
+        browser.sleep(20000);
+        //utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();
         resourcePageObj.sendForReviewTheResource();
@@ -33,8 +33,5 @@ describe('Crea is Able to create Question MCQ and Consume by other Users and Cre
         utility.userLogout();
         utility.userLogin('Public User1');
         resourcePageObj.ConsumeResourceAndValidateScoreForMCQ(contentName);
-      
-      
     })
-    
 });

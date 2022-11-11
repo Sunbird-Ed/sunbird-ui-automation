@@ -14,13 +14,12 @@ describe('CreateCourseByCopyAsCourseFromTextBook', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
     });
+    
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         utility.userLogout();
         browser.manage().deleteAllCookies();
-        
     });
     
     it('CreateCourseByCopyAsCourseFromTextBook',function(){
@@ -29,8 +28,5 @@ describe('CreateCourseByCopyAsCourseFromTextBook', () => {
         utility.userLogin('Creator');
         sanityFun.copyBookAsCourse('Textbook');
         EtbPageObj.sendCopiedBookForReview();
-
     });
 });
-   
-

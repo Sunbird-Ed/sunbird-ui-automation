@@ -21,11 +21,13 @@ describe('verify sign in popup in explore course', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('VerifySignInPopupInExploreCourseEnrollButton ', function () {
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        let courseName = sanityfun.createCourseAndSendForReview();
+        let courseName = tpdPageObj.createCourseAndSendForReviewBySearchingContentInLibrary("pdf_13");
         utility.userLogout();
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(courseName)
@@ -37,8 +39,4 @@ describe('verify sign in popup in explore course', () => {
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.validateLoginPopup();
     })
-
-
-
 });
-

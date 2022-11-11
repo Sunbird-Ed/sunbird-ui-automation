@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
@@ -23,6 +25,7 @@ describe('createCourseInCPDk12FrameWork', () => {
     });
     it('createCourseInCPDk12FrameWork', function () {
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         sanityfun.createCourseForFrameworkWithTopicAndSubject("k12");

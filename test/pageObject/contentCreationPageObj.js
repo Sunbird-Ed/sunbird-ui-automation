@@ -1061,7 +1061,6 @@ const trainingAttendedIsAvailableInProfilePage = () => {
 
 }
 const viewCourseDashBoardDetails = () => {
-
   try {
     var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
     var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
@@ -1602,10 +1601,6 @@ const validateContentDetails = () => {
     (sanityPage.attributionInbook).getText().then(function (attributionorder) {
       console.log("Order of Attributions output are" + attributionorder);
     })
-
-
-
-
   }
   catch (Exception) {
     console.log("Failed to consumed the content properly.");
@@ -1740,8 +1735,8 @@ const validateDownloadToc = () => {
     browser.sleep(1000);
     content.closeButton.click();
     browser.sleep(1000);
-    // browser.actions().dragAndDrop(content.overlayButton, content.overlayButton).mouseUp().perform();
-    // browser.sleep(6000);
+    browser.actions().dragAndDrop(content.overlayButton, content.overlayButton).mouseUp().perform();
+    browser.sleep(6000);
   }
   catch (Exception) {
     console.log("Failed to consumed the content properly.");
@@ -2113,6 +2108,165 @@ const consumeContetnByKeyBoardevents = () => {
   }
 }
 
+const viewCourseDashBoardDetailsInCertificatesTab = () => {
+  try {
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    var contentSearch = cred[7]['CourseName'];//"do_31353968960534937614631";
+    console.log("Course mentor should be able to see  view course dashboard details");
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerCourse), 20000, " headerCourse is not available");
+    content.headerCourse.click();
+    browser.sleep(3000);
+    content.searchInput.sendKeys(contentSearch);
+    content.searchButton.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.courseCard), 20000, "courseCard is not available");
+    content.courseCard.click();
+    browser.sleep(3000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.viewCourseDashBoard), 20000, "viewCourseDashBoard is not available");
+    content.viewCourseDashBoard.click();
+    browser.sleep(3000);
+    console.log("Course mentor is able to see the view training dashboard");
+    //browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectBatch), 20000, "selectBatch is not available");
+    // sanityPage.selectBatchDropdwn.click();
+    // browser.sleep(3000);
+    // searchObj.selectBatch.click();
+    // browser.sleep(2000);
+    // content.startDateDashboard.getText().then(function (input) {
+    //   expect(input).toEqual('Start Date')
+    // });
+    // console.log("Start date is displayed in the view training dashboard section");
+    // browser.sleep(2000);
+    // content.endDateDashboard.getText().then(function (input) {
+    //   expect(input).toEqual('End Date')
+    // });
+    browser.sleep(2000);
+    browser.sleep(1000);
+    sanityPage.certificateTab.click();
+    browser.sleep(2000);
+    sanityPage.searchCertficateIDbutton.sendKeys("usersun");
+    browser.sleep(2000);
+    expect(sanityPage.assertUpdatedOn.isPresent()).toBe(true);
+    browser.sleep(2000);
+    expect(sanityPage.assertUserName.isPresent()).toBe(true);
+    browser.sleep(2000);
+    expect(sanityPage.assertUserDistrict.isPresent()).toBe(true);
+    browser.sleep(2000);
+    expect(sanityPage.assertCriteriaMet.isPresent()).toBe(true);
+    browser.sleep(2000);
+    expect(sanityPage.assertUpdatedOn.isPresent()).toBe(true);
+    console.log("End date is displayed in the view training dashboard section");
+  }
+  catch (Exception) {
+    console.log("Failed to see view course dashboard details");
+  }
+};
+
+
+const viewCourseDashBoard = (contentSearch) => {
+  try {
+    console.log("Course mentor should be able to see  view course dashboard details");
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerCourse), 20000, " headerCourse is not available");
+    content.headerCourse.click();
+    browser.sleep(3000);
+    content.searchInput.sendKeys(contentSearch);
+    browser.sleep(1000);
+    content.searchButton.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.courseCard), 20000, "courseCard is not available");
+    content.courseCard.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.viewCourseDashBoard), 20000, "viewCourseDashBoard is not available");
+    content.viewCourseDashBoard.click();
+    console.log("Course mentor is able to see the view training dashboard");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectBatch), 20000, "selectBatch is not available");
+    content.selectBatch.click();
+    browser.sleep(1000);
+    content.batchSelectValue.click();
+    browser.sleep(2000);
+    content.startDateDashboard.getText().then(function (input) {
+      expect(input).toEqual('Start Date')
+    });
+    console.log("Start date is displayed in the view training dashboard section");
+
+    content.endDateDashboard.getText().then(function (input) {
+      expect(input).toEqual('End Date')
+    });
+    console.log("End date is displayed in the view training dashboard section");
+  }
+  catch (Exception) {
+    console.log("Failed to see view course dashboard details");
+  }
+};
+
+
+const consumePDFbContent = (courseName) => {
+  try {
+    browser.sleep(2000);
+    console.log("User is trying to consume content");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+    sanityPage.SanityElement().clkLibraray.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.sendKeys(courseName);
+    browser.sleep(2000);
+    sanityPage.SanityElement().clkSearchLib.click();
+    browser.sleep(3000);
+    content.courseCard.click();
+    browser.sleep(4000);
+    searchObj.joinCourseButton.click();
+    browser.sleep(5000);
+    browser.executeScript("arguments[0].scrollIntoView();", searchObj.doNotShare);
+    searchObj.doNotShare.click();
+    browser.sleep(3000);
+    // content.courseClk.click();
+    // browser.sleep(9000);
+    // browser.executeScript('window.scrollTo(0,100);').then(function () {
+    //   console.log('++++++SCROLLED Down+++++');
+    // });
+    //content.fullScreen.click();
+    //browser.actions().dragAndDrop(content.fullScreen, content.fullScreen).mouseUp().perform();
+    // browser.sleep(3000);
+    //  validateDownloadToc();
+      // content.zoomIn.click();
+      // browser.sleep(5000);
+      // validateDownloadToc();
+      // browser.sleep(5000);
+      // for (i = 0; i < 94; i++) {
+      //   sanityPage.SanityElement().pdfArrowButton.click();
+      //   browser.sleep(200);
+      //   if (i === 92) {
+      //     browser.sleep(4000);
+      //     (content.consumptionInPercentage).getText().then(function (input) {
+      //       console.log("Consumption percentage : " + input);
+      //     })
+      //     browser.sleep(4000);
+      //   }
+      // }
+      // sanityPage.SanityElement().pdfArrowButton.click();
+      // browser.sleep(5000);
+      // (content.consumptionTimer).getText().then(function (input) {
+      //   console.log("Total time consume " + input);
+      // })
+      // browser.sleep(6000);
+      // (content.assertConsume).getText().then(function (input) {
+      //   console.log(input + " consuming the content.");
+      // })
+      // browser.sleep(3000);
+      // (content.replayButton).getText().then(function (replay) {
+      //   console.log(replay + " Button is validated");
+      // })
+      // browser.sleep(5000);
+      // content.zoomOut.click();
+      // browser.sleep(1000);
+  }
+  catch (Exception) {
+    console.log("Failed to consumed the content properly.");
+  }
+}
 
 module.exports = {
 
@@ -2168,5 +2322,7 @@ module.exports = {
   consumeEpubContent,
   verifyAndValidateEpubContent,
   consumeContetnByKeyBoardevents,
-
+  viewCourseDashBoardDetailsInCertificatesTab,
+  viewCourseDashBoard,
+  consumePDFbContent,
 }

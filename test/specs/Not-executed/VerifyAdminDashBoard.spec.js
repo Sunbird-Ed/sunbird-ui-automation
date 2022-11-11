@@ -25,7 +25,6 @@ describe('VerifyAdminDashBoard', () => {
         utility.handleLocationPopup();
         utility.userLogin('Admin3');
         usrOnBoardfun.verifyAdminDashBoard();
-       
     });
 });
    

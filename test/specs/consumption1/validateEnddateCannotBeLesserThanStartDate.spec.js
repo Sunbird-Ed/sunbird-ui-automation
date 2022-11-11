@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
@@ -25,6 +27,7 @@ describe('validateEnddateCannotBeLesserThanStartDate', () => {
     it('validateEnddateCannotBeLesserThanStartDate', async function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
+       //browser.sleep(20000);
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();
         console.log(courseName);

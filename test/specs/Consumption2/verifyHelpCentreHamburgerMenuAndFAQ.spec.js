@@ -22,6 +22,7 @@ describe('verifyHelpCentreHamburgerMenuAndFAQ', () => {
     
     it('verifyHelpCentreHamburgerMenuAndFAQ',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('NewCustUser');
         verifyUOpage.verifyHamburgerAndFAQ();

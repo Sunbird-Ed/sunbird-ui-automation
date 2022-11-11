@@ -28,7 +28,7 @@ describe('previewContentFromAllMyContent', () => {
         let uploadContent=uploadPageObj.uploadContentAndPreviewInAllMyContent();
         utility.userLogout();
         utility.userLogin('Creator');
-                sanityFun.previeAllMyContent(uploadContent);
+        sanityFun.previeAllMyContent(uploadContent);
         
     });
 });

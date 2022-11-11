@@ -1067,12 +1067,6 @@ const contentInSubjectWiseInAllTabs = () => {
         resov.resoCard.click();
         browser.sleep(3000);
 
-
-
-
-
-
-
     }
     catch (Exception) {
         console.log('Failed on veriyfing contentInSubjectWise in ALLTabs');
@@ -1201,8 +1195,6 @@ const searchContentInExplorePagewithoutBack = (Consume) => {
         wait.waitForElementVisibility(resov.resoCard, 20000, "courseCard not loaded");
         resov.resoCard.click();
         browser.sleep(3000);
-        
-    
     }
     catch (Exception) {
         console.log('Failed on searching library by applying filters');
@@ -1210,9 +1202,6 @@ const searchContentInExplorePagewithoutBack = (Consume) => {
     }
 
 }
-
-
-
 
 
 module.exports = {

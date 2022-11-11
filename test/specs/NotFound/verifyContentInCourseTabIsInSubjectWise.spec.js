@@ -11,27 +11,18 @@ describe('verifyContentInCourseTabIsInSubjectWise.spec', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
     });
-
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-       utility.userLogout();
+        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
+
     it('verifyContentInCourseTabIsInSubjectWise',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        etbFun.contentInSubjectWiseIncourseTab();
-        
-
-        
+        etbFun.contentInSubjectWiseIncourseTab();  
     })
-    
-    
-
- 
 });
-   

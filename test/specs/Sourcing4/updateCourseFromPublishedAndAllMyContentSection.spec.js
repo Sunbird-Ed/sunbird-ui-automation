@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
@@ -26,14 +28,15 @@ describe('updateCourseFromPublishedAndAllMyContentSection', () => {
     });
     it('updateCourseFromPublishedAndAllMyContentSection', function () {
         utility.handleDropDown();
+        //browser.sleep(30000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        //utility.validateWorkspace();
         let courseName = sanityfun.createCourseAndSendForReview();
         console.log(courseName);
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        //utility.validateWorkspace();
         tpdPageObj.publishContentFromUpForReviewBucket(courseName)
         utility.userLogout();
         utility.userLogin('Creator');

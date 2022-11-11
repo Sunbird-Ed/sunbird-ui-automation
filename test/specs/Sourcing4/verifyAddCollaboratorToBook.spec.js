@@ -1,3 +1,4 @@
+const { browser } = require("protractor");
 
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
@@ -27,7 +28,8 @@ describe('verifyAddCollaboratorToBook', () => {
     it('verifyAddCollaboratorToBook',function(){
 
        utility.handleDropDown();
-        utility.handleLocationPopup();
+       //browser.sleep(20000);
+       utility.handleLocationPopup();
         utility.userLogin('Creator');
         let bookName = sanityfun.createBookSaveAsDraft();
         utility.userLogout();

@@ -22,6 +22,7 @@ describe('validateObservationTabForDifferentRoles', () => {
 
     it('validateObservationTabForDifferentRoles',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         sanityfun.changeDifferentRolesAndValidateObservatioTab();
     })

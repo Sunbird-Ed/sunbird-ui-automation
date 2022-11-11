@@ -26,17 +26,17 @@ describe('VerifyLatestCourseSectionWithLatestCourse', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let courseName=sanityfun.createCourseAndSendForReview();
         // tpdPageObj.createCourse();
         // let courseName=tpdPageObj.sendForReviewCourseWithName();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         tpdPageObj.createCourseWithLatestCourse(courseName);
        
     });

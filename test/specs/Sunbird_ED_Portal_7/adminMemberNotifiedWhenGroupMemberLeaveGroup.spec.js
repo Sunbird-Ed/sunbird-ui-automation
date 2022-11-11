@@ -22,7 +22,7 @@ describe('adminMemberNotifiedWhenGroupMemberLeaveGroup', () => {
     
     it('adminMemberNotifiedWhenGroupMemberLeaveGroup ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Admin3');
         let groupName = EnrollTBFCPageObj.addMemeberByUserId();

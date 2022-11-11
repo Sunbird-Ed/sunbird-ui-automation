@@ -21,7 +21,7 @@ describe('User is redirected to the conversation flow screen with no logic added
 
     it('userProvidesMandatoryAndOptionalOnTheConversationListingAndClickNext',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.verifyCommunicationConsole();

@@ -15,14 +15,13 @@ describe('Verify that as content creator in the dropdown option (My state teache
         browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
-
-
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+    
     it('verifyCertificateIssuingCriteriaIsAdded', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();

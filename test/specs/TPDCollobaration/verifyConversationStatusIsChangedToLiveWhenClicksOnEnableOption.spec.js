@@ -22,7 +22,7 @@ describe('User clicks on Enable option under the action column to go to Conversa
     });
     it('verifyConversationStatusIsChangedToLiveWhenClicksOnEnableOption',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.verifyCommunicationConsole();

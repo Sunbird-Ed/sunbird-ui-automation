@@ -22,9 +22,9 @@ describe('validateSubmitDetailsConsentForm', () => {
     
     it('validateSubmitDetailsConsentForm',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
-        utility.userLogin('NewCustUser');
+        utility.userLogin('NewCustUser1');
         verifyUOpage.validateSubmitConsentForm();
     });
 });

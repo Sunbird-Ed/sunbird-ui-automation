@@ -22,7 +22,7 @@ describe('Verify Org Admin must be able to view Communication Console Tab on the
     });
     it('verifyOrgAdminIsAbleToClickOnCommunicationConsoleAndViewContent ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.verifyCommunicationConsole();

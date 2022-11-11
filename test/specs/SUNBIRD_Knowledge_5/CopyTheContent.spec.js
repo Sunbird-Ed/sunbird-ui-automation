@@ -22,7 +22,7 @@ describe('copied Content From Library', () => {
     
     it('CopyTheContent',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
        sanityFun.copyContentFromLib('Resource');

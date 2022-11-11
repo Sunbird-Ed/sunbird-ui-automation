@@ -24,7 +24,7 @@ describe('VerifyTaxonomyFields.', () => {
     it('VerifyTaxonomyFields  ',function(){
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         tpdPageObj.createCourse();
         tpdPageObj.editDetailsForm();
         

@@ -23,7 +23,7 @@ describe('AddCollectionUsingDifferentApproachAndResource Verify', () => {
     });
     it('AddCollectionUsingDifferentApproachAndResource',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Book Creator');

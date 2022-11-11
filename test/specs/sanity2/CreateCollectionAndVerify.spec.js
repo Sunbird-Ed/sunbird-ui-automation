@@ -7,7 +7,6 @@ const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPag
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
 describe('Create Collection save and send for review and publish.', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -15,18 +14,15 @@ describe('Create Collection save and send for review and publish.', () => {
         browser.get(Url + AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
-
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-
     });
 
     it('CreateCollectionAndVerify ', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName = collectionPageObj.createCollection();
@@ -35,8 +31,6 @@ describe('Create Collection save and send for review and publish.', () => {
         tpdPageObj.publishCourseFromUpForReview(collectionName)
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();
     })
 });
-

@@ -28,11 +28,11 @@ describe('Create Course save and send for review and publish.', () => {
        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let courseName=sanityfun.createCourseWithRegionalLanguage();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishContentFromUpForReviewBucket2(courseName)
         utility.userLogout();
     })

@@ -27,7 +27,7 @@ describe('validateEnddateCannotBeLesserThanStartDate', () => {
     it('validateEnddateCannotBeLesserThanStartDate', async function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(20000);
+        
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();
         console.log(courseName);

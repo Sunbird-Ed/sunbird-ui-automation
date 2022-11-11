@@ -26,7 +26,7 @@ describe('validateMinimizeIsDisabledAfterConsumptionBothInZoomMode', () => {
     it('validateMinimizeIsDisabledAfterConsumptionBothInZoomMode', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(20000);
+        
         utility.userLogin('Public User1');
        // sanityfun.validateGreyedOutFullScreenButtonAfterConsumingToCertainExtent();
         sanityfun.validateGreyedOutFullScreenButtonAfterConsumingToCertainExtentOfCourseAssessment();

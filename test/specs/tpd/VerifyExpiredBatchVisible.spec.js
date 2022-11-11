@@ -29,13 +29,13 @@ describe('VerifyExpiredBatchVisible' , () => {
         browser.sleep(15000);
         utility.userLogin('Creator');
        
-        utility.validateWorkspace();
+        
         tpdPageObj.createCourse();
         let coursename=tpdPageObj.sendForReviewCourseWithName();
         utility.userLogout();
 
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishContentFromUpForReviewBucket(coursename);
         utility.userLogout();
 

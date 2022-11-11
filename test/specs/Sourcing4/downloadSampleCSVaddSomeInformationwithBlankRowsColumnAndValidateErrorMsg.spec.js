@@ -23,7 +23,7 @@ describe('downloadSampleCSVaddSomeInformationwithBlankRowsColumnAndValidateError
     it('downloadSampleCSVaddSomeInformationwithBlankRowsColumnAndValidateErrorMsg',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(20000);
+        
         utility.userLogin('Creator');
         sanityFun.createBookWithUploadCsv();
         sanityFun.writeToCsvFile("qualitrix");

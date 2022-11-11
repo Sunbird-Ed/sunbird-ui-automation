@@ -24,7 +24,7 @@ describe('NCERTSectionInHomeTab', () => {
 
     it('NCERTSectionInHomeTab',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         sanityfun.verifyHomeTab();
     })

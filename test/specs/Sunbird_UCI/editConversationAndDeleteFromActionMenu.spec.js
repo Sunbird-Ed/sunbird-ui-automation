@@ -22,7 +22,7 @@ describe('editConversationAndDeleteFromActionMenu', () => {
 
     it('editConversationAndDeleteFromActionMenu',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.validateAndClickCommunicationConsole();

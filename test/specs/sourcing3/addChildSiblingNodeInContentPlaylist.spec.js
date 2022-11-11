@@ -27,10 +27,10 @@ describe('addChildSiblingNodeInContentPlaylist', () => {
 
     it('addChildSiblingNodeInContentPlaylist', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let collectionName = collectionPo.createCollectionAndSaveAsDraft();
         utility.userLogout();
         utility.userLogin('Creator');

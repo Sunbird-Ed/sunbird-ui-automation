@@ -25,10 +25,10 @@ describe('validateCbseInFrameworkWithNCERTcred', () => {
 
     it('validateCbseInFrameworkWithNCERTcred', function () {
         utility.handleDropDown();
-        //browser.sleep(30000);
+        //;
         utility.handleLocationPopup();
         utility.userLogin('NCERTCC');
-        utility.validateWorkspace();
+        
         let courseName = sanityfun.createCourseAndSendForReviewWithCBSECoureType();
         utility.userLogout();
         utility.userLogin('NCERTCR');

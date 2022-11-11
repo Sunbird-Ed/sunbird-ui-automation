@@ -25,7 +25,6 @@ describe('SearchTVLesonTypeContent review and publish.', () => {
     });
     it('SearchTVLesonTypeContent',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         let resourceName=resourcePageObj.createResource();

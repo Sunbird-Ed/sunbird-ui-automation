@@ -24,7 +24,7 @@ describe('ValidatingETBTaxanomyInEditPage', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
-        utility.validateWorkspace();
+        
         // tpdPageObj.checkForCurriculumCourseFramework();
         // tpdPageObj.checkEditFormOfCurriculumframework();
 

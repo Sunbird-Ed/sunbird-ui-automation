@@ -27,15 +27,15 @@ describe('able to create course and enroll consume EnrollingToBatchForCourse.spe
     });
     it('EnrollingToBatchForCourse', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let courseName = sanityfun.createCourseAndSendForReview();
         console.log(courseName);
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishContentFromUpForReviewBucket(courseName)
         utility.userLogout();
         utility.userLogin('Creator');

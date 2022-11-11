@@ -5,7 +5,6 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const lessonPlanPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 
 describe('Create Lesson plan save and send for review and publish.', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -23,8 +22,7 @@ describe('Create Lesson plan save and send for review and publish.', () => {
     });
     it('CreateLessonPlanAndVerify ',function(){
         utility.handleDropDown();
-        browser.sleep(20000);
-        //utility.handleLocationPopup();
+        utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         let lessonPlan=lessonPlanPageObj.createLessonPlan();
         lessonPlanPageObj.sendForReviewTheLessonPlan();

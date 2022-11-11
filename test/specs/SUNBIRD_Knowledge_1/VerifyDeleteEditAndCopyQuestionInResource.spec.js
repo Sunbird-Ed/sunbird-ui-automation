@@ -32,7 +32,7 @@ describe('Shou be able to Edit and Copy and delete Questions.', () => {
         resourcePageObj.publishTheResourceFromUpForReview(questionName);
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
       
        

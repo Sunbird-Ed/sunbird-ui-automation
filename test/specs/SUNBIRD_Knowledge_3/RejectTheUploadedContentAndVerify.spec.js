@@ -22,7 +22,7 @@ describe('RejectTheUploadedContentAndVerify', () => {
     });
     it('RejectTheUploadedContentAndVerify',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent= uploadPageObj.uploadH5p();

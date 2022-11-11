@@ -23,21 +23,10 @@ describe('verifyCollaboratorInCourse', () => {
 
     it('verifyCollaboratorInCourse',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
-        browser.sleep(3000);
         utility.userLogin('Book Creator');
         let BookName = sanityfun.CreateCourseAndSaveAsDraft1("cpd");
         sanityfun.addCollboratortoDraftAndSaveBook(BookName);
-        sanityfun.removeCollboratortoDraftAndSaveBookForCourse(BookName);
-        
+        sanityfun.removeCollboratortoDraftAndSaveBookForCourse(BookName);     
     })
 });
-   
-
-
-
-
-
-
-

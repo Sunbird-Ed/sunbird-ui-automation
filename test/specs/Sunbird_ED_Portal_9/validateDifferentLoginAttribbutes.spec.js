@@ -25,7 +25,6 @@ describe('validateDifferentLoginAttribbutes', () => {
     
     it('validateDifferentLoginAttribbutes', function () {
         utility.handleDropDown();
-        //browser.sleep(25000);
         utility.handleLocationPopup();
         usrOnBoardfun.validateAllLoginAttributesOfExplorePage();
     })

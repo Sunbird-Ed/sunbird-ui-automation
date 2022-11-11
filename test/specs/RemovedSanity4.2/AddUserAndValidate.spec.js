@@ -23,7 +23,7 @@ describe('Verifiy user is getting add user option in his profile and able to swi
     });
     it('AddUserAndValidate',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Admin3');
         verifyCEBpageobj.addUserInProfile();

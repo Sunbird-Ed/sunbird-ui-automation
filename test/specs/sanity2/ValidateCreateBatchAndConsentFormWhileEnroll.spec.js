@@ -26,19 +26,17 @@ describe('able to create course and enroll consume ValidateCreateBatchAndConsent
     it('ValidateCreateBatchAndConsentFormWhileEnroll', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(25000);
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(courseName)
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
-        //let courseName = "do_2136131999993774081500";
-        utility.userLogin('AddUserCred');
+        utility.userLogin('Public User1');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch();
     })

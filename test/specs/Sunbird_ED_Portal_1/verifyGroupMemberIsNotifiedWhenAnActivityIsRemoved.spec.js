@@ -21,7 +21,7 @@ describe('Verify that, Group Member is notified, When an activity is assigned to
     });
     it('verifyGroupMemberIsNotifiedWhenAnActivityIsRemoved ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.openExistingGroup();

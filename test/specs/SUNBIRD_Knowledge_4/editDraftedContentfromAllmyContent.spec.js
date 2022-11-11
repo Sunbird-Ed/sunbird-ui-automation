@@ -26,10 +26,10 @@ describe('editDraftedContentfromAllmyContent', () => {
     });
     it('editDraftedContentfromAllmyContent', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let courseName = sanityfun.createCourseAndSavetoDraft();
         utility.userLogout();
         utility.userLogin('Creator');

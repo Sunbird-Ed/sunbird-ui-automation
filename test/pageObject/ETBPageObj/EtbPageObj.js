@@ -858,7 +858,7 @@ const navigateToLibraryAndSearchForBook = (courseName1) => {
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.courseCard), 40000, "courseCard is not available");
         content.courseCard.click();
-        browser.sleep(30000);
+        browser.sleep(25000);
 
 
         console.log('User successfully navigated To Library And Search For Book');
@@ -987,7 +987,7 @@ const createBook = () => {
         })
         sanityPage.SanityElement().Author.sendKeys("EKSTEP");
         browser.sleep(1000);
-        sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
+        sanityPage.SanityElement().selectCopyRightYear.sendKeys("2022");
         browser.sleep(1000);
         sanityPage.SanityElement().saveAsDraft.click();
         browser.sleep(3000);
@@ -2130,7 +2130,7 @@ const sendCopiedBookForReview = () => {
         browser.sleep(3000);
         sanityPage.SanityElement().Author.sendKeys("EKSTEP");
         browser.sleep(3000);
-        sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
+        sanityPage.SanityElement().selectCopyRightYear.sendKeys("2022");
         browser.sleep(3000);
 
         sanityPage.SanityElement().saveAsDraft.click();
@@ -2810,12 +2810,12 @@ const filtersInAllTab = () => {
         resov.sltMediumDdAllTabs.click();
         browser.sleep(2000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkMediumDdAllTabs), 40000, "clickFilterMedium is not available");
-        resov.clkMediumDdAllTabs.click();
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltMedium2DdAllTabs), 40000, "selectFilterMedium is not available");
-        resov.sltMedium2DdAllTabs.click();
-        browser.sleep(2000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkMediumDdAllTabs), 40000, "clickFilterMedium is not available");
+        // resov.clkMediumDdAllTabs.click();
+        // browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltMedium2DdAllTabs), 40000, "selectFilterMedium is not available");
+        // resov.sltMedium2DdAllTabs.click();
+        // browser.sleep(2000);
 
 
         expect(protractor.ExpectedConditions.visibilityOf(resov.courseToBeClicked)).toBeTruthy()
@@ -2826,11 +2826,11 @@ const filtersInAllTab = () => {
         resov.sltClassDdAllTabs.click();
         browser.sleep(2000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkClassDdAllTabs), 40000, "clickFilterClass is not available");
-        resov.clkClassDdAllTabs.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltClass2DdAllTabs), 40000, "selectFilterClass is not available");
-        resov.sltClass2DdAllTabs.click();
-        browser.sleep(2000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkClassDdAllTabs), 40000, "clickFilterClass is not available");
+        // resov.clkClassDdAllTabs.click();
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(resov.sltClass2DdAllTabs), 40000, "selectFilterClass is not available");
+        // resov.sltClass2DdAllTabs.click();
+        // browser.sleep(2000);
 
 
         expect(protractor.ExpectedConditions.visibilityOf(resov.courseToBeClicked)).toBeTruthy()
@@ -2894,13 +2894,13 @@ const validateFiltersInAllTheTabs = () => {
         resov.assertMedium.getText().then(function(input){
           
             console.log(input);
-            (input).includes("Assamese");
+            (input).includes("english");
         })
         browser.sleep(2000);
         resov.assertClass.getText().then(function(input){
             
             console.log(input);
-            (input).includes("Kg");
+            (input).includes("class 1");
         })
 
     }
@@ -3034,4 +3034,5 @@ module.exports = {
     userLoginPopup,
     filtersInAllTab,
     validateFiltersInAllTheTabs,
+    validateregionallanguageSelection,
 }

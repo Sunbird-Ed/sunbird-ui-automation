@@ -20,7 +20,7 @@ describe('validateAllTheTrendingTagsAndDiscussionThreads', () => {
     
     it('validateAllTheTrendingTagsAndDiscussionThreads',function(){
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Admin');
         EnrollTBFCPageObj.validateAllTrendingTags();

@@ -23,7 +23,7 @@ describe('validateFrameworkResetWhenFWlabeIsChanged', () => {
     
     it('validateFrameworkResetWhenFWlabeIsChanged', function () {
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseForFrameworkAndValidateTheReset("CPD");

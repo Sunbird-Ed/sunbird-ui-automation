@@ -20,6 +20,7 @@ describe('validateBMSvaluesInGuestProfile', () => {
 
     it('validateBMSvaluesInGuestProfile',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
         sanityfun.verifyLocationDetails();
     })

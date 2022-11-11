@@ -24,10 +24,10 @@ describe('CreateCourseAndRejectCourse', () => {
     });
     it('CreateCourseAndRejectCourse',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let courseName=sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');

@@ -24,7 +24,7 @@ describe('Verify Create group add member and add activity', () => {
     
     it('verifyCreationOfMyGroupAndActivity ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMemberandAddActivity();

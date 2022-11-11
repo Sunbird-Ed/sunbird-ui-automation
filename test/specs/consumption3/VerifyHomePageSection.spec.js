@@ -21,7 +21,7 @@ describe('VerifyHomePageSection', () => {
     });
     it('VerifyHomePageSection',function(){
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         resource.verifyBoardSubjectAndCategories();

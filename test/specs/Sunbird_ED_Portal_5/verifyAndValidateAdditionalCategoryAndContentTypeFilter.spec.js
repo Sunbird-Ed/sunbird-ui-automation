@@ -22,7 +22,7 @@ describe('verifyAndValidateAdditionalCategoryAndContentTypeFilter', () => {
 
     it('verifyAndValidateAdditionalCategoryAndContentTypeFilter',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.verifyAdditionalCategoryFilter();

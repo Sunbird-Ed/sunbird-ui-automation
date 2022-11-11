@@ -21,8 +21,8 @@ describe('upload html, save and send for review and publish.', () =>{
 
     it('UploadContentTypeHtmlAndVerify  ',function(){
         utility.handleDropDown();
-        browser.sleep(20000);
-        //utility.handleLocationPopup();
+        
+        utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent=uploadPageObj.uploadHtml();
         utility.userLogout();
@@ -33,7 +33,7 @@ describe('upload html, save and send for review and publish.', () =>{
         // resourcePageObj.ConsumeUploadContent(uploadContent,'EPUB');
         // utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
 
 

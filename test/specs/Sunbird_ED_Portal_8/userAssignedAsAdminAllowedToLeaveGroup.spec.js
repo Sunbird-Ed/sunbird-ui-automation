@@ -24,7 +24,7 @@ describe('userAssignedAsAdminAllowedToLeaveGroup', () => {
     
     it('userAssignedAsAdminAllowedToLeaveGroup', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('NewCustUser1');
         let groupName = sanityfun.verifyAddActivitySearchedByKeyword("AutomationCourseCompletedBatch");

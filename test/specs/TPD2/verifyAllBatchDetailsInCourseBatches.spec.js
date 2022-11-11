@@ -24,7 +24,7 @@ describe('Course creator should have two section under "Courses Batches" :1.Crea
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let courseName=sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');

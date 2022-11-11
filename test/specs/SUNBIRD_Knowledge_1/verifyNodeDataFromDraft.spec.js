@@ -25,10 +25,10 @@ describe('verifyNodeDataFromDraft', () => {
     });
     it('verifyNodeDataFromDraft',function(){
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-        utility.validateWorkspace();
+        
         console.log("User is trying to delete drafted course from draft and allMyContent section");
         let courseName1=sanityfun.createCourseAndSaveAsDraftWithChild("k12");
         utility.userLogout();

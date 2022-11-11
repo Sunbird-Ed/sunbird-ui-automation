@@ -22,7 +22,8 @@ describe('validateRegisterHerePage', () => {
     
     it('validateRegisterHerePage',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
+        browser.sleep(30000);
+        //utility.handleLocationPopup();
         verifyUOpage.verifyRegisterHerePage();
     });
 });

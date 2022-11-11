@@ -24,7 +24,7 @@ describe('createGroupAddActivityAndRemoveActivity', () => {
     
     it('createGroupAddActivityAndRemoveActivity', function () {
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('NewCredCourseToc');
         sanityfun.addActivityFromCourse();

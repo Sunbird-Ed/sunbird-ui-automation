@@ -24,10 +24,10 @@ describe('user is able validate all language ,Elements are changed as per the La
         utility.handleDropDown();
          utility.handleLocationPopup();
        
-        checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsHindi();
+       // checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsHindi();
         // checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsKannada();
         // checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsTamil();
-        // checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsUrdu();
+         checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsUrdu();
         
     })
     

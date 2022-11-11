@@ -22,7 +22,6 @@ describe('upload Mp4, save and send for review and publish.', () =>{
 
     it('UploadContentTypeMp4AndVerify ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent=uploadPageObj.uploadMp4();
@@ -34,7 +33,7 @@ describe('upload Mp4, save and send for review and publish.', () =>{
         // resourcePageObj.ConsumeUploadContent(uploadContent,'EPUB');
         // utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
     });
 });

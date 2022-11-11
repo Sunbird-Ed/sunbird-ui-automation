@@ -24,7 +24,7 @@ describe('verifyCreatorAbleToDeleteCourses', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let courseName = sanityFun.CreateCourseAndSaveAsDraft1();
         console.log(courseName)
         tpdPageObj.searchContent("draft");

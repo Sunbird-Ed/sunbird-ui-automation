@@ -24,7 +24,6 @@ describe('Verify that user is displayed with the kebab menu in the course progre
 
     it('verifyThatTheTextSyncProgressNowIsDisplayedInAnyRegionalLanguage', function () {
         utility.handleDropDown();
-       // browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReviewWithResourceForPostSync();

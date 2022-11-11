@@ -22,7 +22,7 @@ describe('Course Enrolled By the user should dispay in descending order', () => 
     });
     it('verifyUserEnrolledCourseInOrder ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         let courseName=sanityfun.createCourseAndSendForReview();

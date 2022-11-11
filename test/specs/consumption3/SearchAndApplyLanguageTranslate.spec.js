@@ -21,7 +21,7 @@ describe('User Is able To ValidatePAGE LANG translation and Regional langauge tr
     
     it('SearchAndApplyLanguageTranslate',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         searchAALTPageObj.vaidatePageLangaugeTranslation();

@@ -23,7 +23,7 @@ describe('verifyCourseLastAttemptMessage', () => {
     
     it('verifyCourseLastAttemptMessage',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('staging');
         EnrollTBFCPageObj.validateLastAttemptMessage();

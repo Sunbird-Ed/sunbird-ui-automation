@@ -26,7 +26,7 @@ describe('Create Course save and RequestAndPublishPopupShouldClosePostClickOnCan
     });
     it('RequestAndPublishPopupShouldClosePostClickOnCancelBtn', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();

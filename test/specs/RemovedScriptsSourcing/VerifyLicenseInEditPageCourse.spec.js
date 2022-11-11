@@ -32,7 +32,7 @@ describe('verifyLicenseInEditPageCourse' , () => {
         // let courseName=tpdPageObj.sendForReviewCourseWithName();
         // utility.userLogout();
         // utility.userLogin('Reviewer');
-        // utility.validateWorkspace(); 
+        //  
 
       
     })

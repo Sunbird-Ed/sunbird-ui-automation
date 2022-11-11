@@ -28,7 +28,7 @@ describe('verifyLicenseInEditPageBook Verify' , () => {
     });
     it('verifyLicenseInEditPageBook',function(){
         utility.handleDropDown();
-       //browser.sleep(20000);
+       
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let bookName= sanityFun.createBook();

@@ -22,11 +22,10 @@ describe('DownloadSampleCSVFile', () => {
     it('DownloadSampleCSVFile',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(20000);
+        
         utility.userLogin('Creator');
         // etbFun.navigateToWorkspace();
         // etbFun.downloadSampleCSVFile();
         sanityFun.dowloadSampleCSV()
     })
 });
-   

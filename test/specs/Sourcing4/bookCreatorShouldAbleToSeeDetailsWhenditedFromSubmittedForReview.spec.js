@@ -25,7 +25,7 @@ describe('bookCreatorShouldAbleToSeeDetailsWhenditedFromSubmittedForReview', () 
 
     it('bookCreatorShouldAbleToSeeDetailsWhenditedFromSubmittedForReview',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Book Creator');
         let bookName=etbPageObj.createBookWithAllResourceType();

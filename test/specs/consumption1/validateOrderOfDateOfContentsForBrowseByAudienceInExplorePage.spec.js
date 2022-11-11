@@ -25,7 +25,7 @@ describe('validateOrderOfDateOfContentsForBrowseByAudienceInExplorePage', () => 
 
     it('validateOrderOfDateOfContentsForBrowseByAudienceInExplorePage', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         tpdPageObj.exploreTabwithSchoollHeadInBrowseByAudience();

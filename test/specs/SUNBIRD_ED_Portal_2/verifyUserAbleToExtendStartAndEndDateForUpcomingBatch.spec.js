@@ -26,15 +26,15 @@ describe('verifyUserAbleToExtendStartAndEndDateForUpcomingBatch', () => {
     
     it('verifyUserAbleToExtendStartAndEndDateForUpcomingBatch', async function () {
         utility.handleDropDown();
-      utility.handleLocationPopup();
-              utility.userLogin('Creator');
+        utility.handleLocationPopup();
+        utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
         console.log(courseName);
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(courseName)
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createFutureBatch();
         EnrollTBFCPageObj.selectUpcomingBatchFromDropdown();

@@ -25,7 +25,7 @@ describe('libraryCourseContentAddedToLHSheirarchy', () => {
 
     it('libraryCourseContentAddedToLHSheirarchy', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let data = tpdPageObj.createCourseAndReturnDoidAndCourseName();
@@ -35,7 +35,7 @@ describe('libraryCourseContentAddedToLHSheirarchy', () => {
         var doid = input.split("/")[6];
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishCourseFromUpForReview(course);
         utility.userLogout();
         utility.userLogin('Creator');

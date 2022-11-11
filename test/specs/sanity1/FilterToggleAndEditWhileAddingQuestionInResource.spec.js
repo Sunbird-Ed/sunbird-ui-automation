@@ -24,7 +24,6 @@ describe('FilterToggleAndEditWhileAddingQuestionInResource', () => {
 
     it('FilterToggleAndEditWhileAddingQuestionInResource', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         tpdobj.applyFilterAndToggleQuestion();

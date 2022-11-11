@@ -23,7 +23,7 @@ describe('Verify EditGroupDetails', () => {
     });
     it('EditGroupDetails ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('staging');
         EnrollTBFCPageObj.addGrpAndDeleteGrp();

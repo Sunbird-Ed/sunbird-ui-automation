@@ -21,7 +21,7 @@ describe('validateRolePopUpLabel', () => {
     });
     
     it('validateRolePopUpLabel',function(){
-        //browser.sleep(20000);
+        
         EnrollTBFCPageObj.validateRolePopUpLabel();
     })
 });

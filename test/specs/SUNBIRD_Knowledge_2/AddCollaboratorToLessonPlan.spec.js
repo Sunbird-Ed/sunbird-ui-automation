@@ -20,7 +20,7 @@ describe('loogin into Application with Mentor user,create LessonPlan and add Col
     });
     it('AddCollaboratorToLessonPlan',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         addCTLPPageObj.createLessonPlan() ;

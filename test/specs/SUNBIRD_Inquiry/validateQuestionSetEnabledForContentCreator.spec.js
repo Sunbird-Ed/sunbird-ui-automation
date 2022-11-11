@@ -26,7 +26,7 @@ describe('validateQuestionSetEnabledForContentCreator', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
-        utility.validateWorkspace();
+        
         resource.verifyQuestionSet();
 
     })

@@ -223,8 +223,6 @@ const createBookWithAllResourceType = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickSearchedResourceDoId), 30000, "selectResourceType not available");
         content.clickSearchedResourceDoId.click();
         browser.sleep(1000);
-
-
         // browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickAddbutton), 30000, "clickAddbutton not available");
         // content.clickAddbutton.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.proceed), 30000, "proceed is not available");
@@ -686,7 +684,7 @@ const adminCanEditTextBook = (booksName) => {
 
         // browser.executeScript("arguments[0].scrollIntoView();", sanityPage.SanityElement().selectCopyRightYear);
         // browser.sleep(1000);
-        // sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
+        // sanityPage.SanityElement().selectCopyRightYear.sendKeys("2022");
         // browser.sleep(3000);
 
         // browser.executeScript("arguments[0].scrollIntoView();", sanityPage.SanityElement().attribution);
@@ -730,7 +728,7 @@ const adminCanEditTextBook = (booksName) => {
 
         //   browser.executeScript("arguments[0].scrollIntoView();",sanityPage.SanityElement().selectCopyRightYear);
         //   browser.sleep(1000);
-        //         sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
+        //         sanityPage.SanityElement().selectCopyRightYear.sendKeys("2022");
         //   browser.sleep(3000);
 
         //   sanityPage.SanityElement().saveAsDraft.click();

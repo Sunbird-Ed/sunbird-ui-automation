@@ -24,7 +24,7 @@ describe('createBookEditAnduploadCSV', () => {
         utility.userLogin('Creator');
         sanityFun.createBookWithUploadCsv();
         sanityFun.verifyDownlaodedCSVFile();
-        //sanityFun.writeToExcel();
+        sanityFun.writeToExcel();
         let  customfilepath = "C:\\Users\\Qualitrix\\Downloads\\createfoldersamplecsvfile.csv";
         sanityFun.uploadFile(customfilepath);
     })

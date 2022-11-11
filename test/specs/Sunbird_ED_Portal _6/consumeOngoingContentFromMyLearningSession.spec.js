@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
@@ -6,7 +8,6 @@ const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
 describe('consumeOngoingContentFromMyLearningSession', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -22,17 +23,17 @@ describe('consumeOngoingContentFromMyLearningSession', () => {
         browser.manage().deleteAllCookies();
     });
 
-
     it('consumeOngoingContentFromMyLearningSession', function () {
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let courseName = tpdPageObj.createCourseAndSendForReviewBySearchingContentInLibrary("pdf_13");
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview(courseName);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
@@ -40,7 +41,5 @@ describe('consumeOngoingContentFromMyLearningSession', () => {
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.JoinCourseWithOpenBatch();
         EnrollTBFCPageObj.validateAndConsumeOngoingContentInMyLearningSession(courseName);
-        
     })
 });
-

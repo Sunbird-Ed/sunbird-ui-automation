@@ -23,7 +23,7 @@ describe('Veriy that user is able to create colleciton by adding,deleting nodes 
 
     it('VerifyCountOfTheContentsWhenLanguageIsChanged',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         resourcePageObj.VerifyCoursePage();

@@ -25,7 +25,7 @@ describe('groupMembersConsumeContentAndValidateProgressBarInActivityDashboard', 
     
     it('groupMembersConsumeContentAndValidateProgressBarInActivityDashboard', function () {
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let data = tpdPageObj.createCourseAndReturnDoidAndCourseNameForGroup();

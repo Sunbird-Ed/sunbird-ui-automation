@@ -25,10 +25,9 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
 
     it('CreateOpenBatchCourseForPublicUser', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-        utility.validateWorkspace();
+        
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('ContentReviewer');

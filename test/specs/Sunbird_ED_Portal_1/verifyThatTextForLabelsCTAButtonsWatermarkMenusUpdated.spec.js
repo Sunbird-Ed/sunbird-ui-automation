@@ -23,7 +23,7 @@ describe('Verify that, Text for Labels, CTA buttons, watermark, Tabs, menus are 
     });
     it('verifyThatTextForLabelsCTAButtonsWatermarkMenusUpdated ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('LoadAnimation');
         EnrollTBFCPageObj.verifyThatTextForLabelsCTAButtonsWatermarkMenusUpdated();

@@ -25,7 +25,6 @@ describe('Create Book with all resource type, save and send for review and publi
     
     it('CreateBookWithAllResourceType',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Book Creator');
         let bookName=etbPageObj.createBookWithAllResourceType();

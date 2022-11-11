@@ -23,7 +23,7 @@ describe('VerifyChangingLanguageWhileConsuming for Kannada Language', () => {
     });
     it('VerifyChangingLanguageWhileConsuming',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         // utility.userLogin('Creator');
         // let contentName=resourcePageObj.createQuestionFITBWithAllStyles();

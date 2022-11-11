@@ -22,7 +22,7 @@ describe('Verify AdminAbleToDelteGroup', () => {
 
     it('AdminAbleToDelteGroup ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('staging');
         EnrollTBFCPageObj.addGrpAndDeleteGrp();

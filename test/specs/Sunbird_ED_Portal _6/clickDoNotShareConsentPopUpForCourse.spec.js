@@ -24,11 +24,11 @@ describe('clickDoNotShareConsentPopUpForCourse', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishContentFromUpForReviewBucket(courseName)
         utility.userLogout();
         
@@ -38,7 +38,7 @@ describe('clickDoNotShareConsentPopUpForCourse', () => {
         utility.userLogout();
         console.log(courseName);
         utility.userLogin('Public User1');
-        utility.validateWorkspace();
+        
         lspPageObj.verifyConsentPopup(courseName);
     })
 });

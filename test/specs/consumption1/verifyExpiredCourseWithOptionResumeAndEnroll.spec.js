@@ -27,7 +27,7 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
 
     it('Verify that when user selects the expired course from my courses, user should see the expired course batch', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.verifyExpiredCourseWithOptionResumeAndEnroll();

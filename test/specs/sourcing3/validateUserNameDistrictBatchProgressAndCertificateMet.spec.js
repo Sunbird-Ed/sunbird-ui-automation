@@ -23,7 +23,7 @@ describe('validateUserNameDistrictBatchProgressAndCertificateMet', () => {
 
     it('validateUserNameDistrictBatchProgressAndCertificateMet',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         verifyCMATAOMIBAVCDPageObj.viewCourseDashBoardDetailsInCertificatesTab(); 

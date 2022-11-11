@@ -20,7 +20,7 @@ describe('Verify that Ask a Question is replaced with Discussion Topic in Start 
     });
     it('verifyThatAskAQuestionIsReplacedWithDiscussionTopicInStartDiscussionScreen ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('LoadAnimation');
         EnrollTBFCPageObj.verifyThatAskAQuestionIsReplacedWithDiscussionTopic();

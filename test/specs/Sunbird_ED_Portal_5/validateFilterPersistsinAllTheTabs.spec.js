@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
@@ -20,6 +22,7 @@ describe('validateFilterPersistsinAllTheTabs', () => {
 
     it('validateFilterPersistsinAllTheTabs',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         etbFun.validateFiltersInAllTheTabs();

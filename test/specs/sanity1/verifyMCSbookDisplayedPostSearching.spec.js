@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
@@ -22,7 +24,6 @@ describe('verifyMCSbookDisplayedPostSearching', () => {
     
     it('verifyMCSbookDisplayedPostSearching',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         let bookName = sanityfun.createBookTnContentCred();

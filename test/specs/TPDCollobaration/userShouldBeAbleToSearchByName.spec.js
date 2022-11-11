@@ -22,7 +22,7 @@ describe('User should be able to search by name', () => {
     });
     it('userShouldBeAbleToSearchByName',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.verifyCommunicationConsole();

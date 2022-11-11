@@ -20,7 +20,7 @@ describe('user is able validate all language ,Elements are changed as per the La
     
     it('CheckCoursePageLanguageChangeWorksFine', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsHindi();
         // checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsKannada();

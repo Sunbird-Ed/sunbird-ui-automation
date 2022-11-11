@@ -22,7 +22,7 @@ describe('varifyQuestionSetConsuming', () => {
     
     it('varifyQuestionSetConsuming',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.UserShouldBeAbleToConsumeQuestionSetOnECML();

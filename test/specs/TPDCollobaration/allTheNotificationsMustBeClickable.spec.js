@@ -22,7 +22,7 @@ describe('All the Notifications must be clickable ', () => {
 
     it('allTheNotificationsMustBeClickable ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.openExistingGroup();

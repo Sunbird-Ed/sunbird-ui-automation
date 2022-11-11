@@ -25,7 +25,7 @@ describe('able to create course and enroll consume EnrollingToBatchForCourse.spe
 
     it('EnrollingToBatchForCourse', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();

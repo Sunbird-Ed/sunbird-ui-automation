@@ -25,7 +25,7 @@ describe('uploadScenarioWithAllFormat Verify', () => {
     
     it('uploadScenarioWithAllFormat',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
          sanityFun.uploadCSVFile();

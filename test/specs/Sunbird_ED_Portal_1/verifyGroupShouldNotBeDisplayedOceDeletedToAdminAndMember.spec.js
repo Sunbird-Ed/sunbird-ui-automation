@@ -21,7 +21,7 @@ describe('verifyGroupShouldNotBeDisplayedOceDeletedToAdminAndMember', () => {
 
     it('verifyGroupShouldNotBeDisplayedOceDeletedToAdminAndMember ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('DeleteGroup1');
         EnrollTBFCPageObj.openExistingGroup();

@@ -3,7 +3,7 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 
-describe('validateAllTheTrendingTagsAndDiscussionThreads', () => {
+describe('userDisplayedWithTagListAndTagAnyTopic', () => {
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -18,9 +18,8 @@ describe('validateAllTheTrendingTagsAndDiscussionThreads', () => {
         browser.manage().deleteAllCookies();
     });
     
-    it('validateAllTheTrendingTagsAndDiscussionThreads',function(){
+    it('userDisplayedWithTagListAndTagAnyTopic',function(){
         utility.handleDropDown();
-        //browser.sleep(25000);
         utility.handleLocationPopup();
         utility.userLogin('Admin');
         EnrollTBFCPageObj.validateAllTrendingTags();

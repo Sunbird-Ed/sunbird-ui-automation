@@ -26,10 +26,8 @@ describe('validateNcertCourseTypeInOrgAndTargetFrame', () => {
 
     it('validateNcertCourseTypeInOrgAndTargetFrame', function () {
         utility.handleDropDown();
-        //browser.sleep(30000);
         utility.handleLocationPopup();
         utility.userLogin('NCERTCC');
-        utility.validateWorkspace();
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('NCERTCR');

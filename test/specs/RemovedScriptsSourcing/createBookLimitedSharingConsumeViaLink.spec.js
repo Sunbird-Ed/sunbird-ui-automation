@@ -31,7 +31,7 @@ describe('createBookLimitedSharingConsumeViaLink', () => {
         tpdPageObj.publishCourseFromUpForReview(bookName)
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
 
 

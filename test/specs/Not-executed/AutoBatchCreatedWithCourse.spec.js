@@ -24,12 +24,12 @@ describe('AutoBatchCreatedWithCourse', () => {
     it('AutoBatchCreatedWithCourse',function(){
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
-        utility.validateWorkspace();
+        
         tpdPageObj.createCourse();
         let courseName=tpdPageObj.sendForReviewCourseWithName();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishTheCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Mentor');

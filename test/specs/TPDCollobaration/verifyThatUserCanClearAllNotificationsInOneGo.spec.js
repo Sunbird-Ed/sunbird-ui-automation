@@ -21,7 +21,7 @@ describe('Verify that, User can clear all notifications in one go ', () => {
     });
     it('verifyThatUserCanClearAllNotificationsInOneGo ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.openExistingGroup();

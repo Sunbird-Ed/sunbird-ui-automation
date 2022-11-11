@@ -12,13 +12,13 @@ describe('Verifiy user is getting add user option in his profile and able to swi
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+    
     it('VerifyAdminIsAbleToAddNewRoleEditAndDelete',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();

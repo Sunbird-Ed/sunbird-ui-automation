@@ -31,7 +31,7 @@ describe('Create Collection save and send for review and publish.', () => {
         tpdPageObj.publishCourseFromUpForReview(collectionName)
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();  
     })
 });

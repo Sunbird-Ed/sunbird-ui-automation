@@ -25,12 +25,12 @@ describe('varifyReviewerAbleToViewMetadata', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-        utility.validateWorkspace();
+        
         let courseName = sanityfun.validateMetadataValues("k12");
         console.log(courseName);
         utility.userLogout();
         utility.userLogin('ContentReviewer');
-        utility.validateWorkspace();
+        
         sanityfun.publishCourseFromUpForReviewAndValidateMetadata(courseName);
     });
 });

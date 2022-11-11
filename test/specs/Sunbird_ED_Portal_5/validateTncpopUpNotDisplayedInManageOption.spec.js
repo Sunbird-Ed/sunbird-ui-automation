@@ -22,7 +22,7 @@ describe('validateTncpopUpInManageOption', () => {
     
     it('validateTncpopUpInManageOption',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin("Admin3");
         verifyUOpage.validateTncPopInManage();

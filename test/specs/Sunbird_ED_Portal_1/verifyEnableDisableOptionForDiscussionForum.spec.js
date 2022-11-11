@@ -20,7 +20,7 @@ describe('verifyEnableDisableOptionForDiscussionForum', () => {
 
     it('verifyEnableDisableOptionForDiscussionForum',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         sanityPage.editAndDelteTopic();

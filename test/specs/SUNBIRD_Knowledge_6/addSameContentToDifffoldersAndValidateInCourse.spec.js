@@ -28,7 +28,7 @@ describe('addSameContentToDifffoldersAndValidateInCourse', () => {
     });
     it('addSameContentToDifffoldersAndValidateInCourse', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseWithSameContentInfourdiffFolder();

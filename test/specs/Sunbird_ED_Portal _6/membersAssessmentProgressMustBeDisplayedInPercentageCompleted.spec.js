@@ -25,7 +25,7 @@ describe('membersAssessmentProgressMustBeDisplayedInPercentageCompleted', () => 
     
     it('membersAssessmentProgressMustBeDisplayedInPercentageCompleted', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('NewCredCourseToc');
         sanityfun.verifyAddActivitySearchedByKeyword("AutomationCourseCompletedBatch");

@@ -28,7 +28,6 @@ describe('verifyExpiredContentInMyLearningSection', () => {
 
     it('verifyExpiredContentInMyLearningSection', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         let courseName = "courseABlaise14";

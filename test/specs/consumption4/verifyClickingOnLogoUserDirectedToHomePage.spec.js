@@ -24,7 +24,7 @@ describe('verifyClickingOnLogoUserDirectedToHomePage', () => {
 
     it('verifyClickingOnLogoUserDirectedToHomePage',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         searchAALTPageObj.validateClickedOnLogoDirectedToHomepage();
     })

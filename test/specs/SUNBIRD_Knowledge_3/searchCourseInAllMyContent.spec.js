@@ -24,7 +24,7 @@ describe('Course creator should be able to search the course content  in All my 
     
     it('searchCourseInAllMyContent',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         tpdPageObj.navigateToAllMyContent();

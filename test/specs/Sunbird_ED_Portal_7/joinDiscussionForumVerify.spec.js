@@ -26,7 +26,7 @@ describe('joinDiscussionForumVerify', () => {
     });
     it('joinDiscussionForumVerify ', function () {
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('staging');
         sanityPage.verifyDiscussionForum();

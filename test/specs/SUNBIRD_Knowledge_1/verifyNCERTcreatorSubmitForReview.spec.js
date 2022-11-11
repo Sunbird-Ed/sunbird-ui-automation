@@ -7,8 +7,6 @@ const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPag
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
 describe('validateNcertCourseTypeInOrgAndTargetFrame', () => {
-
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -26,14 +24,11 @@ describe('validateNcertCourseTypeInOrgAndTargetFrame', () => {
 
     it('validateNcertCourseTypeInOrgAndTargetFrame', function () {
         utility.handleDropDown();
-        //browser.sleep(30000);
         utility.handleLocationPopup();
         utility.userLogin('NCERTCC');
-        utility.validateWorkspace();
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('NCERTCR');
         tpdPageObj.validateNcertCreatorInUpforReview(courseName)
     })
 });
-

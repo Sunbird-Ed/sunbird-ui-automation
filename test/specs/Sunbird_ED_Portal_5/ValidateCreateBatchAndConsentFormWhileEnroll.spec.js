@@ -26,15 +26,13 @@ describe('able to create course and enroll consume ValidateCreateBatchAndConsent
     it('ValidateCreateBatchAndConsentFormWhileEnroll', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(20000);
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
-        console.log(courseName);
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(courseName)
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();

@@ -20,7 +20,7 @@ describe('User must be able to open the General Discussion Topics', () => {
     });
     it('UserMustBeAbleToOpenTheGeneralDiscussionTopics ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('LoadAnimation');
         EnrollTBFCPageObj.verifyThatAskAQuestionIsReplacedWithDiscussionTopic();

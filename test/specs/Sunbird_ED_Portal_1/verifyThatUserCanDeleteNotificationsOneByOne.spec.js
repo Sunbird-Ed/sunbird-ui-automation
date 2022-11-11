@@ -23,7 +23,7 @@ describe('Verify that, User can delete notifications one by one ', () => {
     });
     it('verifyThatUserCanDeleteNotificationsOneByOne ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.openExistingGroup();

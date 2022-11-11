@@ -33,7 +33,7 @@ describe('Create Book save and send for review and publish.', () => {
         tpdPageObj.publishContent(bookName)
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
     })
 });

@@ -22,7 +22,7 @@ describe('verifyEditTitleDescriptionTags', () => {
     });
     it('verifyEditTitleDescriptionTags',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Admin');
         EnrollTBFCPageObj.EditTitleDescriptionTags();

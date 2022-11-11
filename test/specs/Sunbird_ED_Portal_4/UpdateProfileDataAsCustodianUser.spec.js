@@ -21,7 +21,7 @@ describe('Login into Application with custodian user and verify language selecti
 
     it('UpdateProfileDataAsCustodianUser',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('CustodianUser');
         signUpPageObject.languageVerify();  

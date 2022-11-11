@@ -23,7 +23,7 @@ describe('Crea is Able to CreateQuestionAS4McQ,4MTF,4FLB and its navigate and Co
     });
     it('CreateResourceWith4MCQ4FTB4MTF', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName = createRW4M4F4MPageObj.createQuestionsWith4MCQ4FTB4MTF();

@@ -24,7 +24,7 @@ describe('validateAllsixTabsIsCenterAligned', () => {
     
     it('validateAllsixTabsIsCenterAligned', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         sanityfun.validateCentreAlignementofTabs();
         utility.userLogin('Public User1');

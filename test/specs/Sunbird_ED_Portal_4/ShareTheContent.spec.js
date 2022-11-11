@@ -19,7 +19,7 @@ describe('Logi into Application with mentor user,shareTheConentUsingLink,Logout'
     });
     it('ShareTheContent',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         shareTCPageObj.clickLibraryPage();

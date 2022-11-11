@@ -26,16 +26,16 @@ describe('Create SelfAssesmentCourse save and send for review and publish.', () 
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
-        //utility.validateWorkspace();
+        //
         let courseName=tpdPageObj.createCourseAssessment();
         tpdPageObj.sendForReviewTheCourseAssessment();
         utility.userLogout();
         utility.userLogin('ContentReviewer');
-        utility.validateWorkspace();
+        
         resourcePage.publishTheResourceFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Mentor2');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
        
        

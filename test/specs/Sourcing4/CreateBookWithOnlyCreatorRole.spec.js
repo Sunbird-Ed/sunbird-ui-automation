@@ -29,8 +29,6 @@ describe('Create Book save and send for review and publish.', () => {
         let bookName= sanityfun.createBook();
         utility.userLogout();
         utility.userLogin('OnlyContentReviewer');
-        tpdPageObj.publishCourseFromUpForReview(bookName)
-    
+        tpdPageObj.publishCourseFromUpForReview(bookName); 
     })
 });
-

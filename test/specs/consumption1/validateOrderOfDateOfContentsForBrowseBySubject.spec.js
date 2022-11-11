@@ -25,7 +25,7 @@ describe('validateOrderOfDateOfContentsForBrowseBySubject', () => {
 
     it('validateOrderOfDateOfContentsForBrowseBySubject', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         tpdPageObj.homeTabwithBrowseBySubject();

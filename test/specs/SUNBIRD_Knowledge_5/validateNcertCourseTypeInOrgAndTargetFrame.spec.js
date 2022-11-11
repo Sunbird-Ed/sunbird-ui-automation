@@ -26,10 +26,10 @@ describe('verifyNCERTcreatorSubmitForReview', () => {
 
     it('verifyNCERTcreatorSubmitForReview', function () {
         utility.handleDropDown();
-        //browser.sleep(30000);
+        //;
         utility.handleLocationPopup();
         utility.userLogin('NCERTCC');
-        //utility.validateWorkspace();
+        //
         let courseName = sanityfun.createCourseAndSendForReviewWithNcertCoureType();
         utility.userLogout();
         utility.userLogin('NCERTCR');

@@ -24,7 +24,7 @@ describe('VerifyTPDFrameworkLoaded.', () => {
     it('VerifyTPDFrameworkLoaded  ',function(){
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         tpdPageObj.createCourse();
         let courseName=tpdPageObj.sendForReviewCourseWithName();
         

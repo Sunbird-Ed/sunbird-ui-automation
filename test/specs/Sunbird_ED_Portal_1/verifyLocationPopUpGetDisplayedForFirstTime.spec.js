@@ -21,7 +21,7 @@ describe('verifyLocationPopUpGetDisplayedForFirstTime', () => {
     
     it('verifyLocationPopUpGetDisplayedForFirstTime',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         userOnboard.validateLocationPopUp();
         userOnboard.validateLocationPopUpInAllPages();
     });

@@ -23,7 +23,7 @@ describe('When is able to search a course by using Search filter and Page filter
     });
     it('SearchCourseUsingFilter',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         searchCBFPPageObj.courseSearchFilter();

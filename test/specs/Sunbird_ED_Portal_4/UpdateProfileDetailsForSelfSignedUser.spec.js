@@ -20,7 +20,7 @@ describe('UpdateProfileDetailsForSelfSignedUser', () => {
     
     it('UpdateProfileDetailsForSelfSignedUser',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('CustodianUser');
         usrOnBoardfun.updateProfileDetailsForSelfSignedUser();

@@ -24,7 +24,6 @@ describe('verifyTheAdminCanSearchResultsForDiskhaIdWhichShouldBeAnExactMatch', (
     it('verifyTheAdminCanSearchResultsForDiskhaIdWhichShouldBeAnExactMatch',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-       // browser.sleep(20000);
         utility.userLogin("Admin3");
        // let data1 = EnrollTBFCPageObj.copyUserIdFromProfile();
         //let data2 = EnrollTBFCPageObj.returnProfileroleAndValidate();

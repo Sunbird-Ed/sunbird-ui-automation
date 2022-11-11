@@ -26,6 +26,5 @@ describe('VerifyDefaultSettingAndChangeTheSetting', () => {
         utility.handleLocationPopup();
        // sanityFun.verifydefaultValues();
         
-
     });
 });

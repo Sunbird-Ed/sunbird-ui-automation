@@ -1,7 +1,9 @@
 //const { element } = require("protractor");
 
-var contentCreation = () => {
+const { element } = require("protractor");
 
+var contentCreation = () => {
+  
   var proceedButton = element(by.xpath("//div[@class=' ui clearing segment']/..//button[contains(text(),'PROCEED')]"));
   var createCourse = element(by.xpath("//span[.='Course']"));
   var createBook = element(by.xpath("//div[@class='content']/..//span[.='Book']"));
@@ -21,7 +23,7 @@ var contentCreation = () => {
   var title = element(by.model('contentMeta[dynamicField.code]  '));
   var titleN = element(by.xpath("//input[@placeholder='Enter the Title ']"));
   var description = element(by.model('contentMeta.description '));
-  var addTag = element(by.model('newTag.text'));
+  var addTag = element(by.model('npdownewTag.text'));
   var btnBack = element(by.id('back-button'));
   var descriptionN = element(by.xpath("//textarea[@id='description']"));
   var addTagN = element(by.xpath("//input[@placeholder='Add a tag']"));
@@ -88,9 +90,7 @@ var contentCreation = () => {
   var fieldLessonPlanDesc = element(by.xpath("(//textarea[@placeholder='Brief description about the unit'])[2]"));
   var fieldAddNotes = element(by.xpath("//input[@placeholder='Add Notes']"));
   var uploadContent = element(by.xpath("//div[@class='content']/..//span[.='Upload Content']"));
-
   // var year2020 = element(by.xpath("//select[@id='_selectyear']//following::option[2]"));
-
   var selectYear = element(by.xpath("//select[@id='_selectyear']"));
   var year2020 = element(by.xpath("//option[.='2018']"));
   var publishResource = element(by.xpath("//button[contains(text(),'Publish')]"));
@@ -168,7 +168,6 @@ var contentCreation = () => {
   var pdfContent1 = element(by.xpath("//span[contains(@class,'fancytree-custom-icon')]"));
   var menuPlayer = element(by.xpath("//img[@class=menu-icon icon nav-top hamberger-menu]"));
   var selectCBSE = element(by.xpath("//sui-select-option[contains(.,'CBSE')]"));
-
   var selectHindi = element(by.xpath("//sui-select-option[contains(.,'Hindi')]"));
   var clickClass = element(by.xpath("//div[contains(text(),'Select Class')]"));
   var submitButtonFilter = element(by.xpath("//button[contains(text(),'Apply')]"));
@@ -182,7 +181,6 @@ var contentCreation = () => {
   var selectGeography = element(by.xpath("//sui-select-option[contains(.,'Biology')]"));
   var subInCard = element(by.xpath("//div[@class='d-inline-block']"));
   var ContentfilterForGroup = element(by.xpath("//*[contains(text(),'Filter by')]"));
-
   var courseName = element(by.xpath("//input[@placeholder='Name']"));
   var courseToBeClicked = element(by.xpath("//h4[@class='sb--card__title sb--card__title--ellipsis']"));
   var clickBoardFilter = element(by.xpath("//div[contains(text(),'Select Board')]"));
@@ -288,8 +286,8 @@ var contentCreation = () => {
 
   var clickFilterBoard = element(by.xpath("//*[contains(text(),'Select Board')]"));
   var selectFilterBoard = element(by.xpath("//*[contains(text(),'Select Board')]//following::span[@class='mat-option-text']"));
-  var clickFilterGrade = element(by.xpath("//*[contains(text(),'Select Grade')]"));
-  var SelectFilterGrade = element(by.xpath("//*[contains(text(),'Select Grade')]//following::span[@class='mat-option-text']"));
+  var clickFilterGrade = element(by.xpath("//*[contains(text(),'Select Grade') or contains(text(),'Select Class')]"));
+  var SelectFilterGrade = element(by.xpath("//*[contains(text(),'Select Grade') or contains(text(),'Select Class')]//following::span[@class='mat-option-text']"));
   var clickFilterSubject = element(by.xpath("//*[contains(text(),'Select Subject')]"));
   var selectFilterSubject = element(by.xpath("//*[contains(text(),'Select Subject')]//following::span[@class='mat-option-text']"));
 
@@ -448,7 +446,7 @@ var contentCreation = () => {
   var syncProgressNow = element(by.xpath("(//*[contains(text(),'Sync progress now')])"));
   var progresSynced = element(by.xpath("(//*[contains(text(),'Progress synced successfully')])"));
   var continuePolicyButton = element(by.xpath("(//*[contains(text(),' Continue ')])"));
-  var BMCstate = element(by.xpath("((//span[contains(text(),'State')]//following::div[2])[3]//child::div)[1]"));
+  var BMCstate = element(by.xpath("//div[contains(@id,'state')]//following::sb-caret-down[1]"));
   var BMCdistrict = element(by.xpath("//span[contains(text(),'Role')]//following::span[contains(text(),'District')]//following::div[2]"));
   var BMCBlock = element(by.xpath("//span[contains(text(),'Role')]//following::label[contains(text(),'Block')]//following::div[2]"));
   var SelectBMCblock = element(by.xpath("//span[contains(text(),'Achnera')]"));
@@ -593,7 +591,8 @@ var contentCreation = () => {
   var selectCatagory = element(by.xpath("//div[@id='category']//following::li[contains(text(),'Select Category')]"));
   var AddCertificate = element(by.xpath("//*[@id='batches']/div/div/div/div/div[2]/div/div/a"));
   var AddNewCertificate = element(by.xpath("//*[@id='addNewCert']"));
-  var IssueCertificateTo = element(by.xpath("//label[text()='Issue certificate to']"));
+  var IssueCertificateTo = element(by.xpath("//*[text()='Issue certificate to']"));
+  var IssueCertificateToDropdown = element(by.xpath("(//*[text()='Issue certificate to']//..//..//..//..)[1]"));
   var defaultValue = element(by.xpath("//input[@placeholder='100%']"));
 
   var editBMC = element(by.xpath("(//*[contains(@class,'sb-btn sb-btn-primary')])[2]"));
@@ -766,14 +765,12 @@ var contentCreation = () => {
   var assertLogin = element(by.xpath("//button[@id='login']"));
   var manageOptionPopUp = element(by.xpath("//*[@id='fbcf275e-0e28-8dab-b29e-530d728bbc99']//following::span[@class='ui header ng-star-inserted']"))
   var manageOption = element(by.xpath("//div[@id='overlaySidebarID']//following::li[@routerlink='manage']"));
-
   var adminpolicyInManage = element(by.xpath("//a[contains(text(),'admin policy')]"));
   var tncPopUp = element(by.xpath("(//div[contains(text(),'Terms and Policies')])[1]"));
   var assertselectedstate = element(by.xpath("//div[contains(@id,'state')]"));
   var assertselectedDistrict = element(by.xpath("//div[contains(@id,'district')]"));
   var assertProfileDistrict = element(by.xpath("//*[contains(text(),' Content preference')]//following::div[5]"));
   var assertProfileState = element(by.xpath("//*[contains(text(),' Content preference')]//following::div[8]"));
-
   var searchBar = element(by.xpath("//div[@id='search-input-container']//following::input[@name='filter_search']"));
   var searchBarIcon = element(by.xpath("//div[@id='search-input-container']//following::button[@title='Search in undefined']"));
   var searchedContentType = element(by.xpath("//div[@id='search-input-container']//following::div[contains(@class,'sb--card__type')]"));
@@ -893,7 +890,7 @@ var contentCreation = () => {
   var selectRole = element(by.xpath("//label[contains(text(),'Role')]//following::i[1]"));
   var selectOrgName = element(by.xpath("//label[contains(text(),'Organization Name')]//following::i[1]"));
   var selectCourseAsMentor = element(by.xpath("//span[contains(text(),'Course Mentor')]"));
-  var selectOrgNameAsTN = element(by.xpath("//span[contains(text(),'Tamil Nadu')]"));
+  var selectOrgNameAsTN = element(by.xpath("//span[contains(text(),'Tamil nadu') or contains(text(),'Tamil Nadu')]"));
   var saveBtn = element(by.xpath("//button[contains(text(),'Save')]"));
   var assertCourseMentor = element(by.xpath("//div[contains(text(),'Course Mentor')]"));
   var assertEditBtn = element(by.xpath("//span[contains(text(),'Edit')]"));
@@ -931,7 +928,62 @@ var contentCreation = () => {
   var contentCard = element(by.xpath("//span[@class='sliderCardHeading text-cencapitalize']"));
   var QuestionSetImageScore = element(by.xpath("//bdi[contains(text(),'Score QuestionSet')]"));
   var QuestionSetImageGenre = element(by.xpath("//div[@class='img-container']"));
-
+  var assertMergeMsgNotPermitted = element(by.xpath("//*[contains(text(),' Not permitted to merge account')]"));
+  var assertMergeMsg2 = element(by.xpath("//div[contains(text(),'Invalid Email Address/Mobile number or password. Please try again with valid credentials')]"));
+  var assertMergeMsg3 = element(by.xpath("//div[contains(text(),'to merge')]"));
+  var assertTcnc1 = element(by.xpath("//div[contains(text(),'Terms and Policies')]"));
+  var assertTcnc2 = element(by.xpath("//span[contains(text(),'I agree to the updated terms and policies')]"));
+  var clkEmailOption = element(by.xpath("//div[contains(text(),'yopmail')]"));
+  var assertOtpPopup = element(by.xpath("//*[contains(text(),'Enter OTP to edit your contact information')]"));
+  var assertValidMergeMsg = element(by.xpath("//*[contains(text(),' Account merge initiated successfully. you will be notified once it is completed')]"));
+  var verifyStateUserIcon = element(by.xpath("//img[@alt='certified']"));
+  var selectQuestionSet = element(by.xpath("//div[@class='img-container']"));
+  var assertInstructionPage = element(by.xpath("//div[contains(text(),'Instructions')]"));
+  var assertIsymbOnProgressBar = element(by.xpath("//li[contains(text(),'i')]"));
+  var assertTermsDesc = element(by.xpath("//span[contains(text(),'I consent to provide my Profile Details and the additional details listed above with the administrators of my State / Institution. All administrators on DIKSHA are bound by the Privacy Policy and Administrator Guidelines in their use of my data. ')]"));
+  var assertSubmitSuccesMsg = element(by.xpath("//div[contains(text(),' Thank you for submitting your details ')]"));
+  var assertSubmitSuccesTostrMsg = element(by.xpath("//strong[contains(text(),'Profile share settings submitted successfully')]"));
+  var assertSubmitSuccesMsg2 = element(by.xpath("//div[contains(text(),'You can edit this information from your profile')]"));
+  var enterEmailForRecovery = element(by.xpath("//input[@name='identifier']"));
+  var enterNameForRecovery = element(by.xpath("//input[@name='name']"));
+  var clkNextInRecovery = element(by.xpath("//input[@name='name']//following::button[1]"));
+  var assertRecoveryMsg1 = element(by.xpath("//div[contains(text(),'You will receive an OTP. After you validate it, you can recover your account ')]"));
+  var clkRadioBtnForSelection = element(by.xpath("//div[contains(text(),'Recover Account')]//following::span[1]"));
+  var clkGetOTP = element(by.xpath("//button[contains(text(),'Get OTP')]"));
+  var assertOtpMsg1 = element(by.xpath("//div[contains(text(),' OTP has been sent to ')]"));
+  var assertOtpMsg2 = element(by.xpath("//span[contains(text(),'*@gmail.com')]"));
+  var assertOtpMsg3 = element(by.xpath("//div[contains(text(),' It is ')]"));
+  var assertOtpMsg4 = element(by.xpath("//span[contains(text(),'valid for 30 min')]"));
+  var enterOtp1 = element(by.xpath("//input[@name='otp']"));
+  var clkResendOtp = element(by.xpath("//input[@name='otp']//following::span[contains(text(),'Resend OTP')]"));
+  var resendSuccessMsg = element(by.xpath("//strong[contains(text(),'OTP sent successfully')]"));
+  var submitOtp = element(by.xpath("//input[@name='otp']//following::button[contains(text(),'Submit OTP')]"));
+  var assertErrorOtpMsg1 = element(by.xpath("//strong[contains(text(),'Incorrect OTP. Number of attempts remaining : 1')]"));
+  var assertErrorOtpMsg2 = element(by.xpath("//div[contains(text(),'Failed to validate OTP. Try again later')]"));
+  var enterPasswordInRegister = element(by.xpath("//input[@name='password']"));
+  var clickEyeImg = element(by.xpath("//img[@class='showhideimage']"));
+  var conifrmPassword = element(by.xpath("//input[@name='confirmPassword']"));
+  var clickEmailBtn = element(by.xpath("//label[@for='email']"));
+  var enterEmailTextbox = element(by.xpath("//input[@formcontrolname='email']"));
+  var assertEmailOtpMSg1 = element(by.xpath("//span[contains(text(),'OTP is sent to your email address:')]"));
+  var assertEmailOtpMSg2 = element(by.xpath("//b[contains(text(),'EmailCheck@yopmail.com')]"));
+  var assertEmailOtpMSg3 = element(by.xpath("//div[contains(text(),'OTP is valid for 30 minutes')]"));
+  var assertEmailOtpMSg4 = element(by.xpath("//label[contains(text(),'I am 18+ years old and understand and ')]"));
+  var sltBirtMajorYear = element(by.xpath("//span[contains(text(),'1993')]"));
+  var assertEmailOtpMSgforMinor1 = element(by.xpath("//span[contains(text(),'Parent/guardian should enter the OTP')]"));
+  var assertEmailOtpMSgforMinor2 = element(by.xpath("//label[contains(text(),'As a parent/guardian I understand')]"));
+  var enterMobileNoTextbox = element(by.xpath("//input[@name='phone']"));
+  var assertMobileOtpMsg1 = element(by.xpath("//span[contains(text(),'OTP is sent to your mobile number')]"));
+  var assertMobileOtpMsg2 = element(by.xpath("//b[contains(text(),'9591429465')]"));
+  var assertBoardOfOrgFrame = element(by.xpath("//span[contains(text(),'Board/University')]//following::span[contains(text(),'CBSE')]"));
+  var assertmediumOfOrgFrame = element(by.xpath("//span[contains(text(),'Medium')]//following::span[contains(text(),'English')]"));
+  var assertGradeOfOrgFrame = element(by.xpath("//span[contains(text(),'Grade')]//following::span[contains(text(),'Class 1')]"));
+  var assertTitleOfCollection = element(by.xpath("//div[contains(@role,'heading')]"));
+  var clickCollectionRelevantDrpdwn = element(by.xpath("//*[contains(text(),'The collection is relevant for')]"));
+  var idAsRequestedByStateBoardOrg = element(by.xpath("//input[@placeholder='Enter ID']"));
+  var selectStateInstitutionDrpDwn = element(by.xpath("//*[contains(text(),'Select State/Institution')]"));
+  var selectStateInstitutionDrpDwnValue = element(by.xpath("//*[contains(text(),'State (Punjab)')]"));
+  var updateButtonInproFilePage = element(by.xpath("//button[contains(text(),'Update')]"));
   return {
     closeIcon,
     assertDisabledFullscreen,
@@ -1830,6 +1882,61 @@ var contentCreation = () => {
     QuestionSetImageGenre,
     selectLoginState,
     SSOUserName1,
+    assertMergeMsgNotPermitted,
+    assertMergeMsg2,
+    assertMergeMsg3,
+    assertTcnc1,
+    assertTcnc2,
+    clkEmailOption,
+    assertOtpPopup,
+    assertValidMergeMsg,
+    verifyStateUserIcon,
+    IssueCertificateToDropdown,
+    selectQuestionSet,
+    assertInstructionPage,
+    assertIsymbOnProgressBar,
+    assertTermsDesc,
+    assertSubmitSuccesTostrMsg,
+    assertSubmitSuccesMsg,
+    assertSubmitSuccesMsg2,
+    enterEmailForRecovery,
+    enterNameForRecovery,
+    clkNextInRecovery,
+    assertRecoveryMsg1,
+    clkRadioBtnForSelection,
+    clkGetOTP,
+    assertOtpMsg1,
+    assertOtpMsg2,
+    assertOtpMsg3,
+    assertOtpMsg4,
+    enterOtp1,
+    clkResendOtp,
+    submitOtp,
+    assertErrorOtpMsg1,
+    assertErrorOtpMsg2,
+    resendSuccessMsg,
+    enterPasswordInRegister,
+    clickEyeImg,
+    conifrmPassword,
+    clickEmailBtn,
+    enterEmailTextbox,
+    assertEmailOtpMSg1,
+    assertEmailOtpMSg2,
+    assertEmailOtpMSg3,
+    assertEmailOtpMSg4,
+    sltBirtMajorYear,
+    assertEmailOtpMSgforMinor1,
+    assertEmailOtpMSgforMinor2,
+    enterMobileNoTextbox,
+    assertMobileOtpMsg1,
+    assertMobileOtpMsg2,
+    assertBoardOfOrgFrame,
+    assertmediumOfOrgFrame,
+    assertGradeOfOrgFrame,
+    assertTitleOfCollection,
+    clickCollectionRelevantDrpdwn,
+    selectStateInstitutionDrpDwn,
+    selectStateInstitutionDrpDwnValue,
   }
 }
 

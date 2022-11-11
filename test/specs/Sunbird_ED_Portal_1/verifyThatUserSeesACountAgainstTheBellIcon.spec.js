@@ -22,7 +22,7 @@ describe('Verify that user is able to enable DF in groups ', () => {
     });
     it('verifyThatUserSeesACountAgainstTheBellIcon ',function(){
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.openExistingGroup();

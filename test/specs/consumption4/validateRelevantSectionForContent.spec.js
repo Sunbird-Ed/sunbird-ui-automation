@@ -24,7 +24,7 @@ describe('validateRelevantSectionForContent', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('User');
-        utility.validateWorkspace();
+        
         sanityfun.validateRelevantSection();
         sanityfun.validateCourseRelevantSection();
         utility.userLogout();

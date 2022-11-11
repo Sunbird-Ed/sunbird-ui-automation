@@ -22,11 +22,9 @@ describe('Verify Group Admin must be able to download the Metrics for the select
     });
     it('verifyGroupAdminMustBeAbleToDownloadTheMetricsForTheSelectedActivity ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.verifyDownlaodAsCSVMustBeDisplayedOnTheDashboard();
         EnrollTBFCPageObj.verifyDownlaodedCSVFileINDF();
-     
     })
 });

@@ -27,7 +27,7 @@ describe('clkBannerAndConsumeContent', () => {
 
     it('clkBannerAndConsumeContent', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('User');
         EnrollTBFCPageObj.validateAndVerifyBannerContent();

@@ -28,7 +28,6 @@ describe('validateBatchDetailsBeforeAndAfterJoinButton', () => {
 
     it('validateBatchDetailsBeforeAndAfterJoinButton', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();
@@ -40,13 +39,6 @@ describe('validateBatchDetailsBeforeAndAfterJoinButton', () => {
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatchWithEnrollMentEndDate();
         utility.userLogout();
-       // let courseName="do_2134430844104704001525";
-        // utility.userLogin('Public User1');
-        // EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        // EnrollTBFCPageObj.validateBatchDetailsBeforeAndAfterJoiningCourse();
-        // utility.userLogout();
-        // EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        // EnrollTBFCPageObj.validateBatchDetailsBeforeAndAfterJoiningCourse();
     })
 });
 

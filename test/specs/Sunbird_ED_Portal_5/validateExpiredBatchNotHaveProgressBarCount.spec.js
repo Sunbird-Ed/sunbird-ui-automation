@@ -26,7 +26,7 @@ describe('validateExpiredBatchNotHaveProgressBarCount' , () => {
     it('validateExpiredBatchNotHaveProgressBarCount',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(25000);
+        
         let courseName = "AutomationExpiredCourse";
         utility.userLogin('Public User1');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);

@@ -26,7 +26,7 @@ describe('validateNotificationBellForLoggedInUserAndNonLoggedInUser' , () => {
     it('validateNotificationBellForLoggedInUserAndNonLoggedInUser',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(20000);
+        
         tpdPageObj.validateNotificationBellIconBeforeLogin();
         browser.sleep(5000);
         utility.userLogin('Public User1');

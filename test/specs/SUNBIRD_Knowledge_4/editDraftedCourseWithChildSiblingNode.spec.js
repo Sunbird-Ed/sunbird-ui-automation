@@ -28,7 +28,7 @@ describe('editDraftedCourseWithChildSiblingNode', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let courseName = sanityfun.CreateCourseAndSaveAsDraft1();
         utility.userLogout();
         utility.userLogin('Creator');

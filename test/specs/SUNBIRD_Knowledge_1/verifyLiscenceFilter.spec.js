@@ -24,7 +24,7 @@ describe('verifyLiscenceFilter', () => {
 
     it('verifyLiscenceFilter', function () {
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let bookName = sanityfun.verifyLiscenceFilterInBook();

@@ -26,7 +26,7 @@ describe('After Rejecting course Add New Resource , again publish', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         tpdPageObj.createCourse();
         let courseName=tpdPageObj.sendForReviewCourseWithName();
         utility.userLogout();
@@ -38,11 +38,11 @@ describe('After Rejecting course Add New Resource , again publish', () => {
         tpdPageObj.sendForReviewTheRejectedCourse();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishTheCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
        
        

@@ -5,10 +5,9 @@ var HtmlReporter = require('protractor-beautiful-reporter');
 
 exports.config = {
 
-
     //seleniumAddress: 'http://localhost:4444/wd/hub',
     directConnect: true,
-    //allScriptsTimeout: 10000000000,
+    // allScriptsTimeout: 10000000000,
 
     framework: 'jasmine2',
     restartBrowserBetweenTests: false,
@@ -18,48 +17,48 @@ exports.config = {
         sanity1: 'test/specs/sanity1/*.spec.js',
         sanity2: 'test/specs/sanity2/*.spec.js',
         sanity3: 'test/specs/sanity3/*.spec.js',
-
-        // //SunbirdPortal2: 'test/specs/SUNBIRD_ED_Portal_2/*.spec.js',
-
+        
+        // SunbirdPortal1: 'test/specs/SUNBIRD_ED_Portal_1/*.spec.js',
+        // SunbirdPortal2: 'test/specs/SUNBIRD_ED_Portal_2/*.spec.js',
         // SunbirdPortal3: 'test/specs/Sunbird_ED_Portal_3/*.spec.js',
         // SunbirdPortal4: 'test/specs/Sunbird_ED_Portal_4/*.spec.js',
         // SunbirdPortal5: 'test/specs/Sunbird_ED_Portal_5/*.spec.js',
         // SunbirdPortal4: 'test/specs/Sunbird_ED_Portal_4/*.spec.js',
         // SunbirdPortal5: 'test/specs/Sunbird_ED_Portal_5/*.spec.js',
 
-
         // SunbirdUCI: 'test/specs/Sunbird_UCI/*.spec.js',
         // SunbirdObserv : 'test/specs/Sunbird_Observ/*.spec.js',
         // SunbirdLern : 'test/specs/Sunbird Lern/*.spec.js',
 
-        //sunbirdKnowledge1:   'test/specs/Sunbird_ED_Portal_9/validatePositionOfBatchCertificateAndCreditDropDownInCourse.spec.js',
-        //sunbirdKnowledge1: 'test/specs/Sunbird_ED_Portal_4/VerifyUserIsAbleToSortAllTheMembersInGroupByCourseProgress.spec.js',
-        //sunbirdKnowledge2: 'test/specs/sanity2/ValidateCreateBatchAndConsentFormWhileEnroll.spec.js',
-        //sunbirdKnowledge3: 'test/specs/SUNBIRD_Knowledge3/*.spec.js',
+        //sunbirdKnowledge1: 'test/specs/Sunbird_ED_Portal_9/clickOnSubmitDetailsInProfilePageAndPutCommaSingleAndDoubleQuotesValidateErrorMessage.spec.js',
+        // sunbirdKnowledge1: 'test/specs/Sunbird_ED_Portal_4/VerifyUserIsAbleToSortAllTheMembersInGroupByCourseProgress.spec.js',
+        // sunbirdKnowledge2: 'test/specs/sanity2/ValidateCreateBatchAndConsentFormWhileEnroll.spec.js',
+        // sunbirdKnowledge3: 'test/specs/SUNBIRD_Knowledge3/*.spec.js',
         // Sunbird_Enquiry : 'test/specs/Sunbird_ED_Portal_1/verifyThatTheGroupsAreShowingInDecendingOrderOnDeactivateGroups.spec.js',
         // sanity1: 'test/specs/Sunbird_ED_Portal_1/verifyUserShouldBeDisplayedWithTheEnrollmentCloseMessage.spec.js',
-        //Sunbird_Enquiry : 'test/specs/SUNBIRD_Knowledge_6/adiminEditFromAllTextBookAndAddCollaborator.spec.js',
-        //sanity1: 'test/specs/SUNBIRD_Inquiry/ContentCreatorShouldAbleToCreateTheSubjectiveQuestionSet.spec.js',
-        //Sunbird_Enquiry : 'test/specs/SUNBIRD_Knowledge1/verifyCollaboratorInCourse.spec.js',
-        //sanity1: 'test/specs/SUNBIRD_Inquiry/verifyThatCreatorIsAbleToPreviewTheMCQQuestionVideoAsSolutionInLandscapeMode.spec.js',
-        //Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/*.spec.js',
-        //sanity1: 'test/specs/Sunbird_ED_Portal_5/verifyWhenUserReplaysTheQuestionSetItShouldStartFromInstructionPage.spec.js',
+        // Sunbird_Enquiry : 'test/specs/SUNBIRD_Knowledge_6/adiminEditFromAllTextBookAndAddCollaborator.spec.js',
+        // sanity1: 'test/specs/SUNBIRD_Inquiry/ContentCreatorShouldAbleToCreateTheSubjectiveQuestionSet.spec.js',
+        // Sunbird_Enquiry : 'test/specs/SUNBIRD_Knowledge1/verifyCollaboratorInCourse.spec.js',
+        // sanity1: 'test/specs/SUNBIRD_Inquiry/verifyThatCreatorIsAbleToPreviewTheMCQQuestionVideoAsSolutionInLandscapeMode.spec.js',
+        // Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/*.spec.js',
+        // sanity1: 'test/specs/SUNBIRD_Inquiry/verifyCreatorIsAbleToViewDifferentHeadingsAndTextFormatInSubjectiveQuestionSet.spec.js',
 
         // Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/*.spec.js',
-        //sanity1: 'test/specs/sanity1/unEnrollFromOpenCourse.spec.js',
+        // sanity1: 'test/specs/Sunbird_ED_Portal _6/mobileOrEmailAddressIsMandatoryForMajorUsersInRegistrationPage.spec.js',
        
         // Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/*.spec.js',
-        // sanity1: 'test/specs/SUNBIRD_Knowledge3/editDigitalTextBook.spec.js',
+        //sanity1: 'test/specs/Sunbird_ED_Portal_9/browseByAudienceAndValidateContentsDateOrderAndUserType.spec.js',
         
-        //userOrgAndCredentials: 'test/specs/Sunbird_ED_Portal_5/userAbleToCreateThreadInDFAndReplyOnTheSameThread.spec.js',
-        //sanity2: 'test/specs/Sunbird_ED_Portal_5/validateContentsComingToAllSectionsLikeDraftSubmittedForReviewPublishedAndAllMyContentSections.spec.js',
+        // userOrgAndCredentials: 'test/specs/Sunbird_ED_Portal_5/userAbleToCreateThreadInDFAndReplyOnTheSameThread.spec.js',
+        // sanity2: 'test/specs/SUNBIRD_Knowledge_6/verifyDifferentReportsInAdminDashboardAndvalidate.spec.js',
 
-        //sanity1: 'test/specs/sanity3/CreateOpenBatchCourseForPublicUser.spec.js',
+        //sanity1: 'test/specs/Sunbird_ED_Portal_9/courseCompletionPopupIsshownIsBlueIfCertificateIsattached.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
 
         // TPD: 'test/specs/TPD2/*.spec.js',
         // TpdCollaboration : 'test/specs/TPDCollobaration/*.spec.js',
+        // tpd: 'test/specs/tpd/*.spec.js',
         // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
         // Consumption: 'test/specs/Consumption/*.spec.js',
@@ -77,7 +76,10 @@ exports.config = {
         // consumption4: 'test/specs/consumption4/*.spec.js',
 
         // contentcreation: 'test/specs/content-creation/*.spec.js',
-        // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
+      
+
+
+
     },
     allScriptsTimeout: 4000000000,
 
@@ -95,7 +97,7 @@ exports.config = {
         version: '78.0.3904.108',
         platform: 'Any',
         shardTestFiles: true,
-        maxInstances:4,
+        maxInstances:3,
         chromeOptions: {
             prefs: {
                 profile: {
@@ -147,7 +149,6 @@ exports.config = {
         realtimeFailure: true,
         includeStackTrace: true,
     },
-
     onPrepare: async () => {
         await browser.waitForAngularEnabled(false);
     },

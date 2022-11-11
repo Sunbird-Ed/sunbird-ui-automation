@@ -24,7 +24,7 @@ describe('validateRemoveActivityOnActivityCardAndAfterRemovingActivityValidateTh
     
     it('validateRemoveActivityOnActivityCardAndAfterRemovingActivityValidateTheContentCardNotPresent', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('NewCredCourseToc');
         sanityfun.addActivityFromCourse();

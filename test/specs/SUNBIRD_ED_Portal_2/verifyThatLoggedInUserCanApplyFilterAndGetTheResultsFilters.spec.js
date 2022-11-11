@@ -29,7 +29,7 @@ describe('verify That User Able ToClick On Explore', () => {
     });
     it('verifyThatLoggedInUserCanApplyFilterAndGetTheResultsFilters', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.verifyThatLoggedInUserCanApplyFilterAndGetTheResultsFilters();

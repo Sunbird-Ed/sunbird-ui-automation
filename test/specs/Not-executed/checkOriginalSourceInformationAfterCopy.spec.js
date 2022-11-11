@@ -30,7 +30,7 @@ describe('checkOriginalSourceInformationAfterCopy', () => {
         // utility.userLogout();
 
         // utility.userLogin('Reviewer');
-        // utility.validateWorkspace();
+        // 
         // signUpPageObj.publishTheCourseFromUpForReview(courseName1);
         // utility.userLogout();
 

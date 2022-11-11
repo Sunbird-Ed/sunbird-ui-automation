@@ -24,7 +24,6 @@ describe('verifyCloseBtnDispalyedDissusionForum.spec', () => {
     });
     it('verifyCloseBtnDispalyedDissusionForum',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('NCERTCC');
         sanityPage.verifyEnableAndDisableDiscussionForGroup2();

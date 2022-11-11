@@ -26,14 +26,12 @@ describe('verifyUserCannotCreateNewBatchForFutureBatch', () => {
     
     it('verifyUserCannotCreateNewBatchForFutureBatch', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();
-        console.log(courseName);
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        tpdPageObj.publishCourseFromUpForReview2(courseName)
         utility.userLogout();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);

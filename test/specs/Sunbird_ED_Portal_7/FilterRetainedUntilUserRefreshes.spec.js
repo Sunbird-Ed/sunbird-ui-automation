@@ -21,9 +21,9 @@ describe('FilterRetainedUntilUserRefreshes', () => {
     });
     it('FilterRetainedUntilUserRefreshes',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
-        utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        ;
+        //utility.handleLocationPopup();
+        utility.userLogin('Public User1');
         resource.filterRetainedFromHomeTabToAnother();
     })
 });

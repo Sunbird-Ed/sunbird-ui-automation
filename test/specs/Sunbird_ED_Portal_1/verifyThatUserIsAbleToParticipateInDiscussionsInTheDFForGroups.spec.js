@@ -21,7 +21,7 @@ describe('Verify if user click of Tag menu, when there are no tags available, us
     });
     it('verifyThatUserIsAbleToParticipateInDiscussionsInTheDFForGroups ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.verifyThatUserIsAbleToParticipateInDiscussionsInTheDFForGroups();

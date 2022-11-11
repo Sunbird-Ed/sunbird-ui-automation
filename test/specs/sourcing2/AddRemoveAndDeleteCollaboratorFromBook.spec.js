@@ -29,6 +29,5 @@ describe('AU_033,AddRemoveAndDeleteCollaboratorFromBook', () => {
         let bookName = sanityfun.createBookSaveAsDraft();
         sanityfun.addCollborator(bookName);
         addSARCATTPRPageObj.removeCollboratortoDraftAndSaveBook(bookName);
-
     });
 });

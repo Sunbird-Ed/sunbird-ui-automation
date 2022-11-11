@@ -23,7 +23,6 @@ describe('upload pdf, save and send for review and publish.', () =>{
 
     it('UploadContentTypePdfAndVerifyWithOnlyCreatorRole ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('OnlyCreator');
         let uploadContent=uploadPageObj.uploadPdf();
@@ -34,6 +33,5 @@ describe('upload pdf, save and send for review and publish.', () =>{
         // utility.userLogin('Public User1');
         // resourcePageObj.ConsumeUploadContent(uploadContent,'EPUB');
         // utility.userLogout();
-      
     });
 });

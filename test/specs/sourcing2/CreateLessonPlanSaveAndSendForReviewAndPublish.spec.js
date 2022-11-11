@@ -30,7 +30,7 @@ describe('ontent creator is able to save the content ( Lesson Plan) & send the c
         lessonPlanPageObj.publishTheLessonPlanFromUpForReview(lessonPlan);
         utility.userLogout();
         utility.userLogin('Mentor2');
-        utility.validateWorkspace();
+        
         lessonPlanPageObj.deleteCreatedItems();
         
     })

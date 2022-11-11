@@ -25,7 +25,7 @@ describe('AU_031,DeleteAndVerifyInAllMyContentDraftPublish', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
         lspPageObj.deleteDraftItems();
         lspPageObj.deleteAllMyContentItems();

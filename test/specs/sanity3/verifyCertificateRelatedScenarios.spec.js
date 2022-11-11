@@ -8,7 +8,6 @@ const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
 describe('verifyCertificateRelatedScenarios for Course', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -17,25 +16,23 @@ describe('verifyCertificateRelatedScenarios for Course', () => {
         browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
-
-
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('verifyCertificateRelatedScenarios', function () {
         utility.handleDropDown();
-       //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(courseName);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.VerifyThatClickingAddCertificate();
         tpdPageObj.verifyThatUserIsAbleToEditScoreRuleAndView();

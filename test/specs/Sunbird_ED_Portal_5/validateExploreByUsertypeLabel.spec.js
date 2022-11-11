@@ -24,7 +24,7 @@ describe('validateExploreByUsertypeLabel', () => {
     it('validateExploreByUsertypeLabel',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('User');
+        utility.userLogin('AddUserCred');
         EnrollTBFCPageObj.validateUserTypelabel();
     })
 });

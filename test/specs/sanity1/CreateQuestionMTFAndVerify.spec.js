@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
@@ -23,13 +25,12 @@ describe('is Able to create Question MTF and Creator Can Delete that resource', 
     });
     it('CreateQuestionMTFAndVerify',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let contentName=resourcePageObj.createQuestionMTFWithFormulaAndAllStyle();
         resourcePageObj.sendForReviewTheResource();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
        
        

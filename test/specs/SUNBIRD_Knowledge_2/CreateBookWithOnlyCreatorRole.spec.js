@@ -24,7 +24,7 @@ describe('Create Book save and send for review and publish.', () => {
     });
     it('CreateBookWithOnlyCreatorRole', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('OnlyBookCreator');
         let bookName= sanityfun.createBook();

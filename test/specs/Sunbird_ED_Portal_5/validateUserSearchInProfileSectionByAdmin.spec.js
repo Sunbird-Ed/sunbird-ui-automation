@@ -22,7 +22,7 @@ describe('validateSearchedContentInProfilePage', () => {
     
     it('validateUserSearchInProfileSectionByAdmin',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Admin3');
         sanityfun.validateUserSearchByAdminInProfilePage();

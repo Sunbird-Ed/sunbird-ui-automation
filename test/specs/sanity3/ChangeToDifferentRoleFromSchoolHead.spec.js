@@ -23,7 +23,6 @@ describe('ChangeToDifferentRoleFromSchoolHead', () => {
     
     it('ChangeToDifferentRoleFromSchoolHead',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         //utility.handleLocationPopupForSchoolHead();
         utility.handleLocationPopup();
         utility.userLogin('ML');

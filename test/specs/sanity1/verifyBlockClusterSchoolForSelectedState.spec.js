@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const usrOnBoardfun = require(protractor.basePath + '/test/pageObject/UserOnBoardingPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
@@ -19,7 +21,6 @@ describe('verifyBCSforSelectedState', () => {
     
     it('verifyBlockClusterSchoolForSelectedState',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('NewUserSecondTime');
         usrOnBoardfun.verifyBCSforSelectedState();

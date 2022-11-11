@@ -22,7 +22,7 @@ describe('verifyCreatorAbleToEditFramework', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-        utility.validateWorkspace();
+        
         sanityfun.CreateCourseAndSaveAsDraft("CPD");
     });
 });

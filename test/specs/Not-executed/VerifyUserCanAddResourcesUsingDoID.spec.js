@@ -26,16 +26,16 @@ describe('VerifyUserCanAddResourcesUsingDoID', () => {
     it('VerifyUserCanAddResourcesUsingDoID  ',function(){
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         tpdPageObj.createCourseWithAllResourceTypeWithDoID();
         let courseName=tpdPageObj.sendForReviewCourseWithName();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishTheCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
         
     });

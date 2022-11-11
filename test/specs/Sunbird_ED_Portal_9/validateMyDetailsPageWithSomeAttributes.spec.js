@@ -23,7 +23,6 @@ describe('validateMyDetailsPageWithSomeAttributes', () => {
     
     it('validateMyDetailsPageWithSomeAttributes',function(){
         utility.handleDropDown();
-        //browser.sleep(25000);
         utility.handleLocationPopup();
         utility.userLogin('Notification');
         sanityfun.verifyMydetailsSectionPage();

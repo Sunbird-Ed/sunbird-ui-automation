@@ -26,13 +26,13 @@ describe('Course creator should have two section under "Courses Batches" :1.Crea
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let courseName=sanityfun.createCourseAndSendForReview();
         // tpdPageObj.createCourse();
         // let courseName=tpdPageObj.sendForReviewCourseWithName();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishCourseFromUpForReview(courseName);;
         utility.userLogout();
         utility.userLogin('Creator');

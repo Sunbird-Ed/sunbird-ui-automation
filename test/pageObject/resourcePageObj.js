@@ -18,7 +18,10 @@ var content = ccpage.contentCreation();
 var etbv = etbpage.etb();
 var resov = resourcePag.resource();
 var driver = browser.driver;
-
+const genericFun = require(protractor.basePath + '/test/genericFunctions/GenericFunction.js');
+let getExcelPath = require(protractor.basePath + '/test/pathFolder/changePath.js');
+const utilityFun = require(protractor.basePath + '/test/utility/utilityFunctions.js');
+var png = protractor.basePath + '/test/testdata/Signature.png';
 
 const createResource = () => {
     var resourcename;
@@ -1931,16 +1934,18 @@ const editTheContentInDraft = () => {
 }
 const navigateToLibraryAndSearchContent = (userData) => {
     try {
+        browser.sleep(4000);
         console.log("User is trying to navigate To Library And Search Content");
         wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary page not loaded");
         resov.headerLibrary.click();
-        browser.sleep(1000);
+        browser.sleep(5000);
         resov.searchInput.click();
         resov.searchInput.sendKeys(userData);
         browser.sleep(1000);
         resov.searchIcon.click();
         browser.sleep(5000);
         resov.searchedContentForUpload.click();
+        browser.sleep(5000);
         console.log("Content is consumed");
     }
     catch (Exception) {
@@ -5836,12 +5841,12 @@ const fillQusetionMetaDataForm = () => {
         resov.selectEasy.click();
         browser.sleep(1000);
 
-        console.log("Search for Learning outcome is present or not ");
-        wait.waitForElementVisibility(resov.learningOutcome, 20000, " learningOutcome is not available");
-        resov.learningOutcome.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(resov.selectLearningOutcome, 20000, " selectLearningOutcome  is not available");
-        resov.selectLearningOutcome.click();
+        // console.log("Search for Learning outcome is present or not ");
+        // wait.waitForElementVisibility(resov.learningOutcome, 20000, " learningOutcome is not available");
+        // resov.learningOutcome.click();
+        // browser.sleep(2000);
+        // wait.waitForElementVisibility(resov.selectLearningOutcome, 20000, " selectLearningOutcome  is not available");
+        // resov.selectLearningOutcome.click();
 
         browser.waitForAngularEnabled(false);
         browser.sleep(2000);
@@ -6823,7 +6828,6 @@ const VerifyHomePageWhenUserClicksBackBtnFromBrowseBySubject = () => {
         wait.waitForElementVisibility(resov.clkHome, 40000, "  Filter search bar is not available");
         resov.clkHome.click();
         browser.sleep(4000);
-
         expect(resov.browseBySubj.isDisplayed()).toBeTruthy()
         browser.sleep(2000);
         expect(resov.assertBoardSubContnet.isDisplayed()).toBeTruthy()
@@ -6974,7 +6978,6 @@ const changePreferencePopup = () => {
 }
 const contentSearchInDraftAndEditAndValidate = (corseNames) => {
     try {
-
         console.log("User able to search and edit draft")
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
@@ -7533,6 +7536,22 @@ const removeCollboratortoDraftAndSaveBook = (BookName) => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
         sanityPage.SanityElement().saveAsDraft.click();
         browser.sleep(5000);
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(6000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
+        sanityPage.SanityElement().addFromLibraryButton.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().selectButton), 20000,"Select content Button not loaded");
+        sanityPage.SanityElement().selectButton.click();
+        browser.sleep(3000);
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addContent), 20000,"Add content content Button not loaded");
+        sanityPage.SanityElement().addContent.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().contentFromLibrayBackButton), 20000,"Back Button not loaded");
+        sanityPage.SanityElement().contentFromLibrayBackButton.click();
+        browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000, "submit Button not loaded");
         sanityPage.SanityElement().submitForreviewButton.click();
         browser.sleep(3000);
@@ -7785,11 +7804,21 @@ const createSubjectiveQuestionSet = () => {
         });
 
 
+        wait.waitForElementVisibility(resov.dropDownClass, 20000, "Selectable Class Value is not available");
+        resov.dropDownClass.click();
+        browser.sleep(2000); 
+        
         wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
         resov.selectClass.click();
         browser.sleep(2000);
 
 
+        wait.waitForElementVisibility(resov.dropDownSubject, 20000, "Selectable Subject Value is not available");
+        resov.dropDownSubject.click();
+        browser.sleep(2000);
+
+        
+        
         wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
         resov.selectSubject1.click();
         browser.sleep(2000);
@@ -7797,11 +7826,17 @@ const createSubjectiveQuestionSet = () => {
         browser.executeScript('window.scrollTo(0,850);').then(function () {
             console.log('++++++SCROLLED Down+++++');
         });
+        wait.waitForElementVisibility(resov.dropDownAudiene, 20000, "Selectable Subject Value is not available");
+        resov.dropDownAudiene.click();
+        browser.sleep(2000);
 
         wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
         resov.selectAudience.click();
         browser.sleep(2000);
 
+        browser.executeScript('window.scrollTo(850,1000);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
         wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
         resov.maxHour.click();
         resov.maxHour.sendKeys('01');
@@ -7880,13 +7915,14 @@ const createSubjectiveQuestionSet = () => {
 const addQuestionSetAndTimerWithWarningTime = () => {
     var questionName;
     try {
-
         console.log("User is trying to add question Set On Content Creator");
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
         content.headerDropdown.click();
+        browser.sleep(2000);
         wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
         ccpage.contentCreation().workSpace.click();
+        browser.sleep(2000);
         wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
         resov.clickQuestionSet.click();
         wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
@@ -7895,7 +7931,6 @@ const addQuestionSetAndTimerWithWarningTime = () => {
         resov.QuestionName.click();
         resov.QuestionName.clear();
         resov.QuestionName.sendKeys(questionName);
-
         browser.sleep(2000);
         wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
         resov.enterDescription.sendKeys('Desc');
@@ -7938,10 +7973,16 @@ const addQuestionSetAndTimerWithWarningTime = () => {
         browser.executeScript('window.scrollTo(0,700);').then(function () {
             console.log('++++++SCROLLED Down+++++');
         });
-
-
+        wait.waitForElementVisibility(resov.dropDownClass, 20000, "Selectable Class Value is not available");
+        resov.dropDownClass.click();
+        browser.sleep(2000);
+        
         wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
         resov.selectClass.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropDownSubject, 20000, "Selectable Class Value is not available");
+        resov.dropDownSubject.click();
         browser.sleep(2000);
 
 
@@ -7956,6 +7997,9 @@ const addQuestionSetAndTimerWithWarningTime = () => {
         wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
         resov.selectAudience.click();
         browser.sleep(2000);
+        browser.executeScript('window.scrollTo(850,1000);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
 
         wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
         resov.maxHour.click();
@@ -9699,7 +9743,7 @@ const switchToClassicTheme = () => {
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.switchToClassicTheme), 20000, "headerDropdown page not loaded");
         resov.switchToClassicTheme.click();
-        browser.sleep(3000);
+        browser.sleep(7000);
 
     } catch (e) {
         console.log("Failed")
@@ -16464,6 +16508,6477 @@ const createMCQQuestionSetWithVideoAsSol = () => {
         console.log("Unable To Create Question Set and Add Timer")
     }
 }
+const navigateToDigtalTextbookAndSearchContent = () => {
+    try {
+        console.log("User is trying to navigate To Library And Search Content");
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary page not loaded");
+        resov.headerLibrary.click();
+        browser.sleep(3000);
+      
+
+        expect(resov.assertTenanatFirstInfo1.isPresent()).toBeTruthy();
+        expect(resov.assertTenanatFirstInfo2.isPresent()).toBeTruthy();
+        expect(resov.assertTenanatFirstInfo3.isPresent()).toBeTruthy();
+        browser.sleep(3000);
+
+    }
+    catch (Exception) {
+        console.log("Failed to navigate To Library And Search Content");
+    }
+}
+
+const CardVisibileAndWhoMeantFor = () => {
+    try {
+        console.log("User is trying to navigate To Library And Search Content");
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary page not loaded");
+        resov.headerLibrary.click();
+        browser.sleep(3000);
+              expect(resov.assertTenanatFirstInfo1.isPresent()).toBeTruthy();
+        expect(resov.assertTenanatFirstSubjectInfo1.isPresent()).toBeTruthy();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary page not loaded");
+        resov.clkCourseHeader.click();
+        browser.sleep(3000);
+        expect(resov.assertTenanatFirstInfo1.isPresent()).toBeTruthy();
+  expect(resov.assertTenanatFirstSubjectInfo1.isPresent()).toBeTruthy();
+
+    }
+    catch (Exception) {
+        console.log("Failed to navigate To Library And Search Content");
+    }
+}
+
+const titleCardAndBMC = () => {
+    try {
+        console.log("User is trying to navigate To Library And Search Content");
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary page not loaded");
+        resov.headerLibrary.click();
+        browser.sleep(3000);
+
+              expect(resov.titleCard1.isPresent()).toBeTruthy();
+        expect(resov.titleCard2.isPresent()).toBeTruthy();
+        expect(resov.assertBoardVisible.isPresent()).toBeTruthy();
+        expect(resov.assertMediumVisible.isPresent()).toBeTruthy();
+        expect(resov.assertClassVisible.isPresent()).toBeTruthy();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary page not loaded");
+        resov.clkCourseHeader.click();
+        browser.sleep(3000);
+
+        expect(resov.titleCourseCard1.isPresent()).toBeTruthy();
+  expect(resov.titleCourseCard2.isPresent()).toBeTruthy();
+  expect(resov.assertBmcCourse.isPresent()).toBeTruthy();
+
+    }
+    catch (Exception) {
+        console.log("Failed to navigate To Library And Search Content");
+    }
+}
+
+const validateBlankPageIfBMCDoesnotHaveAnyContent = () => {
+    try {
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.clkHome, 40000, "  Filter search bar is not available");
+        resov.clkHome.click();
+        browser.sleep(4000);
+
+        expect((resov.browseByCategories).isPresent()).toBe(false);
+        expect((resov.assertCategSubContent).isPresent()).toBe(false);
+        expect((resov.assertRecentlyPublished).isPresent()).toBe(false);
+
+
+        browser.sleep(2000);
+
+
+
+    } catch (e) {
+        console.log("volume mute is not validated")
+    }
+}
+
+
+const userAbleToAccessLicenceTermsAndSpecificTypeOfContent = () => {
+    try {
+        console.log("User is trying to navigate To Library And Search Content");
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary page not loaded");
+        resov.headerLibrary.click();
+        browser.sleep(3000);
+              expect(resov.assertTenanatFirstInfo1.isPresent()).toBeTruthy();
+        expect(resov.assertTenanatFirstSubjectInfo1.isPresent()).toBeTruthy();
+        browser.sleep(3000);
+        
+        resov.resoCard.click();
+        browser.sleep(5000);
+        expect(resov.Allbtn.isPresent()).toBeTruthy();
+        expect(resov.videoButton.isPresent()).toBeTruthy();
+        expect(resov.interactiveButton.isPresent()).toBeTruthy();
+        expect(resov.docsButton.isPresent()).toBeTruthy();
+
+        wait.waitForElementVisibility(resov.clkChapterUnit, 20000, "headerLibrary page not loaded");
+        resov.clkChapterUnit.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        wait.waitForElementVisibility(resov.clkLicenceDropDown, 20000, "headerLibrary page not loaded");
+        resov.clkLicenceDropDown.click();
+        browser.sleep(3000);
+
+        expect(resov.assertAuthor.isPresent()).toBeTruthy();
+        expect(resov.assertCreatedOn.isPresent()).toBeTruthy();
+        expect(resov.assertUpdatedOn.isPresent()).toBeTruthy();
+        expect(resov.assertlicenceTerms.isPresent()).toBeTruthy();
+        expect(resov.assertDescriptionLink.isPresent()).toBeTruthy();
+        expect(resov.assertCopyRights.isPresent()).toBeTruthy();
+
+
+       
+    }
+    catch (Exception) {
+        console.log("Failed to navigate To Library And Search Content");
+    }
+}
+
+const visitTextbookTcoAndPlayVideo = () => {
+    try {
+        console.log("User is trying to navigate To Library And Search Content");
+        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+        var do_id = cred[54]['CourseDescription'];
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary page not loaded");
+        resov.headerLibrary.click();
+        browser.sleep(5000);
+       
+
+        resov.searchInput.click();
+        resov.searchInput.sendKeys(do_id);
+        browser.sleep(1000);
+        resov.searchIcon.click();
+        browser.sleep(5000);
+          
+        resov.resoCard.click();
+        browser.sleep(5000);
+        
+     
+        expect(resov.Allbtn.isPresent()).toBeTruthy();
+        expect(resov.videoButton.isPresent()).toBeTruthy();
+        expect(resov.interactiveButton.isPresent()).toBeTruthy();
+        expect(resov.docsButton.isPresent()).toBeTruthy();
+
+        wait.waitForElementVisibility(resov.interactiveButton, 20000, "headerLibrary page not loaded");
+        resov.interactiveButton.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.videoButton, 20000, "headerLibrary page not loaded");
+        resov.videoButton.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkChapterUnit, 20000, "headerLibrary page not loaded");
+        resov.clkChapterUnit.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        wait.waitForElementVisibility(resov.clkLicenceDropDown, 20000, "headerLibrary page not loaded");
+        resov.clkLicenceDropDown.click();
+        browser.sleep(3000);
+
+        expect(resov.assertAuthor.isPresent()).toBeTruthy();
+        expect(resov.assertCreatedOn.isPresent()).toBeTruthy();
+        expect(resov.assertUpdatedOn.isPresent()).toBeTruthy();
+        expect(resov.assertlicenceTerms.isPresent()).toBeTruthy();
+        expect(resov.assertDescriptionLink.isPresent()).toBeTruthy();
+        expect(resov.assertCopyRights.isPresent()).toBeTruthy();
+
+
+        for (let i = 0; i <=30; i++) {
+            browser.actions().sendKeys(protractor.Key.TAB).perform();
+           // browser.sleep(2000);
+          }
+      
+
+        browser.actions().sendKeys(protractor.Key.ENTER).perform();
+
+            browser.sleep(8000);
+
+       
+    }
+    catch (Exception) {
+        console.log("Failed to navigate To Library And Search Content");
+    }
+}
+
+
+const createSubjectiveQuestionSetWithImagesWithSolOpt = () => {
+    var questionName;
+    try {
+
+        console.log("User is trying to add question Set On Content Creator");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        // wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        // resov.maxHour.click();
+        // resov.maxHour.sendKeys('00');
+        // browser.sleep(2000);
+
+        // resov.maxHour.sendKeys(protractor.Key.TAB, '01');
+
+        // resov.maxHour.sendKeys(protractor.Key.TAB, protractor.Key.TAB, protractor.Key.TAB, protractor.Key.TAB, '00');
+        // browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        wait.waitForElementVisibility(resov.createNew1, 20000, "Createnew button not found");
+        resov.createNew1.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionSubjective, 20000, "MCQ Option not found");
+        resov.questionSubjective.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        resov.clkImageIconQstn.click();
+        browser.sleep(2000);
+
+        resov.selectImage1.click();
+        browser.sleep(2000);
+
+        resov.clkImageIconAns.click();
+        browser.sleep(2000);
+        resov.selectImage1.click();
+        browser.sleep(2000);
+
+
+        expect(resov.assertQstnImag.isPresent()).toBeTruthy().then(function () {
+            console.log("Image Is Displayed On Question For Subjective Question Set");
+        })
+        browser.sleep(1000);
+
+        expect(resov.assertAnsImage.isPresent()).toBeTruthy().then(function () {
+            console.log("Image Is Displayed On Answer For Subjective Question Set");
+        })
+        browser.sleep(1000);
+        
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,400);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.chooseType, 2000, "Question entry form not found");
+        resov.chooseType.click();
+        browser.sleep(3000);
+    
+
+        wait.waitForElementVisibility(resov.selectTextImage, 2000, "Question entry form not found");
+        resov.selectTextImage.click();
+        browser.sleep(3000);
+
+
+        wait.waitForElementVisibility(resov.clkImageIconAns2, 2000, "Image For Solution Not Found");
+        resov.clkImageIconAns2.click();
+        browser.sleep(3000);
+
+        resov.selectImage1.click();
+        browser.sleep(2000);
+
+        expect(resov.assertSolution.isPresent()).toBeTruthy().then(function () {
+            console.log("Image Is Displayed On Solution Field For Subjective Question Set");
+        })
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title);
+        browser.sleep(4000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+
+    }
+    catch (e) {
+        console.log("Unable To Create Question Set and Add Timer")
+    }
+}
+
+const verifyMCQCreatorShouldBeAbleToSelectBulletListFromTheUI = () => {
+    var questionName;
+    try {
+
+        console.log("User is trying to add question Set On Content Creator");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+        resov.clkShuffle.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.clkBulletQuestion, 20000, "Bullet Opt For Question not found");
+        resov.clkBulletQuestion.click();
+        browser.sleep(2000);
+
+        
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?\nCapital Of Karnataka Is"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(3000);
+
+        expect(resov.assertBulletList1Question.isPresent()).toBeTruthy().then(function () {
+            console.log("Bullet Listed For Entered Text1 On Question Field");
+        })
+
+        expect(resov.assertBulletList2Question.isPresent()).toBeTruthy().then(function () {
+            console.log("Bullet Listed For Entered Text2 On Question Field");
+        })
+
+
+        wait.waitForElementVisibility(resov.clkBulletAns1, 20000, "Bullet Opt For Ans1 not found");
+        resov.clkBulletAns1.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bangalore\nBengaluru"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(3000);
+
+        expect(resov.assertBulletList1Question.isPresent()).toBeTruthy().then(function () {
+            console.log("Bullet Listed For Entered Text1 On Answer1 Field");
+        })
+
+        expect(resov.assertBulletList2Question.isPresent()).toBeTruthy().then(function () {
+            console.log("Bullet Listed For Entered Text2 On Answer1 Field");
+        })
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.McqOptionInput2);
+
+        wait.waitForElementVisibility(resov.clkBulletAns2, 20000, "Bullet Opt For Ans2 not found");
+        resov.clkBulletAns2.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+        option2 = "Mangalore\nMangaluru"
+        resov.McqOptionInput22.sendKeys(option2);
+        browser.sleep(2000);
+    }
+    catch (e) {
+        console.log("Unable To Create Question Set and Add Image")
+    }
+}
+
+const createMCQQuestionSetWithImagesWithSolOpt = () => {
+    var questionName;
+    try {
+
+        console.log("User is trying to add question Set On Content Creator");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        // wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        // resov.maxHour.click();
+        // resov.maxHour.sendKeys('00');
+        // browser.sleep(2000);
+
+        // resov.maxHour.sendKeys(protractor.Key.TAB, '01');
+
+        // resov.maxHour.sendKeys(protractor.Key.TAB, protractor.Key.TAB, protractor.Key.TAB, protractor.Key.TAB, '00');
+        // browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        wait.waitForElementVisibility(resov.createNew1, 20000, "Createnew button not found");
+        resov.createNew1.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        resov.clkImageIconQstn.click();
+        browser.sleep(2000);
+
+        resov.selectImage1.click();
+        browser.sleep(2000);
+
+        resov.clkImageIconAns.click();
+        browser.sleep(2000);
+        resov.selectImage1.click();
+        browser.sleep(2000);
+
+        resov.clkImageIconAns2.click();
+        browser.sleep(2000);
+        resov.selectImage1.click();
+        browser.sleep(2000);
+
+
+        expect(resov.assertQstnImag.isPresent()).toBeTruthy().then(function () {
+            console.log("Image Is Displayed On Question For MCQ Question Set");
+        })
+        browser.sleep(1000);
+
+        expect(resov.assertAnsImage.isPresent()).toBeTruthy().then(function () {
+            console.log("Image Is Displayed On Answer1 For MCQ Question Set");
+        })
+
+        expect(resov.assertAnswer2Image.isPresent()).toBeTruthy().then(function () {
+            console.log("Image Is Displayed On Answer2 For MCQ Question Set");
+        })
+
+        browser.sleep(1000);
+        
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,400);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.chooseType, 2000, "Question entry form not found");
+        resov.chooseType.click();
+        browser.sleep(3000);
+    
+
+        wait.waitForElementVisibility(resov.selectTextImage, 2000, "Question entry form not found");
+        resov.selectTextImage.click();
+        browser.sleep(3000);
+
+
+        wait.waitForElementVisibility(resov.selectSolImgForMCQ, 2000, "Image For Solution Not Found");
+        resov.selectSolImgForMCQ.click();
+        browser.sleep(3000);
+
+        resov.selectImage1.click();
+        browser.sleep(2000);
+
+        expect(resov.assertSolForMCQ.isPresent()).toBeTruthy().then(function () {
+            console.log("Image Is Displayed On Solution Field For MCQ Question Set");
+        })
+        browser.sleep(1000);
+
+
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title);
+        browser.sleep(4000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+
+    }
+    catch (e) {
+        console.log("Unable To Create Question Set and Add Timer")
+    }
+}
+
+const visitTextbookTcoAndPlayVideoForOldTheme = () => {
+    try {
+        console.log("User is trying to navigate To Library And Search Content");
+        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+        var do_id = cred[54]['CourseDescription'];
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary page not loaded");
+        resov.headerLibrary.click();
+        browser.sleep(5000);
+       
+
+        resov.searchInput.click();
+        resov.searchInput.sendKeys(do_id);
+        browser.sleep(1000);
+        resov.searchIcon.click();
+        browser.sleep(5000);
+          
+        resov.resoCardclkForOldTheme.click();
+        browser.sleep(5000);
+        
+     
+        expect(resov.Allbtn.isPresent()).toBeTruthy();
+        expect(resov.videoButton.isPresent()).toBeTruthy();
+        expect(resov.interactiveButton.isPresent()).toBeTruthy();
+        expect(resov.docsButton.isPresent()).toBeTruthy();
+
+        wait.waitForElementVisibility(resov.interactiveButton, 20000, "headerLibrary page not loaded");
+        resov.interactiveButton.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.videoButton, 20000, "headerLibrary page not loaded");
+        resov.videoButton.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkChapterUnit, 20000, "headerLibrary page not loaded");
+        resov.clkChapterUnit.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        wait.waitForElementVisibility(resov.clkLicenceDropDown, 20000, "headerLibrary page not loaded");
+        resov.clkLicenceDropDown.click();
+        browser.sleep(3000);
+
+        expect(resov.assertAuthor.isPresent()).toBeTruthy();
+        expect(resov.assertCreatedOn.isPresent()).toBeTruthy();
+        expect(resov.assertUpdatedOn.isPresent()).toBeTruthy();
+        expect(resov.assertlicenceTerms.isPresent()).toBeTruthy();
+        expect(resov.assertDescriptionLink.isPresent()).toBeTruthy();
+        expect(resov.assertCopyRights.isPresent()).toBeTruthy();
+
+
+        for (let i = 0; i <=38; i++) {
+            browser.actions().sendKeys(protractor.Key.TAB).perform();
+            browser.sleep(1000);
+          }
+      
+          browser.sleep(2000);
+
+        browser.actions().sendKeys(protractor.Key.ENTER).perform();
+
+            browser.sleep(8000);
+
+       
+    }
+    catch (Exception) {
+        console.log("Failed to navigate To Library And Search Content");
+    }
+}
+const createMCQQuestionSetWithSolution = () => {
+    var questionName;
+    try {
+
+        console.log("User is trying to add question Set On Content Creator");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selSubConfirmationEnable, 20000, "select Submit Confirmation Enable Value is not available");
+        resov.selSubConfirmationEnable.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+        resov.clkShuffle.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkShowQFeedback, 20000, "Click Show Feedback Option not found");
+        resov.clkShowQFeedback.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.selectYesOptQFeedback, 20000, "Yes Option not found");
+        resov.selectYesOptQFeedback.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bangalore"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.McqOptionInput2);
+
+        wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+        option2 = "Mangalore"
+        resov.McqOptionInput22.sendKeys(option2);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput3, 2000, "Question entry form not found");
+        option3 = "Udupi"
+        resov.mcQOptionInput3.sendKeys(option3);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput4, 2000, "Question entry form not found");
+        option4 = "Madikeri"
+        resov.mcQOptionInput4.sendKeys(option4);
+        browser.sleep(2000);
+
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.chooseType, 2000, "Question entry form not found");
+        resov.chooseType.click();
+        browser.sleep(3000);
+    
+
+        wait.waitForElementVisibility(resov.selVideo, 2000, "Video Option not found");
+        resov.selVideo.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.choosevideo1, 2000, "Video Option not found");
+        resov.choosevideo1.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.btnAdd, 2000, "add Button not found");
+        resov.btnAdd.click();
+        browser.sleep(3000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title);
+        browser.sleep(4000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+    }
+    catch (e) {
+        console.log("Unable To Create Question Set and Add Timer")
+    }
+}
+
+const createSubjectiveQuestionSetWithSolution = () => {
+    var questionName;
+    try {
+
+        console.log("User is trying to add question Set On Content Creator");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+        resov.maxHour.sendKeys(protractor.Key.TAB, '02');
+
+        resov.maxHour.sendKeys(protractor.Key.TAB, protractor.Key.TAB, protractor.Key.TAB, protractor.Key.TAB, '01');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        wait.waitForElementVisibility(resov.createNew1, 20000, "Createnew button not found");
+        resov.createNew1.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionSubjective, 20000, "MCQ Option not found");
+        resov.questionSubjective.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bangalore"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(2000);
+
+
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.chooseType, 2000, "Question entry form not found");
+        resov.chooseType.click();
+        browser.sleep(3000);
+    
+
+        wait.waitForElementVisibility(resov.selVideo, 2000, "Video Option not found");
+        resov.selVideo.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.choosevideo1, 2000, "Video Option not found");
+        resov.choosevideo1.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.btnAdd, 2000, "add Button not found");
+        resov.btnAdd.click();
+        browser.sleep(3000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title);
+        browser.sleep(4000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+
+    }
+    catch (e) {
+        console.log("Unable To Create Question Set and Add Timer")
+    }
+}
+
+const verifyCreatorIsAbleToCreateQuestionSetAlongWithRichText = () => {
+    var questionName;
+    try {
+
+        console.log("User is trying to add question Set On Content Creator");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selSubConfirmationEnable, 20000, "select Submit Confirmation Enable Value is not available");
+        resov.selSubConfirmationEnable.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+        resov.clkShuffle.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkShowQFeedback, 20000, "Click Show Feedback Option not found");
+        resov.clkShowQFeedback.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.selectYesOptQFeedback, 20000, "Yes Option not found");
+        resov.selectYesOptQFeedback.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        expect(resov.McqOptionInput1.isPresent()).toBeTruthy().then(function () {
+            console.log("Creator is able to create question set along with rich text");
+        })
+        browser.sleep(1000);
+
+        expect(resov.assertRichTextEditor.isPresent()).toBeTruthy().then(function () {
+            console.log("Creator is able to create question set along with rich text");
+        })
+        browser.sleep(1000);
+
+
+    }
+    catch (e) {
+        console.log("Unable To Create Question Set ")
+    }
+}
+
+const CreateQuestionSetAndSendForReview = () => {
+    var questionName;
+    try {
+
+        console.log("User is trying to add question Set On Content Creator");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+        resov.clkShuffle.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+        resov.clkAlignOptAns1.click();
+        browser.sleep(1000);
+        resov.clkCenterAlignment.click();
+        browser.sleep(1000);
+    
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bangalore"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.McqOptionInput2);
+
+        resov.clkAlignOptAns2.click();
+        browser.sleep(1000);
+        resov.clkRightAlignment.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+        option2 = "Mangalore"
+        resov.McqOptionInput22.sendKeys(option2);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput3, 2000, "Question entry form not found");
+        option3 = "Udupi"
+        resov.mcQOptionInput3.sendKeys(option3);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput4, 2000, "Question entry form not found");
+        option4 = "Madikeri"
+        resov.mcQOptionInput4.sendKeys(option4);
+        browser.sleep(2000);
+
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(3000);
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        // wait.waitForElementVisibility(searchObj.backButton, 20000, "Back button not found");
+        // searchObj.backButton.click();
+        // sanityPage.SanityElement().contentFromLibrayBackButton.click();
+        // browser.sleep(3000);
+
+        // browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
+        // content.searchForReview.click();
+        // content.searchForReview.sendKeys(questionName);
+        // browser.sleep(4000);
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchedContentForPublish), 20000, "workspace page not loaded");
+        // content.searchedContentForPublish.click();
+        // browser.sleep(5000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkPreview), 20000, "Preview Button Not Loaded not loaded");
+        resov.clkPreview.click();
+        browser.sleep(5000);
+
+         
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.nextSlideIcon), 20000, "Next Slide Loaded not loaded");
+        resov.nextSlideIcon.click();
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.nextSlideIcon), 20000, "Next Slide Loaded not loaded");
+        resov.nextSlideIcon.click();
+        browser.sleep(2000);
+
+
+        expect(resov.assertCenterAlignment.isPresent()).toBeTruthy().then(function () {
+            console.log("Center Alignment Is Displayed As Per Selected");
+        })
+        browser.sleep(1000);
+
+        expect(resov.assertRightAlignment.isPresent()).toBeTruthy().then(function () {
+            console.log("Right Alignment Is Displayed As Per Selected");
+        })
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkClose), 20000, "Next Slide Loaded not loaded");
+        resov.clkClose.click();
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000, "submit Button not loaded");
+        sanityPage.SanityElement().submitForreviewButton.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().termsAndConditionCheckbox.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().NewCoursesubmitButton.click();
+        browser.sleep(4000);
+
+    }
+    catch(Exception) {
+          console.log('Unable To Creat Question Set');
+    }
+    return questionName;
+
+} 
+const verifyCreatorIsNotAbleToEditPostSubmittingItForReview = (QuestionSet) => {
+    try {
+// sanityPage.SanityElement().contentFromLibrayBackButton.click();
+//         browser.sleep(3000);
+
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
+        content.searchForReview.click();
+        content.searchForReview.clear();
+        content.searchForReview.sendKeys(QuestionSet);
+        browser.sleep(4000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchedContentForPublish), 20000, "workspace page not loaded");
+        content.searchedContentForPublish.click();
+        browser.sleep(5000);
+
+
+        expect(resov.assertNameDisable.isPresent()).toBeTruthy().then(function () {
+            console.log("creator is not able to edit Name Field post submitting it for review");
+        })
+        browser.sleep(1000);
+
+        expect(resov.assertDescDisable.isPresent()).toBeTruthy().then(function () {
+            console.log("creator is not able to edit Description Field post submitting it for review");
+        })
+        browser.sleep(1000);
+
+        expect(resov.assertTextFieldDisable.isPresent()).toBeTruthy().then(function () {
+            console.log("creator is not able to edit the metadata post submitting it for review");
+        })
+        browser.sleep(1000);
+
+    }
+    catch(Exception){
+        console.log('Error');
+    }
+}
+
+const createMCQQuestionSetWithDurationAndScore = () => {
+    var questionName;
+    try {
+
+        console.log("User is trying to add question Set On Content Creator");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selSubConfirmationEnable, 20000, "select Submit Confirmation Enable Value is not available");
+        resov.selSubConfirmationEnable.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,1100);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.dropdownSummeryType, 20000, "select Submit Confirmation Enable Value is not available");
+        resov.dropdownSummeryType.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selDurAndScore, 20000, "select Submit Confirmation Enable Value is not available");
+        resov.selDurAndScore.click();
+        browser.sleep(2000);
+
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+        resov.clkShuffle.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkShowQFeedback, 20000, "Click Show Feedback Option not found");
+        resov.clkShowQFeedback.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.selectYesOptQFeedback, 20000, "Yes Option not found");
+        resov.selectYesOptQFeedback.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bangalore"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.McqOptionInput2);
+
+        wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+        option2 = "Mangalore"
+        resov.McqOptionInput22.sendKeys(option2);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput3, 2000, "Question entry form not found");
+        option3 = "Udupi"
+        resov.mcQOptionInput3.sendKeys(option3);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput4, 2000, "Question entry form not found");
+        option4 = "Madikeri"
+        resov.mcQOptionInput4.sendKeys(option4);
+        browser.sleep(2000);
+
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+        // wait.waitForElementVisibility(resov.chooseType, 2000, "Question entry form not found");
+        // resov.chooseType.click();
+        // browser.sleep(3000);
+    
+
+        // wait.waitForElementVisibility(resov.selVideo, 2000, "Video Option not found");
+        // resov.selVideo.click();
+        // browser.sleep(3000);
+
+        // wait.waitForElementVisibility(resov.choosevideo1, 2000, "Video Option not found");
+        // resov.choosevideo1.click();
+        // browser.sleep(3000);
+
+        // wait.waitForElementVisibility(resov.btnAdd, 2000, "add Button not found");
+        // resov.btnAdd.click();
+        // browser.sleep(3000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title);
+        browser.sleep(4000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+    }
+    catch (e) {
+        console.log("Unable To Create Question Set and Add Timer")
+    }
+}
+const verifyDurationAndScore = () => {
+    try {
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkPreview), 20000, "Preview Button Not Loaded not loaded");
+    resov.clkPreview.click();
+    browser.sleep(5000);
+
+ 
+    browser.wait(protractor.ExpectedConditions.visibilityOf(resov.nextSlideIcon), 20000, "Next Slide Loaded not loaded");
+    resov.nextSlideIcon.click();
+    browser.sleep(2000);
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(resov.nextSlideIcon), 20000, "Next Slide Loaded not loaded");
+    resov.nextSlideIcon.click();
+    browser.sleep(2000);
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(resov.nextSlideIcon), 20000, "Next Slide Loaded not loaded");
+    resov.nextSlideIcon.click();
+    browser.sleep(2000);
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(resov.resourceSubmitButton), 20000, "Next Slide Loaded not loaded");
+    resov.resourceSubmitButton.click();
+    browser.sleep(2000);
+    } 
+    catch(Exception) {
+        console.log('Error');
+    }
+
+
+}
+
+const createMultipleMCQQuestions = () => {
+    var questionName;
+    try {
+
+        console.log("User is trying to add question Set On Content Creator");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+        resov.clkShuffle.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bangalore"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.McqOptionInput2);
+
+        wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+        option2 = "Mangalore"
+        resov.McqOptionInput22.sendKeys(option2);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput3, 2000, "Question entry form not found");
+        option3 = "Udupi"
+        resov.mcQOptionInput3.sendKeys(option3);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput4, 2000, "Question entry form not found");
+        option4 = "Madikeri"
+        resov.mcQOptionInput4.sendKeys(option4);
+        browser.sleep(2000);
+
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkSection, 20000, "Selection button not found");
+        resov.clkSection.click();
+        browser.sleep(3000);
+
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+        // wait.waitForElementVisibility(resov.selectGrid, 2000, "Grid Option Not Found");
+        // resov.selectGrid.click();
+        // browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bangalore"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.McqOptionInput2);
+
+        wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+        option2 = "Mangalore"
+        resov.McqOptionInput22.sendKeys(option2);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput3, 2000, "Question entry form not found");
+        option3 = "Udupi"
+        resov.mcQOptionInput3.sendKeys(option3);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput4, 2000, "Question entry form not found");
+        option4 = "Madikeri"
+        resov.mcQOptionInput4.sendKeys(option4);
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title2 = "GK2";
+        resov.questionDetailsTitle.sendKeys(Title2);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkSection, 20000, "Selection button not found");
+        resov.clkSection.click();
+        browser.sleep(3000);
+
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+
+
+        // wait.waitForElementVisibility(resov.selectHoriz, 2000, "Question entry form not found");
+        // resov.selectHoriz.click();
+        // browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bangalore"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.McqOptionInput2);
+
+        wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+        option2 = "Mangalore"
+        resov.McqOptionInput22.sendKeys(option2);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput3, 2000, "Question entry form not found");
+        option3 = "Udupi"
+        resov.mcQOptionInput3.sendKeys(option3);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput4, 2000, "Question entry form not found");
+        option4 = "Madikeri"
+        resov.mcQOptionInput4.sendKeys(option4);
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title3 = "GK3";
+        resov.questionDetailsTitle.sendKeys(Title3);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(3000);
+
+        wait.waitForElement(sanity.saveAsDraft, 20000, "save as draft button not found");
+        sanity.saveAsDraft.click();
+        browser.sleep(2000);
+
+    }
+    catch (e) {
+        console.log("Unable To Create Question Set and Add Image")
+    }
+}
+
+const verifyCreatorIsAbleToSelectCountOfQuestions = () => {
+    try {
+
+        expect(resov.assertCoutMaxOnQset.isPresent()).toBeTruthy().then(function () {
+            console.log("Count of questions to be displayed On Section");
+        })
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.selectMaxQuesDropdown, 20000, "Dropdown not found");
+        resov.selectMaxQuesDropdown.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.selectMaxQuestions, 20000, "Option not found");
+        resov.selectMaxQuestions.click();
+        browser.sleep(3000);
+
+        console.log("Creater is able to select max Questions");
+        
+        
+    }
+    catch (e) {
+        console.log("Error")
+    }
+}
+
+const verifyContentCreatorIsAbleToSeeDifferentTextFormatsSuchAsBulletListAndTableAndHeadingsInSubjectiveQuesnSet = () => {
+    var questionName;
+    try {
+
+        console.log("verify Creator Is Able To View Different Headings And Bullet And Table Format");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+         wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+         resov.clkShuffle.click();
+         browser.sleep(3000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(3000);
+  
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionSubjective, 20000, "Subjective Question not found");
+        resov.questionSubjective.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkParagraphOpt1, 20000, "Paragraph Option1 not found");
+         resov.clkParagraphOpt1.click();
+         browser.sleep(1000);
+
+
+         wait.waitForElementVisibility(resov.clkBulletIcon, 20000, "Bullet Icon not found in Question");
+         resov.clkBulletIcon.click();
+         browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.clkTableIcon1, 20000, "Table Icon is not found in Question");
+         resov.clkTableIcon1.click();
+         browser.sleep(2000);
+        
+        expect(resov.assertQuestion.isPresent()).toBeTruthy().then(function () {
+             console.log(" Headings and Bullet and Table Options are Displayed As Per Selected For Subjective Question Set In Question Field");
+              })
+         browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.clkParagraphOpt2, 20000, "Paragraph Option2 is not found in Answer");      
+        resov.clkParagraphOpt2.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkBulletIcon2, 20000, "Bullet Icon not found in Answer");
+        resov.clkBulletIcon2.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.clkTableIcon3, 20000, "Table Icon is not found in Answer");
+        resov.clkTableIcon3.click();
+        browser.sleep(2000);
+
+        expect(resov.assertAnswer.isPresent()).toBeTruthy().then(function () {
+             console.log(" Headings,Bullet and Table Options are Displayed As Per Selected For Subjective Question Set in Answers Field");
+              })
+        browser.sleep(2000);
+                
+         browser.executeScript('window.scrollTo(0,250);').then(function () {
+                console.log('++++++SCROLLED Down+++++');
+                });
+         browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.clkChooseType, 20000, "Choose Type Icon not found in Solution");
+         resov.clkChooseType.click();
+         browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.clkTxtImage, 20000, " Click Text+Image option is not found in Solution");
+        resov.clkTxtImage.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkParagraphOpt3, 20000, "Paragraph Option3 is not found in Solution");        
+        resov.clkParagraphOpt3.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.clkBulletIcon3, 20000, " Click Bullet option is not found in Solution");
+        resov.clkBulletIcon3.click();
+         browser.sleep(2000);
+        
+        wait.waitForElementVisibility(resov.clkTableIcon5, 20000, "Table Icon is not found in Solution");
+        resov.clkTableIcon5.click();
+        browser.sleep(2000);
+       
+        expect(resov.assertSolution1.isPresent()).toBeTruthy().then(function () {
+             console.log(" Headings,Bullet and Table Options are Displayed As Per Selected For Subjective Question Set in Solution Field");
+              })
+        browser.sleep(2000);
+       
+    }
+
+    catch (e) {
+        console.log("Unable To validate Different Headings,Bullet and Table Option in Subjective Question Set");
+    }
+}
+
+const PreviewOnlySelectedNumberOfQuestions = () => {
+    try {
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkPreview), 20000, "Preview Button Not Loaded not loaded");
+        resov.clkPreview.click();
+        browser.sleep(5000);
+
+        expect(resov.assertSelectedNumOfQstns.isPresent()).toBeTruthy().then(function () {
+            console.log("After selecting questions in Max question, Creator is able to  preview only selected number of questions");
+         })
+       
+    }
+    catch (e) {
+        console.log("Unable To Create Question Set ")
+    }
+}
+
+const createMultipleMCQAndSubjectiveQuestions = () => {
+    var questionName;
+    try {
+
+        console.log("User is trying to add question Set On Content Creator");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+        resov.clkShuffle.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bangalore"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.McqOptionInput2);
+
+        wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+        option2 = "Mangalore"
+        resov.McqOptionInput22.sendKeys(option2);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput3, 2000, "Question entry form not found");
+        option3 = "Udupi"
+        resov.mcQOptionInput3.sendKeys(option3);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput4, 2000, "Question entry form not found");
+        option4 = "Madikeri"
+        resov.mcQOptionInput4.sendKeys(option4);
+        browser.sleep(2000);
+
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkSection, 20000, "Selection button not found");
+        resov.clkSection.click();
+        browser.sleep(3000);
+
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionSubjective, 20000, "MCQ Option not found");
+        resov.questionSubjective.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bangalore"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(2000);
+
+
+        browser.sleep(2000);
+
+
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title = "GK2";
+        resov.questionDetailsTitle.sendKeys(Title);
+        browser.sleep(4000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+
+
+        // wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        // resov.questionSave.click();
+        // browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkSection, 20000, "Selection button not found");
+        resov.clkSection.click();
+        browser.sleep(3000);
+
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+
+
+        // wait.waitForElementVisibility(resov.selectHoriz, 2000, "Question entry form not found");
+        // resov.selectHoriz.click();
+        // browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bangalore"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.McqOptionInput2);
+
+        wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+        option2 = "Mangalore"
+        resov.McqOptionInput22.sendKeys(option2);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput3, 2000, "Question entry form not found");
+        option3 = "Udupi"
+        resov.mcQOptionInput3.sendKeys(option3);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput4, 2000, "Question entry form not found");
+        option4 = "Madikeri"
+        resov.mcQOptionInput4.sendKeys(option4);
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title3 = "GK3";
+        resov.questionDetailsTitle.sendKeys(Title3);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(3000);
+
+        wait.waitForElement(sanity.saveAsDraft, 20000, "save as draft button not found");
+        sanity.saveAsDraft.click();
+        browser.sleep(2000);
+
+    }
+    catch (e) {
+        console.log("Unable To Create Question Set and Add Image")
+    }
+}
+
+const verifyCreatorIsAbleToViewHeadingsAndBulletAndTableFormatinSubjectiveQuestionset = () => {
+    var questionName;
+    try {
+
+        console.log("verify Creator Is Able To View Different Headings And Bullet And Table Format");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+         wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+         resov.clkShuffle.click();
+         browser.sleep(3000);
+		 
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(3000);
+  
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionSubjective, 20000, "Subjective Question not found");
+        resov.questionSubjective.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(1000);
+  
+        wait.waitForElementVisibility(resov.clkParagraphOpt1, 20000, "Paragraph Option1 not found");
+        resov.clkParagraphOpt1.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkHeadingOpt6, 20000, "Heading6 not found");
+        resov.clkHeadingOpt6.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "American Currency"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+        expect(resov.assertHeadingOpt6.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Question");
+        })
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkParagraphOpt2, 20000, "Paragraph Option2 not found");
+        resov.clkParagraphOpt2.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkHeadingOpt5, 20000, "Heading5 not found");
+        resov.clkHeadingOpt5.click();
+        browser.sleep(1000);
+
+        
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Dollar"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+        expect(resov.assertHeadingOpt6.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Answer");
+        })
+        browser.sleep(1000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+          console.log('++++++SCROLLED Down+++++');
+        });
+         browser.sleep(1000);
+
+         browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+         wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+         Title1 = "ST1";
+         resov.questionDetailsTitle.sendKeys(Title1);
+         browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+  
+        wait.waitForElementVisibility(resov.sectionGK1, 20000, "Section folder not found");
+        resov.sectionGK1.click();
+        browser.sleep(1000);        
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.questionSubjective, 20000, "Subjective Question not found");
+        resov.questionSubjective.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkBulletIcon, 20000, "Bullet Icon not found");
+        resov.clkBulletIcon.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+        expect(resov.assertBulletIcon.isDisplayed()).toBeTruthy();
+         console.log('Bullet Option Is Enabled ');
+         browser.sleep(2000);
+
+            wait.waitForElementVisibility(resov.clkBulletIcon2, 20000, "Bulleted not found");
+            resov.clkBulletIcon2.click();
+            wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+            option1 = "Bangalore\nMysuru"
+            resov.McqOptionInput1.sendKeys(option1);
+            browser.sleep(2000);
+    
+        expect(resov.assertBulletIcon2.isDisplayed()).toBeTruthy();
+        console.log('Bulleted Option Is Enabled ');
+        browser.sleep(1000);
+     
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+        console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "ST2";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.questionSubjective, 20000, "Subjective Question not found");
+        resov.questionSubjective.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkTableIcon1, 20000, "Click Table Option is not found");
+         resov.clkTableIcon1.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkTableIcon2, 20000, "Table Option  is not found");
+         resov.clkTableIcon2.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.rowNumOption1, 20000, "Value Option is not found");
+        optionVal1="9"
+        resov.rowNumOption1.sendKeys(optionVal1);
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.rowNumOption2, 20000, "Character Option is not found");
+        optionVal2="h"
+        resov.rowNumOption2.sendKeys(optionVal2);
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.rowNumOption3, 20000, "Value Option is not found");
+        optionVal3="5"
+        resov.rowNumOption3.sendKeys(optionVal3);
+        browser.sleep(2000);
+    
+        expect(resov.assertTblOpt1.isPresent()).toBeTruthy().then(function () {
+            console.log("Table Format Is Displayed As Per Selected For Subjective Question Set Question");
+          })
+         browser.sleep(2000);
+		 
+         wait.waitForElementVisibility(resov.clkTableIcon3, 20000, "Click Table Option is not found");
+         resov.clkTableIcon3.click();
+         browser.sleep(2000);
+
+         browser.executeScript('window.scrollTo(0,250);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+             });
+             browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.clkTableIcon4, 20000, "Table Option  is not found");
+         resov.clkTableIcon4.click();
+         browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.rowNumOption4, 20000, "Value Option is not found");
+         optionVal4="4"
+         resov.rowNumOption4.sendKeys(optionVal4);
+         browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.rowNumOption5, 20000, "Character Option is not found");
+         optionVal5="h"
+         resov.rowNumOption5.sendKeys(optionVal5);
+         browser.sleep(2000);
+           
+        expect(resov.assertTblOpt2.isPresent()).toBeTruthy().then(function () {
+           console.log("Table Format Is Displayed As Per Selected For Subjective Question Set Answer Filed");
+          })
+         browser.sleep(2000);
+ 
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+        console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "ST3";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(1000);
+
+         browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(1000);
+    }
+
+
+    catch (e) {
+        console.log("Unable To validate Different Format of Text and Headings")
+    }
+}
+
+const verifyContentCreatorIsAbleToSelectTableAndDifferentHeadingsInMCQTypeQuesnSet = () => {
+    var questionName;
+    try {
+
+        console.log("verify Content Creator Is Able To Select Table And Different Headings InMCQ Type QuesnSet");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+         resov.maxHour.click();
+         resov.maxHour.sendKeys('01');
+         browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(2000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(1000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+         resov.clkShuffle.click();
+         browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 30000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+
+       
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,330);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.clkTableIcon1, 20000, "Click Table Option is not found");
+        resov.clkTableIcon1.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkTableIcon2, 20000, "Table Option  is not found");
+         resov.clkTableIcon2.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.rowNumOption1, 20000, "Value Option is not found");
+        optionVal1="4"
+        resov.rowNumOption1.sendKeys(optionVal1);
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.rowNumOption2, 20000, "Character Option is not found");
+        optionVal2="P"
+        resov.rowNumOption2.sendKeys(optionVal2);
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.rowNumOption3, 20000, "Value Option is not found");
+        optionVal3="6"
+        resov.rowNumOption3.sendKeys(optionVal3);
+        browser.sleep(1000);
+  
+        expect(resov.assertTblOpt1.isPresent()).toBeTruthy().then(function () {
+            console.log("Table Format Is Displayed As Per Selected For  Multiple Choice Question Set In Question Field");
+          })
+         browser.sleep(1000);
+       
+         wait.waitForElementVisibility(resov.clkParagraphOpt3, 20000, "Paragraph Option1 not found");
+         resov.clkParagraphOpt3.click();
+         browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.clkMcqHeadingOpt6, 20000, "Heading6 not found");
+         resov.clkMcqHeadingOpt6.click();
+         browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.McqOptionInput1, 20000, "Question entry form not found");
+         questioninput = "American Currency"
+         resov.McqOptionInput1.sendKeys(questioninput);
+         browser.sleep(1000);
+
+         expect(resov.assertHeadingOpt6.isPresent()).toBeTruthy().then(function () {
+             console.log("Header Text Format Is Displayed As Per Selected For Multiple Question Set Question");
+         })
+         browser.sleep(1000);
+
+         browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+            });
+        
+         wait.waitForElementVisibility(resov.clkParagraphOpt4, 20000, "Paragraph Option2 not found");
+         resov.clkParagraphOpt4.click();
+         browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.clkMcqHeadingOpt1, 20000, "Heading1 not found");
+         resov.clkMcqHeadingOpt1.click();
+          browser.sleep(1000);
+
+          wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+          option1 = "Dollar"
+          resov.McqOptionInput22.sendKeys(option1);
+          browser.sleep(1000);
+
+          expect(resov.assertMcqHeadingOPt1.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Multiple Question Set Options");
+         })
+         browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.clkChooseType, 20000, "Choose Type Icon not found in Solution");
+         resov.clkChooseType.click();
+          browser.sleep(1000);
+   
+         wait.waitForElementVisibility(resov.clkTxtImage, 20000, " Click Text+Image option is not found in Solution");
+         resov.clkTxtImage.click();
+         browser.sleep(1000);    
+         
+         browser.executeScript('window.scrollTo(0,400);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+            });
+
+         wait.waitForElementVisibility(resov.clkParagraphOpt5, 20000, "Paragraph not found");
+         resov.clkParagraphOpt5.click();
+         browser.sleep(1000);
+    
+        wait.waitForElementVisibility(resov.mcQOptionInput3, 2000, "Solution entry form not found");
+        option1 = "Dollar"
+        resov.mcQOptionInput3.sendKeys(option1);
+        browser.sleep(1000);
+
+        expect(resov.assertMcqParagraph1.isPresent()).toBeTruthy().then(function () {
+         console.log("Paragraph Text Format Is Displayed As Per Selected For Multiple Question Set Solutions");
+        })
+        browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+         resov.sltCorrectAnswer1.click();
+         browser.sleep(2000);
+
+         browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+         wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+         Title = "GK1";
+         resov.questionDetailsTitle.sendKeys(Title);
+         browser.sleep(2000);
+
+         browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+         wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+         resov.questionSave.click();
+         browser.sleep(2000); 
+ 
+
+       wait.waitForElementVisibility(resov.sectionGK1, 20000, "Section folder not found");
+       resov.sectionGK1.click();
+       browser.sleep(2000);        
+
+       wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+       resov.createNewBtn.click();
+       browser.sleep(2000);
+
+       wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+       resov.questionMCQ.click();
+       browser.sleep(1000);
+
+       wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+       resov.questionMCQnextBtn.click();
+       browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.clkParagraphOpt1, 2000, "Paragraph Option1 not found");
+         resov.clkParagraphOpt1.click();
+         browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.clkMcqHeadingOpt2, 20000, "Heading1 not found");
+         resov.clkMcqHeadingOpt2.click();
+         browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+         questioninput = "What is The Capital of Karnataka?"
+         resov.mCQquestionInput.sendKeys(questioninput);
+         browser.sleep(1000);
+
+         expect(resov.assertMcqHeadingOpt2.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Multiple Choce Question Set In Question Filed");
+        })
+        browser.sleep(2000);
+
+         browser.executeScript('window.scrollTo(0,330);').then(function () {
+             console.log('++++++SCROLLED Down+++++');
+             });
+
+          browser.sleep(2000);
+
+          wait.waitForElementVisibility(resov.clkParagraphOpt2, 20000, "Paragraph Option2 not found");
+          resov.clkParagraphOpt2.click();
+          browser.sleep(1000);
+
+          wait.waitForElementVisibility(resov.clkMcqHeadingOpt3, 20000, "Heading3 not found");
+          resov.clkMcqHeadingOpt3.click();
+          browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Options entry form not found");
+         option1 = "Bangalore"
+         resov.McqOptionInput1.sendKeys(option1);
+         browser.sleep(2000);
+        
+          expect(resov.assertMcqHeading3.isPresent()).toBeTruthy().then(function () {
+              console.log("Header Text Format Is Displayed As Per Selected For Multiple Choice Question in Options");
+          })
+         browser.sleep(1000);
+      
+
+           wait.waitForElementVisibility(resov.clkParagraphOpt3, 20000, "Paragraph Option3 not found");
+           resov.clkParagraphOpt3.click();
+           browser.sleep(1000);
+
+           wait.waitForElementVisibility(resov.clkMcqHeadingOpt4, 20000, "Heading4 not found");
+           resov.clkMcqHeadingOpt4.click();
+           browser.sleep(1000);
+
+           wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "options entry form not found");
+           option2 = "Mangalore"
+           resov.McqOptionInput22.sendKeys(option2);
+           browser.sleep(1000);
+
+           expect(resov.assertMcqHeadingOpt3.isPresent()).toBeTruthy().then(function () {
+                console.log("Header Text Format Is Displayed As Per Selected For Multiple Question Set Options");
+           })
+           browser.sleep(1000);
+
+             wait.waitForElementVisibility(resov.clkChooseType, 20000, "Choose Type Icon not found in Solution");
+             resov.clkChooseType.click();
+              browser.sleep(1000);
+       
+             wait.waitForElementVisibility(resov.clkTxtImage, 20000, " Click Text+Image option is not found in Solution");
+             resov.clkTxtImage.click();
+             browser.sleep(1000);      
+
+             browser.executeScript('window.scrollTo(0,400);').then(function () {
+                console.log('++++++SCROLLED Down+++++');
+                });
+
+             wait.waitForElementVisibility(resov.clkParagraphOpt4, 20000, "Paragraph Option4 not found");
+             resov.clkParagraphOpt4.click();
+             browser.sleep(1000);
+    
+             wait.waitForElementVisibility(resov.clkMcqHeadingOpt5, 20000, "Heading5 not found");
+             resov.clkMcqHeadingOpt5.click();
+             browser.sleep(1000);
+    
+            wait.waitForElementVisibility(resov.mcQOptionInput3, 2000, "Solution entry form not found");
+            option1 = "Bangalore"
+            resov.mcQOptionInput3.sendKeys(option1);
+            browser.sleep(1000);
+
+            expect(resov.assertMcqHeading5.isPresent()).toBeTruthy().then(function () {
+             console.log("Header Text Format Is Displayed As Per Selected For Multiple Question Set Solutions");
+            })
+            browser.sleep(2000);
+    
+    }
+
+    catch (e) {
+        console.log("Unable To validate Table and Different Format of Headings in MCQ Type QuesnSet")
+    }
+}
+
+const verifyCreatorIsAbleToCreateNewParagraphDuringDescriptiveTypeQuestion = () => {
+    var questionName;
+    try {
+
+        console.log("verify Creator Is Able To View Different Headings And Bullet And Table Format");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+         wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+         resov.clkShuffle.click();
+         browser.sleep(3000);
+		 
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(3000);
+  
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionSubjective, 20000, "Subjective Question not found");
+        resov.questionSubjective.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkParagraphOpt1, 20000, "Paragraph Option1 not found");
+        resov.clkParagraphOpt1.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkParagraphOpt2, 20000, "Paragraph Option2 not found");
+        resov.clkParagraphOpt2.click();
+        browser.sleep(1000);
+
+  
+        
+
+        // wait.waitForElementVisibility(resov.clkHeadingOpt6, 20000, "Heading6 not found");
+        // resov.clkHeadingOpt6.click();
+        // browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "American Currency"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+       
+        expect(resov.assertParagraph.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Question");
+        })
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkParagraphOpt3, 20000, "Paragraph Option2 not found");
+        resov.clkParagraphOpt3.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkParagraphOpt4, 20000, "Paragraph Option2 not found");
+        resov.clkParagraphOpt4.click();
+        browser.sleep(1000);
+
+        
+
+        // wait.waitForElementVisibility(resov.clkHeadingOpt5, 20000, "Heading5 not found");
+        // resov.clkHeadingOpt5.click();
+        // browser.sleep(1000);
+
+        
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Dollar"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+        expect(resov.assertMcqParagraph1.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Answer");
+        })
+        browser.sleep(1000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+          console.log('++++++SCROLLED Down+++++');
+        });
+         browser.sleep(1000);
+
+         browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+         wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+         Title1 = "ST1";
+         resov.questionDetailsTitle.sendKeys(Title1);
+         browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+  
+        // wait.waitForElementVisibility(resov.sectionGK1, 20000, "Section folder not found");
+        // resov.sectionGK1.click();
+        // browser.sleep(1000);        
+
+        // wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        // resov.createNewBtn.click();
+        // browser.sleep(1000);
+
+        // wait.waitForElementVisibility(resov.questionSubjective, 20000, "Subjective Question not found");
+        // resov.questionSubjective.click();
+        // browser.sleep(1000);
+
+        // wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        // resov.questionMCQnextBtn.click();
+        // browser.sleep(1000);
+
+        // wait.waitForElementVisibility(resov.clkBulletIcon, 20000, "Bullet Icon not found");
+        // resov.clkBulletIcon.click();
+        // browser.sleep(1000);
+
+        // wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        // questioninput = "What is the capital of Karnataka?"
+        // resov.mCQquestionInput.sendKeys(questioninput);
+        // browser.sleep(1000);
+
+        // expect(resov.assertBulletIcon.isDisplayed()).toBeTruthy();
+        //  console.log('Bullet Option Is Enabled ');
+        //  browser.sleep(2000);
+
+        //     wait.waitForElementVisibility(resov.clkBulletIcon2, 20000, "Bulleted not found");
+        //     resov.clkBulletIcon2.click();
+        //     wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        //     option1 = "Bangalore\nMysuru"
+        //     resov.McqOptionInput1.sendKeys(option1);
+        //     browser.sleep(2000);
+    
+        // expect(resov.assertBulletIcon2.isDisplayed()).toBeTruthy();
+        // console.log('Bulleted Option Is Enabled ');
+        // browser.sleep(1000);
+     
+        // browser.executeScript('window.scrollTo(0,0);').then(function () {
+        // console.log('++++++SCROLLED Down+++++');
+        // });
+        // browser.sleep(1000);
+
+        // wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        // Title1 = "ST2";
+        // resov.questionDetailsTitle.sendKeys(Title1);
+        // browser.sleep(1000);
+
+        // browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        // wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        // resov.questionSave.click();
+        // browser.sleep(1000);
+
+        // wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        // resov.createNewBtn.click();
+        // browser.sleep(1000);
+
+        // wait.waitForElementVisibility(resov.questionSubjective, 20000, "Subjective Question not found");
+        // resov.questionSubjective.click();
+        // browser.sleep(1000);
+
+        // wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        // resov.questionMCQnextBtn.click();
+        // browser.sleep(1000);
+
+        // wait.waitForElementVisibility(resov.clkTableIcon1, 20000, "Click Table Option is not found");
+        //  resov.clkTableIcon1.click();
+        // browser.sleep(1000);
+
+        // wait.waitForElementVisibility(resov.clkTableIcon2, 20000, "Table Option  is not found");
+        //  resov.clkTableIcon2.click();
+        // browser.sleep(2000);
+
+        // wait.waitForElementVisibility(resov.rowNumOption1, 20000, "Value Option is not found");
+        // optionVal1="9"
+        // resov.rowNumOption1.sendKeys(optionVal1);
+        // browser.sleep(1000);
+
+        // wait.waitForElementVisibility(resov.rowNumOption2, 20000, "Character Option is not found");
+        // optionVal2="h"
+        // resov.rowNumOption2.sendKeys(optionVal2);
+        // browser.sleep(1000);
+
+        // wait.waitForElementVisibility(resov.rowNumOption3, 20000, "Value Option is not found");
+        // optionVal3="5"
+        // resov.rowNumOption3.sendKeys(optionVal3);
+        // browser.sleep(2000);
+    
+        // expect(resov.assertTblOpt1.isPresent()).toBeTruthy().then(function () {
+        //     console.log("Table Format Is Displayed As Per Selected For Subjective Question Set Question");
+        //   })
+        //  browser.sleep(2000);
+		 
+        //  wait.waitForElementVisibility(resov.clkTableIcon3, 20000, "Click Table Option is not found");
+        //  resov.clkTableIcon3.click();
+        //  browser.sleep(2000);
+
+        //  browser.executeScript('window.scrollTo(0,250);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        //      });
+        //      browser.sleep(2000);
+
+        //  wait.waitForElementVisibility(resov.clkTableIcon4, 20000, "Table Option  is not found");
+        //  resov.clkTableIcon4.click();
+        //  browser.sleep(2000);
+
+        //  wait.waitForElementVisibility(resov.rowNumOption4, 20000, "Value Option is not found");
+        //  optionVal4="4"
+        //  resov.rowNumOption4.sendKeys(optionVal4);
+        //  browser.sleep(1000);
+
+        //  wait.waitForElementVisibility(resov.rowNumOption5, 20000, "Character Option is not found");
+        //  optionVal5="h"
+        //  resov.rowNumOption5.sendKeys(optionVal5);
+        //  browser.sleep(2000);
+           
+        // expect(resov.assertTblOpt2.isPresent()).toBeTruthy().then(function () {
+        //    console.log("Table Format Is Displayed As Per Selected For Subjective Question Set Answer Filed");
+        //   })
+        //  browser.sleep(2000);
+ 
+        // browser.executeScript('window.scrollTo(0,0);').then(function () {
+        // console.log('++++++SCROLLED Down+++++');
+        // });
+        // browser.sleep(2000);
+
+        // browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        // wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        // Title1 = "ST3";
+        // resov.questionDetailsTitle.sendKeys(Title1);
+        // browser.sleep(1000);
+
+        //  browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        // wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        // resov.questionSave.click();
+        // browser.sleep(1000);
+    }
+
+
+    catch (e) {
+        console.log("Unable To validate Different Format of Text and Headings")
+    }
+}
+
+const verifyCreatorIsAbleToViewDifferentHeadingsAndTextFormatInSubjectiveQustionSet = () => {
+    var questionName;
+    try {
+
+        console.log("verify Creator Is Able To View Different Headings And Text Format In Subjective");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(2000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(1000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+         resov.clkShuffle.click();
+         browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 30000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionSubjective, 20000, "Subjective Question not found");
+        resov.questionSubjective.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkParagraphOpt1, 20000, "Paragraph Option1 not found");
+        resov.clkParagraphOpt1.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkHeadingOpt6, 20000, "Heading6 not found");
+        resov.clkHeadingOpt6.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 20000, "Question entry form not found");
+        questioninput = "American Currency"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+        expect(resov.assertHeadingOpt6.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Question");
+        })
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkParagraphOpt2, 20000, "Paragraph Option2 not found");
+        resov.clkParagraphOpt2.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkHeadingOpt5, 20000, "Heading5 not found");
+        resov.clkHeadingOpt5.click();
+        browser.sleep(1000);
+        
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Dollor"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+       expect(resov.assertHeadingOpt5.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Answer");
+        })
+        browser.sleep(1000);
+        
+     
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkHeadingOpt6, 2000, "Paragraph Option1 not found");
+        resov.clkHeadingOpt6.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkHeadingOpt1, 20000, "Heading1 not found");
+        resov.clkHeadingOpt1.click();
+        browser.sleep(1000);
+     
+        expect(resov.assertVerifyHeadingOpt1.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Question");
+        })
+        browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.clkHeadingOpt5, 2000, "Paragraph Option2 not found");
+         resov.clkHeadingOpt5.click();
+         browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkHeadingOpt2, 20000, "Heading2 not found");
+        resov.clkHeadingOpt2.click();
+        browser.sleep(1000);
+    
+        expect(resov.assertVerifyHeadingOpt2.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Answer");
+        })
+        browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.clkHeadingOpt1, 20000, "Paragraph Option1 not found");
+         resov.clkHeadingOpt1.click();
+         browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clickHeadingOption3, 20000, "Heading3 not found");
+        resov.clickHeadingOption3.click();
+        browser.sleep(1000);
+
+        expect(resov.assertVerifyHeading3.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Question");
+        })
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkHeadingOpt2, 2000, "Paragraph Option2 not found");
+         resov.clkHeadingOpt2.click();
+         browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkHeadingOpt4, 2000, "Heading4 not found");
+        resov.clkHeadingOpt4.click();
+        browser.sleep(1000);
+
+        expect(resov.assertHeadingOpt4.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Answer");
+        })
+        browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.clickHeadingOption3, 20000,"Heading3 not found" );
+         resov.clickHeadingOption3.click();
+         browser.sleep(1000);
+
+         
+        wait.waitForElementVisibility(resov.clkParagraphOpt1, 20000,"Paragraph Option1 not found");
+        resov.clkParagraphOpt1.click();
+        browser.sleep(1000);
+
+
+        expect(resov.assertParagraph.isPresent()).toBeTruthy().then(function () {
+             console.log("Paragraph Text Format Is Displayed As Per Selected For Subjective Question Set Question");
+         })
+         browser.sleep(1000);
+    }
+
+    catch (e) {
+        console.log("Unable To validate Different Format of Text and Headings")
+    }
+}
+
+
+const createMCQQuestionSetWithUploadImagesWithSolOpt = () => {
+    var questionName;
+    try {
+
+        console.log("User is trying to add question Set On Content Creator");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        // wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        // resov.maxHour.click();
+        // resov.maxHour.sendKeys('00');
+        // browser.sleep(2000);
+
+        // resov.maxHour.sendKeys(protractor.Key.TAB, '01');
+
+        // resov.maxHour.sendKeys(protractor.Key.TAB, protractor.Key.TAB, protractor.Key.TAB, protractor.Key.TAB, '00');
+        // browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        wait.waitForElementVisibility(resov.createNew1, 20000, "Createnew button not found");
+        resov.createNew1.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        resov.clkImageIconQstn.click();
+        browser.sleep(2000);
+
+        resov.btnUploadAndUse.click();
+        browser.sleep(2000);
+
+        resov.btnUploadFromComputer.click();
+        browser.sleep(2000);
+        utilityFun.uploadParticularFile(png);
+        resov.btnUploadAndUse2.click();
+        browser.sleep(2000);
+
+
+        // wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        // resov.questionMCQnextBtn.click();
+        // browser.sleep(2000);
+
+        resov.clkImageIconAns.click();
+        browser.sleep(2000);
+        resov.btnUploadAndUse.click();
+        browser.sleep(2000);
+        resov.btnUploadFromComputer.click();
+        browser.sleep(2000);
+        utilityFun.uploadParticularFile(png);
+        resov.btnUploadAndUse2.click();
+        browser.sleep(2000);
+
+
+        resov.clkImageIconAns2.click();
+        browser.sleep(2000);
+        resov.btnUploadAndUse.click();
+        browser.sleep(2000);
+
+        resov.btnUploadFromComputer.click();
+        browser.sleep(2000);
+        utilityFun.uploadParticularFile(png);
+        resov.btnUploadAndUse2.click();
+        browser.sleep(2000);
+
+
+        expect(resov.assertQuestionImgUploaded.isPresent()).toBeTruthy().then(function () {
+            console.log("Uploaded Image Is Displayed On Question For MCQ Question Set");
+        })
+        browser.sleep(1000);
+
+        expect(resov.assertAns1ImgUploaded.isPresent()).toBeTruthy().then(function () {
+            console.log("Uploaded Image Is Displayed On Option1 For MCQ Question Set");
+        })
+        browser.sleep(1000);
+
+        
+        expect(resov.assertAns2ImgUploaded.isPresent()).toBeTruthy().then(function () {
+            console.log("Uploaded Image Is Displayed On Option1 For MCQ Question Set");
+        })
+        browser.sleep(1000);
+
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title);
+        browser.sleep(4000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+
+    }
+    catch (e) {
+        console.log("Unable To Create Question Set and Add Timer")
+    }
+}
+
+const createMCQQuestionSetWithUploadImagesWithSolOptVertical = () => {
+    var questionName;
+    try {
+
+        console.log("User is trying to add question Set On Content Creator");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        wait.waitForElementVisibility(resov.createNew1, 20000, "Createnew button not found");
+        resov.createNew1.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        resov.clkImageIconQstn.click();
+        browser.sleep(2000);
+
+        resov.btnUploadAndUse.click();
+        browser.sleep(2000);
+
+        resov.btnUploadFromComputer.click();
+        browser.sleep(2000);
+        utilityFun.uploadParticularFile(png);
+        resov.btnUploadAndUse2.click();
+        browser.sleep(2000);
+
+        resov.clkImageIconAns.click();
+        browser.sleep(2000);
+        resov.btnUploadAndUse.click();
+        browser.sleep(2000);
+        resov.btnUploadFromComputer.click();
+        browser.sleep(2000);
+        utilityFun.uploadParticularFile(png);
+        resov.btnUploadAndUse2.click();
+        browser.sleep(2000);
+
+        resov.clkImageIconAns2.click();
+        browser.sleep(2000);
+        resov.btnUploadAndUse.click();
+        browser.sleep(2000);
+
+        resov.btnUploadFromComputer.click();
+        browser.sleep(2000);
+        utilityFun.uploadParticularFile(png);
+        resov.btnUploadAndUse2.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.clkChooseType, 20000, "Choose Type Icon not found in Solution");
+        resov.clkChooseType.click();
+        browser.sleep(1000);
+       
+        wait.waitForElementVisibility(resov.clkTxtImage, 20000, " Click Text+Image option is not found in Solution");
+        resov.clkTxtImage.click();
+        browser.sleep(1000);
+        
+        
+
+        resov.selectSolImgForMCQ.click();
+        browser.sleep(2000);
+        resov.btnUploadAndUse.click();
+        browser.sleep(2000);
+
+        resov.btnUploadFromComputer.click();
+        browser.sleep(2000);
+        utilityFun.uploadParticularFile(png);
+        resov.btnUploadAndUse2.click();
+        browser.sleep(2000);
+
+
+        expect(resov.assertQuestionImgUploaded.isPresent()).toBeTruthy().then(function () {
+            console.log("Uploaded Image Is Displayed On Question For MCQ Question Set");
+        })
+        browser.sleep(1000);
+
+        expect(resov.assertAns1ImgUploaded.isPresent()).toBeTruthy().then(function () {
+            console.log("Uploaded Image Is Displayed On Option1 For MCQ Question Set");
+        })
+        browser.sleep(1000);
+
+        
+        expect(resov.assertAns2ImgUploaded.isPresent()).toBeTruthy().then(function () {
+            console.log("Uploaded Image Is Displayed On Option1 For MCQ Question Set");
+        })
+        browser.sleep(1000);
+
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title);
+        browser.sleep(4000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+
+    }
+    catch (e) {
+        console.log("Unable To Create Question Set and Add Timer")
+    }
+}
+
+const createMCQQuestionSetWithUploadImagesWithSolOptGrid = () => {
+    var questionName;
+    try {
+
+        console.log("User is trying to add question Set On Content Creator");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        wait.waitForElementVisibility(resov.createNew1, 20000, "Createnew button not found");
+        resov.createNew1.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        resov.clkImageIconQstn.click();
+        browser.sleep(2000);
+
+        resov.btnUploadAndUse.click();
+        browser.sleep(2000);
+
+        resov.btnUploadFromComputer.click();
+        browser.sleep(2000);
+        utilityFun.uploadParticularFile(png);
+        resov.btnUploadAndUse2.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectGrid, 2000, "Grid Option Not Found");
+        resov.selectGrid.click();
+        browser.sleep(3000);
+
+        resov.clkImageIconAns.click();
+        browser.sleep(2000);
+        resov.btnUploadAndUse.click();
+        browser.sleep(2000);
+        resov.btnUploadFromComputer.click();
+        browser.sleep(2000);
+        utilityFun.uploadParticularFile(png);
+        resov.btnUploadAndUse2.click();
+        browser.sleep(2000);
+
+        resov.clkImageIconAns2.click();
+        browser.sleep(2000);
+        resov.btnUploadAndUse.click();
+        browser.sleep(2000);
+
+        resov.btnUploadFromComputer.click();
+        browser.sleep(2000);
+        utilityFun.uploadParticularFile(png);
+        resov.btnUploadAndUse2.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.clkChooseType, 20000, "Choose Type Icon not found in Solution");
+        resov.clkChooseType.click();
+        browser.sleep(1000);
+       
+        wait.waitForElementVisibility(resov.clkTxtImage, 20000, " Click Text+Image option is not found in Solution");
+        resov.clkTxtImage.click();
+        browser.sleep(1000);
+        
+        
+
+        resov.selectSolImgForMCQ.click();
+        browser.sleep(2000);
+        resov.btnUploadAndUse.click();
+        browser.sleep(2000);
+
+        resov.btnUploadFromComputer.click();
+        browser.sleep(2000);
+        utilityFun.uploadParticularFile(png);
+        resov.btnUploadAndUse2.click();
+        browser.sleep(2000);
+
+
+        expect(resov.assertQuestionImgUploaded.isPresent()).toBeTruthy().then(function () {
+            console.log("Uploaded Image Is Displayed On Question For MCQ Question Set");
+        })
+        browser.sleep(1000);
+
+        expect(resov.assertAns1ImgUploaded.isPresent()).toBeTruthy().then(function () {
+            console.log("Uploaded Image Is Displayed On Option1 For MCQ Question Set");
+        })
+        browser.sleep(1000);
+
+        
+        expect(resov.assertAns2ImgUploaded.isPresent()).toBeTruthy().then(function () {
+            console.log("Uploaded Image Is Displayed On Option1 For MCQ Question Set");
+        })
+        browser.sleep(1000);
+
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title);
+        browser.sleep(4000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+
+    }
+    catch (e) {
+        console.log("Unable To Create Question Set and Add Timer")
+    }
+}
+
+const verifyOnSeletingCompleteTheScoreObtainedOutOfTotalScoreWillDisplayAtTheEndOfTheScreen = () => {
+    var questionName;
+    try {
+
+        console.log("verify On Seleting Complete The Score Obtained Out Of Total Score Will Display At The End Of The Screen");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,780);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+
+         wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+         resov.maxHour.click();
+         resov.maxHour.sendKeys('01');
+         browser.sleep(7000);
+
+         browser.executeScript('window.scrollTo(0,350);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+      
+        wait.waitForElementVisibility(resov.selectSummeryType, 30000, "Selectable Summery Type is not available");
+        resov.selectSummeryType.click();
+        browser.sleep(3000);
+
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(2000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(1000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+         resov.clkShuffle.click();
+         browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 30000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,300);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bangalore"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.McqOptionInput2);
+
+        wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+        option2 = "Mangalore"
+        resov.McqOptionInput22.sendKeys(option2);
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+ 
+
+       wait.waitForElementVisibility(resov.sectionGK1, 20000, "Section folder not found");
+       resov.sectionGK1.click();
+       browser.sleep(2000);        
+
+       wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+       resov.createNewBtn.click();
+       browser.sleep(2000);
+
+       wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+       resov.questionMCQ.click();
+       browser.sleep(1000);
+
+       wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+       resov.questionMCQnextBtn.click();
+       browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+         questioninput = "What is The Capital of Karnataka?"
+         resov.mCQquestionInput.sendKeys(questioninput);
+         browser.sleep(1000);
+
+        browser.executeScript('window.scrollTo(0,330);').then(function () {
+         console.log('++++++SCROLLED Down+++++');
+             });
+
+          browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Options entry form not found");
+         option1 = "Bangalore"
+         resov.McqOptionInput1.sendKeys(option1);
+         browser.sleep(2000);
+       
+           wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "options entry form not found");
+           option2 = "Mangalore"
+           resov.McqOptionInput22.sendKeys(option2);
+           browser.sleep(1000);
+
+         browser.executeScript('window.scrollTo(0,400);').then(function () {
+         console.log('++++++SCROLLED Down+++++');
+
+        
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title = "GK2";
+        resov.questionDetailsTitle.sendKeys(Title);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+       });
+
+            
+      wait.waitForElementVisibility(resov.sectionGK1, 20000, "Section folder not found");
+      resov.sectionGK1.click();
+      browser.sleep(2000);        
+
+     wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+     resov.createNewBtn.click();
+     browser.sleep(2000);
+
+     wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+     resov.questionMCQ.click();
+     browser.sleep(1000);
+
+     wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+     resov.questionMCQnextBtn.click();
+     browser.sleep(2000);
+
+       wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+       questioninput = "What is The Capital of Karnataka?"
+       resov.mCQquestionInput.sendKeys(questioninput);
+       browser.sleep(2000);
+
+      browser.executeScript('window.scrollTo(0,330);').then(function () {
+       console.log('++++++SCROLLED Down+++++');
+           });
+
+        browser.sleep(2000);
+
+       wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Options entry form not found");
+       option1 = "Bangalore"
+       resov.McqOptionInput1.sendKeys(option1);
+       browser.sleep(2000);
+     
+         wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "options entry form not found");
+         option2 = "Mangalore"
+         resov.McqOptionInput22.sendKeys(option2);
+         browser.sleep(1000);
+
+
+       browser.executeScript('window.scrollTo(0,400);').then(function () {
+       console.log('++++++SCROLLED Down+++++');
+
+       
+      wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+      resov.sltCorrectAnswer1.click();
+      browser.sleep(2000);
+
+
+      browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+      wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+      Title = "GK3";
+      resov.questionDetailsTitle.sendKeys(Title);
+      browser.sleep(2000);
+
+      browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+      wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+      resov.questionSave.click();
+      browser.sleep(2000); 
+
+       wait.waitForElementVisibility(resov.preview, 20000, "preview is not available");
+       resov.preview.click();
+
+        resov.clkNxtSlide.click();
+        browser.sleep(2000);
+
+        resov.clkNxtSlide.click();
+        browser.sleep(2000);
+       
+
+        wait.waitForElementVisibility(resov.selectRadioButton1, 30000, "select correct option from preview");
+        resov.selectRadioButton1.click();
+        browser.sleep(2000);
+   
+        resov.clkNxtSlide.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectRadioButton2, 30000, "select correct option from preview");
+        resov.selectRadioButton2.click();
+        browser.sleep(2000);
+
+        resov.clkNxtSlide.click();
+        browser.sleep(2000);
+
+        resov.clkNxtSlide.click();
+        browser.sleep(2000);
+      
+       });
+          
+    }
+
+    catch (e) {
+        console.log("Unable To validate By Seleting Complete The Score Obtained Out Of Total Score Will Display");
+    }
+}
+
+
+const verifyOnSeletingScoreAndDurationTheScoreObtainedOutOfTotalScoreWillDisplayAtTheEndOfTheScreen = () => {
+    var questionName;
+    try {
+
+        console.log("verify On Seleting Complete The Score Obtained Out Of Total Score Will Display At The End Of The Screen");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+
+         wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+         resov.maxHour.click();
+         resov.maxHour.sendKeys('01');
+         browser.sleep(7000);
+
+         browser.executeScript('window.scrollTo(0,350);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectScoreAndDuration, 30000, "Selectable Score & Duration is not available");
+        resov.selectScoreAndDuration.click();
+        browser.sleep(3000);
+
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(2000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(1000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+         resov.clkShuffle.click();
+         browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 30000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,300);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bangalore"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.McqOptionInput2);
+
+        wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+        option2 = "Mangalore"
+        resov.McqOptionInput22.sendKeys(option2);
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+ 
+       wait.waitForElementVisibility(resov.sectionGK1, 20000, "Section folder not found");
+       resov.sectionGK1.click();
+       browser.sleep(2000);        
+
+       wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+       resov.createNewBtn.click();
+       browser.sleep(2000);
+
+       wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+       resov.questionMCQ.click();
+       browser.sleep(1000);
+
+       wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+       resov.questionMCQnextBtn.click();
+       browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+         questioninput = "What is The Capital of Karnataka?"
+         resov.mCQquestionInput.sendKeys(questioninput);
+         browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,330);').then(function () {
+         console.log('++++++SCROLLED Down+++++');
+             });
+
+          browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Options entry form not found");
+         option1 = "Bangalore"
+         resov.McqOptionInput1.sendKeys(option1);
+         browser.sleep(2000);
+       
+           wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "options entry form not found");
+           option2 = "Mangalore"
+           resov.McqOptionInput22.sendKeys(option2);
+           browser.sleep(1000);
+
+         browser.executeScript('window.scrollTo(0,400);').then(function () {
+         console.log('++++++SCROLLED Down+++++');
+       
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title = "GK2";
+        resov.questionDetailsTitle.sendKeys(Title);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+       });        
+   
+      wait.waitForElementVisibility(resov.sectionGK1, 20000, "Section folder not found");
+      resov.sectionGK1.click();
+      browser.sleep(2000);        
+
+     wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+     resov.createNewBtn.click();
+     browser.sleep(2000);
+
+     wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+     resov.questionMCQ.click();
+     browser.sleep(1000);
+
+     wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+     resov.questionMCQnextBtn.click();
+     browser.sleep(2000);
+
+       wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+       questioninput = "What is The Capital of Karnataka?"
+       resov.mCQquestionInput.sendKeys(questioninput);
+       browser.sleep(2000);
+
+      browser.executeScript('window.scrollTo(0,330);').then(function () {
+       console.log('++++++SCROLLED Down+++++');
+           });
+
+        browser.sleep(2000);
+
+       wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Options entry form not found");
+       option1 = "Bangalore"
+       resov.McqOptionInput1.sendKeys(option1);
+       browser.sleep(2000);
+     
+         wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "options entry form not found");
+         option2 = "Mangalore"
+         resov.McqOptionInput22.sendKeys(option2);
+         browser.sleep(1000);
+
+       browser.executeScript('window.scrollTo(0,400);').then(function () {
+       console.log('++++++SCROLLED Down+++++');
+      
+      wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+      resov.sltCorrectAnswer1.click();
+      browser.sleep(2000);
+
+      browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+      wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+      Title = "GK3";
+      resov.questionDetailsTitle.sendKeys(Title);
+      browser.sleep(2000);
+
+      browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+      wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+      resov.questionSave.click();
+      browser.sleep(2000); 
+
+      wait.waitForElementVisibility(resov.preview, 20000, "preview is not available");
+      resov.preview.click();
+
+      resov.clkNxtSlide.click();
+       browser.sleep(2000);
+
+        resov.clkNxtSlide.click();
+        browser.sleep(2000);
+       
+        wait.waitForElementVisibility(resov.selectRadioButton1, 30000, "select correct option from preview");
+        resov.selectRadioButton1.click();
+        browser.sleep(2000);
+   
+        resov.clkNxtSlide.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectRadioButton2, 30000, "select correct option from preview");
+        resov.selectRadioButton2.click();
+        browser.sleep(2000);
+
+        resov.clkNxtSlide.click();
+        browser.sleep(2000);
+
+        resov.clkNxtSlide.click();
+        browser.sleep(2000);
+        
+       });
+          
+    }
+
+    catch (e) {
+        console.log("Unable To validate By Seleting Score And Duration The Score Obtained Out Of Total Score Will Display");
+    }
+}
+
+
+const verifyShowSolutionEnableAndDisableForAnsIcon = () => {
+    try {
+
+        console.log("User is trying to add question Set On Content Creator");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(3000);
+
+        
+
+        wait.waitForElementVisibility(resov.enterInstructions, 2000, "Instructions not found");
+        Inst = "Only 10 Mins"
+        resov.enterInstructions.sendKeys(Inst);
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+        resov.clkShuffle.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkShowQFeedback, 20000, "Createnew button not found");
+        resov.clkShowQFeedback.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.selectYesOptQFeedback, 20000, "Createnew button not found");
+        resov.selectYesOptQFeedback.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkShowSolution, 20000, "Createnew button not found");
+        resov.clkShowSolution.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.selectYesOptSolution, 20000, "Createnew button not found");
+        resov.selectYesOptSolution.click();
+        browser.sleep(3000);
+
+        
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+        questioninput = "What is the capital of Karnataka?"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+        resov.clkAlignOptAns1.click();
+        browser.sleep(1000);
+        resov.clkCenterAlignment.click();
+        browser.sleep(1000);
+    
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bangalore"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.McqOptionInput2);
+
+        resov.clkAlignOptAns2.click();
+        browser.sleep(1000);
+        resov.clkRightAlignment.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+        option2 = "Mangalore"
+        resov.McqOptionInput22.sendKeys(option2);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput3, 2000, "Question entry form not found");
+        option3 = "Udupi"
+        resov.mcQOptionInput3.sendKeys(option3);
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AddOption, 2000, "Question entry form not found");
+        resov.AddOption.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mcQOptionInput4, 2000, "Question entry form not found");
+        option4 = "Madikeri"
+        resov.mcQOptionInput4.sendKeys(option4);
+        browser.sleep(2000);
+
+
+        
+        wait.waitForElementVisibility(resov.chooseType, 2000, "Question entry form not found");
+        resov.chooseType.click();
+        browser.sleep(3000);
+    
+
+        wait.waitForElementVisibility(resov.selectTextImage, 2000, "Question entry form not found");
+        resov.selectTextImage.click();
+        browser.sleep(3000);
+        
+
+        wait.waitForElementVisibility(resov.enterSolField, 2000, "Question entry form not found");
+        option5 = "City"
+        resov.enterSolField.sendKeys(option5);
+        browser.sleep(2000);
+
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+        resov.sltCorrectAnswer1.click();
+        browser.sleep(2000);
+
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(3000);
+
+
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkPreview), 20000, "Preview Button Not Loaded not loaded");
+        resov.clkPreview.click();
+        browser.sleep(5000);
+
+         
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.nextSlideIcon), 20000, "Next Slide Loaded not loaded");
+        resov.nextSlideIcon.click();
+        browser.sleep(2000);
+
+        
+
+        expect(resov.assertInstBeforeEdit.isPresent()).toBeTruthy().then(function () {
+            console.log("Instruction Is Displayed As Per Selected and View The Draft Content");
+        })
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.nextSlideIcon), 20000, "Next Slide Loaded not loaded");
+        resov.nextSlideIcon.click();
+        browser.sleep(2000);
+
+        expect(resov.assertQstnBeforeEdit.isPresent()).toBeTruthy().then(function () {
+            console.log("Question Is Displayed As Per Selected and View The Draft Content");
+        })
+        browser.sleep(1000);
+
+        expect(resov.assertAnsBeforeEdit.isPresent()).toBeTruthy().then(function () {
+            console.log("Answer Is Displayed As Per Selected and View The Draft Content");
+        })
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.assertAnsBeforeEdit), 20000, "Next Slide Loaded not loaded");
+        resov.assertAnsBeforeEdit.click();
+
+        
+        expect(resov.asertAnsIconYes.isPresent()).toBeTruthy().then(function () {
+            console.log("When Show Solution is true then enable the left solution icon Ans");
+        })
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.nextSlideIcon), 20000, "Next Slide Loaded not loaded");
+        resov.nextSlideIcon.click();
+        browser.sleep(2000);
+
+
+        content.viewSolution.click();
+        browser.sleep(5000);
+
+        expect(resov.assertSolBeforeEdit.isPresent()).toBeTruthy().then(function () {
+            console.log("Solution Is Displayed As Per Selected and View The Draft Content");
+        })
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkBtnDone), 20000, "Next Slide Loaded not loaded");
+        resov.clkBtnDone.click();
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkClose), 20000, "Next Slide Loaded not loaded");
+        resov.clkClose.click();
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.selSection), 20000, "Next Slide Loaded not loaded");
+        resov.selSection.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.enterInstructions, 2000, "Instructions not found");
+        Inst = "Only 15 Mins"
+        resov.enterInstructions.click();
+        resov.enterInstructions.clear();
+        resov.enterInstructions.sendKeys(Inst)
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkShowSolution, 20000, "Createnew button not found");
+        resov.clkShowSolution.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.selectNoOptSolution, 20000, "Createnew button not found");
+        resov.selectNoOptSolution.click();
+        browser.sleep(3000);
+
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkGK), 20000, "Next Slide Loaded not loaded");
+        resov.clkGK.click();
+        browser.sleep(2000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.clkEditBtn);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkEditBtn), 20000, "Next Slide Loaded not loaded");
+        resov.clkEditBtn.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.QuestionClear, 2000, "Question entry form not found");
+        questioninput = "What is the capital?"
+        resov.QuestionClear.clear();
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Bengaluru"
+        resov.Ans1Clear.clear();
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.solClear, 2000, "Question entry form not found");
+        Sol = "Garden City"
+        resov.solClear.clear();
+        resov.enterSolField.sendKeys(Sol);
+        browser.sleep(1000);
+
+        
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(3000);
+
+
+       browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.clkPreview), 20000, "Preview Button Not Loaded not loaded");
+        resov.clkPreview.click();
+        browser.sleep(5000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.nextSlideIcon), 20000, "Next Slide Loaded not loaded");
+        resov.nextSlideIcon.click();
+        browser.sleep(2000);
+
+        
+
+        expect(resov.assertInstAfterEdit.isPresent()).toBeTruthy().then(function () {
+            console.log("Instruction Is Displayed As Per Selected and View The Draft Content After Edit");
+        })
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.nextSlideIcon), 20000, "Next Slide Loaded not loaded");
+        resov.nextSlideIcon.click();
+        browser.sleep(2000);
+
+        expect(resov.assertQstAfterEdit.isPresent()).toBeTruthy().then(function () {
+            console.log("Question Is Displayed As Per Selected and View The Draft Content After Edit");
+        })
+        browser.sleep(1000);
+
+        expect(resov.assertAnsAfterEdit.isPresent()).toBeTruthy().then(function () {
+            console.log("Answer Is Displayed As Per Selected and View The Draft Content After Edit");
+        })
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.assertAnsAfterEdit), 20000, "Next Slide Loaded not loaded");
+        resov.assertAnsAfterEdit.click();
+
+        expect(resov.asertAnsIconYes.isPresent()).toBeFalsy().then(function () {
+            console.log("When Show Solution is false then disable the left solution icon Ans");
+        })
+        browser.sleep(1000);
+        
+    }
+    catch(Exception) {
+          console.log('Unable To Creat Question Set');
+    }
+    return questionName;
+
+} 
+
+
+const verifyCreatorIsAbleToViewDifferentHeadingsAndParagraphIndividuallyAndPreviewingInMCQQusnSet = () => {
+    var questionName;
+    try {
+
+        console.log("verify Creator Is Able To View Different Headings And Paragraph In MCQ Question Set");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(2000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(1000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+         resov.clkShuffle.click();
+         browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 30000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+        resov.questionMCQ.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,330);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(2000);
+
+          wait.waitForElementVisibility(resov.clkParagraphOpt1, 2000, "Paragraph Option1 not found");
+          resov.clkParagraphOpt1.click();
+          browser.sleep(1000);
+
+          wait.waitForElementVisibility(resov.clkMcqHeadingOpt2, 20000, "Heading2 not found");
+          resov.clkMcqHeadingOpt2.click();
+          browser.sleep(1000);
+
+          wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+         questioninput = "What is The Capital of Karnataka?"
+         resov.mCQquestionInput.sendKeys(questioninput);
+          browser.sleep(1000);
+
+          expect(resov.assertMcqHeadingOpt2.isPresent()).toBeTruthy().then(function () {
+             console.log("Header Text Format Is Displayed As Per Selected For Multiple Choce Question Set In Question Filed");
+         })
+         browser.sleep(2000);
+ 
+         wait.waitForElementVisibility(resov.clkParagraphOpt2, 20000, "Paragraph Option2 not found");
+         resov.clkParagraphOpt2.click();
+         browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.clkMcqHeadingOpt6, 20000, "Heading6 not found");
+         resov.clkMcqHeadingOpt6.click();
+         browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.McqOptionInput1, 20000, "Question entry form not found");
+         questioninput = "American Currency"
+         resov.McqOptionInput1.sendKeys(questioninput);
+         browser.sleep(2000);
+
+         expect(resov.assertHeadingOpt6.isPresent()).toBeTruthy().then(function () {
+             console.log("Header Text Format Is Displayed As Per Selected For Multiple Question Set Question");
+         })
+         browser.sleep(2000);
+
+         browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+            });
+
+         wait.waitForElementVisibility(resov.clkParagraphOpt3, 20000, "Paragraph Option3 not found");
+         resov.clkParagraphOpt3.click();
+         browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.clkMcqHeadingOpt1, 20000, "Heading1 not found");
+         resov.clkMcqHeadingOpt1.click();
+          browser.sleep(1000);
+
+          wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "Question entry form not found");
+          option1 = "Dollar"
+          resov.McqOptionInput22.sendKeys(option1);
+          browser.sleep(1000);
+
+          expect(resov.assertMcqHeadingOPt1.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Multiple Question Set Options");
+         })
+         browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.clkChooseType, 20000, "Choose Type Icon not found in Solution");
+         resov.clkChooseType.click();
+          browser.sleep(1000);
+   
+         wait.waitForElementVisibility(resov.clkTxtImage, 20000, " Click Text+Image option is not found in Solution");
+         resov.clkTxtImage.click();
+         browser.sleep(1000);    
+         
+         browser.executeScript('window.scrollTo(0,400);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+            });
+
+         wait.waitForElementVisibility(resov.clkParagraphOpt4, 20000, "Paragraph not found");
+         resov.clkParagraphOpt4.click();
+         browser.sleep(1000);
+    
+        wait.waitForElementVisibility(resov.mcQOptionInput3, 2000, "Solution entry form not found");
+        option1 = "Dollar"
+        resov.mcQOptionInput3.sendKeys(option1);
+        browser.sleep(1000);
+
+        expect(resov.assertMcqParagraph1.isPresent()).toBeTruthy().then(function () {
+         console.log("Paragraph Text Format Is Displayed As Per Selected For Multiple Question Set Solutions");
+        })
+        browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+         resov.sltCorrectAnswer1.click();
+         browser.sleep(2000);
+
+         browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+         wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+         Title = "GK1";
+         resov.questionDetailsTitle.sendKeys(Title);
+         browser.sleep(2000);
+
+         browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+         wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+         resov.questionSave.click();
+         browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.sectionGK1, 20000, "Section folder not found");
+       resov.sectionGK1.click();
+       browser.sleep(2000);        
+
+       wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+       resov.createNewBtn.click();
+       browser.sleep(2000);
+
+       wait.waitForElementVisibility(resov.questionMCQ, 20000, "MCQ Option not found");
+       resov.questionMCQ.click();
+       browser.sleep(1000);
+
+       wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+       resov.questionMCQnextBtn.click();
+       browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.clkParagraphOpt1, 2000, "Paragraph Option1 not found");
+         resov.clkParagraphOpt1.click();
+         browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.mcqSelHeading5, 20000, "Heading5 not found");
+         resov.mcqSelHeading5.click();
+         browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.mCQquestionInput, 2000, "Question entry form not found");
+         questioninput = "What is The Capital of Karnataka?"
+         resov.mCQquestionInput.sendKeys(questioninput);
+         browser.sleep(1000);
+
+         expect(resov.assertMCQHeadingOpt5.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Multiple Choce Question Set In Question Filed");
+        })
+        browser.sleep(2000);
+
+         browser.executeScript('window.scrollTo(0,330);').then(function () {
+             console.log('++++++SCROLLED Down+++++');
+             });
+
+          browser.sleep(2000);
+
+          wait.waitForElementVisibility(resov.clkParagraphOpt2, 20000, "Paragraph Option2 not found");
+          resov.clkParagraphOpt2.click();
+          browser.sleep(1000);
+
+          wait.waitForElementVisibility(resov.clkMcqHeadingOpt3, 20000, "Heading3 not found");
+          resov.clkMcqHeadingOpt3.click();
+          browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Options entry form not found");
+         option1 = "Bangalore"
+         resov.McqOptionInput1.sendKeys(option1);
+         browser.sleep(2000);
+        
+          expect(resov.assertMcqHeading3.isPresent()).toBeTruthy().then(function () {
+              console.log("Header Text Format Is Displayed As Per Selected For Multiple Choice Question in Options");
+          })
+         browser.sleep(1000);
+
+
+           wait.waitForElementVisibility(resov.clkParagraphOpt3, 20000, "Paragraph Option3 not found");
+           resov.clkParagraphOpt3.click();
+           browser.sleep(1000);
+
+           wait.waitForElementVisibility(resov.clkMcqHeadingOpt4, 20000, "Heading4 not found");
+           resov.clkMcqHeadingOpt4.click();
+           browser.sleep(1000);
+
+           wait.waitForElementVisibility(resov.McqOptionInput22, 2000, "options entry form not found");
+           option2 = "Mangalore"
+           resov.McqOptionInput22.sendKeys(option2);
+           browser.sleep(1000);
+
+           expect(resov.assertMcqHeadingOpt3.isPresent()).toBeTruthy().then(function () {
+                console.log("Header Text Format Is Displayed As Per Selected For Multiple Question Set Options");
+           })
+           browser.sleep(2000);
+
+           wait.waitForElementVisibility(resov.sltCorrectAnswer1, 20000, "CheckBox not found");
+         resov.sltCorrectAnswer1.click();
+         browser.sleep(2000);
+
+         browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+         wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+         Title = "GK2";
+         resov.questionDetailsTitle.sendKeys(Title);
+         browser.sleep(2000);
+
+         browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+         wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+         resov.questionSave.click();
+         browser.sleep(2000); 
+
+         wait.waitForElementVisibility(resov.preview, 20000, "preview is not available");
+         resov.preview.click();
+
+         expect(resov.preview.isDisplayed()).toBeTruthy();
+         console.log('Preview Icon Is Displayed On Preview ');
+         browser.sleep(2000);
+
+         resov.clkNxtSlide.click();
+         browser.sleep(2000);
+
+         resov.clkNxtSlide.click();
+         browser.sleep(2000);
+
+         resov.clkNxtSlide.click();
+         browser.sleep(2000);
+
+         resov.clkNxtSlide.click();
+         browser.sleep(2000);
+
+         expect(resov.justCompletedMsg.isPresent()).toBeTruthy().then(function () {
+                 console.log("Question Set Previewed After Save and Completed");
+         }) 
+
+    }
+
+    catch (e) {
+        console.log("Unable To validate Different Headings and Paragraph in MCQ Quesn set")
+    }
+}
+
+const verifyCreatorIsAbleToSelectDifferentHeadingTagsIndividuallyAndPreviewingInSubjectiveQuesn = () => {
+    var questionName;
+    try {
+
+        console.log("verify Creator Is Able To View Different Headings Tags Individually And Previewing In Subjective Quesn");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickQuestionSet, 20000, "clickresource is not available");
+        resov.clickQuestionSet.click();
+        wait.waitForElementVisibility(resov.QuestionName, 20000, "resourceName is not available");
+        questionName = "QuestionA" + faker.randomData().firstname;
+        resov.QuestionName.click();
+        resov.QuestionName.clear();
+        resov.QuestionName.sendKeys(questionName);
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.enterDescription, 20000, "Description Field is not available");
+        resov.enterDescription.sendKeys('Desc');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.enterInstruction, 20000, "Instruction Field is not available");
+        resov.enterInstruction.sendKeys('Answer All');
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.AdditionalCategory, 20000, "Dropdown is not available");
+        resov.AdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selAdditionalCategory, 20000, "Selectable Option is not available");
+        resov.selAdditionalCategory.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoard, 20000, "Board Dropdown is not available");
+        resov.selBoard.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selBoardValue, 20000, "Selectable Board Value is not available");
+        resov.selBoardValue.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.dropdownMedium, 20000, "Selectable Board Value is not available");
+        resov.dropdownMedium.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.selectMedium3, 20000, "Selectable Board Value is not available");
+        resov.selectMedium3.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,700);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectClass, 20000, "Selectable Class Value is not available");
+        resov.selectClass.click();
+        browser.sleep(2000);
+
+
+        wait.waitForElementVisibility(resov.selectSubject1, 20000, "Selectable Subject Value is not available");
+        resov.selectSubject1.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,850);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        wait.waitForElementVisibility(resov.selectAudience, 20000, "Selectable Audience Value is not available");
+        resov.selectAudience.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.maxHour, 20000, "Selectable Max Hour Value is not available");
+        resov.maxHour.click();
+        resov.maxHour.sendKeys('01');
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().saveAsDraft), 20000, "Save Draft");
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(2000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(1000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(2000);
+
+         wait.waitForElementVisibility(resov.clkShuffle, 20000, "Createnew button not found");
+         resov.clkShuffle.click();
+         browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+
+        wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+        Title1 = "GK1";
+        resov.questionDetailsTitle.sendKeys(Title1);
+        browser.sleep(1000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+
+        wait.waitForElementVisibility(resov.questionSave, 30000, "Save button not found");
+        resov.questionSave.click();
+        browser.sleep(2000);
+    
+        wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+        resov.createNewBtn.click();
+        browser.sleep(2000);
+
+        wait.waitForElementVisibility(resov.questionSubjective, 20000, "Subjective Question not found");
+        resov.questionSubjective.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+        resov.questionMCQnextBtn.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkParagraphOpt1, 20000, "Paragraph Option1 not found");
+        resov.clkParagraphOpt1.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkHeadingOpt6, 20000, "Heading6 not found");
+        resov.clkHeadingOpt6.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.mCQquestionInput, 20000, "Question entry form not found");
+        questioninput = "American Currency"
+        resov.mCQquestionInput.sendKeys(questioninput);
+        browser.sleep(1000);
+
+        expect(resov.assertHeadingOpt6.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Question");
+        })
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkParagraphOpt2, 20000, "Paragraph Option2 not found");
+        resov.clkParagraphOpt2.click();
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkHeadingOpt5, 20000, "Heading5 not found");
+        resov.clkHeadingOpt5.click();
+        browser.sleep(1000);
+      
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Dollar"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+       expect(resov.assertHeadingOpt5.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Answer");
+        })
+        browser.sleep(1000);
+
+        
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+          });
+           browser.sleep(1000);
+  
+           browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+           wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+           Title1 = "ST1";
+           resov.questionDetailsTitle.sendKeys(Title1);
+           browser.sleep(1000);
+  
+          browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+  
+          wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+          resov.questionSave.click();
+          browser.sleep(1000);
+              
+          wait.waitForElementVisibility(resov.sectionGK1, 20000, "Section folder not found");
+          resov.sectionGK1.click();
+          browser.sleep(1000);        
+  
+          wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+          resov.createNewBtn.click();
+          browser.sleep(1000);
+  
+          wait.waitForElementVisibility(resov.questionSubjective, 20000, "Subjective Question not found");
+          resov.questionSubjective.click();
+          browser.sleep(1000);
+  
+          wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+          resov.questionMCQnextBtn.click();
+          browser.sleep(2000);
+     
+          wait.waitForElementVisibility(resov.clkParagraphOpt1, 20000, "Paragraph Option1 not found");
+          resov.clkParagraphOpt1.click();
+          browser.sleep(1000);
+         
+         wait.waitForElementVisibility(resov.clkHeadingOpt1, 20000, "Heading1 not found");
+         resov.clkHeadingOpt1.click();
+         browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.mCQquestionInput, 20000, "Question entry form not found");
+         questioninput = "American Currency"
+         resov.mCQquestionInput.sendKeys(questioninput);
+         browser.sleep(1000);
+
+         expect(resov.assertVerifyHeadingOpt1.isPresent()).toBeTruthy().then(function () {
+             console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Question");
+         })
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkParagraphOpt2, 20000, "Paragraph Option2 not found");
+        resov.clkParagraphOpt2.click();
+        browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.clkHeadingOpt2, 20000, "Heading2 not found");
+         resov.clkHeadingOpt2.click();
+         browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Dollar"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+    
+         expect(resov.assertVerifyHeadingOpt2.isPresent()).toBeTruthy().then(function () {
+            console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Answer");
+         })
+         browser.sleep(1000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+          });
+           browser.sleep(1000);
+  
+           browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+           wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+           Title1 = "ST2";
+           resov.questionDetailsTitle.sendKeys(Title1);
+           browser.sleep(1000);
+  
+          browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+  
+          wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+          resov.questionSave.click();
+          browser.sleep(1000);
+            
+          wait.waitForElementVisibility(resov.sectionGK1, 20000, "Section folder not found");
+          resov.sectionGK1.click();
+          browser.sleep(1000);        
+  
+          wait.waitForElementVisibility(resov.createNewBtn, 20000, "Createnew button not found");
+          resov.createNewBtn.click();
+          browser.sleep(1000);
+  
+          wait.waitForElementVisibility(resov.questionSubjective, 20000, "Subjective Question not found");
+          resov.questionSubjective.click();
+          browser.sleep(1000);
+  
+          wait.waitForElementVisibility(resov.questionMCQnextBtn, 20000, "Next button not found");
+          resov.questionMCQnextBtn.click();
+          browser.sleep(1000);
+
+          wait.waitForElementVisibility(resov.clkParagraphOpt1, 20000, "Paragraph Option1 not found");
+          resov.clkParagraphOpt1.click();
+          browser.sleep(1000);
+        
+         wait.waitForElementVisibility(resov.clickHeadingOption3, 20000, "Heading3 not found");
+         resov.clickHeadingOption3.click();
+         browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.mCQquestionInput, 20000, "Question entry form not found");
+         questioninput = "American Currency"
+         resov.mCQquestionInput.sendKeys(questioninput);
+         browser.sleep(1000);
+
+         expect(resov.assertVerifyHeading3.isPresent()).toBeTruthy().then(function () {
+             console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Question");
+         })
+         browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.clkParagraphOpt2, 20000, "Paragraph Option2 not found");
+        resov.clkParagraphOpt2.click();
+        browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.clkHeadingOpt4, 2000, "Heading4 not found");
+         resov.clkHeadingOpt4.click();
+         browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.McqOptionInput1, 2000, "Question entry form not found");
+        option1 = "Dollar"
+        resov.McqOptionInput1.sendKeys(option1);
+        browser.sleep(1000);
+
+         expect(resov.assertHeadingOpt4.isPresent()).toBeTruthy().then(function () {
+             console.log("Header Text Format Is Displayed As Per Selected For Subjective Question Set Answer");
+         })
+         browser.sleep(1000);
+
+         browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+          });
+           browser.sleep(1000);
+  
+           browser.executeScript("arguments[0].scrollIntoView();", resov.questionDetailsTitle);
+           wait.waitForElementVisibility(resov.questionDetailsTitle, 2000, "Question Details not found");
+           Title1 = "ST3";
+           resov.questionDetailsTitle.sendKeys(Title1);
+           browser.sleep(1000);
+  
+          browser.executeScript("arguments[0].scrollIntoView();", resov.questionSave);
+  
+          wait.waitForElementVisibility(resov.questionSave, 20000, "Save button not found");
+          resov.questionSave.click();
+          browser.sleep(1000);
+
+         wait.waitForElementVisibility(resov.preview, 20000, "preview is not available");
+         resov.preview.click();
+
+         expect(resov.preview.isDisplayed()).toBeTruthy();
+         console.log('Preview Icon Is Displayed On Preview ');
+         browser.sleep(2000);
+
+         resov.clkNxtSlide.click();
+         browser.sleep(2000);
+
+         resov.clkNxtSlide.click();
+         browser.sleep(2000);
+
+         resov.clkShowAns1.click();
+         browser.sleep(2000);
+
+         resov.clkNxtSlide.click();
+         browser.sleep(2000);
+
+         resov.clkShowAns1.click();
+         browser.sleep(2000);
+
+         resov.clkNxtSlide.click();
+         browser.sleep(2000);
+
+         resov.clkShowAns1.click();
+         browser.sleep(2000);
+
+         resov.clkNxtSlide.click();
+         browser.sleep(2000);
+
+
+         expect(resov.justCompletedMsg.isPresent()).toBeTruthy().then(function () {
+                 console.log("Question Set Previewed After Save and Completed");
+         }) 
+         browser.sleep(2000);
+       
+    }
+
+    catch (e) {
+        console.log("Unable To validate Different Headings Tags Individually And Previewing In Subjective Quesn")
+    }
+}
+
+
+
+
 
 
 
@@ -16642,4 +23157,38 @@ module.exports = {
     verifyThatUserIsAbleToZoomOutFurtherForThePopupImageByCliclingOnZoomOutIcon,
     createSubjectiveQuestionSetWithVideoAsSol,
     createMCQQuestionSetWithVideoAsSol,
+    navigateToDigtalTextbookAndSearchContent,
+    CardVisibileAndWhoMeantFor,
+    titleCardAndBMC,
+    validateBlankPageIfBMCDoesnotHaveAnyContent,
+    userAbleToAccessLicenceTermsAndSpecificTypeOfContent,
+    visitTextbookTcoAndPlayVideo,
+    createSubjectiveQuestionSetWithImagesWithSolOpt,
+    verifyMCQCreatorShouldBeAbleToSelectBulletListFromTheUI,
+    createMCQQuestionSetWithImagesWithSolOpt,
+    visitTextbookTcoAndPlayVideoForOldTheme,
+    createMCQQuestionSetWithSolution,
+    createSubjectiveQuestionSetWithSolution,
+    verifyCreatorIsAbleToCreateQuestionSetAlongWithRichText,
+    CreateQuestionSetAndSendForReview,
+    verifyCreatorIsNotAbleToEditPostSubmittingItForReview,
+    createMCQQuestionSetWithDurationAndScore,
+    verifyDurationAndScore,
+    createMultipleMCQQuestions,
+    verifyCreatorIsAbleToSelectCountOfQuestions,
+    verifyContentCreatorIsAbleToSeeDifferentTextFormatsSuchAsBulletListAndTableAndHeadingsInSubjectiveQuesnSet,
+    PreviewOnlySelectedNumberOfQuestions,
+    createMultipleMCQAndSubjectiveQuestions,
+    verifyCreatorIsAbleToViewHeadingsAndBulletAndTableFormatinSubjectiveQuestionset,
+    verifyContentCreatorIsAbleToSelectTableAndDifferentHeadingsInMCQTypeQuesnSet,
+    verifyCreatorIsAbleToCreateNewParagraphDuringDescriptiveTypeQuestion,
+    verifyCreatorIsAbleToViewDifferentHeadingsAndTextFormatInSubjectiveQustionSet,
+    createMCQQuestionSetWithUploadImagesWithSolOpt,
+    createMCQQuestionSetWithUploadImagesWithSolOptVertical,
+    createMCQQuestionSetWithUploadImagesWithSolOptGrid,
+    verifyOnSeletingCompleteTheScoreObtainedOutOfTotalScoreWillDisplayAtTheEndOfTheScreen,
+    verifyOnSeletingScoreAndDurationTheScoreObtainedOutOfTotalScoreWillDisplayAtTheEndOfTheScreen,
+    verifyShowSolutionEnableAndDisableForAnsIcon,
+    verifyCreatorIsAbleToViewDifferentHeadingsAndParagraphIndividuallyAndPreviewingInMCQQusnSet,
+    verifyCreatorIsAbleToSelectDifferentHeadingTagsIndividuallyAndPreviewingInSubjectiveQuesn,
 }

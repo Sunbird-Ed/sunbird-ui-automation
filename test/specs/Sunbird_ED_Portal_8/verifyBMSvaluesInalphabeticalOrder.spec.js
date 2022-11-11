@@ -22,7 +22,7 @@ describe('verifyBMSvaluesInalphabeticalOrder', () => {
 
     it('verifyBMSvaluesInalphabeticalOrder',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('User');
         tpdPageObj.editBMS();

@@ -26,7 +26,7 @@ describe('verifyUIisWorkingFineAfterSelectingAllOptionInEditor', () => {
     });
     it('verifyUIisWorkingFineAfterSelectingAllOptionInEditor',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.TargetFrameworkWithMultipleCategoricalValues("CPD");

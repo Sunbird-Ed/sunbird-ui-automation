@@ -26,7 +26,7 @@ describe('bookCreatorAbleToAddCoursesCreatedByOtherTenant', () => {
 
     it('bookCreatorAbleToAddCoursesCreatedByOtherTenant',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('APTenantCreator');
         let bookName= sanityfun.createBookForAPtenant();

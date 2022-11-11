@@ -27,7 +27,7 @@ describe('createCollectionAndConsume', () => {
 
     it('createCollectionAndConsume ', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         let collectionName = collectionPageObj.createCollection();

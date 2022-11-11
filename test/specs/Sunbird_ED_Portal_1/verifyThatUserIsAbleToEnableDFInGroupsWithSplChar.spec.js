@@ -19,7 +19,7 @@ describe('Verify that user is able to enable DF in groups ', () => {
     });
     it('verifyThatUserIsAbleToEnableDFInGroupsWithSplChar ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.verifyThatUserIsAbleToEnableDFInGroupsWithSplChar();

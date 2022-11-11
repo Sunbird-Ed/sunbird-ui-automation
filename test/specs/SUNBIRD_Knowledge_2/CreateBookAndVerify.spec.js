@@ -26,7 +26,7 @@ describe('Create Book save and send for review and publish.', () => {
     });
     it('CreateBookAndVerify', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let bookName= sanityfun.createBook();

@@ -31,7 +31,7 @@ describe('upload Youtube, save and send for review and publish.', () => {
         resourcePageObj.publishTheResourceFromUpForReview(uploadContent);
        utility.userLogout();
        utility.userLogin('Creator');
-       utility.validateWorkspace();
+       
        lspPageObj.deleteCreatedItems();
        
     })

@@ -23,7 +23,7 @@ describe('validateShowFeedbackSolutionAndSubmit', () => {
 
     it('verifyTheAlignmentOfTitleAndQuestonNumber', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         sanityfun.verifyTheAlignmentOfTitleAndQuestonNumber();

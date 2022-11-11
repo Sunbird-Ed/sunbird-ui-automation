@@ -21,7 +21,7 @@ describe('validateCollectionHeirarchyDisablesWhenNodesCreated', () => {
     it('validateCollectionHeirarchyDisablesWhenNodesCreated',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(20000);
+        
         utility.userLogin('Creator');
         sanityFun.createBookValidate();
     })

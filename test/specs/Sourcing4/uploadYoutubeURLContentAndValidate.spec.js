@@ -23,7 +23,7 @@ describe('uploadYoutubeURLContentAndValidate', () =>{
 
     it('uploadYoutubeURLContentAndValidate',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent=uploadPageObj.uploadYoutube();

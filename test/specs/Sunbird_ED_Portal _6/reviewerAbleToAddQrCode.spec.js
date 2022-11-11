@@ -24,7 +24,7 @@ describe('reviewerAbleToAddQrCode', () => {
     
     it('reviewerAbleToAddQrCode', function () {
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName = collectionPageObj.createCollectionWithDiffCollectionTypesAndValidateAddedQrCode("digitalTxtbook");

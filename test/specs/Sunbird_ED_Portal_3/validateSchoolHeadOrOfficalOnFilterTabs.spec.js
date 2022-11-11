@@ -26,7 +26,7 @@ describe('validateSchoolHeadOrOfficalOnFilterTabs" tab', () => {
 
     it('validateSchoolHeadOrOfficalOnFilterTabs.', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('CustodianUser');
         tpdPageObj.validateSchoolHeadOfficialInPublishedUserType();

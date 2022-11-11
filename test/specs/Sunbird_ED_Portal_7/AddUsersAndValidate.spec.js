@@ -23,7 +23,7 @@ describe('Verifiy Adduser is getting add user option in his profile and able to 
     });
     it('AddUsersAndValidate ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('AddUserCred');
         verifyCEBpageobj.addUserInProfile();

@@ -24,7 +24,7 @@ describe('verifyCreatorAddCollaboratorInCollection', () => {
     });
     it('verifyCreatorAddCollaboratorInCollection',function(){
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName=collectionPageObj.createCollectionAndSaveAsDraft();

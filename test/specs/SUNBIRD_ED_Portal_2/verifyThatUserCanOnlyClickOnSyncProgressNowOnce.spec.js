@@ -25,7 +25,7 @@ describe('Verify that the "Sync progress now" appears once and should not be abl
     });
     it('verifyThatUserCanOnlyClickOnSyncProgressNowOnce', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReviewWithResourceForPostSync();

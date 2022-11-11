@@ -20,7 +20,7 @@ describe('Verify that, Update button is replaced with “Submit” button', () =
     });
     it('verifyThatUpdateButtonIsReplacedWithSubmitButton ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.verifyTOCandCourseConsumption();

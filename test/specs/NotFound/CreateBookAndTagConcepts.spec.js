@@ -33,7 +33,7 @@ describe('AU_032,CreateBookAndTagConcepts.', () => {
         etbPageObj.publishTheBookFromUpForReview(bookName);
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();      
          
     })

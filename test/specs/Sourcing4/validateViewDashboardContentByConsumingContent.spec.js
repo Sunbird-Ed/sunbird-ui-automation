@@ -26,7 +26,7 @@ describe('validateViewDashboardContentByConsumingContent', () => {
     it('validateViewDashboardContentByConsumingContent',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(20000);
+        
         utility.userLogin('Creator');
         let contentLibraryType="epub";
         let courseName = tpdPageObj.createCourseAndSendForReviewBySearchingContentInLibrary(contentLibraryType);

@@ -33,7 +33,7 @@ describe('cpy Question save and send for review and publish.', () => {
         resourcePageObj.publishTheResourceFromUpForReview(questionName);
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
       
        

@@ -29,8 +29,5 @@ describe('previewContentFromAllMyContent', () => {
         utility.userLogout();
         utility.userLogin('Creator');
         sanityFun.previeAllMyContent(uploadContent);
-        
     });
 });
-   
-

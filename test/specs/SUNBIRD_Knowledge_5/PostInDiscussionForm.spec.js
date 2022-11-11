@@ -24,7 +24,7 @@ describe('PostInDiscussionForm', () => {
     });
     it('PostInDiscussionForm ', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         sanityPage.verifyDiscussionForum();

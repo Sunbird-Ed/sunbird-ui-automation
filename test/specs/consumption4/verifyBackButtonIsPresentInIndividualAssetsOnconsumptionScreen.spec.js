@@ -23,7 +23,7 @@ describe('verifyBackButtonIsPresentInIndividualAssetsOnconsumptionScreen', () =>
 
     it('verifyBackButtonIsPresentInIndividualAssetsOnconsumptionScreen ', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         sanityfun.verifyBackButtonIsPresentInIndividualAssetsOnconsumptionScreen();

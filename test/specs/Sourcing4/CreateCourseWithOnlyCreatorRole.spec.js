@@ -31,7 +31,7 @@ describe('Create Course save and send for review and publish.', () => {
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishCourseFromUpForReview(courseName);
         
 

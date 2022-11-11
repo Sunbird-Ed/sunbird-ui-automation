@@ -22,7 +22,7 @@ describe('verifyBMSvaluesInAlphabeticalOrderInSelfSignedUsersInProfilePage', () 
 
     it('verifyBMSvaluesInAlphabeticalOrderInSelfSignedUsersInProfilePage',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('CustodianUser');
         tpdPageObj.editBMS();

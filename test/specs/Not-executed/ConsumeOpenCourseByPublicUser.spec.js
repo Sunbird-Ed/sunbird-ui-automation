@@ -24,12 +24,12 @@ describe('User should be able to consume open course..', () => {
     it('ConsumeOpenCourseByPublicUser',function(){
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
-        utility.validateWorkspace();
+        
         let courseName=tpdPageObj.createCourse();
         tpdPageObj.sendForReviewTheCourse();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishTheCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Mentor');

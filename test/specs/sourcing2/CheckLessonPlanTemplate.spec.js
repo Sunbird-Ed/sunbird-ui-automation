@@ -25,7 +25,7 @@ describe('vrify, content creator is able to create lesson plan', () => {
     });
     it('CheckLessonPlanTemplate',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         let lessonPlan=lessonPlanPageObj.createLessonPlan();

@@ -21,7 +21,6 @@ describe('validateSSOloginFlow', () => {
     
     it('validateSSOloginFlow',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin();
         usrOnBoardfun.verifySSOandCustodUserMergeAndValidatePopUp();

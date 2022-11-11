@@ -24,7 +24,7 @@ describe('Create Course save and send for review and publish.', () => {
     
     it('CourseFrameworkValidation',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         sanityfun.createCourseForFrameworkWithTopicAndSubject("k12"); 

@@ -20,7 +20,7 @@ describe('Ve that creator is able to edit already published content, send for re
     });
     it('EditAndRepublishTheContent', function () {
         utility.handleDropDown(); 
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName = resourcePageObj.createResource();

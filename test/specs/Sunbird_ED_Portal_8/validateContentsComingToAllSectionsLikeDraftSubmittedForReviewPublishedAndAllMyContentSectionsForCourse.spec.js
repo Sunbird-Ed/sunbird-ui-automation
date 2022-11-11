@@ -23,7 +23,7 @@ describe('validateContentsComingToAllSectionsLikeDraftSubmittedForReviewPublishe
     
     it('validateContentsComingToAllSectionsLikeDraftSubmittedForReviewPublishedAndAllMyContentSectionsForCourse', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName= sanityfun.createCourseAndValidateInAllContentBucketSections();

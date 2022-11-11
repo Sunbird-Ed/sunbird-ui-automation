@@ -22,7 +22,6 @@ describe('Verify SSO user merged with Custodian User', () => {
     
     it('verifycustodianAndSSOUserMerge',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin();
         usrOnBoardfun.verifySSOAndCustodianMerge();

@@ -23,7 +23,7 @@ describe('Veriy that user is able to upload/record audio and play audio in all q
     
     it('VerifyUserIsAbleToUploadRecordAudioAndPlayAudio',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionFITBWithAllStyles();

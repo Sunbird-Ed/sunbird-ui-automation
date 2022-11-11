@@ -21,7 +21,7 @@ describe('User clicks on Edit option under the action column to go to Conversati
 
     it('verifyConversationSetupScreenOnClickEditOption',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.verifyCommunicationConsole();

@@ -22,7 +22,6 @@ describe('stateAdminIsAbleToSeeOneNewSectionAsManageSection', () => {
     it('stateAdminIsAbleToSeeOneNewSectionAsManageSection',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(20000);
         utility.userLogin("Admin3");
         EnrollTBFCPageObj.validateDowloadButtonInGreenColourInsideManagesection();
     });

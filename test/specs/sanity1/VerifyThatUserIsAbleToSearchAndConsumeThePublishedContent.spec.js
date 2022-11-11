@@ -8,7 +8,6 @@ const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
 describe('able to create course and enroll consume VerifyThatUserIsAbleToSearchAndConsumeThePublishedContent', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -17,34 +16,28 @@ describe('able to create course and enroll consume VerifyThatUserIsAbleToSearchA
         browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().setSize(1366,768);
-
-
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('VerifyThatUserIsAbleToSearchAndConsumeThePublishedContent', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName);
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(courseName);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch();
-
-
     })
-
 });
-

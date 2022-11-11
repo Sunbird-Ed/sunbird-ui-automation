@@ -24,7 +24,7 @@ describe('userMemberAbleToCreateThreadInDFAndReplyOnTheSameThread', () => {
     
     it('userMemberAbleToCreateThreadInDFAndReplyOnTheSameThread', function () {
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('NewCustUser1');
         let groupName = sanityfun.verifyAddActivitySearchedByKeywordAndEnblaForum("AutomationCourseCompletedBatch");

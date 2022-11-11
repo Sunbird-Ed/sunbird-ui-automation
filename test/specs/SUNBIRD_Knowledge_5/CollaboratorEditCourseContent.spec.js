@@ -24,7 +24,7 @@ describe('colobartor not able to delete the course', () => {
     });
     it('CollaboratorEditCourseContent',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityFun.CreateCourseAndSaveAsDraft1();

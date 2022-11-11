@@ -30,7 +30,7 @@ describe('createCoursewithDoubleQuotesIndescription', () => {
         let courseName = sanityfun.createCourseAndSendForReviewWithDoubleQuotesInDescription();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishCourseFromUpForReview(courseName);
     })
 });

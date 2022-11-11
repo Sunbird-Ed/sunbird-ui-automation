@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const usrOnBoardfun = require(protractor.basePath + '/test/pageObject/UserOnBoardingPageObj.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
@@ -23,11 +25,11 @@ describe('validateCourseDontHaveOpenBatchMessage', () => {
     it('validateCourseDontHaveOpenBatchMessage', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName);
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(courseName);
         utility.userLogout();
         utility.userLogin('NewCredCourseToc');
         tpdPageObj.navigateToCourseAndSearchForOpenBatchMessage(courseName); 

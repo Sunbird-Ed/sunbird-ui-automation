@@ -22,7 +22,7 @@ describe('validatenoCertificateMessage', () => {
     });
     it('validatenoCertificateMessage',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         tpdPageObj.validateCourseHaveNoCertificate();

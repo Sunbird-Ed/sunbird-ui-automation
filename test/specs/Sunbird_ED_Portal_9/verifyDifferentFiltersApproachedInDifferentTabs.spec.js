@@ -21,8 +21,7 @@ describe('verifyDifferentFiltersApproachedInDifferentTabs', () => {
 
     it('verifyDifferentFiltersApproachedInDifferentTabs',function(){
         utility.handleDropDown();
-        browser.sleep(20000);
-        //utility.handleLocationPopup();
+        utility.handleLocationPopup();
         utility.userLogin('Public User1');
         searchCBFPPageObj.verifyDifferentApproachedOfFiltersInDifferentTabs();    
     });

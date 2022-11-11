@@ -19,7 +19,7 @@ describe('validateSearchedContentInProfilePage', () => {
     
     it('validateSearchedContentInProfilePage',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('User');
         sanityfun.verifyUserAbletosearchContentFromProfilepage();

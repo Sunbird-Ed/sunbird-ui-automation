@@ -26,11 +26,8 @@ describe('Verify Creator is able to copy the book', () => {
     
     it('verifyCreatorIsAbleToCopyTheBook',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.creatorIsAbleToCopyTheBook();
-       
     });
 });
-   

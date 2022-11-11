@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/SanityPageObj.js');
@@ -20,7 +22,6 @@ describe('VerifyCreationOfMyGroupAndAddMember', () => {
 
     it('VerifyCreationOfMyGroupAndAddMember ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMember();

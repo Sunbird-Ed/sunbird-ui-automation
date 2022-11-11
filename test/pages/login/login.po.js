@@ -12,6 +12,8 @@ let LoginPage = () => {
     let UserDoesNotExistToast = element(by.xpath("//span[@class='ng-tns-c7-3 ng-star-inserted']"));
     let InvalidUserToast = element(by.xpath("//span[text()='User does not exist.']"));
     let invalidUrl = element(by.xpath("//span[text()='This site can’t be reached']"));
+    
+    
     return {
         emailid,
         password,

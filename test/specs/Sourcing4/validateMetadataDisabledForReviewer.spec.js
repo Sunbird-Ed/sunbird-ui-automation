@@ -32,7 +32,7 @@ describe('validateMetadataDisabledForReviewer', () => {
         tpdPageObj.publishContentFromUpForReviewBucket(collectionName);
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
     })
 });

@@ -25,7 +25,7 @@ describe('AU_028,CheckContributionDetailsPostAddingResource', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         tpdPageObj.createCourseAddResourceAndValidateContribution();
        
        

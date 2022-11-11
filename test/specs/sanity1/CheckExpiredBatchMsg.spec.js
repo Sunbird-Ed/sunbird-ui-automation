@@ -6,7 +6,6 @@ const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js')
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 
 describe('CheckExpiredBatchMsg', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -23,9 +22,8 @@ describe('CheckExpiredBatchMsg', () => {
 
     it('CheckExpiredBatchMsg ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
-        tpdPageObj.navigateToCourseAndSearchExpiredBatches();
+        tpdPageObj.navigateToCourseAndSearchForOpenBatchMessageAndValidate();
     })
 });

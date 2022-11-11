@@ -24,7 +24,7 @@ describe('validateSearchMembersTabAndMembersCountInGroup', () => {
     
     it('validateSearchMembersTabAndMembersCountInGroup', function () {
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('NewCredCourseToc');
         sanityfun.verifyAddActivitySearchedByKeyword("AutomationCourseCompletedBatch");

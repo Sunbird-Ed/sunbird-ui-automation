@@ -26,6 +26,7 @@ const verifyAdminDashBoard = () => {
     usronBoardPage.UserOnBoarding().clkAdminDashBoard.click();
     console.log("clicked on Admin Dashboard");
     browser.sleep(3000);
+
   } catch (Err) {
     console.error("Failed to verify admin dashboard, " + Err);
   }
@@ -57,6 +58,8 @@ const userLogin = (roleName) => {
   }
 };
 
+
+
 const userLoginWithInvalidCredential = (roleName) => {
   try {
     var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
@@ -74,6 +77,8 @@ const userLoginWithInvalidCredential = (roleName) => {
     console.error("failed to login with invalid credential, " + err);
   }
 };
+
+
 
 const handleDropDown = () => {
   try {
@@ -147,6 +152,7 @@ const validateWorkspace = () => {
     console.error("Failed to validate workspace, " + Exception);
   }
 };
+
 const mergeAccount = (roleName) => {
   try {
     console.log("User is trying to merge account");
@@ -344,7 +350,7 @@ const handleLocationPopup = () => {
     content.submitButtonForDropdowns.click();
     browser.sleep(3000);
 
-    browser.sleep(10000);
+    browser.sleep(5000);
 
     wait.waitForElementVisibility(content.state, 20000);
     content.state.click();
@@ -891,6 +897,148 @@ const handleLocationPopupAfterAddUser = () => {
 };
 
 
+const handleDropDownInAdUser = () => {
+  try {
+    browser.sleep(1000);
+    wait.waitForElementVisibility(content.Teacher, 30000);
+    content.Teacher.click();
+    browser.sleep(3000);
+    wait.waitForElementVisibility(content.Continue, 20000);
+    content.Continue.click();
+    browser.sleep(5000);
+    wait.waitForElementVisibility(content.state, 20000);
+    content.state.click();
+    browser.sleep(2000);
+
+    wait.waitForElementVisibility(content.selectState, 20000);
+    content.selectState.click();
+    browser.sleep(4000);
+
+    wait.waitForElementVisibility(content.district, 20000);
+    content.district.click();
+    browser.sleep(5000);
+
+    wait.waitForElementVisibility(content.selectDistrict, 20000);
+    content.selectDistrict.click();
+    browser.sleep(5000);
+    browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
+    browser.sleep(1000);
+    wait.waitForElementVisibility(content.submitForm, 20000);
+    content.submitForm.click();
+
+    
+  } catch (err) {
+    console.error("Failed to handle location pop up, " + err);
+  }
+};
+
+const startDate = () => {
+  try {
+      var date = new Date();
+      var day = date.getDate();
+      var year = date.getFullYear();
+      const monthNames = ["January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"];
+      var month = monthNames[date.getMonth()];
+      newdate = day + " " + month + " " + year;
+      return newdate;
+  } catch (Err) {
+      console.error("Failed , " + Err);
+  }
+}
+
+const endDate = () => {
+  try {
+      var date = new Date();
+      var day = date.getDate()+1;
+      var year = date.getFullYear();
+      const monthNames = ["January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"];
+      var month = monthNames[date.getMonth()];
+      newdate = day + " " + month + " " + year;
+      return newdate;
+  } catch (Err) {
+      console.error("Failed , " + Err);
+  }
+}
+
+
+const uploadParticularFile = (filelatest) => {
+  // set file detector
+  let path = require('path');
+  var remote = require(protractor.basePath + '/node_modules/selenium-webdriver/remote');
+  browser.setFileDetector(new remote.FileDetector());
+  //test/pageObject/Untitled Textbook.csv
+  console.log(__dirname)
+  console.log('trting to upload updated CSV')
+  var fileToUpload = filelatest;
+  //var fileToUpload ='do_2130111423076270081379_untitled-textbook_1588274237953.csv';
+  var absolutePath = path.resolve(__dirname, fileToUpload);
+  var fileElem = element(by.css('input[type="file"]'));
+  //var fileElem =element(by.xpath("//div[@class='qq-upload-button-selector qq-upload-button custom-qq-upload-button']"));
+  // Unhide file input
+  browser.executeScript("arguments[0].style.visibility = 'visible'; arguments[0].style.height = '1px'; arguments[0].style.width = '1px';  arguments[0].style.opacity = 1", fileElem.getWebElement());
+  browser.driver.sleep(1000);
+  fileElem.sendKeys(absolutePath);
+  browser.driver.sleep(5000);
+
+}
+
+const batchNewEndDate = () => {
+  try {
+    var date = new Date();
+    var day = date.getDate()+1;
+    var year = date.getFullYear();
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    var month = monthNames[date.getMonth()];
+    newdate = day + " " + month + " " + year;
+    return newdate;
+  } catch (Err) {
+    console.error("Failed , " + Err);
+  }
+};
+
+const updateBatchEndDate = () => {
+  try {
+    var date = new Date();
+    var day = date.getDate()+2;
+    var year = date.getFullYear();
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    var month = monthNames[date.getMonth()];
+    newdate = day + " " + month + " " + year;
+    return newdate;
+  } catch (Err) {
+    console.error("Failed , " + Err);
+  }
+};
+
+
 
 module.exports = {
   verifyAdminDashBoard,
@@ -923,4 +1071,12 @@ module.exports = {
   handleLocationPopupWithMultiSelectAndUnSelect,
   backDate,
   handleLocationPopupAfterAddUser,
+  handleDropDownInAdUser,
+  startDate,
+  endDate,
+  uploadParticularFile,
+  batchNewEndDate,
+  updateBatchEndDate,
+
+
 };

@@ -2395,9 +2395,106 @@ const verifyPublishedContentInAllMyContentandValidateInLibrary = (publishedTextB
   }
 }
 
+const viewCourseDashBoardandValidateRequestButton = () => {
+  try {
+    browser.sleep(2000);
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    var user_id = cred[32]['TitleDescription'];
+
+    console.log("Course mentor should be able to see  view course dashboard details");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerCourse), 20000, " headerCourse is not available");
+    content.headerCourse.click();
+    browser.sleep(3000);
+    content.searchInput.sendKeys(user_id);
+    browser.sleep(1000);
+    content.searchButton.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.courseCard), 20000, "courseCard is not available");
+    content.courseCard.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.viewCourseDashBoard), 20000, "viewCourseDashBoard is not available");
+    content.viewCourseDashBoard.click();
+    console.log("Course mentor is able to see the view training dashboard");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectBatch), 20000, "selectBatch is not available");
+    content.selectBatch.click();
+    browser.sleep(1000);
+    sanity.selectBatchValueInCourseDashBoard.click();
+    browser.sleep(2000);
+    sanity.chooseYourReport.click();
+    browser.sleep(2000);
+    sanity.selectReportValue.click();
+    browser.sleep(2000);
+    sanity.requestButton.click();
+    browser.sleep(1000);
+    expect(sanity.assertSubmit.isPresent()).toBe(true);
+    browser.sleep(1000);
+    content.startDateDashboard.getText().then(function (input) {
+      expect(input).toEqual('Start Date')
+    });
+    console.log("Start date is displayed in the view training dashboard section");
+
+    content.endDateDashboard.getText().then(function (input) {
+      expect(input).toEqual('End Date')
+    });
+    console.log("End date is displayed in the view training dashboard section");
+  }
+  catch (Exception) {
+    console.log("Failed to see view course dashboard details");
+  }
+};
+
+
+const validateReissuedCertificate = () => {
+  try {
+    browser.sleep(2000);
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    var user_id = cred[32]['TitleDescription'];
+    var search_usr = cred[49]['Title'];
+    console.log(user_id);
+
+    console.log("Course mentor should be able to see  view course dashboard details");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerCourse), 20000, " headerCourse is not available");
+    content.headerCourse.click();
+    browser.sleep(3000);
+    content.searchInput.sendKeys(user_id);
+    browser.sleep(1000);
+    content.searchButton.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.courseCard), 20000, "courseCard is not available");
+    content.courseCard.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.viewCourseDashBoard), 20000, "viewCourseDashBoard is not available");
+    content.viewCourseDashBoard.click();
+    console.log("Course mentor is able to see the view training dashboard");
+    browser.sleep(2000);
+    sanity.clickCertificate.click();
+    browser.sleep(2000);
+    sanity.searchUserInReissueCertificate.sendKeys(search_usr);
+    browser.sleep(2000);
+    sanity.searchButtonInCertificateTab.click();
+    browser.sleep(2000);
+    expect(sanity.assertBatchName.isPresent()).toBe(true);
+    expect(sanity.assertUserName.isPresent()).toBe(true);
+    expect(sanity.assertUserDistrict.isPresent()).toBe(true);
+    expect(sanity.assertCourseProgress.isPresent()).toBe(true);
+    browser.sleep(3000);
+    expect(sanity.reissueCertificate.isPresent()).toBe(true);
+    browser.sleep(1000);
+    sanity.reissueCertificate.click();
+    browser.sleep(2000);
+    expect(content.yesButtonPopup.isPresent()).toBe(true);
+    content.yesButtonPopup.click();
+    browser.sleep(2000);
+  }
+  catch (Exception) {
+    console.log("Failed to see view course dashboard details");
+  }
+};
+
 
 module.exports = {
-
   searchContentInLibrary,
   navigateToLibraryAndSearchForLessonPlan,
   consumeTheCourseInLibrarySection,
@@ -2456,4 +2553,6 @@ module.exports = {
   validatePrintButtonInplayer,
   validateLabelPageIsChangedFromLocation,
   verifyPublishedContentInAllMyContentandValidateInLibrary,
+  viewCourseDashBoardandValidateRequestButton,
+  validateReissuedCertificate,
 }

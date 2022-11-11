@@ -24,7 +24,7 @@ describe('deactivateAndReactivateGroupWithContentConsumption', () => {
     
     it('deactivateAndReactivateGroupWithContentConsumption', function () {
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('NewCredCourseToc');
         let groupName = sanityfun.verifyAddActivitySearchedByKeyword("AutomationCourseCompletedBatch");

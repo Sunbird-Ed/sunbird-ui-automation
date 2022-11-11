@@ -21,7 +21,7 @@ describe('validateLimitedsharingInCollection', () => {
 
     it('validateLimitedsharingInCollection', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName = collectionPageObj.createCollectionWithDiffCollectionTypesAndValidateLimitedSharing("digitalTxtbook");

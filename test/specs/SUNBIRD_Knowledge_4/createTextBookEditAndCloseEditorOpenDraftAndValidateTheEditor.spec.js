@@ -24,7 +24,7 @@ describe('CreateResourceAndVerify.', () => {
 
     it('createTextBookEditAndCloseEditorOpenDraftAndValidateTheEditor',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResourceForTextbook();

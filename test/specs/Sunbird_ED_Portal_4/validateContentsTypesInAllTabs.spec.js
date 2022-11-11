@@ -26,8 +26,8 @@ describe('validateContentsTypesInAllTabs', () => {
 
     it('validateContentsTypesInAllTabs', function () {
         utility.handleDropDown();
-        browser.sleep(20000);
-        //utility.handleLocationPopup();
+        
+        utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.validateCourseContentTypes();
     })

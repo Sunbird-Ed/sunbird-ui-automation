@@ -22,7 +22,7 @@ describe('Verifythat the user is able to view the correct count of contributors 
 
     it('verifyContributorCountPostAddingResource',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         addCAPRPageObj.verifyContributorsCount();

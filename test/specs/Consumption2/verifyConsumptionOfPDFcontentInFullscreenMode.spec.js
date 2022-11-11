@@ -28,7 +28,7 @@ describe('verifyConsumptionOfPDFcontentInFullscreenMode', () => {
     
     it('verifyConsumptionOfPDFcontentInFullscreenMode',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         cont.consumePdfContentAndValidateSomeAttributes();

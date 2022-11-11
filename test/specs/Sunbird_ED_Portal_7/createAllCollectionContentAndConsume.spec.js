@@ -25,7 +25,7 @@ describe('createAllCollectionContentAndConsume', () => {
 
     it('createAllCollectionContentAndConsume', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName1 = collectionPageObj.createCollectionWithDiffCollectionTypes("digitalTxtbook");

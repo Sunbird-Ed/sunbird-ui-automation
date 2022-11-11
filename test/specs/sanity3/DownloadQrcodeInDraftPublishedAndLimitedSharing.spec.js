@@ -23,7 +23,6 @@ describe('DownloadQrcodeInDraftPublishedAndLimitedSharing', () => {
     
     it('DownloadQrcodeInDraftPublishedAndLimitedSharing',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();      
         utility.userLogin('Creator');
         etbFun.clickOnWorkspace();

@@ -26,7 +26,7 @@ describe('able to create course and enroll consume EnrollmentEndDateNearJoinButt
 
     it('EnrollmentEndDateNearJoinButton', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = tpdPageObj.createCourseAndSendForReviewBySearchingContentInLibrary("pdf_13");

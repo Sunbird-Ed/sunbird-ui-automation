@@ -32,7 +32,7 @@ describe('Ver that content creator is able to add all the plugins while creating
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lessonPlanPageObj.deleteCreatedItems();   
        
 

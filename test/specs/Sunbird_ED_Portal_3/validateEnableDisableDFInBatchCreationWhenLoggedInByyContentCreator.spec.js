@@ -26,7 +26,7 @@ describe('validateEnableDisableDFInBatchCreationWhenLoggedInByyContentCreator', 
     it('validateEnableDisableDFInBatchCreationWhenLoggedInByContentCreator', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(20000);
+        
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();

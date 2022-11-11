@@ -32,7 +32,7 @@ describe('verifyReviewerCannotAddCollaborator', () => {
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.validateAddCollaboratorPublishCourseFromUpForReview(courseName);
     })
 });

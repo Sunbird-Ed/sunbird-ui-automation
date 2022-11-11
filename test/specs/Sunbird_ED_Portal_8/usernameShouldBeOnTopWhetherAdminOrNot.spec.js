@@ -24,7 +24,7 @@ describe('usernameShouldBeOnTopWhetherAdminOrNot', () => {
     
     it('usernameShouldBeOnTopWhetherAdminOrNot', function () {
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('NewCredCourseToc');
         let groupName = sanityfun.verifyAddActivitySearchedByKeyword("AutomationCourseCompletedBatch");

@@ -23,7 +23,7 @@ describe('validateTagsAndDiscussion', () => {
 
     it('validateTagsAndDiscussion ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         sanityfun.enableDisableDiscussionForumToValidateTags();

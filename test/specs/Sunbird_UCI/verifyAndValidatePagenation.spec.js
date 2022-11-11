@@ -23,7 +23,7 @@ describe('verifyAndValidatePagenation', () => {
     
     it('verifyAndValidatePagenation',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Tntenant');
         tpdPageObj.verifyCommunicationConsolePagenation();

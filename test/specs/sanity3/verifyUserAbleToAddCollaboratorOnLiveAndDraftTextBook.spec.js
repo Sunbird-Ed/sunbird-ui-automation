@@ -26,11 +26,9 @@ describe('verifyUserAbleToAddCollaboratorOnLiveAndDraftTextBook', () => {
     });
     it('verifyUserAbleToAddCollaboratorOnLiveAndDraftTextBook ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let bookName=sanityPage.createBookSaveAsDraft();
         sanityPage.addCollboratortoDraftAndSaveBook(bookName);
-        
     });
 });

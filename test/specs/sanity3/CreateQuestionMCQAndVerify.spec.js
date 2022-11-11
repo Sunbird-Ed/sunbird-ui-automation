@@ -24,16 +24,15 @@ describe('Crea is Able to create Question MCQ and Creator Can Delete that resour
     });
     it('CreateQuestionMCQAndVerify',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();
         resourcePageObj.sendForReviewTheResource();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         lspPageObj.deleteCreatedItems();
     })
 });

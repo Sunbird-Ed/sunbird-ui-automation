@@ -28,7 +28,7 @@ describe('editDraftedContentfromAllmyContent', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let courseName = sanityfun.createCourseAndSavetoDraft();
         utility.userLogout();
         utility.userLogin('Creator');

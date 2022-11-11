@@ -25,7 +25,7 @@ describe('Course reviewer is able to rejects the SelfAssesmentcourse .', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-        utility.validateWorkspace();
+        
         let courseName = tpdPageObj.createCourseAssessment();
         console.log("nam is"+courseName);
         tpdPageObj.sendForReviewTheCourseAssessment();
@@ -38,7 +38,7 @@ describe('Course reviewer is able to rejects the SelfAssesmentcourse .', () => {
         tpdPageObj.sendForReviewTheRejectedCourse();
         utility.userLogout();
         utility.userLogin('ContentReviewer');
-        utility.validateWorkspace();
+        
         resourcePageObj.publishTheResourceFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('ContentCreator');

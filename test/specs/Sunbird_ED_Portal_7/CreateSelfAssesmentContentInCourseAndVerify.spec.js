@@ -26,7 +26,7 @@ describe('Create SelfAssesmentCourse save and send for review and publish.', () 
     });
     it('CreateSelfAssesmentContentInCourseAndVerify  ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         let courseName=tpdPageObj.createCourseAssessment();

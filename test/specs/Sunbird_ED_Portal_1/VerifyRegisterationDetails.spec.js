@@ -22,7 +22,7 @@ describe('Verify VerifyRegisterationDetails', () => {
     
     it('VerifyRegisterationDetails',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         usrOnBoardfun.verifyRegisterPageDetails();
 

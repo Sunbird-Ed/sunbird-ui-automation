@@ -25,7 +25,7 @@ describe('validateLevel1234AndDescriptionLabelInSampleCsv', () => {
     it('validateLevel1234AndDescriptionLabelInSampleCsv',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(25000);
+        
         utility.userLogin('Creator');
         sanityFun.createBookWithUploadCsv();
         sanityFun.vlidateSomeColumnHeadersInSampleCSV();

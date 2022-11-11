@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
@@ -23,7 +25,8 @@ describe('validateShareDoneAndCloseButtonWithZoomInAndZoomOut', () => {
     
     it('validateShareDoneAndCloseButtonWithZoomInAndZoomOut',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
+        browser.sleep(30000);
+        //utility.handleLocationPopup();
         utility.userLogin('Public User1');
         sanityfun.validateShareCloseAndDoneButton();
     })

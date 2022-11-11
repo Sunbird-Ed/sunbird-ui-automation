@@ -24,7 +24,7 @@ describe('Creator is able to copy course of same or different tenant and can sha
     
     it('UserAbleToCopyCourseAndShareTheCourseViaLink',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         var courseName = sanityFun.copyContentFromTraining('Course');

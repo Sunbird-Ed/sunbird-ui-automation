@@ -31,12 +31,6 @@ describe('Create Lesson plan save and send for review and publish.', () => {
         lessonPlanPageObj.publishTheLessonPlanFromUpForReview(lessonPlan);
         utility.userLogout();
         utility.userLogin('Mentor2');
-        utility.validateWorkspace();
         lessonPlanPageObj.deleteCreatedItems();
-        
     })
-
-   
-   
 });
-   

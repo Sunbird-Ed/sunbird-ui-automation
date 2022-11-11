@@ -23,18 +23,18 @@ describe('Create SelfAssesmentCourse save and send for review and publish.', () 
 
     it('CreateSelfAssesmentContentInCourseAndVerify  ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         let courseName=tpdPageObj.createCourseAssessment();
         tpdPageObj.sendForReviewTheCourseAssessment();
         utility.userLogout();
         utility.userLogin('ContentReviewer');
-        utility.validateWorkspace();
+        
         resourcePage.publishTheResourceFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Mentor2');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
     })
 });

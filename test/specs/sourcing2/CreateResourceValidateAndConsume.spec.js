@@ -24,7 +24,7 @@ describe('content creator is able to access the resource section to create resou
     });
     it('CreateResourceValidateAndConsume',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResource();

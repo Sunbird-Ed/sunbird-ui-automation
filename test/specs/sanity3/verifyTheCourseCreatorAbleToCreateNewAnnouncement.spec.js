@@ -16,20 +16,17 @@ describe('verifyTheCourseCreatorAbleToCreateNewAnnouncement', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('verifyTheCourseCreatorAbleToCreateNewAnnouncement ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('staging');
+        utility.userLogin('Public User1');
         sanityPage.verifyDiscussionForum();
-       
     });
 });

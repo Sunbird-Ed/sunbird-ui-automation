@@ -8,7 +8,6 @@ const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageO
 
 
 describe('consumeContentHavingExpiredBatchPopUp' , () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -26,11 +25,10 @@ describe('consumeContentHavingExpiredBatchPopUp' , () => {
     it('consumeContentHavingExpiredBatchPopUp',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        browser.sleep(15000);
+        //browser.sleep(15000);
         let courseName = "AutomationExpiredCourse";
         utility.userLogin('Public User1');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.consumeExpiredContent();
     })
 });
-   

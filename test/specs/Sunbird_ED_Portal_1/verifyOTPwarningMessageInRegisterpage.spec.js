@@ -22,7 +22,7 @@ describe('verifyOTPwarningMessageInRegisterpage', () => {
     
     it('verifyOTPwarningMessageInRegisterpage',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         verifyUOpage.verifyOTPwarningMessage();
     });

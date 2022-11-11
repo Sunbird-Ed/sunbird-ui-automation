@@ -26,8 +26,8 @@ describe('validateOrderOfContentInConsumptionForContentPlaylist', () => {
 
     it('validateOrderOfContentInConsumptionForContentPlaylist', function () {
         utility.handleDropDown();
-        browser.sleep(20000);
-        //utility.handleLocationPopup();
+        
+        utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName = sanityfun.createCollectionWithDiffCollectionTypes("contentPlaylist");
         utility.userLogout();

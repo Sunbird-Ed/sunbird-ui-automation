@@ -25,16 +25,16 @@ describe('checkLicencePageInDifferentScenario', () => {
     it('checkLicencePageInDifferentScenario ',function(){
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let courseName=tpdPageObj.createCourse();
         tpdPageObj.sendForReviewTheCourse();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishTheCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
        
        

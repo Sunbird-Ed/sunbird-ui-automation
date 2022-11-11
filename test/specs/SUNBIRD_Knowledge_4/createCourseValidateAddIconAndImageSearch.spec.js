@@ -24,17 +24,17 @@ describe('createCourseValidateAddIconAndImageSearch', () => {
     
     it('createCourseValidateAddIconAndImageSearch', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseWithImageIconAndValidateImageSearchBar();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
     })
 });

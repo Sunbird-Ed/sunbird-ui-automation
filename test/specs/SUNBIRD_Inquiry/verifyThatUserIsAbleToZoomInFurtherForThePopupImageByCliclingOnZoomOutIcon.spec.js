@@ -20,7 +20,7 @@ describe('Search Resource save and send for review and publish.', () => {
     });
     it('verifyThatUserIsAbleToZoomInFurtherForThePopupImageByCliclingOnZoomOutIcon ',function(){
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         resourcePageObj.createSubjectiveQuestionSetWithImages();

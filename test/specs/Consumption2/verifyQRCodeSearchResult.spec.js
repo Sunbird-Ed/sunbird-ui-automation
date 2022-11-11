@@ -21,7 +21,7 @@ describe('verifyQRCodeSearchResult Verify', () => {
     });
     it('verifyQRCodeSearchResult',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Public User1');

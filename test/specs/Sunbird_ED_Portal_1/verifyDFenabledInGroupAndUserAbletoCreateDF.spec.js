@@ -21,7 +21,7 @@ describe('verifyDFenabledInGroupAndUserAbletoCreateDF', () => {
 
     it('verifyDFenabledInGroupAndUserAbletoCreateDF',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Admin');
         sanityfun.verifyEnableAndDisableDiscussionForGroup2();

@@ -23,7 +23,7 @@ describe('Verify adminAddActivity', () => {
     });
     it('GroupAdminIsAbleToAddAnActivityWhichIsACourse',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.GroupAdminIsAbleToAddAnActivityWhichIsACourse();

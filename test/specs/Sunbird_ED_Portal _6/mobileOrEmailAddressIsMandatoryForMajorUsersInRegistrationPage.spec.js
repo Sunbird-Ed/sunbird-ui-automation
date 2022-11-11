@@ -22,7 +22,6 @@ describe('mobileOrEmailAddressIsMandatoryForMajorUsersInRegistrationPage', () =>
     
     it('mobileOrEmailAddressIsMandatoryForMajorUsersInRegistrationPage',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         usrOnBoardfun.verifyNewRegisterHerePageAndValidateMobileAndEmailEntryForMajorUsers();
     });

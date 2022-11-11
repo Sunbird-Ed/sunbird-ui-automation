@@ -218,12 +218,7 @@ let EtbElem = () => {
     var clickFilterBoard1 = element(by.xpath("//label[contains(text(),'Board')]//following::span[2]"));
     var sltFilterBoard2 = element(by.xpath("//label[contains(text(),'Board')]//following::sui-select-option[2]"));
     var clkTVClasses = element(by.xpath("//a[contains(text(),' TV classes ')]"));
-
     var downloadCSVfile = element(by.xpath("//*[text()='Download sample csv file']"));
-    
-
-
-
 
     return {
         searchCollaboratorField,

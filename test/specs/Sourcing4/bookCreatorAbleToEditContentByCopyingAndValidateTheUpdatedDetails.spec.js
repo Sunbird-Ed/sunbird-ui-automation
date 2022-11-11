@@ -24,7 +24,7 @@ describe('bookCreatorAbleToEditContentByCopyingAndValidateTheUpdatedDetails', ()
 
     it('bookCreatorAbleToEditContentByCopyingAndValidateTheUpdatedDetails', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Book Creator');
         let bookName= sanityfun.createBook();

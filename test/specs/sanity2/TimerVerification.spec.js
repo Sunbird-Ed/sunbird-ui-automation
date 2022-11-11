@@ -25,7 +25,6 @@ describe('able to create course and enroll consume TimerVerification', () => {
 
     it('TimerVerification', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();

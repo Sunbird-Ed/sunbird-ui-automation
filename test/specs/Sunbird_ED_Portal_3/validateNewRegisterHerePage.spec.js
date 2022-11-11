@@ -22,7 +22,6 @@ describe('validateNewRegisterHerePage', () => {
     
     it('validateNewRegisterHerePage',function(){
         utility.handleDropDown();
-       // browser.sleep(20000);
         utility.handleLocationPopup();
         usrOnBoardfun.verifyNewRegisterHerePage();
     });

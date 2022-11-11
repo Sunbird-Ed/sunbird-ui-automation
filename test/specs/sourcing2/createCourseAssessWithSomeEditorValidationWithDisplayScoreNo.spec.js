@@ -25,7 +25,7 @@ describe('createCourseAssessWithSomeEditorValidationWithDisplayScoreNo', () => {
     it('createCourseAssessWithSomeEditorValidationWithDisplayScoreNo',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(20000);
+        
         utility.userLogin('Mentor2');
         let courseName=resourcePage.createCourseAssessmentForDisplayScoreNo();
     })

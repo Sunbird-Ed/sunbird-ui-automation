@@ -25,15 +25,15 @@ describe('Veri Content creator is able to upload contents with specified format 
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let uploadContent=uploadPageObj.uploadAllContent();
         utility.userLogout();
         utility.userLogin('Reviewer');
-       // utility.validateWorkspace();
+       // 
         resourcePageObj.publishTheResourceFromUpForReview(uploadContent);
         utility.userLogout();
         utility.userLogin('Creator');
-     //   utility.validateWorkspace();
+     //   
         lspPageObj.deleteCreatedItems();
         
     })

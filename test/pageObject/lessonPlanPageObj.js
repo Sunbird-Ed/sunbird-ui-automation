@@ -193,6 +193,7 @@ const navigateToLibraryAndSearchForResource = (content) => {
         console.log("Failed to navigate To Library And Search For Resource");
     }
 }
+
 const deleteCreatedItems = () => {
     // var name;
     try {
@@ -252,10 +253,6 @@ const previewTheResource = () => {
 }
 
 
-
-
-
-
 const deleteDraftItems = () => {
     var name;
     try {
@@ -296,6 +293,8 @@ const deleteDraftItems = () => {
         console.log("Failed to delete draft Items ");
     }
 }
+
+
 const deleteAllMyContentItems = () => {
     var name;
     try {
@@ -797,6 +796,51 @@ const createLessonPlanAndVerifyFilter = () => {
 }
 
 
+const editPublishedContent = (bookName) => {
+    try {
+        console.log("User is trying to edit Items which are publised");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.published), 20000, "published page not loaded");
+        content.published.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
+        content.searchForReview.click();
+        content.searchForReview.sendKeys(bookName);
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.searchedPublishedContent), 20000, "workspace page not loaded");
+        searchObj.searchedPublishedContent.click();
+        browser.sleep(8000);
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(6000);
+        sanityPage.SanityElement().addFromLibraryButton.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().selectButton.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().addContent.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().contentFromLibrayBackButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000, "submit Button not loaded");
+        sanityPage.SanityElement().submitForreviewButton.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().termsAndConditionCheckbox.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().NewCoursesubmitButton.click();
+        browser.sleep(7000);
+        console.log("Created published content is successfully edited");
+    }
+    catch (exception) {
+        console.log("Failed to edit Items ");
+    }
+}
+
 
 
 
@@ -818,5 +862,5 @@ module.exports = {
     verifyConsentPopup,
     verifyProfileSharingUpdate,
     createLessonPlanAndVerifyFilter,
-
+    editPublishedContent,
 }

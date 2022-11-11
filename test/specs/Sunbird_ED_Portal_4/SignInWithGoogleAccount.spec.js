@@ -23,7 +23,6 @@ describe('LoginWithGoogleAcc', () => {
     it('SignInWithGoogleAccount',function(){
        
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         sanityFun.signWithGoogle();
         utility.userLogoutForGoogle();

@@ -27,7 +27,5 @@ describe('Verify Creator is able to copy the book', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.creatorIsAbleToCopyTheBook();
-       
     });
 });
-   

@@ -26,16 +26,7 @@ describe('VerifyBookCountAsDifferentRoles', () => {
         utility.handleLocationPopup(); 
         bookCount = verifyCEBpageobj.validateTextBookCount();  
     });
-    // it('VerifyBookCountAsDifferentRoles',function(){
-    //     browser.ignoreSynchronization = true;
-    //     utility.handleLocationPopupAsStudent(); 
-    //     verifyCEBpageobj.validateTextBookCountInDifferentRole(bookCount);
-    // });
-    // it('VerifyBookCountAsDifferentRoles',function(){
-    //     browser.ignoreSynchronization = true;
-    //     utility.handleLocationPopupAsOther(); 
-    //     verifyCEBpageobj.validateTextBookCountInDifferentRole(bookCount);
-    // });
+    
 });
    
 

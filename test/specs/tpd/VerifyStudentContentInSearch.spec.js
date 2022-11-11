@@ -20,8 +20,8 @@ describe('VerifyStudentContentInSearch', () => {
     });
     it('VerifyStudentContentInSearch',function(){
         utility.handleDropDown();
-        browser.sleep(20000);
-        //utility.handleLocationPopup();
+        
+        utility.handleLocationPopup();
         let coursename="Course";//teacherStudent
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(coursename);
 

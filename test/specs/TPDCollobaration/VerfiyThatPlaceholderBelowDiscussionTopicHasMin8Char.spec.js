@@ -23,7 +23,7 @@ describe('Verfiy that, Placeholder below Discussion Topic has “Type here (mini
     });
     it('VerfiyThatPlaceholderBelowDiscussionTopicHasMin8Char ',function(){
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('LoadAnimation');
         EnrollTBFCPageObj.VerfiyThatPlaceholderBelowDiscussionTopic();

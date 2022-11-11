@@ -26,7 +26,7 @@ describe('verifyTrackableCollectionIsPresentInMyCourseSectionAndMyLearningSectio
 
     it('verifyTrackableCollectionIsPresentInMyCourseSectionAndMyLearningSection', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         let courseName = "4.4 trackable collection";
         utility.userLogin('Public User1');

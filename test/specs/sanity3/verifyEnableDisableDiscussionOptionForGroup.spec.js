@@ -23,7 +23,6 @@ describe('verifyEnableDisableDiscussionOptionForGroup in groups', () => {
 
     it('verifyEnableDisableDiscussionOptionForGroup',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         sanityPage.verifyEnableAndDisableDiscussionForGroup2();

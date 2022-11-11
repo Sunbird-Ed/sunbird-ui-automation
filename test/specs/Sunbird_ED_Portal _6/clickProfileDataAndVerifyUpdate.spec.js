@@ -23,22 +23,17 @@ describe('clickProfileDataAndVerifyUpdate', () => {
     
     it('clickProfileDataAndVerifyUpdate', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
         tpdPageObj.publishContentFromUpForReviewBucket(courseName)
         utility.userLogout();
         utility.userLogin('Creator');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.createOpenBatch();
         utility.userLogout();
-        console.log(courseName);
-        //let courseName = "CourseMClemmie";
         utility.userLogin('User');
         lspPageObj.verifyProfileSharingUpdate(courseName);
     })

@@ -24,8 +24,8 @@ describe('validateNonAdminUserAbleToSearchMemberAndLeaveGroup', () => {
     
     it('validateNonAdminUserAbleToSearchMemberAndLeaveGroup', function () {
         utility.handleDropDown();
-        browser.sleep(25000);
-        //utility.handleLocationPopup();
+        
+        utility.handleLocationPopup();
         utility.userLogin('NewCredCourseToc');
         let groupName = sanityfun.verifyAddActivitySearchedByKeyword("AutomationCourseCompletedBatch");
         sanityfun.validateSearchAddedMemberAndCout();

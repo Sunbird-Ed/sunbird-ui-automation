@@ -24,7 +24,7 @@ describe('validateMetadataDisabledForReviewer', () => {
 
     it('validateMetadataDisabledForReviewer', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName = collectionPageObj.createCollection();
@@ -33,7 +33,7 @@ describe('validateMetadataDisabledForReviewer', () => {
         tpdPageObj.publishContentFromUpForReviewBucket(collectionName);
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
     })
 });

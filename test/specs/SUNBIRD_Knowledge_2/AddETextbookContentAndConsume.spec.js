@@ -33,7 +33,7 @@ describe('AddETextBookContentAndConsume.', () => {
         tpdPageObj.publishContentFromUpForReviewBucket(bookName);
         utility.userLogout();
         utility.userLogin('Creator');
-        //utility.validateWorkspace();
+        //
         lspPageObj.deleteCreatedItems();
          
     })

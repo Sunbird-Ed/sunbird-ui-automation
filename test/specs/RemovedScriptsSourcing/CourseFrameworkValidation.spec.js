@@ -25,7 +25,7 @@ describe('CourseFrameworkValidation', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
-        utility.validateWorkspace();
+        
         tpdPageObj.checkForGenericCourseFramework();
         tpdPageObj.checkForCurriculumCourseFramework();
         

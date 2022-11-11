@@ -24,7 +24,6 @@ describe('groupCreatedAndUpdatedRecentlyShownFirst', () => {
     
     it('groupCreatedAndUpdatedRecentlyShownFirst', function () {
         utility.handleDropDown();
-        //browser.sleep(25000);
         utility.handleLocationPopup();
         utility.userLogin('NewCredCourseToc');
         let groupname = sanityfun.verifyAddActivitySearchedByKeyword("AutomationCourseCompletedBatch");

@@ -27,7 +27,7 @@ describe('createBookWithCourseInLibraryByDoIdInsideUnitAndChildNode', () => {
 
     it('createBookWithCourseInLibraryByDoIdInsideUnitAndChildNode', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let data = tpdPageObj.createCourseAndReturnDoidAndCourseName();
@@ -37,7 +37,7 @@ describe('createBookWithCourseInLibraryByDoIdInsideUnitAndChildNode', () => {
         var doid = input.split("/")[6];
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishCourseFromUpForReview(course);
         utility.userLogout();
         utility.userLogin('Creator');
@@ -47,7 +47,7 @@ describe('createBookWithCourseInLibraryByDoIdInsideUnitAndChildNode', () => {
         tpdPageObj.publishCourseFromUpForReview(bookName)
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
        })
     })

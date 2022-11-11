@@ -5,8 +5,6 @@ const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPag
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
 describe('Create Course save and send for review and publish.', () => {
-
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -15,15 +13,13 @@ describe('Create Course save and send for review and publish.', () => {
         browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
-
-
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-
     });
+
     it('CreateCourseAndVerify', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
@@ -31,17 +27,9 @@ describe('Create Course save and send for review and publish.', () => {
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
         tpdPageObj.publishCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();
-
-
     })
-
-
-
 });
-

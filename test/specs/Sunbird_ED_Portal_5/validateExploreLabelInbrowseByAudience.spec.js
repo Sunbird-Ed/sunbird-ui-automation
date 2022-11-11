@@ -6,7 +6,6 @@ const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySig
 const EnrollTBFCPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
 describe('validateExploreLabelInbrowseByAudience', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -24,7 +23,7 @@ describe('validateExploreLabelInbrowseByAudience', () => {
     it('validateExploreLabelInbrowseByAudience',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('User');
+        utility.userLogin('Public User1');
         EnrollTBFCPageObj.validateUserTypelab();
     });
 });

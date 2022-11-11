@@ -5,7 +5,6 @@ let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const searchAALTPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
 describe('verifyOnboardingBMCSLabelsLanguageChangingWithSelectedLanguage', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -22,10 +21,8 @@ describe('verifyOnboardingBMCSLabelsLanguageChangingWithSelectedLanguage', () =>
 
     it('verifyOnboardingBMCSLabelsLanguageChangingWithSelectedLanguage', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         searchAALTPageObj.validateBMCSlabelsWithRegionalLanguage();
-        //utility.userLogout();
     })
 });

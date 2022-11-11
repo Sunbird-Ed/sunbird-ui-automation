@@ -26,7 +26,7 @@ describe('verifyTargetFrameworkIsMandatory', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-        utility.validateWorkspace();
+        
         sanityfun.TargetFrameworkIsMandatory();
            
     })

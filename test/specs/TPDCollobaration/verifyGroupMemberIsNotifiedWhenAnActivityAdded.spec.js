@@ -23,7 +23,7 @@ describe('Verify that, Group Member is notified, When an activity is assigned to
     });
     it('verifyGroupMemberIsNotifiedWhenAnActivityAdded ',function(){
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.openExistingGroup();

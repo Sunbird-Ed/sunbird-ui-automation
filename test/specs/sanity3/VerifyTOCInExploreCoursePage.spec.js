@@ -20,7 +20,6 @@ describe('VerifyTOCInExploreCoursePage.spec', () => {
     
     it('VerifyTOCInExploreCoursePage.spec',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         searchCBFPPageObj.courseSearchFilter();    

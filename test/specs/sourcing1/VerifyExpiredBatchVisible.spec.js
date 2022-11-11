@@ -32,7 +32,7 @@ describe('VerifyExpiredBatchVisible' , () => {
         utility.userLogout();
 
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishContentFromUpForReviewBucket(coursename);
         utility.userLogout();
 

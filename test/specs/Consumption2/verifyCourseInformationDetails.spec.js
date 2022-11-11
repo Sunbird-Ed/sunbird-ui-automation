@@ -28,12 +28,12 @@ describe('verifyCourseInformationDetails', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         let courseName = sanityfun.createCourseAndSendForReview();
         console.log(courseName);
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishContentFromUpForReviewBucket(courseName);
         utility.userLogout();
         utility.userLogin('Creator');

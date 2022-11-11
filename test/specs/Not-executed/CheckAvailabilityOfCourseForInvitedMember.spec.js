@@ -27,7 +27,7 @@ describe('Course creator should have two section under "Courses Batches" :Create
         let courseName=tpdPageObj.sendForReviewCourseWithName();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishTheCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Mentor');
@@ -39,7 +39,7 @@ describe('Course creator should have two section under "Courses Batches" :Create
         tpdPageObj.navigateToCourseAndSearch(courseName);
         utility.userLogout();
         utility.userLogin('Mentor');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();
        
        

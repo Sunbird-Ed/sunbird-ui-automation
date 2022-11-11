@@ -22,7 +22,7 @@ describe('verifyThatAdminUserCanOpenAnyTextbookCanDoAnyModificationsToTheTextboo
 
     it('verifyThatAdminUserCanOpenAnyTextbookCanDoAnyModificationsToTheTextbookSimilarToCreator',function(){
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         tpdPageObj.openAndVerifyAllTextBookTab();

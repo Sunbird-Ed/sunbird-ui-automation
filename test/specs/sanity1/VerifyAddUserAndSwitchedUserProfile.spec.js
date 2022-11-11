@@ -21,8 +21,8 @@ describe('VerifyAddUserAndSwitchedUserProfile', () => {
     
     it('VerifyAddUserAndSwitchedUserProfile',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
-        utility.handleLocationPopup();
+        browser.sleep(30000);
+        //utility.handleLocationPopup();
         utility.userLogin('AddUserCred');
         usrOnBoardfun.AddUserProfileVerification();
         // utility.handleLocationPopup();

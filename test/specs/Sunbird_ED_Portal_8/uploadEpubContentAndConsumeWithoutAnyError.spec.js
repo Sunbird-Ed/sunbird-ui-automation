@@ -21,7 +21,7 @@ describe('uploadEpubContentAndConsumeWithoutAnyError', () =>{
     
     it('uploadEpubContentAndConsumeWithoutAnyError  ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent=uploadPageObj.uploadEpub();
@@ -34,7 +34,7 @@ describe('uploadEpubContentAndConsumeWithoutAnyError', () =>{
         resourcePageObj.consumePDFepubContent(uploadContent);
         // utility.userLogout();
         // utility.userLogin('Creator');
-        // utility.validateWorkspace();
+        // 
         // lspPageObj.deleteCreatedItems();
     });
 

@@ -23,13 +23,12 @@ describe('createCourseFromTextbookAndEditUpdateDetailsAndSendForReview', () => {
     
     it('createCourseFromTextbookAndEditUpdateDetailsAndSendForReview', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         let bookName= sanityfun.createBookTnContentCred();
         utility.userLogout();
         utility.userLogin('ContentReviewer');
-        tpdPageObj.publishCourseFromUpForReview(bookName)
+        tpdPageObj.publishCourseFromUpForReview(bookName);
         utility.userLogout();
         utility.userLogin('ContentCreator');
         sanityfun.copyBookAsCourseAndsendForReview(bookName);

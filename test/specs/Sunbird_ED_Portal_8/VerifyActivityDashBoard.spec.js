@@ -20,7 +20,7 @@ describe('VerifyActivityDashBoard', () => {
     });
     it('VerifyActivityDashBoard',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Mentor2');
         EnrollTBFCPageObj.ActivityDashboard();

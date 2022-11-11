@@ -23,7 +23,6 @@ describe('upload h5p, save and send for review and publish.', () =>{
 
     it('UploadContentTypeH5pAndVerify  ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent=uploadPageObj.uploadH5p();

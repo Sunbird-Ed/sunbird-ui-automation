@@ -22,7 +22,7 @@ describe('VrifyViewAndEditDetailsFormForResource', () => {
     });
     it('VerifyViewAndEditDetailsFormForResource',function(){
         utility.handleDropDown();
-        //browser.sleep(25000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionFITBWithAllStyles();

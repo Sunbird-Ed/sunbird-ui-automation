@@ -23,7 +23,7 @@ describe('validateAndDownloadCertificateFromLearnerPassBook', () => {
 
     it('validateAndDownloadCertificateFromLearnerPassBook',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         let courseName = "do_21340093974761472016";
         let fileName = "4.4 Ashok Course 1";

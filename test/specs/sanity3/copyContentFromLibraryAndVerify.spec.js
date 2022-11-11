@@ -23,7 +23,6 @@ describe('Copy Content From Library', () => {
     
     it('copyContentFromLibraryAndVerify',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         var Book = "BookA";

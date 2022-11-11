@@ -32,7 +32,7 @@ describe('Create Collection save and send for review and publish.', () => {
         collectionPageObj.publishTheCollectionFromUpForReview(collectionName);
         utility.userLogout();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         lspPageObj.deleteCreatedItems();  
     })
 });

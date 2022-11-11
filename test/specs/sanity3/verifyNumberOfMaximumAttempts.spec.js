@@ -23,9 +23,8 @@ describe('verifyNumberOfMaximumAttempts', () => {
     
     it('verifyNumberOfMaximumAttempts ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('staging');
+        utility.userLogin('Public User1');
         sanityPage.veriyMaximumAttempts();
     });
 });

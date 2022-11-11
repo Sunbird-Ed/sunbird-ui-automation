@@ -18,7 +18,7 @@ describe('VerifyAddactivityInGroupDetailsPage', () => {
     });
     it('VerifyAddactivityInGroupDetailsPage ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.addGrpAndDeleteGrp();

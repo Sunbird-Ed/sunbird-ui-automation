@@ -30,7 +30,7 @@ describe('able to create course and enroll consume EnrollToCourseInOpenBatch.spe
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        utility.validateWorkspace();
+        
         tpdPageObj.publishContentFromUpForReviewBucket(courseName);
         utility.userLogout();
         utility.userLogin('Creator');

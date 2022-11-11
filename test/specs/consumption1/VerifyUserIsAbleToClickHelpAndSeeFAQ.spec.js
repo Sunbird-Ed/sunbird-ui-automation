@@ -21,7 +21,7 @@ describe('VerifyUserIsAbleToClickHelpAndSeeFAQ', () => {
     });
     it('VerifyUserIsAbleToClickHelpAndSeeFAQ',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         resourcePageObj.VerifyUserIsAbleToClickHelpAndSeeFAQ();

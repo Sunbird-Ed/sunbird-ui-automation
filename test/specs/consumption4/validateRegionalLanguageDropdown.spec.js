@@ -22,12 +22,8 @@ describe('validateRegionalLanguageDropdown', () => {
 
     it('validateRegionalLanguageDropdown',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         searchAALTPageObj.vaidatePageLangaugeTranslation();
-        //utility.userLogout();
-        // searchAALTPageObj.LangaugeTranslation();
-        // searchAALTPageObj.SearchCouseWithRegionalLang();
     })
 });

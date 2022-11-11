@@ -24,13 +24,13 @@ describe('validateCourseCardCountOfRecentlypublishedCourse', () => {
 
     it('validateCourseCardCountOfRecentlypublishedCourse', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         // utility.userLogin('ContentCreator');
         // let courseName = sanityfun.createCourseAndSendForReview();
         // utility.userLogout();
         // utility.userLogin('ContentReviewer');
-        // utility.validateWorkspace();
+        // 
         // let courseName1 = tpdPageObj.publishCourseFromUpForReview2(courseName);
         // utility.userLogout();
         // utility.userLogin('ContentCreator');

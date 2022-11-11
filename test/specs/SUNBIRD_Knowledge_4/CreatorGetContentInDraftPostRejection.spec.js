@@ -24,7 +24,7 @@ describe('CreatorGetContentInDraftPostRejection', () => {
 
     it('CreatorGetContentInDraftPostRejection', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName = collectionPageObj.createCollection();

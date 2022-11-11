@@ -27,7 +27,7 @@ describe('verifyChildSiblingMandatoryFileds', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-        utility.validateWorkspace();
+        
         console.log("User is trying to delete drafted course from draft and allMyContent section");
         let courseName1=sanityfun.CreateCourseAndSaveAsDraft1("k12");
         utility.userLogout();

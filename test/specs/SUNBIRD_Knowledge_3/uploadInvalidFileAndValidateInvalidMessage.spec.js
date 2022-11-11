@@ -21,7 +21,7 @@ describe('uploadInvalidFileAndValidateInvalidMessage', () => {
     it('uploadInvalidFileAndValidateInvalidMessage',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(20000);
+        
         utility.userLogin('Creator');
         sanityFun.createBookWithUploadCsv();
         //sanityFun.verifyDownlaodedCSVFile();

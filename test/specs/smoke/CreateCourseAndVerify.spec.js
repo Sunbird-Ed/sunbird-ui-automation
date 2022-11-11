@@ -23,7 +23,7 @@ describe('Create Course save and send for review and publish.', () => {
     it('CreateCourseAndVerify  ',function(){
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
+        
         tpdPageObj.createCourse();
         let courseName=tpdPageObj.sendForReviewCourseWithName();
         utility.userLogout();

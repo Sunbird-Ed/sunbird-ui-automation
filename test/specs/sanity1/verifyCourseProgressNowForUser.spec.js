@@ -22,9 +22,8 @@ describe('verifyCourseProgressNowForUser', () => {
     
     it('verifyCourseProgressNowForUser',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('NoBoard');
+        utility.userLogin('Public User1');
         usrOnBoardfun.verifyUserCourseProgress();
     })
-}); 
+});

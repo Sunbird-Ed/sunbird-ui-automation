@@ -23,7 +23,7 @@ describe('validatePrimaryAndAdditionalCategoryUnderBrowseByCategory', () => {
 
     it('validatePrimaryAndAdditionalCategoryUnderBrowseByCategory', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        
         utility.handleLocationPopup();
         utility.userLogin('User');
         tpdPageObj.homeTabwithBrowseByCategories();

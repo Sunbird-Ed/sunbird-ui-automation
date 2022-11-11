@@ -23,8 +23,7 @@ describe('validatePositionOfBatchCertificateAndCreditDropDownInCourse' , () => {
     it('validatePositionOfBatchCertificateAndCreditDropDownInCourse',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        //browser.sleep(25000);
-        utility.userLogin('Public User1');
+        utility.userLogin('NewCredCourseToc');
         tpdPageObj.navigateToCourseAndSearchAndvalidate();
     })
 });

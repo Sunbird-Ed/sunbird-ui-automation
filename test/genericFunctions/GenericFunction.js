@@ -6,8 +6,14 @@ const { Parser } = require("json2csv");
 const ObjectsToCsv = require("objects-to-csv");
 var fs = require("fs");
 var { resolve, join } = require("path");
+const path = require('path');
+
 
 module.exports = {
+
+ 
+
+
   readLoginDataFromExcelFile: function (filePath, sheetIndex, RoleName) {
     var workbook = XLSX.readFile(filePath);
     var sheet_name_list = workbook.SheetNames;
@@ -21,6 +27,7 @@ module.exports = {
     //return data[0]['Username'];
     return data;
   },
+
   readParticularDataFromExcelFile: function (filePath, sheetIndex) {
     var workbook = XLSX.readFile(filePath);
     var sheet_name_list = workbook.SheetNames;
@@ -34,6 +41,7 @@ module.exports = {
     //return data[0]['Username'];
     return data;
   },
+  
   writeDatatoExcelFile: function (
     excelPath,
     sheetname,
@@ -104,16 +112,16 @@ module.exports = {
   
 
   readLatestDownlaodedFileName: function (filePath) {
-    //  var file;
-    fs.readdir(resolve(filePath), function (err, list) {
+    
+    fs.readdir(path(filePath), function (err, list) {
       list.forEach(function (file) {
         //   console.log(list);
         //  console.log(file);
         //  console.log(file);
         totalSize = list.length;
-        // console.log(list.length);
+        console.log(totalSize);
         // console.log(list[totalSize-1]);
-        stats = fs.statSync(resolve(join(filePath, file)));
+        //stats = fs.statSync(resolve(join(filePath, file)));
         //    console.log(stats.mtime);
         //    console.log(stats.ctime);
         //list[totalSize-1];
@@ -183,6 +191,27 @@ readCSVDataAndValidateSomeAttribute: function (fileName) {
     return csv;
     });
   },
-};
 
+validateParticularDataCSVFile: function (FilePath, rowno, columnHeaderName, validation) {
+  const csvFilePath = FilePath;
+  const csv = require("csvtojson");
+  csv()
+    .fromFile(csvFilePath)
+    .then((jsonObj) => {
+      data = jsonObj.filter((item) => {
+        return item;
+      });
+      var finaldata = data[rowno][columnHeaderName];
+      console.log(finaldata);
+      fs.writeFile('C:\\Users\\Qualitrix\\Downloads\\createfoldersamplecsvfile.csv', dataToWrite, 'utf8', function (err) {
+        if (err) {
+          console.log('Some error occured - file either not saved or corrupted file saved.');
+        } else {
+          console.log('It\'s saved!');
+        }
+      });
+      browser.sleep(10000);
+    });
+  },
 
+}

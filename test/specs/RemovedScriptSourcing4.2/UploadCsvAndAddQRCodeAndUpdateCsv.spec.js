@@ -27,10 +27,6 @@ describe('UploadCSVAndAddQrcodeAndUpdateCsv', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.uploadCSVFile();
-        sanityFun.tocDownload();
-       
-        
+        sanityFun.tocDownload();     
     });
 });
-   
-

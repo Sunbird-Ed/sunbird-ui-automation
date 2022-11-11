@@ -25,19 +25,19 @@ describe('AddChildInCourse', () => {
         utility.handleDropDown();
         //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let data = sanityfun.createCourseWithKeyword();
         const keywordName= data.keywordName;
         const courseName = data.courseName;
         console.log(keywordName);
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(keywordName);
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(keywordName);
         utility.userLogout();
         utility.userLogin('Public User1');
         content.navigateContentAndValidate(keywordName,courseName);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         lspPageObj.deleteCreatedItems();
     })
 });

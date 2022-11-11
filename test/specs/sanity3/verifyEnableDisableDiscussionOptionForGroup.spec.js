@@ -25,7 +25,7 @@ describe('verifyEnableDisableDiscussionOptionForGroup in groups', () => {
         utility.handleDropDown();
         //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         sanityPage.verifyEnableAndDisableDiscussionForGroup2();
     });
 });

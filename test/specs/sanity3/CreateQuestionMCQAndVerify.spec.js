@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
@@ -22,22 +24,16 @@ describe('Crea is Able to create Question MCQ and Creator Can Delete that resour
     });
     it('CreateQuestionMCQAndVerify',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
-
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();
         resourcePageObj.sendForReviewTheResource();
-       
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
-       
-
         utility.userLogin('Creator');
         lspPageObj.deleteCreatedItems();
-       
-      
     })
-    
 });

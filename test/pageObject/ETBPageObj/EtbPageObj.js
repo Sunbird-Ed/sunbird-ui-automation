@@ -130,7 +130,6 @@ const checkForDisabledAndEnabled = () => {
         // browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().courseName), 40000, "courseName is not available");
         // etbPage.EtbElem().courseName.sendKeys(cred[2]['CourseName']);
 
-
         bookname = "BookA" + faker.randomData().firstname;
         etbv.bookName.sendKeys(bookname);
         sanityFun.FillBmesWhileCreatingBook();

@@ -27,10 +27,9 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
 
     it('unEnrollFromOpenCourse', function () {
         utility.handleDropDown();
-       //browser.sleep(20000);
-       utility.handleLocationPopup();
+        //browser.sleep(20000);
+        utility.handleLocationPopup();
         utility.userLogin('Creator');
-        utility.validateWorkspace();
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
@@ -44,10 +43,5 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch2();
         tpdPageObj.unenrollFromBatch();
-
     })
 });
-
-
-
-

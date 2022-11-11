@@ -1,5 +1,7 @@
 //const { browser } = require("protractor");
 
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
@@ -22,7 +24,9 @@ describe('validateObservationTabForDifferentRoles', () => {
 
     it('validateObservationTabForDifferentRoles',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
-        sanityfun.changeDifferentRolesAndValidateObservatioTab();
+        utility.userLogin('Public User1');
+        sanityfun.validateObservatioTab();
     })
 });

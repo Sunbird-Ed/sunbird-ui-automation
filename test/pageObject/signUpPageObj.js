@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const usronBoardPage = require(protractor.basePath + '/test/pages/userOnBoarding/UserOnBoardingPage.js');
 const ccpage = require(protractor.basePath + '/test/pages/contentCreation/contentCreation.po.js');
 const etbpage = require(protractor.basePath + '/test/pages/ETB/etb.po.js');
@@ -29,8 +31,8 @@ const languageVerify = () => {
     browser.wait(protractor.ExpectedConditions.visibilityOf(signUp.clickSearchInHindi), 20000, "clickSearchInHindi is not available");
     signUp.clickSearchInHindi.click();
     //expect(signUp.hindiContent.isDisplayed()).toBeTruthy(); 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(signUp.clickOnLanguageDropdwon), 20000, "clickOnLanguageDropdwon is not available");
-    signUp.clickOnLanguageDropdwon.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(signUp.selectlanguage), 20000, "clickOnLanguageDropdwon is not available");
+    signUp.selectlanguage.click();
     browser.executeScript('window.scrollTo(0,200);').then(function () {
         console.log('++++++SCROLLED Down+++++');
     });
@@ -44,9 +46,14 @@ const languageVerify = () => {
     browser.wait(protractor.ExpectedConditions.visibilityOf(signUp.clickSearchInUrdu), 20000, "clickSearchInUrdu is not available");
     signUp.clickSearchInUrdu.click();
     //expect(signUp.urduContent.isDisplayed()).toBeTruthy(); 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(signUp.selectLanguageInUrdu), 20000, "selectLanguageInUrdu is not available");
-    signUp.selectLanguageInUrdu.click();
-    browser.wait(protractor.ExpectedConditions.visibilityOf(signUp.englishLanguage), 20000, "englishLanguage is not available");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(signUp.selectlanguage), 20000, "selectLanguageInUrdu is not available");
+    signUp.selectlanguage.click();
+    browser.sleep(2000);
+    browser.executeScript('window.scrollTo(0,0);').then(function () {
+        console.log('++++++SCROLLED Down+++++');
+    });
+    //browser.executeScript("arguments[0].scrollIntoView();", signUp.englishLanguage);
+    //browser.wait(protractor.ExpectedConditions.visibilityOf(signUp.englishLanguage), 20000, "englishLanguage is not available");
     signUp.englishLanguage.click();
     browser.sleep(1000);
     searchObj.headerCourse.click();
@@ -62,12 +69,12 @@ const languageVerify = () => {
     browser.wait(protractor.ExpectedConditions.visibilityOf(signUp.hindiLanguage), 20000, "hindiLanguage is not available");
     signUp.hindiLanguage.click();
     browser.sleep(2000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
-    ccpage.contentCreation().headerDropdown.click();
-    browser.wait(protractor.ExpectedConditions.visibilityOf(signUp.loginInHindi), 20000, "logoutInHindi is not available");
-    signUp.loginInHindi.click();
-    browser.sleep(2000);
-    expect(content.userName.isDisplayed()).toBeTruthy(); 
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
+    // ccpage.contentCreation().headerDropdown.click();
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(signUp.loginInHindi), 20000, "logoutInHindi is not available");
+    // signUp.loginInHindi.click();
+    // browser.sleep(2000);
+    // expect(content.userName.isDisplayed()).toBeTruthy(); 
 }
 const verifyLocationUpdateForUser = () => {
 
@@ -681,26 +688,22 @@ const publishAndSearch = (source1) => {
 }
 
 const navigateToCourseAndSearchForOpenBatch = (courseName) => {
-
     try {
         console.log('To verify navigate to Course section, search course and create open batch');
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.headerCourse), 40000, "headerCourse is not available");
         searchObj.headerCourse.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.searchInput), 40000, "searchInput is not available");
         searchObj.searchInput.click();
-        searchObj.searchInput.sendKeys(courseName)
+        searchObj.searchInput.sendKeys(courseName);
         console.log('Entered Course Name');
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.searchIcon), 40000, "searchIcon is not available");
         searchObj.searchIcon.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.searchPublishedCourses), 40000, "searchIcon is not available");
         searchObj.searchPublishedCourses.click();
-
     }
     catch (e) {
         console.error('Failed on navigating to Course section, search course and create batch');
-
     }
-
 }
 
 const checkCreditSection = () => {

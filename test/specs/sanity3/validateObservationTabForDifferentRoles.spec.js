@@ -24,6 +24,7 @@ describe('validateObservationTabForDifferentRoles', () => {
         utility.handleDropDown();
         //browser.sleep(20000);
         utility.handleLocationPopup();
-        sanityfun.changeDifferentRolesAndValidateObservatioTab();
+        utility.userLogin('Public User1');
+        sanityfun.validateObservatioTab();
     })
 });

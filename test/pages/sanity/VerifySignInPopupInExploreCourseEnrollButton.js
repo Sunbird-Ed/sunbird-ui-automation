@@ -17,7 +17,7 @@ var VerifySignInPopupInExploreCourseEnrollButton = () => {
     var studentCourse = element(by.xpath("//span[text()='Student courses']"));
     var StudentCoursesCount = element(by.xpath("//span/following-sibling::span"));
     var clickOnFirststudentCourses = element(by.xpath("//span[text()='Student courses']/following::bdi"));
-    var addUser = element(by.xpath("//div[contains(text(),'Add')]"));
+    var addUser = element(by.xpath("//div[contains(text(),'Add another user')]"));
     var enterName = element(by.xpath("//input[@placeholder='Enter your name']"));
     var addUserButton = element(by.xpath("//button[text()=' Add user ']"));
     var profile = element(by.xpath("//li[text()=' Profile ']"));

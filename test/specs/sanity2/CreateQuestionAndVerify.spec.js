@@ -30,11 +30,5 @@ describe('Create Question save and send for review and publish.', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
-      
-        
-
     })
-
-   
 });
-   

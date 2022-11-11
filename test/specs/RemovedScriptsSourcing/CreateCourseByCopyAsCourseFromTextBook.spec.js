@@ -24,7 +24,6 @@ describe('CreateCourseByCopyAsCourseFromTextBook', () => {
     
     it('CreateCourseByCopyAsCourseFromTextBook',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.copyBookAsCourse('Textbook');

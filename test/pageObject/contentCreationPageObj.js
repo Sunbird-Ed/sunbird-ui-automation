@@ -1408,13 +1408,13 @@ const consumeContent = () => {
     browser.sleep(2000);
     content.zoomIn.click();
     browser.sleep(1000);
-    for (i = 0; i < 95; i++) {
-      sanityPage.SanityElement().pdfArrowButton.click();
-    }
-    browser.sleep(4000);
-    (content.assertConsume).getText().then(function (input) {
-      console.log(input + " consuming the content.");
-    })
+    // for (i = 0; i < 95; i++) {
+    //   sanityPage.SanityElement().pdfArrowButton.click();
+    // }
+    // browser.sleep(4000);
+    // (content.assertConsume).getText().then(function (input) {
+    //   console.log(input + " consuming the content.");
+    // })
     //content.zoomOut.click();
     // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "save never loaded");
     // searchObj.starRating.click();
@@ -1431,11 +1431,11 @@ const consumeContent = () => {
   }
 }
 
-const consumeContentPlaylist = () => {
+const consumeContentPlaylist = (content) => {
   try {
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    var do_id = cred[42]['CourseName'];
+    // var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    // var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    // var do_id = cred[42]['CourseName'];
     browser.sleep(2000);
     console.log("User is trying to consume content");
     browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
@@ -1443,7 +1443,7 @@ const consumeContentPlaylist = () => {
     browser.sleep(2000);
     sanityPage.SanityElement().searchConLib.click();
     browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
+    sanityPage.SanityElement().searchConLib.sendKeys(contentCreation);
     browser.sleep(2000);
     sanityPage.SanityElement().clkSearchLib.click();
     browser.sleep(1000);
@@ -1454,10 +1454,10 @@ const consumeContentPlaylist = () => {
     for (i = 0; i < 9; i++) {
       sanityPage.SanityElement().pdfArrowButton.click();
     }
-    browser.sleep(2000);
-    (content.assertConsume).getText().then(function (input) {
-      console.log(input + " consuming the content.");
-    })
+    // browser.sleep(2000);
+    // (content.assertConsume).getText().then(function (input) {
+    //   console.log(input + " consuming the content.");
+    // })
     content.zoomOut.click();
     // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "save never loaded");
     // searchObj.starRating.click();
@@ -1474,7 +1474,7 @@ const consumeContentPlaylist = () => {
   }
 }
 
-const consumeDigitalTextBook = () => {
+const consumeDigitalTextBook = (content) => {
   try {
     var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
     var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
@@ -1486,7 +1486,7 @@ const consumeDigitalTextBook = () => {
     browser.sleep(2000);
     sanityPage.SanityElement().searchConLib.click();
     browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
+    sanityPage.SanityElement().searchConLib.sendKeys(content);
     browser.sleep(2000);
     sanityPage.SanityElement().clkSearchLib.click();
     browser.sleep(1000);
@@ -1497,10 +1497,10 @@ const consumeDigitalTextBook = () => {
     for (i = 0; i < 9; i++) {
       sanityPage.SanityElement().pdfArrowButton.click();
     }
-    browser.sleep(2000);
-    (content.assertConsume).getText().then(function (input) {
-      console.log(input + " consuming the content.");
-    })
+    // browser.sleep(2000);
+    // (content.assertConsume).getText().then(function (input) {
+    //   console.log(input + " consuming the content.");
+    // })
     content.zoomOut.click();
     // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "save never loaded");
     // searchObj.starRating.click();
@@ -1699,7 +1699,6 @@ const verifyPublishedContentInAllMyContent = (publishedTextBook) => {
     browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
     ccpage.contentCreation().headerDropdown.click();
     browser.sleep(1000);
-
     browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
     ccpage.contentCreation().workSpace.click();
     browser.sleep(5000);
@@ -1713,13 +1712,12 @@ const verifyPublishedContentInAllMyContent = (publishedTextBook) => {
       console.log(publishedContent);
       (publishedContent).includes(publishedTextBook);
     })
-
-
   }
   catch (Exception) {
     console.log("Failed to validate filters in all textbook.");
   }
 }
+
 
 const validateDownloadToc = () => {
   try {
@@ -1832,6 +1830,7 @@ const consumePdfContentAndVerifyProgress = () => {
     content.zoomIn.click();
     browser.sleep(5000);
     for (i = 0; i <= 1; i++) {
+      
       sanityPage.SanityElement().pdfArrowButton.click();
       browser.sleep(200);
       if (i === 0) {
@@ -2347,6 +2346,55 @@ const validateLabelPageIsChangedFromLocation = () => {
   }
 }
 
+const verifyPublishedContentInAllMyContentandValidateInLibrary = (publishedTextBook) => {
+  try {
+    console.log("verify all published content in allMyContent");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
+    ccpage.contentCreation().headerDropdown.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+    ccpage.contentCreation().workSpace.click();
+    browser.sleep(5000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allMyContent), 20000, "Book page not loaded");
+    searchObj.allMyContent.click();
+    browser.sleep(5000);
+    // searchObj.searchContent.sendKeys(publishedTextBook);
+    // browser.sleep(2000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(content.draftsVersion), 20000, "Book page not loaded");
+    // content.draftsVersion.click();
+    // browser.sleep(5000);
+    searchObj.searchContent.sendKeys(publishedTextBook);
+    //browser.sleep(2000);
+    //content.searchButton.click();
+    browser.sleep(5000);
+    // browser.executeScript('window.scrollTo(0,100);').then(function () {
+    //   console.log('++++++SCROLLED Down+++++');
+    // });
+    // browser.actions().sendKeys(protractor.Key.TAB);
+    // browser.actions().sendKeys(protractor.Key.ENTER);
+    resov.imageCard4.click()
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(content.contentCard), 20000, "workspace page not loaded");
+    // content.contentCard.click();
+    browser.sleep(5000);
+    sanityPage.SanityElement().addChild.click();
+    browser.sleep(3000);
+    sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+    browser.sleep(4000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
+    sanityPage.SanityElement().addFromLibraryButton.click();
+    browser.sleep(5000);
+    sanityPage.SanityElement().searchLibrary.sendKeys(publishedTextBook);
+    browser.sleep(1000);
+    sanityPage.SanityElement().searchLibrary.sendKeys(protractor.Key.ENTER);
+    browser.sleep(6000);
+    expect(sanity.assertNoResultsFound.isPresent()).toBe(true);
+    browser.sleep(5000);
+  }
+  catch (Exception) {
+    console.log("Failed to validate filters in all textbook.");
+  }
+}
+
 
 module.exports = {
 
@@ -2407,4 +2455,5 @@ module.exports = {
   consumePDFbContent,
   validatePrintButtonInplayer,
   validateLabelPageIsChangedFromLocation,
+  verifyPublishedContentInAllMyContentandValidateInLibrary,
 }

@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
@@ -24,6 +26,7 @@ describe('verifyUserCannotCreateNewBatchForFutureBatch', () => {
     
     it('VerifyThatUserIsDisplayedWithTheUnreadNotificationsOnTopPostClikcingTheBellIcon', function () {
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Notification');
         EnrollTBFCPageObj.openExistingGroup();
@@ -46,9 +49,7 @@ describe('verifyUserCannotCreateNewBatchForFutureBatch', () => {
         EnrollTBFCPageObj.addActivityToExistingGroup();
         EnrollTBFCPageObj.addActivityToExistingGroup(); 
         utility.userLogout();
-        utility.userLogin('Public User1');
-        EnrollTBFCPageObj.verifyNotifications();
-
-        
+        // utility.userLogin('Public User1');
+        // EnrollTBFCPageObj.verifyNotifications();       
     })
 });

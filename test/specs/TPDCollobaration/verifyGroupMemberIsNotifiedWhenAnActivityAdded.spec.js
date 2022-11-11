@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
@@ -21,6 +23,7 @@ describe('Verify that, Group Member is notified, When an activity is assigned to
     });
     it('verifyGroupMemberIsNotifiedWhenAnActivityAdded ',function(){
         utility.handleDropDown();
+        //browser.sleep(25000);
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.openExistingGroup();

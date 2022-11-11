@@ -4,12 +4,11 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
-describe('AddCollectionUsingDifferentApproachAndResource Verify', () => {
+describe('verifyMCSbookDisplayedPostSearching', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
-
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
@@ -23,14 +22,15 @@ describe('AddCollectionUsingDifferentApproachAndResource Verify', () => {
     
     it('verifyMCSbookDisplayedPostSearching',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        let bookName = sanityfun.createBook();
+        utility.userLogin('ContentCreator');
+        let bookName = sanityfun.createBookTnContentCred();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         EnrollTBFCPageObj.publishCourseFromUpForReview(bookName)
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(bookName);
         // etbFun.verifyMCSBookPostSearch();
     })

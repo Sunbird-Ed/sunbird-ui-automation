@@ -384,12 +384,12 @@ const uploadMp4 = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
         uploadV.enterUrl.click();
-        browser.sleep(2000);
+        browser.sleep(5000);
 
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.browseButton), 20000, "didn't click browse button");
         uploadV.browseButton.sendKeys(mp4);
-        browser.sleep(40000);
+        browser.sleep(19000);
 
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.sendforRev), 20000, "Failed to click sendForReview");

@@ -50,13 +50,13 @@ var contentCreation = () => {
   var checkAppIcon = element(by.xpath("//div[@class='ui image']//img"));
   var selectAppIcon = element(by.buttonText('Select'));
   var clickBoard = element(by.xpath("//div[contains(text(),'Select Board/Syllabus')]"));
-  var selectBoard = element(by.xpath("//div[contains(text(),'Select Board/Syllabus')]//following::div[2]"));
-  var clickMedium = element(by.xpath("//div[contains(text(),'Select Medium')]"));
-  var selectMedium = element(by.xpath("//div[contains(text(),'Select Medium')]//following::div[2]"));
-  var clickclass = element(by.xpath("//li[contains(text(),'Select Class')]"));
-  var SelectClass = element(by.xpath("//li[contains(text(),'Select Class')]//following::span[1]"));
-  var clicksubject = element(by.xpath("//li[contains(text(),'Select Subject')]"));
-  var selectSubject = element(by.xpath("//li[contains(text(),'Select Subject')]//following::span[1]"));
+  var selectBoard = element(by.xpath("//*[contains(text(),'Select Board')]//following::span[@class='mat-option-text']"));
+  var clickMedium = element(by.xpath("//*[contains(text(),'Select Medium')]"));
+  var selectMedium = element(by.xpath("//*[contains(text(),'Select Medium')]//following::span[@class='mat-option-text']"));
+  var clickclass = element(by.xpath("//*[contains(text(),'Select Class')]"));
+  var SelectClass = element(by.xpath("//*[contains(text(),'Select Class')]//following::span[@class='mat-option-text']"));
+  var clicksubject = element(by.xpath("//*[contains(text(),'Select Subject')]"));
+  var selectSubject = element(by.xpath("//*[contains(text(),'Select Subject')]//following::span[@class='mat-option-text']"));
   var submitIconsendForReview = element(by.buttonText('Select'));
   var clickWorkSpace = element(by.xpath("(//*[contains(.,'Workspace')])"));
   var clickUpforReview = element(by.xpath("//a[contains(text(),'Up For Review')]"));
@@ -286,15 +286,15 @@ var contentCreation = () => {
   var btnClose = element(by.xpath("//i[@class='close icon']"));
   var filterIcon = element(by.xpath("//span[@class='browse item cursor-pointer']"));
 
-  var clickFilterBoard = element(by.xpath("//li[contains(text(),'Select Board')]"));
-  var selectFilterBoard = element(by.xpath("//li[contains(text(),'Select Board')]/following::span[1]"));
-  var clickFilterGrade = element(by.xpath("//div[contains(text(),' Select Grade')]"));
-  var SelectFilterGrade = element(by.xpath("//div[contains(text(),' Select Grade')]/following::sui-select-option[1]"));
-  var clickFilterSubject = element(by.xpath("//li[contains(text(),'Select Subject')]"));
-  var selectFilterSubject = element(by.xpath("//li[contains(text(),'Select Subject')]/following::span[1]"));
+  var clickFilterBoard = element(by.xpath("//*[contains(text(),'Select Board')]"));
+  var selectFilterBoard = element(by.xpath("//*[contains(text(),'Select Board')]//following::span[@class='mat-option-text']"));
+  var clickFilterGrade = element(by.xpath("//*[contains(text(),'Select Grade')]"));
+  var SelectFilterGrade = element(by.xpath("//*[contains(text(),'Select Grade')]//following::span[@class='mat-option-text']"));
+  var clickFilterSubject = element(by.xpath("//*[contains(text(),'Select Subject')]"));
+  var selectFilterSubject = element(by.xpath("//*[contains(text(),'Select Subject')]//following::span[@class='mat-option-text']"));
 
-  var clickFilterMedium = element(by.xpath("//li[contains(text(),'Select Medium')]"));
-  var selectFilterMedium = element(by.xpath("//li[contains(text(),'Select Medium')]//following::span[1]"));
+  var clickFilterMedium = element(by.xpath("//*[contains(text(),'Select Medium')]"));
+  var selectFilterMedium = element(by.xpath("//*[contains(text(),'Select Medium')]//following::span[@class='mat-option-text']"));
   var selectFilterMedium2 = element(by.xpath("//*[contains(text(),' 1 Medium')]/following::span[4]"));
 
   var clickSubmit = element(by.xpath("//button[contains(.,' Apply ')]"));
@@ -448,17 +448,14 @@ var contentCreation = () => {
   var syncProgressNow = element(by.xpath("(//*[contains(text(),'Sync progress now')])"));
   var progresSynced = element(by.xpath("(//*[contains(text(),'Progress synced successfully')])"));
   var continuePolicyButton = element(by.xpath("(//*[contains(text(),' Continue ')])"));
-  var BMCstate = element(by.xpath("//span[contains(text(),'Role')]//following::span[contains(text(),'State')]//following::div[2]"));
+  var BMCstate = element(by.xpath("((//span[contains(text(),'State')]//following::div[2])[3]//child::div)[1]"));
   var BMCdistrict = element(by.xpath("//span[contains(text(),'Role')]//following::span[contains(text(),'District')]//following::div[2]"));
   var BMCBlock = element(by.xpath("//span[contains(text(),'Role')]//following::label[contains(text(),'Block')]//following::div[2]"));
-  var SelectBMCblock = element(by.xpath("//span[contains(text(),'Role')]//following::label[contains(text(),'Block')]//following::div[5]"));
+  var SelectBMCblock = element(by.xpath("//span[contains(text(),'Achnera')]"));
   var BMCcluster = element(by.xpath("(//*[contains(@class,'cfe-multiselect-field-label-container list-border')])[3]"));
   var SelectBMCcluster = element(by.xpath("(//*[contains(text(),'Select Cluster')])[2]"));
   var BMCSubmit = element(by.xpath("(//*[contains(@type,'submit')])[2]"));
   var BMCSchoolCluster = element(by.xpath("(//*[contains(text(),'Select School')])[1]"));
-
-
-
   var profileName = element(by.xpath("//*[contains(@class,'profile-user-label font-w-bold d-flex')]"));
   var profileButton = element(by.xpath("//*[@class='icon-svg icon-svg--sm icon-profileuser mr-8']"));
   var guestName = element(by.xpath("//*[contains(@class,'sb-textbox ng-pristine ng-valid ng-touched')]"));
@@ -488,10 +485,12 @@ var contentCreation = () => {
   var googleNextButton = element(by.xpath("(//*[(@class='VfPpkd-Jh9lGc')])[1]"));
   var googlePassword = element(by.xpath("(//*[(@type='password')])[1]"));
 
-  var SSOUserName = element(by.xpath("//*[contains(@id,'name')]"));
-  var SSOUserExtID = element(by.xpath("//*[contains(@name,'user_external_id')]"));
-  var SSOSchoolExtID = element(by.xpath("//*[contains(@name,'school_external_id')]"));
-  var SSOsubmit = element(by.xpath("//*[contains(@name,'submit')]"));
+  var SSOUserName = element(by.xpath("(//*[contains(@data-placeholder,'Ex. John Doe')]//..)[1]"));
+  var SSOUserName1 = element(by.xpath("//*[contains(@data-placeholder,'Ex. John Doe')]"));
+  
+  var SSOUserExtID = element(by.xpath("//*[contains(@formcontrolname,'user_external_id')]"));
+  var SSOSchoolExtID = element(by.xpath("//*[contains(@formcontrolname,'school_external_id')]"));
+  var SSOsubmit = element(by.xpath("//*[contains(text(),'Submit')]"));
   var SSOStateSelect = element(by.xpath("//*[contains(text(),'tn')][1]"));
   var SSOSubmit2 = element(by.xpath("//*[contains(@class,'sb-btn sb-btn-normal w-100 sb-btn-primary')]"));
   var UpdateButton = element(by.xpath("//button[contains(text(),'Update')]"));
@@ -510,8 +509,8 @@ var contentCreation = () => {
   var guestName1 = element(by.xpath("(//input[@placeholder='Enter Name'])[2]"));
   var AbsSubmit = element(by.xpath("(//button[contains(@type,'submit')])[4]"));
   var Cluster = element(by.xpath("(//*[contains(text(),'Cluster')])"));
-  var SelectBMCstate = element(by.xpath("(//span[text()='Uttar Pradesh'])"));
-  var SelectBMCdistrict = element(by.xpath("//span[contains(text(),'Role')]//following::span[contains(text(),'District')]//following::div[5]"));
+  var SelectBMCstate = element(by.xpath("(//span[text()=' Uttar Pradesh '])"));
+  var SelectBMCdistrict = element(by.xpath("//span[text()=' Agra ']"));
   var themeChange = element(by.xpath("(//span[text()='Switch to classic theme'])"));
   var stateDropdownsso = element(by.xpath("//*[contains(text(),'State Andhrapradesh')]"));
 
@@ -523,9 +522,9 @@ var contentCreation = () => {
   var GlobalSearch = element(by.xpath("(//input[@name='filter_search'])[1]"));
   var selectIGOTboardValue = element(by.xpath("//span[text()='IGOT-Health']"));
   var clkSchoolHeader = element(by.xpath("//div[contains(text(),'School head OR Officials')]"));
-  var SSOStateSelect1 = element(by.xpath("//span[text()='Preprod Client']"));
-  var SSOStateSelect1 = element(by.xpath("//div[@class='menu transition hidden']//following::span[2]"));
-
+  var SSOStateSelect1 = element(by.xpath("//*[@aria-label='Select State']"));
+  var selectLoginState = element(by.xpath("//*[text()='TN Staging SSO' or text()='Preprod Client']"));
+  
   var qrCodeRequred = element(by.xpath("//input[@id='dialcode-required_yes']"));
   var guestIcon = element(by.xpath("//div[contains(text(),'Guest ')]"));
   var assertState = element(by.xpath("//span[contains(text(),'State (Andhra Pradesh)')]"));
@@ -799,7 +798,7 @@ var contentCreation = () => {
   var assessNumberAttempts = element(by.xpath("//input[contains(@placeholder,'Max no of attempts')]"));
   var clkpublishedUsertype = element(by.xpath("//div[@id='search-input-container']//following::div[contains(@id,'audience')]"));
   var sltSchoolHeadOfficial = element(by.xpath("//div[@id='search-input-container']//following::div[contains(@id,'audience')]//following::span[contains(text(),'School head OR Officials')]"));
-  var mergeAccpopUpbutton = element(by.xpath("//*[contains(text(),' Merge Account ')]//following::button[contains(text(),'Merge')]"));
+  var mergeAccpopUpbutton = element(by.xpath("//*[contains(text(),'Merge Account')]//following::button[contains(text(),'Merge')]"));
   var googleSignInbutton = element(by.xpath("//button[contains(@id,'googleSignInBtn')]//following::img"));
   var mergerAccountpage = element(by.xpath("//*[contains(@id,'signIn')]"));
   var usernameInput = element(by.xpath("//*[@id='kc-form-login']//following::label[@id='usernameLabel']"));
@@ -921,6 +920,17 @@ var contentCreation = () => {
   var assertPagesReplaceWithLocationLabel = element(by.xpath("//div[contains(text(),'Page')]"));
   var assertDikshaGuidelines = element(by.xpath("//strong[contains(text(),'DIKSHA Administrator Guidelines')]"));
   var assertDownloadDataAccordance = element(by.xpath("//p[contains(text(),'Downloaded data should be used in accordance with')]"));
+  var sltBirtYearForMajorUser = element(by.xpath("//span[contains(text(),'2000')]"));
+  var emailCheckBox = element(by.xpath("//input[contains(@id,'email')]"));
+  var mobileNumberCheckBox = element(by.xpath("//input[contains(@id,'phoneNumber')]"));
+  var QuestionSetImage11 = element(by.xpath("//div[@class='img-container']"));
+  var assertInstructionPage = element(by.xpath("//div[contains(text(),'Instructions')]"));
+  var selectOrgValue = element(by.xpath("//*[contains(text(),' state (tamil nadu) ')]"));
+  var selectRoleValue = element(by.xpath("//*[contains(text(),' english ')]"));
+  var draftsVersion = element(by.xpath("//*[contains(text(),'Drafts')]"));
+  var contentCard = element(by.xpath("//span[@class='sliderCardHeading text-cencapitalize']"));
+  var QuestionSetImageScore = element(by.xpath("//bdi[contains(text(),'Score QuestionSet')]"));
+  var QuestionSetImageGenre = element(by.xpath("//div[@class='img-container']"));
 
   return {
     closeIcon,
@@ -1807,6 +1817,19 @@ var contentCreation = () => {
     assertPagesReplaceWithLocationLabel,
     assertDikshaGuidelines,
     assertDownloadDataAccordance,
+    sltBirtYearForMajorUser,
+    emailCheckBox,
+    mobileNumberCheckBox,
+    QuestionSetImage11,
+    assertInstructionPage,
+    selectOrgValue,
+    selectRoleValue,
+    draftsVersion,
+    contentCard,
+    QuestionSetImageScore,
+    QuestionSetImageGenre,
+    selectLoginState,
+    SSOUserName1,
   }
 }
 

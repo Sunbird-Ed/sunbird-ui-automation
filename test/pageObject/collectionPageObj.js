@@ -25,7 +25,7 @@ const createCollection = () => {
         content.collection.click();
         browser.sleep(200);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.name), 20000, "Course creation editor never loaded");
-        collectionName = "CollectionA" + faker.randomData().firstname;
+        collectionName = "Collectionpqrabc" + faker.randomData().firstname;
         content.name.sendKeys(collectionName);
         browser.sleep(200);
 
@@ -913,9 +913,9 @@ const createCollectionWithDiffCollectionTypes = (collectionType) => {
         // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
         sanityPage.SanityElement().addFromLibraryButton.click();
         browser.sleep(3000);
-        //sanityPage.SanityElement().searchContentFromLibrary.sendKeys("pdf");
-        // sanityPage.SanityElement().searchContentFromLibrary.sendKeys(protractor.Key.ENTER);
-        //browser.sleep(3000);
+        sanityPage.SanityElement().searchContentFromLibrary.sendKeys("pdf");
+        sanityPage.SanityElement().searchContentFromLibrary.sendKeys(protractor.Key.ENTER);
+        browser.sleep(3000);
         // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().selectButton), 20000,"Select content Button not loaded");
         sanityPage.SanityElement().selectButton.click();
         browser.sleep(3000);
@@ -936,7 +936,6 @@ const createCollectionWithDiffCollectionTypes = (collectionType) => {
         browser.sleep(3000);
         //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().termsAndConditionCheckbox), 20000,"terms and condition checkbox Button not loaded");
         browser.sleep(3000);
-
         console.log("User successfully created a collection");
         return collectionName;
     } catch (Exception) {
@@ -1960,6 +1959,4 @@ module.exports = {
     createCollectionWithDiffCollectionTypesAndValidateAddedQrCode,
     createCollectionWithDiffCollectionTypesAndValidateLimitedSharing,
     createCollectionAndValidateAdditionalCategory,
-
-
 }

@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
@@ -21,7 +23,8 @@ describe('User must be able to view the Filter options while adding a Activity t
     });
     it('UserIsAbleToViewTheFilterOptionsWhileAddingActivityToTheGroup ',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
+        browser.sleep(25000);
+        // utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.ViewTheFilterOptionsWhileAddingActivity();
      

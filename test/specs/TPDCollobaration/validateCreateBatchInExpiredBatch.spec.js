@@ -25,11 +25,10 @@ describe('validateCreateBatchInExpiredBatch', () => {
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
         let do_id = tpdPageObj.navigateToCourseAndSearchExpiredBatches();
-        console.log(do_id);
         utility.userLogout();
         utility.userLogin('ContentCreator');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(do_id);
-        tpdPageObj.validateCreateBatchOption();  
+        tpdPageObj.validateCreateBatchOption();
     })
 });
    

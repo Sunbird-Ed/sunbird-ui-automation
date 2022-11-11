@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
@@ -25,6 +27,7 @@ describe('verifyCertificateRelatedScenarios for Course', () => {
     });
     it('verifyCertificateRelatedScenarios', function () {
         utility.handleDropDown();
+       //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();
@@ -37,7 +40,4 @@ describe('verifyCertificateRelatedScenarios for Course', () => {
         tpdPageObj.VerifyThatClickingAddCertificate();
         tpdPageObj.verifyThatUserIsAbleToEditScoreRuleAndView();
     })
-
-
-
 });

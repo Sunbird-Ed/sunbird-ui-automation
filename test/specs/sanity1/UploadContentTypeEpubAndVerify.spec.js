@@ -3,6 +3,7 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj=require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
 const uploadPageObj=require(protractor.basePath+'/test/pageObject/uploadPageObj.js');
 const lspPageObj=require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+
 describe('upload Epub, save and send for review and publish.', () =>{
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -11,7 +12,6 @@ describe('upload Epub, save and send for review and publish.', () =>{
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
     });
 
     afterEach(() => {
@@ -35,8 +35,5 @@ describe('upload Epub, save and send for review and publish.', () =>{
         utility.userLogin('Creator');
         utility.validateWorkspace();
         lspPageObj.deleteCreatedItems();
-
-
     });
-
 });

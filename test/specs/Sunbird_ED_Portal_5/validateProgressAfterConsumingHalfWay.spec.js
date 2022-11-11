@@ -8,7 +8,6 @@ const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
 describe('validateProgressAfterConsumingHalfWay', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -24,12 +23,12 @@ describe('validateProgressAfterConsumingHalfWay', () => {
         browser.manage().deleteAllCookies();
     });
 
-
     it('validateProgressAfterConsumingHalfWay', function () {
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        let courseName = tpdPageObj.createCourseAndSendForReviewBySearchingContentInLibrary("pdf");
+        let courseName = tpdPageObj.createCourseAndSendForReviewBySearchingContentInLibrary("pdf_13");
         utility.userLogout();
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(courseName);
@@ -38,11 +37,10 @@ describe('validateProgressAfterConsumingHalfWay', () => {
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
+        //let courseName = "CourseDEllie";
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.JoinCourseWithOpenBatch();
         EnrollTBFCPageObj.validateAndConsumeOngoingContentHalfway(courseName);
-        
     })
 });
-

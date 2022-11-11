@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj=require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
@@ -21,6 +23,7 @@ describe('upload Webm, save and send for review and publish.', () =>{
 
     it('UploadContentTypeWebmAndVerify ',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let uploadContent=uploadPageObj.uploadWebm();

@@ -1,5 +1,7 @@
 //const { element } = require("protractor");
 
+const { element } = require("protractor");
+
 const tpdPage = () => {
 
     var headerCourse = element(by.xpath("//a[contains(text(),'Courses')]"));
@@ -115,15 +117,15 @@ const tpdPage = () => {
     var firstclassTaught = element(by.xpath("//label[contains(text(),'CLASSES TAUGHT ')]//following::div[4]"));
     var subjectsTaught = element(by.xpath("//label[contains(text(),'SUBJECTS TAUGHT')]//following::div[1]"));
     var firstSubjectTaught = element(by.xpath("//label[contains(text(),'SUBJECTS TAUGHT')]//following::div[5]"));
-    var clickFilterSubject = element(by.xpath("//*[contains(text(),'Select Subject')]"));
-    var selectFilterSubject = element(by.xpath("//*[contains(text(),'Select Subject')]//following::span[1]"));
-    var clickFilterClass = element(by.xpath("//*[contains(text(),'Select Class')]"));
-    var selectFilterClass = element(by.xpath("//*[contains(text(),'Select Class')]//following::span[1]"));
-    var clickFilterMedium = element(by.xpath("//*[contains(text(),'Select Medium')]"));
-    var selectFilterMedium = element(by.xpath("//*[contains(text(),'Select Medium')]//following::span[2]"));
+    var clickFilterSubject = element(by.xpath("//*[contains(text(),'Select Section')]"));
+    var selectFilterSubject = element(by.xpath("//*[contains(text(),'Select Section')]//following::mat-option[1]"));
+    var clickFilterClass = element(by.xpath("//*[contains(text(),'Select Verticals')]"));
+    var selectFilterClass = element(by.xpath("//*[contains(text(),'Select Verticals')]//following::mat-option[4]"));
+    var clickFilterMedium = element(by.xpath("//*[contains(text(),'Select Role')]"));
+    var selectFilterMedium = element(by.xpath("//*[contains(text(),'Select Role')]//following::mat-option[6]"));
     var clickSubmit = element(by.xpath("//button[contains(.,'Apply')]"));
     var ResetSubmit = element(by.xpath("//button[contains(text(),'Reset')]"));
-    var courseToBeClicked = element(by.xpath("//*[@class='sb--card__meta']"));
+    var courseToBeClicked = element(by.xpath("(//div[@class='sb--card__meta'])[1]"));
     var clickLangDropdown = element(by.xpath("//*[contains(text(),'English')]/following::div[1]"));
     var sltHindiLang = element(by.xpath("//span[contains(text(),'हिंदी')]"));
     var assertLangContent = element(by.xpath("(//*[@class='sb--card__meta'])[1]"));
@@ -459,7 +461,7 @@ const tpdPage = () => {
     var doNotShare = element(by.xpath("//button[contains(text(),'Do not share')]"));
     var share = element(by.xpath("//button[text()='Share']"));
     var userNameBatch = element(by.xpath("//*[text()='User Name']"));
-    var stateBatch = element(by.xpath("//*[text()='State']"));
+    var stateBatch = element(by.xpath("//div[contains(text(),'Consent to share details')]//following::label[text()='State']"));
     var userIdBatch = element(by.xpath("//*[text()='User ID']"));
     var districtBatch = element(by.xpath("//*[text()='District']"));
     var blockBatch = element(by.xpath("//*[text()='Block']"));
@@ -609,7 +611,8 @@ const tpdPage = () => {
     var assertBatchDropdownUpcoming = element(by.xpath("//*[contains(text(),'Batches')]//following::span[contains(text(),'Upcoming')]"));
     var assertBatchDropdownExpired = element(by.xpath("//*[contains(text(),'Batches')]//following::span[contains(text(),'Expired')]"));
     var assertEnrollEndDateWithYear = element(by.xpath("(//*[contains(text(),'2022')])[1]"));
-    var assertEnrollEndDateWithInBatchSec = element(by.xpath("//div[contains(text(),'Created by Suma')]//following::*[contains(text(),'Last date for enrolment:')]"));
+    var assertEnrollEndDateWithInBatchSec = element(by.xpath("//div[contains(text(),'Created by')]//following::*[contains(text(),'Last date for enrolment:')]"));
+    var assertEnrollEndDateWithInBatchSec = element(by.xpath("//div[contains(text(),' Created by')]//following::*[contains(text(),'Last date for enrolment:')]"));
     var clkCancelBtnPublishPopup = element(by.xpath("//button[contains(text(),'Cancel')]"));
     var clkNoBtnPublishPopup = element(by.xpath("//button[contains(text(),'No')]"));
     var assertNoBatchMessages = element(by.xpath("//strong[contains(text(),'This course does not have any open batches')]"));
@@ -721,7 +724,7 @@ const tpdPage = () => {
     var addToGroup = element(by.xpath("//button[text()=' Add to group ']"));
     var AdminMember = element(by.xpath("//span[text()='S']"));
     var member1 = element(by.xpath("//span[text()='M']"));
-    var member2 = element(by.xpath("//span[text()='U']"));
+    var member2 = element(by.xpath("//span[text()='T']"));
     //var addNewButton = element(by.xpath("//button[text()=' Add New']"));
     var conversation = element(by.xpath("//a[text()='Conversations']"));
     var nameHeading = element(by.xpath("//th[text()=' Name ']"));
@@ -891,7 +894,7 @@ const tpdPage = () => {
     var assertConvFlowWithBlue = element(by.xpath("//button[@class='circular ui icon button blue-bg-white-text']"));
     var backBtnConvFlow = element(by.xpath("(//span[contains(text(),' Back ')])"));
     var assertConvSetUpWithBlue = element(by.xpath("//button[@class='circular ui icon button blue-bg-white-text']"));
-    var assertDisabledOption = element(by.xpath("//td[text()='Disabled']"));
+    var assertDisabledOption = element(by.xpath("//td[contains(text(),'Disabled')]"));
     var assertToastMsgEnable = element(by.xpath("//strong[text()='Enabled discussion forum successfully']"));
     var addmemberButton = element(by.xpath("//input[@id='search-within-group']//following::*[contains(text(),'Add member')]"));
     var addAnotheruser = element(by.xpath("//div[@aria-label='Add User']"));
@@ -976,11 +979,11 @@ const tpdPage = () => {
     var validateDefaultBoardType = element(by.xpath("//label[contains(text(),'Board')]//following::span[contains(text(),'CBSE/NCERT')][1]"));
     var appliedFilterBoardType = element(by.xpath("//div[contains(text(),' Applied filters')]//following::label[contains(text(),'Board :')]//following::*[contains(text(),'CBSE/NCERT')]"));
     var selectSubjectFromDrpDwn = element(by.xpath("(//label[contains(text(),'Subject')]//following::span[contains(text(),'accountancy')])[1]"));
-    var validateDefaultBoard = element(by.xpath("//label[contains(text(),'Board')]//following::span[contains(text(),' state (tamil nadu)')][1]"));
-    var validateDefaultMedium = element(by.xpath("//label[contains(text(),'Medium')]//following::span[contains(text(),' english')][1]"));
-    var validateDefaultClass = element(by.xpath("//label[contains(text(),'Class')]//following::span[contains(text(),' class 1')][1]"));
+    var validateDefaultBoard = element(by.xpath("//label[contains(text(),'Board')]//following::span[contains(text(),'state (tamil nadu)')][1]"));
+    var validateDefaultMedium = element(by.xpath("//label[contains(text(),'Medium')]//following::span[contains(text(),'english')][1]"));
+    var validateDefaultClass = element(by.xpath("//label[contains(text(),'Class')]//following::span[contains(text(),'class 1')][1]"));
     var validateDefaultSubject = element(by.xpath("//label[contains(text(),'Subject')]//following::span[contains(text(),' accountancy')][1]"));
-    var validateDefaultContenttype = element(by.xpath("//label[contains(text(),'Content type')]//following::span[contains(text(),' digital textbook')][1]"));
+    var validateDefaultContenttype = element(by.xpath("//label[contains(text(),'Content type')]//following::span[contains(text(),'digital textbook')][1]"));
     var contentDrpDownForHomeTab = element(by.xpath("//*[@id='primaryCategory']//following::*[contains(text(),'Select Content type')]"));
     var viewAllButtonForrecentlyPublishedCourse = element(by.xpath("(//button[contains(text(),' View all ')])[2]"));
     var browsebySubjlabel = element(by.xpath("//div[contains(text(),'Browse by Subjects')]"));
@@ -1105,11 +1108,11 @@ const tpdPage = () => {
     var assertSearchField = element(by.xpath("//input[@placeholder='Search content']"));
     var assertShowFilter = element(by.xpath("//span[contains(text(),'Show Filters')]"));
     var selectBoardOpt = element(by.xpath("//label[contains(text(),'Board')]//following::div[1]"));
-    var selectBoardValue = element(by.xpath("//option[contains(text(),'State (Tamil Nadu)')]"));
+    var selectBoardValue = element(by.xpath("//option[contains(text(),'CBSE')]"));
     var selectMediumOpt = element(by.xpath("//label[contains(text(),'Medium')]//following::div[1]"));
     var selectMediumValue = element(by.xpath("//label[contains(text(),'English')]"));
     var selectMediumValue2 = element(by.xpath("//label[contains(text(),'Tamil')]"));
-    var selectClassOpt = element(by.xpath("//label[contains(text(),'Class(es)')]//following::div[1]"));
+    var selectClassOpt = element(by.xpath("//label[contains(text(),'Class(es)')]//following::div[2]"));
     var selectClassValue = element(by.xpath("//label[contains(text(),'Class 1')]"));
     var selectClassValue2 = element(by.xpath("//label[contains(text(),'Class 2')]"));
     var selectSubjectOpt = element(by.xpath("//label[contains(text(),'Subject(s)')]//following::div[1]"));
@@ -1126,7 +1129,7 @@ const tpdPage = () => {
     var assertPublisher = element(by.xpath("(//div[contains(text(),'Published on SUNBIRD by')]//..)[1]"));
     var assertBMCS = element(by.xpath("//div[@class='training-relevant mb-16']"));
     var nextButtonInCourseMCQ = element(by.xpath("//*[@alt='Navigate to Next']"));
-    var nextButtonPopUp = element(by.xpath("//button[text()='Next']"));
+    var nextButtonPopUp = element(by.xpath("//*[text()='Next']"));
     var mcqAnswerOne = element(by.xpath("//*[text()='₿']"));
     var assertFullResolution = element(by.xpath("//span[text()='Fullscreen']//.."));
     var boldKeyButton = element(by.xpath("(//div[@aria-label='Editor toolbar']//following::*[@class='ck ck-icon ck-button__icon'])[1]"));
@@ -1272,10 +1275,101 @@ const tpdPage = () => {
     var assertWrongAnsQ2 = element(by.xpath("//div[@class='scoreboard__index wrong ng-star-inserted' and text()=' 2 ']"));
     var assertWrongAnsQ3 = element(by.xpath("//div[@class='scoreboard__index wrong ng-star-inserted' and text()=' 3 ']"));
     var assertPercentageInActivityDashBoard = element(by.xpath("//*[contains(@aria-label,'%')]"));
-    var assertMembersPresentUnderAdmin = element(by.xpath("//div[contains(text(),'Admin')]//preceding::label[@title='Content reviewer']"));
+    var assertMembersPresentUnderAdmin = element(by.xpath("//div[contains(text(),'Admin')]//preceding::label[contains(@title,'Content reviewer')]"));
     var assertAdminPresentFirstUnderAddMember = element(by.xpath("//div[contains(text(),'Add member')]//following::label[contains(@title,'You')]//following::*[text()='Admin'][1]"));
     var assertConsumedProgressBar = element(by.xpath("//td[contains(text(),'ABC')]//following::td[contains(text(),'100')]"));
-    
+    var searchWithInGroup = element(by.xpath("//input[@id='search-within-group']"));
+    var membersCount = element(by.xpath("//div[contains(text(),' Members ')]//following::span[text()='3']"));
+    var memberHamburgerMenu = element(by.xpath("//div[@class='menu ml-8']"));
+    var removeMember = element(by.xpath("//*[text()='Remove member']"));
+    var makeAdmin = element(by.xpath("//*[text()='Make admin']"));
+    var assertAddedMemberAfterRemovingOnce = element(by.xpath("//div[contains(text(),'Admin')]//preceding::label[@title='Testspider']"));
+    var assertNotificationBell = element(by.xpath("(//*[@aria-label='Notifications'])[2]"));
+    var clkGrp1 = element(by.xpath("//div[text()='Group1']"));
+    var clkDeactivateGrp = element(by.xpath("//div[contains(text(),'Deactivate group')]"));
+    var btnDeactivateGrp = element(by.xpath("//button[contains(text(),'Deactivate group')]"));
+    var clkBackbtn = element(by.xpath("//h4[text()='Group1']//preceding::button[1]"));
+    var btnActivateGrp1 = element(by.xpath("(//button[contains(text(),'Activate group')])[1]"));
+    var btnActivateGrp2 = element(by.xpath("(//button[contains(text(),'Activate group')])[2]"));
+    var assertOrderStatus = element(by.xpath("//div[text()='Group1']//following::div[text()='Deactivated']"));
+    var assertGrpsNotCreated = element(by.xpath("//div[contains(text(),'You are just a step away from creating a group')]"));
+    var closeSilder = element(by.xpath("//em[@class='icon-svg icon-svg--xs icon-close']"));
+    var member1InGrp = element(by.xpath("//span[contains(text(),'Naveen123')]"));
+    var member2InGrp = element(by.xpath("//span[contains(text(),'Naveen123')]//following::span[2]"));
+    var member3InGrp = element(by.xpath("//span[contains(text(),'Vijay')]"));
+    var assertAlphabeticOrder = element(by.xpath("//span[text()='Naveen123‎']//following::span[text()='Userv1‎']//following::span[text()='Vijay‎']"));
+    var clkCourseAdded = element(by.xpath("//div[contains(text(),'Course')]//following::img[1]"));
+    var assertAlphabetOnCP = element(by.xpath("//td[text()='Naveen123']//following::td[text()='UserV1']//following::td[text()='Vijay']"));
+    var clkDigitalTxtBook1 = element(by.xpath("//div[contains(text(),'Digital textbooks')] //following::img[1]"));
+    var asserCourseProgress = element(by.xpath("//div[contains(text(),'Course progress')]"));
+    var clkViewActivity = element(by.xpath("(//span[text()='View activity'])[1]"));
+    var assertBtnAddToGrp = element(by.xpath("//button[contains(text(),'Add to group')]"));
+    var assertSearchedMemberInMemberGroup = element(by.xpath("//label[contains(@title,'Content reviewer')]"));
+    var assertSearchedSecondMemberInMemberGroup = element(by.xpath("//label[contains(@title,'Testspider')]"));
+    var listOfMembers = element.all(by.xpath("//*[contains(text(),'Add member')]//following::div[2]"));
+    var assertUserComesFirstOntopWithMembers = element(by.xpath("//input[contains(@id,'search-within-group')]//following::label[contains(@title,'You')]"));
+    var tagsInGroup = element(by.xpath("//*[contains(@aria-label,'Add a tag and press Enter')]"));
+    var assertPostReplyComment = element(by.xpath("//*[contains(text(),'test comment')]"));
+    var discussionThreadCount = element(by.xpath("//*[contains(@class,'discussion-label')]"));
+    var discussionPostThreadCount = element(by.xpath("//div[contains(@class,'post-label')]"));
+    var clickCategories = element(by.xpath("(//*[contains(text(),'Categories')])[1]"));
+    var assertThreadCount = element(by.xpath("//*[contains(@class,'category-card-main-content')]"));
+    var viewsContent = element(by.xpath("//*[contains(@aria-label,'views count')]"));
+    var votesContent = element(by.xpath("//*[contains(@id,'up-vote')]"));
+    var clickBookMark = element(by.xpath("//*[contains(@id,'bookmark')]"));
+    var assertUsersUsername = element(by.xpath("//*[contains(text(),'usersun')]"));
+    var assertCategoryName = element(by.xpath("//*[contains(@alt,'category card icon')]//.."));
+    var assertThreadtitle = element(by.xpath("//*[contains(text(),'This is my 1st idea')]"));
+    var assertDescription = element(by.xpath("//*[contains(text(),'This is the first idea to be shared')]"));
+    var assertUpVotes = element(by.xpath("//*[contains(@id,'up-vote')]//following::span[@aria-label='total upvoat is0'][1]"));
+    var assertDownVotes = element(by.xpath("//*[contains(@id,'up-vote')]//following::span[@aria-label='total upvoat is0'][2]"));
+    var sortByDropDown = element(by.xpath("//div[contains(@id,'sortByDropDown')]"));
+    var hamburgMenu2 = element(by.xpath("(//div[contains(@class,'menu ml-8')])[2]"));
+
+    var collaborationBucket = element(by.xpath("//*[contains(text(),'Collaborations')]"));
+    var clickEditButton = element(by.xpath("//*[contains(@class,'edit icon cursor-pointer')]"));
+    var assertCreatorInCollaborations = element(by.xpath("(//div[contains(@class,'UpReviewHeader')]//..)[3]"));
+    var clickSelectSubject = element(by.xpath("//*[contains(@id,'subject')]"));
+    var selctSubjectInStatus = element(by.xpath("(//div[contains(text(),'Select Subject')]//following::span[contains(text(),'English')])[2]"));
+    var clickSelectGrade = element(by.xpath("//*[contains(@id,'gradeLevel')]"));
+    var selectGradeInGrade = element(by.xpath("(//div[contains(text(),' Select Grade')]//following::span[contains(text(),'Class 1')])[1]"));
+    var clickSelectMedium = element(by.xpath("//*[contains(@id,'medium')]"));
+    var selectMediumInMedium = element(by.xpath("(//div[contains(text(),' Select Medium')]//following::span[contains(text(),'English')])[1]"));
+    var clickSelectBoard = element(by.xpath("//*[contains(@id,'board')]"));
+    var selectBoardInBoard = element(by.xpath("(//div[contains(text(),' Select Board/Syllabus')]//following::span[contains(text(),'State (Tamil Nadu)')])[1]"));
+    var clickSelectResourceType = element(by.xpath("//*[contains(@id,'resourceType')]"));
+    var selectResourceInResourceType = element(by.xpath("(//div[contains(text(),' Select ResourceType ')]//following::span[contains(text(),'Book')])[1]"));
+    var applyButton = element(by.xpath("//button[contains(text(),'Apply')]"));
+    var assertGoBackOpt = element(by.xpath("//a[text()='<<Go Back']"));
+    var assertActiveGrpOrder = element(by.xpath("//div[@title='Group-2']//following::div[@title='Group-1']"));
+    var assertLatestGrp = element(by.xpath("//h4[text()='My Groups']//following::div[@title='Group-2']"));
+    var backbtn = element(by.xpath("//div[contains(text(),'Created by :')]//preceding::button[1]"));
+    var assertDeactiveGrpOrder = element(by.xpath("(//div[text()='Group-1']//preceding::div[text()='Deactivated']//following::div[text()='Group-2']//preceding::div[text()='Deactivated'])[2]"));
+    var clkSelectOldGrp = element(by.xpath("//a[contains(text(),'Terms and Privacy')]//preceding::div[text()='Admin'][3]"));
+    var backbtnOnViewActivityPage = element(by.xpath("//h4[text()='Add Course']//preceding::button[1]"));
+    var clkNewGrp = element(by.xpath("//h4[text()='My Groups']//following::div[text()='Admin'][1]"));
+    var clkSelectCourse = element(by.xpath("//div[text()='Course']"));
+    var assertEnrollmentClosed = element(by.xpath("//span[contains(text(),'Enrolments for this batch closed')]"));
+    var assertEnrollmentClosedOnBatchDetails = element(by.xpath("//div[contains(text(),'Enrolments for this batch closed')]"));
+    var assertSignInGoogleOption = element(by.xpath("//button[@aria-label='Sign in with Google']"));
+    var clickCancelButton = element(by.xpath("//button[contains(text(),'Cancel')]"));
+    var validateAccountNotMergeSecondTime = element(by.xpath("//div[@id='error-summary']"));
+    var validateWelcomePage = element(by.xpath("//*[text()='Welcome to SUNBIRD' or text()='Welcome to DIKSHA']"));
+    var validateForgetPasswordUnderPasswordInput = element(by.xpath("//*[@id='password']//following::div[text()='Forgot password?']"));
+    var validateplaceHolderTextBox = element(by.xpath("//*[@placeholder='Enter your email / mobile number']"));
+    var loginButtonTextInCaps = element(by.xpath("//button[text()='LOGIN']"));
+    var assertDontHaveAccountRegisterHereInLeftSide = element(by.xpath("//div[@id='kc-registration']//following::div[@class='ui content signUpMsg']"));
+    var assertSignInGoogleButton = element(by.xpath("//*[@id='signup']//following::*[@aria-label='Sign in with Google']"));
+    var assertLoginwithStateSystem = element(by.xpath("//*[@aria-label='Sign in with Google']//following::button[@id='stateButton']"));
+    var assertGoogleLogo = element(by.xpath("//*[@alt='Sign in with Google']"));
+    var assertDownloadButton = element(by.xpath("//*[contains(text(),'Details of users who have given consent to share their information')]//following::button[contains(text(),'Download')]"));
+    var openBatchMessage = element(by.xpath("//*[contains(text(),'This course does not have any open batches')]"));
+    var assertbatchStartDateInBatchDetails = element(by.xpath("//div[contains(text(),' Batch start date')]//following::div[1]"));
+    var assertBatchEndDateInBatchDetails = element(by.xpath("//div[contains(text(),'Batch end date')]//following::div[1]"));
+    var assertBatchEnrollmentEndDate = element(by.xpath("//div[contains(text(),' Enrolment end date')]//following::div[1]"));
+    var assertbatchDetailsDropDownIsExpanded = element(by.xpath("//*[contains(text(),'Batch Details')]"));
+    var batchDetailCertificateAndCreditDropDwnPosition = element(by.xpath("//*[contains(text(),'Course progress')]//following::span[contains(text(),'Certificate criteria')]//following::*[contains(text(),'Batch Details')]"));
+   
     return {
         headerCourse,
         confirmForPublishBook,
@@ -1357,7 +1451,6 @@ const tpdPage = () => {
         clickLimitedSharing,
         sharedViaLink,
         clickFirstCourseInShareVialink,
-
         allMyContent,
         showFilter1,
         status,
@@ -2468,7 +2561,95 @@ const tpdPage = () => {
         assertMembersPresentUnderAdmin,
         assertAdminPresentFirstUnderAddMember,
         assertConsumedProgressBar,
-
+        searchWithInGroup,
+        membersCount,
+        memberHamburgerMenu,
+        makeAdmin,
+        assertAddedMemberAfterRemovingOnce,
+        assertNotificationBell,
+        clkGrp1,
+        clkDeactivateGrp,
+        btnDeactivateGrp,
+        clkBackbtn,
+        btnActivateGrp1,
+        btnActivateGrp2,
+        assertOrderStatus,
+        assertGrpsNotCreated,
+        closeSilder,
+        member1InGrp,
+        member2InGrp,
+        member3InGrp,
+        assertAlphabeticOrder,
+        clkCourseAdded,
+        assertAlphabetOnCP,
+        clkDigitalTxtBook1,
+        asserCourseProgress,
+        clkViewActivity,
+        assertBtnAddToGrp,
+        assertSearchedMemberInMemberGroup,
+        assertSearchedSecondMemberInMemberGroup,
+        listOfMembers,
+        assertUserComesFirstOntopWithMembers,
+        tagsInGroup,
+        assertPostReplyComment,
+        discussionThreadCount,
+        discussionPostThreadCount,
+        clickCategories,
+        assertThreadCount,
+        viewsContent,
+        votesContent,
+        assertUpVotes,
+        assertDownVotes,
+        clickBookMark,
+        assertUsersUsername,
+        assertCategoryName,
+        assertThreadtitle,
+        assertDescription,
+        sortByDropDown,
+        hamburgMenu2,
+        collaborationBucket,
+        clickEditButton,
+        assertCreatorInCollaborations,
+        selctSubjectInStatus,
+        clickSelectSubject,
+        clickSelectGrade,
+        selectGradeInGrade,
+        clickSelectMedium,
+        selectMediumInMedium,
+        clickSelectBoard,
+        selectBoardInBoard,
+        clickSelectResourceType,
+        selectResourceInResourceType,
+        applyButton,
+        assertGoBackOpt,
+        assertActiveGrpOrder,
+        assertLatestGrp,
+        backbtn,
+        assertDeactiveGrpOrder,
+        clkSelectOldGrp,
+        backbtnOnViewActivityPage,
+        clkNewGrp,
+        clkSelectCourse,
+        assertEnrollmentClosed,
+        assertEnrollmentClosedOnBatchDetails,
+        assertSignInGoogleOption,
+        clickCancelButton,
+        validateAccountNotMergeSecondTime,
+        validateWelcomePage,
+        validateForgetPasswordUnderPasswordInput,
+        validateplaceHolderTextBox,
+        loginButtonTextInCaps,
+        assertDontHaveAccountRegisterHereInLeftSide,
+        assertSignInGoogleButton,
+        assertLoginwithStateSystem,
+        assertGoogleLogo,
+        assertDownloadButton,
+        openBatchMessage,
+        assertbatchStartDateInBatchDetails,
+        assertBatchEndDateInBatchDetails,
+        assertBatchEnrollmentEndDate,
+        assertbatchDetailsDropDownIsExpanded,
+        batchDetailCertificateAndCreditDropDwnPosition,
     }
 }
 module.exports = {

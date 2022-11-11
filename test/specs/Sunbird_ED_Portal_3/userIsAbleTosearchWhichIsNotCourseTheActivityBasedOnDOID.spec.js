@@ -6,7 +6,7 @@ const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js
 const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPageObj.js');
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
-describe('userIsAbleTosearchTheActivityBasedOnDOID', () => {
+describe('userIsAbleTosearchWhichIsNotCourseTheActivityBasedOnDOID', () => {
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -17,13 +17,13 @@ describe('userIsAbleTosearchTheActivityBasedOnDOID', () => {
         browser.driver.manage().window().maximize();
 
     });
-
+    
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
     
-    it('userIsAbleTosearchTheActivityBasedOnDOID', function () {
+    it('userIsAbleTosearchWhichIsNotCourseTheActivityBasedOnDOID', function () {
         utility.handleDropDown();
         //browser.sleep(20000);
         utility.handleLocationPopup();

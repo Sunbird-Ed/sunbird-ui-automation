@@ -33,7 +33,7 @@ describe('createBookWithCourseInLibraryByDoIdInsideUnitAndChildNode', () => {
         let data = tpdPageObj.createCourseAndReturnDoidAndCourseName();
         let course = data.courseName;
         let urldata = data.currentUrl;
-        urldata.then(function (input) {
+        urldata.then(function (input){
         var doid = input.split("/")[6];
         utility.userLogout();
         utility.userLogin('Reviewer');

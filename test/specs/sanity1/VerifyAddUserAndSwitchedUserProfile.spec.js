@@ -23,7 +23,7 @@ describe('VerifyAddUserAndSwitchedUserProfile', () => {
         utility.handleDropDown();
         //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('NCERTCC');
+        utility.userLogin('AddUserCred');
         usrOnBoardfun.AddUserProfileVerification();
         // utility.handleLocationPopup();
         // utility.handleDropDown();

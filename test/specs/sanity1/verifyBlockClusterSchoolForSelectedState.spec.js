@@ -3,7 +3,6 @@ const usrOnBoardfun = require(protractor.basePath + '/test/pageObject/UserOnBoar
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 
 describe('verifyBCSforSelectedState', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -12,6 +11,7 @@ describe('verifyBCSforSelectedState', () => {
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
     });
+
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
@@ -19,9 +19,9 @@ describe('verifyBCSforSelectedState', () => {
     
     it('verifyBlockClusterSchoolForSelectedState',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('NewUserSecondTime');
         usrOnBoardfun.verifyBCSforSelectedState();
-
     });
 });

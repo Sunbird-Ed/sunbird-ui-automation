@@ -17,12 +17,12 @@ var signUpPage = () => {
     var district = element(by.xpath("//sui-select[@name='district']"));
     var selectDistrict = element(by.xpath("//sui-select[@name='district']//following::sui-select-option[1]"));
     var submit = element(by.xpath("//label[contains(text(),'District:')]//following::button[contains(text(),' Submit ')]"));
-    var selectlanguage = element(by.xpath("//*[@class='dropdown icon']"));
+    var selectlanguage = element(by.xpath("//*[@class='mat-select-arrow']//.."));
     var clickOnLanguageDropdwon = element(by.xpath("( //sui-select[contains(@valuefield,'value')])[1]"));
     var clickagainEnglish = element(by.xpath("(//sui-select[contains(@valuefield,'value')])[1]"));
     var hindiLanguage = element(by.xpath("//span[contains(text(),'हिंदी')]"));
-    var urduLanguage = element(by.xpath("(//sui-select-option[contains(.,'اردو')])[1]"));
-    var englishLanguage = element(by.xpath("(//sui-select-option[contains(@class,'item')])[1]"));
+    var urduLanguage = element(by.xpath("//span[contains(.,'اردو')]"));
+    var englishLanguage = element(by.xpath("//*[contains(@aria-label,'English')]"));
     var englishContent = element(by.xpath("(//div[contains(@class,'sb--card__meta')])[1]"));
     var selectLanguageInUrdu = element(by.xpath("(//sui-select[contains(@tabindex,'0')])[1]"));
     var searchTextBox = element(by.xpath("//input[contains(@id,'keyword')]"));
@@ -144,13 +144,6 @@ var signUpPage = () => {
         logoutInHindi,
         tenantFramework,
         loginInHindi,
-
-
-
-
-
-
-
 
     };
 

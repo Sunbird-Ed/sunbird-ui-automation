@@ -12,8 +12,6 @@ describe('Verify createBookWithMoreUnits', () => {
         browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
@@ -24,11 +22,9 @@ describe('Verify createBookWithMoreUnits', () => {
     
     it('createBookWithMoreUnit',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.addmoreUnitInBook();
-       
     });
 });
-   
-

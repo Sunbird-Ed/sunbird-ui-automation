@@ -5,7 +5,6 @@ const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
 describe('verifyCourseBatchCreation', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -22,7 +21,6 @@ describe('verifyCourseBatchCreation', () => {
     });
 
     it('verifyCourseBatchCreation', function () {
-
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
@@ -30,7 +28,6 @@ describe('verifyCourseBatchCreation', () => {
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        //utility.validateWorkspace();
         tpdPageObj.publishCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
@@ -42,4 +39,3 @@ describe('verifyCourseBatchCreation', () => {
         var fetchCoursename = tpdPageObj.enrollForOpenBatchAndVerifyTimer();
     });
 });
-

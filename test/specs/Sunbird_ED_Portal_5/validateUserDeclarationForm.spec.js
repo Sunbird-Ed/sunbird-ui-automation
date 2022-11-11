@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
@@ -22,6 +24,7 @@ describe('validateUserDeclarationForm', () => {
     
     it('validateUserDeclarationForm',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('NewCustUser');
         verifyUOpage.validateSubmitConsentForm();

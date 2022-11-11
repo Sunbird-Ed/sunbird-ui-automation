@@ -23,6 +23,7 @@ describe('validateObservationTabForDifferentRoles', () => {
     it('validateObservationTabForDifferentRoles',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        sanityfun.changeDifferentRolesAndValidateObservatioTab();
+        utility.userLogin('Public User1');
+        sanityfun.validateObservatioTab();
     })
 });

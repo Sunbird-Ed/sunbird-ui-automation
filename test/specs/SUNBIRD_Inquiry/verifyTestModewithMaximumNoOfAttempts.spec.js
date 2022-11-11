@@ -25,10 +25,10 @@ describe('verify Test Mode With Maximum No Of Attempts.', () => {
     it('verifyTestModewithMaximumNoOfAttempts ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('NewCustUser1');
+        utility.userLogin('AddUserCred');
         verifyCEBpageobj.addUserInProfile();
         utility.handleDropDown();  
-
+        utility.handleLocationPopupAfterAddUser(); 
      //   resourcePageObj.AddUserProfileVerification();
         sanityfun.verifyTestModewithMaximumNoOfAttempts();
         

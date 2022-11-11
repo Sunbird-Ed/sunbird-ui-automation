@@ -30,7 +30,7 @@ describe('Creator is able to copy course of same or different tenant and can sha
         var courseName = sanityFun.copyContentFromTraining('Course');
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview2(courseName);
+        tpdPageObj.publishCourseFromUpForReview(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
         var courseName = sanityFun.copyContentFromTraining('Course');
@@ -38,9 +38,6 @@ describe('Creator is able to copy course of same or different tenant and can sha
         utility.userLogin('Public User1');
         shareTCPageObj.clickTrainingPage();
         shareTCPageObj.shareTheConentUsingLink(courseName);
-        utility.userLogout();
-        
+        utility.userLogout();     
     });
 });
-   
-

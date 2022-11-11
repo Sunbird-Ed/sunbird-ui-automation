@@ -31,11 +31,11 @@ describe('validateEnableDisableDFInBatchCreationWhenLoggedInByTNContentCreator',
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('ContentReviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        tpdPageObj.publishCourseFromUpForReview2(courseName)
         utility.userLogout();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        EnrollTBFCPageObj.createOpenBatch();
+        EnrollTBFCPageObj.createOpenBatchWithForum();
         utility.userLogout();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);

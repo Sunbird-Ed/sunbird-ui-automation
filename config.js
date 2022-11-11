@@ -5,6 +5,7 @@ var HtmlReporter = require('protractor-beautiful-reporter');
 
 exports.config = {
 
+
     //seleniumAddress: 'http://localhost:4444/wd/hub',
     directConnect: true,
     //allScriptsTimeout: 10000000000,
@@ -18,33 +19,42 @@ exports.config = {
         sanity2: 'test/specs/sanity2/*.spec.js',
         sanity3: 'test/specs/sanity3/*.spec.js',
 
-        // SunbirdPortal1: 'test/specs/Sunbird_ED_Portal_1/*.spec.js',
-        // SunbirdPortal2: 'test/specs/SUNBIRD_ED_Portal_2/*.spec.js',
+        // //SunbirdPortal2: 'test/specs/SUNBIRD_ED_Portal_2/*.spec.js',
 
         // SunbirdPortal3: 'test/specs/Sunbird_ED_Portal_3/*.spec.js',
         // SunbirdPortal4: 'test/specs/Sunbird_ED_Portal_4/*.spec.js',
         // SunbirdPortal5: 'test/specs/Sunbird_ED_Portal_5/*.spec.js',
+        // SunbirdPortal4: 'test/specs/Sunbird_ED_Portal_4/*.spec.js',
+        // SunbirdPortal5: 'test/specs/Sunbird_ED_Portal_5/*.spec.js',
+
 
         // SunbirdUCI: 'test/specs/Sunbird_UCI/*.spec.js',
         // SunbirdObserv : 'test/specs/Sunbird_Observ/*.spec.js',
         // SunbirdLern : 'test/specs/Sunbird Lern/*.spec.js',
 
-        //sunbirdKnowledge1: 'test/specs/Sunbird_ED_Portal_5/validateRemoveActivityOnActivityCardAndAfterRemovingActivityValidateTheContentCardNotPresent.spec.js',
-        // sunbirdKnowledge2: 'test/specs/SUNBIRD_Knowledge2/*.spec.js',
-        // sunbirdKnowledge3: 'test/specs/SUNBIRD_Knowledge3/*.spec.js',
-        
-
-        // Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/verifyThatCreatorIsAbleToPreviewTheSubjectiveQuestionVideoAsSolutionInLandscapeMode.spec.js',
-        //sanity1: 'test/specs/SUNBIRD_Knowledge3/validateLocationLabelChangedToPagesDisplayingThePercentage.spec.js',
+        //sunbirdKnowledge1:   'test/specs/Sunbird_ED_Portal_9/validatePositionOfBatchCertificateAndCreditDropDownInCourse.spec.js',
+        //sunbirdKnowledge1: 'test/specs/Sunbird_ED_Portal_4/VerifyUserIsAbleToSortAllTheMembersInGroupByCourseProgress.spec.js',
+        //sunbirdKnowledge2: 'test/specs/sanity2/ValidateCreateBatchAndConsentFormWhileEnroll.spec.js',
+        //sunbirdKnowledge3: 'test/specs/SUNBIRD_Knowledge3/*.spec.js',
+        // Sunbird_Enquiry : 'test/specs/Sunbird_ED_Portal_1/verifyThatTheGroupsAreShowingInDecendingOrderOnDeactivateGroups.spec.js',
+        // sanity1: 'test/specs/Sunbird_ED_Portal_1/verifyUserShouldBeDisplayedWithTheEnrollmentCloseMessage.spec.js',
+        //Sunbird_Enquiry : 'test/specs/SUNBIRD_Knowledge_6/adiminEditFromAllTextBookAndAddCollaborator.spec.js',
+        //sanity1: 'test/specs/SUNBIRD_Inquiry/ContentCreatorShouldAbleToCreateTheSubjectiveQuestionSet.spec.js',
+        //Sunbird_Enquiry : 'test/specs/SUNBIRD_Knowledge1/verifyCollaboratorInCourse.spec.js',
+        //sanity1: 'test/specs/SUNBIRD_Inquiry/verifyThatCreatorIsAbleToPreviewTheMCQQuestionVideoAsSolutionInLandscapeMode.spec.js',
+        //Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/*.spec.js',
+        //sanity1: 'test/specs/Sunbird_ED_Portal_5/verifyWhenUserReplaysTheQuestionSetItShouldStartFromInstructionPage.spec.js',
 
         // Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/*.spec.js',
-        // sanity1: 'test/specs/SUNBIRD_Inquiry/verifyThatCreatorIsAbleToPreviewTheMCQQuestionWithEquationsInLandscape.spec.js',
-
+        //sanity1: 'test/specs/sanity1/unEnrollFromOpenCourse.spec.js',
+       
+        // Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/*.spec.js',
+        // sanity1: 'test/specs/SUNBIRD_Knowledge3/editDigitalTextBook.spec.js',
         
-        //userOrgAndCredentials: 'test/specs/Sunbird_ED_Portal_3/validateNewRegisterHerePage.spec.js',
-        // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
+        //userOrgAndCredentials: 'test/specs/Sunbird_ED_Portal_5/userAbleToCreateThreadInDFAndReplyOnTheSameThread.spec.js',
+        //sanity2: 'test/specs/Sunbird_ED_Portal_5/validateContentsComingToAllSectionsLikeDraftSubmittedForReviewPublishedAndAllMyContentSections.spec.js',
 
-        //  sanity1: 'test/specs/SUNBIRD_Inquiry/verifyThatCreatorIsAbleToPreviewTheSubjectiveQuestionWithEquationsInLandscapeAndPortraitMode.spec.js',
+        //sanity1: 'test/specs/sanity3/CreateOpenBatchCourseForPublicUser.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
 
@@ -68,14 +78,7 @@ exports.config = {
 
         // contentcreation: 'test/specs/content-creation/*.spec.js',
         // QuestionScenrio: 'test/specs/QuestionScenrio-CC/*.spec.js',
-        // tpd1: 'test/specs/sourcing2/CreateLessonPlanSaveAndSendForReviewAndPublish.spec.js',
-        // tpd1: 'test/specs/TPDCollobaration/verifythatWhenUserClicksOnViewIconUseMustBeDisplayedWithListOfDiscussions.spec.js',
-        // tpd2: 'test/specs/TPD2/ShareModule.spec.js',
-
-
-
     },
-
     allScriptsTimeout: 4000000000,
 
     // suites: {
@@ -92,7 +95,7 @@ exports.config = {
         version: '78.0.3904.108',
         platform: 'Any',
         shardTestFiles: true,
-        maxInstances:3,
+        maxInstances:4,
         chromeOptions: {
             prefs: {
                 profile: {
@@ -119,6 +122,8 @@ exports.config = {
             ]
         }
     },
+    
+    
     //Run in both chrome and firefox browsers parallelly
     // multiCapabilities: [
     //     {

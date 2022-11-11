@@ -1,5 +1,7 @@
 //const { element, by } = require("protractor");
 
+const { element } = require("protractor");
+
 let SanityElement = () => {
   
   //let dropdownProfile=element(by.xpath("//div[contains(@class,'dropdown right top pointing')]"));
@@ -140,7 +142,7 @@ let SanityElement = () => {
   var submitButtonAfterAssessment = element(By.xpath("//button[@type='submit']"));
   var firsstStar = element(by.xpath("//sui-rating[contains(@class,'sb-rating ui')]//i[1]"));
   var submitButtonAfterRating = element(by.xpath("//button[text()=' Submit ']"));
-  var baackButton = element(by.xpath("//span[contains(text(),'Back')]//.."));
+  var baackButton = element(by.xpath("(//button[contains(text(),'Back')]//..)[2]"));
   var bestScore = element(by.xpath("//div[contains(@class,'sbchapter__item__score pr-8')]"));
   var searchButton = element(by.xpath("//button[text()='Search']"));
   var discussionForumFirstBook = element(by.xpath("//div[@class='sb--card__main-area']/following-sibling::div[1]"));
@@ -461,9 +463,9 @@ let SanityElement = () => {
   var assertProfileIcon = element(by.xpath("//*[contains(@id,'keyword')]//following::div[@class='profile-user-label font-w-bold d-flex text-center relative position']"));
   var submitPersonalDetils = element(by.xpath("//button[contains(text(),'Submit ')]"));
   var startDiscussionSubmitButoon = element(by.xpath("//span[text()='Submit']//parent::button"));
-  var roleDropDown = element(by.xpath("//div[@id='persona']"));
-  var sho = element(by.xpath("//div[@id='persona']//following::span[contains(text(),'School head OR Officials')]"));
-  var studentRole = element(by.xpath("//div[@id='persona']//following::span[contains(text(),'Student')]"));
+  var roleDropDown = element(by.xpath("(//*[@id='persona']//following::div)[1]"));
+  var sho = element(by.xpath("//*[@id='persona']//following::span[contains(text(),'School head OR Officials')]"));
+  var studentRole = element(by.xpath("//*[@id='persona']//following::span[contains(text(),'Student')]"));
   var observationTab = element(by.xpath("//input[contains(@id,'keyword')]//following::*[contains(text(),' Observation ')]"));
   var profileRole = element(by.xpath("//input[contains(@id,'keyword')]//following::div[contains(text(),'Role')]//following::div[1]"));
   var backArrowButton = element(by.xpath("//input[@id='keyword']//following::*[contains(@class,'icon icon-svg--primary')]//parent::i//parent::button"));
@@ -574,6 +576,65 @@ let SanityElement = () => {
   var assertTable = element(by.xpath("//*[contains(@role,'grid')]"));
   var downloadCsv = element(by.xpath("//*[contains(text(),'Download as CSV')]"));
   var assertZeroProgress = element(by.xpath("//td[contains(text(),'ABC')]//following::td[text()='0']"));
+  var clkCollaborationSection = element(by.xpath("//*[contains(text(),'Collaborations')]"));
+  var sortByDrpDwn = element(by.xpath("(//*[@class='dropdown icon'])[2]"));
+  var contentsInsidesortByDrpDwn = element(by.xpath("//*[@class='menu transition visible']"));
+  var addImageIcon = element(by.xpath("//*[@class='addImageText']"));
+  var assertSearchBar = element(by.xpath("(//input[@placeholder='Search...'])[1]"));
+  var allImageTab = element(by.xpath("(//*[text()='All Image'])"));
+  var selectImage = element(by.xpath("(//*[@class='sb-grid-layout image']//following::div[@class='sb-video-content ng-star-inserted'])[1]"));
+  var activateGroupInHamburgerMenu = element(by.xpath("//div[contains(text(),'Activate group')]"));
+  var clickMemberGroup = element(by.xpath("//div[contains(text(),'Marcos')]"));
+  var groupdeactivateBannerMsg = element(by.xpath("//div[contains(text(),' This group is temporarily inactive.')]"));
+  var datasetTab = element(by.xpath("//*[contains(text(),'Datasets')]"));
+  var reportsTab = element(by.xpath("(//*[contains(text(),'Reports')])[2]"));
+  var searchReport = element(by.xpath("//input[contains(@type,'search')]"));
+  var clickReports = element(by.xpath("//button[contains(@aria-label,'file-icon')]"));
+  var assertSearchedResult = element(by.xpath("//*[contains(text(),'Improvement Projects Report Rollup')]//.."));
+  var clickReportParameter = element(by.xpath("//*[contains(text(),'tarentopvtltd')]"));
+  var downloadDataCSV = element(by.xpath("//*[contains(text(),'Download data CSV')]"));
+  var sixTabsCentraAlignMent = element(by.xpath("//div[contains(@aria-label,'Main menu')]"));
+  var addTags = element(by.xpath("//*[contains(@aria-label,'Tag')]"));
+  var selectOrg = element(by.xpath("//*[contains(@class,'mat-select-value')]//following::span[contains(text(),'Select Organisation')]"));
+  var selectRole = element(by.xpath("//*[contains(@class,'mat-select-value')]//following::span[contains(text(),'Select Role')]"));
+  var selectVerticals = element(by.xpath("//*[contains(@class,'mat-select-value')]//following::span[contains(text(),'Select Verticals')]"));
+  var selectSections = element(by.xpath("//*[contains(@class,'mat-select-value')]//following::span[contains(text(),'Select Section')]"));
+  var selectContentType = element(by.xpath("//*[contains(@class,'mat-select-value')]//following::span[contains(text(),'Select Content type')]"));
+  var assertContentCard = element(by.xpath("(//*[contains(@class,'sb--card__main-area')]//..)[1]"));
+  var assertNoResultsFound = element(by.xpath("//*[contains(text(),'Sorry there is no matching content')]"));
+  var editorBackButton = element(by.xpath("//button[@aria-label='back']"));
+  var allMycontentcard = element(by.xpath("(//*[contains(@class,'UpReviewHeader')])"));
+  var publishedTab = element(by.xpath("(//*[contains(text(),'Published')])"));
+  var assertCTAbtnRecentPost = element(by.xpath("//a[contains(text(),'Recent posts')]"));
+  var assertCTAbtnBestPost = element(by.xpath("//a[contains(text(),'Best posts')]"));
+  var assertCtAbtnSavedPost = element(by.xpath("//a[contains(text(),'Saved posts')]"));
+  var assertCTAUpVoted = element(by.xpath("//a[contains(text(),'Upvoted')]"));
+  var assertCTADownVoted = element(by.xpath("//a[contains(text(),'Downvoted')]"));
+  var assertFirstPdfPage = element(by.xpath("//*[contains(text(),'A Simple PDF File')]"));
+  var clickRotate = element(by.xpath("//*[@aria-label='rotate page']"));
+  var selectSubrole = element(by.xpath("//div[@id='subPersona']"));
+  var selectSubroleValue = element(by.xpath("//span[text()='HM']"));
+  var childDropdwnChapter = element(by.xpath("(//span[contains(text(),'Chapter')])[1]"));
+  var generalDiscussCard = element(by.xpath("(//div[@id='category-card'])"));
+  var topicCard = element(by.xpath("(//div[@id='topic-card'])"));
+  var bookNamecopy = element(by.xpath("//div[contains(text(),'Copy of')]"));
+  var validateCategoryInEditor = element(by.xpath("(//label[contains(text(),'Category')]//following::option[text()='Course']//..)[1]"));
+  var validateSubjectCovered = element(by.xpath("(//label[contains(text(),'Subjects covered in the course')]//following::option[contains(text(),'English')]//..)[1]"));
+  var validateAudienceType = element(by.xpath("(//label[contains(text(),'Audience Type')]//following::span[contains(text(),'Student')]//..)[1]"));
+  var validateBoardSyllabus = element(by.xpath("(//label[contains(text(),'Board/Syllabus of the audience')]//following::*[contains(text(),'State (Tamil Nadu)')]//..)[1]"));
+  var validateCourseType = element(by.xpath("(//label[contains(text(),'Course Type')]//following::option[contains(text(),'State (Tamil Nadu)')]//..)[1]"));
+  var validateMergePopUpMsg = element(by.xpath("//*[@class='sb-mat__modal__content']"));
+  var validatePopUpMesgAfterMerge = element(by.xpath("//*[contains(text(),'Account merge initiated successfully. you will be notified once it is completed')]"));
+  var okButtonToMerge = element(by.xpath("//button[contains(text(),'OK')]"));
+  var assertMydetails = element(by.xpath("(//div[contains(text(),'My details')]//..)[1]"));
+  var myDetailsSection = element(by.xpath("(//div[contains(text(),'My details')]//..)[2]"));
+  var invalidMobieNumberMessage = element(by.xpath("//div[contains(text(),'Enter a valid mobile number')]"));
+  var enterMobileNumber = element(by.xpath("//input[contains(@placeholder,'Enter Mobile Number')]"));
+  var enterEmailAddress = element(by.xpath("//input[contains(@placeholder,'Enter email address')]//.."));
+  var invalidEmailAddressMessage = element(by.xpath("//div[contains(text(),'Enter a valid email address')]"));
+  var updateButton = element(by.xpath("//button[contains(text(),'Update')]"));
+  var openBatchMessage = element(by.xpath("(//div[contains(@class,'iziToast-texts')]//..)[1]"));
+
 
   return {
     firstGroup,
@@ -1128,8 +1189,65 @@ let SanityElement = () => {
     assertTable,
     downloadCsv,
     assertZeroProgress,
+    clkCollaborationSection,
+    sortByDrpDwn,
+    contentsInsidesortByDrpDwn,
+    addImageIcon,
+    assertSearchBar,
+    allImageTab,
+    selectImage,
+    activateGroupInHamburgerMenu,
+    clickMemberGroup,
+    groupdeactivateBannerMsg,
+    datasetTab,
+    reportsTab,
+    searchReport,
+    clickReports,
+    assertSearchedResult,
+    clickReportParameter,
+    downloadDataCSV,
+    sixTabsCentraAlignMent,
+    addTags,
+    selectOrg,
+    selectRole,
+    selectVerticals,
+    selectSections,
+    selectContentType,
+    assertContentCard,
+    assertNoResultsFound,
+    editorBackButton,
+    allMycontentcard,
+    publishedTab,
+    assertCTAbtnRecentPost,
+    assertCTAbtnBestPost,
+    assertCtAbtnSavedPost,
+    assertCTAUpVoted,
+    assertCTADownVoted,
+    assertFirstPdfPage,
+    clickRotate,
+    selectSubrole,
+    selectSubroleValue,
+    childDropdwnChapter,
+    generalDiscussCard,
+    topicCard,
+    bookNamecopy,
+    validateCategoryInEditor,
+    validateSubjectCovered,
+    validateAudienceType,
+    validateBoardSyllabus,
+    validateCourseType,
+    validateMergePopUpMsg,
+    validatePopUpMesgAfterMerge,
+    okButtonToMerge,
+    assertMydetails,
+    myDetailsSection,
+    invalidMobieNumberMessage,
+    enterMobileNumber,
+    enterEmailAddress,
+    invalidEmailAddressMessage,
+    updateButton,
+    openBatchMessage,
   }
-
 }
 module.exports = {
   SanityElement

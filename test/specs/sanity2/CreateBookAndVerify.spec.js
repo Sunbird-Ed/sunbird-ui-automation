@@ -25,10 +25,10 @@ describe('Create Book save and send for review and publish.', () => {
         utility.handleDropDown();
         //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        let bookName= sanityfun.createBook();
+        utility.userLogin('ContentCreator');
+        let bookName= sanityfun.createBookTnContentCred();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview(bookName)
         utility.userLogout();
         utility.userLogin('Public User1');

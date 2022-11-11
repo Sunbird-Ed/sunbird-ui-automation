@@ -27,13 +27,15 @@ describe('Verify that, User can delete notifications one by one ', () => {
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.openExistingGroup();
+        EnrollTBFCPageObj.addMemberToGroup();
         EnrollTBFCPageObj.addActivityToTheExistingGroup();
         utility.userLogout();
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.userCanClearAllNotifications();
         utility.userLogout();
         utility.userLogin('ContentCreator');
-        EnrollTBFCPageObj.openExistingGroup1();
+        EnrollTBFCPageObj.openExistingGroup2();
+        //EnrollTBFCPageObj.addMemberToGroup();
         EnrollTBFCPageObj.addActivityToTheExistingGroup();
         EnrollTBFCPageObj.removeActivityFromExistingGroup();
         utility.userLogout();

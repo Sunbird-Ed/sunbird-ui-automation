@@ -21,14 +21,9 @@ describe('FilterSubjectAndClassInCouseTab', () => {
     });
     it('FilterSubjectAndClassInCouseTab',function(){
         utility.handleDropDown();
-
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Public User1');
-        searchCBFPPageObj.courseSearchFilter();
-        
-       
-       
+        searchCBFPPageObj.courseSearchFilter();    
     });
 });
-   
-

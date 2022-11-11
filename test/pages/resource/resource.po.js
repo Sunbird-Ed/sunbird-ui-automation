@@ -240,7 +240,7 @@ var resource = () => {
     var selectBoard = element(by.xpath("//div[contains(text(),'Select Board/Syllabus')]//following::div[2]"));
     var clickMedium = element(by.xpath("//div[contains(text(),'Select Medium')]"));
     var selectMedium = element(by.xpath("//*[contains(text(),'Select Medium')]//following::div[2]"));
-    var clickclass = element(by.xpath("//div[contains(text(),'Select Class')]"));
+    var clickclass = element(by.xpath("//*[contains(text(),'Select Class')]"));
     var SelectClass = element(by.xpath("//*[contains(text(),'Select Class')]//following::div[2]"));
     var clicksubject = element(by.xpath("//div[contains(text(),'Select Subject')]"));
     var selectSubject = element(by.xpath("//div[contains(text(),'Select Subject')]//following::div[2]"));
@@ -347,7 +347,7 @@ var resource = () => {
     var revieDialogClose = element(by.xpath("//span[contains(text(),'Reviewer Suggestions')]//following::i"));
     var clkUploRequestChanges = element(by.xpath("//button[@tabindex='0']"));
     var clkRejectUploadsc = element(by.xpath("//label[contains(text(),'Language is NOT simple to understand')]//following::button"));
-    var clkFeaturedCourseViewAll = element(by.xpath("//span[contains(text(),' courses')]//following::button[1]"));
+    var clkFeaturedCourseViewAll = element(by.xpath("//span[contains(text(),' courses')]//following::button[2]"));
     var SltLevelQu = element(by.xpath("//label[contains(text(),'TOPIC')]//following::i[1]"));
     var saveAndCreateButton = element(by.xpath("//button[@id='save-question-button']"));
     var resoCard = element(by.xpath("//div[@class='sb--card__meta']"));
@@ -456,14 +456,14 @@ var resource = () => {
     var assertPreferencePopup = element(by.xpath("//*[contains(text(),'Browse SUNBIRD Library to find relevant content based on your preferences (Board, Medium and Class)')]"));
     var clkHome = element(by.xpath("//*[contains(text(),'Home')]"));
     var imageCard4= element(by.xpath("(//div[contains(@class,'UpReviewHeader')])"));
-    var browseBySubj = element(by.xpath("//div[contains(text(),'Browse by Sectionss')]"));
+    var browseBySubj = element(by.xpath("//div[contains(text(),'Browse by Sections')]"));
     var featured = element(by.xpath("//div[contains(text(),'Featured')]"));
     var browseByCategories = element(by.xpath("//div[contains(text(),'Browse by Categories')]"));
     var browseByBoard = element(by.xpath("//div[contains(text(),'Browse by Board')]"));
     var browseByAudience = element(by.xpath("//div[contains(text(),'Browse by Audience')]"));
     var assertCbseBoard = element(by.xpath("//label[contains(text(),'Cbse/ncert')]"));
     var assertIgotBoard = element(by.xpath("//label[contains(text(),'Igot-health')]"));
-    var assertBoardSubContnet = element(by.xpath("//div[contains(text(),'Browse by Sectionss')]//following::div[@role='button'][1]"));
+    var assertBoardSubContnet = element(by.xpath("//div[contains(text(),'Browse by Sections')]//following::div[@role='button'][1]"));
     var assertCategSubContent = element(by.xpath("//div[contains(text(),'Browse by Categories')]//following::div[@role='button'][1]"));
     var clkExploreTab = element(by.xpath("//*[contains(text(),' Explore ')]"));
     var assertAudeinceType = element(by.xpath("//div[contains(text(),'Browse by Audience')]//following::label[contains(text(),'School Head Or Officials')]"));
@@ -740,7 +740,7 @@ var resource = () => {
     var clkImageIconAns = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[2]"));
     var assertQstnImag = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[1]//following::img[1]"));
     var assertAnsImage = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[2]//following::img[1]"));
-    var assertBoardFilter = element(by.xpath("//div[@id='board']"));
+    var assertBoardFilter = element(by.xpath("//*[@id='board']"));
     var asertAddChildDisabled = element(by.xpath("//button[@class='sb-btn sb-btn-outline-primary sb-btn-normal sb-btn-radius b-none p-0 sb-disabled']"));
     var clkZoomOut = element(by.xpath("(//div[@class='magnify-icon'])[1]"));
     var assertLandscap = element(by.xpath("//div[@class='quml-landscape']"));
@@ -760,6 +760,8 @@ var resource = () => {
     var selVideo = element(by.xpath("//div[contains(text(),'Video')]"));
     var choosevideo1 = element(by.xpath("(//button[text()='Search'])[1]//following::div[2]"));
     var btnAdd = element(by.xpath("//button[text()='Add']"));
+    var resourceSubmitButton = element(by.xpath("//button[contains(text(),'Submit')]"));
+
 
     return {
         ddSelectlanguage,
@@ -1522,6 +1524,7 @@ var resource = () => {
         selVideo,
         choosevideo1,
         btnAdd,
+        resourceSubmitButton,
     }
 };
 module.exports = {

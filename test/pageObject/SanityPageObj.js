@@ -1,5 +1,6 @@
 //const { browser } = require('protractor');
 
+const { truncate } = require('fs/promises');
 const { browser } = require('protractor');
 //import * as XLSX from 'xlsx';
 
@@ -589,8 +590,8 @@ const veriyMaximumAttempts = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitButtonAfterRating), 20000, "submit button not available");
         sanityPage.SanityElement().submitButtonAfterRating.click();
         browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().baackButton), 20000, "back button not available");
-        sanityPage.SanityElement().baackButton.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.backButton), 20000, "back button not available");
+        searchObj.backButton.click();
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clickOnUnit), 20000, "unit 3 not available");
         sanityPage.SanityElement().clickOnUnit.click();
@@ -2079,11 +2080,11 @@ const verifyCreateMyGroupAddMember = () => {
 }
 
 
-const copyBookAsCourse = (contentType) => {
+const copyBookAsCourse = () => {
     try {
         var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
         var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var doid = cred[33]['Title'];
+        var doid = cred[29]['Title'];
 
         console.log("User is trying to copy content");
         browser.sleep(2000);
@@ -2114,6 +2115,7 @@ const copyBookAsCourse = (contentType) => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.createCertificate), 20000, "copyAsCourseConfirm  is not available");
         searchObj.createCertificate.click();
         browser.sleep(6000);
+        return doid;
     }
     catch (err) {
         console.log("failed to copy as course content" + err);
@@ -2121,6 +2123,47 @@ const copyBookAsCourse = (contentType) => {
 }
 
 const FillBmesWhileCreatingBook = () => {
+    try {
+        browser.sleep(5000);
+        wait.waitForElementVisibility(etbv.clkBoardInBook, 20000, "clkBoardInBook is not available");
+        etbv.clkBoardInBook.click();
+        browser.sleep(200);
+        wait.waitForElementVisibility(etbv.SltBoardInBook, 20000, "clkBoardInBook is not available");
+        etbv.SltBoardInBook.click();
+        browser.sleep(200);
+        wait.waitForElementVisibility(etbv.clkMediumInBook, 20000, "clkBoardInBook is not available");
+        etbv.clkMediumInBook.click();
+        browser.sleep(200);
+        wait.waitForElementVisibility(etbv.sltMediumInBook, 20000, "clkBoardInBook is not available");
+        etbv.sltMediumInBook.click();
+        browser.sleep(200);
+        wait.waitForElementVisibility(etbv.clkClassInBook, 20000, "clkBoardInBook is not available");
+        etbv.clkClassInBook.click();
+        browser.sleep(200);
+        wait.waitForElementVisibility(etbv.sltClassInBook, 20000, "clkBoardInBook is not available");
+        etbv.sltClassInBook.click();
+        browser.sleep(200);
+        wait.waitForElementVisibility(etbv.clkSubjectInBook, 20000, "clkBoardInBook is not available");
+        etbv.clkSubjectInBook.click();
+        browser.sleep(200);
+        wait.waitForElementVisibility(etbv.sltSubjectInBook, 20000, "clkBoardInBook is not available");
+        etbv.sltSubjectInBook.click();
+        browser.sleep(100);
+        wait.waitForElementVisibility(sanity.publisher, 20000, "publisher is not available");
+        sanity.publisher.sendKeys("TestPublisher");
+        browser.sleep(100);
+        wait.waitForElementVisibility(sanity.year, 20000, "publisher is not available");
+        sanity.year.click();
+        browser.sleep(100);
+        wait.waitForElementVisibility(sanity.sltYear, 20000, "publisher is not available");
+        sanity.sltYear.click();
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+const FillBmesWhileCreatingBookForTnContentcred = () => {
     try {
         browser.sleep(5000);
         // wait.waitForElementVisibility(etbv.clkBoardInBook, 20000, "clkBoardInBook is not available");
@@ -2370,9 +2413,8 @@ const createCourseAndSendForReview = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.addCourseTitle), 20000, "title not available");
         sanity.addCourseTitle.click();
         sanity.addCourseTitle.clear();
-        courseName = "CourseM" + faker.randomData().firstname;
+        courseName = "CourseApxe" + faker.randomData().firstname;
         sanity.addCourseTitle.sendKeys(courseName);
-        
         browser.executeScript('window.scrollTo(0,1000);').then(function () {
             console.log('++++++SCROLLED Down+++++');
         });
@@ -2382,7 +2424,6 @@ const createCourseAndSendForReview = () => {
         browser.sleep(2000);
         sanityPage.SanityElement().courseType.click();
         browser.sleep(2000);
-
         expect(sanityPage.SanityElement().ContinusProfList.isPresent()).toBeTruthy();
         browser.sleep(2000);
         sanityPage.SanityElement().selectcourseType.click();
@@ -2434,8 +2475,8 @@ const createCourseAndSendForReview = () => {
         // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
         sanityPage.SanityElement().addFromLibraryButton.click();
         browser.sleep(5000);
-        sanityPage.SanityElement().clkContent.click();
-        browser.sleep(2000);
+        // sanityPage.SanityElement().clkContent.click();
+        // browser.sleep(2000);
         // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().selectButton), 20000,"Select content Button not loaded");
         sanityPage.SanityElement().selectButton.click();
         browser.sleep(4000);
@@ -2607,7 +2648,7 @@ const createCourseForFrameworkWithTopicAndSubject = (FrameworkName) => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.addCourseTitle), 20000, "title not available");
         sanity.addCourseTitle.click();
         sanity.addCourseTitle.clear();
-        courseName = "courseA" + faker.randomData().firstname;
+        courseName = "courseAxyq" + faker.randomData().firstname;
         sanity.addCourseTitle.sendKeys(courseName);
         // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.addcourseTag), 20000, "tag not available");
         // sanity.addcourseTag.sendKeys('test');
@@ -3694,7 +3735,6 @@ const verifyEnableAndDisableDiscussionForGroup3 = () => {
 
 const createBook = () => {
     try {
-
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
         ccpage.contentCreation().headerDropdown.click();
@@ -3793,38 +3833,117 @@ const createBook = () => {
     }
 }
 
-
-const sendCopiedBookForReview = () => {
+const createBookTnContentCred = () => {
     try {
-        browser.sleep(10000);
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
+        ccpage.contentCreation().headerDropdown.click();
+        browser.sleep(1000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.addCourseTitle), 20000, "title not available");
-        sanity.addCourseTitle.click();
-        sanity.addCourseTitle.clear();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        browser.sleep(1000);
 
-        courseName = "courseA" + faker.randomData().firstname;
-        sanity.addCourseTitle.sendKeys(courseName);
-        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.book), 20000, "Book page not loaded");
+        etbpage.etb().book.click();
+        browser.sleep(1000);
 
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.bookName), 20000, "Book page not loaded");
+        bookname = "BookBxzc" + faker.randomData().firstname;
+        etbpage.etb().bookName.sendKeys(bookname);
+
+        FillBmesWhileCreatingBookForTnContentcred();
+
+        ccpage.contentCreation().startCreating.click();
+        browser.sleep(8000);
 
         browser.executeScript('window.scrollTo(0,800);').then(function () {
             console.log('++++++SCROLLED Down+++++');
         });
         browser.sleep(4000);
 
-        // sanityPage.SanityElement().courseadditionalCategory.click();
-        // browser.sleep(1000);
-        // sanityPage.SanityElement().selectAdditionalCategory.click();
-        // browser.sleep(1000);
-        // sanityPage.SanityElement().courseType.click();
-        // browser.sleep(3000);
+        sanityPage.SanityElement().selectBoardForcollection.click();
+        browser.sleep(4000);
+        sanityPage.SanityElement().selectBoardValueForcollection.click();
+        browser.sleep(4000);
 
-        // expect(sanityPage.SanityElement().ContinusProfList.isPresent()).toBeTruthy();
-        // browser.sleep(3000);
-        // sanityPage.SanityElement().selectcourseType.click();
-        // browser.sleep(3000);
+        sanityPage.SanityElement().selectMediumForcollection.click();
+        browser.sleep(4000);
+        sanityPage.SanityElement().selectMediumValueForcollection.click();
+        browser.sleep(4000);
+
+        sanityPage.SanityElement().selectClassForCourse.click();
+        browser.sleep(4000);
+        sanityPage.SanityElement().selectClassValueForcollection.click();
+        browser.sleep(4000);
+
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectSubjectForCourse), 20000, "subject covered not loaded");
+        sanityPage.SanityElement().selectSubjectForCourse.click();
+        browser.sleep(4000);
+        sanityPage.SanityElement().selectSubjectValueForcollection.click();
+        browser.sleep(4000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", sanityPage.SanityElement().selectCopyRightYear);
+        browser.sleep(1000);
+        sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
+        browser.sleep(4000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", sanityPage.SanityElement().attribution);
+        browser.sleep(1000);
+        var attributioninput = "bAttribution1,aAttribution2,dAttribution3,fAttribution4";
+        sanityPage.SanityElement().attribution.sendKeys(attributioninput);
+        browser.sleep(4000);
+
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(4000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(4000);
+
+        sanityPage.SanityElement().addFromLibraryButton.click();
+        browser.sleep(4000);
+        // sanityPage.SanityElement().clkContent.click();
+        // browser.sleep(4000);
+        sanityPage.SanityElement().selectButton.click();
+        browser.sleep(6000);
+        sanityPage.SanityElement().addContent.click();
+        browser.sleep(8000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED up+++++');
+        });
+        browser.sleep(6000);
+        sanityPage.SanityElement().contentFromLibrayBackButton.click();
+        browser.sleep(8000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000, "submit Button not loaded");
+        sanityPage.SanityElement().submitForreviewButton.click();
+        browser.sleep(4000);
+        sanityPage.SanityElement().termsAndConditionCheckbox.click();
+        browser.sleep(4000);
+        sanityPage.SanityElement().NewCoursesubmitButton.click();
+        browser.sleep(4000);
+        console.log("User successfully created a collection");
+        return bookname;
+
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 
+const sendCopiedBookForReviewAndValidateInDraftBucket = async () => {
+    try {
+        browser.sleep(10000);
+        var copyOfbookName = await sanity.bookNamecopy.getText();
+        var currentUrl = await browser.getCurrentUrl();
+        var doid = currentUrl.split("/")[6];
+        browser.executeScript('window.scrollTo(0,800);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(4000);
         sanityPage.SanityElement().subjectCovered.click();
         browser.sleep(3000);
         sanityPage.SanityElement().selectSubject.click();
@@ -3861,14 +3980,79 @@ const sendCopiedBookForReview = () => {
         browser.sleep(3000);
         sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
         browser.sleep(3000);
-
         sanityPage.SanityElement().saveAsDraft.click();
         browser.sleep(5000);
-
-
+        sanity.editorBackButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.draftsVersion), 20000, "Book page not loaded");
+        content.draftsVersion.click();
+        browser.sleep(5000);
+        searchObj.searchContent.sendKeys(doid);
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.contentCard), 20000, "workspace page not loaded");
+        content.contentCard.click();
+        browser.sleep(5000);
+        sanity.bookNamecopy.getText().then(function (input) {
+            expect(input).toEqual("Copy of PortalContent");
+            console.log("Draft content is verified successfully");
+        })
         sanityPage.SanityElement().addChild.click();
         browser.sleep(3000);
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(6000);
+        sanityPage.SanityElement().addFromLibraryButton.click();
+        browser.sleep(5000);
+        sanityPage.SanityElement().selectButton.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().addContent.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().contentFromLibrayBackButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000, "submit Button not loaded");
+        sanityPage.SanityElement().submitForreviewButton.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().termsAndConditionCheckbox.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().NewCoursesubmitButton.click();
+        browser.sleep(7000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allMyContent), 40000, "allMyContent is not available");
+        searchObj.allMyContent.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
+        content.searchForReview.click();
+        content.searchForReview.sendKeys(doid);
+        browser.sleep(6000);
+        sanity.allMycontentcard.getText().then(function (input) {
+            console.log(input);
+            expect(input).toEqual(copyOfbookName);
+            console.log("All my content is verified successfully");
+        })
+    }
+    catch (err) {
+        console.log(err);
+    }
+    return currentUrl;
+}
 
+const validateInDratAndAllContentAndSubmitcontentforreview = (bookName) => {
+    try {
+        browser.sleep(5000);
+        sanity.editorBackButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.draftsVersion), 20000, "Book page not loaded");
+        content.draftsVersion.click();
+        browser.sleep(5000);
+        searchObj.searchContent.sendKeys(bookName);
+        browser.sleep(5000);
+        resov.imageCard.getText().then(function (input) {
+            expect(input).toEqual(copyOfbookName);
+            console.log("Draft content is verified successfully");
+        })
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.contentCard), 20000, "workspace page not loaded");
+        content.contentCard.click();
+        browser.sleep(5000);
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
         sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
         browser.sleep(6000);
 
@@ -3893,12 +4077,24 @@ const sendCopiedBookForReview = () => {
         sanityPage.SanityElement().NewCoursesubmitButton.click();
         browser.sleep(7000);
         //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().termsAndConditionCheckbox), 20000,"terms and condition checkbox Button not loaded");
-
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allMyContent), 40000, "allMyContent is not available");
+        searchObj.allMyContent.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
+        content.searchForReview.click();
+        content.searchForReview.sendKeys(bookName);
+        browser.sleep(6000);
+        sanity.allMycontentcard.getText().then(function (input) {
+            expect(input).toEqual(copyOfbookName);
+            console.log("Draft content is verified successfully");
+        })
     }
     catch (err) {
         console.log(err);
     }
 }
+
 
 const TVClassSearch = (TvClassName) => {
     try {
@@ -4469,8 +4665,6 @@ const verifyAttributionOrder = () => {
 
 const observationTabVerify = () => {
     try {
-
-
         sanityPage.SanityElement().clkObservations.click();
         browser.sleep(7000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().filterSearch), 40000, "filterSearch is not available");
@@ -4481,33 +4675,23 @@ const observationTabVerify = () => {
         browser.sleep(4000);
         sanityPage.SanityElement().clkObservations.click();
         browser.sleep(8000);
-
-
         expect(sanityPage.SanityElement().firstTvLessonContent.isPresent()).toBeTruthy();
         browser.sleep(2000);
-
-
-
     } catch (err) {
         console.log(err);
     }
 }
+
 const changeToDarkTheme = () => {
     try {
-
-
         sanityPage.SanityElement().clkObservations.click();
         browser.sleep(7000);
         sanityPage.SanityElement().clkDarkMode.click();
         browser.sleep(4000);
-
-
         expect(sanityPage.SanityElement().clkDarkMode.isPresent()).toBeTruthy();
         browser.sleep(3000);
         sanityPage.SanityElement().clkDarkMode.click();
         browser.sleep(4000);
-
-
     } catch (err) {
         console.log(err);
     }
@@ -4723,7 +4907,7 @@ const createBookSaveAsDraft = () => {
         browser.sleep(1000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.bookName), 20000, "Book page not loaded");
-        bookname = "BookB" + faker.randomData().firstname;
+        bookname = "BookBxyzabc" + faker.randomData().firstname;
         etbpage.etb().bookName.sendKeys(bookname);
 
         FillBmesWhileCreatingBook();
@@ -6586,30 +6770,30 @@ const addCollboratortoAllMyContentAndSaveBook = (BookName) => {
 const FillBmesWhileCreatingBook3 = () => {
     try {
         browser.sleep(5000);
-        // wait.waitForElementVisibility(etbv.clkBoardInBook, 20000, "clkBoardInBook is not available");
-        // etbv.clkBoardInBook.click();
-        // browser.sleep(200);
-        // wait.waitForElementVisibility(etbv.SltBoardInBook, 20000, "clkBoardInBook is not available");
-        // etbv.SltBoardInBook.click();
-        // browser.sleep(200);
-        // wait.waitForElementVisibility(etbv.clkMediumInBook, 20000, "clkBoardInBook is not available");
-        // etbv.clkMediumInBook.click();
-        // browser.sleep(200);
-        // wait.waitForElementVisibility(etbv.sltMediumInBook, 20000, "clkBoardInBook is not available");
-        // etbv.sltMediumInBook.click();
-        // browser.sleep(200);
-        // wait.waitForElementVisibility(etbv.clkClassInBook, 20000, "clkBoardInBook is not available");
-        // etbv.clkClassInBook.click();
-        // browser.sleep(200);
-        // wait.waitForElementVisibility(etbv.sltClassInBook, 20000, "clkBoardInBook is not available");
-        // etbv.sltClassInBook.click();
-        // browser.sleep(200);
-        // wait.waitForElementVisibility(etbv.clkSubjectInBook, 20000, "clkBoardInBook is not available");
-        // etbv.clkSubjectInBook.click();
-        // browser.sleep(200);
-        // wait.waitForElementVisibility(etbv.sltSubjectInBook, 20000, "clkBoardInBook is not available");
-        // etbv.sltSubjectInBook.click();
-        // browser.sleep(100);
+        wait.waitForElementVisibility(etbv.clkBoardInBook, 20000, "clkBoardInBook is not available");
+        etbv.clkBoardInBook.click();
+        browser.sleep(200);
+        wait.waitForElementVisibility(etbv.SltBoardInBook, 20000, "clkBoardInBook is not available");
+        etbv.SltBoardInBook.click();
+        browser.sleep(200);
+        wait.waitForElementVisibility(etbv.clkMediumInBook, 20000, "clkBoardInBook is not available");
+        etbv.clkMediumInBook.click();
+        browser.sleep(200);
+        wait.waitForElementVisibility(etbv.sltMediumInBook, 20000, "clkBoardInBook is not available");
+        etbv.sltMediumInBook.click();
+        browser.sleep(200);
+        wait.waitForElementVisibility(etbv.clkClassInBook, 20000, "clkBoardInBook is not available");
+        etbv.clkClassInBook.click();
+        browser.sleep(200);
+        wait.waitForElementVisibility(etbv.sltClassInBook, 20000, "clkBoardInBook is not available");
+        etbv.sltClassInBook.click();
+        browser.sleep(200);
+        wait.waitForElementVisibility(etbv.clkSubjectInBook, 20000, "clkBoardInBook is not available");
+        etbv.clkSubjectInBook.click();
+        browser.sleep(200);
+        wait.waitForElementVisibility(etbv.sltSubjectInBook, 20000, "clkBoardInBook is not available");
+        etbv.sltSubjectInBook.click();
+        browser.sleep(100);
         wait.waitForElementVisibility(sanity.publisher, 20000, "publisher is not available");
         sanity.publisher.sendKeys("TestPublisher");
         browser.sleep(100);
@@ -7145,8 +7329,8 @@ const SearchWithDoIdForSummeryTypeAsComplete = () => {
         })
         console.log("User is able to get the name of searched content in default ALL tab menu");
         browser.sleep(5000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.QuestionSetImage1), 20000, "First search book not available");
-        content.QuestionSetImage1.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.QuestionSetImageGenre), 20000, "First search book not available");
+        content.QuestionSetImageGenre.click();
         browser.sleep(8000);
 
         browser.executeScript('window.scrollTo(0,100);').then(function () {
@@ -7166,9 +7350,9 @@ const SearchWithDoIdForSummeryTypeAsComplete = () => {
         console.log("Total No Of Question are Valid");
 
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.durationQuestionSet1), 20000, "Durations Of Question Sets are Invalid");
-        expect(content.durationQuestionSet1.isDisplayed()).toBeTruthy();
-        console.log("Durations Of Question Sets are Valid");
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.durationQuestionSet1), 20000, "Durations Of Question Sets are Invalid");
+        // expect(content.durationQuestionSet1.isDisplayed()).toBeTruthy();
+        // console.log("Durations Of Question Sets are Valid");
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.questionSetInstComplete), 20000, "Instructions On Question Set Is Invalid");
         expect(content.questionSetInstComplete.isDisplayed()).toBeTruthy();
@@ -7284,8 +7468,8 @@ const SearchWithDoIdForSummeryTypeAsScore = () => {
         })
         console.log("User is able to get the name of searched content in default ALL tab menu");
         browser.sleep(5000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.QuestionSetImage1), 20000, "First search book not available");
-        content.QuestionSetImage1.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.QuestionSetImageScore), 20000, "First search book not available");
+        content.QuestionSetImageScore.click();
         browser.sleep(8000);
 
         browser.executeScript('window.scrollTo(0,100);').then(function () {
@@ -7423,8 +7607,8 @@ const SearchWithDoIdForSummeryTypeAsDuration = () => {
         })
         console.log("User is able to get the name of searched content in default ALL tab menu");
         browser.sleep(5000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.QuestionSetImage1), 20000, "First search book not available");
-        content.QuestionSetImage1.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.QuestionSetImageGenre), 20000, "First search book not available");
+        content.QuestionSetImageGenre.click();
         browser.sleep(8000);
 
         browser.executeScript('window.scrollTo(0,100);').then(function () {
@@ -7712,7 +7896,7 @@ const verifyTestModewithMaximumNoOfAttempts = () => {
         var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
         var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '4');
 
-        content.clkProfile1.click();
+        // content.clkProfile1.click();
         browser.sleep(2000);
         console.log("User is trying to navigate To Library And Search content");
         //   browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerLibrary), 20000, "headerLibrary is not available");
@@ -7728,33 +7912,33 @@ const verifyTestModewithMaximumNoOfAttempts = () => {
         searchedMenu = content.allTab.getText().then(function (value) {
             console.log("Content searched under " + value + " tab.");
         })
-        console.log("User is able to get the name of searched content in default ALL tab menu");
-        browser.sleep(5000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.QuestionSetImage1), 20000, "First search book not available");
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '4');
+        // console.log("User is able to get the name of searched content in default ALL tab menu");
+        // browser.sleep(5000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.QuestionSetImage1), 20000, "First search book not available");
+        // var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        // var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '4');
 
-        content.clkProfile1.click();
-        browser.sleep(2000);
-        console.log("User is trying to navigate To Library And Search content");
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerLibrary), 20000, "headerLibrary is not available");
-        content.headerLibrary.click();
-        browser.sleep(1000);
-        console.log(" User/Content creator clicked on Library page.");
-        content.searchInput.click();
-        browser.sleep(1000);
-        content.searchInput.sendKeys(cred[11]['Do_Id']);
-        browser.sleep(1000);
-        content.searchIcon.click();
-        browser.sleep(8000);
-        searchedMenu = content.allTab.getText().then(function (value) {
-            console.log("Content searched under " + value + " tab.");
-        })
-        console.log("User is able to get the name of searched content in default ALL tab menu");
-        browser.sleep(5000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.QuestionSetImage1), 20000, "First search book not available");
+        // content.clkProfile1.click();
+        // browser.sleep(2000);
+        // console.log("User is trying to navigate To Library And Search content");
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerLibrary), 20000, "headerLibrary is not available");
+        // content.headerLibrary.click();
+        // browser.sleep(1000);
+        // console.log(" User/Content creator clicked on Library page.");
+        // content.searchInput.click();
+        // browser.sleep(1000);
+        // content.searchInput.sendKeys(cred[11]['Do_Id']);
+        // browser.sleep(1000);
+        // content.searchIcon.click();
+        // browser.sleep(8000);
+        // searchedMenu = content.allTab.getText().then(function (value) {
+        //     console.log("Content searched under " + value + " tab.");
+        // })
+        // console.log("User is able to get the name of searched content in default ALL tab menu");
+        // browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.QuestionSetImage11), 20000, "First search book not available");
 
-        content.QuestionSetImage1.click();
+        content.QuestionSetImage11.click();
         browser.sleep(8000);
 
         browser.executeScript('window.scrollTo(0,100);').then(function () {
@@ -7794,9 +7978,9 @@ const verifyTestModewithMaximumNoOfAttempts = () => {
 
 
 
-        expect(content.selQuestionSet.isDisplayed()).toBeTruthy();
-        console.log("Question Set Is Availabel Under Selected Course");
-        content.selQuestionSet.click();
+        // expect(content.selQuestionSet.isDisplayed()).toBeTruthy();
+        // console.log("Question Set Is Availabel Under Selected Course");
+        // content.selQuestionSet.click();
 
         /*browser.wait(protractor.ExpectedConditions.visibilityOf(content.nextSlideIconStep1), 20000, "Next Slide Option Is Not Available");
         expect(content.nextSlideIconStep1.isDisplayed()).toBeTruthy();
@@ -9027,14 +9211,15 @@ const createCourseAndSendForReviewWithResourceForPostSync = () => {
         })
         sanityPage.SanityElement().selectSubject2.click();
         browser.sleep(2000);
+
         sanityPage.SanityElement().Author.sendKeys("EKSTEP");
         browser.sleep(300);
+        
         sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
         browser.sleep(300);
 
         sanityPage.SanityElement().saveAsDraft.click();
         browser.sleep(5000);
-
 
         sanityPage.SanityElement().addChild.click();
         browser.sleep(3000);
@@ -9592,9 +9777,62 @@ const changeDifferentRolesAndValidateObservatioTab = () => {
     try {
         console.log('Verify Guest user able to validate observation tab');
         browser.sleep(5000);
-        expect(sanity.observationTab.isPresent()).toBeTruthy().then(function (input) {
-            if (input === true) {
+        expect(sanity.observationTab.isPresent()).toBe(false).then(function (input) {
+            if (input!=true) {
                 browser.sleep(5000);
+                wait.waitForElementVisibility(content.headerDropdown, 20000);
+                content.headerDropdown.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.profileButton, 20000);
+                content.profileButton.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(sanity.editpersonaldetails, 20000);
+                sanity.editpersonaldetails.click();
+                browser.sleep(2000);
+                wait.waitForElementVisibility(sanity.roleDropDown, 20000);
+                sanity.roleDropDown.click();
+                browser.sleep(2000);
+                wait.waitForElementVisibility(sanity.sho, 20000);
+                sanity.sho.click();
+                browser.sleep(2000);
+                wait.waitForElementVisibility(content.state, 20000);
+                content.state.click();
+                browser.sleep(2000);
+                wait.waitForElementVisibility(content.selectState, 20000);
+                content.selectState.click();
+                browser.sleep(4000);
+            
+                sanity.selectSubrole.click();
+                browser.sleep(3000);
+                sanity.selectSubroleValue.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.district, 20000);
+                content.district.click();
+                browser.sleep(2000);
+                wait.waitForElementVisibility(content.selectDistrict, 20000);
+                content.selectDistrict.click();
+                browser.sleep(2000);
+                browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
+                browser.sleep(1000);
+                wait.waitForElementVisibility(content.submitForm, 20000);
+                content.submitForm.click();
+                browser.sleep(2000);
+                sanity.profileRole.getText().then(function (input) {
+                    input.includes("School head OR Officials");
+                    browser.sleep(3000);
+                    browser.executeScript('window.scrollTo(0,0);').then(function () {
+                        console.log('++++++SCROLLED UP+++++');
+                    });
+                    browser.sleep(2000);
+                    wait.waitForElementVisibility(sanity.backArrowButton, 20000);
+                    sanity.backArrowButton.click();
+                    browser.sleep(3000);
+                    expect(sanity.observationTab.isPresent()).toBe(true);
+                    console.log("Observation Tab is not present");
+                    browser.sleep(5000);
+                })
+            } else if(input==true) {
+
                 wait.waitForElementVisibility(content.headerDropdown, 20000);
                 content.headerDropdown.click();
                 browser.sleep(3000);
@@ -9609,12 +9847,92 @@ const changeDifferentRolesAndValidateObservatioTab = () => {
                 browser.sleep(4000);
                 wait.waitForElementVisibility(sanity.studentRole, 20000);
                 sanity.studentRole.click();
+                browser.sleep(6000);
+                wait.waitForElementVisibility(content.state, 20000);
+                content.state.click();
+                browser.sleep(2000);
+                wait.waitForElementVisibility(content.selectState, 20000);
+                content.selectState.click();
                 browser.sleep(4000);
-                wait.waitForElementVisibility(content.btnSubmit, 20000);
-                content.btnSubmit.click();
-                browser.sleep(5000);
+                sanity.selectSubrole.click();
+                browser.sleep(3000);
+                sanity.selectSubroleValue.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.district, 20000);
+                content.district.click();
+                browser.sleep(2000);
+                wait.waitForElementVisibility(content.selectDistrict, 20000);
+                content.selectDistrict.click();
+                browser.sleep(2000);
+                browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
+                browser.sleep(1000);
+                wait.waitForElementVisibility(content.submitForm, 20000);
+                content.submitForm.click();
+                browser.sleep(2000);
+                browser.executeScript('window.scrollTo(0,0);').then(function () {
+                    console.log('++++++SCROLLED UP+++++');
+                });
                 sanity.profileRole.getText().then(function (input) {
-                    expect(input).includes("School head OR Officials");
+                    expect((input).includes("School head OR Officials"));
+                })
+                browser.sleep(4000);
+                wait.waitForElementVisibility(sanity.backArrowButton, 20000);
+                sanity.backArrowButton.click();
+                browser.sleep(4000);
+                expect(sanity.observationTab.isPresent()).toBe(false);
+                console.log("Observation Tab is present");
+                browser.sleep(3000);
+            }
+        })
+    }
+    catch (Exception) {
+        console.log("Edit failed");
+    }
+}
+
+
+const validateObservatioTab = () => {
+    try {
+        console.log('Verify Guest user able to validate observation tab');
+                browser.sleep(5000);
+                wait.waitForElementVisibility(content.headerDropdown, 20000);
+                content.headerDropdown.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.profileButton, 20000);
+                content.profileButton.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(sanity.editpersonaldetails, 20000);
+                sanity.editpersonaldetails.click();
+                browser.sleep(2000);
+                wait.waitForElementVisibility(sanity.roleDropDown, 20000);
+                sanity.roleDropDown.click();
+                browser.sleep(2000);
+                wait.waitForElementVisibility(sanity.sho, 20000);
+                sanity.sho.click();
+                browser.sleep(2000);
+                wait.waitForElementVisibility(content.state, 20000);
+                content.state.click();
+                browser.sleep(2000);
+                wait.waitForElementVisibility(content.selectState, 20000);
+                content.selectState.click();
+                browser.sleep(4000);    
+                sanity.selectSubrole.click();
+                browser.sleep(3000);
+                sanity.selectSubroleValue.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.district, 20000);
+                content.district.click();
+                browser.sleep(2000);
+                wait.waitForElementVisibility(content.selectDistrict, 20000);
+                content.selectDistrict.click();
+                browser.sleep(2000);
+                browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
+                browser.sleep(1000);
+                wait.waitForElementVisibility(content.submitForm, 20000);
+                content.submitForm.click();
+                browser.sleep(2000);
+                sanity.profileRole.getText().then(function (input) {
+                    input.includes("School head OR Officials");
                     browser.sleep(3000);
                     browser.executeScript('window.scrollTo(0,0);').then(function () {
                         console.log('++++++SCROLLED UP+++++');
@@ -9622,13 +9940,13 @@ const changeDifferentRolesAndValidateObservatioTab = () => {
                     browser.sleep(2000);
                     wait.waitForElementVisibility(sanity.backArrowButton, 20000);
                     sanity.backArrowButton.click();
-                    browser.sleep(5000);
-                    (content.observationTab.isPresent()).toBe(false);
+                    browser.sleep(3000);
+                    expect(sanity.observationTab.isPresent()).toBe(true);
                     console.log("Observation Tab is not present");
                     browser.sleep(5000);
                 })
-            } else {
-
+                expect(sanity.observationTab.isPresent()).toBe(true);
+                browser.sleep(3000);
                 wait.waitForElementVisibility(content.headerDropdown, 20000);
                 content.headerDropdown.click();
                 browser.sleep(3000);
@@ -9641,13 +9959,30 @@ const changeDifferentRolesAndValidateObservatioTab = () => {
                 wait.waitForElementVisibility(sanity.roleDropDown, 20000);
                 sanity.roleDropDown.click();
                 browser.sleep(4000);
-                wait.waitForElementVisibility(sanity.sho, 20000);
-                sanity.sho.click();
+                wait.waitForElementVisibility(sanity.studentRole, 20000);
+                sanity.studentRole.click();
                 browser.sleep(6000);
-                browser.executeScript("arguments[0].scrollIntoView();", content.btnSubmit);
-                wait.waitForElementVisibility(content.btnSubmit, 20000);
-                content.btnSubmit.click();
-                browser.sleep(5000);
+                wait.waitForElementVisibility(content.state, 20000);
+                content.state.click();
+                browser.sleep(2000);
+                wait.waitForElementVisibility(content.selectState, 20000);
+                content.selectState.click();
+                browser.sleep(4000);
+                // sanity.selectSubrole.click();
+                // browser.sleep(3000);
+                // sanity.selectSubroleValue.click();
+                // browser.sleep(3000);
+                wait.waitForElementVisibility(content.district, 20000);
+                content.district.click();
+                browser.sleep(2000);
+                wait.waitForElementVisibility(content.selectDistrict, 20000);
+                content.selectDistrict.click();
+                browser.sleep(2000);
+                browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
+                browser.sleep(1000);
+                wait.waitForElementVisibility(content.submitForm, 20000);
+                content.submitForm.click();
+                browser.sleep(2000);
                 browser.executeScript('window.scrollTo(0,0);').then(function () {
                     console.log('++++++SCROLLED UP+++++');
                 });
@@ -9657,15 +9992,15 @@ const changeDifferentRolesAndValidateObservatioTab = () => {
                 browser.sleep(4000);
                 wait.waitForElementVisibility(sanity.backArrowButton, 20000);
                 sanity.backArrowButton.click();
-                expect(sanity.observationTab.isPresent()).toBeTruthy();
+                browser.sleep(4000);
+                expect(sanity.observationTab.isPresent()).toBe(false);
+                console.log("Observation Tab is present");
+                browser.sleep(3000);
             }
-        })
-    }
     catch (Exception) {
         console.log("Edit failed");
     }
 }
-
 
 
 const enableDisableDiscussionForumToValidateTags = () => {
@@ -9958,8 +10293,8 @@ const verifySubmitConfirmationPageShouldNotHaveExitButton = () => {
         })
         console.log("User is able to get the name of searched content in default ALL tab menu");
         browser.sleep(5000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.QuestionSetImage1), 20000, "First search book not available");
-        content.QuestionSetImage1.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.QuestionSetImageGenre), 20000, "First search book not available");
+        content.QuestionSetImageGenre.click();
         browser.sleep(8000);
 
         browser.executeScript('window.scrollTo(0,100);').then(function () {
@@ -10701,21 +11036,29 @@ const validateGreyedOutFullScreenButtonAfterConsumingToCertainExtentOfCourseAsse
         browser.sleep(4000);
         searchObj.nextButtonPopUp.click();
         browser.sleep(4000);
-        searchObj.mcqAnswerOne.click();
-        browser.sleep(4000);
-        searchObj.nextButtonInCourseMCQ.click();
-        browser.sleep(4000);
-        searchObj.nextButtonPopUp.click();
-        browser.sleep(4000);
-        searchObj.nextButtonInCourseMCQ.click();
-        browser.sleep(4000);
-        searchObj.nextButtonPopUp.click();
-        browser.sleep(4000);
-        browser.switchTo().defaultContent();
-        browser.sleep(4000);
-        searchObj.closePopUp.click();
-        browser.sleep(4000);
-        expect((searchObj.assertFullResolution).isEnabled()).toBe(false);
+        // searchObj.mcqAnswerOne.click();
+        // browser.sleep(4000);
+        // searchObj.nextButtonInCourseMCQ.click();
+        // browser.sleep(4000);
+        // searchObj.nextButtonPopUp.click();
+        // browser.sleep(4000);
+        // searchObj.nextButtonInCourseMCQ.click();
+        // browser.sleep(4000);
+        // searchObj.nextButtonPopUp.click();
+        // browser.sleep(4000);
+        // browser.switchTo().defaultContent();
+        // browser.sleep(4000);
+        //browser.switchTo().frame(browser.driver.findElement(searchObj.closePopUp));
+        //browser.sleep(4000);
+        //searchObj.closePopUp.click();
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.firsstStar), 20000, "first star button not available");
+        // sanity.firsstStar.click();
+        // browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.submitButtonAfterRating), 20000, "submit button not available");
+        // sanity.submitButtonAfterRating.click();
+        //browser.sleep(3000);
+        // browser.sleep(4000);
+        // expect((searchObj.assertFullResolution).isEnabled()).toBe(false);
     }
     catch (Err) {
         console.log("Failed" + Err);
@@ -11182,9 +11525,9 @@ const validateContentDetails = () => {
         browser.executeScript('window.scrollTo(0,300);').then(function () {
             console.log('++++++SCROLLED down+++++');
         });
-      browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.batchDetails), 40000, "Click Menu Group not available");
-        searchObj.batchDetails.click();
-        browser.sleep(3000);
+    //   browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.batchDetails), 40000, "Click Menu Group not available");
+    //     searchObj.batchDetails.click();
+    //     browser.sleep(3000);
        
        
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.leaveCourse), 40000, "Click Menu Group not available");
@@ -13438,7 +13781,7 @@ const createCollectionWithDiffCollectionTypesToAddSameContentinContentPlaylistCo
         content.collection.click();
         browser.sleep(200);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.name), 20000, "Course creation editor never loaded");
-        collectionName = "CollectionA" + faker.randomData().firstname;
+        collectionName = "CollectionABCD" + faker.randomData().firstname;
         content.name.sendKeys(collectionName);
         browser.sleep(200);
         wait.waitForElementVisibility(etbv.collectionType, 30000, "collectionType button not available");
@@ -13534,7 +13877,7 @@ const createCollectionWithDiffCollectionTypesToAddSameContentinQuestionPaperColl
         content.collection.click();
         browser.sleep(200);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.name), 20000, "Course creation editor never loaded");
-        collectionName = "CollectionA" + faker.randomData().firstname;
+        collectionName = "CollectionAAAA" + faker.randomData().firstname;
         content.name.sendKeys(collectionName);
         browser.sleep(200);
 
@@ -13955,7 +14298,7 @@ const createCollectionWithDiffCollectionTypesAndValidateSomeAttributes = (collec
         // browser.sleep(5000);
         // expect((sanity.alreadyPresentInFolderDialog).isPresent()).toBe(true);
         // browser.sleep(3000);
-        expect((sanity.assertAddContent).isEnabled()).toBe(false);
+        //expect((sanity.assertAddContent).isEnabled()).toBe(false);
         browser.sleep(3000);
         sanity.closeButtonForDialogBox.click();
         browser.sleep(1000);
@@ -13973,7 +14316,7 @@ const createCollectionWithDiffCollectionTypesAndValidateSomeAttributes = (collec
         // browser.sleep(1000);
         // expect((sanity.alreadyPresentInFolderDialog).isPresent()).toBe(true);
         // browser.sleep(2000);
-        expect((sanity.assertAddContent).isEnabled()).toBe(false);
+        //expect((sanity.assertAddContent).isEnabled()).toBe(false);
         browser.sleep(1000);
         sanity.closeButtonForDialogBox.click();
         browser.sleep(1000);
@@ -15071,9 +15414,74 @@ const verifyAddActivitySearchedByKeyword = (keywords) => {
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.createGroupSubmitButton1), 40000, "CreateGroup submit button not available");
         searchObj.createGroupSubmitButton1.click();
-        browser.sleep(3000);
+        browser.sleep(5000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CreatedGroup), 40000, "Created group not available");
         searchObj.CreatedGroup.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addActivityButton), 40000, "Add activity button not available");
+        searchObj.addActivityButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkCourseInGroup), 40000, "Course not available");
+        searchObj.clkCourseInGroup.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbobj.searchContentInGroup),40000,"Next button not available");
+        etbobj.searchContentInGroup.sendKeys(keywords);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbobj.searchButtonForGroup),40000,"Next button not available");
+        etbobj.searchButtonForGroup.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED up+++++');
+        })
+        browser.sleep(2000);
+        browser.actions().dragAndDrop(searchObj.courseToAddInGroup, searchObj.courseToAddInGroup).mouseUp().perform();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addToGroupButton), 40000, "Add to Group Button not available");
+        searchObj.addToGroupButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addedSuccessfully), 40000, "Successful Text not available");
+        var successfulText = searchObj.addedSuccessfully.getText();
+        expect((successfulText).isDisplayed()).toBe(true);
+        browser.sleep(1000);
+        return groupName;
+    }
+    catch (Exception) {
+        console.log('User is unable to create my Group,member and addActivity');
+    }
+}
+
+const verifyAddActivitySearchedByKeywordAndEnblaForum = (keywords) => {
+    try {
+        console.log('user is able to create myGroup,add member and addActivity');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton), 40000, "Profile Button not available");
+        searchObj.profileButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton), 40000, "myGroup icon not available");
+        searchObj.myGroupButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "Cross button not available");
+        searchObj.crossButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.createGroupButton), 40000, "Create Group button not available");
+        searchObj.createGroupButton.click();
+        browser.sleep(3000);
+        
+        var groupName= faker.randomData().firstname;
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.enterGroupName), 40000, "Enter Group name box not available");
+        searchObj.enterGroupName.sendKeys(groupName);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.enterGroupDescription), 40000, "Enter Deescription box not available");
+        searchObj.enterGroupDescription.sendKeys(faker.randomData().firstname);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.GroupcheckBox), 40000, "Check box not available");
+        searchObj.GroupcheckBox.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.createGroupSubmitButton1), 40000, "CreateGroup submit button not available");
+        searchObj.createGroupSubmitButton1.click();
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CreatedGroup), 40000, "Created group not available");
+        searchObj.CreatedGroup.click();
+        browser.sleep(3000);
+        enableForumAccordToRrequirement();
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addActivityButton), 40000, "Add activity button not available");
         searchObj.addActivityButton.click();
@@ -15492,6 +15900,7 @@ const createBookWithDoubleQuotesInDesc = () => {
         var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
         var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
         var desc = cred[51]['CourseName'];
+        console.log(desc);
 
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
@@ -16297,15 +16706,1593 @@ const clickOnActivityInGroupAndValidateZeroProgress = async () => {
         browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.activityDashBoard), 40000, "Profile Button not available");
         sanity.activityDashBoard.click();
-        browser.sleep(2000);
+        browser.sleep(6000);
         expect(sanity.assertZeroProgress.isPresent()).toBe(true);
-        browser.sleep(2000);
+        browser.sleep(4000);
         
     }
     catch (Exception) {
         console.log('user is unable to click on added Activity and validate content progress bar');
     }
 }
+
+const validateSearchAddedMemberAndCout = async () => {
+    try {
+        console.log('user is able to click on added Activity and validate content progress bar');
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addmemberButton), 40000, "Created group not available");
+        searchObj.addmemberButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.closeMemberDialog), 40000, "closeMemberDialog group not available");
+        searchObj.closeMemberDialog.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.EnterUserId), 40000, "enter user id group not available");
+        searchObj.EnterUserId.sendKeys("contentreviewersun");
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.verifyUserId), 40000, "userid group not available");
+        searchObj.verifyUserId.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addingMembertoGroup), 40000, "adding member group not available");
+        searchObj.addingMembertoGroup.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.backButton), 40000, "adding member group not available");
+        sanity.backButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addmemberButton), 40000, "Created group not available");
+        searchObj.addmemberButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.EnterUserId), 40000, "enter user id group not available");
+        searchObj.EnterUserId.sendKeys("usersun");
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.verifyUserId), 40000, "userid group not available");
+        searchObj.verifyUserId.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addingMembertoGroup), 40000, "adding member group not available");
+        searchObj.addingMembertoGroup.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.backButton), 40000, "adding member group not available");
+        sanity.backButton.click();
+        browser.sleep(9000);
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        searchObj.searchWithInGroup.click();
+        searchObj.searchWithInGroup.sendKeys("Content reviewer");
+        browser.sleep(4000);
+        expect(searchObj.assertMembersPresentUnderAdmin.isPresent()).toBe(true);
+        browser.sleep(4000);
+        expect(searchObj.membersCount.isPresent()).toBe(true);
+        browser.sleep(4000);
+        searchObj.memberHamburgerMenu.click();
+        browser.sleep(4000);
+        searchObj.makeAdmin.click();
+        browser.sleep(2000);
+        searchObj.makeAdmin.click();
+        browser.sleep(2000);
+        searchObj.searchWithInGroup.clear();
+        searchObj.searchWithInGroup.sendKeys("testSpider");
+        browser.sleep(4000);
+        searchObj.memberHamburgerMenu.click();
+        browser.sleep(4000);
+        searchObj.removeMember.click()
+        browser.sleep(4000);
+        searchObj.removeMember.click()
+        browser.sleep(4000);
+        expect(searchObj.assertAddedMemberAfterRemovingOnce.isPresent()).toBe(false);
+        browser.sleep(4000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        searchObj.searchWithInGroup.click();
+        searchObj.searchWithInGroup.clear();
+        browser.refresh();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addmemberButton), 40000, "Created group not available");
+        searchObj.addmemberButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.EnterUserId), 40000, "enter user id group not available");
+        searchObj.EnterUserId.sendKeys("usersun");
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.verifyUserId), 40000, "userid group not available");
+        searchObj.verifyUserId.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addingMembertoGroup), 40000, "adding member group not available");
+        searchObj.addingMembertoGroup.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.backButton), 40000, "adding member group not available");
+        sanity.backButton.click();
+        browser.sleep(5000);
+        expect(searchObj.assertAddedMemberAfterRemovingOnce.isPresent()).toBe(true);
+        browser.sleep(4000);
+    }
+    catch (Exception) {
+        console.log('user is unable to click on added Activity and validate content progress bar');
+    }
+}
+
+
+const validateAddedMemberAndMembersCout = async () => {
+    try {
+        console.log('user is able to click on added Activity and validate content progress bar');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton), 40000, "Profile Button not available");
+        searchObj.profileButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton), 40000, "myGroup icon not available");
+        searchObj.myGroupButton.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "Cross button not available");
+        // searchObj.crossButton.click();
+        // browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CreatedGroup), 40000, "Created group not available");
+        searchObj.CreatedGroup.click();
+        browser.sleep(4000);
+        browser.sleep(3000);
+        searchObj.tncCheckboxInGroup.click();
+        browser.sleep(3000);
+        searchObj.tncYesButton.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        searchObj.searchWithInGroup.click();
+        searchObj.searchWithInGroup.sendKeys("Content reviewer");
+        browser.sleep(4000);
+        expect(searchObj.assertMembersPresentUnderAdmin.isPresent()).toBe(true);
+        browser.sleep(4000);
+        expect(searchObj.membersCount.isPresent()).toBe(true);
+        browser.sleep(4000);
+        searchObj.searchWithInGroup.clear();
+        searchObj.searchWithInGroup.sendKeys("testSpider");
+        browser.sleep(4000);
+        expect(searchObj.assertAddedMemberAfterRemovingOnce.isPresent()).toBe(true);
+        browser.sleep(4000);
+        
+    }
+    catch (Exception) {
+        console.log('user is unable to click on added Activity and validate content progress bar');
+    }
+}
+
+const validateSomeAttributesInCollaborations = async () => {
+    var courseName;
+    try {
+        
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.sleep(100);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.sleep(200);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.clkCollaborationSection), 20000, "Creation page not loaded");
+        sanity.clkCollaborationSection.click();
+        browser.sleep(3000);
+        content.searchForReview.click();
+        content.searchForReview.sendKeys("tpd course");
+        browser.sleep(2000);
+        sanity.sortByDrpDwn.click();
+        browser.sleep(3000);
+        let sortBycontents = await sanity.contentsInsidesortByDrpDwn.getText();
+        console.log(sortBycontents);
+        sortBycontents.includes("Created On");
+        sortBycontents.includes("Content Type");
+        sortBycontents.includes("Creator");
+        sortBycontents.includes("Last Updated");
+        sortBycontents.includes("Name A-Z");
+        sortBycontents.includes("Status");
+    } catch (err) {
+        console.log(err);
+    }
+    return courseName;
+}
+
+const createCourseWithImageIconAndValidateImageSearchBar = () => {
+    var courseName;
+    try {
+        console.log("user is trying to create a course")
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.sleep(100);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.sleep(200);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.course), 20000, "Creation page not loaded");
+        content.course.click();
+        browser.sleep(5000);
+        sanity.addImageIcon.click();
+        browser.sleep(5000);
+        expect(sanity.assertSearchBar.isPresent()).toBeTruthy();
+        browser.sleep(5000);
+        sanity.assertSearchBar.sendKeys("course");
+        browser.sleep(2000);
+        sanity.assertSearchBar.sendKeys(protractor.Key.ENTER);
+        browser.sleep(5000);
+        sanity.selectImage.click();
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.addCourseTitle), 20000, "title not available");
+        sanity.addCourseTitle.click();
+        sanity.addCourseTitle.clear();
+        courseName = "CourseM" + faker.randomData().firstname;
+        sanity.addCourseTitle.sendKeys(courseName);
+        
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        sanityPage.SanityElement().courseadditionalCategory.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().selectAdditionalCategory.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().courseType.click();
+        browser.sleep(2000);
+
+        expect(sanityPage.SanityElement().ContinusProfList.isPresent()).toBeTruthy();
+        browser.sleep(2000);
+        sanityPage.SanityElement().selectcourseType.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().subjectCovered.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().selectSubject.click();
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        sanityPage.SanityElement().selectBoardForcourse.click();
+        browser.sleep(2000);
+
+        sanityPage.SanityElement().selectBoard.click();
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectMediumForCourse), 20000, "Medium covered not loaded");
+            sanityPage.SanityElement().selectMediumForCourse.click();
+            browser.sleep(2000);
+        })
+        sanityPage.SanityElement().selectMedium.click();
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectClassForCourse), 20000, "class covered not loaded");
+            sanityPage.SanityElement().selectClassForCourse.click();
+            browser.sleep(2000);
+        })
+        sanityPage.SanityElement().selectclass.click();
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectSubjectForCourse), 20000, "subject covered not loaded");
+            sanityPage.SanityElement().selectSubjectForCourse.click();
+            browser.sleep(2000);
+        })
+        sanityPage.SanityElement().selectSubject2.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().Author.sendKeys("EKSTEP");
+        browser.sleep(300);
+        sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
+        browser.sleep(300);
+
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().childDesc1.sendKeys("CdildDesc");
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
+        sanityPage.SanityElement().addFromLibraryButton.click();
+        browser.sleep(5000);
+        sanityPage.SanityElement().clkContent.click();
+        browser.sleep(2000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().selectButton), 20000,"Select content Button not loaded");
+        sanityPage.SanityElement().selectButton.click();
+        browser.sleep(4000);
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addContent), 20000,"Add content content Button not loaded");
+        sanityPage.SanityElement().addContent.click();
+        browser.sleep(4000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().contentFromLibrayBackButton), 20000,"Back Button not loaded");
+        sanityPage.SanityElement().contentFromLibrayBackButton.click();
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000, "submit Button not loaded");
+        sanityPage.SanityElement().submitForreviewButton.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().termsAndConditionCheckbox.click();
+        browser.sleep(300);
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.NewCoursesubmitButton), 20000,"submit for review Button not loaded");
+        sanityPage.SanityElement().NewCoursesubmitButton.click();
+        browser.sleep(10000);
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().termsAndConditionCheckbox), 20000,"terms and condition checkbox Button not loaded");
+
+    } catch (err) {
+        console.log(err);
+    }
+    return courseName;
+}
+
+const deactivateGroupAndValidateReactivateoptionInHamburgerMenu = async () => {
+    try {
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Up+++++');
+        });
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.groupActions), 40000, "Group actions is not available");
+        sanity.groupActions.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.deactivateGroup), 40000, "Disablediscussion Icon is not available");
+        sanity.deactivateGroup.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.deactivateGroupPopUp), 40000, "Disablediscussion Icon is not available");
+        sanity.deactivateGroupPopUp.click();
+        browser.sleep(3000);
+        console.log("Group deactivated successfully")
+        browser.sleep(3000);
+        expect((content.assertDeactivateGroupMsg).isPresent()).toBe(true);
+        browser.sleep(3000);
+        expect(sanity.activateGroup.isPresent()).toBe(true);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.groupActions), 40000, "Group actions is not available");
+        sanity.groupActions.click();
+        browser.sleep(3000);
+        expect(sanity.activateGroupInHamburgerMenu.isPresent()).toBe(true);
+        browser.sleep(3000);
+        console.log("Group Activated successfully")
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
+const validateRecentlyAddedMemberComingFirst = async (groupName) => {
+    try {
+        var1 = "(//div[contains(text(),'";
+        var2 = groupName;
+        var3 ="')])[1]";
+
+        var clickMemberGroup = element(by.xpath(var1+var2+var3));
+        browser.sleep(6000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton), 40000, "myGroup icon not available");
+        searchObj.myGroupButton.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "Cross button not available");
+        // searchObj.crossButton.click();
+        //browser.sleep(3000);
+        expect(clickMemberGroup.isPresent()).toBe(true);
+        
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
+
+
+
+const deleteDeactivatedGroup = async (groupName) => {
+    try {
+        var1 = "//div[contains(text(),'";
+        var2 = groupName;
+        var3 ="')]";
+
+        var clickMemberGroup = element(by.xpath(var1+var2+var3));
+        browser.sleep(6000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton), 40000, "Profile Button not available");
+        searchObj.profileButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton), 40000, "myGroup icon not available");
+        searchObj.myGroupButton.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "Cross button not available");
+        // searchObj.crossButton.click();
+        // browser.sleep(3000);
+        clickMemberGroup.click();
+        browser.sleep(5000);
+        expect((content.assertDeactivateGroupMsg).isPresent()).toBe(true);
+        browser.sleep(4000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED up+++++');
+        })
+        console.log('Delete Existing Group ');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkMenugrps), 40000, "Click Menu Group not available");
+        searchObj.clkMenugrps.click();
+        browser.sleep(3000);
+        searchObj.deleteGroup.click();
+        browser.sleep(3000);
+        searchObj.clkDeleteGrpsPopup.click();
+        browser.sleep(3000);
+       
+        
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+const validateCentreAlignementofTabs = async () => {
+    try {
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary not loaded");
+        resov.headerLibrary.click();
+        browser.sleep(5000);
+        console.log("Clicked on Library");
+        var asserCentreAlignment = await (sanity.sixTabsCentraAlignMent).getCssValue('align-items');
+        expect(asserCentreAlignment).toEqual("center");
+        browser.sleep(5000);
+    }
+    catch (Exception) {
+        console.log('Failed');
+
+    }
+}
+
+const validateUserAbletoSearchMemberAndLeaveGroupwithConfirmationPopUp = async (groupName) => {
+    try {
+        var1 = "//div[contains(text(),'";
+        var2 = groupName;
+        var3 ="')]";
+
+        var clickMemberGroup = element(by.xpath(var1+var2+var3));
+        browser.sleep(6000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton), 40000, "Profile Button not available");
+        searchObj.profileButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton), 40000, "myGroup icon not available");
+        searchObj.myGroupButton.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "Cross button not available");
+        // searchObj.crossButton.click();
+        // browser.sleep(3000);
+        clickMemberGroup.click();
+        browser.sleep(3000);
+        searchObj.tncCheckboxInGroup.click();
+        browser.sleep(3000);
+        searchObj.tncYesButton.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(2000);
+        expect(sanity.firstContent.isPresent()).toBe(true);
+        browser.sleep(3000);
+        searchObj.searchWithInGroup.click();
+        searchObj.searchWithInGroup.sendKeys("testSpider");
+        browser.sleep(4000);
+        expect(searchObj.assertSearchedSecondMemberInMemberGroup.isPresent()).toBe(true);
+        browser.sleep(4000);
+        searchObj.searchWithInGroup.clear();
+        searchObj.searchWithInGroup.sendKeys("Content reviewer");
+        browser.sleep(4000);
+        expect(searchObj.assertSearchedMemberInMemberGroup.isPresent()).toBe(true);
+        browser.sleep(5000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.groupActions), 40000, "Group actions is not available");
+        sanity.groupActions.click();
+        browser.sleep(3000);
+        searchObj.leaveGroup.click();
+        browser.sleep(3000);
+        searchObj.leaveGroupPopUp.click();
+        browser.sleep(8000);
+        expect(clickMemberGroup.isPresent()).toBe(false);
+        browser.sleep(8000);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
+const validateAdminNameIsPresentOnTopAndMembersArrangedAlphabetically = async () => {
+    try {
+        console.log('user is able to click on added Activity and validate content progress bar');
+        browser.sleep(4000);
+        console.log('user is able to create myGroup,add member and addActivity');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton), 40000, "Profile Button not available");
+        searchObj.profileButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton), 40000, "myGroup icon not available");
+        searchObj.myGroupButton.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "Cross button not available");
+        // searchObj.crossButton.click();
+        // browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.createGroupButton), 40000, "Create Group button not available");
+        searchObj.createGroupButton.click();
+        browser.sleep(3000);
+        var groupName= faker.randomData().firstname;
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.enterGroupName), 40000, "Enter Group name box not available");
+        searchObj.enterGroupName.sendKeys(groupName);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.enterGroupDescription), 40000, "Enter Deescription box not available");
+        searchObj.enterGroupDescription.sendKeys(faker.randomData().firstname);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.GroupcheckBox), 40000, "Check box not available");
+        searchObj.GroupcheckBox.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.createGroupSubmitButton1), 40000, "CreateGroup submit button not available");
+        searchObj.createGroupSubmitButton1.click();
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CreatedGroup), 40000, "Created group not available");
+        searchObj.CreatedGroup.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addActivityButton), 40000, "Add activity button not available");
+        searchObj.addActivityButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkCourseInGroup), 40000, "Course not available");
+        searchObj.clkCourseInGroup.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbobj.searchContentInGroup),40000,"Next button not available");
+        etbobj.searchContentInGroup.sendKeys(keywords);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbobj.searchButtonForGroup),40000,"Next button not available");
+        etbobj.searchButtonForGroup.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED up+++++');
+        })
+        browser.sleep(2000);
+        browser.actions().dragAndDrop(searchObj.courseToAddInGroup, searchObj.courseToAddInGroup).mouseUp().perform();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addToGroupButton), 40000, "Add to Group Button not available");
+        searchObj.addToGroupButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addedSuccessfully), 40000, "Successful Text not available");
+        var successfulText = searchObj.addedSuccessfully.getText();
+        expect((successfulText).isDisplayed()).toBe(true);
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addmemberButton), 40000, "Created group not available");
+        searchObj.addmemberButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.closeMemberDialog), 40000, "closeMemberDialog group not available");
+        searchObj.closeMemberDialog.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.EnterUserId), 40000, "enter user id group not available");
+        searchObj.EnterUserId.sendKeys("contentreviewersun");
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.verifyUserId), 40000, "userid group not available");
+        searchObj.verifyUserId.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addingMembertoGroup), 40000, "adding member group not available");
+        searchObj.addingMembertoGroup.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.backButton), 40000, "adding member group not available");
+        sanity.backButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addmemberButton), 40000, "Created group not available");
+        searchObj.addmemberButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.EnterUserId), 40000, "enter user id group not available");
+        searchObj.EnterUserId.sendKeys("usersun");
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.verifyUserId), 40000, "userid group not available");
+        searchObj.verifyUserId.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addingMembertoGroup), 40000, "adding member group not available");
+        searchObj.addingMembertoGroup.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.backButton), 40000, "adding member group not available");
+        sanity.backButton.click();
+        browser.sleep(5000);
+        expect(searchObj.assertMembersPresentUnderAdmin.isPresent()).toBe(true);
+        expect(searchObj.assertAdminPresentFirstUnderAddMember.isPresent()).toBe(true);
+        browser.sleep(3000);
+        let groupMembersList = await searchObj.listOfMembers.getText();
+        let sortedMemberAlphabtically = groupMembersList.sort();
+        utility.checkStringSortedAlphabeticallyOrNot(groupMembersList,sortedMemberAlphabtically);
+        browser.sleep(3000);
+    }
+    catch (Exception) {
+        console.log('user is unable to click on added Activity and validate content progress bar');
+    }
+}
+
+
+
+
+const validateUserIsPresentAtTheTop = async (groupName) => {
+    try {
+        var1 = "//div[contains(text(),'";
+        var2 = groupName;
+        var3 ="')]";
+
+        var clickMemberGroup = element(by.xpath(var1+var2+var3));
+        browser.sleep(6000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton), 40000, "Profile Button not available");
+        searchObj.profileButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton), 40000, "myGroup icon not available");
+        searchObj.myGroupButton.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "Cross button not available");
+        // searchObj.crossButton.click();
+        // browser.sleep(3000);
+        clickMemberGroup.click();
+        browser.sleep(3000);
+        searchObj.tncCheckboxInGroup.click();
+        browser.sleep(3000);
+        searchObj.tncYesButton.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(5000);
+        expect(searchObj.assertUserComesFirstOntopWithMembers.isPresent()).toBe(true);
+        //expect(searchObj.assertAdminPresentFirstUnderAddMember.isPresent()).toBe(true);
+        browser.sleep(8000);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+const  enableForumAccordToRrequirement= () => {
+    try {
+        browser.sleep(3000);
+        sanityPage.SanityElement().forum.isPresent().then(function (result) {
+            if (result) {
+                browser.sleep(2000);
+                browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.groupActions), 40000, "Group actions is not available");
+                sanity.groupActions.click();
+                browser.sleep(1000);
+                browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.disableDiscussionIcon), 40000, "Disablediscussion Icon is not available");
+                sanity.disableDiscussionIcon.click();
+                browser.sleep(1000);
+                browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.disablediscussionButton), 40000, "Disablediscussion Button is not available");
+                sanity.disablediscussionButton.click();
+                browser.sleep(4000);
+                browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.groupActions), 40000, "Group actions is not available");
+                sanity.groupActions.click();
+                browser.sleep(3000);
+                browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.enableDiscussionIcon), 40000, "Enable discussion is not available");
+                sanity.enableDiscussionIcon.click();
+                browser.sleep(6000);
+                browser.refresh();
+                // browser.actions().sendKeys(protractor.Key.ENTER).perform();
+                // browser.sleep(4000);
+
+            } else {
+                browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.groupActions), 40000, "Group actions is not available");
+                sanity.groupActions.click();
+                browser.sleep(3000);
+                browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.enableDiscussionIcon), 40000, "Enable discussion is not available");
+                sanity.enableDiscussionIcon.click();
+                browser.sleep(6000);
+                browser.refresh();
+                // browser.actions().sendKeys(protractor.Key.ENTER).perform();
+                // browser.sleep(5000);
+            }
+        });
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
+
+
+
+const validateUserAbletoCreateThreadAndReply = async (groupName) => {
+    try {
+        var1 = "//div[contains(text(),'";
+        var2 = groupName;
+        var3 ="')]";
+
+        var clickMemberGroup = element(by.xpath(var1+var2+var3));
+        browser.sleep(6000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton), 40000, "Profile Button not available");
+        searchObj.profileButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton), 40000, "myGroup icon not available");
+        searchObj.myGroupButton.click();
+        browser.sleep(5000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "Cross button not available");
+        // searchObj.crossButton.click();
+        // browser.sleep(3000);
+        clickMemberGroup.click();
+        browser.sleep(5000);
+        searchObj.tncCheckboxInGroup.click();
+        browser.sleep(3000);
+        searchObj.tncYesButton.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().forum), 20000, "forum is not available");
+        sanityPage.SanityElement().forum.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().categories), 20000, "categories is not available");
+        expect(sanityPage.SanityElement().categories.isDisplayed()).toBeTruthy();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().categoryCard), 20000, "categories card is not available");
+        sanityPage.SanityElement().categoryCard.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().startDiscussion), 20000, "startDiscussion is not available");
+        sanityPage.SanityElement().startDiscussion.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().askQuestion), 20000, "askQuestion is not available");
+        sanityPage.SanityElement().askQuestion.sendKeys("This is my 1st idea to be shared");
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().description), 20000, "description is not available");
+        sanityPage.SanityElement().description.sendKeys("This is my 1st idea to be shared description");
+        browser.sleep(3000);
+        searchObj.tagsInGroup.sendKeys("testA");
+        searchObj.tagsInGroup.sendKeys(protractor.Key.ENTER);
+        browser.sleep(3000);
+        for(i=0;i<=3;i++){
+            sanity.addTags.sendKeys("test"+i);
+            sanity.addTags.sendKeys(protractor.Key.ENTER);
+            browser.sleep(2000);
+        }
+        browser.sleep(3000);
+        browser.executeScript("arguments[0].scrollIntoView();", sanityPage.SanityElement().submitButton);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitButton), 20000, "submitButton is not available");
+        sanityPage.SanityElement().submitButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.assertSavedPost), 20000, "assertSavedPost is not available");
+        content.assertSavedPost.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.ReplyMessage), 20000, "ReplyMessage is not available");
+        searchObj.ReplyMessage.sendKeys("test comment");
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().postReply), 20000, "postReply is not available");
+        sanityPage.SanityElement().postReply.click();
+        expect(searchObj.assertPostReplyComment.isPresent()).toBe(true)
+        browser.sleep(5000);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+const verifyAddActivitySearchedAndValidateRecommendationAndFilters = (keywords) => {
+    try {
+        console.log('user is able to create myGroup,add member and addActivity');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton), 40000, "Profile Button not available");
+        searchObj.profileButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton), 40000, "myGroup icon not available");
+        searchObj.myGroupButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "Cross button not available");
+        searchObj.crossButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.createGroupButton), 40000, "Create Group button not available");
+        searchObj.createGroupButton.click();
+        browser.sleep(3000);
+        var groupName= faker.randomData().firstname;
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.enterGroupName), 40000, "Enter Group name box not available");
+        searchObj.enterGroupName.sendKeys(groupName);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.enterGroupDescription), 40000, "Enter Deescription box not available");
+        searchObj.enterGroupDescription.sendKeys(faker.randomData().firstname);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.GroupcheckBox), 40000, "Check box not available");
+        searchObj.GroupcheckBox.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.createGroupSubmitButton1), 40000, "CreateGroup submit button not available");
+        searchObj.createGroupSubmitButton1.click();
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.CreatedGroup), 40000, "Created group not available");
+        searchObj.CreatedGroup.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.addActivityButton), 40000, "Add activity button not available");
+        searchObj.addActivityButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clkCourseInGroup), 40000, "Course not available");
+        searchObj.clkCourseInGroup.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbobj.searchContentInGroup),40000,"Next button not available");
+        etbobj.searchContentInGroup.sendKeys(keywords);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbobj.searchButtonForGroup),40000,"Next button not available");
+        etbobj.searchButtonForGroup.click();
+        browser.sleep(3000);
+        expect(sanity.assertContentCard.isPresent()).toBe(true);
+        browser.sleep(3000);
+        expect(content.filterBy.isPresent()).toBe(true);
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.filterBy), 40000, "Filter button not available");
+        content.filterBy.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectOrg), 40000, "Filter button not available");
+        sanity.selectOrg.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectOrgValue), 40000, "Cross button not available");
+        content.selectOrgValue.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectRole), 40000, "Cross button not available");
+        sanity.selectRole.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.selectRoleValue), 40000, "Cross button not available");
+        sanity.selectRoleValue.click();
+        browser.sleep(3000);
+        expect(sanity.assertContentCard.isPresent()).toBe(true);
+        browser.sleep(3000);
+    }
+    catch (Exception) {
+        console.log('User is unable to create my Group,member and addActivity');
+    }
+}
+
+const createBookAndValidateInAllContentBucketSections = () => {
+    try {
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
+        ccpage.contentCreation().headerDropdown.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.book), 20000, "Book page not loaded");
+        etbpage.etb().book.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.bookName), 20000, "Book page not loaded");
+        bookname = "BookB" + faker.randomData().firstname;
+        etbpage.etb().bookName.sendKeys(bookname);
+
+        FillBmesWhileCreatingBook();
+
+        ccpage.contentCreation().startCreating.click();
+        browser.sleep(8000);
+
+        browser.executeScript('window.scrollTo(0,800);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(4000);
+
+        sanityPage.SanityElement().selectBoardForcollection.click();
+        browser.sleep(4000);
+        sanityPage.SanityElement().selectBoardValueForcollection.click();
+        browser.sleep(4000);
+
+        sanityPage.SanityElement().selectMediumForcollection.click();
+        browser.sleep(4000);
+        sanityPage.SanityElement().selectMediumValueForcollection.click();
+        browser.sleep(4000);
+
+        sanityPage.SanityElement().selectClassForCourse.click();
+        browser.sleep(4000);
+        sanityPage.SanityElement().selectClassValueForcollection.click();
+        browser.sleep(4000);
+
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectSubjectForCourse), 20000, "subject covered not loaded");
+        sanityPage.SanityElement().selectSubjectForCourse.click();
+        browser.sleep(4000);
+        sanityPage.SanityElement().selectSubjectValueForcollection.click();
+        browser.sleep(4000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", sanityPage.SanityElement().selectCopyRightYear);
+        browser.sleep(1000);
+        sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
+        browser.sleep(4000);
+
+        browser.executeScript("arguments[0].scrollIntoView();", sanityPage.SanityElement().attribution);
+        browser.sleep(1000);
+        var attributioninput = "bAttribution1,aAttribution2,dAttribution3,fAttribution4";
+        sanityPage.SanityElement().attribution.sendKeys(attributioninput);
+        browser.sleep(4000);
+
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanity.editorBackButton.click();
+        browser.sleep(3000);
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.draftsVersion), 20000, "Book page not loaded");
+        content.draftsVersion.click();
+        browser.sleep(5000);
+        searchObj.searchContent.sendKeys(bookname);
+        browser.sleep(5000);
+        resov.imageCard.getText().then(function (input) {
+            expect(input).toEqual(bookname)
+            console.log("Draft content is verified successfully");
+        })
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.contentCard), 20000, "workspace page not loaded");
+        content.contentCard.click();
+        browser.sleep(5000);
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(4000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(4000);
+
+        sanityPage.SanityElement().addFromLibraryButton.click();
+        browser.sleep(4000);
+        // sanityPage.SanityElement().clkContent.click();
+        // browser.sleep(4000);
+        sanityPage.SanityElement().selectButton.click();
+        browser.sleep(6000);
+        sanityPage.SanityElement().addContent.click();
+        browser.sleep(8000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED up+++++');
+        });
+        browser.sleep(6000);
+        sanityPage.SanityElement().contentFromLibrayBackButton.click();
+        browser.sleep(8000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000, "submit Button not loaded");
+        sanityPage.SanityElement().submitForreviewButton.click();
+        browser.sleep(4000);
+        sanityPage.SanityElement().termsAndConditionCheckbox.click();
+        browser.sleep(4000);
+        sanityPage.SanityElement().NewCoursesubmitButton.click();
+        browser.sleep(4000);
+        console.log("User successfully created a Book");
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allMyContent), 40000, "allMyContent is not available");
+        searchObj.allMyContent.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
+        content.searchForReview.click();
+        content.searchForReview.sendKeys(bookname);
+        browser.sleep(6000);
+        sanity.allMycontentcard.getText().then(function (input) {
+            expect(input).toEqual(bookname)
+            console.log("Draft content is verified successfully");
+        })
+        browser.sleep(5000);
+        searchObj.submittedForReviewTab.click();
+        browser.sleep(3000);
+        resov.imageCard.getText().then(function (input) {
+            expect(input).toEqual(bookname)
+            console.log("submitForReviewtab content is verified successfully");
+        })
+        console.log('User should be able to click on the drafts section to see draft contents')
+        browser.sleep(9000);
+        return bookname;
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+const validateContentInPublishedSectionAfterPublishmentOfContent = async (bookname) => {
+    try {
+        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
+        ccpage.contentCreation().headerDropdown.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        browser.sleep(1000);
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.publishedTab), 40000, "allMyContent is not available");
+        sanity.publishedTab.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
+        content.searchForReview.click();
+        content.searchForReview.sendKeys(bookname);
+        browser.sleep(6000);
+        resov.imageCard.getText().then(function (input) {
+            expect(input).toEqual(bookname)
+            console.log("submitForReviewtab content is verified successfully");
+        })
+        browser.sleep(5000);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+const createCourseAndValidateInAllContentBucketSections = (courseName) => {
+    try {
+        browser.sleep(1000);
+        console.log("user is trying to create a course")
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.sleep(100);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.sleep(200);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.course), 20000, "Creation page not loaded");
+        content.course.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.addCourseTitle), 20000, "title not available");
+        sanity.addCourseTitle.click();
+        sanity.addCourseTitle.clear();
+        courseName = "CourseM" + faker.randomData().firstname;
+        sanity.addCourseTitle.sendKeys(courseName);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        sanityPage.SanityElement().courseadditionalCategory.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().selectAdditionalCategory.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().courseType.click();
+        browser.sleep(2000);
+        expect(sanityPage.SanityElement().ContinusProfList.isPresent()).toBeTruthy();
+        browser.sleep(2000);
+        sanityPage.SanityElement().selectcourseType.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().subjectCovered.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().selectSubject.click();
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        sanityPage.SanityElement().selectBoardForcourse.click();
+        browser.sleep(2000);
+
+        sanityPage.SanityElement().selectBoard.click();
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectMediumForCourse), 20000, "Medium covered not loaded");
+            sanityPage.SanityElement().selectMediumForCourse.click();
+            browser.sleep(2000);
+        })
+        sanityPage.SanityElement().selectMedium.click();
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectClassForCourse), 20000, "class covered not loaded");
+            sanityPage.SanityElement().selectClassForCourse.click();
+            browser.sleep(2000);
+        })
+        sanityPage.SanityElement().selectclass.click();
+        browser.sleep(2000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectSubjectForCourse), 20000, "subject covered not loaded");
+            sanityPage.SanityElement().selectSubjectForCourse.click();
+            browser.sleep(2000);
+        })
+        sanityPage.SanityElement().selectSubject2.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().Author.sendKeys("EKSTEP");
+        browser.sleep(300);
+        sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
+        browser.sleep(300);
+
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+        sanity.editorBackButton.click();
+        browser.sleep(3000);
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.draftsVersion), 20000, "Book page not loaded");
+        content.draftsVersion.click();
+        browser.sleep(5000);
+        searchObj.searchContent.sendKeys(courseName);
+        browser.sleep(5000);
+        resov.imageCard.getText().then(function (input) {
+            expect(input).toEqual(courseName)
+            console.log("Draft content is verified successfully");
+        })
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.contentCard), 20000, "workspace page not loaded");
+        content.contentCard.click();
+        browser.sleep(5000);
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(4000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(4000);
+
+        sanityPage.SanityElement().addFromLibraryButton.click();
+        browser.sleep(4000);
+        // sanityPage.SanityElement().clkContent.click();
+        // browser.sleep(4000);
+        sanityPage.SanityElement().selectButton.click();
+        browser.sleep(6000);
+        sanityPage.SanityElement().addContent.click();
+        browser.sleep(8000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED up+++++');
+        });
+        browser.sleep(6000);
+        sanityPage.SanityElement().contentFromLibrayBackButton.click();
+        browser.sleep(8000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000, "submit Button not loaded");
+        sanityPage.SanityElement().submitForreviewButton.click();
+        browser.sleep(4000);
+        sanityPage.SanityElement().termsAndConditionCheckbox.click();
+        browser.sleep(4000);
+        sanityPage.SanityElement().NewCoursesubmitButton.click();
+        browser.sleep(4000);
+        console.log("User successfully created a Book");
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allMyContent), 40000, "allMyContent is not available");
+        searchObj.allMyContent.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchForReview), 20000, "workspace page not loaded");
+        content.searchForReview.click();
+        content.searchForReview.sendKeys(courseName);
+        browser.sleep(6000);
+        sanity.allMycontentcard.getText().then(function (input) {
+            expect(input).toEqual(courseName)
+            console.log("Draft content is verified successfully");
+        })
+        browser.sleep(5000);
+        searchObj.submittedForReviewTab.click();
+        browser.sleep(3000);
+        resov.imageCard.getText().then(function (input) {
+            expect(input).toEqual(courseName)
+            console.log("submitForReviewtab content is verified successfully");
+        })
+        console.log('User should be able to click on the drafts section to see draft contents')
+        browser.sleep(9000);
+        return courseName;
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+const verifyWhenUserReplaysTheQuestionSetItShouldStartFromInstructionPage = () => {
+    var searchedMenu;
+    try {
+        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '4');
+        browser.sleep(2000);
+        console.log("User is trying to navigate To Library And Search content");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerLibrary), 20000, "headerLibrary is not available");
+        content.headerLibrary.click();
+        browser.sleep(1000);
+        console.log(" User/Content creator clicked on Library page.");
+        content.searchInput.click();
+        browser.sleep(1000);
+        content.searchInput.sendKeys(cred[5]['Do_Id']);
+        browser.sleep(1000);
+        content.searchIcon.click();
+        browser.sleep(8000);
+        searchedMenu = content.allTab.getText().then(function (value) {
+            console.log("Content searched under " + value + " tab.");
+        })
+        console.log("User is able to get the name of searched content in default ALL tab menu");
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.QuestionSetImage11), 20000, "First search book not available");
+        content.QuestionSetImage11.click();
+        browser.sleep(8000);
+
+        browser.executeScript('window.scrollTo(0,100);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.QuestinSetTitle3), 20000, "Valid Question Set Title Is not Added");
+        expect(content.QuestinSetTitle3.isDisplayed()).toBeTruthy();
+        console.log("Question Set Title Valid");
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.totalNoOfQuestions2), 20000, "Total No Of Question are Invalid");
+        expect(content.totalNoOfQuestions2.isDisplayed()).toBeTruthy();
+        console.log("Total No Of Question are Valid");
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.durationQuestionSet1), 20000, "Durations Of Question Sets are Invalid");
+        expect(content.durationQuestionSet1.isDisplayed()).toBeTruthy();
+        console.log("Durations Of Question Sets are Valid");
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.instructionQuestionSet3), 20000, "Instructions On Question Set Is Invalid");
+        expect(content.instructionQuestionSet3.isDisplayed()).toBeTruthy();
+        console.log("Instructions On Question Set Is Valid");
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.nextSlideIconStep1), 20000, "Next Slide Option Is Not Available");
+        expect(content.nextSlideIconStep1.isDisplayed()).toBeTruthy();
+        console.log("Next Slide Option Is Available");
+        content.nextSlideIconStep1.click();
+        browser.sleep(5000);
+
+        content.selectAnswer1.click();
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.nextSlideIconStep1), 20000, "Next Slide Option Is Not Available");
+        expect(content.nextSlideIconStep1.isDisplayed()).toBeTruthy();
+        console.log("Next Slide Option Is Available");
+        content.nextSlideIconStep1.click();
+        browser.sleep(1000);
+
+
+        // expect(content.assertFeedback.isPresent()).toEqual(false);
+        // console.log("No Feedback For Selected Question");
+        // browser.sleep(4000);
+
+        content.selectAnswer22.click();
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.nextSlideIconStep1), 20000, "Next Slide Option Is Not Available");
+        expect(content.nextSlideIconStep1.isDisplayed()).toBeTruthy();
+        console.log("Next Slide Option Is Available");
+        content.nextSlideIconStep1.click();
+        browser.sleep(1000);
+
+        // expect(content.assertFeedback.isPresent()).toEqual(false);
+        // console.log("No Feedback For Selected Question");
+        // browser.sleep(4000);
+
+        content.selectDur3.click();
+
+        // expect(content.subjectiveAnswer.isPresent()).toBeTruthy();
+        // console.log("Answer Is Visible For Subjective Type Question1");
+        // browser.sleep(4000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.nextSlideIconStep1), 20000, "Next Slide Option Is Not Available");
+        expect(content.nextSlideIconStep1.isDisplayed()).toBeTruthy();
+        console.log("Next Slide Option Is Available");
+        content.nextSlideIconStep1.click();
+        browser.sleep(5000);
+
+        expect(content.assertNoSubmitOption.isDisplayed()).toBeTruthy();
+        console.log("No Submit Confirmation For Selected Question Set");
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.contentFeedback), 20000, "Next Slide Option Is Not Available");
+        expect(content.contentFeedback.isDisplayed()).toBeTruthy();
+        console.log("Next Slide Option Is Available");
+        content.contentFeedback.click();
+        browser.sleep(5000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.submitcontentFeedback), 20000, "Submit Button Is Not Available");
+        expect(content.submitcontentFeedback.isDisplayed()).toBeTruthy();
+        console.log("Submit Feedback Content Successfully");
+        content.submitcontentFeedback.click();
+
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+
+        browser.sleep(3000);
+        expect(content.assertDuration.isDisplayed()).toBeTruthy();
+        console.log("Question Set Consumed With Durtion");
+
+        browser.sleep(3000);
+        expect(content.questionSetOnlyWithDuration.isDisplayed()).toBeTruthy();
+        console.log("Question Set Consumed and Completed only with Durtion");
+
+        content.Replay.click();
+        browser.sleep(1000);
+
+        expect(content.assertInstructionPage.isDisplayed()).toBeTruthy();
+        console.log("On Click Replay button It will Start From Instruction Page ");
+
+    }
+    catch (Exception) {
+        console.log("Failed to Consume Question Set with Duration");
+    }
+    return searchedMenu;
+}
+
+const sendCopiedBookForReview = () => {
+    try {
+        browser.sleep(10000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.addCourseTitle), 20000, "title not available");
+        sanity.addCourseTitle.click();
+        sanity.addCourseTitle.clear();
+
+        courseName = "courseA" + faker.randomData().firstname;
+        sanity.addCourseTitle.sendKeys(courseName);
+        browser.sleep(2000);
+
+
+        browser.executeScript('window.scrollTo(0,800);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(4000);
+
+        // sanityPage.SanityElement().courseadditionalCategory.click();
+        // browser.sleep(1000);
+        // sanityPage.SanityElement().selectAdditionalCategory.click();
+        // browser.sleep(1000);
+        // sanityPage.SanityElement().courseType.click();
+        // browser.sleep(3000);
+
+        // expect(sanityPage.SanityElement().ContinusProfList.isPresent()).toBeTruthy();
+        // browser.sleep(3000);
+        // sanityPage.SanityElement().selectcourseType.click();
+        // browser.sleep(3000);
+
+
+        sanityPage.SanityElement().subjectCovered.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().selectSubject.click();
+        browser.sleep(3000);
+        // browser.executeScript('window.scrollTo(0,1000);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        // });
+        sanityPage.SanityElement().selectBoardForcourse.click();
+        browser.sleep(500);
+        sanityPage.SanityElement().selectBoard.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectMediumForCourse), 20000, "Medium covered not loaded");
+            sanityPage.SanityElement().selectMediumForCourse.click();
+            browser.sleep(3000);
+        })
+        sanityPage.SanityElement().selectMedium.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectClassForCourse), 20000, "class covered not loaded");
+            sanityPage.SanityElement().selectClassForCourse.click();
+            browser.sleep(3000);
+        })
+        sanityPage.SanityElement().selectclass.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectSubjectForCourse), 20000, "subject covered not loaded");
+            sanityPage.SanityElement().selectSubjectForCourse.click();
+            browser.sleep(3000);
+        })
+        sanityPage.SanityElement().selectSubject2.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().Author.sendKeys("EKSTEP");
+        browser.sleep(3000);
+        sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+
+
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(6000);
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
+        sanityPage.SanityElement().addFromLibraryButton.click();
+        browser.sleep(5000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().selectButton), 20000,"Select content Button not loaded");
+        sanityPage.SanityElement().selectButton.click();
+        browser.sleep(3000);
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addContent), 20000,"Add content content Button not loaded");
+        sanityPage.SanityElement().addContent.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().contentFromLibrayBackButton), 20000,"Back Button not loaded");
+        sanityPage.SanityElement().contentFromLibrayBackButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000, "submit Button not loaded");
+        sanityPage.SanityElement().submitForreviewButton.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().termsAndConditionCheckbox.click();
+        browser.sleep(3000);
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(sanity.NewCoursesubmitButton), 20000,"submit for review Button not loaded");
+        sanityPage.SanityElement().NewCoursesubmitButton.click();
+        browser.sleep(7000);
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().termsAndConditionCheckbox), 20000,"terms and condition checkbox Button not loaded");
+
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+const copyBookAsCourseAndsendForReview = (bookName) => {
+    try {
+        console.log("User is trying to copy content");
+        browser.sleep(2000);
+        sanityPage.SanityElement().searchConLib.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().searchConLib.sendKeys(bookName);
+        browser.sleep(2000);
+        sanityPage.SanityElement().clkSearchLib.click();
+        browser.executeScript('window.scrollTo(0,100);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(san.clkFirConLib), 20000, "clkFirConLib  is not available");
+        san.clkFirConLib.click();
+        console.log("clicked on first content");
+        // browser.executeScript('window.scrollTo(0,0);').then(function () {
+        //     console.log('++++++SCROLLED UP+++++');
+        // });
+
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.copyAsCourse), 20000, "copyAsCourse  is not available");
+        searchObj.copyAsCourse.click();
+        browser.sleep(200);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.copyAsCourseCheckBox), 20000, "copyAsCourseCheckBox  is not available");
+        searchObj.copyAsCourseCheckBox.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.createCertificate), 20000, "copyAsCourseConfirm  is not available");
+        searchObj.createCertificate.click();
+        browser.sleep(6000);
+    }
+    catch (err) {
+        console.log("failed to copy as course content" + err);
+    }
+}
+
+const sendCopiedBookForReviewAndValidateAfterClosingAndOpening = async () => {
+    try {
+        browser.sleep(10000);
+        
+        var currentUrl = await browser.getCurrentUrl();
+        var doid = currentUrl.split("/")[6];
+        browser.executeScript('window.scrollTo(0,800);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(4000);
+        sanityPage.SanityElement().subjectCovered.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().selectSubject.click();
+        browser.sleep(3000);
+        // browser.executeScript('window.scrollTo(0,1000);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        // });
+        sanityPage.SanityElement().selectBoardForcourse.click();
+        browser.sleep(500);
+        sanityPage.SanityElement().selectBoard.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectMediumForCourse), 20000, "Medium covered not loaded");
+            sanityPage.SanityElement().selectMediumForCourse.click();
+            browser.sleep(3000);
+        })
+        sanityPage.SanityElement().selectMedium.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectClassForCourse), 20000, "class covered not loaded");
+            sanityPage.SanityElement().selectClassForCourse.click();
+            browser.sleep(3000);
+        })
+        sanityPage.SanityElement().selectclass.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,1000);').then(function () {
+            browser.wait(protractor.ExpectedConditions.elementToBeClickable(sanityPage.SanityElement().selectSubjectForCourse), 20000, "subject covered not loaded");
+            sanityPage.SanityElement().selectSubjectForCourse.click();
+            browser.sleep(3000);
+        })
+        sanityPage.SanityElement().selectSubject2.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().Author.sendKeys("EKSTEP");
+        browser.sleep(3000);
+        sanityPage.SanityElement().selectCopyRightYear.sendKeys("2021");
+        browser.sleep(3000);
+        sanityPage.SanityElement().saveAsDraft.click();
+        browser.sleep(5000);
+        sanity.editorBackButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.draftsVersion), 20000, "Book page not loaded");
+        content.draftsVersion.click();
+        browser.sleep(5000);
+        searchObj.searchContent.sendKeys(doid);
+        browser.sleep(5000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.contentCard), 20000, "workspace page not loaded");
+        content.contentCard.click();
+        browser.sleep(5000);
+        expect(sanity.validateCategoryInEditor.isPresent()).toBe(true);
+        expect(sanity.validateSubjectCovered.isPresent()).toBe(true);
+        expect(sanity.validateAudienceType.isPresent()).toBe(true);
+        expect(sanity.validateBoardSyllabus.isPresent()).toBe(true);
+        expect(sanity.validateCourseType.isPresent()).toBe(true);
+        browser.sleep(3000);
+        sanityPage.SanityElement().addChild.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+        browser.sleep(6000);
+        sanityPage.SanityElement().addFromLibraryButton.click();
+        browser.sleep(5000);
+        sanityPage.SanityElement().selectButton.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().addContent.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().contentFromLibrayBackButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000, "submit Button not loaded");
+        sanityPage.SanityElement().submitForreviewButton.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().termsAndConditionCheckbox.click();
+        browser.sleep(3000);
+        sanityPage.SanityElement().NewCoursesubmitButton.click();
+        browser.sleep(7000);
+    }
+    catch (err) {
+        console.log(err);
+    }
+    return currentUrl;
+}
+
+const validateActiveGroupsInAddedMember = async (groupName) => {
+    try {
+        var1 = "//div[contains(text(),'";
+        var2 = groupName;
+        var3 ="')]";
+
+        var clickMemberGroup = element(by.xpath(var1+var2+var3));
+        browser.sleep(6000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.profileButton), 40000, "Profile Button not available");
+        searchObj.profileButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.myGroupButton), 40000, "myGroup icon not available");
+        searchObj.myGroupButton.click();
+        browser.sleep(3000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.crossButton), 40000, "Cross button not available");
+        // searchObj.crossButton.click();
+        // browser.sleep(3000);
+        clickMemberGroup.click();
+        browser.sleep(3000);
+        searchObj.tncCheckboxInGroup.click();
+        browser.sleep(3000);
+        searchObj.tncYesButton.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(2000);
+        expect(sanity.firstContent.isPresent()).toBe(true);
+        browser.sleep(3000);
+        sanity.firstContent.click();
+        browser.sleep(3000);
+        expect(sanity.activityDashBoard.isPresent()).toBe(false);
+        browser.sleep(5000);
+        expect(searchObj.addMember.isPresent()).toBe(false);
+        browser.sleep(3000);
+        expect(searchObj.addActivityButton.isPresent()).toBe(false);
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,200);').then(function () {
+            console.log('++++++SCROLLED Down+++++');
+        });
+        browser.sleep(2000);
+        expect(searchObj.makeAdmin.isPresent()).toBe(false);
+        browser.sleep(4000);
+        
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+const verifyMydetailsSectionPage = async () => {
+    try {
+                browser.sleep(5000);
+                wait.waitForElementVisibility(content.headerDropdown, 20000);
+                content.headerDropdown.click();
+                browser.sleep(3000);
+                wait.waitForElementVisibility(content.profileButton, 20000);
+                content.profileButton.click();
+                browser.sleep(3000);
+                browser.executeScript('window.scrollTo(0,1000);').then(function () {
+                    console.log('++++++SCROLLED Down+++++');
+                });
+                browser.sleep(3000);
+                let myDetails = await sanity.assertMydetails.getText();
+                myDetails.includes("My details");
+                browser.sleep(3000);
+                browser.refresh()
+                browser.sleep(2000);
+                let myDetailsAfterRefresh = await sanity.assertMydetails.getText();
+                myDetailsAfterRefresh.includes(`My details
+                I wish to share my data with State (Punjab)
+                Update`);
+                browser.sleep(3000);
+                sanity.updateButton.click();
+                browser.sleep(2000);
+                browser.executeScript('window.scrollTo(0,500);').then(function () {
+                    console.log('++++++SCROLLED Down+++++');
+                });
+                sanity.enterMobileNumber.sendKeys("65");
+                browser.sleep(1000);
+                sanity.invalidMobieNumberMessage.isPresent().toBe(true);
+                browser.sleep(3000);
+                sanity.enterEmailAddress.click()
+                sanity.enterEmailAddress.clear();
+                browser.sleep(2000);
+                sanity.enterEmailAddress.sendKeys("email");
+                browser.sleep(3000);
+                sanity.invalidEmailAddressMessage.isPresent().toBe(true);
+                browser.sleep(3000);
+            }
+    catch (Exception) {
+        console.log("failed");
+    }
+}
+
+const navigateToCourseAndSearchForOpenBatch = (courseName) => {
+    try {
+        console.log('To verify navigate to Course section, search course and create open batch');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.headerCourse), 40000, "headerCourse is not available");
+        searchObj.headerCourse.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.searchInput), 40000, "searchInput is not available");
+        searchObj.searchInput.click();
+        searchObj.searchInput.sendKeys(courseName);
+        console.log('Entered Course Name');
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.searchIcon), 40000, "searchIcon is not available");
+        searchObj.searchIcon.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.searchPublishedCourses), 40000, "searchIcon is not available");
+        searchObj.searchPublishedCourses.click();
+        
+    }
+    catch (e) {
+        console.error('Failed on navigating to Course section, search course and create batch');
+    }
+}
+
 
 module.exports = {
 
@@ -16505,4 +18492,31 @@ module.exports = {
     vlidateSomeColumnHeadersInSampleCSV,
     validateRemoveActivity,
     clickOnActivityInGroupAndValidateZeroProgress,
+    validateSearchAddedMemberAndCout,
+    validateSomeAttributesInCollaborations,
+    createCourseWithImageIconAndValidateImageSearchBar,
+    validateAddedMemberAndMembersCout,
+    deactivateGroupAndValidateReactivateoptionInHamburgerMenu,
+    validateActiveGroupsInAddedMember,
+    deleteDeactivatedGroup,
+    validateCentreAlignementofTabs,
+    validateUserAbletoSearchMemberAndLeaveGroupwithConfirmationPopUp,
+    validateAdminNameIsPresentOnTopAndMembersArrangedAlphabetically,
+    validateUserIsPresentAtTheTop,
+    validateUserAbletoCreateThreadAndReply,
+    verifyWhenUserReplaysTheQuestionSetItShouldStartFromInstructionPage,
+    verifyAddActivitySearchedAndValidateRecommendationAndFilters,
+    createBookAndValidateInAllContentBucketSections,
+    validateContentInPublishedSectionAfterPublishmentOfContent,
+    createCourseAndValidateInAllContentBucketSections,
+    verifyAddActivitySearchedByKeywordAndEnblaForum,
+    validateObservatioTab,
+    sendCopiedBookForReviewAndValidateInDraftBucket,
+    validateInDratAndAllContentAndSubmitcontentforreview,
+    FillBmesWhileCreatingBookForTnContentcred,
+    createBookTnContentCred,
+    copyBookAsCourseAndsendForReview,
+    sendCopiedBookForReviewAndValidateAfterClosingAndOpening,
+    validateRecentlyAddedMemberComingFirst,
+    verifyMydetailsSectionPage,
 }

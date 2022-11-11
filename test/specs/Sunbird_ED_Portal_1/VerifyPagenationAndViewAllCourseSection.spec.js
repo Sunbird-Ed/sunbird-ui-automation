@@ -28,7 +28,7 @@ describe('Veriy ViewAll and Pagenation in Course Section', () => {
         utility.handleDropDown();
         //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Reviewer');
+        utility.userLogin('Public User1');
         resourcePageObj.VerifyCoursePage();
     });
 });

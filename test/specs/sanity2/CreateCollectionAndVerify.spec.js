@@ -26,6 +26,7 @@ describe('Create Collection save and send for review and publish.', () => {
 
     it('CreateCollectionAndVerify ', function () {
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName = collectionPageObj.createCollection();

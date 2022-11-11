@@ -588,11 +588,11 @@ const verifyNoBoardValue = () => {
     browser.executeScript('window.scrollTo(0,600);').then(function () {
         console.log('++++++SCROLLED Down+++++');
     });
-    userOnboard.labelBoard.getText().then(function (firstPart) {
+    // userOnboard.labelBoard.getText().then(function (firstPart) {
 
-        expect(firstPart).not.toEqual("Board :");
-        console.log('Board didnt displayed');
-    });
+    //     expect(firstPart).not.toEqual("Board :");
+    //     console.log('Board didnt displayed');
+    // });
 }
 const verifyHelpFAQ = () => {
 
@@ -1009,6 +1009,7 @@ const verifyGuestUserDisplayedInProfile = () => {
         console.log("Guest user is not displayed in profile");
     }
 }
+
 const verifyUserCourseProgress = () => {
     try {
         var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
@@ -1100,7 +1101,7 @@ const verifyBCSforSelectedState = () => {
         wait.waitForElementVisibility(content.BMCBlock, 20000);
         content.BMCBlock.click();
         browser.sleep(3000);
-        wait.waitForElementVisibility(content.SelectBMCblock, 20000);
+        wait.waitForElementVisibility(content.verifyBCSforSelectedState, 20000);
         content.SelectBMCblock.click();
         browser.sleep(3000);
         // wait.waitForElementVisibility(content.BMCcluster, 20000);
@@ -1120,7 +1121,6 @@ const verifyBCSforSelectedState = () => {
         content.BMCSubmit.click();
         browser.sleep(3000);
         expect((content.Cluster).isPresent()).toBeFalsy();
-
     }
     catch (err) {
         console.error("Verify Block Cluster and school in BMC with state Uttar pradesh, " + err);
@@ -1134,6 +1134,10 @@ const AddUserProfileVerification = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
         content.headerDropdown.click();
         browser.sleep(1000);
+        browser.executeScript('window.scrollTo(0,100);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.addUser), 20000, "addUser is not available");
         verifyCEBObj.addUser.click();
         console.log("Clicked on add user");
@@ -1141,11 +1145,9 @@ const AddUserProfileVerification = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.enterName), 20000, "enterName is not available");
         verifyCEBObj.enterName.sendKeys(userName);
         browser.sleep(3000);
-
         browser.executeScript('window.scrollTo(0,200);').then(function () {
             console.log('++++++SCROLLED UP+++++');
         });
-
         browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.addUserButton), 20000, "addUserButton is not available");
         verifyCEBObj.addUserButton.click();
         browser.sleep(1000);
@@ -1264,29 +1266,39 @@ const NewCustodianUsers = () => {
         console.log("Verification failed YOBpopup for new CustodianUsers");
     }
 }
+
+
 const verifySSOAndCustodianMerge = () => {
     try {
         wait.waitForElementVisibility(content.statelogin, 20000);
         content.statelogin.click();
         browser.sleep(1000);
-        wait.waitForElementVisibility(content.stateInsideEdit, 20000);
-        content.stateInsideEdit.click();
-        browser.sleep(1000);
+        // wait.waitForElementVisibility(content.stateInsideEdit, 20000);
+        // content.stateInsideEdit.click();
+        // browser.sleep(1000);
         wait.waitForElementVisibility(content.SSOStateSelect1, 20000);
         content.SSOStateSelect1.click();
-        browser.sleep(1000);
+        browser.sleep(2000);
+        content.selectLoginState.click();
+        browser.sleep(3000);
         wait.waitForElementVisibility(content.SSOSubmit2, 20000);
         content.SSOSubmit2.click();
         browser.sleep(1000);
         wait.waitForElementVisibility(content.SSOUserName, 20000);
-        content.SSOUserName.sendKeys('rambo');
+        content.SSOUserName.click();
+        browser.sleep(2000);
+        content.SSOUserName1.sendKeys('rambo');
         browser.sleep(1000);
         wait.waitForElementVisibility(content.SSOUserExtID, 20000);
+        content.SSOUserExtID.click();
+        browser.sleep(2000);
         content.SSOUserExtID.sendKeys('rambo1');
-        browser.sleep(1000);
+        browser.sleep(2000);
         wait.waitForElementVisibility(content.SSOSchoolExtID, 20000);
+        content.SSOSchoolExtID.click();
+        browser.sleep(2000);
         content.SSOSchoolExtID.sendKeys('33291500301');
-        browser.sleep(1000);
+        browser.sleep(2000);
         wait.waitForElementVisibility(content.SSOsubmit, 20000);
         content.SSOsubmit.click();
         browser.sleep(1000);
@@ -1310,6 +1322,9 @@ const verifySSOAndCustodianMerge = () => {
         console.log("Failed on adding user");
     }
 }
+
+
+
 const YOBnotAccessibleToExistingAndSSOusers = () => {
     try {
         console.log('Verify YOB popup is not accecsible for existing and SSO users');
@@ -2057,7 +2072,7 @@ const verifyloginPagelinks = () => {
 }
 
 
-const validateTncPopInManage = () => {
+const TnCReminderTextInDownloadButton = () => {
     try {
         console.log("validating manage option popup is not generete everytime user visit.");
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
@@ -2073,6 +2088,9 @@ const validateTncPopInManage = () => {
         browser.sleep(1000);
         expect((content.tncPopUp).isPresent()).toBe(true);
         browser.sleep(2000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(5000);
+
         expect((content.assertDikshaGuidelines).isPresent()).toBe(true);
         browser.sleep(2000);
     }
@@ -2275,7 +2293,7 @@ const verifyNewRegisterHerePage = async () => {
         console.log("Register here page is blank.");
     }
 }
-const TnCReminderTextInDownloadButton = () => {
+const validateTncPopInManage = () => {
     try {
         console.log("validating manage option popup is not generete everytime user visit.");
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
@@ -2292,6 +2310,264 @@ const TnCReminderTextInDownloadButton = () => {
     }
     catch (Exception) {
         console.log("failed");
+    }
+}
+
+const verifyNewRegisterHerePageAndValidateMobileAndEmailEntryForMajorUsers = async () => {
+    try {
+        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+        
+        console.log("validating Register Here page.")
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.loginLink, 20000);
+        content.loginLink.click();
+        browser.sleep(3000);
+        browser.executeScript('window.scrollTo(0,150);').then(function () {
+            console.log('++++++SCROLLED down+++++');
+        });
+        wait.waitForElementVisibility(content.RegisterHereLink, 20000)
+        content.RegisterHereLink.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.nameInRegisterPage, 20000)
+        content.nameInRegisterPage.sendKeys(cred[48]['CourseName']);
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.birthYear, 20000)
+        content.birthYear.click();
+        browser.sleep(3000);
+        var scrolling = content.sltBirtYearForMajorUser;
+        browser.controlFlow().execute(function () {
+            browser.executeScript('arguments[0].scrollIntoView({block:"center"})', scrolling.getWebElement());
+        });
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.sltBirtYearForMajorUser, 20000)
+        content.sltBirtYearForMajorUser.click();
+        browser.sleep(2000);
+        console.log("Register page is not blank.")
+        wait.waitForElementVisibility(content.continueButton, 20000)
+        content.continueButton.click();
+        browser.sleep(4000);
+        content.btnSubmit.click();
+        browser.sleep(4000);
+        expect(content.emailCheckBox.isPresent()).toBeTruthy();
+        expect(content.mobileNumberCheckBox.isPresent()).toBeTruthy();
+    }
+    catch (Exception) {
+        console.log("Register here page is blank.");
+    }
+}
+
+const verifySSOandCustodUserMergeAndValidatePopUp= async () => {
+    try {
+        wait.waitForElementVisibility(content.statelogin, 20000);
+        content.statelogin.click();
+        browser.sleep(1000);
+        // wait.waitForElementVisibility(content.stateInsideEdit, 20000);
+        // content.stateInsideEdit.click();
+        // browser.sleep(1000);
+        wait.waitForElementVisibility(content.SSOStateSelect1, 20000);
+        expect(content.SSOStateSelect1.isPresent()).toBe(true);
+        browser.sleep(2000);
+        content.SSOStateSelect1.click();
+        browser.sleep(2000);
+        content.selectLoginState.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.SSOSubmit2, 20000);
+        content.SSOSubmit2.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.SSOUserName, 20000);
+        content.SSOUserName.click();
+        browser.sleep(2000);
+        content.SSOUserName1.sendKeys('rambo');
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.SSOUserExtID, 20000);
+        content.SSOUserExtID.click();
+        browser.sleep(2000);
+        content.SSOUserExtID.sendKeys('rambo1');
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.SSOSchoolExtID, 20000);
+        content.SSOSchoolExtID.click();
+        browser.sleep(2000);
+        content.SSOSchoolExtID.sendKeys('33291500301');
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.SSOsubmit, 20000);
+        content.SSOsubmit.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.mergeAccount, 20000);
+        content.mergeAccount.click();
+        browser.sleep(5000);
+        searchObj.clickCancelButton.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.mergeAccount, 20000);
+        content.mergeAccount.click();
+        browser.sleep(5000);
+        // let mesg =  await sanity.validateMergePopUpMsg.getText();
+        // mesg.includes("If you have two accounts with SUNBIRD,click Merge to:combine usage details of both accounts, and delete the other account Else, click Cancel")
+        //browser.sleep(5000);
+        var currentUrlBeforeMerge = await browser.getCurrentUrl();
+        console.log(currentUrlBeforeMerge);
+        browser.sleep(5000);
+        wait.waitForElementVisibility(content.mergebutton, 20000);
+        content.mergebutton.click();
+        browser.sleep(3000);
+        expect(searchObj.assertSignInGoogleOption.isPresent()).toBe(true);
+        browser.sleep(3000);
+        // utility.userLogin('NewUserSecondTime');
+        // browser.sleep(3000);
+        wait.waitForElementVisibility(content.userName, 20000);
+        content.userName.sendKeys('mergeaccount3@yopmail.com');
+        browser.sleep(3000);
+        content.password.sendKeys('Test@123');
+        browser.sleep(3000);
+        content.login.click();
+        browser.sleep(3000);
+        var currentUrlAfterMerge = await browser.getCurrentUrl();
+        expect(currentUrlBeforeMerge!=currentUrlAfterMerge);
+        browser.sleep(2000);
+        expect(sanity.validatePopUpMesgAfterMerge.isPresent()).toBe(true);
+        browser.sleep(3000);
+        sanity.saityokButtonToMerge.click();
+        browser.sleep(5000);
+    }
+    catch (Exception) {
+        console.log("Failed on adding user");
+    }
+}
+
+
+
+const verifySSOandCustodUserMergeAndValidatePopUpAndInvalid= async () => {
+    try {
+        wait.waitForElementVisibility(content.statelogin, 20000);
+        content.statelogin.click();
+        browser.sleep(1000);
+        // wait.waitForElementVisibility(content.stateInsideEdit, 20000);
+        // content.stateInsideEdit.click();
+        // browser.sleep(1000);
+        wait.waitForElementVisibility(content.SSOStateSelect1, 20000);
+        expect(content.SSOStateSelect1.isPresent()).toBe(true);
+        browser.sleep(2000);
+        content.SSOStateSelect1.click();
+        browser.sleep(2000);
+        content.selectLoginState.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.SSOSubmit2, 20000);
+        content.SSOSubmit2.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.SSOUserName, 20000);
+        content.SSOUserName.click();
+        browser.sleep(2000);
+        content.SSOUserName1.sendKeys('rambo');
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.SSOUserExtID, 20000);
+        content.SSOUserExtID.click();
+        browser.sleep(2000);
+        content.SSOUserExtID.sendKeys('rambo1');
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.SSOSchoolExtID, 20000);
+        content.SSOSchoolExtID.click();
+        browser.sleep(2000);
+        content.SSOSchoolExtID.sendKeys('33291500301');
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.SSOsubmit, 20000);
+        content.SSOsubmit.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.mergeAccount, 20000);
+        content.mergeAccount.click();
+        browser.sleep(5000);
+        searchObj.clickCancelButton.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(content.mergeAccount, 20000);
+        content.mergeAccount.click();
+        browser.sleep(5000);
+        wait.waitForElementVisibility(content.mergebutton, 20000);
+        content.mergebutton.click();
+        browser.sleep(3000);
+        expect(searchObj.assertSignInGoogleOption.isPresent()).toBe(true);
+        browser.sleep(3000);
+        // utility.userLogin('NewUserSecondTime');
+        // browser.sleep(3000);
+        wait.waitForElementVisibility(content.userName, 20000);
+        content.userName.sendKeys('mergeaccount3@yopmail.com');
+        browser.sleep(3000);
+        content.password.sendKeys('Test@123');
+        browser.sleep(3000);
+        content.login.click();
+        browser.sleep(3000);        
+    }
+    catch (Exception) {
+        console.log("Failed on adding user");
+    }
+}
+
+
+const validateAllLoginAttributesOfExplorePage = async () => {
+    try {
+        browser.sleep(4000);
+        let explorePage = await browser.getCurrentUrl();
+        var loginUrl = "auth";
+        var exploreUrl ="explore";
+        
+        explorePage.includes(exploreUrl);
+        browser.sleep(4000);
+        wait.waitForElementVisibility(content.headerDropdown, 20000);
+        content.headerDropdown.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.loginLink, 20000);
+        content.loginLink.click();
+        browser.sleep(3000);
+        let loginPage = await browser.getCurrentUrl();
+        browser.sleep(3000);
+        loginPage.includes(loginUrl);
+        browser.sleep(3000);
+        expect(searchObj.validateWelcomePage.isPresent()).toBe(true);
+        browser.sleep(3000);
+        var rightSide = await (searchObj.validateForgetPasswordUnderPasswordInput).getCssValue('float');
+        expect(rightSide).toBe("right");
+        browser.sleep(3000);
+        expect(searchObj.validateplaceHolderTextBox.isPresent()).toBe(true);
+        browser.sleep(3000);
+        expect(searchObj.loginButtonTextInCaps.isPresent()).toBe(true);
+        browser.sleep(2000);
+        expect(searchObj.assertDontHaveAccountRegisterHereInLeftSide.isPresent()).toBe(true);
+        browser.sleep(2000);
+        var leftSide = await (searchObj.validateForgetPasswordUnderPasswordInput).getCssValue('text-align');
+        //console.log(leftSide);
+        //expect(leftSide).toBe("left");
+        browser.sleep(3000);
+        expect(searchObj.assertSignInGoogleButton.isPresent()).toBe(true);
+        browser.sleep(2000);
+        var googleButtonColor = await (searchObj.assertSignInGoogleButton).getCssValue('background');
+        let hexcolorCode = utility.rgba2hex(googleButtonColor);
+        expect(hexcolorCode).toMatch("#0b51c1");
+        browser.sleep(3000);
+        expect(searchObj.assertLoginwithStateSystem.isPresent()).toBe(true);
+        browser.sleep(3000);
+        expect(searchObj.assertGoogleLogo.isPresent()).toBe(true);
+        var googleLogo = await (searchObj.assertGoogleLogo).getCssValue('left');
+        expect(googleLogo).toBe("1px");
+        browser.sleep(3000);
+        var googleButtonColor = await (searchObj.assertLoginwithStateSystem).getCssValue('background-color');
+        let hexcolorCode2 = utility.rgba2hex(googleButtonColor);
+        expect(hexcolorCode2).toMatch("#fff");
+        browser.sleep(3000);
+    }
+    catch (Exception) {
+        console.log("Failed on adding user");
     }
 }
 
@@ -2359,5 +2635,9 @@ module.exports = {
     verifyForgetLabelAndLink,
     verifyNewRegisterHerePage,
     TnCReminderTextInDownloadButton,
+    verifyNewRegisterHerePageAndValidateMobileAndEmailEntryForMajorUsers,
+    verifySSOandCustodUserMergeAndValidatePopUp,
+    verifySSOandCustodUserMergeAndValidatePopUpAndInvalid,
+    validateAllLoginAttributesOfExplorePage,
 }
 

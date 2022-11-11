@@ -25,6 +25,7 @@ describe('able to create course and enroll consume TimerVerification', () => {
 
     it('verifyCourseTocPageAfterLoginFromGuestUserForNewCred', function () {
         utility.handleDropDown();
+        //browser.sleep(25000);
         utility.handleLocationPopup();
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch('CourseGuestUser');
         EnrollTBFCPageObj.clickJoincourse();

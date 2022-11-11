@@ -330,9 +330,6 @@ const handleLocationPopup = () => {
 
     browser.actions().sendKeys(protractor.Key.TAB).perform();
     browser.sleep(2000);
-
-    
-
     wait.waitForElementVisibility(content.gradeLevelDropDown, 30000);
     content.gradeLevelDropDown.click();
     browser.sleep(3000);
@@ -383,21 +380,23 @@ const handleLocationPopupForSchoolHead = () => {
     browser.executeScript("window.scrollTo(0,100);").then(function () {
       console.log("++++++SCROLLED Down+++++");
     });
+    browser.sleep(3000);
     wait.waitForElementVisibility(content.clkSchoolHeader, 30000);
     content.clkSchoolHeader.click();
+    browser.sleep(3000);
     wait.waitForElementVisibility(content.Continue, 20000);
     content.Continue.click();
-    browser.sleep(4000);
+    browser.sleep(25000);
 
-    // wait.waitForElementVisibility(content.state, 20000);
-    // content.state.click();
-    // wait.waitForElementVisibility(content.selectState, 20000);
-    // content.selectState.click();
-    // wait.waitForElementVisibility(content.district, 20000);
-    // content.district.click();
-    // wait.waitForElementVisibility(content.selectDistrict, 20000);
-    // content.selectDistrict.click();
-    // browser.sleep(2000);
+    wait.waitForElementVisibility(content.state, 20000);
+    content.state.click();
+    wait.waitForElementVisibility(content.selectState, 20000);
+    content.selectState.click();
+    wait.waitForElementVisibility(content.district, 20000);
+    content.district.click();
+    wait.waitForElementVisibility(content.selectDistrict, 20000);
+    content.selectDistrict.click();
+    browser.sleep(2000);
     browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
     browser.sleep(2000);
 
@@ -862,6 +861,36 @@ const handleLocationPopupWithMultiSelectAndUnSelect = () => {
   }
 };
 
+const handleLocationPopupAfterAddUser = () => {
+  try {
+    browser.sleep(4000);
+    
+    wait.waitForElementVisibility(content.state, 20000);
+    content.state.click();
+    browser.sleep(2000);
+
+    wait.waitForElementVisibility(content.selectState, 20000);
+    content.selectState.click();
+    browser.sleep(4000);
+
+    wait.waitForElementVisibility(content.district, 20000);
+    content.district.click();
+    browser.sleep(5000);
+
+    wait.waitForElementVisibility(content.selectDistrict, 20000);
+    content.selectDistrict.click();
+    browser.sleep(5000);
+    browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
+    browser.sleep(1000);
+    wait.waitForElementVisibility(content.submitForm, 20000);
+    content.submitForm.click();
+
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
 
 module.exports = {
   verifyAdminDashBoard,
@@ -893,4 +922,5 @@ module.exports = {
   handleLocationPopupWithMultiSelect,
   handleLocationPopupWithMultiSelectAndUnSelect,
   backDate,
+  handleLocationPopupAfterAddUser,
 };

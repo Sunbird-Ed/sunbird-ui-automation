@@ -1148,16 +1148,18 @@ const multiselectForAllTabs = () => {
 const verifyUserAccessLiscenceTerms = () => {
     try {
         console.log('Verify User is able to access Liscence Terms Section');
-
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown1), 50000, "guest drop down is not available");
-        // content.headerDropdown1.click();
-        // browser.sleep(5000);
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(tpd.clkSwitchClassicTheme), 40000, "Theme is not switchable");
-        // tpd.clkSwitchClassicTheme.click();
-        // browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbpage1.etb().digitalTextBook), 50000, "Digital Text book is not available");
-        etbpage1.etb().digitalTextBook.click();
+        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '3');
+        var doid = cred[33]['Title']
+        wait.waitForElementVisibility(resov.filterSearch, 20000, "filterSearch not loaded");
+        resov.filterSearch.click();
+        resov.filterSearch.sendKeys(doid);
+        resov.searchIcon.click();
         browser.sleep(3000);
+        console.log("Clicked on Search Icon");
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(etbpage1.etb().digitalTextBook), 50000, "Digital Text book is not available");
+        // etbpage1.etb().digitalTextBook.click();
+        // browser.sleep(3000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.courseCard), 50000, "Book not available");
         content.courseCard.click();
         browser.sleep(3000);
@@ -1166,7 +1168,7 @@ const verifyUserAccessLiscenceTerms = () => {
         });
         //browser.executeScript("arguments[0].scrollIntoView();", etbpage1.etb().liscenceTerms);
         (etbpage1.etb().liscenceTerms).getText().then(function (PopupText) {
-            expect(PopupText).toEqual('Credits And Licence Info');
+            expect(PopupText).toEqual('Credits & license info');
         });
         // etbpage1.etb().liscenceTerms.click();
         // console.log('User is able to access Liscence Terms Section');

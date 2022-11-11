@@ -8,7 +8,6 @@ const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
 describe('validateProgressAfterConsumingHalfWay', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -23,7 +22,6 @@ describe('validateProgressAfterConsumingHalfWay', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-
 
     it('validateProgressAfterConsumingHalfWay', function () {
         utility.handleDropDown();
@@ -41,8 +39,6 @@ describe('validateProgressAfterConsumingHalfWay', () => {
         utility.userLogin('Public User1');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.JoinCourseWithOpenBatch();
-        EnrollTBFCPageObj.validateAndConsumeOngoingContentHalfway(courseName);
-        
+        EnrollTBFCPageObj.validateAndConsumeOngoingContentHalfway(courseName);  
     })
 });
-

@@ -1,3 +1,5 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
@@ -23,15 +25,16 @@ describe('SearchTVLesonTypeContent review and publish.', () => {
     });
     it('SearchTVLesonTypeContent',function(){
         utility.handleDropDown();
+        //browser.sleep(20000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let resourceName=resourcePageObj.createResource();
         resourcePageObj.sendForReviewTheResourceWithTVLessonInAdditionalCateg();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         sanityfun.TVClassSearch(resourceName);
     })
 });

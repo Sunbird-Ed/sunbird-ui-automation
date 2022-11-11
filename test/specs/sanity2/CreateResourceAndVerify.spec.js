@@ -24,8 +24,8 @@ describe('CreateResourceAndVerify.', () => {
 
     it('CreateResourceAndVerify',function(){
         utility.handleDropDown();
-        browser.sleep(20000);
-        //utility.handleLocationPopup();
+        //browser.sleep(20000);
+        utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResource();
         resourcePageObj.sendForReviewTheResource();

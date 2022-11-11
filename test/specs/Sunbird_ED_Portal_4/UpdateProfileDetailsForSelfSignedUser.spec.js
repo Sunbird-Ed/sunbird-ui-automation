@@ -2,7 +2,7 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 const usrOnBoardfun = require(protractor.basePath + '/test/pageObject/UserOnBoardingPageObj.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 
-describe('Verify UpdateProfileDetailsForSelfSignedUser', () => {
+describe('UpdateProfileDetailsForSelfSignedUser', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;

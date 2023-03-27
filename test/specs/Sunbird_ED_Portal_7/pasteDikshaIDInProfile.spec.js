@@ -17,8 +17,8 @@ describe('Verify pasteDikshaIDInProfile', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        browser.manage().deleteAllCookies
-        ();
+        browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('pasteDikshaIDInProfile',function(){

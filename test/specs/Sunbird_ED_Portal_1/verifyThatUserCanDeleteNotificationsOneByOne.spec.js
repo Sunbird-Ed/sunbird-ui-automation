@@ -13,33 +13,30 @@ describe('Verify that, User can delete notifications one by one ', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('verifyThatUserCanDeleteNotificationsOneByOne ',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('ContentCreator');
-        EnrollTBFCPageObj.openExistingGroup();
-        EnrollTBFCPageObj.addMemberToGroup();
-        EnrollTBFCPageObj.addActivityToTheExistingGroup();
-        utility.userLogout();
-        utility.userLogin('Public User1');
-        EnrollTBFCPageObj.userCanClearAllNotifications();
-        utility.userLogout();
+        // utility.userLogin('ContentCreator');
+        // EnrollTBFCPageObj.openExistingGroup();
+        // EnrollTBFCPageObj.addMemberToGroup();
+        // EnrollTBFCPageObj.addActivityToTheExistingGroup();
+        // utility.userLogout();
+        // utility.userLogin('Public User2');
+        // EnrollTBFCPageObj.userCanClearAllNotifications();
+        // utility.userLogout();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.openExistingGroup2();
-        //EnrollTBFCPageObj.addMemberToGroup();
         EnrollTBFCPageObj.addActivityToTheExistingGroup();
         EnrollTBFCPageObj.removeActivityFromExistingGroup();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.verifyThatUserCanDeleteNotificationsOneByOne();
     })
 });

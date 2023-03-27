@@ -10,22 +10,18 @@ describe('Verify that, Update button is replaced with “Submit” button', () =
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('verifyThatUpdateButtonIsReplacedWithSubmitButton ',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        EnrollTBFCPageObj.verifyTOCandCourseConsumption();
-        //EnrollTBFCPageObj.verifySubmitButtonOnDiscussionTopic();
-        //EnrollTBFCPageObj.disableDiscussionForumOption();
-     
+        utility.userLogin('ContentCreator');
+        EnrollTBFCPageObj.verifySubmitButtonOnDiscussionTopic();
+        EnrollTBFCPageObj.disableDiscussionForumOption();
     })
 });

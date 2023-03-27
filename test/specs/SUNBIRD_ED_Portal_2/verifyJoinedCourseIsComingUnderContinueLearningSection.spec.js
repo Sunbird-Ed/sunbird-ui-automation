@@ -26,21 +26,19 @@ describe('verifyJoinedCourseIsComingUnderContinueLearningSection', () => {
 
     it('verifyJoinedCourseIsComingUnderContinueLearningSection', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
         console.log(courseName);
         utility.userLogout();
         utility.userLogin('ContentReviewer');
-        
         tpdPageObj.publishCourseFromUpForReview2(courseName);
         utility.userLogout();
         utility.userLogin('ContentCreator');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.validateContinueLearningSection(courseName);
         utility.userLogout();
     })

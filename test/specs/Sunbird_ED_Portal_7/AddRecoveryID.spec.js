@@ -18,6 +18,7 @@ describe('AddRecoveryID', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('AddRecoveryID',function(){

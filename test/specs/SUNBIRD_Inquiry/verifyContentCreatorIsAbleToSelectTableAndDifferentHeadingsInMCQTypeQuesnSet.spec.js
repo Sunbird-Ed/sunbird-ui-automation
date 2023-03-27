@@ -24,7 +24,7 @@ describe('Verify Content Creator Is Able To Select Table And Different Headings 
     });
     it('verifyContentCreatorIsAbleToSelectTableAndDifferentHeadingsInMCQTypeQuesnSet',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        //;
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         resourcePageObj.verifyContentCreatorIsAbleToSelectTableAndDifferentHeadingsInMCQTypeQuesnSet();

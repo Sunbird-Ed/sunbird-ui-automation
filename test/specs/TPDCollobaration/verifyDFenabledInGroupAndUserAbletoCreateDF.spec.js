@@ -25,10 +25,10 @@ describe('verifyDFenabledInGroupAndUserAbletoCreateDF', () => {
         utility.userLogin('Admin');
         sanityfun.verifyEnableAndDisableDiscussionForGroup2();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.GroupAdminIsAbleToAddAnActivityWhichIsACourse();
         // utility.userLogout();
-        // utility.userLogin('Public User1');
+        // utility.userLogin('Public User2');
         // EnrollTBFCPageObj.EditTitleDescriptionTags();
     })
 });

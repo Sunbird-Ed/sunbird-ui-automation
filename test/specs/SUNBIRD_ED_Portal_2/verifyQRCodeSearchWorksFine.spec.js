@@ -32,7 +32,7 @@ describe('verifyQRCodeSearchWorksFine', () => {
         utility.userLogin('ContentReviewer');
         tpdPageObj.publishContentFromUpForReviewBucket(BookName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.verifyQRCodeSearchWorksFine();
        
     });

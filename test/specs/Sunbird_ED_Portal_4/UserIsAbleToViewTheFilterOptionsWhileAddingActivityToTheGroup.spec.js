@@ -23,8 +23,7 @@ describe('User must be able to view the Filter options while adding a Activity t
     });
     it('UserIsAbleToViewTheFilterOptionsWhileAddingActivityToTheGroup ',function(){
         utility.handleDropDown();
-        browser.sleep(25000);
-        // utility.handleLocationPopup();
+        utility.handleLocationPopup();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.ViewTheFilterOptionsWhileAddingActivity();
      

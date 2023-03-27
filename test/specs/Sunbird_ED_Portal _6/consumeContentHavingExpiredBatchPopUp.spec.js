@@ -21,6 +21,7 @@ describe('consumeContentHavingExpiredBatchPopUp' , () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
 
     it('consumeContentHavingExpiredBatchPopUp',function(){
@@ -28,7 +29,7 @@ describe('consumeContentHavingExpiredBatchPopUp' , () => {
         utility.handleLocationPopup();
         browser.sleep(15000);
         let courseName = "AutomationExpiredCourse";
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.consumeExpiredContent();
     })

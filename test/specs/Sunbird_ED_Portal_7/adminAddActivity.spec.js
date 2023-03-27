@@ -16,6 +16,7 @@ describe('Verify adminAddActivity', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
 
     it('adminAddActivity ',function(){
@@ -24,7 +25,7 @@ describe('Verify adminAddActivity', () => {
         utility.userLogin('Creator');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMemberandAddActivity();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.groupMemberCourseConsumptionstatus();
         utility.userLogout();
        

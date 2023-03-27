@@ -22,8 +22,7 @@ describe('consumeEpubAndvalidateInToc', () => {
     });
 
     it('consumeEpubAndvalidateInToc',function(){
-        utility.handleDropDown();
-        
+        utility.handleDropDown();        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentLibraryType="epub";
@@ -36,7 +35,7 @@ describe('consumeEpubAndvalidateInToc', () => {
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         cont.consumeEpubContent(courseName);
     })
 });

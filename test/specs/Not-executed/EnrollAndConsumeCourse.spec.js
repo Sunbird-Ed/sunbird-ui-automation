@@ -4,7 +4,6 @@ const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySig
 
 
 describe('Verify that the course progress bar is getting updated when the user consumes the  content(20% of the content for Youtube,Webm and Mp4) in  the course.', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -20,14 +19,10 @@ describe('Verify that the course progress bar is getting updated when the user c
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
+
     it('EnrollAndConsumeCourse ',function(){
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
-        verifyCEBpageobj.clickOnEnrollAndConsume();
-        
+        utility.userLogin('Public User2');
+        verifyCEBpageobj.clickOnEnrollAndConsume();  
     })
-
- 
-   
 });
-   

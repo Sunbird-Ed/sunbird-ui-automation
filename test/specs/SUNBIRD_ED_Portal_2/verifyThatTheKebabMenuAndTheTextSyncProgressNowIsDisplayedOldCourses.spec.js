@@ -21,9 +21,8 @@ describe('Verify that the kebab menu and the text "Sync progress now" is display
     });
     it('verifyThatTheKebabMenuAndTheTextSyncProgressNowIsDisplayedOldCourses',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.verifyThatTheKebabMenuAndTheTextSyncProgressNowIsDisplayedOldCourses();    
     });
 });

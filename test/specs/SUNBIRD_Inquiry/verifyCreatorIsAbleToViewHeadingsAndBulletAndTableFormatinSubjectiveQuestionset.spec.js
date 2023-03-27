@@ -22,7 +22,7 @@ describe('Verify Creator Is Able To View Headings And Bullet And Table Format in
     });
     it('verifyCreatorIsAbleToViewHeadingsAndBulletAndTableFormatinSubjectiveQuestionset',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        //;
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         resourcePageObj.verifyCreatorIsAbleToViewHeadingsAndBulletAndTableFormatinSubjectiveQuestionset();

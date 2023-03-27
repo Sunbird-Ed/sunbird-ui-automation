@@ -24,7 +24,7 @@ describe('Verify Content Creator Is Able To See Different TextFormats Such As Bu
     });
     it('verifyContentCreatorIsAbleToSeeDifferentTextFormatsSuchAsBulletListAndTableAndHeadingsInSubjectiveQuesnSet',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        //;
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         resourcePageObj.verifyContentCreatorIsAbleToSeeDifferentTextFormatsSuchAsBulletListAndTableAndHeadingsInSubjectiveQuesnSet();

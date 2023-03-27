@@ -19,10 +19,13 @@ describe('ConsumeThePdfWithZoomFunctionality', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
+
     it('ConsumeThePdfWithZoomFunctionality',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
+     
         // utility.userLogin('Creator');
         // let contentName=resourcePageObj.createQuestionFITBWithAllStyles();
         // resourcePageObj.sendForReviewTheResource();
@@ -31,7 +34,7 @@ describe('ConsumeThePdfWithZoomFunctionality', () => {
         // resourcePageObj.publishTheResourceFromUpForReview(contentName);
         // utility.userLogout();
 
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         cont.consumeContent();
     })
     

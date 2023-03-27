@@ -24,7 +24,7 @@ describe('validateCertificateRuleBeforeAndAfterJoiningCourse', () => {
     it('validateCertificateRuleBeforeAndAfterJoiningCourse',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('NewCustUser1');
+        utility.userLogin('submitDetails');
         tpdPageObj.navigateToCourseAndValidateShowMoreOptionForCertificateRuleBeforeAndAterjoining();
     })
 });

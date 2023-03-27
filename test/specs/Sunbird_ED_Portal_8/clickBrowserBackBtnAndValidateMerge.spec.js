@@ -21,7 +21,7 @@ describe('Verify Group Admin must be able to download the Metrics for the select
     it('clickBrowserBackBtnAndValidateMerge ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Creator');
         EnrollTBFCPageObj.clickBrowserBackBtnAndValidateMerge();
      
     })

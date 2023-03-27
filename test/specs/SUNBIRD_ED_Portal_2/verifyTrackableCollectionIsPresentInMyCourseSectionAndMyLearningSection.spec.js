@@ -29,7 +29,7 @@ describe('verifyTrackableCollectionIsPresentInMyCourseSectionAndMyLearningSectio
         
         utility.handleLocationPopup();
         let courseName = "4.4 trackable collection";
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.verifyTrackableCollectionIsPresentInMyCourseSectionAndMyLearningSection(courseName);
         utility.userLogout();
     })

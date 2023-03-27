@@ -26,13 +26,13 @@ describe('verifyUserCannotCreateNewBatchForFutureBatch', () => {
     
     it('VerifyThatUserIsDisplayedWithTheUnreadNotificationsOnTopPostClikcingTheBellIcon', function () {
         utility.handleDropDown();
-        
+    
         utility.handleLocationPopup();
         utility.userLogin('Notification');
         EnrollTBFCPageObj.openExistingGroup();
         EnrollTBFCPageObj.addActivityToExistingGroup();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.userCanClearAllNotifications();
         utility.userLogout();
         utility.userLogin('Notification');
@@ -49,7 +49,7 @@ describe('verifyUserCannotCreateNewBatchForFutureBatch', () => {
         EnrollTBFCPageObj.addActivityToExistingGroup();
         EnrollTBFCPageObj.addActivityToExistingGroup(); 
         utility.userLogout();
-        // utility.userLogin('Public User1');
+        // utility.userLogin('Public User2');
         // EnrollTBFCPageObj.verifyNotifications();       
     })
 });

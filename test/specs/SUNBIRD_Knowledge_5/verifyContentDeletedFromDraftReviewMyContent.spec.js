@@ -25,11 +25,9 @@ describe('verifyContentDeletedFromDraftReviewMyContent', () => {
     it('verifyContentDeletedFromDraftReviewMyContent',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        
+        utility.userLogin('Creator');        
         console.log("User is trying to delete drafted course from draft and allMyContent section");
         let courseName1=sanityfun.CreateCourseAndSaveAsDraft1();
-        //lspPageObj.searchAnddeleteDraftItems(courseName1);
         lspPageObj.searchAnddeleteAllMyContentItems(courseName1);
         utility.userLogout();
         utility.userLogin('Creator');

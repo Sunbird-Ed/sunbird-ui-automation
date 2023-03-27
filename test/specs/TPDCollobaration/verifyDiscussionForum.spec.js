@@ -23,7 +23,6 @@ describe('verifyDiscussionForum', () => {
 
     it('verifyDiscussionForum',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityPage.groupValidation();

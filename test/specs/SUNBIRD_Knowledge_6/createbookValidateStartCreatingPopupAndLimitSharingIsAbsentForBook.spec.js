@@ -24,7 +24,7 @@ describe('createbookValidateStartCreatingPopupAndLimitSharingIsAbsentForBook', (
     it('createbookValidateStartCreatingPopupAndLimitSharingIsAbsentForBook',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin("ContentCreator");
+        utility.userLogin("Creator");
         sanityFun.createBookAndValidatePopUpStartCreating();
     });
 });

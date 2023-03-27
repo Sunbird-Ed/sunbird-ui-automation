@@ -26,15 +26,16 @@ describe('Create Course save and send for review and publish.', () => {
     });
     it('CreateCourseAndVerify', function () {
         utility.handleDropDown();
-        utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        browser.sleep(30000);
+        //utility.handleLocationPopup();
+        utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         
-        tpdPageObj.publishCourseFromUpForReview(courseName);
+        tpdPageObj.publishCourseFromUpForReview2(courseName);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         
         lspPageObj.deleteCreatedItems();
 

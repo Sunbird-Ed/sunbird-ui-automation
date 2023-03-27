@@ -22,9 +22,8 @@ describe('verifyHelpCentreHamburgerMenuAndFAQ', () => {
     
     it('verifyHelpCentreHamburgerMenuAndFAQ',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('NewCustUser');
+        utility.userLogin('Public User2');
         verifyUOpage.verifyHamburgerAndFAQ();
     });
 });

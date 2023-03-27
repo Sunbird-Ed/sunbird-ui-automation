@@ -27,13 +27,5 @@ describe('upload html, save and send for review and publish.', () =>{
         utility.userLogout();
         utility.userLogin('OnlyContentReviewer');
         resourcePageObj.publishTheResourceFromUpForReview(uploadContent);
-        utility.userLogout();
-        // utility.userLogin('Public User1');
-        // resourcePageObj.ConsumeUploadContent(uploadContent,'EPUB');
-        // utility.userLogout();
-
-
-
     });
-
 });

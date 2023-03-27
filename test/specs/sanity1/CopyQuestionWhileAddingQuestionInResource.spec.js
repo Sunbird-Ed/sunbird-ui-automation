@@ -19,27 +19,21 @@ describe('copy Question save and send for review and publish.', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
         
     });
     it('CopyQuestionWhileAddingQuestionInResource  ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         var questionName=resourcePageObj.copyQuestion();
         resourcePageObj.sendForReviewTheResource();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         resourcePageObj.publishTheResourceFromUpForReview(questionName);
         utility.userLogout();
-        utility.userLogin('Creator');
-        
+        utility.userLogin('ContentCreator');
         lspPageObj.deleteCreatedItems();
-      
-       
-
     })
-
-   
-   
 });
-   

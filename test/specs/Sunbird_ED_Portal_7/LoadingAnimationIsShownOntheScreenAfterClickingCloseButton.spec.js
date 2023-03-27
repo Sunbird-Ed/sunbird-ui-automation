@@ -17,6 +17,7 @@ describe('Loading animation is shown on the screens After Clicking Close Button'
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('LoadingAnimationIsShownOntheScreenAfterClickingCloseButton',function(){
         utility.handleDropDown();

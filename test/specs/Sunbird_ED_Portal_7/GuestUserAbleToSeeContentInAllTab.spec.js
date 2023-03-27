@@ -18,6 +18,7 @@ describe('GuestUserAbleToSeeContentInAllTab', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('GuestUserAbleToSeeContentInAllTab',function(){
         utility.handleDropDown();

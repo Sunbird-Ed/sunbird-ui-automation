@@ -16,7 +16,7 @@ describe('verifyIGOTPages', () => {
     });
     it('verifyIGOTPages',function(){
        // utility.handleDropDown();
-        //utility.handleLocationPopup();
+        utility.handleLocationPopup();
         // utility.userLogin('Admin');
         sanityPage.verifyIGOTpage();
     });

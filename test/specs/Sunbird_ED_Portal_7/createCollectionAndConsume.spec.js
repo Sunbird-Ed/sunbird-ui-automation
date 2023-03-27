@@ -22,6 +22,7 @@ describe('createCollectionAndConsume', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
 
     });
 
@@ -35,7 +36,7 @@ describe('createCollectionAndConsume', () => {
         utility.userLogin('ContentReviewer');
         tpdPageObj.publishContentFromUpForReviewBucket(collectionName)
         utility.userLogout();
-        // utility.userLogin('Public User1');
+        // utility.userLogin('Public User2');
         // content.consumeContent();
 
     })

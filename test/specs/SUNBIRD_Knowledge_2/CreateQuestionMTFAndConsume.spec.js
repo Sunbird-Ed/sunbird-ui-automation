@@ -31,7 +31,7 @@ describe('is Able to create Question MTF and  Consume by other Users and Creator
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         resourcePageObj.ConsumeResourceAndValidateScoreForMTF(contentName);
       
     })

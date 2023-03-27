@@ -23,6 +23,5 @@ describe('Verify content creator is able to create ,save and submit for review t
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         resourcePageObj.createMCQQuestionSetWithUploadImagesWithSolOpt();
-        
     }) 
 });

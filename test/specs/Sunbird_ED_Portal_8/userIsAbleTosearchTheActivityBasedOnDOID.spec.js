@@ -28,22 +28,19 @@ describe('userIsAbleTosearchTheActivityBasedOnDOID', () => {
         
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        let data = tpdPageObj.createCourseAndReturnDoidAndCourseName();
-        let course = data.courseName;
+        let data = sanityfun.createCollectionAndSendForReviewWithDoid();
+        let content = data.keywrdNam;
         let urldata = data.currentUrl;
         urldata.then(function (input) {
         var doid = input.split("/")[6];
+        console.log("RajuDOiD " +doid);
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(course);
+        tpdPageObj.publishCourseFromUpForReview(content);
         utility.userLogout();
-        // let course = "Automation";
-        utility.userLogin('Creator');
-        tpdPageObj.navigateToCourseAndSearchForOpenBatch(course);
-        tpdPageObj.createOpenBatch();
-        utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         sanityfun.verifyAddActivitySearchedByKeyword(doid);
        })
     })
 });
+

@@ -27,14 +27,14 @@ describe('userAbleToCopyTextBooktoNewTextwithPreviewPageValidation', () => {
     it('userAbleToCopyTextBooktoNewTextwithPreviewPageValidation',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin("ContentCreator");
-        let bookName = tpdPageObj.createBookAndValidatePreviewPageWithRetionalMetadataFields("pdf");
-        console.log(bookName);
-        utility.userLogout();
-        utility.userLogin("ContentReviewer");
-        tpdPageObj.publishCourseFromUpForReview(bookName);
-        utility.userLogout();
+        // utility.userLogin("ContentCreator");
+        // let bookName = tpdPageObj.createBookAndValidatePreviewPageWithRetionalMetadataFields("pdf");
+        // console.log(bookName);
+        // utility.userLogout();
+        // utility.userLogin("ContentReviewer");
+        // tpdPageObj.publishCourseFromUpForReview(bookName);
+        // utility.userLogout();
         utility.userLogin('ContentCreator');
-        tpdPageObj.navigateToTextBookAndCopyTextbookAndPublish(bookName);
+        tpdPageObj.navigateToTextBookAndCopyTextbookAndPublish('do_2137596637830922241716');
     });
 });

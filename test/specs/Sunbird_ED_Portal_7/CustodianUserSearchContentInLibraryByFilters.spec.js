@@ -18,6 +18,7 @@ describe('multiselectInAllTabs', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('CustodianUserSearchContentInLibraryByFilters',function(){
         utility.handleDropDown();

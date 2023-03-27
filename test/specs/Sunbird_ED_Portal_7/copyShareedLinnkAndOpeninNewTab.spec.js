@@ -20,6 +20,7 @@ describe('copyShareedLinnkAndOpeninNewTab', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
 
     it('copyShareedLinnkAndOpeninNewTab', function () {

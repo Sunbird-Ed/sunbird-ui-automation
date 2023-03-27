@@ -18,6 +18,8 @@ describe('verifyEnableDisableOptionForDiscussionForum', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
 
     it('verifyEnableDisableOptionForDiscussionForum',function(){

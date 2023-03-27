@@ -18,6 +18,7 @@ describe('groupAdminIsAbleToAddAnActivityWhichIsNotCourse', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('groupAdminIsAbleToAddAnActivityWhichIsNotCourse ',function(){
@@ -27,7 +28,7 @@ describe('groupAdminIsAbleToAddAnActivityWhichIsNotCourse', () => {
         utility.userLogin('Creator');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMemberandAddActivityWithoutCourse();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.groupMemberCourseConsumptionstatus();
     })
 });

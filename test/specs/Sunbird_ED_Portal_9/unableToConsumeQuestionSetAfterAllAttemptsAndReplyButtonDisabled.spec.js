@@ -27,7 +27,7 @@ describe('unableToConsumeQuestionSetAfterAllAttemptsAndReplyButtonDisabled', () 
         utility.handleDropDown();
         //browser.sleep(24000);
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         sanityfun.validateQuestionSetUnableToConsumeAftermaximumAttempt();
     })
 });

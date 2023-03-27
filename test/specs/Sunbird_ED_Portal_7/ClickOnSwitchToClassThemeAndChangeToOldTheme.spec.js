@@ -22,6 +22,7 @@ describe('ClickOnSwitchToClassThemeAndChangeToOldTheme for User', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('ClickOnSwitchToClassThemeAndChangeToOldTheme', function () {
         utility.handleDropDown();

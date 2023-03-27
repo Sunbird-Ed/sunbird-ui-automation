@@ -24,6 +24,5 @@ describe('Search Resource save and send for review and publish.', () => {
         utility.userLogin('ContentCreator');
         resourcePageObj.createMCQQuestionSetWithSolution();
         resourcePageObj.verifyDimensionOfQuestionSetInBothPortraitAndLandscapeMode();
-        
     }) 
 });

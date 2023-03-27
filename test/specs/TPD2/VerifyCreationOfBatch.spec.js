@@ -34,11 +34,9 @@ describe('VerifyCreationOfBatch', () => {
         utility.userLogout();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        //   EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
-        //   EnrollTBFCPageObj.createOpenBatchWithEnrolmentDate();
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.navigateToCourseAndVerify(courseName);
         // var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch();

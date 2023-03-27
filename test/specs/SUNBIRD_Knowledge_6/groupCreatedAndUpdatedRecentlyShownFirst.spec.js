@@ -30,7 +30,7 @@ describe('groupCreatedAndUpdatedRecentlyShownFirst', () => {
         sanityfun.validateSearchAddedMemberAndCout();
         sanityfun.validateRecentlyAddedMemberComingFirst(groupname);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         sanityfun.validateRecentlyAddedMemberComingFirst(groupname);
     })
 });

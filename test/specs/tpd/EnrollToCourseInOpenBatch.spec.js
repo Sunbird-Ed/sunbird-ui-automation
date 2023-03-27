@@ -15,44 +15,28 @@ describe('able to create course and enroll consume EnrollToCourseInOpenBatch.spe
         browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
-
-
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
+
     it('EnrollToCourseInOpenBatch', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        
+        utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(courseName)
         utility.userLogout();
-
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        //  EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
-        ///   EnrollTBFCPageObj.createOpenBatchWithEnrolmentDate();
         EnrollTBFCPageObj.createOpenBatch();
-
         utility.userLogout();
-
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch();
-        
-
-
     })
-
-
-
 });
-

@@ -25,9 +25,9 @@ describe('validateUserClickOnBrowseByBoardLandsOnSameExplorePage', () => {
 
     it('validateUserClickOnBrowseByBoardLandsOnSameExplorePage', function () {
         utility.handleDropDown();
-        browser.sleep(30000);
-        //utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        
+        utility.handleLocationPopup();
+        utility.userLogin('Public User2');
         tpdPageObj.exploreTabwithBrowseByBoard();
         tpdPageObj.validateUserType();
         utility.userLogout();

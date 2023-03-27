@@ -20,7 +20,6 @@ describe('Verify that, “Type here (minimum 10 characters)” is shown as place
 
     it('verifyThatPlaceholderForTopicReplyAsMin10Char ',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('LoadAnimation');
         EnrollTBFCPageObj.verifyThatPlaceholderForTopicReplyAsMin10Char();

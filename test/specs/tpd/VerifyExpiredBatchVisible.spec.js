@@ -45,7 +45,7 @@ describe('VerifyExpiredBatchVisible' , () => {
         tpdPageObj.createOpenBatch();
         utility.userLogout();
 
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.ExpiredBatchVisible(coursename);
         utility.userLogout();
         utility.userLogin('Creator');

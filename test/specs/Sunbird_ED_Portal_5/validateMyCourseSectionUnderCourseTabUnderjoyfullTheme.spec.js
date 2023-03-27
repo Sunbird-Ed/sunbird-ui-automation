@@ -27,7 +27,7 @@ describe('validateMyCourseSectionUnderCourseTabUnderjoyfullTheme', () => {
     it('validateMyCourseSectionUnderCourseTabUnderjoyfullTheme', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.validateMyCourseSection();
     })
 });

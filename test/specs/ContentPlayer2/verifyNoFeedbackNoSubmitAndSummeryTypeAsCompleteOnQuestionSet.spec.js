@@ -25,7 +25,7 @@ describe('Search Resource save and send for review and publish.', () => {
     it('verifyNoFeedbackNoSubmitAndSummeryTypeAsCompleteOnQuestionSet ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         sanityfun.SearchWithDoIdForSummeryTypeAsComplete();  
     })
 });

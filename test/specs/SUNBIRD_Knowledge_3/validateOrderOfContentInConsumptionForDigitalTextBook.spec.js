@@ -33,7 +33,7 @@ describe('validateOrderOfContentInConsumptionForDigitalTextBook', () => {
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(collectionName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         resourcePageObj.navigateToLibraryAndSearchContentAndValidateOrderContents(collectionName);
     })
 });

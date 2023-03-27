@@ -24,16 +24,15 @@ describe('userIsAbleTosearchTheActivityBasedOnKeyword', () => {
     
     it('userIsAbleTosearchTheActivityBasedOnKeyword', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let keywordName = sanityfun.createCollectionAndSendForReviewWithKeyWord();
         console.log(keywordName);
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview(keywordName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         sanityfun.verifyAddActivitySearchedByKeyword(keywordName);
     })
 });

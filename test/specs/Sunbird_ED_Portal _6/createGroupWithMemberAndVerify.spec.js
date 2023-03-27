@@ -18,6 +18,7 @@ describe('createGroupWithMemberAndVerifyAndValidateProfileNameInToastMessage', (
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('createGroupWithMemberAndVerifyAndValidateProfileNameInToastMessage ',function(){

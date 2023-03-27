@@ -26,9 +26,8 @@ describe('validateContentsTypesInAllTabs', () => {
 
     it('validateContentsTypesInAllTabs', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.validateCourseContentTypes();
     })
 });

@@ -21,7 +21,7 @@ describe('validateExploreLabelInBrowseBycategories', () => {
     it('validateExploreLabelInBrowseBycategories',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('ContentCreator');
         sanityfun.verifyExploreLabel();
     })
 });

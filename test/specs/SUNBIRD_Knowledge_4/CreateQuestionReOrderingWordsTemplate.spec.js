@@ -33,7 +33,7 @@ describe('CreateQuestionReOrderingWordsTemplate', () => {
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(courseName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         resourcePageObj.ConsumeResourceAndValidateScoreForReOrderingTemplate(courseName);
       
       

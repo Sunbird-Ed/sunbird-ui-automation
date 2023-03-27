@@ -16,12 +16,14 @@ describe('VerifyTOCInExploreCoursePage.spec', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
     
     it('VerifyTOCInExploreCoursePage.spec',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         searchCBFPPageObj.courseSearchFilter();    
     });
 });

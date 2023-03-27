@@ -20,6 +20,7 @@ describe('Verify EditGroupDetails', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('EditGroupDetails ',function(){
         utility.handleDropDown();

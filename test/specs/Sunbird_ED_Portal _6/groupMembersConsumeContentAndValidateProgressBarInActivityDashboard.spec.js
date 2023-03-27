@@ -21,11 +21,11 @@ describe('groupMembersConsumeContentAndValidateProgressBarInActivityDashboard', 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('groupMembersConsumeContentAndValidateProgressBarInActivityDashboard', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let data = tpdPageObj.createCourseAndReturnDoidAndCourseNameForGroup();
@@ -41,7 +41,7 @@ describe('groupMembersConsumeContentAndValidateProgressBarInActivityDashboard', 
         sanityfun.verifyAddActivitySearchedByKeyword(course);
         sanityfun.clickOnActivityInGroupAndValidateProgressBar();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         sanityfun.clickAddedActivityAndConsume();
         utility.userLogout();
         utility.userLogin('NewCredCourseToc');

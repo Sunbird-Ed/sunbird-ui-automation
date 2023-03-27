@@ -25,8 +25,7 @@ describe('createCourseAndValidateAddcontentButtonForSameContent', () => {
     });
     
     it('createCourseAndValidateAddcontentButtonForSameContent', function () {
-        utility.handleDropDown();
-        
+        utility.handleDropDown();        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseWithSameContentandVlidateAddcontentButton();

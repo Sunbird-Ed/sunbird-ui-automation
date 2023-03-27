@@ -28,12 +28,11 @@ describe('Create Book save and send for review and publish.', () => {
         utility.handleDropDown();
         
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let bookName= sanityfun.createBook();
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(bookName)
-      
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(bookName)
     })
 });
 

@@ -25,9 +25,6 @@ var tpd = tpdpage.tpdPage();
 
 
 
-
-
-
 const navigateToWorkspace = () => {
     try {
         browser.sleep(1000);
@@ -1071,13 +1068,13 @@ const verifyQRCodeField = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().courseName), 40000, "courseName is not available");
         etbPage.EtbElem().courseName.sendKeys(cred[2]['CourseName']);
 
-        sanityFun.FillBmesWhileCreatingBook();
+       // sanityFun.FillBmesWhileCreatingBook();
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().startCreating), 40000, "startCreating is not available");
         etbPage.EtbElem().startCreating.click();
         browser.sleep(5000);
-        // browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-        // browser.sleep(5000);
+         browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+         browser.sleep(5000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clickUseEditor), 40000, "clickUseEditor is not available");
         etbPage.EtbElem().clickUseEditor.click();
         browser.sleep(1000);
@@ -1719,10 +1716,10 @@ const librarysearchFilter = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectFilterMedium), 40000, "selectFilterMedium is not available");
         content.selectFilterMedium.click();
         browser.sleep(2000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickclass), 40000, "clickFilterClass is not available");
-        content.clickclass.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.SelectClass), 40000, "selectFilterClass is not available");
-        content.SelectClass.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickFilterGrade), 40000, "clickFilterClass is not available");
+        content.clickFilterGrade.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.SelectFilterGrade), 40000, "selectFilterClass is not available");
+        content.SelectFilterGrade.click();
         browser.sleep(2000);
         // browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickFilterSubject), 40000, "clickFilterSubject is not available");
         // content.clickFilterSubject.click();
@@ -2230,7 +2227,7 @@ const CheckJoinButtonOptions = () => {
         })
 
         browser.sleep(1000);
-        //utility.userLoginPopup('public User1');
+        //utility.userLoginPopup('Public User2');
         //tpd.joinCourse.click();
         //browser.sleep(1000);
         content.userName.sendKeys("usersun@gmail.com");
@@ -2372,12 +2369,12 @@ const verifyOnlyClassFilter = () => {
             console.log('++++++SCROLLED Down+++++');
         });
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickclass), 40000, "clickFilterClass is not available");
-        content.clickclass.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickFilterGrade), 40000, "clickFilterClass is not available");
+        content.clickFilterGrade.click();
         browser.sleep(2000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.SelectClass), 40000, "selectFilterClass is not available");
-        content.SelectClass.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.SelectFilterGrade), 40000, "selectFilterClass is not available");
+        content.SelectFilterGrade.click();
         browser.sleep(2000);
 
         browser.executeScript('window.scrollTo(0,0);').then(function () {
@@ -2504,8 +2501,8 @@ const multiselectForAllTabs = () => {
         etbPage.EtbElem().sltClassDdAllTabs.click();
         browser.sleep(2000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clkClassDdAllTabs), 40000, "clickFilterClass is not available");
-        etbPage.EtbElem().clkClassDdAllTabs.click();
+       browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().clkClassDdAllTabs), 40000, "clickFilterClass is not available");
+       etbPage.EtbElem().clkClassDdAllTabs.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(etbPage.EtbElem().sltClass2DdAllTabs), 40000, "selectFilterClass is not available");
         etbPage.EtbElem().sltClass2DdAllTabs.click();
         browser.sleep(2000);
@@ -2575,10 +2572,8 @@ const verifyPublishedAndSubjectBy = () => {
         browser.sleep(1000);
 
         var PublishedDD = etbPage.EtbElem().PublishedDD.getText();
-        expect(PublishedDD.getText()).toEqual('Select Published By');
+        expect(PublishedDD.getText()).toEqual('Select User Type');
         browser.sleep(1000);
-
-
         browser.sleep(1000);
     }
     catch (Exception) {
@@ -2909,10 +2904,7 @@ const validateFiltersInAllTheTabs = () => {
     }
 }
 
-
-
 const validateregionallanguageSelection = () => {
-    
     try {
         browser.sleep(3000);
         wait.waitForElementVisibility(resov.clkAllTabs, 20000, "click all tabs not loaded");
@@ -2966,12 +2958,12 @@ const validateregionallanguageSelection = () => {
             console.log(input);
             (input).includes("Kg");
         })
-
     }
     catch (Exception) {
         console.log('Failed');
     }
 }
+
 
 module.exports = {
     navigateToWorkspace,

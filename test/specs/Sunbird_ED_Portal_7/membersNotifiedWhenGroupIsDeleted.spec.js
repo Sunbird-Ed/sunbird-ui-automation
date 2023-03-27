@@ -5,7 +5,6 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
 
 describe('membersNotifiedWhenGroupIsDeleted', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -18,17 +17,17 @@ describe('membersNotifiedWhenGroupIsDeleted', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('membersNotifiedWhenGroupIsDeleted ',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('Admin3');
         let groupName = EnrollTBFCPageObj.addMemeberByUserId();
         EnrollTBFCPageObj.deleteGroup();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.verifyNotificationBell();
     })
 });

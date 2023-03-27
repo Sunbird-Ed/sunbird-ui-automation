@@ -22,7 +22,7 @@ describe('verifyThatTheGroupMemberIsNotAbleToViewTheProgressOfOtherContentTypes'
     it('verifyThatTheGroupMemberIsNotAbleToViewTheProgressOfOtherContentTypes ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Group Member');
+        utility.userLogin('Creator');
         EnrollTBFCPageObj.verifyThatGroupAdminUserIsNotAbleToSeeTheProgressOfOtherContentTypes();   
     })
 });

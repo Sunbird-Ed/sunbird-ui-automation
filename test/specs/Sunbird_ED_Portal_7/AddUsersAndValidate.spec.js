@@ -20,6 +20,7 @@ describe('Verifiy Adduser is getting add user option in his profile and able to 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('AddUsersAndValidate ',function(){
         utility.handleDropDown();
@@ -29,6 +30,6 @@ describe('Verifiy Adduser is getting add user option in his profile and able to 
         verifyCEBpageobj.addUserInProfile();
         utility.handleDropDown();
         utility.handleLocationPopupAfterAddUser(); 
-        //utility.handleLocationPopup();
+        utility.handleLocationPopup();
     })
 });

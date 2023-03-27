@@ -22,7 +22,6 @@ describe('verifyBMSvaluesInAlphabeticalOrderInSelfSignedUsersInProfilePage', () 
 
     it('verifyBMSvaluesInAlphabeticalOrderInSelfSignedUsersInProfilePage',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('CustodianUser');
         tpdPageObj.editBMS();

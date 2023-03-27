@@ -20,7 +20,6 @@ describe('verifyEditProfileWithDifferentLanguage', () => {
 
     it('verifyEditProfileWithDifferentLanguage',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         tpdPageObj.editprofileWithDiffRegionalAlnguage();
     })

@@ -25,10 +25,11 @@ describe('validateExpiredBatchNotHaveProgressBarCount' , () => {
 
     it('validateExpiredBatchNotHaveProgressBarCount',function(){
         utility.handleDropDown();
+        browser.sleep(3000);
         utility.handleLocationPopup();
         
         let courseName = "AutomationExpiredCourse";
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.validateProgressBarCountAfterConsumingExpiredBatch();
     })

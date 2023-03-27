@@ -18,16 +18,16 @@ describe('adminMemberNotifiedWhenGroupMemberLeaveGroup', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('adminMemberNotifiedWhenGroupMemberLeaveGroup ',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('Admin3');
         let groupName = EnrollTBFCPageObj.addMemeberByUserId();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.validateMemeberNotification();
         utility.userLogout();
         utility.userLogin('Admin3');

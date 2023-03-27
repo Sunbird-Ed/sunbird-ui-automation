@@ -25,16 +25,16 @@ describe('openDraftAndDownloadQRCodeForBook', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
         
     });
     it('openDraftAndDownloadQRCodeForBook',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let bookName= sanityFun.createBookSaveAsDraft();
         sanityFun.generateQRCodeswithYesButtonFromDraft(bookName);
         sanityFun.downloadQRCode2();
     })
 });
-   
-

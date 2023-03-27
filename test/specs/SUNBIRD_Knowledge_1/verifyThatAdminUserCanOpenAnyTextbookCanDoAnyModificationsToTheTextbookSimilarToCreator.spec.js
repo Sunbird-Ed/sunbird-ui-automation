@@ -22,8 +22,8 @@ describe('verifyThatAdminUserCanOpenAnyTextbookCanDoAnyModificationsToTheTextboo
 
     it('verifyThatAdminUserCanOpenAnyTextbookCanDoAnyModificationsToTheTextbookSimilarToCreator',function(){
         utility.handleDropDown();
-        
-        utility.handleLocationPopup();
+        browser.sleep(30000);
+        //utility.handleLocationPopup();
         utility.userLogin('Creator');
         tpdPageObj.openAndVerifyAllTextBookTab();
     })

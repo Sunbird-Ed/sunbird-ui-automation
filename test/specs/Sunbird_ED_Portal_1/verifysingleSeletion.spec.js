@@ -25,8 +25,5 @@ describe('verifysingleSeletion', () => {
         utility.handleLocationPopup();
         utility.userLogin('Admin');
         searchedCotentsValidation.boardvalueSigleSelect();
-       
     });
 });
-
-

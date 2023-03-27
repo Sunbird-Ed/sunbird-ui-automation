@@ -17,16 +17,14 @@ describe('VerifyAddUserAndSwitchedUserProfile', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
     
     it('VerifyAddUserAndSwitchedUserProfile',function(){
         utility.handleDropDown();
-        browser.sleep(30000);
-        //utility.handleLocationPopup();
-        utility.userLogin('AddUserCred');
+        utility.handleLocationPopup();
+        utility.userLogin('Public User2');
         usrOnBoardfun.AddUserProfileVerification();
-        // utility.handleLocationPopup();
-        // utility.handleDropDown();
-        // utility.handleLocationPopupForOtherExplorer();
     });
 });

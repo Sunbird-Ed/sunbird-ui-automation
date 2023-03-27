@@ -26,12 +26,11 @@ describe('Create Book with all resource type, save and send for review and publi
     });
     it('AddResourceAndCollectionWhileCreatingBook',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('Book Creator');
+        utility.userLogin('ContentCreator');
         let bookName=etbPageObj.AddResourceAndCollectionWhileCreatingBook();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview(bookName); 
     })
 });

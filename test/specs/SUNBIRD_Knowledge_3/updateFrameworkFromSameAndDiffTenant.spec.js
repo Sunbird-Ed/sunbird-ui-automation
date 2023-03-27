@@ -22,7 +22,6 @@ describe('updateFrameworkFromSameAndDiffTenant', () => {
     
     it('updateFrameworkFromSameAndDiffTenant.',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         let bookName = tpdPageObj.navigateToCourseFromCourseTabForSameTenant();
@@ -30,6 +29,7 @@ describe('updateFrameworkFromSameAndDiffTenant', () => {
         utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview(bookName);
         utility.userLogout();
+        //let bookName = "do_2136975564444385281251";
         utility.userLogin('APTenantCreator');
         tpdPageObj.navigateToCourseAndSearch(bookName);
         tpdPageObj.navigateToCourseFromCourseTabForDiffTenant();

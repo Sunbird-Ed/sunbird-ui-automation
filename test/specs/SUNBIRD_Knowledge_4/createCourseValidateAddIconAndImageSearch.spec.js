@@ -30,11 +30,7 @@ describe('createCourseValidateAddIconAndImageSearch', () => {
         let courseName = sanityfun.createCourseWithImageIconAndValidateImageSearchBar();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        
-        tpdPageObj.publishCourseFromUpForReview(courseName);
-        utility.userLogout();
-        utility.userLogin('Creator');
-        
-        lspPageObj.deleteCreatedItems();
+                tpdPageObj.publishCourseFromUpForReview(courseName);
+       
     })
 });

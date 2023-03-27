@@ -21,6 +21,8 @@ describe('able to create course and enroll consume VerifyThatUserIsAbleToSearchA
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
 
     it('VerifyThatUserIsAbleToSearchAndConsumeThePublishedContent', function () {
@@ -36,7 +38,7 @@ describe('able to create course and enroll consume VerifyThatUserIsAbleToSearchA
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch();
     })

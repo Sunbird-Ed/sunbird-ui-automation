@@ -22,7 +22,7 @@ describe('Merge Account', () => {
     });
     it('Merge Account',function(){
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         usrOnBoardfun.mergeAccount();
        
     });

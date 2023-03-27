@@ -18,6 +18,7 @@ describe('NestedCourseProgressValidation', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('NestedCourseProgressValidation',function(){
         utility.handleDropDown();

@@ -3,7 +3,6 @@
 let UserOnBoarding = () => {
 
     let dropdownProfile = element(by.xpath("(//div[@class='avatar-content'])[2]"));
-
     let clkAdminDashBoard = element(by.xpath("//*[contains(text(), 'Admin dashboard')]"));
     let assertReportPulse = element(by.xpath("//*[contains(text(),'Pulse of the Nation Learning')]"));
     let assertreportDigitalNation = element(by.xpath("//*[contains(text(),'Digital Learning Experience Nationwide')]"));
@@ -170,14 +169,11 @@ let UserOnBoarding = () => {
     var sltInValidYear = element(by.xpath("//span[contains(text(),'2020')]"));
     var verifyParentMsg = element(by.xpath("//label[contains(text(),' Enter mobile number or email address ')]"));
     var verifyParentMsg2 = element(by.xpath("//span[contains(text(),'of your parent or guardian')]"));
-
     var verifyPasswordPolicyErrMsg = element(by.xpath("//label[contains(text(),'Your password must contain a minimum of 8 characters. It must include numerals, lower and upper case alphabets and special characters, without any spaces')]"));
-
     var registerPassword = element(by.xpath("//input[@placeholder='Enter password']"));
     var registerConfPassword = element(by.xpath("//input[@placeholder='Re-enter the password']"));
     var clkEmailCheckbox = element(by.xpath("//label[@for='email']"));
     var TypeEmail = element(by.xpath("//input[@placeholder='Email address']"));
-
     var clkForgotPassword = element(by.xpath("//div[@id='fgtPortalFlow']"));
     var assertOTPPage = element(by.xpath("//div[contains(text(),'One Time Password (OTP)')]"));
     var typeName = element(by.xpath("//input[@placeholder='Name']"));
@@ -189,24 +185,30 @@ let UserOnBoarding = () => {
     var clkChangeUser = element(by.xpath("//button[contains(text(),' Change user ')]"));
     var AddUserClk = element(by.xpath("//img[@alt='Add user']"));
     var entUSrName = element(by.xpath("//input[@name='name']"));
-
     var helpButton = element(by.xpath("//li[contains(text(),' Help ')]//child::i"));
     var reportButton = element(by.xpath("//button[contains(text(),' Report other issue ')]"));
-
     var checkBoxEmail = element(by.xpath("(//*[contains(@class,'ui radio checkbox')])[2]"));
-
     var contributionSectionInProfile = element(by.xpath(" //div[contains(text(),'Contribution(s)')]"));
     var locationPopUp = element(by.xpath("//*[contains(text(),'Your Location')]"));
     var developerOptionDebugModeDropdown = element(by.xpath("//div[text()='Developer options']//following::*[@class='icon icon-svg--primary']"));
     var enableDebugMenu = element(by.xpath("//div[text()='Enable Debug Mode ']//following::*[@class='slider round']"));
     var forgotLabellink = element(by.xpath("//div[contains(text(),'Forgot password?')]"));
-    var assertForgotpageLink = element(by.xpath("//div[contains(text(),'Recover Account')]"));
+    var assertForgotpageLink = element(by.xpath("//div[contains(text(),'Recover Account')]"));    
+    var assertPhoneNumberNotDisplayed = element(by.xpath("//button[contains(text(),'Edit')]//following::i[contains(@class,'phone icon')]"));    
+    var assertEmailOptionNotDisplayed = element(by.xpath("//button[contains(text(),'Edit')]//following::i[contains(@class,'mail blue icon')]"));    
+    var assertRecoveyOptionNotDisplayed = element(by.xpath("//span[contains(text(),'Add recovery account')]"));    
+    var assertUserAddedValidationWithName = element(by.xpath("//div[contains(text(),'Userprofilefirstlettervalidation')]"));    
+    var assertProfileAvatharFirstLetter = element(by.xpath("//div[contains(text(),'Userprofilefirstlettervalidation')]//preceding::div[contains(text(),'U')][1]"));    
+    var assertFirstLetterInProfile = element(by.xpath("//div[contains(text(),'Userprofilefirstlettervalidation')]//preceding::div[contains(text(),'U')][2]"));    
+    var assertForgotpageLink = element(by.xpath("//div[contains(text(),'Recover Account')]"));   
+    var clkDeveloperOptions = element(by.xpath("//div[text()='Developer options']//following::span[1]"));
+    var EnableDebugModetext = element(by.xpath("//div[text()='Enable Debug Mode ']"));
+    var clkDebugMode = element(by.xpath("//div[text()='Enable Debug Mode ']//following::span[1]"));
+    var assertDebugModeEnabled = element(by.xpath("//div[contains(text(),'Debug mode will automatically shut off')]")); 
 
 
-
-
+    
     return {
-
         recoveryIdDisplayed,
         errorMsgForEmail,
         btnSubmit,
@@ -389,6 +391,16 @@ let UserOnBoarding = () => {
         enableDebugMenu,
         forgotLabellink,
         assertForgotpageLink,
+        assertPhoneNumberNotDisplayed,
+        assertEmailOptionNotDisplayed,
+        assertRecoveyOptionNotDisplayed,
+        assertUserAddedValidationWithName,
+        assertProfileAvatharFirstLetter,
+        assertFirstLetterInProfile,
+        clkDeveloperOptions,
+        EnableDebugModetext,
+        clkDebugMode,
+        assertDebugModeEnabled,
     }
 };
 module.exports = {

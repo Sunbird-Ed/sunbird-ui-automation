@@ -18,12 +18,13 @@ describe('Search Resource save and send for review and publish.', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('verifyThatCreatorIsAbleToPreviewTheSubjectiveQuestionWithEquationsInLandscapeAndPortraitMode',function(){
         utility.handleDropDown();
+        browser.sleep(30000);
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         resourcePageObj.verifyCreatorIsAbleToCreateQuestionAndAnswerWithEquationAndSave();
         resourcePageObj.verifyEquationsOfQuestionSetInBothPortraitAndLandscapeMode();
-        
     }) 
 });

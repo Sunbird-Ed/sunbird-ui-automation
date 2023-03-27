@@ -16,6 +16,7 @@ describe('createDFandValidateTagsPostReplyDiscussCardCommentPostReplySavedPostAn
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
 
     it('createDFandValidateTagsPostReplyDiscussCardCommentPostReplySavedPostAndRecentPost',function(){

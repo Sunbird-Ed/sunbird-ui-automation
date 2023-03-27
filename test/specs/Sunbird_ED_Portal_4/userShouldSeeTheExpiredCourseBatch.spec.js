@@ -25,7 +25,6 @@ describe('userShouldSeeTheExpiredCourseBatch', () => {
 
     it('userShouldSeeTheExpiredCourseBatch', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.userShouldSeeTheExpiredCourseBatch();

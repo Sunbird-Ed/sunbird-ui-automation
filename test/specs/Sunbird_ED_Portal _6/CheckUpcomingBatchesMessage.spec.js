@@ -18,27 +18,27 @@ describe('CheckUpcomingBatchesMessage', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        //utility.userLogout();
         browser.manage().deleteAllCookies();
+        browser.close();
     });
 
     it('CheckUpcomingBatchesMessage ',function(){
         utility.handleDropDown();
         
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
         console.log(courseName);
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(courseName)
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.createFutureBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
-        tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
+        utility.userLogin('Public User2');
+        tpdPageObj.navigateToCourseAndSearchForOpenBatch('do_2136937927837941761872');
         tpdPageObj.enrollForUpcomingOpenBatch();     
     })
 });

@@ -30,7 +30,7 @@ describe('verifyReviewerCannotAddCollaborator', () => {
     it('verifyReviewerCannotAddCollaborator', function () {
         utility.handleDropDown();
         ;
-        //utility.handleLocationPopup();
+        utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();

@@ -29,7 +29,7 @@ describe('generateAndDownloadQrCodeForCourse', () => {
     it('generateAndDownloadQrCodeForCourse  ', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('APTenantCreator');
         sanityfun.createCourseAndGenerateAndDownloadQRCode();
     })
 });

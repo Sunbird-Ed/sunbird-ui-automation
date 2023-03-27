@@ -26,7 +26,7 @@ describe('validateUserDeclarationForm', () => {
         utility.handleDropDown();
         
         utility.handleLocationPopup();
-        utility.userLogin('NewCustUser');
+        utility.userLogin('Public User3');
         verifyUOpage.validateSubmitConsentForm();
     });
 });

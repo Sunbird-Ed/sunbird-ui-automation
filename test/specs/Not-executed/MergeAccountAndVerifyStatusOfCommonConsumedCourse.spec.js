@@ -31,7 +31,7 @@ describe('Merge Account ', () => {
         var custodianProgress= ccPageObj.clickOnNextButton();
         utility.userLogout();
                  
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         utility.mergeAccount(username,password);
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(coursename);
         ccPageObj.checkConsumptionStatus(custodianProgress);

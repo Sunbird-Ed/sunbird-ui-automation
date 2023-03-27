@@ -17,9 +17,12 @@ describe('Verify that BMC popup is accesible to Guest User', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
     it('VerificationForguestUser', function () {
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
         tpdPageObj.editpersonalDetailsAndValidateInProfielPage();
     })

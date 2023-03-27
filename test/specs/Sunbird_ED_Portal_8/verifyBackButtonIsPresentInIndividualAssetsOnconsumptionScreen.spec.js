@@ -23,9 +23,8 @@ describe('validateShowFeedbackSolutionAndSubmit', () => {
 
     it('verifyBackButtonIsPresentInIndividualAssetsOnconsumptionScreen ', function () {
         utility.handleDropDown();
-        
-        utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+      utility.handleLocationPopup();
+        utility.userLogin('TCTestUser');
         sanityfun.verifyBackButtonIsPresentInIndividualAssetsOnconsumptionScreen();
     })
 });

@@ -23,8 +23,7 @@ describe('verifyDifferentReportsInAdminDashboardAndvalidate', () => {
     
     it('verifyDifferentReportsInAdminDashboardAndvalidate ',function(){
         utility.handleDropDown();
-        browser.sleep(20000);
-        //utility.handleLocationPopup();
+        utility.handleLocationPopup();
         utility.userLogin('Admin3');
         EnrollTBFCPageObj.clickAdminDashBoardAndVerifyReports();
     })

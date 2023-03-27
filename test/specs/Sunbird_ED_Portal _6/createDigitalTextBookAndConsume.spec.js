@@ -19,20 +19,20 @@ describe('createDigitalTextBookAndConsume', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
 
     it('createDigitalTextBookAndConsume', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let bookName = sanityfun.createBook();
         console.log(bookName);
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         tpdPageObj.publishContentFromUpForReviewBucket(bookName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         cont.consumeTextBook(bookName);
-        
     })
 });

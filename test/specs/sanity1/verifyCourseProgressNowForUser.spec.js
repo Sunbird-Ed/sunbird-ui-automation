@@ -18,12 +18,14 @@ describe('verifyCourseProgressNowForUser', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
     
     it('verifyCourseProgressNowForUser',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
-        usrOnBoardfun.verifyUserCourseProgress();
+        utility.userLogin('Public User2');
+        usrOnBoardfun.verifyCourseProgressNowForUser();
     })
 });

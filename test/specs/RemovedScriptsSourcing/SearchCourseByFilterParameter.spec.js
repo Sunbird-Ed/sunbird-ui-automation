@@ -23,10 +23,10 @@ describe('able to search Coursebyfilter and validatelanguageTranslation and Get 
     it('SearchCourseByFilterParameter',function(){
         utility.handleDropDown();
          utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         searchCBFPPageObj.courseSearchFilter();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         searchCBFPPageObj.clickOnViewAll();
         utility.userLogout();
 

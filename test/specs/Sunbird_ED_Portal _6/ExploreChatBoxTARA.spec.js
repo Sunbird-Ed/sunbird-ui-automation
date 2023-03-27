@@ -17,6 +17,7 @@ describe('vrify, content creator is able to create lesson plan', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
         
     });
     it('ExploreCharBoxTara',function(){

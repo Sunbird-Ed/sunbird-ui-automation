@@ -20,7 +20,8 @@ describe('Verify Creator is able to copy the book', () => {
   afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        
+        browser.close();
+
     });
     
     

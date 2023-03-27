@@ -19,6 +19,8 @@ describe('AddChildInCourse', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
 
     it('AddChildInCourse', function () {
@@ -33,7 +35,7 @@ describe('AddChildInCourse', () => {
         utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview2(keywordName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         content.navigateContentAndValidate(keywordName,courseName);
         utility.userLogout();
         utility.userLogin('ContentCreator');

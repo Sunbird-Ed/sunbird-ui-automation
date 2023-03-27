@@ -21,6 +21,7 @@ describe('allMetricsAsPartOfDashboardDisplayedToGroupAdmin', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('allMetricsAsPartOfDashboardDisplayedToGroupAdmin', function () {
@@ -35,7 +36,7 @@ describe('allMetricsAsPartOfDashboardDisplayedToGroupAdmin', () => {
         var doid = input.split("/")[6];
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(course);
+        tpdPageObj.publishCourseFromUpForReview2(course);
         utility.userLogout();
         utility.userLogin('NewCredCourseToc');
         sanityfun.verifyAddActivitySearchedByKeyword(course);

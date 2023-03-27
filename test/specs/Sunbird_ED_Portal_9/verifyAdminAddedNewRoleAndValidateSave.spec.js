@@ -5,7 +5,7 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
 const EnrollTBFCPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
-describe('verifyAdminAddedNewRoleAndValidateSaveOptionWithAndwithoutTenant', () => {
+describe('verifyAdminAddedNewRoleAndValidateSave', () => {
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -20,9 +20,8 @@ describe('verifyAdminAddedNewRoleAndValidateSaveOptionWithAndwithoutTenant', () 
         browser.manage().deleteAllCookies();
     });
     
-    it('verifyAdminAddedNewRoleAndValidateSaveOptionWithAndwithoutTenant',function(){
+    it('verifyAdminAddedNewRoleAndValidateSave',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('Admin2');
         EnrollTBFCPageObj.VerifyAdminIsAbleToAddNewRole();

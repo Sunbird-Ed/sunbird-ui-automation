@@ -22,21 +22,20 @@ describe('VerifyCopyRight Details Verify' , () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
     });
     it('VerifyCopyRightDetails',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        browser.sleep(3000);
-        utility.userLogin('Creator');
+        
+        utility.userLogin('ContentCreator');
         let bookName= sanityFun.createBook();
         console.log(bookName);
-       // etbFun.verifyLicenceLabelEditPage();
+        etbFun.verifyLicenceLabelEditPage();
          
 
-       // etbFun.clickFirstBookAndCopyInLibrary();
-        //etbPageObj.sendForReviewTheBook();
+       etbFun.clickFirstBookAndCopyInLibrary();
+        etbPageObj.sendForReviewTheBook();
     })
 
    

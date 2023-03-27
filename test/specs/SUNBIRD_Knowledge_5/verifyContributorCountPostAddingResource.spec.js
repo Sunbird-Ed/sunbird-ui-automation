@@ -11,8 +11,7 @@ describe('Verifythat the user is able to view the correct count of contributors 
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
+          
     });
 
     afterEach(() => {
@@ -22,7 +21,6 @@ describe('Verifythat the user is able to view the correct count of contributors 
 
     it('verifyContributorCountPostAddingResource',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         addCAPRPageObj.verifyContributorsCount();

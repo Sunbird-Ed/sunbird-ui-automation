@@ -21,6 +21,7 @@ describe('verifyThatGroupsAreDisplayedInActiveAndDeActiveOrder', () => {
     });
     it('VerifyUserIsAbleToSeeAllMembersInTheGroupInAlphabeticalOrder ',function(){
         utility.handleDropDown();
+        browser.sleep(3000);
         utility.handleLocationPopup();
         utility.userLogin('Dont Use');
         EnrollTBFCPageObj.VerifyUserIsAbleToSeeAllMembersInTheGroupInAlphabeticalOrder();   

@@ -24,6 +24,8 @@ const sanityPage = require(protractor.basePath + '/test/pages/userOnBoarding/San
 var sanity = sanityPage.SanityElement();
 const tpdPage = require(protractor.basePath + '/test/pages/tpdPage/tpdpage.po.js');
 var searchObj = tpdPage.tpdPage();
+var webm50Mb = protractor.basePath + '/test/testdata/75mbwebm.webm';
+var mp4150Mb = protractor.basePath + '/test/testdata/Upload content-mp4.mp4';
 
 
 const uploadPdf = () => {
@@ -357,9 +359,6 @@ const uploadWebm = () => {
     var resourceName;
     try {
         console.log("User is trying to upload webm");
-
-
-
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
         content.headerDropdown.click();
@@ -1133,6 +1132,260 @@ const validateuplloadContentInSharedViaLinkSection = (contentName) => {
   }
 }
 
+const uploadAllTypeOfContents = () => {
+    var resourceName;
+    try {
+        console.log("user is trying to upload pdf");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.clickuploadContent), 20000, "Upload content didn't click");
+        uploadV.clickuploadContent.click();
+        browser.sleep(4000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(8000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.selectOne), 20000, "selectOne is not available");
+        uploadV.selectOne.click();
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.learningResource), 20000, "learningResource is not available");
+        uploadV.learningResource.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.enterUrl.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.browseButton.sendKeys(webm);
+        browser.sleep(40000);
+
+        uploadV.clickUploadButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.selectOne), 20000, "selectOne is not available");
+        uploadV.selectOne.click();
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.learningResource), 20000, "learningResource is not available");
+        uploadV.learningResource.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.enterUrl.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.browseButton.sendKeys(mp4);
+        browser.sleep(40000);
+
+        uploadV.clickUploadButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.selectOne), 20000, "selectOne is not available");
+        uploadV.selectOne.click();
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.learningResource), 20000, "learningResource is not available");
+        uploadV.learningResource.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.enterUrl.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.browseButton.sendKeys(epub);
+        browser.sleep(40000);
+
+        uploadV.clickUploadButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.selectOne), 20000, "selectOne is not available");
+        uploadV.selectOne.click();
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.learningResource), 20000, "learningResource is not available");
+        uploadV.learningResource.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.enterUrl.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.browseButton.sendKeys(h5p);
+        browser.sleep(40000);
+
+        uploadV.clickUploadButton.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.selectOne), 20000, "selectOne is not available");
+        uploadV.selectOne.click();
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.learningResource), 20000, "learningResource is not available");
+        uploadV.learningResource.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.enterUrl.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.browseButton.sendKeys(pdf);
+        browser.sleep(40000);
+       
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.sendforRev), 20000, "Failed to click sendForReview");
+        uploadV.sendforRev.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.clickAppIcon), 50000, "clickAppIcon button not available");
+        etbv.clickAppIcon.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(etbv.allImage, 30000, "allImage button not available");
+        etbv.allImage.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(etbv.myImage, 30000, "myImage button not available");
+        etbv.myImage.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.checkAppIcon), 30000, "checkAppIcon button not available");
+        etbv.checkAppIcon.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.selectAppIcon), 30000, "selectAppIcon button not available");
+        etbv.selectAppIcon.click();
+        browser.sleep(500);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.titleName), 30000, "selectAppIcon button not available");
+        etbv.titleName.click();
+        browser.sleep(500);
+        etbv.titleName.clear();
+        resourceName = "ResourceA" + faker.randomData().firstname;
+        etbv.titleName.sendKeys(resourceName);
+        DropDownForSendForReview();
+        browser.sleep(3000);
+        console.log("User successfully uploaded pdf content");
+        return resourceName;
+    } catch (Exception) {
+        console.log("User failed to upload content pdf")
+    }
+}
+
+
+
+const uploadLargeVideo= () => {
+    var resourceName;
+    try {
+        console.log("User is trying to upload webm");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.clickuploadContent), 20000, "Upload content didn't click");
+        uploadV.clickuploadContent.click();
+        browser.sleep(4000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(5000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.selectOne), 20000, "selectOne is not available");
+        uploadV.selectOne.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.learningResource), 20000, "learningResource is not available");
+        uploadV.learningResource.click();
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.enterUrl.click();
+        browser.sleep(2000);
+
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.browseButton.sendKeys(webm50Mb);
+        browser.sleep(35000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.sendforRev), 20000, "Failed to click sendForReview");
+        uploadV.sendforRev.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.clickAppIcon), 50000, "clickAppIcon button not available");
+        etbv.clickAppIcon.click();
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(etbv.allImage, 30000, "allImage button not available");
+        etbv.allImage.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(etbv.myImage, 30000, "myImage button not available");
+        etbv.myImage.click();
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.checkAppIcon), 30000, "checkAppIcon button not available");
+        etbv.checkAppIcon.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.selectAppIcon), 30000, "selectAppIcon button not available");
+        etbv.selectAppIcon.click();
+        browser.sleep(500);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.titleName), 30000, "selectAppIcon button not available");
+        etbv.titleName.click();
+        browser.sleep(500);
+        etbv.titleName.clear();
+        resourceName = "LargeVideo" + faker.randomData().firstname;
+        etbv.titleName.sendKeys(resourceName);
+        DropDownForSendForReview();
+        browser.sleep(1000);
+        console.log("User successfully uploaded webm");
+        return resourceName;
+    } catch (Exception) {
+        console.log("User failed to upload webm");
+    }
+}
+
+const uploadMp4MoreThan150Mb = () => {
+    var resourceName;
+    try {
+        console.log("User is trying to upload mp4");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+        content.workSpace.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.clickuploadContent), 20000, "Upload content didn't click");
+        uploadV.clickuploadContent.click();
+        browser.sleep(4000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(5000);
+        browser.sleep(5000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.selectOne), 20000, "selectOne is not available");
+        uploadV.selectOne.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.learningResource), 20000, "learningResource is not available");
+        uploadV.learningResource.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.enterUrl.click();
+        browser.sleep(5000);
+
+
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.browseButton), 20000, "didn't click browse button");
+        uploadV.browseButton.sendKeys(mp4150Mb);
+        browser.sleep(19000);
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.sendforRev), 20000, "Failed to click sendForReview");
+        uploadV.sendforRev.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.clickAppIcon), 50000, "clickAppIcon button not available");
+        etbv.clickAppIcon.click();
+
+        browser.sleep(2000);
+        wait.waitForElementVisibility(etbv.allImage, 30000, "allImage button not available");
+        etbv.allImage.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(etbv.myImage, 30000, "myImage button not available");
+        etbv.myImage.click();
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.checkAppIcon), 30000, "checkAppIcon button not available");
+        etbv.checkAppIcon.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.selectAppIcon), 30000, "selectAppIcon button not available");
+        etbv.selectAppIcon.click();
+        browser.sleep(500);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.titleName), 30000, "selectAppIcon button not available");
+        etbv.titleName.click();
+        browser.sleep(500);
+        etbv.titleName.clear();
+        resourceName = "Mp4150Mb" + faker.randomData().firstname;
+        etbv.titleName.sendKeys(resourceName);
+        DropDownForSendForReview();
+        browser.sleep(3000);
+        console.log("User successfully uploaded mp4");
+        return resourceName;
+    } catch (Exception) {
+        console.log("User failed to upload mp4");
+    }
+}
+
+
+
+
 
 module.exports = {
     uploadPdf,
@@ -1154,4 +1407,7 @@ module.exports = {
     validateuplloadContentInSharedViaLinkSection,
     uploadH5pAndLimitsharing,
     upload150mbPdf,
+    uploadAllTypeOfContents,
+    uploadLargeVideo,
+    uploadMp4MoreThan150Mb,
 }

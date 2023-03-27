@@ -23,14 +23,15 @@ describe('validateMessageBelowMyStateTeacherInsideAddCertificateCriteriaSection'
 
     it('validateMessageBelowMyStateTeacherInsideAddCertificateCriteriaSection', function () {
         utility.handleDropDown();
-        utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        browser.sleep(30000);
+        //utility.handleLocationPopup();
+        utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview2(courseName)
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.VerifyThatClickingAddCertificateAndValidateNoteUnderMyStateTeacherLabel();
     })

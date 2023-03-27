@@ -23,7 +23,7 @@ describe('validateCreateBatchInExpiredBatch', () => {
     it('validateCreateBatchInExpiredBatch',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         let do_id = tpdPageObj.navigateToCourseAndSearchExpiredBatches();
         utility.userLogout();
         utility.userLogin('ContentCreator');
@@ -31,4 +31,3 @@ describe('validateCreateBatchInExpiredBatch', () => {
         tpdPageObj.validateCreateBatchOption();
     })
 });
-   

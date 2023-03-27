@@ -20,6 +20,7 @@ describe('LoggedUserAbleToClkGroup', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('LoggedUserAbleToClkGroup ',function(){
         utility.handleDropDown();

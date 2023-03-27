@@ -22,6 +22,6 @@ describe('VerifyCollapseAllOption', () => {
     it('verifyLoginBtnforStudenRole',function(){
         utility.handleLocationPopupAsStudent();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
     });
 });

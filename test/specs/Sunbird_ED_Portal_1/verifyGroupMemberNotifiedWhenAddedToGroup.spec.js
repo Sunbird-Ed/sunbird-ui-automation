@@ -22,7 +22,6 @@ describe('verifyGroupMemberNotifiedWhenAddedToGroup', () => {
 
     it('verifyGroupMemberNotifiedWhenAddedToGroup ',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('ContentReviewer');
         EnrollTBFCPageObj.switchToUserAndCopyUserID();

@@ -19,9 +19,8 @@ describe('Verify copyDikshaIDInProfile', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
-        browser.manage().deleteAllCookies
-        ();
+        browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('copyDikshaIDInProfile',function(){

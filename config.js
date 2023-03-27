@@ -3,10 +3,11 @@ let AllureReporter = require('jasmine-allure-reporter');
 var HtmlReporter = require('protractor-beautiful-reporter');
 
 
+
 exports.config = {
 
-    //seleniumAddress: 'http://localhost:4444/wd/hub',
-    directConnect: true,
+    // seleniumAddress: 'http://localhost:4444/wd/hub',
+     directConnect: true,
     // allScriptsTimeout: 10000000000,
 
     framework: 'jasmine2',
@@ -14,83 +15,91 @@ exports.config = {
     waitForAngularEnabled: false,
     suites: {
 
-        sanity1: 'test/specs/sanity1/*.spec.js',
-        sanity2: 'test/specs/sanity2/*.spec.js',
-        sanity3: 'test/specs/sanity3/*.spec.js',
+     sanity1: 'test/specs/sanity1/*.spec.js',
+      sanity2: 'test/specs/sanity2/*.spec.js',
+      sanity3: 'test/specs/sanity3/*.spec.js',
         
-        // SunbirdPortal1: 'test/specs/SUNBIRD_ED_Portal_1/*.spec.js',
-        // SunbirdPortal2: 'test/specs/SUNBIRD_ED_Portal_2/*.spec.js',
-        // SunbirdPortal3: 'test/specs/Sunbird_ED_Portal_3/*.spec.js',
+        // SunbirdPortal1: 'test/specs/Sunbird_ED_Portal_1/*.spec.js',
+        //   SunbirdPortal2: 'test/specs/SUNBIRD_ED_Portal_2/*.spec.js',
+       //  SunbirdPortal3: 'test/specs/Sunbird_ED_Portal_3/*.spec.js',
         // SunbirdPortal4: 'test/specs/Sunbird_ED_Portal_4/*.spec.js',
         // SunbirdPortal5: 'test/specs/Sunbird_ED_Portal_5/*.spec.js',
-        // SunbirdPortal4: 'test/specs/Sunbird_ED_Portal_4/*.spec.js',
-        // SunbirdPortal5: 'test/specs/Sunbird_ED_Portal_5/*.spec.js',
+       //  SunbirdPortal6: 'test/specs/Sunbird_ED_Portal _6/*.spec.js',
+        // SunbirdPortal7: 'test/specs/Sunbird_ED_Portal_7/*.spec.js',
+        // SunbirdPortal8: 'test/specs/Sunbird_ED_Portal_8/*.spec.js',
+        // SunbirdPortal9: 'test/specs/Sunbird_ED_Portal_9/*.spec.js',
+        // SunbirdPortal10: 'test/specs/Sunbird_ED_Portal_10/*.spec.js',
 
-        // SunbirdUCI: 'test/specs/Sunbird_UCI/*.spec.js',
+
+
+        // SunbirdUCI: 'test/specs/Sunbird_ED_Portal_10/createBookAndInsideTocValidateTheCreatedNodesAndTheSequence.spec.js',
         // SunbirdObserv : 'test/specs/Sunbird_Observ/*.spec.js',
-        // SunbirdLern : 'test/specs/Sunbird Lern/*.spec.js',
+    //    SunbirdLern : 'test/specs/Sunbird Lern/*.spec.js',
 
-        //sunbirdKnowledge1: 'test/specs/Sunbird_ED_Portal_9/clickOnSubmitDetailsInProfilePageAndPutCommaSingleAndDoubleQuotesValidateErrorMessage.spec.js',
-        // sunbirdKnowledge1: 'test/specs/Sunbird_ED_Portal_4/VerifyUserIsAbleToSortAllTheMembersInGroupByCourseProgress.spec.js',
-        // sunbirdKnowledge2: 'test/specs/sanity2/ValidateCreateBatchAndConsentFormWhileEnroll.spec.js',
-        // sunbirdKnowledge3: 'test/specs/SUNBIRD_Knowledge3/*.spec.js',
-        // Sunbird_Enquiry : 'test/specs/Sunbird_ED_Portal_1/verifyThatTheGroupsAreShowingInDecendingOrderOnDeactivateGroups.spec.js',
+        // sunbirdKnowledge1: 'test/specs/SUNBIRD_Knowledge_1/*.spec.js',
+      //   sunbirdKnowledge2: 'test/specs/SUNBIRD_Knowledge_2/*.spec.js',
+     //    sunbirdKnowledge3: 'test/specs/SUNBIRD_Knowledge_3/*.spec.js',
+       //  sunbirdKnowledge4: 'test/specs/SUNBIRD_Knowledge_4/*.spec.js',
+     //    sunbirdKnowledge5: 'test/specs/SUNBIRD_Knowledge_5/*.spec.js',
+        // SunbirdKnowledge6: 'test/specs/SUNBIRD_Knowledge_6/*.spec.js',
+      
+   //   SunbirdKnowledge6: 'test/specs/Sunbird_UCI/*.spec.js',
+
+        // Sunbird_Enquiry : 'test/specs/Sunbird_ED_Portal_7/CheckTrackableCollection.spec.js',
         // sanity1: 'test/specs/Sunbird_ED_Portal_1/verifyUserShouldBeDisplayedWithTheEnrollmentCloseMessage.spec.js',
-        // Sunbird_Enquiry : 'test/specs/SUNBIRD_Knowledge_6/adiminEditFromAllTextBookAndAddCollaborator.spec.js',
-        // sanity1: 'test/specs/SUNBIRD_Inquiry/ContentCreatorShouldAbleToCreateTheSubjectiveQuestionSet.spec.js',
-        // Sunbird_Enquiry : 'test/specs/SUNBIRD_Knowledge1/verifyCollaboratorInCourse.spec.js',
+        // Sunbird_Enquiry : 'test/specs/SUNBIRD_Knowledge_6/verifyDifferentReportsInAdminDashboardAndvalidate.spec.js',
+        // sanity1: 'test/specs/Sunbird_ED_Portal_3/verifyThatUserUhouldGetTheSelectedTemplateWhichWasSelectedDuringCreationWhilePreviewing.spec.js',
+        // Sunbird_Enquiry : 'test/specs/SUNBIRD_Knowledge_6/verifyCopyRightYearForNewResourceContent.spec.js',
         // sanity1: 'test/specs/SUNBIRD_Inquiry/verifyThatCreatorIsAbleToPreviewTheMCQQuestionVideoAsSolutionInLandscapeMode.spec.js',
+        // Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/verifyThatUserIsAbleToZoomInFurtherForThePopupImageByCliclingOnZoomOutIcon.spec.js',
+        // sanity1: 'test/specs/sanity1/verifyCreatorIsAbleToCopyTheBook.spec.js',
         // Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/*.spec.js',
-        // sanity1: 'test/specs/SUNBIRD_Inquiry/verifyCreatorIsAbleToViewDifferentHeadingsAndTextFormatInSubjectiveQuestionSet.spec.js',
-
-        // Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/*.spec.js',
-        // sanity1: 'test/specs/Sunbird_ED_Portal _6/mobileOrEmailAddressIsMandatoryForMajorUsersInRegistrationPage.spec.js',
-       
-        // Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/*.spec.js',
-        //sanity1: 'test/specs/Sunbird_ED_Portal_9/browseByAudienceAndValidateContentsDateOrderAndUserType.spec.js',
         
-        // userOrgAndCredentials: 'test/specs/Sunbird_ED_Portal_5/userAbleToCreateThreadInDFAndReplyOnTheSameThread.spec.js',
-        // sanity2: 'test/specs/SUNBIRD_Knowledge_6/verifyDifferentReportsInAdminDashboardAndvalidate.spec.js',
-
-        //sanity1: 'test/specs/Sunbird_ED_Portal_9/courseCompletionPopupIsshownIsBlueIfCertificateIsattached.spec.js',
+        // sanity1: 'test/specs/SUNBIRD_Knowledge_6/verifyThatAllMathematicalEquationsAndSymbolsAreRenderedProperlyForMTF.spec.js',
+        // // Sunbird_Enquiry : 'test/specs/SUNBIRD_Inquiry/*.spec.js',
+        // sanity1: 'test/specs/sanity2/CreateResourceAndVerify.spec.js',        
+        // userOrgAndCredentials: 'test/specs/Sunbird_ED_Portal_10/PostInDiscussionForm.spec.js',
+        
+        //sanity2: 'test/specs/SUNBIRD_Knowledge_6/verify.spec.js',
+        
+        // sanity1: 'test/specs/SUNBIRD_Inquiry/verifyWheterAllTheAvailableQuestionsAreGettingListedInTheSection.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
-        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
+        // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/validateTncpopUpInManageOption.spec.js',
 
-        // TPD: 'test/specs/TPD2/*.spec.js',
+        // TPD: 'test/specs/TPD2/ConsumeCourseNextModule.spec.js',
         // TpdCollaboration : 'test/specs/TPDCollobaration/*.spec.js',
         // tpd: 'test/specs/tpd/*.spec.js',
         // sanity2: 'test/specs/userOrgAndCredentials/validateOnboardingDetails.spec.js',
         // userOrgAndCredentials: 'test/specs/userOrgAndCredentials/*.spec.js',
         // Consumption: 'test/specs/Consumption/*.spec.js',
-
         // sourcing3: 'test/specs/sourcing3/*.spec.js',
         // sourcing4: 'test/specs/sourcing4/*.spec.js',
         // sourcing1: 'test/specs/sourcing1/*.spec.js',
         // sourcing2: 'test/specs/sourcing2/*.spec.js',
         // sourcing3: 'test/specs/sourcing3/*.spec.js',
         // sourcing21:'test/specs/so8/*.spec.js',
-
         // consumption1: 'test/specs/consumption1/*.spec.js',
         // consumption2: 'test/specs/consumption2/*.spec.js',
-        // consumption3: 'test/specs/consumption3/*.spec.js',
+        // consumption3: 'test/specs/consumption3/SelectDifferentFiltersAndVerifyFiltersRetainedInAllTheTabs.spec.js',
         // consumption4: 'test/specs/consumption4/*.spec.js',
-
         // contentcreation: 'test/specs/content-creation/*.spec.js',
-      
+    //   testing:'test/specs/sanity2/CreateBookAndVerify.spec.js',
+    //   test2:'test/specs/sanity2/CreateCourseAndVerify.spec.js',
+    //   test3:'test/specs/sanity2/AddChildInCourse.spec.js',
+    //   test4:'test/specs/sanity2/createBookWithMoreUnit.spec.js',
 
 
-
-    },
+},
     allScriptsTimeout: 4000000000,
 
     // suites: {
     //     contentcreation: 'test/specs/content-creation/*.spec.js',`
-    //     sanity: 'spec/sanitytests/*.js',
+    //     sanity: 'spec/sanityte`sts/*.js',
     //     full: 'spec/*.js'
-
     // },
 
-
+  
+   
     //Run Only in Chrome Browser
     capabilities: {
         browserName: 'chrome',
@@ -99,6 +108,7 @@ exports.config = {
         shardTestFiles: true,
         maxInstances:3,
         chromeOptions: {
+            w3c: false,
             prefs: {
                 profile: {
                     default_content_settings: {

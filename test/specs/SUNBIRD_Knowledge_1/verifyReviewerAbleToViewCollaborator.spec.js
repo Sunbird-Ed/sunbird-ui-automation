@@ -24,24 +24,13 @@ describe('verifyReviewerAbleToViewCollaborator', () => {
 
     it('verifyReviewerAbleToViewCollaborator',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let collectionName=collectionPageObj.createCollectionAndSaveAsDraft();
         console.log(collectionName);
         sanityPage.addCollboratortoDraftAndSaveBookWithWorkspace(collectionName);
-        //let collectionName="CollectionAVidal";
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         sanityPage.validatedViewCollaborator(collectionName)
-        
     })
 });
-   
-
-
-
-
-
-
-

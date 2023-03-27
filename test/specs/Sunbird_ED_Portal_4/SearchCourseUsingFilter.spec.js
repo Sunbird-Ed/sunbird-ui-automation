@@ -23,18 +23,16 @@ describe('When is able to search a course by using Search filter and Page filter
     });
     it('SearchCourseUsingFilter',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         searchCBFPPageObj.courseSearchFilter();
         utility.userLogout();
         utility.userLogin('Creator');
         searchCBFPPageObj.vaidatePageLangaugeTranslation();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         searchCBFPPageObj.clickOnViewAll();
         utility.userLogout();
-
         var Url=getAppURL.ConfigurePath().AppURL;
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);

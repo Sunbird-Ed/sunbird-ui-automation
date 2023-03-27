@@ -22,7 +22,7 @@ describe('able to create course and enroll consume ConsumeCourse', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-
+        browser.close();
     });
 
     it('ConsumeCourse', function () {
@@ -35,13 +35,13 @@ describe('able to create course and enroll consume ConsumeCourse', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         
-        tpdPageObj.publishContentFromUpForReviewBucket(courseName)
+        tpdPageObj.publishContentFromUpForReviewBucket2(courseName)
         utility.userLogout();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch();
         utility.userLogout();

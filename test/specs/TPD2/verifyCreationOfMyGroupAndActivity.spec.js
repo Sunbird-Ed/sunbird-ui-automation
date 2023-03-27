@@ -29,7 +29,7 @@ describe('Verify Create group add member and add activity', () => {
         utility.userLogin('Creator');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMemberandAddActivity();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.groupMemberCourseConsumptionstatus();
         utility.userLogout();
         // utility.userLogin('Creator');

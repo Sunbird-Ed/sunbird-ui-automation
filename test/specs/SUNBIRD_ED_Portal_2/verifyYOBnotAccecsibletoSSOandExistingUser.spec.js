@@ -10,10 +10,12 @@ describe('verifyExistingAndNewSSoUsersNotAccessYOBpopup', () => {
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
     });
+    
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('verifyYOBnotAccecsibletoSSOandExistingUser',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();

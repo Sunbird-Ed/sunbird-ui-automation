@@ -21,6 +21,7 @@ describe('AddETextBookContentAndConsume.', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
         
     });
     it('AddETextBookContentAndConsume',function(){
@@ -33,8 +34,7 @@ describe('AddETextBookContentAndConsume.', () => {
         tpdPageObj.publishContentFromUpForReviewBucket(bookName);
         utility.userLogout();
         utility.userLogin('Creator');
-        //
-        lspPageObj.deleteCreatedItems();
+            lspPageObj.deleteCreatedItems();
          
     })
 

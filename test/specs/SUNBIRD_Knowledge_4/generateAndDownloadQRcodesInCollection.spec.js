@@ -26,8 +26,8 @@ describe('generateAndDownloadQRcodesInCollection', () => {
     });
     it('generateAndDownloadQRcodesInCollection',function(){
         utility.handleDropDown();
-        browser.sleep(30000);
-        //utility.handleLocationPopup();
+        
+        utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName=collectionPageObj.createCollectionWithGenerateQRCodes();
         sanityPage.downloadQRCode2();

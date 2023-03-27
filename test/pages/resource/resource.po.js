@@ -1,6 +1,7 @@
 //const { element } = require("protractor");
 
 const { element } = require("protractor");
+const { elementsLocated } = require("selenium-webdriver/lib/until");
 
 var resource = () => {
 
@@ -414,14 +415,14 @@ var resource = () => {
 
 
     var clkBoardDdAllTabs = element(by.xpath("//label[contains(text(),'Board')]//following::div[1]"));
-    var sltBoardDdAllTabs = element(by.xpath("//label[contains(text(),'Board')]//following::span[contains(text(),' CBSE/NCERT ')]"));
+    var sltBoardDdAllTabs = element(by.xpath("//*[contains(text(),'Board')]//following::span[contains(text(),' CBSE/NCERT ')]"));
 
     var clkMediumDdAllTabs = element(by.xpath("//label[contains(text(),'Medium')]//following::div[1]"));
     var sltMediumDdAllTabs = element(by.xpath("//label[contains(text(),'Medium')]//following::span[contains(text(),'english')]"));
     var sltMedium2DdAllTabs = element(by.xpath("//label[contains(text(),'Medium')]//following::span[3]"));
 
-    var clkClassDdAllTabs = element(by.xpath("//label[contains(text(),'Class')]//following::div[1]"));
-    var sltClassDdAllTabs = element(by.xpath("//label[contains(text(),'Class')]//following::span[contains(text(),' class 1 ')]"));
+    var clkClassDdAllTabs = element(by.xpath("//label[contains(text(),'Grade')]//following::div[1]"));
+    var sltClassDdAllTabs = element(by.xpath("//label[contains(text(),'Grade')]//following::span[contains(text(),' class 1 ')]"));
     var sltClass2DdAllTabs = element(by.xpath("//label[contains(text(),'Class')]//following::span[3]"));
 
     var clkSubjectDdAllTabs = element(by.xpath("//label[contains(text(),'Subject')]//following::div[1]"));
@@ -453,17 +454,16 @@ var resource = () => {
     var publishedContent = element(by.xpath("//a[text()=' Published ']"));
     var clkPreferences = element(by.xpath("//*[contains(text(),'Your preferences ')]"));
     var assertGusetName = element(by.xpath("//*[contains(text(),'Hi Guest ')]"));
-    var assertPreferencePopup = element(by.xpath("//*[contains(text(),'Browse SUNBIRD Library to find relevant content based on your preferences (Board, Medium and Class)')]"));
+    var assertPreferencePopup = element(by.xpath("//*[contains(text(),'Browse SUNBIRD Library to find relevant content based on your preferences (Board, Medium and Grade)')]"));
     var clkHome = element(by.xpath("//*[contains(text(),'Home')]"));
-    var imageCard4= element(by.xpath("(//div[contains(@class,'UpReviewHeader')])"));
-    var browseBySubj = element(by.xpath("//div[contains(text(),'Browse by Sections')]"));
+    var browseBySubj = element(by.xpath("//*[contains(text(),'Browse by Subjects')]"));
     var featured = element(by.xpath("//div[contains(text(),'Featured')]"));
     var browseByCategories = element(by.xpath("//div[contains(text(),'Browse by Categories')]"));
     var browseByBoard = element(by.xpath("//div[contains(text(),'Browse by Board')]"));
     var browseByAudience = element(by.xpath("//div[contains(text(),'Browse by Audience')]"));
     var assertCbseBoard = element(by.xpath("//label[contains(text(),'Cbse/ncert')]"));
     var assertIgotBoard = element(by.xpath("//label[contains(text(),'Igot-health')]"));
-    var assertBoardSubContnet = element(by.xpath("//div[contains(text(),'Browse by Sections')]//following::div[@role='button'][1]"));
+    var assertBoardSubContnet = element(by.xpath("//*[contains(text(),'Browse by Subjects')]//following::div[@role='button'][1]"));
     var assertCategSubContent = element(by.xpath("//div[contains(text(),'Browse by Categories')]//following::div[@role='button'][1]"));
     var clkExploreTab = element(by.xpath("//*[contains(text(),' Explore ')]"));
     var assertAudeinceType = element(by.xpath("//div[contains(text(),'Browse by Audience')]//following::label[contains(text(),'School Head Or Officials')]"));
@@ -483,14 +483,14 @@ var resource = () => {
     var clkMediFilter = element(by.xpath("//label[contains(text(),'Medium')]//following::div[2]"));
     var sltMediuFilter1 = element(by.xpath("//label[contains(text(),'Medium')]//following::div[5]"));
     var sltMediuFilter2 = element(by.xpath("//label[contains(text(),'Medium')]//following::span[6]"));
-    var ClkClassFilter = element(by.xpath("//label[contains(text(),'Class')]//following::div[2]"));
+    var ClkClassFilter = element(by.xpath("//label[contains(text(),'Grade')]//following::div[2]"));
     var sltClassFilter1 = element(by.xpath("//label[contains(text(),'Class')]//following::div[4]"));
-    var sltClassFilter2 = element(by.xpath("//label[contains(text(),'Class')]//following::span[6]"));
+    var sltClassFilter2 = element(by.xpath("//mat-option[@aria-label='Class 1']"));
     var clkDigitalTxtBooks = element(by.xpath("//a[contains(text(),'Digital textbooks')]"));
     var clkTVClasses = element(by.xpath("//a[contains(text(),'TV classes')]"));
     var clkCourseHeader = element(by.xpath("//a[contains(text(),'Courses')]"));
     var MediumsAsertSelectedOption = element(by.xpath("//label[contains(text(),'Medium')]//following::span[contains(text(),',')]"));
-    var ClassAsserSelctedOption = element(by.xpath("//label[contains(text(),'Class')]//following::span[contains(text(),',')][1]"));
+    var ClassAsserSelctedOption = element(by.xpath("//label[contains(text(),'Grade')]//following::span[contains(text(),',')][1]"));
     var clkResetBtn = element(by.xpath("//button[contains(text(),'Reset')]"));
     var clkViewAllNcertSec = element(by.xpath("//div[contains(text(),'From NCERT ')]//following::button[1]"));
     var aseertCourseData = element(by.xpath("//*[contains(text(),'From NCERT')]//following::div[contains(text(),'Course')]"));
@@ -502,7 +502,7 @@ var resource = () => {
     var AdditionalCategory = element(by.xpath("//sb-caret-down[@class='caret-down']")); 
     var selAdditionalCategory = element(by.xpath("//label[contains(text(),'Concept Map')]"));
     var selBoard = element(by.xpath("//select[@id='sb-dropdown']"));
-    var selBoardValue = element(by.xpath("//option[contains(text(),'State (Tamil Nadu)') or contains(text(),'Z_Test_Framework')]"));
+    var selBoardValue = element(by.xpath("//option[contains(text(),'State (Tamil Nadu)') or contains(text(),'Z_Test_Framework') or contains(text(),'CBSE')]"));
     var dropdownMedium = element(by.xpath("//select[@id='sb-dropdown']//following::select[1]"));
     var selectMedium3 = element(by.xpath("//option[contains(text(),'English')]"));
     var dropDownClass = element(by.xpath("//option[contains(text(),'Select Class')]//.."));
@@ -604,9 +604,9 @@ var resource = () => {
     var selectImageInQuesSet = element(by.xpath("//div[text()='Select Image']//following::div[9]"));
     var clickImage = element(by.xpath("//label[text()='Question']//following::*[@class='image ck-widget ck-widget_selected']"));
     var clickZoom = element(by.xpath("//div[@class='ck-balloon-rotator__content']"));
-    var assertBorad = element(by.xpath("//span[contains(text(),'CBSE')]"));
-    var asseertMedim = element(by.xpath("//span[contains(text(),'Hindi')]"));
-    var assertClass1 = element(by.xpath("//span[contains(text(),'Class 1')]"));
+    var assertBorad = element(by.xpath("//span[contains(text(),'State (Tamil Nadu)')]"));
+    var asseertMedim = element(by.xpath("//span[contains(text(),'Medium:')]//following::span[1]"));
+    var assertClass1 = element(by.xpath("//span[contains(text(),'Class')]"));
     var slideDropDown = element(by.xpath("(//div[contains(@data-content,'Add Slide')]//following::div[contains(@class,'dropdownarrowwrapper')])[1]"));
     var selectArrangeSequesnce = element(by.xpath("//a[contains(text(),'Arrange in Sequence')]/following::div[3]"));
     var clickBoldLetter = element(by.xpath("(//*[contains(@class,'cke_toolgroup')]//following::*[@title='Bold (Ctrl+B)'])[2]"));
@@ -778,7 +778,7 @@ var resource = () => {
     var docsButton = element(by.xpath("//span[text()='Docs']"));
     var Allbtn = element(by.xpath("//span[text()='All']"));
     var clkChapterUnit = element(by.xpath("//i[@title='arrow-down']//following::h4[1]"));
-    var clkLicenceDropDown = element(by.xpath("//*[contains(text(),' Credits and Licence information ')]"));
+    var clkLicenceDropDown = element(by.xpath("//*[contains(text(),' Credits and Licence information')]"));
     var assertAuthor = element(by.xpath("//h4[contains(text(),'Author')]//following::p[1]"));
     var assertCreatedOn = element(by.xpath("//h4[contains(text(),'Created On')]//following::p[1]"));
     var assertUpdatedOn = element(by.xpath("//h4[contains(text(),'Updated on')]//following::p[1]"));
@@ -856,7 +856,7 @@ var resource = () => {
     var clickHeadingOption3 = element(by.xpath("(//span[contains(text(),'Heading 3')])[1]"));
     var assertVerifyHeading3 = element(by.xpath("//h3[contains(text(),'American Currency')]"));
     var clkHeadingOpt4 = element(by.xpath("(//span[contains(text(),'Heading 4')])[2]"));
-    var assertHeadingOpt4 = element(by.xpath("//h4[contains(text(),'Dollor')]"));
+    var assertHeadingOpt4 = element(by.xpath("//h4[contains(text(),'Dollar')]"));
     var btnUploadAndUse = element(by.xpath("//button[contains(text(),'Upload and Use')]"));
     var btnUploadFromComputer = element(by.xpath("//button[contains(text(),' Upload from Computer ')]"));
     var btnUploadAndUse2 = element(by.xpath("( //button[contains(text(),'Upload and Use')])[2]"));
@@ -875,6 +875,201 @@ var resource = () => {
     var mcqSelHeading5 = element(by.xpath("(//span[contains(text(),'Heading 5')])[1]"));
     var assertMCQHeadingOpt5 = element(by.xpath("//h5[contains(text(),'What is The Capital of Karnataka?')]"));
     var clkShowAns1 =element(by.xpath("(//div[@id='submit-answer'])[1]"));
+    var enterMarks = element(by.xpath("//input[@placeholder='Marks']"));
+    var assertPreviewMarks = element(by.xpath("//*[@id='Pages-read-:']"));
+    var clkSubmitConfirmation = element(by.xpath("//label[contains(text(),'Submit Confirmation Page ')]//following::sb-icon-dropdown[1]"));
+    var submitConfirmationEnable = element(by.xpath("//option[contains(text(),'Enable')]"));
+    var assertCorrectAns = element(by.xpath("//div[@class='scoreboard__index correct ng-star-inserted']"));
+    var assertWrongAns = element(by.xpath("//div[@class='scoreboard__index wrong ng-star-inserted']"));
+    var assertSkippedAns = element(by.xpath("//div[@class='scoreboard__index skipped ng-star-inserted']"));
+    var assertQuestionImg = element(by.xpath("(//figure[@class='image'])[1]"));
+    var assertAns1Img = element(by.xpath("(//figure[@class='image'])[2]"));
+    var assertAns2Img = element(by.xpath("(//figure[@class='image'])[3]"));
+    var assertTotalQuestions = element(by.xpath("//div[text()='Total Questions: 3']"));
+    var assertQuestionsAnswered = element(by.xpath("//div[text()='Questions Answered: 2']"));
+    var assertQuestionsSkipped = element(by.xpath("//div[text()='Questions Skipped: 1']"));
+    var assertQuestionsNotViewed = element(by.xpath("//div[text()='Questions not Viewed: 0']"));
+    var enterSection = element(by.xpath("//input[@placeholder='Title']"));
+    var clkSection1 = element(by.xpath("//span[text()='Section1']"));
+    var clkSection2 = element(by.xpath("//span[text()='Section2']"));
+    var clkRootNode = element(by.xpath("//span[text()='Section1']//preceding::span[@class='fancytree-title']"));
+    var assertInstructionFromRootNode = element(by.xpath("//p[text()='Answer All']"));
+    var assertCorrectAnsSecA = element(by.xpath("//div[contains(text(),'Section A')]//following::div[@class='scoreboard__index correct ng-star-inserted'][1]"));
+    var assertCorrectAnsSecB = element(by.xpath("//div[contains(text(),'Section B')]//following::div[@class='scoreboard__index correct ng-star-inserted']"));
+    var assertWrongAnsSecA = element(by.xpath("//div[contains(text(),'Section A')]//following::div[@class='scoreboard__index wrong ng-star-inserted'][1]"));
+    var assertWrongAnsSecB = element(by.xpath("//div[contains(text(),'Section B')]//following::div[@class='scoreboard__index wrong ng-star-inserted']"));
+    var assertSkippedAnsSecA = element(by.xpath("//div[contains(text(),'Section A')]//following::div[@class='scoreboard__index skipped ng-star-inserted'][1]"));
+    var assertSkippedAnsSecB = element(by.xpath("//div[contains(text(),'Section B')]//following::div[@class='scoreboard__index skipped ng-star-inserted']"));
+    var assetSecAOnSubmitPage = element(by.xpath("//div[contains(text(),'Section A')]"));
+    var assrtSecBOnSubmitPage = element(by.xpath("//div[contains(text(),'Section A')]//following::div[contains(text(),'Section B')]"));
+    var assertQuestionNo1 = element(by.xpath("//p[contains(text(),'What is the capital of Karnataka?')]"));
+    var assertQuestionNo2 = element(by.xpath("//p[contains(text(),'What is the capital of India?')]"));
+    var assertQuestionNo3 = element(by.xpath("//p[contains(text(),'What is the Indian Currency?')]"));
+    var assertSectionAandProgressBarActive = element(by.xpath("//label[@class='progressBar-border active' and text()='A']"));
+    var assertSectionBandProgressBarActive = element(by.xpath("//label[@class='progressBar-border active' and text()='B']"));
+    var assertSectionAandQuestion1Indicator = element(by.xpath("//li[@class='showFeedBack-progressBar ng-star-inserted progressBar-border' and text()=' 1 ']"));
+    var assertSectionAandQuestion2Indicator = element(by.xpath("//li[@class='showFeedBack-progressBar ng-star-inserted progressBar-border' and text()=' 2 ']"));
+    var assertSectionAandQuestion3Indicator = element(by.xpath("//li[@class='showFeedBack-progressBar ng-star-inserted progressBar-border' and text()=' 3 ']"));
+    var clkReview = element(by.xpath("//button[contains(text(),'Review')]"));
+    var assertQuestion1 = element(by.xpath("//div[contains(text(),' 1/3 ')]"));
+    var NavigateSubmitPage = element(by.xpath("//li[@aria-label='scoreboard']"));
+    var assertSubmitConfirmation = element(by.xpath("//div[contains(text(),'Enjoyed this content?')]"));
+    var assertNextButtonOnQuestionSet = element(by.xpath("//div[@class='quml-navigation__next ml-8 ng-star-inserted' and @title='next slide']"));
+    var assertPrevButtonOnQuewstionSet = element(by.xpath("//div[@class='quml-navigation__previous' and @title='preview slide']"));
+    var assertBtnColor = element(by.xpath("//div[@class='quml-navigation__next quml-navigation__next--active ml-8 ng-star-inserted' and @title='next slide']"));
+    var assertInstruction1 = element(by.xpath("//div[contains(text(),'Instructions')]"));
+    var assertInstructionUnderline = element(by.xpath("(//u[contains(text(),'Instruction')])[1]"))
+    var assertAttempts = element(by.xpath("//span[contains(text(),'Attempt') and contains(text(),'1/')]"));
+    var clkMaxAttempt = element(by.xpath("//button[contains(text(),'Continue learning')]"));
+    var assertReachedMaxLimit = element(by.xpath("//div[contains(text(),'You have exceeded the maximum number of attempts that can be submitted')]"));
+    var assertCloseBtn = element(by.xpath("//a[contains(text(),'Close')]"));
+    var assertInstBold = element(by.xpath("(//strong[contains(text(),'Instruction')])[1]"))
+    var assertInstItalic = element(by.xpath("//i[contains(text(),'Instruction')]"));
+    var clkShuffleCheckBox = element(by.xpath("//*[contains(@id,'shuffle-questions')]"));
+    var validateShuffleMessagePopUp = element(by.xpath("//*[text()='Each question will carry equal weightage of 1 mark when using Shuffle. To provide different weightage to individual questions please turn off Shuffle.']"));
+    var clkSelAns2 = element(by.xpath("//div[@class='option']//preceding::p[2][text()='New Delhi']"));
+    var clkSelAns3 = element(by.xpath("//div[@class='option']//preceding::p[2][text()='Rupee']"));
+    var asserTotalQuestionsAfterMax = element(by.xpath("//div[contains(text(),'Questions Answered: 5')]"));
+    var clkPublishedContentCard = element(by.xpath("//div[@class='content']"));
+    var firstContentCard = element(by.xpath("(//*[contains(@class,'UpForReviewListHover')]//child::td[1])[1]"));
+    var assertTitleLeft = element(by.xpath("(//p[text()='test'])[1]"));
+    var assertTitleCenter = element(by.xpath("//p[text()='test' and @class='text-center']"));
+    var asserrtTitleRight = element(by.xpath("//p[text()='test' and @class='text-right']"));
+    var assertQuestion1Left = element(by.xpath("(//p[text()='One'])[1]"));
+    var assertQuestion1Center = element(by.xpath("//p[text()='one' and @class='text-center']"));
+    var assertQuetion1Right = element(by.xpath("//p[text()='one' and @class='text-right']"));
+    var assertLiveQuestion1 = element(by.xpath("//small[contains(text(),' Show question added to question set')]//following::sui-checkbox[1]"));
+    var assertLiveQuestion2 = element(by.xpath("//small[contains(text(),' Show question added to question set')]//following::sui-checkbox[1]"));
+    var clkOpt1Quest2 = element(by.xpath("(//div[@class='option']//preceding::p[2][text()='Bangalore'])[2]"));
+    var clkOpt1Quest3 = element(by.xpath("(//div[@class='option']//preceding::p[2][text()='Bangalore'])[3]"));
+    var assertQuestionsAnswered1 = element(by.xpath("//div[contains(text(),'Questions Answered: 6')]"));
+    var clkAddQuestion = element(by.xpath("//button[contains(text(),'Add question')]"));
+    var clkAddedQuestion = element(by.xpath("//span[contains(text(),'Section')]//following::span[@class='fancytree-title']"));
+    var assertselectedQuestion = element(by.xpath("//li[text()='i ']"));
+    var assertAppliedBoardFilterInAllTabs = element(by.xpath("//div[contains(text(),'Applied filters')]//following::label[contains(text(),'Board')]//following::a[1]"));
+    var assertAppliedMediumFilterInAllTabs = element(by.xpath("//div[contains(text(),'Applied filters')]//following::label[contains(text(),'Medium')]//following::a[1]"));
+    var assertAppliedSubjectFilterInAllTabs = element(by.xpath("//div[contains(text(),'Applied filters')]//following::label[contains(text(),'Subject')]//following::a[1]"));
+    var selectMax3Questions = element(by.xpath("//option[@value='3: 3']"));
+    var selCorrectAnswer1 = element(by.xpath("(//div[@class='quml-option'])[1]"));
+    var selCorrectAnswer2 = element(by.xpath("(//div[@class='quml-option'])[2]"));
+    var selCorrectAnswer3 = element(by.xpath("(//div[@class='quml-option'])[3]"));
+    var assertSumOfBothSec = element(by.id("Group-18-Copy"));
+    var assertTimer = element(by.xpath("//quml-durationtimer//following::span"));
+    var assertTimerDisplay = element(by.xpath("//quml-timer//following::span[1]"));
+    var assertTimerActive = element(by.id("timer/active"));
+    var selCorrectAnswer4 = element(by.xpath("(//div[@class='quml-option'])[4]"));
+    var selCorrectAnswer5 = element(by.xpath("(//div[@class='quml-option'])[5]"));
+    var enterQuestionTitle = element(by.xpath("(//*[contains(@id,'searchText')])[2]"));
+    var clkCopyQuestion = element(by.xpath("//span[contains(@data-tooltip,'copy question')]"));
+    var submitButtonInEditQuestion = element(by.xpath("//button[contains(text(),'Submit')]"));
+    var clickFunctions = element(by.xpath("(//*[@title='Add Formula'])[1]"));
+    var clickFunctions2 = element(by.xpath("(//*[@title='Add Formula'])[2]"));
+    var clickFunctions3 = element(by.xpath("(//*[@title='Add Formula'])[3]"));
+    var clickEquations = element(by.xpath("//a[contains(text(),'Equations')]"));
+    var clickEquationDropdwn = element(by.xpath("//div[contains(text(),'All Equations')]"));
+    var selectEquationDropDownValue = element(by.xpath("//div[contains(text(),'Trigonometric functions')]"));
+    var selectSinTheta = element(by.xpath("//div[contains(@id,'trig0')]"));
+    var selectCosTheta = element(by.xpath("(//div[contains(@id,'trig1')])[1]"));
+    var selectTanTheta = element(by.xpath("//*[contains(@id,'trig4')]"));
+    var addButton = element(by.xpath("//*[contains(text(),'Please switch to advanced tab to copy paste LaTeX')]//following::button[contains(text(),'Add')]"));
+    var assertAnsSelected = element(by.xpath("//div[@class='quml-option quml-option--selected']"));
+    var assertCompleteConsume = element(by.xpath("//div[text()='You just completed']"));
+    var assertAllQuestions = element(by.xpath("//span[text()='5']"));
+    var assertAllQuestionConsum = element(by.xpath("//div[contains(text(),'Replay')]"));
+    var clkCourse = element(by.xpath("//*[contains(text(),'Course Unit')]//following::div[@title='PDF_13.pdf']"));
+    var assertTitle = element(by.xpath("(//div[text()=' PDF_13.pdf '])[1]"));
+    var assertByOrg = element(by.xpath("(//div[text()=' PDF_13.pdf '])[1]//following::span[text()='by CBSE/NCERT']"));
+    var assertMaxSelectedQuestions = element(by.xpath("//span[text()='3']"));
+    var selectScore = element(by.xpath("//option[text()='Score']"));
+    var selectImageAfterAdding = element(by.xpath("(//*[@class='image ck-widget ck-widget_selected'])"));
+    var resizeOne = element(by.css("svg.ck.ck-icon.ck-button_icon"));
+    var addVedioInResource = element(by.xpath("//*[@data-content='Add Video']"));
+    var addAudioInResource = element(by.xpath("//*[@data-content='Add Audio']"));
+    var clickSelectVedio = element(by.xpath("//*[@name='youtubeVideo']"));
+    var clickSelectedVideo = element(by.xpath("//*[text()='Select']"));
+    var assertmaxlength = element(by.xpath("//*[@maxlength='100']"));
+    var changeTimeout = element(by.xpath("//input[@placeholder='Time'][1]"));
+    var selectOptionOne = element(by.xpath("//*[contains(text(),'240,200,160')]"));
+    var selectSecondOption = element(by.xpath("//*[contains(text(),'200,160,240')]"));
+    var assertImageonCard = element(by.xpath("//span[contains(text(),'Continue Learning')]//following::img"));
+    var assertTitleOnCard = element(by.xpath("//span[contains(text(),'Continue Learning')]//following::h4"));
+    var assertSubjectOnCard = element(by.xpath("//span[contains(text(),'Subject')]//following::span[1]"));
+    var assertPublisherOnCard = element(by.xpath("//span[contains(text(),'Publisher')]//following::span[1]"));
+    var assertDataOnCard = element(by.xpath("//span[contains(text(),'Continue Learning')]//following::h4//following::div//following::span[1]"));
+    var clkNextAfterOpen = element(by.xpath("(//a[@class='nav-icon nav-next'])[2]"));
+    var clkNextButton = element(by.xpath("(//div[contains(text(),'Next')])[1]"));
+    var clkOption1 = element(by.xpath("(//div[@class='option-text-container text-only'])[1]"));
+    var clkAddCertificate = element(by.xpath("//a[contains(text(),'Add certificate')]"));
+    var clkbtnAddCertificate = element(by.xpath("//button[contains(text(),'Add certificate')]"));
+    var assert100PDisable = element(by.xpath("//input[@readonly='true']"));
+    var assertPlusSign = element(by.xpath("//button[@class='d-flex flex-ai-center flex-jc-center plus-btn ng-star-inserted']"));
+    var filterSearch1 = element(by.xpath("(//input[@name='filter_search'])[2]"));
+    var clkAddCollaborator = element(by.xpath("//div[@class='icon-box popup-item']"));
+    var clkAdd = element(by.xpath("(//strong[text()='+ADD'])[1]"));
+    var clkbtnDone1 = element(by.xpath("//button[text()='Done']"));
+    var clkMngCollab = element(by.xpath("//a[text()='Manage Collaborators']"));
+    var clkRemove = element(by.xpath("(//strong[text()='REMOVE'])[1]"));
+    var sectionGK1 = element(by.xpath("//span[text()='SectionGK1']"));
+    var navigateToPrevious = element(by.xpath("//*[contains(@alt,'Navigate to previous')]"));
+    var assertTimeOut = element(by.xpath("//div[contains(text(),'00:00')]"));
+    var replayButton = element(by.xpath("(//*[contains(text(),'Replay')])[2]//..//child::a"));
+    var selectOptionOneSlideOne = element(by.xpath("//*[contains(text(),'241,201,161')]"));
+    var closeIconPopup = element(by.xpath("//*[contains(@aria-label,'close')]"));
+    var nextButtonPopup = element(by.xpath("//div[contains(@id,'popup-buttons-container')]//child::div"));
+    var selBoardValueOnlyRootNode = element(by.xpath("//option[contains(text(),'State (Andhra Pradesh)') or contains(text(),'Z_Test_Framework') or contains(text(),'CBSE')]"));
+    var assertTextCenter = element(by.xpath("//p[text()='What is the capital of Karnataka?' and @class='text-center']"));
+    var clkQuestionAlign = element(by.xpath("(//button[@class='ck ck-button ck-off ck-dropdown__button'])[1]"));
+    var clkQuestionCenter = element(by.xpath("(//button[@class='ck ck-button ck-off'])[5]"));
+    var assertInstructionsEntered = element(by.xpath("//div[contains(text(),'Instructions')]//following::p[text()='abcd xyz']"));
+    var selNoOption = element(by.xpath("(//option[contains(text(),'No')])[1]"));
+    var selMaxQuestionAs1 = element(by.xpath("//option[@value='1: 1']"));
+    var selectMaxQuesDropdownRootNode = element(by.xpath("(//select[@id='sb-dropdown'])[7]"));
+    var assertAfterCreateQuestion = element(by.xpath("//span[text()='Selected Question : 1']"));
+    var checkUncheck1 = element(by.xpath("(//input[@class='question-select'])[1]"));
+    var assertAfterUncheck1 = element(by.xpath("//span[text()='Selected Question : 0']"));
+    var checkUncheck2 = element(by.xpath("(//input[@class='question-select'])[2]"));
+    var checkUncheck3 = element(by.xpath("(//input[@class='question-select'])[3]"));
+    var checkUncheck4 = element(by.xpath("(//input[@class='question-select'])[4]"));
+    var checkUncheck5 = element(by.xpath("(//input[@class='question-select'])[5]"));
+    var assertAfterCheck4 = element(by.xpath("//span[text()='Selected Question : 4']"));
+    var copyQstn = element(by.xpath("(//i[@class='copy icon'])[1]"));
+    var assertCopiedQuestion = element(by.xpath("(//div[contains(text(),'Copy of - Question')])[1]"));
+    var boardInQuestion1 = element(by.xpath("(//div[text()='Select Board' or text()= 'Select Board/Syllabus' ])"));
+    var selectCBSEQue1 = element(by.xpath("(//div[text()='Select Board' or text()= 'Select Board/Syllabus' ])/following::div/div[1]"));
+    var mediumInQuestion1 = element(by.xpath("(//div[.='Select Medium'])"));
+    var selectEnglishFITB1 = element(by.xpath("(//div[.='Select Medium'])/following::div/div[1]"));
+    var clkDeleteQstn = element(by.xpath("(//i[@id='delete-question-config'])[1]"));
+    var assertQuestionCreated = element(by.xpath("//div[contains(text(),'Question Delete')]"));
+    var btnConfirmDel = element(by.xpath("//button[text()='Delete']"));
+    var resoureEditorCloseIcon = element(by.xpath("//div[@id='closeButton']"));
+    var assertEditIconInResouceEditor = element(by.xpath("//i[@class='edit icon link']"));
+    var selectAudioOption = element(by.xpath("//button[@ng-switch-when='select']"));
+    var assertAudioForQuestion = element(by.xpath("//img[@id='org-ekstep-contentrenderer-questionunit-questionComponent-AudioImg']"));
+    var assertAudioForAnswer = element(by.xpath("//*[text()='India']//following::img[2]"));
+    var copyQuestion = element(by.xpath("//*[@class='icon-duplicate link']"));
+    var clickAnswerAudioIcon = element(by.xpath("(//*[text()='Mark as right answer'])[1]//following::i[2]"));
+    var uploadBtn = element(by.xpath("//*[contains(text(),'Upload/ Record')]"));
+    var uploadImage = element(by.xpath("//*[@class='huge upload icon']"));
+    var uploadAndUseBtn = element(by.xpath("//*[text()='Upload and Use']"));
+    var createFTB = element(by.xpath("(//div[@class='card card-hover-effect ng-scope'])[3]"));
+    var clkFTBSelect = element(by.xpath("(//div[@class='card card-hover-effect ng-scope'])[3]//following::div[@class='ui small primary button']"));
+    var clkbtnRefresh = element(by.xpath("//button[text()='Refresh']"));
+    var clkAddText = element(by.xpath("//a[@data-content='Add Text']"));
+    var typeInstruction = element(by.xpath("//textarea[@placeholder='Add text here']"));
+    var clkPrevButtonInPreviewWindow = element(by.xpath("(//*[@alt='Navigate to previous'])"));
+    var assertBlankPageFTB = element(by.xpath("//p[contains(text(),'[[')]"));
+    var assertBlankPageFTB3 = element(by.xpath("//p[contains(text(),']]')]"));
+    var assertBlankPageMCQ = element(by.xpath("//div[@title='Set Answer']//following::br"));
+    var assertBlankPageReOrdering1 = element(by.xpath("//p[contains(text(),'Arrange the given words in proper order to form a sentence.')]"));
+    var assertBlankPageReOrdering2 = element(by.xpath("//textarea[@maxlength='120']//following::span[contains(text(),'0')]"));
+    var assertBlankPageReArranging = element(by.xpath("//span[contains(text(),'Add Sequences')]//following::span[contains(text(),'0')]"));
+    var clkCloseIcon = element(by.xpath("//div[@class='two wide column right aligned']//following::i[@class='cursor-pointer close link icon']"));
+    var assertQuestionInTheList = element(by.xpath("//div[text()='Close Question']"));
+    var clkEditQuestion = element(by.xpath("(//i[@class='edit icon cursor-icon'])[1]"));
+    var assertEditPage = element(by.xpath("//span[text()='Edit Question']"));
+    var assertShowingResultsText = element(by.xpath("//h4[text()='Showing results for Q4R2I7']"));
+    var assertDigitalTextbookByQR = element(by.xpath("//h4[text()='Showing results for Q4R2I7']//following::div[text()='Digital Textbook']"));
+    var assertCourseByQR = element(by.xpath("//h4[text()='Showing results for Q4R2I7']//following::div[text()='Course']"));
 
     return {
         ddSelectlanguage,
@@ -1138,7 +1333,7 @@ var resource = () => {
         selectLearningOutcome,
         submitButtonInQuestion,
         nextButton,
-        questionSetTitle,
+        //questionSetTitle,
         addbutton,
         saveIcon,
         sendForReview,
@@ -1750,6 +1945,201 @@ var resource = () => {
         mcqSelHeading5,
         assertMCQHeadingOpt5,
         clkShowAns1,
+        enterMarks,
+        assertPreviewMarks,
+        clkSubmitConfirmation,
+        submitConfirmationEnable,
+        assertCorrectAns,
+        assertWrongAns,
+        assertSkippedAns,
+        assertQuestionImg,
+        assertAns1Img,
+        assertAns2Img,
+        assertTotalQuestions,
+        assertQuestionsAnswered,
+        assertQuestionsSkipped,
+        assertQuestionsNotViewed,
+        enterSection,
+        clkSection1,
+        clkSection2,
+        clkRootNode,
+        assertInstructionFromRootNode,
+        assertCorrectAnsSecA,
+        assertCorrectAnsSecB,
+        assertWrongAnsSecA,
+        assertWrongAnsSecB,
+        assertSkippedAnsSecA,
+        assertSkippedAnsSecB,
+        assetSecAOnSubmitPage,
+        assrtSecBOnSubmitPage,
+        assertQuestionNo1,
+        assertQuestionNo2,
+        assertQuestionNo3,
+        assertSectionAandProgressBarActive,
+        assertSectionBandProgressBarActive,
+        assertSectionAandQuestion1Indicator,
+        assertSectionAandQuestion2Indicator,
+        assertSectionAandQuestion3Indicator,
+        clkReview,
+        assertQuestion1,
+        NavigateSubmitPage,
+        assertSubmitConfirmation,
+        assertNextButtonOnQuestionSet,
+        assertPrevButtonOnQuewstionSet,
+        assertBtnColor,
+        assertInstruction1,
+        assertInstructionUnderline,
+        assertAttempts,
+        clkMaxAttempt,
+        assertReachedMaxLimit,
+        assertCloseBtn,
+        assertInstBold,
+        assertInstItalic,
+        clkShuffleCheckBox,
+        validateShuffleMessagePopUp,
+        clkSelAns2,
+        clkSelAns3,
+        asserTotalQuestionsAfterMax,
+        clkPublishedContentCard,
+        firstContentCard,
+        assertTitleLeft,
+        assertTitleCenter,
+        asserrtTitleRight,
+        assertQuestion1Left,
+        assertQuestion1Center,
+        assertQuetion1Right,
+        assertLiveQuestion1,
+        assertLiveQuestion2,
+        clkOpt1Quest2,
+        clkOpt1Quest3,
+        assertQuestionsAnswered1,
+        clkAddQuestion,
+        clkAddedQuestion,
+        assertselectedQuestion,
+        assertAppliedBoardFilterInAllTabs,
+        assertAppliedMediumFilterInAllTabs,
+        assertAppliedSubjectFilterInAllTabs,
+        selectMax3Questions,
+        selCorrectAnswer1,
+        selCorrectAnswer2,
+        selCorrectAnswer3,
+        assertSumOfBothSec,
+        assertTimer,
+        assertTimerDisplay,
+        assertTimerActive,
+        selCorrectAnswer4,
+        selCorrectAnswer5,
+        enterQuestionTitle,
+        clkCopyQuestion,
+        submitButtonInEditQuestion,
+        clickFunctions,
+        clickEquations,
+        clickEquationDropdwn,
+        selectEquationDropDownValue,
+        selectSinTheta,
+        selectCosTheta,
+        addButton,
+        selectTanTheta,
+        clickFunctions2,
+        clickFunctions3,
+        assertAnsSelected,
+        assertCompleteConsume,
+        assertAllQuestions,
+        assertAllQuestionConsum,
+        clkCourse,
+        assertTitle,
+        assertByOrg,
+        assertMaxSelectedQuestions,
+        selectScore,
+        selectImageAfterAdding,
+        resizeOne,
+        assertmaxlength,
+        addVedioInResource,
+        addAudioInResource,
+        clickSelectVedio,
+        clickSelectedVideo,
+        changeTimeout,
+        selectOptionOne,
+        selectSecondOption,
+        assertImageonCard,
+        assertTitleOnCard,
+        assertSubjectOnCard,
+        assertPublisherOnCard,
+        assertDataOnCard,
+        clkNextAfterOpen,
+        clkNextButton,
+        clkOption1,
+        clkAddCertificate,
+        clkbtnAddCertificate,
+        assert100PDisable,
+        assertPlusSign,
+        filterSearch1,
+        clkAddCollaborator,
+        clkAdd,
+        clkbtnDone1,
+        clkMngCollab,
+        clkRemove,
+        sectionGK1,
+        navigateToPrevious,
+        assertTimeOut,
+        replayButton,
+        selectOptionOneSlideOne,
+        closeIconPopup,
+        nextButtonPopup,
+        selBoardValueOnlyRootNode,
+        assertTextCenter,
+        clkQuestionAlign,
+        clkQuestionCenter,
+        assertInstructionsEntered,
+        selNoOption,
+        selMaxQuestionAs1,
+        selectMaxQuesDropdownRootNode,
+        assertAfterCreateQuestion,
+        checkUncheck1,
+        assertAfterUncheck1,
+        checkUncheck2,
+        checkUncheck3,
+        checkUncheck4,
+        checkUncheck5,
+        assertAfterCheck4,
+        copyQstn,
+        assertCopiedQuestion,
+        boardInQuestion1,
+        selectCBSEQue1,
+        mediumInQuestion1,
+        selectEnglishFITB1,
+        clkDeleteQstn,
+        assertQuestionCreated,
+        btnConfirmDel,
+        resoureEditorCloseIcon,
+        assertEditIconInResouceEditor,
+        selectAudioOption,
+        assertAudioForQuestion,
+        assertAudioForAnswer,
+        copyQuestion,
+        clickAnswerAudioIcon,
+        uploadBtn,
+        uploadImage,
+        uploadAndUseBtn,
+        createFTB,
+        clkFTBSelect,
+        clkbtnRefresh,   
+        clkAddText,
+        typeInstruction,
+        clkPrevButtonInPreviewWindow,
+        assertBlankPageFTB,
+        assertBlankPageFTB3,
+        assertBlankPageMCQ,
+        assertBlankPageReOrdering1,
+        assertBlankPageReOrdering2,
+        assertBlankPageReArranging,
+        clkCloseIcon,
+        assertQuestionInTheList,
+        clkEditQuestion,
+        assertEditPage,
+        assertShowingResultsText,
+        assertDigitalTextbookByQR,
+        assertCourseByQR,
     }
 };
 module.exports = {

@@ -31,7 +31,7 @@ describe('deactivateAndReactivateGroupWithContentConsumption', () => {
         sanityfun.validateSearchAddedMemberAndCout();
         sanityfun.deactivateGroupAndValidateReactivateoptionInHamburgerMenu()
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         sanityfun.validateActiveGroupsInAddedMember(groupName);
         sanityfun.validateActiveGroupsInAddedMember();
         utility.userLogout();

@@ -8,7 +8,6 @@ const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
 describe('verifyUserCannotCreateNewBatchForFutureBatch', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -27,21 +26,17 @@ describe('verifyUserCannotCreateNewBatchForFutureBatch', () => {
     it('verifyUserCannotCreateNewBatchForFutureBatch', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview2(courseName)
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createFutureBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
-        EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch();
-        utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.validateBatchForOngoingBatch();
     })

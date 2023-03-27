@@ -12,30 +12,24 @@ describe('ValidateRatingSecInRegionalLanguage', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('ValidateRatingSecInRegionalLanguage',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-       utility.userLogin('Creator');
-            let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();
+        utility.userLogin('ContentCreator');
+        let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();
         resourcePageObj.addPluginActivtyInResourceEditor('ProgressBar');
         resourcePageObj.addProgressBarInResourceEditor();
         resourcePageObj.sendForReviewTheResource();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
-        // utility.userLogin('Public User1');
-        // resourcePageObj.ValidateRatingContentInRegionalLang(contentName);
-      
-      
     })
-    
 });

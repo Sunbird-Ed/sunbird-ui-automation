@@ -42,7 +42,7 @@ const validateSignInPopupOnClickOnEnroll = () => {
     console.log("User is trying to login");
 
     var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', 'Public User1');
+    var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', 'Public User2');
     browser.sleep(1000);
 
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.userName), 20000, "userName is not available");
@@ -88,7 +88,7 @@ const validateSignInPopupOnClickOnEnrollOnLatestCourse = () => {
     console.log("User is trying to login");
 
     var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', 'Public User1');
+    var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', 'Public User2');
     browser.sleep(1000);
 
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.userName), 20000, "userName is not available");
@@ -335,5 +335,4 @@ module.exports = {
   validateTextBookCount,
   validateTextBookCountInDifferentRole,
   verifyYOBforCustodianUsers,
-
 }

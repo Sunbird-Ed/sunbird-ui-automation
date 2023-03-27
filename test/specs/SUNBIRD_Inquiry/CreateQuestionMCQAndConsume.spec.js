@@ -30,7 +30,7 @@ describe('CreateQuestionMCQAndConsume', () => {
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         resourcePageObj.ConsumeResourceAndValidateScoreForMCQ(contentName);
       
       

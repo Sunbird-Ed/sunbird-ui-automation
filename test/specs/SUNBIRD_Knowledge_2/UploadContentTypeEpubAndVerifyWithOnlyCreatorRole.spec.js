@@ -21,6 +21,7 @@ describe('upload Epub, save and send for review and publish.', () =>{
 
     it('UploadContentTypeEpubAndVerifyWithOnlyCreatorRole  ',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
         utility.userLogin('OnlyCreator');
         let uploadContent=uploadPageObj.uploadEpub();
@@ -28,7 +29,7 @@ describe('upload Epub, save and send for review and publish.', () =>{
         utility.userLogin('OnlyContentReviewer');
         resourcePageObj.publishTheResourceFromUpForReview(uploadContent);
         utility.userLogout();
-        // utility.userLogin('Public User1');
+        // utility.userLogin('Public User2');
         // resourcePageObj.ConsumeUploadContent(uploadContent,'EPUB');
         // utility.userLogout();
        

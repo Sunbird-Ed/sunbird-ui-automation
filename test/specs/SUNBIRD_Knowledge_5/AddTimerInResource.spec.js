@@ -12,30 +12,27 @@ describe('Add timer Plugin in Resource Edior', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('AddTimerInResource',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
+        //utility.handleLocationPopup();
+        browser.sleep(30000);
         utility.userLogin('Creator');
-            let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();
+        let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();
         resourcePageObj.addPluginActivtyInResourceEditor('Timer');
         resourcePageObj.addTimerInResourceEditor();
         resourcePageObj.sendForReviewTheResource();
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
-        utility.userLogout();
-        // utility.userLogin('Public User1');
+        // utility.userLogout();
+        // utility.userLogin('Public User2');
         // resourcePageObj.ConsumeResourceAndValidateScoreForMCQ(contentName);
-      
-      
     })
-    
 });

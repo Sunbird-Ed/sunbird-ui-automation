@@ -22,6 +22,7 @@ describe('Verify searched contents', () => {
 
     it('verifyMultiSelection',function(){
         utility.handleDropDown();
+        browser.sleep(30000);
         utility.handleLocationPopup();
         utility.userLogin('Admin');
         searchedCotentsValidation.multiSelection();

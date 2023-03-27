@@ -14,7 +14,7 @@ module.exports = {
  
 
 
-  readLoginDataFromExcelFile: function (filePath, sheetIndex, RoleName) {
+  readLoginDataFromExcelFile: function (filePath, sheetIndex,RoleName) {
     var workbook = XLSX.readFile(filePath);
     var sheet_name_list = workbook.SheetNames;
     var data = XLSX.utils.sheet_to_json(
@@ -28,6 +28,8 @@ module.exports = {
     return data;
   },
 
+
+  
   readParticularDataFromExcelFile: function (filePath, sheetIndex) {
     var workbook = XLSX.readFile(filePath);
     var sheet_name_list = workbook.SheetNames;

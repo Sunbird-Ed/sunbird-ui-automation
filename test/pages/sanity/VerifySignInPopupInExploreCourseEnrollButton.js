@@ -30,7 +30,7 @@ var VerifySignInPopupInExploreCourseEnrollButton = () => {
     var assertlimitValidation = element(by.xpath("//strong[contains(text(),'You have exceeded the user creation limit')]"));
     var assertTcCheckbox = element(by.xpath("//input[@role='checkbox']//following::span[contains(text(),' I agree to the updated terms and policies')]"));
 
-    
+
     return {
         loginButton,
         username,

@@ -29,7 +29,7 @@ describe('Verify that, User can delete notifications one by one ', () => {
         EnrollTBFCPageObj.openExistingGroup();
         EnrollTBFCPageObj.addActivityToTheExistingGroup();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.userCanClearAllNotifications();
         utility.userLogout();
         utility.userLogin('ContentCreator');
@@ -37,7 +37,7 @@ describe('Verify that, User can delete notifications one by one ', () => {
         EnrollTBFCPageObj.addActivityToTheExistingGroup();
         EnrollTBFCPageObj.removeActivityFromExistingGroup();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.verifyThatUserCanDeleteNotificationsOneByOne();
         
      

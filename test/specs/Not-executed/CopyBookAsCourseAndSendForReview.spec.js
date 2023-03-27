@@ -6,7 +6,6 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EtbPageObj = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPageObj.js');
 
 describe('CopyBookAsCourseAndSendForReview', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -18,18 +17,14 @@ describe('CopyBookAsCourseAndSendForReview', () => {
     });
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
-        
     });
     
     it('CopyBookAsCourseAndSendForReview',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.copyBookAsCourse('Textbook');
         EtbPageObj.sendCopiedBookForReview();
-
     });
 });
-   
-

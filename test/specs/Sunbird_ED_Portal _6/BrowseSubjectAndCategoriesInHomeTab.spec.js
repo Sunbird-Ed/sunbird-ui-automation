@@ -18,6 +18,7 @@ describe('BrowseSubjectAndCategoriesInHomeTab', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('BrowseSubjectAndCategoriesInHomeTab',function(){
         utility.handleDropDown();

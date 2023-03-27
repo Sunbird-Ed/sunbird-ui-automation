@@ -19,6 +19,7 @@ describe('editLiveBookAndAddSameBookInLibrary', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('editLiveBookAndAddSameBookInLibrary', function () {
@@ -31,7 +32,6 @@ describe('editLiveBookAndAddSameBookInLibrary', () => {
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(bookName);
         utility.userLogout();
-        //let bookName = "BookBEverette";
         utility.userLogin('Creator');
         cont.verifyPublishedContentInAllMyContentandValidateInLibrary(bookName);
     })//

@@ -22,18 +22,20 @@ describe('verify sign in popup in explore course', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
 
     it('VerifySignInPopupInExploreCourseEnrollButton ', function () {
-        utility.handleDropDown();
+        utility.handleDropDown(); 
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let courseName = tpdPageObj.createCourseAndSendForReviewBySearchingContentInLibrary("pdf");
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview2(courseName)
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatchWithCloseEndDate();
         utility.userLogout();

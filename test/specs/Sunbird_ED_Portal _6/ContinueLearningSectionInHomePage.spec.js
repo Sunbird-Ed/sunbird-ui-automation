@@ -18,12 +18,13 @@ describe('ContinueLearningSectionInHomePage', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('ContinueLearningSectionInHomePage',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         resource.ContinueLearningSecInHomePage();
     })
 });

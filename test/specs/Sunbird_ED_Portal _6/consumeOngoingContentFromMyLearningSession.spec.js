@@ -21,23 +21,23 @@ describe('consumeOngoingContentFromMyLearningSession', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
 
     it('consumeOngoingContentFromMyLearningSession', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         let courseName = tpdPageObj.createCourseAndSendForReviewBySearchingContentInLibrary("pdf_13");
         utility.userLogout();
         utility.userLogin('ContentReviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName);
+        tpdPageObj.publishCourseFromUpForReview2(courseName);
         utility.userLogout();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.JoinCourseWithOpenBatch();
         EnrollTBFCPageObj.validateAndConsumeOngoingContentInMyLearningSession(courseName);

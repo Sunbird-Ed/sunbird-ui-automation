@@ -20,13 +20,15 @@ describe('Create Course save and send for review and publish.', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
     
     it('CreateCourseAndVerify', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('ContentCreator');
-        let courseName = sanityfun.createCourseAndSendForReview();
+utility.userLogin('ContentCreator');
+          let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview2(courseName);

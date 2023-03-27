@@ -32,14 +32,14 @@ describe('validateExpiredCourseInMyLearningSectionCreateNewBatchAndConsumeValida
        
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('submitDetails');
         EnrollTBFCPageObj.validateExpiredBatchInMyLearningSection(expiredContent);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(expiredContent);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('submitDetails');
         EnrollTBFCPageObj.navigateToCourseAndSearchCourse(expiredContent);
         EnrollTBFCPageObj.validateAndConsumeOngoingContentAndAlsoValidateExpiredContentInMyLearningSection("AutomationExpiredCourse");     
     })

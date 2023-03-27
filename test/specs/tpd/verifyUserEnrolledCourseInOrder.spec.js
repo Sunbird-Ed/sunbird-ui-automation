@@ -35,7 +35,7 @@ describe('Course Enrolled By the user should dispay in descending order', () => 
         //EnrollTBFCPageObj.batchNameAndEndDateIsMandatoryFields();
         EnrollTBFCPageObj.createOpenBatchWithEnrolmentDate();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(coursename);
         EnrollTBFCPageObj.enrollForOpenBatch();
         EnrollTBFCPageObj.checkTheCourseInMyCourseSection(coursename);

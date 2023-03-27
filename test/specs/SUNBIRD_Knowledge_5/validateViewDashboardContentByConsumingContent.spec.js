@@ -38,7 +38,7 @@ describe('validateViewDashboardContentByConsumingContent', () => {
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         cont.consumePDFbContent(courseName);
         utility.userLogout();
         utility.userLogin('Creator');

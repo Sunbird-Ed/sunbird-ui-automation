@@ -38,7 +38,7 @@ describe('userisAbletoSeeEnrolmentEndDate', () => {
         EnrollTBFCPageObj.createOpenBatchWithEnrolmentDate();
         utility.userLogout();
 
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(coursename);
         var fetchCoursename= EnrollTBFCPageObj.enrollForOpenBatch();
         EnrollTBFCPageObj.checkTheCourseInMyCourseSection(fetchCoursename);

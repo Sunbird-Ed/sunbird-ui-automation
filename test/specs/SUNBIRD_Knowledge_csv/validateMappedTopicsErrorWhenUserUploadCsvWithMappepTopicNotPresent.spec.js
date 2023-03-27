@@ -25,8 +25,8 @@ describe('validateMappedTopicsErrorWhenUserUploadCsvWithMappepTopicNotPresent', 
     
     it('validateMappedTopicsErrorWhenUserUploadCsvWithMappepTopicNotPresent',function(){
         utility.handleDropDown();
-        browser.sleep(30000);
-        //utility.handleLocationPopup();
+        
+        utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         sanityFun.downloadTocInCSVFormatEditandUpload();
     });

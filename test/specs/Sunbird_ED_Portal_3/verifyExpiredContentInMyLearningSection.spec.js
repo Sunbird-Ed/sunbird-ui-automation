@@ -29,8 +29,8 @@ describe('verifyExpiredContentInMyLearningSection', () => {
     it('verifyExpiredContentInMyLearningSection', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
-        let courseName = "courseABlaise14";
-        EnrollTBFCPageObj.validateExpiredBatchInMyLearningSection(courseName);
+        utility.userLogin('Public User2');
+      //  let courseName = "courseABlaise14";
+        EnrollTBFCPageObj.validateExpiredBatchInMyLearningSection();
     })
 });

@@ -7,7 +7,6 @@ const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPag
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
 describe('addSameContentToDifffoldersAndValidateInCourse', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -21,20 +20,19 @@ describe('addSameContentToDifffoldersAndValidateInCourse', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
 
     it('addSameContentToDifffoldersAndValidateInCourse', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseWithSameContentAndValidateDialogbox();
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let collectionName = sanityfun.createCollectionWithDiffCollectionTypesAndValidateSomeAttributes("digitalTxtbook");
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview(collectionName);
-        utility.userLogout();
     })
 });

@@ -19,11 +19,11 @@ describe('editLiveCollectionAndAddSameCollectionInLibrary', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('editLiveCollectionAndAddSameCollectionInLibrary', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName=collectionPageObj.createCollection();

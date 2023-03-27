@@ -24,7 +24,6 @@ describe('validateAdminIsPresentInTopAndTheMembersPresentBelow', () => {
 
     it('validateAdminIsPresentInTopAndTheMembersPresentBelow', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('NewCredCourseToc');
         sanityfun.verifyAddActivitySearchedByKeyword("AutomationCourseCompletedBatch");

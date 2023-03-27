@@ -20,52 +20,7 @@ var resov = resourcePag.resource();
 
 
  
-const createBook = () => {
-    var bookname;
-    try {
-        console.log("User is trying to create book")
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
-        ccpage.contentCreation().headerDropdown.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
-        ccpage.contentCreation().workSpace.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.book), 20000, "Book page not loaded");
-        etbpage.etb().book.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.bookName), 20000, "Book page not loaded");
-        bookname = "BookA" + faker.randomData().firstname;
-        etbpage.etb().bookName.sendKeys(bookname);
 
-        sanityFun.FillBmesWhileCreatingBook();
-
-        ccpage.contentCreation().startCreating.click();
-        browser.sleep(5000);
-        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-        browser.sleep(000);
-
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.clickUseEditor), 20000, "clickUseEditor is not available");
-        etbpage.etb().clickUseEditor.click();
-
-        browser.sleep(5000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.newchild), 20000, "Didn't switched to different frame");
-        ccpage.contentCreation().newchild.click();
-        browser.wait(protractor.ExpectedConditions.visibilityOf(etbv.untitledName), 20000, "title not available");
-        etbv.untitledName.click();
-        etbv.untitledName.clear();
-        etbv.untitledName.sendKeys(faker.randomData().firstname);
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.save), 20000, "Dashboard never loaded");
-        browser.sleep(3000);
-        content.save.click();
-        browser.sleep(5000);
-
-        console.log("user successfully created Book");
-        return bookname;
-    }
-    catch (err) {
-        console.log(err);
-    }
-
-}
 const sendForReviewTheBook = () => {
     try {
         browser.sleep(6000);
@@ -133,6 +88,7 @@ const sendForReviewTheBook = () => {
         console.log(err);
     }
 }
+
 const publishTheBookFromUpForReview = (bookname) => {
     try {
 
@@ -167,8 +123,8 @@ const publishTheBookFromUpForReview = (bookname) => {
     } catch (err) {
         console.log(err);
     }
-
 }
+
 const createBookWithAllResourceType = () => {
     var bookname;
     try {
@@ -310,6 +266,7 @@ const createBookWithAllResourceType = () => {
         console.log(err);
     }
 }
+
 const verifyTenantWithNoBoard = () => {
     var bookName;
     try {
@@ -1003,14 +960,12 @@ const librarysearchFilter = () => {
         catch (Exception) {
             console.log('Filters are applied but could not get the resultant Content');
         }
-
     }
     catch (Exception) {
         console.log('Failed on searching library by applying filters');
-
     }
-
 }
+
 const verifyNoDefaultValuSltinFilter = () => {
     try {
         browser.sleep(1000);
@@ -1031,22 +986,15 @@ const verifyNoDefaultValuSltinFilter = () => {
 
         var subjectNoDefDD = etbPage.EtbElem().subjectNoDefDD.getText();
         expect(subjectNoDefDD.getText()).toEqual('Select Subject');
-
-
         browser.sleep(1000);
-
     }
     catch (Exception) {
         console.log('Failed on verifyNoDefaultValuSltinFilter');
-
     }
 }
 
 const contentInSubjectWiseInAllTabs = () => {
     try {
-
-
-
         wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary not loaded");
         resov.headerLibrary.click();
         browser.sleep(1000);
@@ -1068,7 +1016,6 @@ const contentInSubjectWiseInAllTabs = () => {
     }
     catch (Exception) {
         console.log('Failed on veriyfing contentInSubjectWise in ALLTabs');
-
     }
 }
 
@@ -1140,9 +1087,9 @@ const multiselectForAllTabs = () => {
     }
     catch (Exception) {
         console.log('Failed on veriyfing Board Value');
-
     }
 }
+
 const verifyUserAccessLiscenceTerms = () => {
     try {
         console.log('Verify User is able to access Liscence Terms Section');
@@ -1198,14 +1145,41 @@ const searchContentInExplorePagewithoutBack = (Consume) => {
     }
     catch (Exception) {
         console.log('Failed on searching library by applying filters');
-
     }
+}
 
+const verifyDisplayedCourseAndTextBookAsPerQRCode = () => {
+    try {
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.headerLibrary, 20000, "headerLibrary not loaded");
+        resov.headerLibrary.click();
+        browser.sleep(1000);
+        console.log("Clicked on Library");
+        wait.waitForElementVisibility(resov.filterSearch, 20000, "filterSearch not loaded");
+        resov.filterSearch.click();
+        resov.filterSearch.sendKeys("Q4R2I7");
+        resov.searchIcon.click();
+        browser.sleep(3000);
+        console.log("Clicked on Search Icon");
+       // wait.waitForElementVisibility(resov.resoCard, 20000, "courseCard not loaded");
+      //  resov.resoCard.click();
+      expect(protractor.ExpectedConditions.visibilityOf(resov.assertShowingResultsText)).toBeTruthy()
+      browser.sleep(1000);
+
+      expect(protractor.ExpectedConditions.visibilityOf(resov.assertDigitalTextbookByQR)).toBeTruthy()
+      browser.sleep(1000);
+
+      expect(protractor.ExpectedConditions.visibilityOf(resov.assertCourseByQR)).toBeTruthy()
+      
+        browser.sleep(3000);
+    }
+    catch (Exception) {
+        console.log('Failed on searching library by applying filters');
+    }
 }
 
 
 module.exports = {
-    createBook,
     sendForReviewTheBook,
     publishTheBookFromUpForReview,
     verifyTenantWithNoBoard,
@@ -1225,5 +1199,5 @@ module.exports = {
     multiselectForAllTabs,
     verifyUserAccessLiscenceTerms,
     searchContentInExplorePagewithoutBack,
-
+    verifyDisplayedCourseAndTextBookAsPerQRCode,
 }

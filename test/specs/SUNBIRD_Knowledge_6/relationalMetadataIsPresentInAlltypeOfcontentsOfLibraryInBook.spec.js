@@ -30,8 +30,6 @@ describe('relationalMetadataIsPresentInAlltypeOfcontentsOfLibraryInBook', () => 
         utility.userLogout();
         utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview(bookName)
-        utility.userLogout();
-        utility.userLogin('ContentCreator');
-        lspPageObj.deleteCreatedItems();
+        
        })
     });

@@ -20,7 +20,8 @@ describe('verifyImagesCanBeUsedInMCQQuestionAnswerSolutionOptions', () => {
     });
     it('verifyImagesCanBeUsedInMCQQuestionAnswerSolutionOptions',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
+        browser.sleep(30000);
+        //utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         resourcePageObj.createMCQQuestionSetWithImagesWithSolOpt();
         

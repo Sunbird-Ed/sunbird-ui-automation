@@ -23,6 +23,7 @@ describe('ConsentPopupShouldNotDisplayForMinorUserWhileJoiningCourse', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('ConsentPopupShouldNotDisplayForMinorUserWhileJoiningCourse', function () {
         utility.handleDropDown();

@@ -29,7 +29,7 @@ describe('Verify that, User can clear all notifications in one go ', () => {
         EnrollTBFCPageObj.addActivityToTheExistingGroup();
         EnrollTBFCPageObj.addActivityToTheExistingGroup();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.userCanClearAllNotifications();
      
     })

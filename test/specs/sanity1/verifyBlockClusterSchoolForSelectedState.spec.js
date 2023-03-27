@@ -17,6 +17,8 @@ describe('verifyBCSforSelectedState', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
     
     it('verifyBlockClusterSchoolForSelectedState',function(){

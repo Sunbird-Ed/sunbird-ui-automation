@@ -6,7 +6,6 @@ const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js')
 
 
 describe('validateCreateBatchInExpiredBatch', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -14,7 +13,6 @@ describe('validateCreateBatchInExpiredBatch', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
     });
 
     afterEach(() => {
@@ -24,9 +22,8 @@ describe('validateCreateBatchInExpiredBatch', () => {
 
     it('validateCreateBatchInExpiredBatch',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         let do_id = tpdPageObj.navigateToCourseAndSearchExpiredBatches();
         console.log(do_id);
         utility.userLogout();
@@ -35,4 +32,3 @@ describe('validateCreateBatchInExpiredBatch', () => {
         tpdPageObj.validateCreateBatchOption();
     })
 });
-   

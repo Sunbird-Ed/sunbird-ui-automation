@@ -20,13 +20,14 @@ describe('verifyCourseDashBoard', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('verifyCourseDashBoard',function(){
         utility.handleDropDown();
         
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         tpdPageObj.validateCourseDashBoard();
     });
 });

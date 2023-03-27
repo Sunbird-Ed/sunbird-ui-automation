@@ -20,7 +20,7 @@ describe('verifyCourseConsumptionStatus ', () => {
     });
     it('verifyCourseConsumptionStatus',function(){
          utility.handleLocationPopup();
-         utility.userLogin('Public User1');
+         utility.userLogin('Public User2');
          //utility.loginAsUser('USERPREFIX,"user",CUSTODIANUSERSUFFIX');
          verifyCCSPageObj.navigateToParticularCourseAndSearchForOpenBatch("Course MNO");
         var fetchCoursename= verifyCCSPageObj.enrollForOpenBatch();

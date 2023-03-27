@@ -25,7 +25,6 @@ describe('createCourseInCPDk12FrameWork', () => {
     });
     it('createCourseInCPDk12FrameWork', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         sanityfun.createCourseForFrameworkWithTopicAndSubject("k12");

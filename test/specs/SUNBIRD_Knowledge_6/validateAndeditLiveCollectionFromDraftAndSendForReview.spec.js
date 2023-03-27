@@ -24,6 +24,7 @@ describe('validateAndeditLiveCollectionFromDraftAndSendForReview', () => {
     
     it('validateAndeditLiveCollectionFromDraftAndSendForReview', function () {
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName = collectionPageObj.createCollectionandSendForReview("digitalTxtbook");
@@ -33,6 +34,6 @@ describe('validateAndeditLiveCollectionFromDraftAndSendForReview', () => {
         utility.userLogout();
         utility.userLogin('Creator');
         tpdPageObj.validateContentsGoesLiveandEditFromDraft(collectionName);
-        utility.userLogout();
+        
     })
 });

@@ -23,17 +23,12 @@ describe('createResourceAndValidateInDraft', () => {
     });
     it('createResourceAndValidateInDraft',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
+      utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResource();
-        console.log(resourceName);
-        resourcePageObj.sendForReviewTheResource();
-        utility.userLogout();
-        utility.userLogin('Reviewer');
-        resourcePageObj.rejectLessonPlan(resourceName);
-        utility.userLogout();
-        utility.userLogin('Creator');
-        resourcePageObj.contentSearchInDraftAndEditAndValidate(resourceName);
+        resourcePageObj.resourceSearchInDrafts(resourceName);
+       
     })
 });
-   
+ 
+

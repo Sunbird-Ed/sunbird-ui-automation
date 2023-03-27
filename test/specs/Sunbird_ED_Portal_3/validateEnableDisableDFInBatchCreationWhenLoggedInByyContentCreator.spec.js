@@ -31,7 +31,7 @@ describe('validateEnableDisableDFInBatchCreationWhenLoggedInByyContentCreator', 
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName)
+        tpdPageObj.publishCourseFromUpForReview2(courseName)
         utility.userLogout();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
@@ -41,7 +41,7 @@ describe('validateEnableDisableDFInBatchCreationWhenLoggedInByyContentCreator', 
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.editBatchAndValidateEnableDiscussion();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.validateForumInContent(courseName);
     })
 });

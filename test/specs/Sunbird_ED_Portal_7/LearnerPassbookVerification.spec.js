@@ -20,13 +20,14 @@ describe('LearnerPassbookVerification', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
 
     it('LearnerPassbookVerification',function(){
         utility.handleDropDown();
         
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.verifyConsumesCourseInTrainingSec(); 
     });
 });

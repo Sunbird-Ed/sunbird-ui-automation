@@ -27,7 +27,7 @@ describe('userShouldBeRetainedOnTheSameScreenOnRefresh', () => {
         EnrollTBFCPageObj.addActivityToTheExistingGroup();
         EnrollTBFCPageObj.addActivityToTheExistingGroup();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.sameUiRetainedAfterRefresh();
     })
 });

@@ -23,7 +23,6 @@ describe('validateAllFilterTypesInHomeTabByCategoriesAndSubject', () => {
 
     it('validateAllFilterTypesInHomeTabByCategoriesAndSubject', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('User');
         tpdPageObj.homeTabwithBrowseBySubject();

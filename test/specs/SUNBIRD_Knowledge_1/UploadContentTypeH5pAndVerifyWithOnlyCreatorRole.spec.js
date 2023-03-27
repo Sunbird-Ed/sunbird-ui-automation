@@ -29,7 +29,7 @@ describe('upload h5p, save and send for review and publish.', () =>{
         utility.userLogin('OnlyContentReviewer');
         resourcePageObj.publishTheResourceFromUpForReview(uploadContent);
         utility.userLogout();
-        // utility.userLogin('Public User1');
+        // utility.userLogin('Public User2');
         // resourcePageObj.ConsumeUploadContent(uploadContent,'EPUB');
         // utility.userLogout();
        

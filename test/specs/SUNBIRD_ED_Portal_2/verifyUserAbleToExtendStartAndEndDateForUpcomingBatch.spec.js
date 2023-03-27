@@ -26,22 +26,21 @@ describe('verifyUserAbleToExtendStartAndEndDateForUpcomingBatch', () => {
     
     it('verifyUserAbleToExtendStartAndEndDateForUpcomingBatch', async function () {
         utility.handleDropDown();
+        browser.sleep(30000);
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
-        console.log(courseName);
         utility.userLogout();
         utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview2(courseName)
         utility.userLogout();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
-        EnrollTBFCPageObj.createFutureBatch();
+        // EnrollTBFCPageObj.createFutureBatch();
         EnrollTBFCPageObj.selectUpcomingBatchFromDropdown();
         let upcomingDate=await EnrollTBFCPageObj.validateUpcomingDates();
         EnrollTBFCPageObj.selectAndValidateUpcomingBatch();
         let extendedDate=await EnrollTBFCPageObj.validateUpcomingDates();
         expect(upcomingDate).not.toEqual(extendedDate);
-        utility.userLogout();
     })
 });

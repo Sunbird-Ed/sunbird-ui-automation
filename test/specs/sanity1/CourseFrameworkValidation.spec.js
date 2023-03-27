@@ -20,6 +20,8 @@ describe('Create Course save and send for review and publish.', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
     
     it('CourseFrameworkValidation',function(){

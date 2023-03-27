@@ -16,6 +16,7 @@ describe('user is able validate all language ,Elements are changed as per the La
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('CheckCoursePageLanguageChangeWorksFine', function () {
@@ -23,8 +24,8 @@ describe('user is able validate all language ,Elements are changed as per the La
         
         utility.handleLocationPopup();
         checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsHindi();
-        // checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsKannada();
-        // checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsTamil();
-        // checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsUrdu();
+       checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsKannada();
+        checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsTamil();
+         checkCPLCWFPageObj.validateAllElementsInLanguageSelectionAsUrdu();
     })
 });

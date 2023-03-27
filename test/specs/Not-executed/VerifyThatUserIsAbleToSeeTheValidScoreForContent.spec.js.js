@@ -4,7 +4,7 @@ const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePa
 const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js');
 const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
 
-describe('Create Resource save and send for review and publish.', () => {
+describe('VerifyThatUserIsAbleToSeeTheValidScoreForContent', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -22,7 +22,8 @@ describe('Create Resource save and send for review and publish.', () => {
         utility.userLogout();
         browser.manage().deleteAllCookies();
     });
-    it('CreateResourceAndVerify',function(){
+    
+    it('VerifyThatUserIsAbleToSeeTheValidScoreForContent',function(){
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResource();

@@ -28,7 +28,7 @@ describe('able to create course and enroll consume TimerVerification', () => {
         utility.handleLocationPopup();
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch('CourseGuestUser');
         EnrollTBFCPageObj.clickJoincourse();
-        utility.userLoginPopup('Public User1');
+        utility.userLoginPopup('Public User2');
        EnrollTBFCPageObj.assertCourseToc();
     })
 });

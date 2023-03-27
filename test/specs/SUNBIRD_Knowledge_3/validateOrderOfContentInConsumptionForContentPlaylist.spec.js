@@ -26,15 +26,14 @@ describe('validateOrderOfContentInConsumptionForContentPlaylist', () => {
 
     it('validateOrderOfContentInConsumptionForContentPlaylist', function () {
         utility.handleDropDown();
-        
-        utility.handleLocationPopup();
+                utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName = sanityfun.createCollectionWithDiffCollectionTypes("contentPlaylist");
         utility.userLogout();
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(collectionName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         resourcePageObj.navigateToLibraryAndSearchContentAndValidateOrderContents(collectionName);
     })
 });

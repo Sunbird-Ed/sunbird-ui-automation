@@ -8,7 +8,6 @@ const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPag
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
 describe('validateFoldersLevelDialogBox', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -25,16 +24,8 @@ describe('validateFoldersLevelDialogBox', () => {
     
     it('validateFoldersLevelDialogBox', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityfun.createCourseWithSameContentAndValidateDialogbox();
-        utility.userLogout();
-        utility.userLogin('Creator');
-        
-
-
-        
-        
     })
 });

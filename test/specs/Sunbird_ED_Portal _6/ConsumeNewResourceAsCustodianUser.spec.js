@@ -16,6 +16,7 @@ describe('custodian user should is able to consume the resource contents from li
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('ConsumeNewResourceAsCustodianUser',function(){
         utility.handleDropDown();

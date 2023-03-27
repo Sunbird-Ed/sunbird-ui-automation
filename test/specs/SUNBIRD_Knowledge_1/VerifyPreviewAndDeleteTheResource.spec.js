@@ -23,17 +23,15 @@ describe('Veri that user is able to preview and delete the resource', () => {
     it('VerifyPreviewAndDeleteTheResource',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let resourceName=resourcePageObj.createResource();
         resourcePageObj.sendForReviewTheResource();
         //resourcePageObj.previewResource();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
         utility.userLogout();
-        utility.userLogin('Creator');
-        
+        utility.userLogin('ContentCreator');
         resourcePageObj.deleteCreatedItems(); 
-
     });
 });

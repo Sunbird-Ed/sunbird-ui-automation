@@ -27,10 +27,10 @@ describe('Create Course save and send for review and publish.', () => {
     it('CreateCourseWithOnlyCreatorRole', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('OnlyCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('OnlyContentReviewer');
         
         tpdPageObj.publishCourseFromUpForReview(courseName);
         

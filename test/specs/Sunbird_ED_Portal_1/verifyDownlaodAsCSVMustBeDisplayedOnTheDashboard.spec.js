@@ -23,6 +23,5 @@ describe('Verify Downlaod as CSV must be displayed on the dashboard', () => {
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.verifyDownlaodAsCSVMustBeDisplayedOnTheDashboard();
-     
     })
 });

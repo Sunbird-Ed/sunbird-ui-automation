@@ -18,6 +18,7 @@ describe('BoardsAvailableInBoardSectionInExploreTab', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('BoardsAvailableInBoardSectionInExploreTab',function(){
         utility.handleDropDown();

@@ -24,7 +24,7 @@ describe('Course name: Expired Batch Course', () => {
     it('VerifyUserIsAbleToConsumeExpiredBatchCourse',function(){
         utility.handleLocationPopup();
         let coursename= "vk-2.8.8Coursewithallcontents";
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.consumeTheExpiredBatchCourseAndEnrolToOpenBatch(coursename);
        
 

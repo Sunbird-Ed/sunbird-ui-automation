@@ -23,10 +23,10 @@ describe('joinDiscussionForumVerify', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('joinDiscussionForumVerify ', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('staging');
         sanityPage.verifyDiscussionForum();

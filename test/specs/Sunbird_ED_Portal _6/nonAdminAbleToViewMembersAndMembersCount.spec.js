@@ -6,6 +6,7 @@ const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js
 const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPageObj.js');
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
+
 describe('nonAdminAbleToViewMembersAndMembersCount', () => {
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -20,17 +21,18 @@ describe('nonAdminAbleToViewMembersAndMembersCount', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('nonAdminAbleToViewMembersAndMembersCount', function () {
         utility.handleDropDown();
-        browser.sleep(25000);
-        //utility.handleLocationPopup();
-        utility.userLogin('NewCredCourseToc');
-        sanityfun.verifyAddActivitySearchedByKeyword("AutomationCourseCompletedBatch");
+        
+        utility.handleLocationPopup();
+        utility.userLogin('submitDetails');
+        sanityfun.verifyAddActivitySearchedByKeywordInCourseBucket("AutomationCourseCompletedBatch");
         sanityfun.validateSearchAddedMemberAndCout();
         utility.userLogout();
-        utility.userLogin('Public User1');
-        sanityfun.validateAddedMemberAndMembersCout()
+        utility.userLogin('Public User2');
+        sanityfun.validateAddedMemberAndMembersCout();
     })
 });

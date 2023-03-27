@@ -32,7 +32,7 @@ describe('Vrify that user is able to create Reordering words Question type with 
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(courseName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         resourcePageObj.ConsumeResourceAndValidateScoreForRegionalLangReOrderingTemplate(courseName);
        
     });

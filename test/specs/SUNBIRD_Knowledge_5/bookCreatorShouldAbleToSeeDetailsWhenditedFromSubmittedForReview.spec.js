@@ -27,7 +27,7 @@ describe('bookCreatorShouldAbleToSeeDetailsWhenditedFromSubmittedForReview', () 
         utility.handleDropDown();
         
         utility.handleLocationPopup();
-        utility.userLogin('Book Creator');
+        utility.userLogin('ContentCreator');
         let bookName=etbPageObj.createBookWithAllResourceType();
         tpdPageObj.submittedForReviewBucket(bookName);
     })

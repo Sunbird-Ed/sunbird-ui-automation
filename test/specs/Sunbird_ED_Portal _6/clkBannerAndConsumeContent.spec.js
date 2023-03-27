@@ -23,11 +23,11 @@ describe('clkBannerAndConsumeContent', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
 
     it('clkBannerAndConsumeContent', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('User');
         EnrollTBFCPageObj.validateAndVerifyBannerContent();

@@ -23,6 +23,6 @@ describe('verifyThatGroupAdminSeesTheActivityDashboardWhenUserOpenTheCourse', ()
         utility.handleLocationPopup();
         utility.userLogin('Dont Use');
         lspPageObj.verifyThatGroupAdminSeesTheActivityDashboardWhenUserOpenTheCourse();
-        // EnrollTBFCPageObj.verifyCreateMyGroupAddMember();
+        
     })
 });

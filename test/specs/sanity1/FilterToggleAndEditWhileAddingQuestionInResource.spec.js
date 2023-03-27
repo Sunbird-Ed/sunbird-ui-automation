@@ -20,12 +20,14 @@ describe('FilterToggleAndEditWhileAddingQuestionInResource', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
 
     it('FilterToggleAndEditWhileAddingQuestionInResource', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         tpdobj.applyFilterAndToggleQuestion();
     });
 });

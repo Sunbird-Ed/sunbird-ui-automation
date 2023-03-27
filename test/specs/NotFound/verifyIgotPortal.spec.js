@@ -3,7 +3,6 @@ let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 
 describe('Verify test cases for Igotportal', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url="https://igot.gov.in/igot/explore-course";
@@ -11,7 +10,6 @@ describe('Verify test cases for Igotportal', () => {
         browser.get(Url, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
     });
 
     afterEach(() => {
@@ -22,7 +20,5 @@ describe('Verify test cases for Igotportal', () => {
     it('verify Igot Portal',function(){
         utility.handleDropDown();
         usrOnBoardfun.verifyIgot();
-        
-
-});
+    });
 });

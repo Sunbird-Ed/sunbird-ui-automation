@@ -18,12 +18,14 @@ describe('VerifyFiltersInAllTheTabs', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
 
     it('VerifyFiltersInAllTheTabs',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         searchCBFPPageObj.courseSearchFilter();    
     });
 });

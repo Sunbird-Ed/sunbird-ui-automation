@@ -7,7 +7,6 @@ const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.
 const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
 describe('AddETextBookContentAndConsume.', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -15,14 +14,13 @@ describe('AddETextBookContentAndConsume.', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        
     });
+
     it('AddETextBookContentAndConsume',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
@@ -33,12 +31,6 @@ describe('AddETextBookContentAndConsume.', () => {
         tpdPageObj.publishContentFromUpForReviewBucket(bookName);
         utility.userLogout();
         utility.userLogin('Creator');
-        //
-        lspPageObj.deleteCreatedItems();
-         
+        lspPageObj.deleteCreatedItems();   
     })
-
-   
-   
 });
-   

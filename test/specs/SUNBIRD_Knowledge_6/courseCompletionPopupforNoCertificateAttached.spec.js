@@ -26,18 +26,17 @@ describe('courseCompletionPopupforNoCertificateAttached', () => {
     it('courseCompletionPopupforNoCertificateAttached', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let courseName = tpdPageObj.createCourseAndSendForReviewBySearchingContentInLibrary("pdf_13");
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName);
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(courseName);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
-        //let courseName = "do_21364938611170508811270";
-        utility.userLogin('NewCustUser1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.consumeContentAndValidateCourseCompletionHighlightedInAmberIfNoCertificateAttached(courseName);
     })
 });

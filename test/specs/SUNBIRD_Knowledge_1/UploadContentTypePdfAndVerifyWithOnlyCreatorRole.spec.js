@@ -27,10 +27,10 @@ describe('upload pdf, save and send for review and publish.', () =>{
         utility.userLogin('OnlyCreator');
         let uploadContent=uploadPageObj.uploadPdf();
         utility.userLogout();
-        utility.userLogin('OnlyCreator');
+        utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(uploadContent);
         utility.userLogout();
-        // utility.userLogin('Public User1');
+        // utility.userLogin('Public User2');
         // resourcePageObj.ConsumeUploadContent(uploadContent,'EPUB');
         // utility.userLogout();
     });

@@ -20,6 +20,7 @@ describe('Verify adminAddActivity', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('GroupAdminIsAbleToAddAnActivityWhichIsACourse',function(){
         utility.handleDropDown();

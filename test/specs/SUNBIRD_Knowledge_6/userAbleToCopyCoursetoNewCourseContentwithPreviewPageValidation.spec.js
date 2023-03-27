@@ -25,7 +25,7 @@ describe('userAbleToCopyCoursetoNewCoursewithPreviewPageValidation', () => {
     
     it('userAbleToCopyCoursetoNewCoursewithPreviewPageValidation',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
+         utility.handleLocationPopup();
         utility.userLogin("ContentCreator");
         let courseName = tpdPageObj.createCourseAndValidatePreviewPageWithRetionalMetadataFields("pdf");
         console.log(courseName);
@@ -33,6 +33,7 @@ describe('userAbleToCopyCoursetoNewCoursewithPreviewPageValidation', () => {
         utility.userLogin("ContentReviewer");
         tpdPageObj.publishCourseFromUpForReview2(courseName);
         utility.userLogout();
+        browser.sleep(30000);
         utility.userLogin('ContentCreator');
         tpdPageObj.navigateToCourseAndCopyCourseAndPublish(courseName);
     });

@@ -23,7 +23,7 @@ describe('CustodianUserTryToConsumeContent', () => {
         utility.handleDropDown();
         
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         var content =  custUTTCCPageObj.searchContentInLibraryAndFetchFirstContent('Book');
         //custUTTCCPageObj.navigateToLibraryAndSearchForBook(content);
     });

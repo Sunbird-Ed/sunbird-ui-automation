@@ -33,7 +33,7 @@ describe('Course creator is able to share the course content via link', () => {
         
         tpdPageObj.publishTheCourseFromUpForReview(courseName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.navigateToCourseAndSearch(courseName);
         utility.userLogout();
         utility.userLogin('Creator');

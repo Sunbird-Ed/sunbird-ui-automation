@@ -21,6 +21,8 @@ describe('Create Book with all resource type, save and send for review and publi
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
     
     it('CreateBookWithAllResourceType',function(){
@@ -29,7 +31,7 @@ describe('Create Book with all resource type, save and send for review and publi
         utility.userLogin('Book Creator');
         let bookName=etbPageObj.createBookWithAllResourceType();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('Book Reviewer');
         tpdPageObj.publishCourseFromUpForReview(bookName); 
     })
 });

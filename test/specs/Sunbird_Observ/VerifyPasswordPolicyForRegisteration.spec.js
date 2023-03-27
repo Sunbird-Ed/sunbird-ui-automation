@@ -22,6 +22,7 @@ describe('Verify VerifyPasswordPolicyForRegisteration.spec', () => {
     
     it('VerifyPasswordPolicyForRegisteration',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
         usrOnBoardfun.verifyPasswordPolicyInRegisterPage();
 

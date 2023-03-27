@@ -16,6 +16,7 @@ describe('CustodianUserProfilePageValidation', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('CustodianUserProfilePageValidation',function(){

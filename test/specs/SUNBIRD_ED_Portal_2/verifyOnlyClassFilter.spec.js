@@ -3,7 +3,6 @@ const etbFun = require(protractor.basePath + '/test/pageObject/ETBPageObj/EtbPag
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 
 describe('VerifyOnlyClassFilter ', () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -11,25 +10,17 @@ describe('VerifyOnlyClassFilter ', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
     });
-
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+
     it('VerifyOnlyClassFilter',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
-        etbFun.verifyOnlyClassFilter();
-       
-        
+        utility.userLogin('Public User2');
+        etbFun.verifyOnlyClassFilter();  
     })
-    
-    
-
- 
 });
-   

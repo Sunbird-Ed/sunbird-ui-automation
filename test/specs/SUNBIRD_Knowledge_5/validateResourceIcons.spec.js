@@ -23,8 +23,9 @@ describe('validateResourceIcons', () => {
     });
     it('validateResourceIcons',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let resourceName=resourcePageObj.createResourceAndValidateIcons();
         console.log(resourceName);
         resourcePageObj.sendForReviewTheResource();

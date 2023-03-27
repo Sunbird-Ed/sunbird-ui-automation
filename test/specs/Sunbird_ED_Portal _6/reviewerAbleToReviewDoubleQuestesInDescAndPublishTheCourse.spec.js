@@ -20,6 +20,7 @@ describe('reviewerAbleToReviewDoubleQuestesInDescAndPublishTheCourse', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('reviewerAbleToReviewDoubleQuestesInDescAndPublishTheCourse', function () {
@@ -30,8 +31,6 @@ describe('reviewerAbleToReviewDoubleQuestesInDescAndPublishTheCourse', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         tpdPageObj.reviewerAbleTovalidateDoublequotes(courseName);
-        utility.userLogout();
-        utility.userLogin('Creator');
-        lspPageObj.deleteCreatedItems();
+       
     })
 });

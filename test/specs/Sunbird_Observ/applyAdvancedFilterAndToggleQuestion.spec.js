@@ -27,15 +27,6 @@ describe('aApplyAdvancedFilterAndToggleQuestion', () => {
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         tpdobj.applyFilterAndToggleQuestion();
-       
-
-       
-
-
-        
-
-
-
     });
 
 

@@ -37,7 +37,7 @@ describe('User should be able to consume open course..', () => {
         tpdPageObj.createOpenBatch();
         utility.userLogout();
 
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.enrollForOpenBatch();
         utility.userLogout();

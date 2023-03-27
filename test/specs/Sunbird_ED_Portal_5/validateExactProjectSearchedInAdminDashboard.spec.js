@@ -24,9 +24,8 @@ describe('validateExactProjectSearchedInAdminDashboard', () => {
     
     it('validateExactProjectSearchedInAdminDashboard',function(){
         utility.handleDropDown();
-        ;
-       // utility.handleLocationPopup();
         
+        utility.handleLocationPopup();
         utility.userLogin('Admin3');
         tpdPageObj.validateProjectSearchedInAdminDashboard();
     });

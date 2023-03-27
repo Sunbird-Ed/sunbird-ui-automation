@@ -24,14 +24,13 @@ describe('verifyCreatorDeleteBookFromAllBuckets', () => {
     it('verifyCreatorDeleteBookFromAllBuckets', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let bookName = sanityfun.createBook();
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishContentFromUpForReviewBucket(bookName);
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview(bookName);
         utility.userLogout();
-        utility.userLogin('Creator');
-        // let bookName ="Book";
+        utility.userLogin('ContentCreator');
         lspPageObj.deleteCreatedItem(bookName);
         lspPageObj.deleteDraftItems();
         lspPageObj.searchAnddeleteAllMyContentItems(bookName);

@@ -22,22 +22,13 @@ describe('RemoveAddedCollaborator', () => {
     });
 
     it('RemoveAddedCollaborator',function(){
-        
         utility.handleDropDown();
-        utility.handleLocationPopup();
+        browser.sleep(30000);
+        //utility.handleLocationPopup();
         browser.sleep(3000);
         utility.userLogin('Book Creator');
         let BookName = sanityfun.createBookSaveAsDraft();
         sanityfun.addCollboratortoDraftAndSaveBook(BookName);
         sanityfun.removeCollboratortoDraftAndSaveBook(BookName);
-        
     })
 });
-   
-
-
-
-
-
-
-

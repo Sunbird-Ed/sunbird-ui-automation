@@ -22,7 +22,6 @@ describe('Crea is Able to create Question MCQ and Consume by other Users and Cre
     
     it('CreateQuestionMCQAndConsume',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();
@@ -31,7 +30,7 @@ describe('Crea is Able to create Question MCQ and Consume by other Users and Cre
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         resourcePageObj.ConsumeResourceAndValidateScoreForMCQ(contentName);
     })
 });

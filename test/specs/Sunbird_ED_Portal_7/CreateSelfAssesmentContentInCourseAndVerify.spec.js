@@ -22,7 +22,7 @@ describe('Create SelfAssesmentCourse save and send for review and publish.', () 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        
+        browser.close();
     });
     it('CreateSelfAssesmentContentInCourseAndVerify  ',function(){
         utility.handleDropDown();

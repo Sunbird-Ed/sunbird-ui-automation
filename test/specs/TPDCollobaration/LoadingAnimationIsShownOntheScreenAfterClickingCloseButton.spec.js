@@ -23,6 +23,5 @@ describe('Loading animation is shown on the screens After Clicking Close Button'
         utility.handleLocationPopup();
         utility.userLogin('deleteMember1');
         EnrollTBFCPageObj.verifyLoadingAnimationAfterClickingCloseButton();
-     
     })
 });

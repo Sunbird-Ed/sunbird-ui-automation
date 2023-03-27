@@ -18,6 +18,7 @@ describe('Login with valid and invalid credentials', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('LoginWithValidAndInvalidCredential ',function(){
         utility.handleDropDown();

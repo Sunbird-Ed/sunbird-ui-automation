@@ -20,17 +20,17 @@ describe('createCourseWithMp4PdfAndAssessment', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('createCourseWithMp4PdfAndAssessment  ', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseWithPdfMp4AndCourseAssessment();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName);
+        tpdPageObj.publishCourseFromUpForReview2(courseName);
         utility.userLogout();
         utility.userLogin('StateTenant');
         reso.userSltFiltersTabs();

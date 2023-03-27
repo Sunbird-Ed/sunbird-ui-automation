@@ -34,7 +34,7 @@ describe('Course creator should have two section under "Courses Batches" :1.Crea
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         let fetchCoursename =tpdPageObj.enrollForOpenBatch();
         utility.userLogout();

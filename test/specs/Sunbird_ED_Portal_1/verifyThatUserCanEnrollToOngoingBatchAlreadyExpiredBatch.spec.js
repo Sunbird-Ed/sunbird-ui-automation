@@ -28,10 +28,10 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
 
     it('verifyThatUserCanEnrollToOngoingBatchAlreadyExpiredBatch', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.userShouldSeeTheExpiredCourseBatchAndOngoingBatch();
+        EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
         utility.userLogin('Notification');
         usrOnBoardfun.AddUserProfileVerification();

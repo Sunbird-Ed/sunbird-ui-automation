@@ -24,14 +24,15 @@ describe('verifyRejectedCollectionInDraftSection', () => {
 
     it('verifyRejectedCollectionInDraftSection', function () {
         utility.handleDropDown();
-        utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        browser.sleep(30000);
+        //utility.handleLocationPopup();
+        utility.userLogin('ContentCreator');
         let collectionName = collectionPageObj.createCollection();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         tpdPageObj.rejectContentWithAnyRegionalLanguage(collectionName, "Testing");
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         tpdPageObj.verifyRejectedContentInDraftSection(collectionName);
     })
 });

@@ -33,7 +33,7 @@ describe('be able to create Arrange in Sequence', () => {
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(courseName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         resourcePageObj.ConsumeResourceAndValidateScoreForArrangeSequenceTemplate(courseName);
        
 

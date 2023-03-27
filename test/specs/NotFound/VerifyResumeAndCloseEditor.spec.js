@@ -25,8 +25,7 @@ describe('Verifyt user is able to give multiple blank space and delete the same'
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-
-       // resourcePageObj.ResumeAndCloseEditor();
+       resourcePageObj.ResumeAndCloseEditor();
         
 
 

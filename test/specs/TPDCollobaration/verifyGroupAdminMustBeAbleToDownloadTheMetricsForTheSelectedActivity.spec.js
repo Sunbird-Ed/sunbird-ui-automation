@@ -12,14 +12,13 @@ describe('Verify Group Admin must be able to download the Metrics for the select
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+    
     it('verifyGroupAdminMustBeAbleToDownloadTheMetricsForTheSelectedActivity ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();

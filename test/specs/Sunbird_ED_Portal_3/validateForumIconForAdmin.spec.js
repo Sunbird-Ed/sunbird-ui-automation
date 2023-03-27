@@ -21,6 +21,7 @@ describe('validateForumIconForAdmin', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
 
     it('validateForumIconForAdmin', function () {
@@ -32,13 +33,13 @@ describe('validateForumIconForAdmin', () => {
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishContentFromUpForReviewBucket(courseName)
+        tpdPageObj.publishContentFromUpForReviewBucket2(courseName)
         utility.userLogout();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatchWithForum();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User3');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.joinCourseAndValidateForumIcon();
         utility.userLogout();

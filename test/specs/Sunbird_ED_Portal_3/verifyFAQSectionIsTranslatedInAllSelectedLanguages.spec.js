@@ -25,7 +25,7 @@ describe('Verify that the FAQ section is translated in all Selected languages', 
     it('verifyFAQSectionIsTranslatedInAllSelectedLanguages', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         // tpdPageObj.verifyThatUrduFontDisplayedCorrectlyDuringPreviewOfContent();
         tpdPageObj.verifyFAQSectionIsTranslatedInAllSelectedLanguages();
        

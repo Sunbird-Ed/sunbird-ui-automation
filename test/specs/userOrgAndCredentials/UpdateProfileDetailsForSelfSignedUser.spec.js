@@ -25,7 +25,5 @@ describe('Verify UpdateProfileDetailsForSelfSignedUser', () => {
         utility.handleLocationPopup();
         utility.userLogin('CustodianUser');
         usrOnBoardfun.updateProfileDetailsForSelfSignedUser();
-
-
     });
 });

@@ -26,7 +26,7 @@ describe('verifyExpiredBatchInFromNCERTsection', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         let courseName = "AutomationExpiredCourse";
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         var fetchCoursename = EnrollTBFCPageObj.validateExpiredCourseInFromNCERT(courseName);
         utility.userLogout();
     })

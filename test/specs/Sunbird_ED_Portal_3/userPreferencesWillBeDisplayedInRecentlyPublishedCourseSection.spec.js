@@ -20,8 +20,8 @@ describe('VerifyContentDisplayedInRecentlyPublishedSecInHomePage', () => {
 
     it('userPreferencesWillBeDisplayedInRecentlyPublishedCourseSection',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+                utility.handleLocationPopup();
+        utility.userLogin('ContentCreator');
         resource.VerifyContentDisplayedInRecentlyPublishedSecInHomePage();
     })
 });

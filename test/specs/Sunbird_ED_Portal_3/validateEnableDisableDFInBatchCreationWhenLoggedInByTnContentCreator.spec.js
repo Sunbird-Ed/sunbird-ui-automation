@@ -41,7 +41,7 @@ describe('validateEnableDisableDFInBatchCreationWhenLoggedInByTNContentCreator',
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.editBatchAndValidateEnableDiscussionIsAbsent();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.validateForumInContent(courseName);
     })
 });

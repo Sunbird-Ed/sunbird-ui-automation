@@ -27,26 +27,21 @@ describe('createBookWithCourseInLibraryByDoIdInsideUnitAndChildNode', () => {
         utility.handleDropDown();
         
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let data = tpdPageObj.createCourseAndReturnDoidAndCourseName();
         let course = data.courseName;
         let urldata = data.currentUrl;
         urldata.then(function (input) {
         var doid = input.split("/")[6];
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        
-        tpdPageObj.publishCourseFromUpForReview(course);
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(course);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let bookName = tpdPageObj.createBookAndAddCoursesInChildAndUnitLevel(doid,course);
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview(bookName)
-        utility.userLogout();
-        utility.userLogin('Creator');
-        
-        lspPageObj.deleteCreatedItems();
        })
     })
 });

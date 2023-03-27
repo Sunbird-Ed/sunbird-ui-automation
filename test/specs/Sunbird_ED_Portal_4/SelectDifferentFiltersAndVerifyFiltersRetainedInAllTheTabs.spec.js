@@ -22,10 +22,7 @@ describe('HomePageDisplayedOnClickCloseBtnFromBrowseBtCategory', () => {
     it('SelectDifferentFiltersAndVerifyFiltersRetainedInAllTheTabs',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         resource.filterRetainedInAllTabs();
-        
-      
     })
-    
 });

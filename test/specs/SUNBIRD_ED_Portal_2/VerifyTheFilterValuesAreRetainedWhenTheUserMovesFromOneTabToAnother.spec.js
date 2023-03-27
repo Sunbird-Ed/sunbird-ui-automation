@@ -24,9 +24,9 @@ describe('verifyUserCannotCreateNewBatchForFutureBatch', () => {
     
     it('VerifyTheFilterValuesAreRetainedWhenTheUserMovesFromOneTabToAnother', function () {
         utility.handleDropDown();
-        utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        browser.sleep(30000);
+        //utility.handleLocationPopup();
+        utility.userLogin('ContentCreator');
         tpdPageObj.VerifyTheFilterValuesAreRetainedWhenTheUserMovesFromOneTabToAnother();
-        
     })
 });

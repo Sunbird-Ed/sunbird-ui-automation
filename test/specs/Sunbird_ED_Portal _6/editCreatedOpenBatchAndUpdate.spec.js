@@ -22,6 +22,7 @@ describe('editCreatedOpenBatchAndUpdate', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('editCreatedOpenBatchAndUpdate', function () {
@@ -39,7 +40,7 @@ describe('editCreatedOpenBatchAndUpdate', () => {
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch();
         utility.userLogout();
@@ -47,7 +48,7 @@ describe('editCreatedOpenBatchAndUpdate', () => {
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.validateEditBatchForOngoingBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.enrollForOpenBatchAndValidateUpdatedBatch();
         utility.userLogout();

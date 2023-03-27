@@ -17,7 +17,8 @@ describe('AccessGetPageAndEnterDialCode verify', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        
+        browser.close();
+
     });
 
     

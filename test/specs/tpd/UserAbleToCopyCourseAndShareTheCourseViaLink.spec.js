@@ -35,7 +35,7 @@ describe('Creator is able to copy course of same or different tenant and can sha
         utility.userLogin('Creator');
         var courseName = sanityFun.copyContentFromTraining('Course');
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         shareTCPageObj.clickTrainingPage();
         shareTCPageObj.shareTheConentUsingLink(courseName);
         utility.userLogout();

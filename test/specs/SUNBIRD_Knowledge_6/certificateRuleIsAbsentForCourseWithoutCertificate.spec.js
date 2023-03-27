@@ -23,7 +23,7 @@ describe('certificateRuleIsAbsentForCourseWithoutCertificate', () => {
     it('certificateRuleIsAbsentForCourseWithoutCertificate',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('submitDetails');
         tpdPageObj.navigateToCourseAndValidateShowMoreOptionForCertificateRuleIsNotPresent();
     })
 });

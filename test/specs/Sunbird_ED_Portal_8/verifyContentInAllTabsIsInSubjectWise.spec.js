@@ -23,14 +23,6 @@ describe('verifyContentInAllTabsIsInSubjectWise', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        etbFun.contentInSubjectWiseInAllTabs();
-        
-
-        
+        etbFun.contentInSubjectWiseInAllTabs();  
     })
-    
-    
-
- 
 });
-   

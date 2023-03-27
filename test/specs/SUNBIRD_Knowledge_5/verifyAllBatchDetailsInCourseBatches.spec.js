@@ -23,31 +23,25 @@ describe('Course creator should have two section under "Courses Batches" :1.Crea
     it('verifyAllBatchDetailsInCourseBatches',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        
+        utility.userLogin('ContentCreator');
         let courseName=sanityfun.createCourseAndSendForReview();
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishContentFromUpForReviewBucket(courseName);
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(courseName);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         let fetchCoursename =tpdPageObj.enrollForOpenBatch();
         utility.userLogout();
-        // let courseName="CourseCLauryn";
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         tpdPageObj.navigateToWorkspaceFeatures();
         tpdPageObj.validateCourseInAssigToMeSection(courseName);
         tpdPageObj.navigateToWorkspaceFeatures();
         tpdPageObj.verifyCourseInOnGoingBatchSection();
-        tpdPageObj.updateBatches();
-       
-        
+        tpdPageObj.updateBatches(); 
     });
- 
 });
-   

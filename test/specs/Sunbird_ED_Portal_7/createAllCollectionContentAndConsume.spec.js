@@ -20,6 +20,7 @@ describe('createAllCollectionContentAndConsume', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
 
     });
 
@@ -33,7 +34,7 @@ describe('createAllCollectionContentAndConsume', () => {
         utility.userLogin('Reviewer');
         tpdPageObj.publishContentFromUpForReviewBucket(collectionName1);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         CreateIOBBAMAMFRASPageObj.consumeDigitalTextBook(collectionName1);
         utility.userLogout();
 

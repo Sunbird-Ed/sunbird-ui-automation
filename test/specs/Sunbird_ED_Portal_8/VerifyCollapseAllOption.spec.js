@@ -23,9 +23,8 @@ describe('VerifyCollapseAllOption', () => {
 
     it('VerifyCollapseAllOption',function(){
         utility.handleDropDown();
-        
-        utility.handleLocationPopup();
+                utility.handleLocationPopup();
         utility.userLogin('Tntenant');
-        searchCBFPPageObj.verifyCollapseAllOption();
+        searchCBFPPageObj.verifyCollapseAndExpandAllOption();
     });
 });

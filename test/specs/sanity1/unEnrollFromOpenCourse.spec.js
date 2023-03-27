@@ -21,6 +21,8 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
 
     it('unEnrollFromOpenCourse', function () {
@@ -36,7 +38,7 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch2();
         tpdPageObj.unenrollFromBatch();

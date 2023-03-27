@@ -18,12 +18,12 @@ describe('ChangeToDifferentRoleFromSchoolHead', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        
+        browser.close();
+
     });
     
     it('ChangeToDifferentRoleFromSchoolHead',function(){
         utility.handleDropDown();
-        //utility.handleLocationPopupForSchoolHead();
         utility.handleLocationPopup();
         utility.userLogin('ML');
         sanityFun.validateObservatioTab();

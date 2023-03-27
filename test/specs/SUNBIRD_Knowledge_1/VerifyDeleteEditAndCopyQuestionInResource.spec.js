@@ -18,9 +18,9 @@ describe('Shou be able to Edit and Copy and delete Questions.', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        browser.manage().deleteAllCookies();
-        
+        browser.manage().deleteAllCookies(); 
     });
+    
     it('VerifyDeleteEditAndCopyQuestionInResource',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
@@ -35,11 +35,6 @@ describe('Shou be able to Edit and Copy and delete Questions.', () => {
         
         lspPageObj.deleteCreatedItems();
       
-       
-
+    
     })
-
-   
-   
 });
-   

@@ -29,8 +29,5 @@ describe('verify That User Able To Update The Guest Profile', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         EnrollTBFCPageObj.verifyThatUserAbleToUpdateTheGuestProfile();
-        
-        
-
     })
 });

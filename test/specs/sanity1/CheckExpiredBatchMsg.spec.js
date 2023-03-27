@@ -18,12 +18,14 @@ describe('CheckExpiredBatchMsg', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+       
     });
 
     it('CheckExpiredBatchMsg ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.navigateToCourseAndSearchForOpenBatchMessageAndValidate();
     })
 });

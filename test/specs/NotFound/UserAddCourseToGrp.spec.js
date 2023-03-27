@@ -24,7 +24,7 @@ describe('Verify UserAddCourseToGrp', () => {
         utility.userLogin('Creator');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMemberandAddActivity();
         // utility.userLogout();
-        // utility.userLogin('Public User1');
+        // utility.userLogin('Public User2');
         // EnrollTBFCPageObj.groupMemberCourseConsumptionstatus();
         // utility.userLogout();
         // utility.userLogin('Mentor');

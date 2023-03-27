@@ -22,11 +22,12 @@ describe('Verify Create group add member and add activity', () => {
     });
     it('verifyCreationOfMyGroupAndActivity ',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
         utility.userLogin('Mentor');
         EnrollTBFCPageObj.verifyCreateMyGroupAddMemberandAddActivity();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.groupMemberCourseConsumptionstatus();
         utility.userLogout();
         utility.userLogin('Mentor');

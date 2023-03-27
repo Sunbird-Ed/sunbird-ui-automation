@@ -24,7 +24,7 @@ describe('verify Creator Is Able To View Different Headings And Paragraph Indivi
     });
     it('verifyCreatorIsAbleToViewDifferentHeadingsAndParagraphIndividuallyAndPreviewingInMCQQusnSet',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        //;
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         resourcePageObj.verifyCreatorIsAbleToViewDifferentHeadingsAndParagraphIndividuallyAndPreviewingInMCQQusnSet();

@@ -18,13 +18,16 @@ describe('Verify SSO user merged with Custodian User', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
     
     it('verifycustodianAndSSOUserMerge',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
+        browser.sleep(30000);
+        //utility.handleLocationPopup();
         utility.userLogin();
         usrOnBoardfun.verifySSOAndCustodianMerge();
         //usrOnBoardfun.userLogin('Custodian4');
     })
-}); 
+});

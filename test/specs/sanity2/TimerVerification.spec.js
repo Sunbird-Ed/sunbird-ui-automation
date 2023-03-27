@@ -21,6 +21,8 @@ describe('able to create course and enroll consume TimerVerification', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
 
     it('TimerVerification', function () {
@@ -36,7 +38,7 @@ describe('able to create course and enroll consume TimerVerification', () => {
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatchWithCloseEndDate();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('submitDetails');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatchAndVerifyTimer();
     })

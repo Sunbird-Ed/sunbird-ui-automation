@@ -25,20 +25,19 @@ describe('libraryCourseContentAddedToLHSheirarchy', () => {
 
     it('libraryCourseContentAddedToLHSheirarchy', function () {
         utility.handleDropDown();
-        
-        utility.handleLocationPopup();
-        utility.userLogin('Creator');
+       
+       utility.handleLocationPopup();
+        utility.userLogin('ContentCreator');
         let data = tpdPageObj.createCourseAndReturnDoidAndCourseName();
         let course = data.courseName;
         let urldata = data.currentUrl;
         urldata.then(function (input) {
         var doid = input.split("/")[6];
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        
-        tpdPageObj.publishCourseFromUpForReview(course);
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(course);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let bookName = tpdPageObj.createBookAndAddCoursesAndValidateCourseHeirarchyInLHS(doid,course);
        })
     })

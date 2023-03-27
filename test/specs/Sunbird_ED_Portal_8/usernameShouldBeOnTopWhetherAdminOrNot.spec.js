@@ -24,17 +24,16 @@ describe('usernameShouldBeOnTopWhetherAdminOrNot', () => {
     
     it('usernameShouldBeOnTopWhetherAdminOrNot', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('NewCredCourseToc');
-        let groupName = sanityfun.verifyAddActivitySearchedByKeyword("AutomationCourseCompletedBatch");
+        let groupName = sanityfun.verifyAddActivitySearchedByKeywordInCourse("AutomationCourseCompletedBatch");
         sanityfun.validateAdminNameIsPresentOnTopAndMembersAreBelowToit(groupName);
         utility.userLogout();
         utility.userLogin('Public User1');
         sanityfun.validateUserIsPresentAtTheTop(groupName);
         utility.userLogout();
-        utility.userLogin('Public User2');
-        sanityfun.verifyAddActivitySearchedByKeyword("AutomationCourseCompletedBatch");
+        utility.userLogin('Public User1');
+        sanityfun.verifyAddActivitySearchedByKeywordInCoursewithOutCrossButton("AutomationCourseCompletedBatch");
         sanityfun.validateAdminNameIsPresentOnTopAndMembersArrangedAlphabetically();
     })
 });

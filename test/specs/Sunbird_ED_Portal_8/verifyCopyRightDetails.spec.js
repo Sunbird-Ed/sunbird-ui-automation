@@ -32,11 +32,9 @@ describe('VerifyCopyRight Details Verify' , () => {
         utility.userLogin('Creator');
         let bookName= sanityFun.createBook();
         console.log(bookName);
-       // etbFun.verifyLicenceLabelEditPage();
-         
-
-       // etbFun.clickFirstBookAndCopyInLibrary();
-        //etbPageObj.sendForReviewTheBook();
+       etbFun.verifyLicenceLabelEditPage();
+                 etbFun.clickFirstBookAndCopyInLibrary();
+        etbPageObj.sendForReviewTheBook();
     })
 
    

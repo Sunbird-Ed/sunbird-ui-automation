@@ -18,6 +18,8 @@ describe('Copy Content From Library', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
         
     });
     

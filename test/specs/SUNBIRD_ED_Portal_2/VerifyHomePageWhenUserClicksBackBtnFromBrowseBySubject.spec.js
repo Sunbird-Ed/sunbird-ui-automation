@@ -11,21 +11,17 @@ describe('BrowseSubjectAndCategoriesInHomeTab', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
-    
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+    
     it('VerifyHomePageWhenUserClicksBackBtnFromBrowseBySubject',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         resource.VerifyHomePageWhenUserClicksBackBtnFromBrowseBySubject();
-        
-      
     })
-    
 });

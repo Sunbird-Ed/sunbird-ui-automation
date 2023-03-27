@@ -17,6 +17,8 @@ describe('courseSearchInExploreCoursePage.js', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
         
     });
     

@@ -25,22 +25,14 @@ describe('cpy Question save and send for review and publish.', () => {
     it('CopyQuestionWhileAddingQuestionInResource',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         var questionName=resourcePageObj.copyQuestion();
         resourcePageObj.sendForReviewTheResource();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         resourcePageObj.publishTheResourceFromUpForReview(questionName);
         utility.userLogout();
         utility.userLogin('Creator');
-        
         lspPageObj.deleteCreatedItems();
-      
-       
-
     })
-
-   
-   
 });
-   

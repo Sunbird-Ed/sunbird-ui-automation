@@ -19,6 +19,7 @@ describe('EnrollToTrackableCollection', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
 
     it('EnrollToTrackableCollection', function () {
@@ -28,13 +29,13 @@ describe('EnrollToTrackableCollection', () => {
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        EnrollTBFCPageObj.publishContentFromUpForReviewBucket(courseName);
+        EnrollTBFCPageObj.publishContentFromUpForReviewBucket2(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         EnrollTBFCPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = EnrollTBFCPageObj.enrollForOpenBatch();
         utility.userLogout();

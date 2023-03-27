@@ -20,11 +20,10 @@ describe('editLiveCourseAndSaneCourseInLibrary', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    
+    FeditLiveBookAndAddSameBookInLibrary
     it('editLiveCourseAndSaneCourseInLibrary', function () {
         utility.handleDropDown();
-        
-        utility.handleLocationPopup();
+         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();

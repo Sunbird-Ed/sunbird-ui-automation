@@ -25,9 +25,7 @@ describe('verifyUserCannotCreateNewBatchForFutureBatch', () => {
     it('VerifyDetailsWhenUserClicksOnSubmitDetailsInProfilePage', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Notification');
+        utility.userLogin('submitDetails');
         tpdPageObj.VerifyDetailsWhenUserClicksOnSubmitDetails();
-
-        
     })
 });

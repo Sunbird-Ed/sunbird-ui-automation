@@ -19,6 +19,7 @@ describe('OnBoardingCardWithoutLogin', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('OnBoardingCardWithoutLogin',function(){
         utility.handleDropDown();

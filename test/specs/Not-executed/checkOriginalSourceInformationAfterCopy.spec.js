@@ -22,10 +22,12 @@ describe('checkOriginalSourceInformationAfterCopy', () => {
         
     });
     it('checkOriginalSourceInformationAfterCopy ',function(){
+        utility.handleDropDown();
         utility.handleLocationPopup();
+        
         utility.userLogin('Creator');
         signUpPageObj.copyCourseFromSameTenant();
-        // signUpPageObj.saveAndSendNewCourseForReview();
+        //signUpPageObj.saveAndSendNewCourseForReview();
         // let courseName1 =  signUpPageObj.reviewInSubmissions();
         // utility.userLogout();
 

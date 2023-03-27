@@ -25,7 +25,5 @@ describe('VerfiyNoBoardValueInProfile In Profile', () => {
         utility.handleLocationPopup();
         utility.userLogin('NoBoard');
         usrOnBoardfun.verifyNoBoardValue();
-
-
     });
 });

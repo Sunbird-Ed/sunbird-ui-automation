@@ -3,13 +3,11 @@ const { browser } = require("protractor");
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const lessonPlanPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
-const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
-describe('vrify, content creator is able to create lesson plan', () => {
 
+describe('Create Lesson plan save and send for review and publish.', () => {
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
-
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
@@ -19,16 +17,20 @@ describe('vrify, content creator is able to create lesson plan', () => {
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
-        utility.userLogout();
         browser.manage().deleteAllCookies();
         
     });
     it('CheckLessonPlanTemplate',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('Mentor2');
+        utility.userLogin('ContentCreator');
         let lessonPlan=lessonPlanPageObj.createLessonPlan();
-        console.log("Created content name: "+lessonPlan);
+        lessonPlanPageObj.sendForReviewTheLessonPlan();
+        utility.userLogout();
+        utility.userLogin('ContentReviewer');
+        lessonPlanPageObj.publishTheLessonPlanFromUpForReview(lessonPlan);
+        utility.userLogout();
+        utility.userLogin('ContentCreator');
+        lessonPlanPageObj.deleteCreatedItems();  
     })
 });

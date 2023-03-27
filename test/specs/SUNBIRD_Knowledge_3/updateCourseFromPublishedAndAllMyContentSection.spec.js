@@ -28,22 +28,15 @@ describe('updateCourseFromPublishedAndAllMyContentSection', () => {
     });
     it('updateCourseFromPublishedAndAllMyContentSection', function () {
         utility.handleDropDown();
-        //;
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        //
+        utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
-        console.log(courseName);
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        //
-        tpdPageObj.publishContentFromUpForReviewBucket(courseName)
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview2(courseName);
         utility.userLogout();
-        utility.userLogin('Creator');
-        //let courseName="courseCVincenza";
+        utility.userLogin('ContentCreator');
         tpdPageObj.EditTargetFrameworkWithMultipleCategoricalValues(courseName);
         tpdPageObj.EditDraftedTargetFrameworkWithMultipleCategoricalValues(courseName);
-        
     })
 });
-

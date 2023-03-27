@@ -38,7 +38,7 @@ describe('validateCourseCardCountOfRecentlypublishedCourse', () => {
         // tpdPageObj.createOpenBatch();
         // utility.userLogout();
         //let courseName = "cert";
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.validateFourCountOfrecentlyPublishedCourse();
         utility.userLogout();
     })

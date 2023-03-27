@@ -18,11 +18,12 @@ describe('FilterResultforGuestUser.spec', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('FilterResultforGuestUser.spec',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User3');
         etbFun.librarysearchFilter();
        
 

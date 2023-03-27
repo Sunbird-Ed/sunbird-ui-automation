@@ -23,10 +23,10 @@ describe('bookReviewerAbleTovalidateDoubleQuotesAndPublishTheBook', () => {
     it('bookReviewerAbleTovalidateDoubleQuotesAndPublishTheBook', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Book Creator');
+        utility.userLogin('ContentCreator');
         let bookName= sanityfun.createBookWithDoubleQuotesInDesc();
         utility.userLogout();
-        utility.userLogin('Book Reviewer');
+        utility.userLogin('ContentReviewer');
         tpdPageObj.reviewerAbleTovalidateDoublequotes(bookName);
     })
 });

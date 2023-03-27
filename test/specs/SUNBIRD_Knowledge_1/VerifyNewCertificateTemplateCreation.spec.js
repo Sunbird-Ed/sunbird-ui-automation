@@ -7,7 +7,6 @@ const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.
 
 
 describe('VerifyNewCertificateTemplateCreation' , () => {
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -15,12 +14,13 @@ describe('VerifyNewCertificateTemplateCreation' , () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
-       
     });
+
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
+    
     it('VerifyNewCertificateTemplateCreation',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
@@ -29,4 +29,3 @@ describe('VerifyNewCertificateTemplateCreation' , () => {
         tpdPageObj.newCertificateTemplateCreation();
     })
 });
-   

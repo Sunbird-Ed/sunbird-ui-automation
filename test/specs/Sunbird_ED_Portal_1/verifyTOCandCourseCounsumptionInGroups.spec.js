@@ -23,7 +23,6 @@ describe('verifyTOCandCourseCounsumptionInGroups', () => {
 
     it('verifyTOCandCourseCounsumptionInGroups',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('OrgAdmin');
         EnrollTBFCPageObj.verifyTOCandCourseConsumption();

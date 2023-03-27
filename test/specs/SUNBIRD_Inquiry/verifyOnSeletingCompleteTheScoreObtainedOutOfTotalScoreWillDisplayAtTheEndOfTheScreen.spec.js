@@ -25,7 +25,7 @@ describe('verify On Seleting Complete The Score Obtained Out Of Total Score Will
     });
     it('verifyOnSeletingCompleteTheScoreObtainedOutOfTotalScoreWillDisplayAtTheEndOfTheScreen',function(){
         utility.handleDropDown();
-        //browser.sleep(20000);
+        //;
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         resourcePageObj.verifyOnSeletingCompleteTheScoreObtainedOutOfTotalScoreWillDisplayAtTheEndOfTheScreen();

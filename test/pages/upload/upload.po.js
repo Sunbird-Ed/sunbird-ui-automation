@@ -30,7 +30,8 @@ var upload = () => {
     var limmitSharingDrpdwnValue = element(by.xpath("//label[contains(text(),'Untitled Content')]//following::div[@ng-show='hideLimitedSharingBtn']//following::i[@class='dropdown icon']/following::div[@class='item']"));
     var closebuton = element(by.xpath("//button[contains(text(),'Close')]"));
     var assertLiscenceCCBY = element(by.xpath("//label[text()='LICENSE']//following::div[contains(text(),'CC BY 4.0')]"));
-
+    var clickUploadButton = element(by.xpath("//div[contains(@data-content,'Upload Content')]"));
+    var cancelUpload = element(by.xpath("(//button[contains(text(),'Cancel')])[2]"));
 
     return {
         clickuploadContent,
@@ -60,6 +61,8 @@ var upload = () => {
         limmitSharingDrpdwnValue,
         closebuton,
         assertLiscenceCCBY,
+        clickUploadButton,
+        cancelUpload,
     };
 
 };

@@ -18,12 +18,14 @@ describe('Download  QR Code In Book', () => {
   afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        
+        browser.close();
+
     });
     
     
     it('downloadQRCode',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         sanityFun.generateQRCodes();

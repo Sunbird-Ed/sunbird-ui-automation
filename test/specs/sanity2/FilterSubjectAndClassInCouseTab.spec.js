@@ -19,12 +19,14 @@ describe('FilterSubjectAndClassInCouseTab', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
 
     it('FilterSubjectAndClassInCouseTab',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         searchCBFPPageObj.courseSearchFilter();    
     });
 });

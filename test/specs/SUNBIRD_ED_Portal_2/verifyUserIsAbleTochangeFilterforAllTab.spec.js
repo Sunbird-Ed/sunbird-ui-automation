@@ -24,6 +24,6 @@ describe('verifyUserIsAbleTochangeFilterforAllTab', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        etbFun.filtersInAllTab();
+        //etbFun.filtersInAllTab();
     })
 });

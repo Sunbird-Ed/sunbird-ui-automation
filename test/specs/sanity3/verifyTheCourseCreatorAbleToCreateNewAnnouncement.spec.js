@@ -21,12 +21,15 @@ describe('verifyTheCourseCreatorAbleToCreateNewAnnouncement', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
 
     it('verifyTheCourseCreatorAbleToCreateNewAnnouncement ',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('submitDetails');
         sanityPage.verifyDiscussionForum();
     });
 });

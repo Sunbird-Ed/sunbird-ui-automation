@@ -34,7 +34,7 @@ describe('verifyCourseBatchCreation', () => {
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.createOpenBatchWithCloseEndDate();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = tpdPageObj.enrollForOpenBatchAndVerifyTimer();
     });

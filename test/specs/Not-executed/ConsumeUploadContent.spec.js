@@ -31,7 +31,7 @@ describe('upload pdf and Consume, save and send for review and publish.', () => 
     //   utility.userLogout();
 
       
-    utility.userLogin('Public User1');
+    utility.userLogin('Public User2');
             resourcePageObj.ConsumeUploadContent('H5PContent','H5P');
 
 

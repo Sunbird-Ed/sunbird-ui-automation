@@ -29,7 +29,7 @@ describe('verifyDFenabledInGroupAndUserAbletoCreateDF', () => {
         utility.userLogin('Admin');
         EnrollTBFCPageObj.GroupAdminIsAbleToAddAnActivity();
         // utility.userLogout();
-        // utility.userLogin('Public User1');
+        // utility.userLogin('Public User2');
         // EnrollTBFCPageObj.EditTitleDescriptionTags();
     })
 });

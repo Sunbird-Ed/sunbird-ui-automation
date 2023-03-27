@@ -22,9 +22,11 @@ describe('ConsumeContentInFullScreenMode play', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('ConsumeContentInFullScreenMode',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let contentName=resourcePageObj.createQuestionFITBWithAllStyles();
@@ -33,7 +35,7 @@ describe('ConsumeContentInFullScreenMode play', () => {
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         cont.consumeContent();
        
       

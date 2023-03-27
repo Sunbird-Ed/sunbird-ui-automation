@@ -19,16 +19,18 @@ describe('Create Question save and send for review and publish.', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
         
     });
     it('CreateQuestionAndVerify',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
-        utility.userLogin('Creator');
+                utility.handleLocationPopup();
+        utility.userLogin('ContentCreator');
         let resourceName=resourcePageObj.createQuestion();
         resourcePageObj.sendForReviewTheResource();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
     })
 });

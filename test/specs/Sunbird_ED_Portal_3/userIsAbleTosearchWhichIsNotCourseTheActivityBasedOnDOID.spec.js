@@ -25,20 +25,19 @@ describe('userIsAbleTosearchWhichIsNotCourseTheActivityBasedOnDOID', () => {
     
     it('userIsAbleTosearchWhichIsNotCourseTheActivityBasedOnDOID', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let data = sanityfun.createCollectionAndSendForReviewWithDoid();
         let content = data.keywrdNam;
         let urldata = data.currentUrl;
         urldata.then(function (input) {
         var doid = input.split("/")[6];
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview(content);
         utility.userLogout();
-        utility.userLogin('Public User1');
-        sanityfun.verifyAddActivitySearchedByKeyword(doid);
+        utility.userLogin('submitDetails');
+        sanityfun.verifyAddActivitySearchedByDoid(doid);
        })
     })
 });

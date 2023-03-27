@@ -7,8 +7,6 @@ const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPag
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
 describe('qrCodeAbleToDownloadAndGenerateInDraftTextbook', () => {
-
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -17,29 +15,26 @@ describe('qrCodeAbleToDownloadAndGenerateInDraftTextbook', () => {
         browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
-
-
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-
     });
+
     it('qrCodeAbleToDownloadAndGenerateInDraftTextbook', function () {
         utility.handleDropDown();
-        //browser.sleep(40000);
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let bookName = sanityfun.createBookSaveAsDraft();
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         tpdPageObj.dwnldAndGenerateQRinBookFromDraft(bookName);
         utility.userLogout();
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishContentFromUpForReviewBucket2(bookName);
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishCourseFromUpForReview(bookName);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         tpdPageObj.dwnldAndGenerateQRinBookFromPublish(bookName);
     })
 });

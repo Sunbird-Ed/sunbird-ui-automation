@@ -25,7 +25,7 @@ describe('validateExpiredBatchContainsCreateBatchOption', () => {
     it('validateExpiredBatchContainsCreateBatchOption', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.navigateToCourseAndSearchForOpenBatchMessageAndValidate();
         utility.userLogout();
         utility.userLogin('ContentCreator');

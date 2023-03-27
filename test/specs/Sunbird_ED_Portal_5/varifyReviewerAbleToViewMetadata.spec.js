@@ -23,9 +23,9 @@ describe('varifyReviewerAbleToViewMetadata', () => {
     
     it('varifyReviewerAbleToViewMetadata',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-        
         let courseName = sanityfun.validateMetadataValues("k12");
         console.log(courseName);
         utility.userLogout();

@@ -29,7 +29,7 @@ describe('validateNotificationBellForLoggedInUserAndNonLoggedInUser' , () => {
         
         tpdPageObj.validateNotificationBellIconBeforeLogin();
         browser.sleep(5000);
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.validateNotificationBellIconAfterLogin();
     })
 });

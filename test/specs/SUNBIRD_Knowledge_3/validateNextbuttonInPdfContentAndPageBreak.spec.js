@@ -24,8 +24,7 @@ describe('validateNextbuttonInPdfContentAndPageBreak', () => {
     
     it('validateNextbuttonInPdfContentAndPageBreak',function(){
         utility.handleDropDown();
-        
-        utility.handleLocationPopup();
+                utility.handleLocationPopup();
         utility.userLogin('Tntenant');
         tpdPageObj.validateConsumeZoomPercentAndSwitchFullScreenMode();
     })

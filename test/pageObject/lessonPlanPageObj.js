@@ -446,13 +446,8 @@ const searchAnddeleteAllMyContentItems = (content) => {
     try {
         console.log("User is trying to delete allmy content Items which are created");
 
-        browser.sleep(1000);
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
-        // content.headerDropdown.click();
-        // browser.sleep(100);
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
-        // content.workSpace.click();
-        // browser.sleep(4000);
+        browser.sleep(4000);
+       
         browser.executeScript('window.scrollTo(0,0);').then(function () {
             console.log('++++++SCROLLED up+++++');
         });
@@ -462,11 +457,11 @@ const searchAnddeleteAllMyContentItems = (content) => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchForReview), 20000, "allMyContent page not loaded");
         resov.searchForReview.sendKeys(content);
         browser.sleep(2000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchCoursesUpForReview), 20000, "  deleteButton is not available");
-        resov.searchCoursesUpForReview.getText().then(function (input) {
-            name = input;
-            console.log(name);
-        });
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchCoursesUpForReview), 20000, "  deleteButton is not available");
+        // resov.searchCoursesUpForReview.getText().then(function (input) {
+        //     name = input;
+        //     console.log(name);
+        // });
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.deleteContent), 20000, "  deleteButton is not available");
         resov.deleteContent.click();
@@ -495,12 +490,7 @@ const searchAnddeleteDraftItems = (content) => {
         console.log("User is trying to delete draft Items which are created");
 
         browser.sleep(1000);
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
-        // content.headerDropdown.click();
-        // browser.sleep(100);
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
-        // content.workSpace.click();
-        // browser.sleep(4000);
+        
         browser.executeScript('window.scrollTo(0,0);').then(function () {
             console.log('++++++SCROLLED up+++++');
         });
@@ -508,17 +498,8 @@ const searchAnddeleteDraftItems = (content) => {
         resov.drafts.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchForReview), 20000, "allMyContent page not loaded");
         resov.searchForReview.sendKeys(content);
-        browser.sleep(2000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchCoursesUpForReview), 20000, "  deleteButton is not available");
-        resov.searchCoursesUpForReview.getText().then(function (input) {
-            name = input;
-            console.log(name);
-        });
-        //browser.sleep(1000);
-        browser.executeScript('window.scrollTo(0,50);').then(function () {
-            console.log('++++++SCROLLED Down+++++');
-        });
-        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.deleteButton), 20000, "  deleteButton is not available");
+        browser.sleep(4000);
+             browser.wait(protractor.ExpectedConditions.visibilityOf(resov.deleteButton), 20000, "  deleteButton is not available");
         resov.deleteButton.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.yesButtonPopup), 20000, "yesButtonPopup is not available");
         resov.yesButtonPopup.click();
@@ -841,6 +822,146 @@ const editPublishedContent = (bookName) => {
     }
 }
 
+const createLessonPlanWithReginalLanguage = (lessonName) => {
+    var lessonName;
+    try {
+        console.log("User is trying to create lesson plan")
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.lessonPlan), 20000, "content page not loaded");
+        content.lessonPlan.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.name), 20000, "Course creation editor never loaded");
+      
+        content.name.sendKeys(lessonName);
+        browser.sleep(2000);
+
+        //browser.executeScript("arguments[0].scrollIntoView();", etbv.collectionType);
+        // wait.waitForElementVisibility(etbv.collectionType, 30000, "collectionType button not available");
+        // etbv.collectionType.click();
+        // browser.sleep(1000);
+        // browser.executeScript("arguments[0].scrollIntoView();", etbv.contentResource);
+        // etbv.contentResource.click();
+
+        content.startCreating.click();
+        browser.sleep(8000);
+
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.newchild), 20000, "Didn't switched to different frame");
+        content.newchild.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.untitledUnitName), 20000, "title not available");
+        content.untitledUnitName.click();
+        content.untitledUnitName.clear();
+        content.untitledUnitName.sendKeys(lessonName);
+        wait.waitForElementVisibility(content.fieldLessonPlanDesc, 20000);
+        content.fieldLessonPlanDesc.click();
+        browser.sleep(4000);
+        content.fieldLessonPlanDesc.sendKeys(faker.randomData().words);
+        wait.waitForElementVisibility(content.fieldAddNotes, 20000);
+        browser.sleep(500);
+        content.fieldAddNotes.sendKeys(faker.randomData().words);
+        browser.sleep(4000);
+        content.addResource.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.resourceSearch), 30000, "resourceSearch not available");
+        content.resourceSearch.click();
+        content.resourceSearch.sendKeys("pdf");
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectResourceType2), 30000, "selectResourceType not available");
+        content.selectResourceType2.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickAddbutton), 30000, "clickAddbutton not available");
+        content.clickAddbutton.click();
+
+        // browser.sleep(5000);
+        // content.checkboxFirst.click();
+        // browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.proceed), 30000, "proceed is not available");
+        content.proceed.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.save), 20000, "Dashboard never loaded");
+        content.save.click();
+        browser.switchTo().defaultContent(); 
+        browser.sleep(1000);
+        console.log("User successfully created lesson plan")
+        return lessonName;
+    }
+    catch (Exception) {
+        console.log("User failed to create lesson plan")
+    }
+}
+
+const createLessonPlanWithOutName= () => {
+    var lessonName;
+    try {
+        console.log("User is trying to create lesson plan")
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+        ccpage.contentCreation().workSpace.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.lessonPlan), 20000, "content page not loaded");
+        content.lessonPlan.click();
+        browser.sleep(4000);
+      
+        //browser.executeScript("arguments[0].scrollIntoView();", etbv.collectionType);
+        // wait.waitForElementVisibility(etbv.collectionType, 30000, "collectionType button not available");
+        // etbv.collectionType.click();
+        // browser.sleep(1000);
+        // browser.executeScript("arguments[0].scrollIntoView();", etbv.contentResource);
+        // etbv.contentResource.click();
+
+        content.startCreating.click();
+        browser.sleep(8000);
+
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.newchild), 20000, "Didn't switched to different frame");
+        content.newchild.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.untitledUnitName), 20000, "title not available");
+        content.untitledUnitName.click();
+        wait.waitForElementVisibility(content.fieldLessonPlanDesc, 20000);
+        content.fieldLessonPlanDesc.click();
+        browser.sleep(4000);
+        content.fieldLessonPlanDesc.sendKeys(faker.randomData().words);
+        wait.waitForElementVisibility(content.fieldAddNotes, 20000);
+        browser.sleep(500);
+        content.fieldAddNotes.sendKeys(faker.randomData().words);
+        browser.sleep(4000);
+        content.addResource.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.resourceSearch), 30000, "resourceSearch not available");
+        content.resourceSearch.click();
+        content.resourceSearch.sendKeys("pdf");
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectResourceType2), 30000, "selectResourceType not available");
+        content.selectResourceType2.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.clickAddbutton), 30000, "clickAddbutton not available");
+        content.clickAddbutton.click();
+
+        // browser.sleep(5000);
+        // content.checkboxFirst.click();
+        // browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.proceed), 30000, "proceed is not available");
+        content.proceed.click();
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.save), 20000, "Dashboard never loaded");
+        content.save.click();
+        browser.switchTo().defaultContent(); 
+        browser.sleep(1000);
+        console.log("User successfully created lesson plan")
+        return lessonName;
+    }
+    catch (Exception) {
+        console.log("User failed to create lesson plan")
+    }
+}
+
 
 
 
@@ -863,4 +984,6 @@ module.exports = {
     verifyProfileSharingUpdate,
     createLessonPlanAndVerifyFilter,
     editPublishedContent,
+    createLessonPlanWithReginalLanguage,
+    createLessonPlanWithOutName,
 }

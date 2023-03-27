@@ -28,14 +28,14 @@ describe('Verify that user is able to enable DF in groups ', () => {
         EnrollTBFCPageObj.openExistingGroup();
         EnrollTBFCPageObj.addActivityToTheExistingGroup();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.userCanClearAllNotifications();
         utility.userLogout();
         utility.userLogin('ContentCreator');
         EnrollTBFCPageObj.openExistingGroup1();
         EnrollTBFCPageObj.addActivityToTheExistingGroup();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.verifyThatUserSeesACountAgainstTheBellIcon();
      
     })

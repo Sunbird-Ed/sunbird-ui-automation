@@ -21,8 +21,9 @@ describe('Verifiy user is getting add user option in his profile and able to swi
     });
     it('UserShouldBeAbleToConsumeAndDisplayProperMsg',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.UserShouldBeAbleToConsumeAndDisplayProperMsg();
     })  
 });

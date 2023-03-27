@@ -24,7 +24,7 @@ describe('verify Creator Is Able To Open Batch For Course For Public User And Up
 
     it('verifyCreatorIsAbleToOpenBatchForCourseForPublicUserAndUpdateBatch', function () {
         utility.handleDropDown();
-        //browser.sleep(20000);
+        //;
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         utility.validateWorkspace();

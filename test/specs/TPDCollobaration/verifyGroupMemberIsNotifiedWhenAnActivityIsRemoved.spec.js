@@ -27,7 +27,7 @@ describe('Verify that, Group Member is notified, When an activity is assigned to
         EnrollTBFCPageObj.addActivityToTheExistingGroup();
         EnrollTBFCPageObj.removeActivityFromExistingGroup();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.verifyGroupMemberIsNotifiedWhenAnActivityIsRemoved();
     })
 });

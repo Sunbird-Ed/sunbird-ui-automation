@@ -22,10 +22,7 @@ describe('VerifyContentDisplayedInRecentlyPublishedSecInHomePage', () => {
     it('VerifyContentDisplayedInRecentlyPublishedSecInHomePage',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         resource.recentlyPublisedSecInHomePage();
-        
-      
     })
-    
 });

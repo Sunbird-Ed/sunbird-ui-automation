@@ -18,13 +18,14 @@ describe('consumingCourseAssessmentNotLooseCurrentStateTogglingBetweenTwoState',
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
 
     it('consumingCourseAssessmentNotLooseCurrentStateTogglingBetweenTwoState',function(){
         utility.handleDropDown();
         
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         EnrollTBFCPageObj.UserShouldBeAbleToConsumeECML();
     })
 });

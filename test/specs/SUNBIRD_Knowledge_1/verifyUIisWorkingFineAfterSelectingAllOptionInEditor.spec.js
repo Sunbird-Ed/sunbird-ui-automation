@@ -26,20 +26,19 @@ describe('verifyUIisWorkingFineAfterSelectingAllOptionInEditor', () => {
     });
     it('verifyUIisWorkingFineAfterSelectingAllOptionInEditor',function(){
         utility.handleDropDown();
-        
-        utility.handleLocationPopup();
-        utility.userLogin('Creator');
+                utility.handleLocationPopup();
+        utility.userLogin('ContentCreator');
         let courseName = sanityfun.TargetFrameworkWithMultipleCategoricalValues("CPD");
         utility.userLogout();
         console.log(courseName);
-        utility.userLogin('Reviewer');
-        tpdPageObj.publishContentFromUpForReviewBucket(courseName);
+        utility.userLogin('ContentReviewer');
+        tpdPageObj.publishContentFromUpForReviewBucket2(courseName);
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.consumeContentToCheckUIisNotCrashing(courseName);
     })
 });

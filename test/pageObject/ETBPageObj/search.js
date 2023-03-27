@@ -12,13 +12,12 @@ let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 
 
 const verifyfilters = () => {
-
     browser.sleep(4000);
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.digitalTextbooksFilter), 20000, "Digital Textbooks Filter not found");
     filter2.digitalTextbooksFilter.click();
     browser.sleep(4000);
     filter2.mediumValidation.click();
-    browser.sleep();
+    browser.sleep(3000);
     expect(filter2.mediumValidation.isDisplayed()).toBe(true);
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.selectClass1), 20000, "Class Filter not found");
     filter2.selectClass1.click();
@@ -90,7 +89,6 @@ const verifyfilters = () => {
     return {
         verifyfilters,
     };
-
 };
 
 const verifySearchContentInExplorePage = () => {
@@ -171,12 +169,7 @@ expect(filter2.assertExplanationResource.isDisplayed()).toBeTruthy();
 browser.sleep(2000);
 filter2.clkExplore.click();
 browser.sleep(2000);
- 
 
-
-  
-   
- 
 }
 
 

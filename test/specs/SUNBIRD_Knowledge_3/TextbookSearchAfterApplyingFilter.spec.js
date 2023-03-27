@@ -22,14 +22,7 @@ describe('TextbookSearchAfterApplyingFilter Verify', () => {
     it('TextbookSearchAfterApplyingFilter',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
-        etbFun.librarysearchFilter();
-       
-        
+        utility.userLogin('Public User2');
+        etbFun.librarysearchFilter();  
     })
-    
-    
-
- 
 });
-   

@@ -21,16 +21,9 @@ describe('CheckStatusDraftAndLive', () => {
     });
     it('CheckStatusDraftAndLive',function(){
         utility.handleDropDown();
-        utility.handleLocationPopup();
-        browser.sleep(3000);
-        utility.userLogin('Creator');
-        etbFun.verifyStatusInDraftSection();
-      
         
+        utility.handleLocationPopup();
+        utility.userLogin('ContentCreator');
+        etbFun.verifyStatusInDraftSection();  
     })
-    
-    
-
- 
 });
-   

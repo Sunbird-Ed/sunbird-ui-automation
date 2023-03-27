@@ -25,13 +25,11 @@ describe('createBookValidateRelationalMetafieldsInPreviewPage', () => {
     it('createBookValidateRelationalMetafieldsInPreviewPage', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        let bookName = tpdPageObj.createBookAndValidatePreviewPageWithRetionalMetadataFields("pdf");
+        utility.userLogin('ContentCreator');
+        let bookName = tpdPageObj.createBookAndValidatePreviewPageWithRetionalMetadataFields();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview(bookName)
-        utility.userLogout();
-        utility.userLogin('Creator');
-        lspPageObj.deleteCreatedItems();
+      
        })
     });

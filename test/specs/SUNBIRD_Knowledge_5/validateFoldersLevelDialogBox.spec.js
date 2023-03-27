@@ -25,16 +25,8 @@ describe('validateFoldersLevelDialogBox', () => {
     
     it('validateFoldersLevelDialogBox', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        sanityfun.createCourseWithSameContentAndValidateDialogbox();
-        utility.userLogout();
-        utility.userLogin('Creator');
-
-
-
-        
-        
+        sanityfun.createCourseWithSameContentAndValidateDialogbox();   
     })
 });

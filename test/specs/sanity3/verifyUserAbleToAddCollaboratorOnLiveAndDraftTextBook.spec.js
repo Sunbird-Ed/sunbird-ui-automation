@@ -23,9 +23,12 @@ describe('verifyUserAbleToAddCollaboratorOnLiveAndDraftTextBook', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
     it('verifyUserAbleToAddCollaboratorOnLiveAndDraftTextBook ',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         let bookName=sanityPage.createBookSaveAsDraft();

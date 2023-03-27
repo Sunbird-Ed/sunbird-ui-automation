@@ -37,7 +37,7 @@ describe('CreateBookWithNoContentAndFilledEditDetailsForm', () => {
         utility.userLogout();
 
         browser.sleep(3000);
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         etbFun.navigateToLibraryAndSearchForBook(bookName);
       
     })

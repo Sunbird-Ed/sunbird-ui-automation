@@ -22,21 +22,17 @@ describe('ValidateRatingSecContent.spec', () => {
     });
     it('ValidateRatingSecContent',function(){
         utility.handleDropDown();
-
         utility.handleLocationPopup();
-       utility.userLogin('Creator');
-            let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();
+        utility.userLogin('ContentCreator');
+        let contentName=resourcePageObj.createQuestionMCQWithFormualAndAllStyles();
         resourcePageObj.addPluginActivtyInResourceEditor('ProgressBar');
         resourcePageObj.addProgressBarInResourceEditor();
         resourcePageObj.sendForReviewTheResource();
         utility.userLogout();
-        utility.userLogin('Reviewer');
+        utility.userLogin('ContentReviewer');
         resourcePageObj.publishTheResourceFromUpForReview(contentName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         resourcePageObj.ConsumeResourceAndValidateRatingContent(contentName);
-      
-      
     })
-    
 });

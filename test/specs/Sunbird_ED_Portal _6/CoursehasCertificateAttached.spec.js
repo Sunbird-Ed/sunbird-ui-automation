@@ -21,6 +21,7 @@ describe('Verify Coure attahced With Certificate', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('CoursehasCertificateAttached', function () {
 

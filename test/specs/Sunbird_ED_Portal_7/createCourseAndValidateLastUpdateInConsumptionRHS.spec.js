@@ -22,6 +22,7 @@ describe('createCourseAndValidateLastUpdateInConsumptionRHS', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
 
     it('createCourseAndValidateLastUpdateInConsumptionRHS  ', function () {
@@ -32,13 +33,13 @@ describe('createCourseAndValidateLastUpdateInConsumptionRHS', () => {
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('Reviewer');
-        tpdPageObj.publishCourseFromUpForReview(courseName);
+        tpdPageObj.publishCourseFromUpForReview2(courseName);
         utility.userLogout();
         utility.userLogin('Creator');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         tpdPageObj.createOpenBatch();
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         tpdPageObj.navigateToCourseAndSearchForOpenBatch(courseName);
         var fetchCoursename = tpdPageObj.enrollForOpenBatch();
         sanityfun.validateContentDetails();

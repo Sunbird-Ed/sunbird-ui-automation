@@ -21,7 +21,7 @@ describe('ScrollAndConsumeAllContentInBook', () => {
 
     it('ScrollAndConsumeAllContentInBook ',function(){
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         etbPageObj.navigateToLibraryAndSearchForBook("Book");
         
 

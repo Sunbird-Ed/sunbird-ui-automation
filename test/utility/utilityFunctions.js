@@ -18,6 +18,7 @@ const signUp = require(protractor.basePath +
 var content = ccpage.contentCreation();
 var signUpPageObj = signUp.signUpPage();
 
+
 const verifyAdminDashBoard = () => {
   try {
     browser.sleep(3000);
@@ -26,7 +27,6 @@ const verifyAdminDashBoard = () => {
     usronBoardPage.UserOnBoarding().clkAdminDashBoard.click();
     console.log("clicked on Admin Dashboard");
     browser.sleep(3000);
-
   } catch (Err) {
     console.error("Failed to verify admin dashboard, " + Err);
   }
@@ -57,8 +57,6 @@ const userLogin = (roleName) => {
     console.error("Failed to user login, " + Err);
   }
 };
-
-
 
 const userLoginWithInvalidCredential = (roleName) => {
   try {
@@ -131,12 +129,12 @@ const userLogout = () => {
     browser.sleep(4000);
     wait.waitForElementVisibility(content.headerDropdown, 20000);
     content.headerDropdown.click();
-    browser.sleep(300);
+    browser.sleep(3000);
     browser.executeScript("arguments[0].scrollIntoView();", content.logout);
-    browser.sleep(200);
+    browser.sleep(2000);
     wait.waitForElementVisibility(content.logout, 20000);
     content.logout.click();
-    browser.sleep(300);
+    browser.sleep(3000);
     browser.get(Url + AppendExplore, 40000);
     browser.sleep(2000);
   } catch (err) {
@@ -392,22 +390,22 @@ const handleLocationPopupForSchoolHead = () => {
     browser.sleep(3000);
     wait.waitForElementVisibility(content.Continue, 20000);
     content.Continue.click();
-    browser.sleep(25000);
+    browser.sleep(4000);
 
-    wait.waitForElementVisibility(content.state, 20000);
-    content.state.click();
-    wait.waitForElementVisibility(content.selectState, 20000);
-    content.selectState.click();
-    wait.waitForElementVisibility(content.district, 20000);
-    content.district.click();
-    wait.waitForElementVisibility(content.selectDistrict, 20000);
-    content.selectDistrict.click();
-    browser.sleep(2000);
-    browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
-    browser.sleep(2000);
+    // wait.waitForElementVisibility(content.state, 20000);
+    // content.state.click();
+    // wait.waitForElementVisibility(content.selectState, 20000);
+    // content.selectState.click();
+    // wait.waitForElementVisibility(content.district, 20000);
+    // content.district.click();
+    // wait.waitForElementVisibility(content.selectDistrict, 20000);
+    // content.selectDistrict.click();
+    // browser.sleep(2000);
+    // browser.executeScript("arguments[0].scrollIntoView();", content.submitForm);
+    // browser.sleep(2000);
 
-    wait.waitForElementVisibility(content.submitForm, 20000);
-    content.submitForm.click();
+    // wait.waitForElementVisibility(content.submitForm, 20000);
+    // content.submitForm.click();
   } catch (err) {
     console.error("Failed to handle location pop up, " + err);
   }
@@ -549,7 +547,7 @@ const futureDate = () => {
   try {
     var date = new Date();
     var day = date.getDate();
-    var year = date.getFullYear();
+    var year = date.getFullYear()+1;
     const monthNames = [
       "January",
       "February",
@@ -564,7 +562,7 @@ const futureDate = () => {
       "November",
       "December",
     ];
-    var month = monthNames[date.getMonth() + 2];
+    var month = monthNames[date.getMonth() + 1];
     newdate = day + " " + month + " " + year;
     return newdate;
   } catch (Err) {
@@ -871,16 +869,16 @@ const handleLocationPopupAfterAddUser = () => {
   try {
     browser.sleep(4000);
     
-    wait.waitForElementVisibility(content.state, 20000);
-    content.state.click();
+    wait.waitForElementVisibility(content.stateDropdownAfterSwithUserLocation, 20000);
+    content.stateDropdownAfterSwithUserLocation.click();
     browser.sleep(2000);
 
     wait.waitForElementVisibility(content.selectState, 20000);
     content.selectState.click();
     browser.sleep(4000);
 
-    wait.waitForElementVisibility(content.district, 20000);
-    content.district.click();
+    wait.waitForElementVisibility(content.districtDropdownAfterSwitchUserLocation, 20000);
+    content.districtDropdownAfterSwitchUserLocation.click();
     browser.sleep(5000);
 
     wait.waitForElementVisibility(content.selectDistrict, 20000);
@@ -890,7 +888,7 @@ const handleLocationPopupAfterAddUser = () => {
     browser.sleep(1000);
     wait.waitForElementVisibility(content.submitForm, 20000);
     content.submitForm.click();
-
+    browser.sleep(5000);
   } catch (err) {
     console.log(err);
   }
@@ -952,8 +950,7 @@ const endDate = () => {
       var date = new Date();
       var day = date.getDate()+1;
       var year = date.getFullYear();
-      const monthNames = ["January", "February", "March", "April", "May", "June",
-          "July", "August", "September", "October", "November", "December"];
+      const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       var month = monthNames[date.getMonth()];
       newdate = day + " " + month + " " + year;
       return newdate;

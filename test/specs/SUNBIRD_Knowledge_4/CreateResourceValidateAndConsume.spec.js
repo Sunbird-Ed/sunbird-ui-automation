@@ -4,7 +4,7 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
 const etbPageObj = require(protractor.basePath+'/test/pageObject/etbPageObj.js');
-const lessonPlanPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPageObj.js');
 
 describe('content creator is able to access the resource section to create resources.', () => {
 
@@ -24,7 +24,6 @@ describe('content creator is able to access the resource section to create resou
     });
     it('CreateResourceValidateAndConsume',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResource();
@@ -32,11 +31,8 @@ describe('content creator is able to access the resource section to create resou
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
-      
-
+        utility.userLogout();
+        utility.userLogin('Creator');
+        lspPageObj.deleteCreatedItems();
     })
-
-   
-   
 });
-   

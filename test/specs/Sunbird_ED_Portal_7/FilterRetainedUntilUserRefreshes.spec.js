@@ -18,12 +18,13 @@ describe('FilterRetainedUntilUserRefreshes', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('FilterRetainedUntilUserRefreshes',function(){
         utility.handleDropDown();
         ;
-        //utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.handleLocationPopup();
+        utility.userLogin('Public User2');
         resource.filterRetainedFromHomeTabToAnother();
     })
 });

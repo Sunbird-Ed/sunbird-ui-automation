@@ -24,7 +24,7 @@ describe('VerifyCourseDetails', () => {
     it('VerifyCourseDetails',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('submitDetails');
         etbFun.searchContentInExplorePagewithoutBack("do_21333638997764505612253");
         searchCBFPPageObj.verifyCourseDetail();
     });

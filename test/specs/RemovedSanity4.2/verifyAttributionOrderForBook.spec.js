@@ -30,7 +30,7 @@ describe('verifyAttributionOrderForBook', () => {
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(bookName);
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         addSARCATTPRPageObj.navigateToLibraryAndSearchContent(bookName);
         sanityfun.verifyAttributionOrder();
     });

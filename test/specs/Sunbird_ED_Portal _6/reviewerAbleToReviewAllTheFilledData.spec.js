@@ -17,6 +17,7 @@ describe('reviewerAbleToReviewAllTheFilledData', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('reviewerAbleToReviewAllTheFilledData', function () {

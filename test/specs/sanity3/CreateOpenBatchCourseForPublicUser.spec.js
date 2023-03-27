@@ -21,13 +21,14 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
 
     it('CreateOpenBatchCourseForPublicUser', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-        
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();
         utility.userLogin('ContentReviewer');
@@ -38,7 +39,3 @@ describe('able to create course and enroll consume unEnrollFromOpenCourse', () =
         EnrollTBFCPageObj.createOpenBatch();
     })
 });
-
-
-
-

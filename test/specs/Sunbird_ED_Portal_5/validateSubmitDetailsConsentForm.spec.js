@@ -24,7 +24,7 @@ describe('validateSubmitDetailsConsentForm', () => {
         utility.handleDropDown();
         
         utility.handleLocationPopup();
-        utility.userLogin('NewCustUser1');
+        utility.userLogin('submitDetails');
         verifyUOpage.validateSubmitConsentForm();
     });
 });

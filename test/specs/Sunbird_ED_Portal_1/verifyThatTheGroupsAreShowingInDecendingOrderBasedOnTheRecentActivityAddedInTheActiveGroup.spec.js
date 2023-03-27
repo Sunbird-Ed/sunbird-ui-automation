@@ -21,6 +21,7 @@ describe('verifyThatGroupsAreDisplayedInActiveAndDeActiveOrder', () => {
     });
     it('verifyThatTheGroupsAreShowingInDecendingOrderBasedOnTheRecentActivityAddedInTheActiveGroup ',function(){
         utility.handleDropDown();
+        browser.sleep(30000);
         utility.handleLocationPopup();
         utility.userLogin('Dont Use');
         EnrollTBFCPageObj.addGrpAndVerifyOrderOfActiveGrp();

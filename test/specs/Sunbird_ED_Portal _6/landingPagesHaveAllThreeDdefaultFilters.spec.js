@@ -22,13 +22,14 @@ describe('landingPagesHaveAllThreeDdefaultFilters', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     
     it('landingPagesHaveAllThreeDdefaultFilters', function () {
         utility.handleDropDown();
         
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User3');
         tpdPageObj.validateFilterInDigitalTextBookAndCourse();
     })
 });

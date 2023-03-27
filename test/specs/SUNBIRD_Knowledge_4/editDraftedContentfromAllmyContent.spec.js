@@ -26,11 +26,9 @@ describe('editDraftedContentfromAllmyContent', () => {
     });
     it('editDraftedContentfromAllmyContent', function () {
         utility.handleDropDown();
-        
-        utility.handleLocationPopup();
+                utility.handleLocationPopup();
         utility.userLogin('Creator');
-        
-        let courseName = sanityfun.createCourseAndSavetoDraft();
+         let courseName = sanityfun.createCourseAndSavetoDraft();
         utility.userLogout();
         utility.userLogin('Creator');
         tpdPageObj.searchDraftedContentInAllmyContentAndEdit(courseName);

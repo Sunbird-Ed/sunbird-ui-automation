@@ -22,6 +22,7 @@ describe('createCourseByCopyOptionAndValidateContentComingToAllBucketsInWorkspac
 
     it('createCourseByCopyOptionAndValidateContentComingToAllBucketsInWorkspace',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         sanityFun.copyBookAsCourse('PortalContent');

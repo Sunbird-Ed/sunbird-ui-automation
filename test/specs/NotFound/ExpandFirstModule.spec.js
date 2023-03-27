@@ -25,7 +25,7 @@ describe('ExpandFirstModule', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
       //  verifyCEBpageobj.validateFeaturedCourseAndCount();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         searchCBFPPageObj.courseSearchFilter();
         
        

@@ -21,14 +21,8 @@ describe('verifyPublishedverifyPublishedAndSubjectByInDigitalTxtbookndAllTabsAnd
     });
     it('verifyPublishedAndSubjectByInDigitalTxtbook',function(){
         utility.handleDropDown();
+        browser.sleep(30000);
         utility.handleLocationPopup();
-        etbFun.verifyPublishedAndSubjectBy();
-       
-        
+        etbFun.verifyPublishedAndSubjectBy();  
     })
-    
-    
-
- 
 });
-   

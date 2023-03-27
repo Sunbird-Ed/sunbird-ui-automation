@@ -20,9 +20,11 @@ describe('CheckTrackableCollection', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('CheckTrackableCollection ',function(){
         utility.handleDropDown();
+
         utility.handleLocationPopup();
         var sheetPath = getAppURL.ConfigurePath().excelSheetPath;
         var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '3');

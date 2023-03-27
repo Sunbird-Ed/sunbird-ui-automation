@@ -27,7 +27,7 @@ describe('userNotAbleToSwitchTheScreenResolutionInCourseassesssmentConsumption',
         utility.handleDropDown();
         
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         sanityfun.validateGreyedOutFullScreenButtonAfterConsumingToCertainExtentOfCourseAssessment();
     })
 });

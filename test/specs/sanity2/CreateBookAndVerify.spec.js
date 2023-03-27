@@ -16,11 +16,14 @@ describe('Create Book save and send for review and publish.', () => {
         browser.get(Url + AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
+
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
 
     it('CreateBookAndVerify', function () {
@@ -32,7 +35,7 @@ describe('Create Book save and send for review and publish.', () => {
         utility.userLogin('ContentReviewer');
         tpdPageObj.publishCourseFromUpForReview(bookName)
         utility.userLogout();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         resourcePageObj.navigateToLibraryAndSearchContent(bookName);
     })
 });

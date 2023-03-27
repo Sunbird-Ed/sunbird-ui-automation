@@ -23,10 +23,10 @@ describe('updateUnitBook', () => {
     it('updateUnitBook', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         let bookName = sanityfun.createBookSaveAsDraft();
         utility.userLogout();
-        utility.userLogin('Creator');
+        utility.userLogin('ContentCreator');
         tpdPageObj.contentSearchInDraftAndUpdateChildNode(bookName);
     })
 });

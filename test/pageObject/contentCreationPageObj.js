@@ -19,7 +19,6 @@ const genericFun = require(protractor.basePath + '/test/genericFunctions/Generic
 
 const searchContentInLibrary = (contentType) => {
   try {
-
     // console.log("User should be able to get the newly created content by Searching the content with the content name.");
     // content.searchedContentForUpload.click();
     // browser.sleep(2000);
@@ -70,13 +69,12 @@ const navigateToLibraryAndSearchForLessonPlan = () => {
     content.searchedContentForUpload.click();
     browser.sleep(3000);
     console.log("Succesfully to navigate To Library And Search For LessonPlan");
-
   }
   catch (Exception) {
     console.log("Failed to navigate To Library And Search For LessonPlan");
   }
-
 }
+
 const consumeTheCourseInLibrarySection = () => {
   try {
     console.log("User is trying to consume the content by clicking on it.");
@@ -443,8 +441,8 @@ const consumeTheCourseOfInviteOnly = (content) => {
     console.log("Failed to consume invite only batch");
   }
 }
-const clearTheFieldNameOfTheBatchAndStartDate = (contentName) => {
 
+const clearTheFieldNameOfTheBatchAndStartDate = (contentName) => {
   try {
     browser.sleep(2000);
     console.log("User is trying to clear Name of the Batch and Start date");
@@ -655,7 +653,6 @@ const checkInAssignToMeSection = () => {
   }
 }
 const applyFilterAndToggleQuestion = () => {
-  try {
     browser.sleep(2000);
 
     console.log("User is trying to create a resource")
@@ -717,17 +714,17 @@ const applyFilterAndToggleQuestion = () => {
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectMediumQ), 40000, "selectMedium is not available");
     content.selectMediumQ.click();
     browser.sleep(1000);
-    // browser.wait(protractor.ExpectedConditions.visibilityOf(content.classType), 40000, "classType is not available");
-    // content.classType.click();
-    // browser.sleep(3000);
-    // browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectClassQ), 40000, "selectClass is not available");
-    // content.selectClassQ.click();
-    // browser.sleep(3000);
-    // browser.wait(protractor.ExpectedConditions.visibilityOf(content.subject), 40000, "subject is not available");
-    // content.subject.click();
-    // browser.sleep(3000);
-    // browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectSubjectQ), 40000, "selectSubject is not available");
-    // content.selectSubjectQ.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.classType), 40000, "classType is not available");
+    content.classType.click();
+    browser.sleep(3000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectClassQ), 40000, "selectClass is not available");
+    content.selectClassQ.click();
+    browser.sleep(3000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.subject), 40000, "subject is not available");
+    content.subject.click();
+    browser.sleep(3000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectSubjectQ), 40000, "selectSubject is not available");
+    content.selectSubjectQ.click();
     // console.log('successfully applied all filters except my toggle')
     // browser.sleep(3000);
     // for (var i = 0; i <= 2; i++) 
@@ -735,33 +732,22 @@ const applyFilterAndToggleQuestion = () => {
 
 
     // browser.wait(protractor.ExpectedConditions.visibilityOf(content.myQuestionToggle), 20000, "  myQuestionToggle is not available");
-    content.myQuestionToggle.click();
+   // content.myQuestionToggle.click();
     console.log('Toggle is selected')
 
     browser.sleep(3000);
     expect(browser.wait(protractor.ExpectedConditions.visibilityOf(content.copyQuestion))).toBeTruthy()
-    if (browser.wait(protractor.ExpectedConditions.visibilityOf(content.copyQuestion))) {
-      console.log('filtered question is available')
-    }
-    else {
-      console.log('filtered question is not available')
-    }
+    
+    // browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.closePage), 20000, "Dashboard never loaded");
+    // content.closePage.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.saveCourse), 20000, "Dashboard never loaded");
+    // content.saveCourse.click();
+    // browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.closeEditor2), 20000, "Dashboard never loaded");
+    // content.closeEditor2.click();
+    // console.log('User has successfully applied Filter And Toggle Question')
+  } 
 
-    browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.closePage), 20000, "Dashboard never loaded");
-    content.closePage.click();
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.saveCourse), 20000, "Dashboard never loaded");
-    content.saveCourse.click();
-    browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.closeEditor2), 20000, "Dashboard never loaded");
-    content.closeEditor2.click();
-    console.log('User has successfully applied Filter And Toggle Question')
-  } catch (e) {
-    console.log('Failed to apply Filter And Toggle Question');
-
-
-  }
-
-}
 const reviewerUpForReview = () => {
   try {
     console.log('User is Navigating to up for review');
@@ -1261,7 +1247,6 @@ const searchContentByUsingFilter = () => {
   }
 }
 const exploreChatBox = () => {
-
   try {
     wait.waitForElementVisibility(content.clkChatBox, 30000, "clkChatBox button not available");
     content.clkChatBox.click();
@@ -2117,8 +2102,8 @@ const viewCourseDashBoardDetailsInCertificatesTab = () => {
     content.searchInput.sendKeys(contentSearch);
     content.searchButton.click();
     browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.courseCard), 20000, "courseCard is not available");
-    content.courseCard.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchedContetsForUpload), 20000, "courseCard is not available");
+    content.searchedContetsForUpload.click();
     browser.sleep(3000);
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.viewCourseDashBoard), 20000, "viewCourseDashBoard is not available");
     content.viewCourseDashBoard.click();
@@ -2493,6 +2478,295 @@ const validateReissuedCertificate = () => {
   }
 };
 
+const navigateToLibraryAndSearchForContetRibbonValidation = () => {
+  try {
+    console.log("User is trying to navigate To Library And Search For LessonPlan");
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    var qrcode = cred[59]['Title'];
+
+    browser.sleep(1000);
+    content.headerLibrary.click();
+    browser.sleep(2000);
+    content.filterSearch.sendKeys(qrcode);
+    browser.sleep(2000);
+    content.searchIcon.click();
+    browser.sleep(5000);
+    expect(searchObj.validatecontentPlaylistRibbon.isPresent()).toBe(true);
+    browser.sleep(3000);
+    content.searchedContentForUpload.click();
+    browser.sleep(3000);
+    for (i = 0; i < 31; i++) {
+      sanityPage.SanityElement().pdfArrowButton.click();
+        browser.sleep(4000);
+      }
+    browser.sleep(4000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "starRating never loaded");
+    searchObj.starRating.click();
+    browser.sleep(4000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.submitRating), 20000, "submitRating never loaded");
+    searchObj.submitRating.click();
+    browser.sleep(4000);
+    console.log("Succesfully to navigate To Library And Search For qrcode based content");
+  }
+  catch (Exception) {
+    console.log("Failed to navigate");
+  }
+}
+
+
+const verifyPublishedContentInDraftVersionAndValidateInLibrary = (publishedTextBook) => {
+  try {
+    console.log("verify all published content in allMyContent");
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    console.log(cred);
+    var qrcode = cred[47]['TitleDescription'];
+    console.log(qrcode);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
+    ccpage.contentCreation().headerDropdown.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+    ccpage.contentCreation().workSpace.click();
+    browser.sleep(5000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allMyContent), 20000, "Book page not loaded");
+    searchObj.allMyContent.click();
+    browser.sleep(5000);
+    searchObj.searchContent.sendKeys(publishedTextBook);
+    browser.sleep(5000);
+    expect(searchObj.assertLiveStatusContent.isPresent()).toBe(true);
+    browser.sleep(5000);
+    resov.imageCard4.click();
+    browser.sleep(5000);
+    browser.executeScript("window.scrollTo(0,400);").then(function () {
+      console.log("++++++SCROLLED Down+++++");
+    });
+    browser.sleep(3000);
+    searchObj.qrCodeYesButton.click();
+    browser.sleep(3000);
+    searchObj.enterQrCodeTextBoxInEditor.sendKeys(qrcode);
+    browser.sleep(3000);
+    searchObj.clickRightButton.click();
+    browser.sleep(3000);
+    expect(searchObj.assertInvalidQrError.isPresent()).toBe(true);
+    browser.sleep(3000);
+    sanityPage.SanityElement().addChild.click();
+    browser.sleep(3000);
+    sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+    browser.sleep(4000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
+    sanityPage.SanityElement().addFromLibraryButton.click();
+    browser.sleep(5000);
+    sanityPage.SanityElement().selectButton.click();
+    browser.sleep(6000);
+    sanityPage.SanityElement().addContent.click();
+    browser.sleep(8000);
+    browser.executeScript("window.scrollTo(0,0);").then(function () {
+      console.log("++++++SCROLLED up+++++");
+    });
+    browser.sleep(6000);
+    sanityPage.SanityElement().contentFromLibrayBackButton.click();
+    browser.sleep(8000);
+    browser.wait(
+      protractor.ExpectedConditions.visibilityOf(
+        sanityPage.SanityElement().submitForreviewButton
+      ),
+      20000,
+      "submit Button not loaded"
+    );
+    sanityPage.SanityElement().saveAsDraft.click();
+    browser.sleep(5000);
+  }
+  catch (Exception) {
+    console.log("Failed to validate filters in all textbook.");
+  }
+}
+
+
+const editBookAndAddValidQrCodeAndSave = (publishedTextBook) => {
+  try {
+    console.log("verify all published content in allMyContent");
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    console.log(cred);
+    var qrcode = cred[48]['CourseDescription'];
+    console.log(qrcode);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
+    ccpage.contentCreation().headerDropdown.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+    ccpage.contentCreation().workSpace.click();
+    browser.sleep(5000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allMyContent), 20000, "Book page not loaded");
+    searchObj.allMyContent.click();
+    browser.sleep(5000);
+    searchObj.searchContent.sendKeys(publishedTextBook);
+    browser.sleep(5000);
+    expect(searchObj.assertLiveStatusContent.isPresent()).toBe(true);
+    browser.sleep(5000);
+    resov.imageCard4.click();
+    browser.sleep(5000);
+    browser.executeScript("window.scrollTo(0,400);").then(function () {
+      console.log("++++++SCROLLED Down+++++");
+    });
+    browser.sleep(3000);
+    searchObj.qrCodeYesButton.click();
+    browser.sleep(3000);
+    searchObj.enterQrCodeTextBoxInEditor.sendKeys(qrcode);
+    browser.sleep(3000);
+    searchObj.clickRightButton.click();
+    browser.sleep(3000);
+    sanityPage.SanityElement().addChild.click();
+    browser.sleep(3000);
+    sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+    browser.sleep(4000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
+    sanityPage.SanityElement().addFromLibraryButton.click();
+    browser.sleep(5000);
+    sanityPage.SanityElement().selectButton.click();
+    browser.sleep(6000);
+    sanityPage.SanityElement().addContent.click();
+    browser.sleep(8000);
+    browser.executeScript("window.scrollTo(0,0);").then(function () {
+      console.log("++++++SCROLLED up+++++");
+    });
+    browser.sleep(6000);
+    sanityPage.SanityElement().contentFromLibrayBackButton.click();
+    browser.sleep(8000);
+    browser.wait(
+      protractor.ExpectedConditions.visibilityOf(
+        sanityPage.SanityElement().submitForreviewButton
+      ),
+      20000,
+      "submit Button not loaded"
+    );
+    sanityPage.SanityElement().saveAsDraft.click();
+    browser.sleep(5000);
+  }
+  catch (Exception) {
+    console.log("Failed to validate filters in all textbook.");
+  }
+}
+
+const editBookAndAddQrCodeAndSaveAndPublish = (publishedTextBook) => {
+  try {
+    console.log("verify all published content in allMyContent");
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    console.log(cred);
+    var qrcode = cred[48]['CourseDescription'];
+    console.log(qrcode);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
+    ccpage.contentCreation().headerDropdown.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+    ccpage.contentCreation().workSpace.click();
+    browser.sleep(5000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allMyContent), 20000, "Book page not loaded");
+    searchObj.allMyContent.click();
+    browser.sleep(5000);
+    searchObj.searchContent.sendKeys(publishedTextBook);
+    browser.sleep(5000);
+    expect(searchObj.assertLiveStatusContent.isPresent()).toBe(true);
+    browser.sleep(5000);
+    resov.imageCard4.click();
+    browser.sleep(5000);
+    browser.executeScript("window.scrollTo(0,400);").then(function () {
+      console.log("++++++SCROLLED Down+++++");
+    });
+    browser.sleep(3000);
+    searchObj.qrCodeYesButton.click();
+    browser.sleep(3000);
+    searchObj.enterQrCodeTextBoxInEditor.sendKeys(qrcode);
+    browser.sleep(3000);
+    searchObj.clickRightButton.click();
+    browser.sleep(3000);
+    expect(searchObj.greenTickMark.isPresent()).toBe(true);
+    browser.sleep(3000);
+    sanityPage.SanityElement().addChild.click();
+    browser.sleep(3000);
+    sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
+    browser.sleep(4000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
+    sanityPage.SanityElement().addFromLibraryButton.click();
+    browser.sleep(5000);
+    sanityPage.SanityElement().selectButton.click();
+    browser.sleep(6000);
+    sanityPage.SanityElement().addContent.click();
+    browser.sleep(8000);
+    browser.executeScript("window.scrollTo(0,0);").then(function () {
+      console.log("++++++SCROLLED up+++++");
+    });
+    browser.sleep(6000);
+    sanityPage.SanityElement().contentFromLibrayBackButton.click();
+    browser.sleep(8000);
+    sanityPage.SanityElement().saveAsDraft.click();
+    browser.sleep(5000);
+    browser.wait(
+      protractor.ExpectedConditions.visibilityOf(
+        sanityPage.SanityElement().submitForreviewButton
+      ),
+      20000,
+      "submit Button not loaded"
+    );
+    sanityPage.SanityElement().submitForreviewButton.click();
+    browser.sleep(4000);
+    sanityPage.SanityElement().termsAndConditionCheckbox.click();
+    browser.sleep(4000);
+    sanityPage.SanityElement().NewCoursesubmitButton.click();
+    browser.sleep(4000);
+    console.log("User successfully created a book");
+  }
+  catch (Exception) {
+    console.log("Failed to validate filters in all textbook.");
+  }
+}
+
+const ExhaustReportErrMsg = () => {
+  
+    browser.sleep(2000);
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    var user_id = cred[32]['TitleDescription'];
+
+    console.log("Course mentor should be able to see  view course dashboard details");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerCourse), 20000, " headerCourse is not available");
+    content.headerCourse.click();
+    browser.sleep(3000);
+    content.searchInput.sendKeys(user_id);
+    browser.sleep(1000);
+    content.searchButton.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.courseCard), 20000, "courseCard is not available");
+    content.courseCard.click();
+    browser.sleep(3000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.viewCourseDashBoard), 20000, "viewCourseDashBoard is not available");
+    content.viewCourseDashBoard.click();
+    browser.sleep(3000);
+    console.log("Course mentor is able to see the view training dashboard");
+browser.refresh();
+browser.sleep(6000);
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectBatch), 20000, "selectBatch is not available");
+    content.selectBatch.click();
+    browser.sleep(3000);
+    sanity.selectBatchValueInCourseDashBoard.click();
+    browser.sleep(3000);
+    sanity.chooseYourReport.click();
+    browser.sleep(2000);
+    sanity.selectReportValue.click();
+    browser.sleep(2000);
+    sanity.requestButton.click();
+    browser.sleep(2000);
+    expect(sanity.assertExhaustReportSecondTimeRequestMsg.isPresent()).toBe(true);
+    browser.sleep(2000);
+        expect(sanity.assertSubmit.isPresent()).toBe(true);
+    browser.sleep(1000);
+
+};
+
+
+
 
 module.exports = {
   searchContentInLibrary,
@@ -2555,4 +2829,9 @@ module.exports = {
   verifyPublishedContentInAllMyContentandValidateInLibrary,
   viewCourseDashBoardandValidateRequestButton,
   validateReissuedCertificate,
+  navigateToLibraryAndSearchForContetRibbonValidation,
+  verifyPublishedContentInDraftVersionAndValidateInLibrary,
+  editBookAndAddValidQrCodeAndSave,
+  editBookAndAddQrCodeAndSaveAndPublish,
+  ExhaustReportErrMsg,
 }

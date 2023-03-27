@@ -24,7 +24,7 @@ describe('validateIdisplayedBesidePreferenceAndHiUserNameAbovePreference', () =>
         utility.handleDropDown();
         utility.handleLocationPopup();
         searchAALTPageObj.validateClickedOnLogoNoctedToDigitalTextBook();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         searchAALTPageObj.validateClickedOnLogoNoctedToDigitalTextBook();
     })
 });

@@ -20,6 +20,7 @@ describe('Verify AssignedAdminShouldNotDelteGrp', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
     it('AssignedAdminShouldNotDelteGrp',function(){
         utility.handleDropDown();

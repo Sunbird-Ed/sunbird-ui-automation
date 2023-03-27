@@ -23,11 +23,10 @@ describe('validateAndDownloadCertificateFromLearnerPassBook', () => {
 
     it('validateAndDownloadCertificateFromLearnerPassBook',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         let courseName = "do_21340093974761472016";
         let fileName = "4.4 Ashok Course 1";
-        utility.userLogin('Public User1');
+        utility.userLogin('TCTestUser');
         tpdPageObj.consumeCourseForCertificate(courseName);
         tpdPageObj.verifyConsumesCourseInTrainingSec();
         tpdPageObj.verifyDownloadedPdfFile(fileName);

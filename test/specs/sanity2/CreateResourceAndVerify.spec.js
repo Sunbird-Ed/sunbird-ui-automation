@@ -20,10 +20,13 @@ describe('CreateResourceAndVerify.', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
+
     });
 
     it('CreateResourceAndVerify',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResource();
@@ -34,6 +37,6 @@ describe('CreateResourceAndVerify.', () => {
         utility.userLogout();
         utility.userLogin('Creator');
         lspPageObj.deleteCreatedItems();
-    })
+     })
 });
    

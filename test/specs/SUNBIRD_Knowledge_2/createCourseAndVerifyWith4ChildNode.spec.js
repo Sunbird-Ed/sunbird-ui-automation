@@ -5,8 +5,6 @@ const lspPageObj = require(protractor.basePath + '/test/pageObject/lessonPlanPag
 const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 
 describe('createCourseAndVerifyWith4ChildNode', () => {
-
-
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url = getAppURL.ConfigurePath().AppURL;
@@ -15,20 +13,17 @@ describe('createCourseAndVerifyWith4ChildNode', () => {
         browser.manage().deleteAllCookies();
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize();
-
-
     });
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-
     });
+
     it('createCourseAndVerifyWith4ChildNode', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        
         let courseName = sanityfun.CreateCourseAndSaveAsDraft1();
         utility.userLogout();
         utility.userLogin('Creator');

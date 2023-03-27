@@ -23,7 +23,7 @@ describe('verifyClassFilterOption', () => {
     it('verifyClassFilterOption',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User1');
+        utility.userLogin('Public User2');
         etbFun.verifyOnlyClassFilter();
        
         

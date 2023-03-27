@@ -20,7 +20,6 @@ describe('verifyOrgFrameworkValues', () => {
     
     it('verifyOrgFrameworkValues',function(){
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         sanityfun.createCourseForFrameworkWithTopicAndSubject("k12");

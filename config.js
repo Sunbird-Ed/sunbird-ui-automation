@@ -15,9 +15,9 @@ exports.config = {
     waitForAngularEnabled: false,
     suites: {
 
-     sanity1: 'test/specs/sanity1/*.spec.js',
-      sanity2: 'test/specs/sanity2/*.spec.js',
-      sanity3: 'test/specs/sanity3/*.spec.js',
+    //  sanity1: 'test/specs/sanity1/*.spec.js',
+    //   sanity2: 'test/specs/sanity2/*.spec.js',
+    //   sanity3: 'test/specs/sanity3/*.spec.js',
         
         // SunbirdPortal1: 'test/specs/Sunbird_ED_Portal_1/*.spec.js',
         //   SunbirdPortal2: 'test/specs/SUNBIRD_ED_Portal_2/*.spec.js',
@@ -86,7 +86,7 @@ exports.config = {
     //   testing:'test/specs/sanity2/CreateBookAndVerify.spec.js',
     //   test2:'test/specs/sanity2/CreateCourseAndVerify.spec.js',
     //   test3:'test/specs/sanity2/AddChildInCourse.spec.js',
-    //   test4:'test/specs/sanity2/createBookWithMoreUnit.spec.js',
+   test4:'test/specs/SUNBIRD_Knowledge_1/verifyCreatorIsAlsoNotAbleToMoreThanPrescribedLimitOfContent.spec.js',
 
 
 },

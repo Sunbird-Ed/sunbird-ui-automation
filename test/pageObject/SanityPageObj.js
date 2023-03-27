@@ -28689,7 +28689,7 @@ const verifyCreatorIsAlsoNotAbleToMoreThanPrescribedLimitOfContent = () => {
     sanityPage
       .SanityElement()
       .clkSearhInAllMyContent.sendKeys(do_id);
-    browser.sleep(5000);
+    browser.sleep(6000);
     sanityPage.SanityElement().clkSearchIconAllMyContent.click();
     browser.sleep(4000);
 
@@ -28702,8 +28702,9 @@ const verifyCreatorIsAlsoNotAbleToMoreThanPrescribedLimitOfContent = () => {
     );
     sanityPage.SanityElement().clkFirstCntAllMyCon.click();
     browser.sleep(8000);
-    
-    sanityPage.verifyCreatorIsAlsoNotAbleToMoreThanPrescribedLimitOfContentSanityElement().clkTxtBookUnit1.click();
+    browser.sleep(8000);
+
+    sanityPage.SanityElement().clkTxtBookUnit1.click();
     browser.sleep(3000);
 
     sanityPage.SanityElement().addFromLibraryButton.click();

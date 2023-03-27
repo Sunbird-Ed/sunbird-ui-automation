@@ -25,8 +25,7 @@ describe('addSameContentToDifferentFoldersUnderDifferentCollectionType', () => {
     
     it('addSameContentToDifferentFoldersUnderDifferentCollectionType', function () {
         utility.handleDropDown();
-        
-        utility.handleLocationPopup();
+                utility.handleLocationPopup();
         utility.userLogin('Creator');
         let collectionName1 = sanityfun.createCollectionWithDiffCollectionTypesToAddSameContentinContentPlaylistCollection("digitalTxtbook");
         utility.userLogout();

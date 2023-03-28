@@ -46708,6 +46708,128 @@ const createQuestionSetWithmathematicalEquationsInResourceWithMTF = () => {
     }
 }
     
+const applyFilterInCourseTabAndThatShouldPersistOnlyInCourseTab = () => {
+    try {
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.clkCourseHeader, 40000, "  Filter search bar is not available");
+        resov.clkCourseHeader.click();
+        browser.sleep(4000);
+        wait.waitForElementVisibility(resov.clkMediFilter, 40000, "  clkViewAllBtn search bar is not available");
+        resov.clkMediFilter.click();
+        browser.sleep(4000);
+        wait.waitForElementVisibility(resov.sltMediuFilter1, 40000, "  clkViewAllBtn search bar is not available");
+        resov.sltMediuFilter1.click();
+        browser.sleep(4000);
+        expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+         browser.sleep(3000);
+        wait.waitForElementVisibility(resov.ClkClassFilter, 40000, "  clkViewAllBtn search bar is not available");
+        resov.ClkClassFilter.click();
+        browser.sleep(4000);
+        wait.waitForElementVisibility(resov.sltClassFilter1, 40000, "  clkViewAllBtn search bar is not available");
+        resov.sltClassFilter1.click();
+        browser.sleep(4000);
+            expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkDigitalTxtBooks, 40000, "  Filter search bar is not available");
+        resov.clkDigitalTxtBooks.click();
+        browser.sleep(4000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        expect(resov.MediumsAsertSelectedOption.isPresent()).toBe(false);
+        expect(resov.ClassAsserSelctedOption.isPresent()).toBe(false);
+
+   
+
+    } catch (e) {
+        console.log("Failed in Filter")
+    }
+}
+
+const applyFilterInDigitalTabAndThatShouldPersistOnlyInDigitalTab = () => {
+    try {
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.clkDigitalTxtBooks, 40000, "  Filter search bar is not available");
+        resov.clkDigitalTxtBooks.click();
+   
+        browser.sleep(4000);
+        wait.waitForElementVisibility(resov.clkMediFilter, 40000, "  clkViewAllBtn search bar is not available");
+        resov.clkMediFilter.click();
+        browser.sleep(4000);
+        wait.waitForElementVisibility(resov.sltMediuFilter1, 40000, "  clkViewAllBtn search bar is not available");
+        resov.sltMediuFilter1.click();
+        browser.sleep(4000);
+        expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+         browser.sleep(3000);
+        wait.waitForElementVisibility(resov.ClkClassFilter, 40000, "  clkViewAllBtn search bar is not available");
+        resov.ClkClassFilter.click();
+        browser.sleep(4000);
+        wait.waitForElementVisibility(resov.sltClassFilter1, 40000, "  clkViewAllBtn search bar is not available");
+        resov.sltClassFilter1.click();
+        browser.sleep(4000);
+            expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.clkCourseHeader, 40000, "  Filter search bar is not available");
+        resov.clkCourseHeader.click();
+       
+        browser.sleep(4000);
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        expect(resov.MediumsAsertSelectedOption.isPresent()).toBe(false);
+        expect(resov.ClassAsserSelctedOption.isPresent()).toBe(false);
+
+   
+     //   wait.waitForElementVisibility(resov.clkHome, 40000, "  Filter search bar is not available");
+        // resov.clkHome.click();
+        // browser.sleep(4000);
+        // wait.waitForElementVisibility(resov.clkCourseHeader, 40000, "  Filter search bar is not available");
+        // resov.clkCourseHeader.click();
+        // browser.sleep(4000);
+        // browser.executeScript('window.scrollTo(0,0);').then(function () {
+        //     console.log('++++++SCROLLED UP+++++');
+        // });
+        // browser.sleep(2000);
+        // expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+        // browser.sleep(3000);
+        // expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+        // browser.sleep(3000);
+        // wait.waitForElementVisibility(resov.clkHome, 40000, "  Filter search bar is not available");
+        // resov.clkHome.click();
+        // browser.sleep(4000);
+        // wait.waitForElementVisibility(resov.clkTVClasses, 40000, "  Filter search bar is not available");
+        // resov.clkTVClasses.click();
+        // browser.sleep(4000);
+        // browser.executeScript('window.scrollTo(0,0);').then(function () {
+        //     console.log('++++++SCROLLED UP+++++');
+        // });
+        // browser.sleep(2000);
+        // expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+        // browser.sleep(3000);
+        // expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+        // browser.sleep(3000);
+        // browser.refresh();
+        // browser.refresh();
+        // browser.refresh();
+        // browser.sleep(3000);
+        // browser.executeScript('window.scrollTo(0,0);').then(function () {
+        //     console.log('++++++SCROLLED UP+++++');
+        // });
+        // browser.sleep(2000);
+        // expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+        // browser.sleep(3000);
+        // expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+        // browser.sleep(3000);
+
+
+    } catch (e) {
+        console.log("Failed in Filter")
+    }
+}
+
+
 
 module.exports = {
     createResource,
@@ -47034,5 +47156,7 @@ module.exports = {
     createQuestionSetWithmathematicalEquationsAndRegionalLanguagesAndEdit,
     verifyTheCommaSeparatedWordsCanBeEnteredInCustomKeyboardInputFieldAndTheSameRendersCorrectlyInPreviewKeyboard,
     createQuestionSetWithmathematicalEquationsInResourceWithMTF,
+    applyFilterInCourseTabAndThatShouldPersistOnlyInCourseTab,
+    applyFilterInDigitalTabAndThatShouldPersistOnlyInDigitalTab,
 }
 

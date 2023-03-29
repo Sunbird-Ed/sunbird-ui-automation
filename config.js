@@ -85,7 +85,7 @@ exports.config = {
         // contentcreation: 'test/specs/content-creation/*.spec.js',
     //   testing:'test/specs/sanity2/CreateBookAndVerify.spec.js',
     //   test2:'test/specs/sanity2/CreateCourseAndVerify.spec.js',
-    //   test3:'test/specs/sanity2/AddChildInCourse.spec.js',
+      // test3:'test/specs/FilterScenarioED_Portal/VerifyDigitalTxtBookFilterPersistOnlyInDigitalTxtbookNotInOtherTabs.spec.js',
 
 
 },

@@ -46740,7 +46740,13 @@ const applyFilterInCourseTabAndThatShouldPersistOnlyInCourseTab = () => {
         expect(resov.MediumsAsertSelectedOption.isPresent()).toBe(false);
         expect(resov.ClassAsserSelctedOption.isPresent()).toBe(false);
 
-   
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.clkCourseHeader, 40000, "  Filter search bar is not available");
+        resov.clkCourseHeader.click();
+        browser.sleep(4000);
+        expect(resov.MediumsAsertSelectedOption.isPresent()).toBe(false);
+        expect(resov.ClassAsserSelctedOption.isPresent()).toBe(false);
+
 
     } catch (e) {
         console.log("Failed in Filter")
@@ -46782,6 +46788,16 @@ const applyFilterInDigitalTabAndThatShouldPersistOnlyInDigitalTab = () => {
         expect(resov.ClassAsserSelctedOption.isPresent()).toBe(false);
 
    
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.clkDigitalTxtBooks, 40000, "  Filter search bar is not available");
+        resov.clkDigitalTxtBooks.click();
+        browser.sleep(3000);
+
+        expect(resov.MediumsAsertSelectedOption.isPresent()).toBe(false);
+        expect(resov.ClassAsserSelctedOption.isPresent()).toBe(false);
+
+
+
      //   wait.waitForElementVisibility(resov.clkHome, 40000, "  Filter search bar is not available");
         // resov.clkHome.click();
         // browser.sleep(4000);
@@ -46827,9 +46843,148 @@ const applyFilterInDigitalTabAndThatShouldPersistOnlyInDigitalTab = () => {
     } catch (e) {
         console.log("Failed in Filter")
     }
-}
+    }
+
+    
+    const TVClassesTabFilterPersistOnlyInTVClassesNotInOtherTabs = () => {
+     
+            wait.waitForElementVisibility(resov.clkTVClasses, 40000, "  Filter search bar is not available");
+            resov.clkTVClasses.click();
+            browser.sleep(4000);
+
+      
+            wait.waitForElementVisibility(resov.clkMediFilter, 40000, "  clkViewAllBtn search bar is not available");
+            resov.clkMediFilter.click();
+            browser.sleep(4000);
+            wait.waitForElementVisibility(resov.sltMediuFilter1, 40000, "  clkViewAllBtn search bar is not available");
+            resov.sltMediuFilter1.click();
+            browser.sleep(4000);
+            expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+             browser.sleep(3000);
+            wait.waitForElementVisibility(resov.ClkClassFilter, 40000, "  clkViewAllBtn search bar is not available");
+            resov.ClkClassFilter.click();
+            browser.sleep(4000);
+            wait.waitForElementVisibility(resov.sltClassFilter1, 40000, "  clkViewAllBtn search bar is not available");
+            resov.sltClassFilter1.click();
+            browser.sleep(4000);
+                expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+            browser.sleep(3000);
+    
+            wait.waitForElementVisibility(resov.clkDigitalTxtBooks, 40000, "  Filter search bar is not available");
+            resov.clkDigitalTxtBooks.click();
+            browser.sleep(4000);
+            browser.executeScript('window.scrollTo(0,0);').then(function () {
+                console.log('++++++SCROLLED UP+++++');
+            });
+            expect(resov.MediumsAsertSelectedOption.isPresent()).toBe(false);
+            expect(resov.ClassAsserSelctedOption.isPresent()).toBe(false);
+              
+            browser.sleep(4000);
+            wait.waitForElementVisibility(resov.clkTVClasses, 40000, "  Filter search bar is not available");
+            resov.clkTVClasses.click();
+            browser.sleep(4000);
+            expect(resov.MediumsAsertSelectedOption.isPresent()).toBe(false);
+            expect(resov.ClassAsserSelctedOption.isPresent()).toBe(false);
+              
+    }
+    
+    const ApplyFilterInCouseTabAndValidateFilteValueAfterRefresh = () => {
+     
+            browser.sleep(3000);
+            wait.waitForElementVisibility(resov.clkCourseHeader, 40000, "  Filter search bar is not available");
+            resov.clkCourseHeader.click();
+            browser.sleep(4000);
+            wait.waitForElementVisibility(resov.clkMediFilter, 40000, "  clkViewAllBtn search bar is not available");
+            resov.clkMediFilter.click();
+            browser.sleep(4000);
+            wait.waitForElementVisibility(resov.sltMediuFilter1, 40000, "  clkViewAllBtn search bar is not available");
+            resov.sltMediuFilter1.click();
+            browser.sleep(4000);
+            expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+             browser.sleep(3000);
+            wait.waitForElementVisibility(resov.ClkClassFilter, 40000, "  clkViewAllBtn search bar is not available");
+            resov.ClkClassFilter.click();
+            browser.sleep(4000);
+            wait.waitForElementVisibility(resov.sltClassFilter1, 40000, "  clkViewAllBtn search bar is not available");
+            resov.sltClassFilter1.click();
+            browser.sleep(4000);
+                expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+            browser.sleep(3000);
+    
+
+            browser.refresh();
+            browser.sleep(8000);
+            expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+            browser.sleep(3000);
+            expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+            browser.sleep(3000);
+           
+             }
 
 
+    const ApplyFilterInDigitalTxtBookTabAndValidateFilteValueAfterRefresh = () => {
+            browser.sleep(3000);
+            wait.waitForElementVisibility(resov.clkDigitalTxtBooks, 40000, "  Filter search bar is not available");
+            resov.clkDigitalTxtBooks.click();
+       
+            browser.sleep(4000);
+            wait.waitForElementVisibility(resov.clkMediFilter, 40000, "  clkViewAllBtn search bar is not available");
+            resov.clkMediFilter.click();
+            browser.sleep(4000);
+            wait.waitForElementVisibility(resov.sltMediuFilter1, 40000, "  clkViewAllBtn search bar is not available");
+            resov.sltMediuFilter1.click();
+            browser.sleep(4000);
+            expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+             browser.sleep(3000);
+            wait.waitForElementVisibility(resov.ClkClassFilter, 40000, "  clkViewAllBtn search bar is not available");
+            resov.ClkClassFilter.click();
+            browser.sleep(4000);
+            wait.waitForElementVisibility(resov.sltClassFilter1, 40000, "  clkViewAllBtn search bar is not available");
+            resov.sltClassFilter1.click();
+            browser.sleep(4000);
+                expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+            browser.sleep(3000);
+              
+            browser.refresh();
+            browser.sleep(8000);
+            expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+            browser.sleep(3000);
+            expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+            browser.sleep(3000);
+        }
+    
+        const ApplyFilterInTVClassesTabAndValidateFilteValueAfterRefresh = () => {
+     
+            wait.waitForElementVisibility(resov.clkTVClasses, 40000, "  Filter search bar is not available");
+            resov.clkTVClasses.click();
+            browser.sleep(4000);
+      
+            wait.waitForElementVisibility(resov.clkMediFilter, 40000, "  clkViewAllBtn search bar is not available");
+            resov.clkMediFilter.click();
+            browser.sleep(4000);
+            wait.waitForElementVisibility(resov.sltMediuFilter1, 40000, "  clkViewAllBtn search bar is not available");
+            resov.sltMediuFilter1.click();
+            browser.sleep(4000);
+            expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+             browser.sleep(3000);
+            wait.waitForElementVisibility(resov.ClkClassFilter, 40000, "  clkViewAllBtn search bar is not available");
+            resov.ClkClassFilter.click();
+            browser.sleep(4000);
+            wait.waitForElementVisibility(resov.sltClassFilter1, 40000, "  clkViewAllBtn search bar is not available");
+            resov.sltClassFilter1.click();
+            browser.sleep(4000);
+                expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+            browser.sleep(3000);
+    
+                 
+            browser.refresh();
+            browser.sleep(8000);
+            expect(resov.MediumsAsertSelectedOption.isDisplayed()).toBeTruthy()
+            browser.sleep(3000);
+            expect(resov.ClassAsserSelctedOption.isDisplayed()).toBeTruthy()
+            browser.sleep(3000);
+    }
+    
 
 module.exports = {
     createResource,
@@ -47158,5 +47313,9 @@ module.exports = {
     createQuestionSetWithmathematicalEquationsInResourceWithMTF,
     applyFilterInCourseTabAndThatShouldPersistOnlyInCourseTab,
     applyFilterInDigitalTabAndThatShouldPersistOnlyInDigitalTab,
+    TVClassesTabFilterPersistOnlyInTVClassesNotInOtherTabs,
+    ApplyFilterInCouseTabAndValidateFilteValueAfterRefresh,
+    ApplyFilterInDigitalTxtBookTabAndValidateFilteValueAfterRefresh,
+    ApplyFilterInTVClassesTabAndValidateFilteValueAfterRefresh,
 }
 

@@ -965,7 +965,6 @@ const uploadParticularFile = (filelatest) => {
   let path = require('path');
   var remote = require(protractor.basePath + '/node_modules/selenium-webdriver/remote');
   browser.setFileDetector(new remote.FileDetector());
-  //test/pageObject/Untitled Textbook.csv
   console.log(__dirname)
   console.log('trting to upload updated CSV')
   var fileToUpload = filelatest;

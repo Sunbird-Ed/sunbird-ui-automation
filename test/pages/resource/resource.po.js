@@ -1070,6 +1070,7 @@ var resource = () => {
     var assertShowingResultsText = element(by.xpath("//h4[text()='Showing results for Q4R2I7']"));
     var assertDigitalTextbookByQR = element(by.xpath("//h4[text()='Showing results for Q4R2I7']//following::div[text()='Digital Textbook']"));
     var assertCourseByQR = element(by.xpath("//h4[text()='Showing results for Q4R2I7']//following::div[text()='Course']"));
+    var assertAddedQuestion = element(by.xpath("//div[@id='ftb-template']"));
 
     return {
         ddSelectlanguage,
@@ -2140,6 +2141,7 @@ var resource = () => {
         assertShowingResultsText,
         assertDigitalTextbookByQR,
         assertCourseByQR,
+        assertAddedQuestion,
     }
 };
 module.exports = {

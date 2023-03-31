@@ -1059,7 +1059,7 @@ var resource = () => {
     var clkPrevButtonInPreviewWindow = element(by.xpath("(//*[@alt='Navigate to previous'])"));
     var assertBlankPageFTB = element(by.xpath("//p[contains(text(),'[[')]"));
     var assertBlankPageFTB3 = element(by.xpath("//p[contains(text(),']]')]"));
-    var assertBlankPageMCQ = element(by.xpath("//div[@title='Set Answer']//following::br"));
+    var assertBlankPageMCQ = element(by.xpath("assertBlankPageMCQ"));
     var assertBlankPageReOrdering1 = element(by.xpath("//p[contains(text(),'Arrange the given words in proper order to form a sentence.')]"));
     var assertBlankPageReOrdering2 = element(by.xpath("//textarea[@maxlength='120']//following::span[contains(text(),'0')]"));
     var assertBlankPageReArranging = element(by.xpath("//span[contains(text(),'Add Sequences')]//following::span[contains(text(),'0')]"));
@@ -1071,6 +1071,13 @@ var resource = () => {
     var assertDigitalTextbookByQR = element(by.xpath("//h4[text()='Showing results for Q4R2I7']//following::div[text()='Digital Textbook']"));
     var assertCourseByQR = element(by.xpath("//h4[text()='Showing results for Q4R2I7']//following::div[text()='Course']"));
     var assertAddedQuestion = element(by.xpath("//div[@id='ftb-template']"));
+    var validateBlankScreen = element(by.xpath("//p[contains(text(),'ValidateBlankPage')]"));
+    var clickQuestionMetaDataBackButton = element(by.xpath("//button[@id='back-button']"));
+    var assertUpdatedChangesInMetaDataPage1 = element(by.xpath("//input[@id='name']"));
+    var assertUpdatedChangesInMetaDataPage2 = element(by.xpath("//div[contains(text(),'2+7=____UpdateData')]"));
+    var assertDescriptionData = element(by.xpath("//div[contains(text(),'ಕನ್ನಡ ಪ್ರಶ್ನೆ Kannada question')]"));
+
+
 
     return {
         ddSelectlanguage,
@@ -2142,6 +2149,11 @@ var resource = () => {
         assertDigitalTextbookByQR,
         assertCourseByQR,
         assertAddedQuestion,
+        validateBlankScreen,
+        clickQuestionMetaDataBackButton,
+        assertUpdatedChangesInMetaDataPage1,
+        assertUpdatedChangesInMetaDataPage2,
+        assertDescriptionData,
     }
 };
 module.exports = {

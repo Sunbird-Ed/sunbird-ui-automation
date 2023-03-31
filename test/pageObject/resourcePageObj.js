@@ -47220,7 +47220,311 @@ const fillQusetionMetaDataFormAndSaveAndCreateOption = () => {
     }
 }
 
+const BlankPageShouldDisplayIfUserSelectDifferentTemplateAfterSaveAndCreate = () => {
+    var resourceName;
 
+        console.log("User is trying to create Resource");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(resov.workSpace, 20000);
+        resov.workSpace.click();
+        browser.sleep(1000);
+        // wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        // ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickresource, 20000, "clickresource is not available");
+        resov.clickresource.click();
+        browser.sleep(3000);
+      
+        wait.waitForElementVisibility(resov.resourceName, 20000);
+        resourceName = "ResourceA" + faker.randomData().firstname;
+        resov.resourceName.sendKeys(resourceName);
+
+        browser.executeScript("arguments[0].scrollIntoView();", etbv.contentType);
+        wait.waitForElementVisibility(etbv.contentType, 30000, "contentType button not available");
+        etbv.contentType.click();
+        browser.sleep(500);
+        browser.executeScript("arguments[0].scrollIntoView();", etbv.practiceResource);
+        etbv.practiceResource.click();
+
+
+        resov.startCreating.click();
+        browser.sleep(2000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.addQuestionSet, 20000);
+        browser.sleep(1000);
+        resov.addQuestionSet.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(resov.createQuestion, 20000);
+        resov.createQuestion.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(resov.selectFITBTemplate, 20000);
+        resov.selectFITBTemplate.click();
+        browser.sleep(7000);
+        browser.switchTo().frame(browser.driver.findElement(by.xpath("//iframe[contains(@title,'Rich Text Editor')]")));
+        browser.sleep(2000);
+        resov.enterTheQuestion.click();
+        browser.sleep(2000);
+
+        resov.enterTheQuestion.sendKeys('2+7=[[9]]');
+        /**Latest Code ============================ */
+        browser.sleep(1000);
+        console.log("Before====== default content");
+        browser.switchTo().defaultContent();
+        console.log("switched========= to default content");
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        // browser.switchTo().frame(browser.driver.findElement(by.xpath("//iframe[@class='iziModal-iframe']")));
+        browser.sleep(2000);
+        console.log("switched to parent frame");
+      
+        console.log("User is Trying to Add Image in Question Set");
+        wait.waitForElementVisibility(resov.clickLargeImageIcon, 20000, "clickLargeImageIcon is not available");
+        resov.clickLargeImageIcon.click();
+        console.log("Click on Large Image Icon");
+        wait.waitForElementVisibility(resov.checkAppIcon, 20000, "checkAppIcon is not available");
+        resov.checkAppIcon.click();
+        console.log("Check First Image");
+        browser.sleep(1000);
+        wait.waitForElementVisibility(resov.selectAppIcon, 20000, "selectAppIcon is not available");
+        resov.selectAppIcon.click();
+        console.log("Clicked on Select button");
+        browser.sleep(1000);
+        expect(resov.verifyLargeImageAdded.isPresent()).toBe(true);
+        if (resov.verifyLargeImageAdded.isDisplayed()) {
+            console.log("Images Added Succesfully In Question Set")
+        }
+
+
+        console.log("Preview refresh icon MTF is passed");
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.createQueNext, 20000, " createQueNext  is not available");
+        resov.createQueNext.click();
+
+        fillQusetionMetaDataFormAndSaveAndCreateOption();
+
+
+        wait.waitForElementVisibility(resov.selectMCQTemplate, 20000, "addQuestionSet is not available");
+          resov.selectMCQTemplate.click();
+
+          browser.sleep(4000);
+          browser.switchTo().frame(browser.driver.findElement(by.xpath("//iframe[contains(@title,'Rich Text Editor')]")));
+          browser.sleep(2000);
+          resov.enterTheQuestion.click();
+          browser.sleep(2000);
+          resov.enterTheQuestion.sendKeys("text was",
+              protractor.Key.CONTROL, "a", protractor.Key.NULL,
+              "India");
+          // resov.enterTheQuestion.sendkeys('India');
+          browser.sleep(2000);
+          browser.switchTo().defaultContent();
+          browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+
+          browser.sleep(2000);
+          browser.executeScript("arguments[0].scrollIntoView();", resov.inputAnswer1);
+          wait.waitForElementVisibility(resov.inputAnswer1, 20000, "inputAnswer1 is not available");
+          resov.inputAnswer1.click();
+          resov.inputAnswer1.sendKeys("ValidateBlankPage");
+          browser.sleep(2000);
+
+           expect(resov.validateBlankScreen.isPresent()).toBe(true);
+
+        return resourceName;
+    
+}
+
+const createQuestionAndValidateMetaDatawhenUserComesBackfromPreviousPage = () => {
+    var resourceName;
+    try {
+        console.log("User is trying to create Resource");
+        browser.sleep(1000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+        content.headerDropdown.click();
+        wait.waitForElementVisibility(resov.workSpace, 20000);
+        resov.workSpace.click();
+        browser.sleep(1000);
+        // wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+        // ccpage.contentCreation().workSpace.click();
+        wait.waitForElementVisibility(resov.clickresource, 20000, "clickresource is not available");
+        resov.clickresource.click();
+        browser.sleep(3000);
+      
+        wait.waitForElementVisibility(resov.resourceName, 20000);
+        resourceName = "ResourceA" + faker.randomData().firstname;
+        resov.resourceName.sendKeys(resourceName);
+
+        browser.executeScript("arguments[0].scrollIntoView();", etbv.contentType);
+        wait.waitForElementVisibility(etbv.contentType, 30000, "contentType button not available");
+        etbv.contentType.click();
+        browser.sleep(500);
+        browser.executeScript("arguments[0].scrollIntoView();", etbv.practiceResource);
+        etbv.practiceResource.click();
+
+
+        resov.startCreating.click();
+        browser.sleep(2000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(1000);
+
+        wait.waitForElementVisibility(resov.addQuestionSet, 20000);
+        browser.sleep(1000);
+        resov.addQuestionSet.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(resov.createQuestion, 20000);
+        resov.createQuestion.click();
+        browser.sleep(1000);
+        wait.waitForElementVisibility(resov.selectFITBTemplate, 20000);
+        resov.selectFITBTemplate.click();
+        browser.sleep(7000);
+        browser.switchTo().frame(browser.driver.findElement(by.xpath("//iframe[contains(@title,'Rich Text Editor')]")));
+        browser.sleep(2000);
+        resov.enterTheQuestion.click();
+        browser.sleep(2000);
+
+        resov.enterTheQuestion.sendKeys('2+7=[[9]]');
+        /**Latest Code ============================ */
+        browser.sleep(1000);
+        console.log("Before====== default content");
+        browser.switchTo().defaultContent();
+        console.log("switched========= to default content");
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        // browser.switchTo().frame(browser.driver.findElement(by.xpath("//iframe[@class='iziModal-iframe']")));
+        browser.sleep(2000);
+        console.log("switched to parent frame");
+      
+        console.log("User is Trying to Add Image in Question Set");
+        wait.waitForElementVisibility(resov.clickLargeImageIcon, 20000, "clickLargeImageIcon is not available");
+        resov.clickLargeImageIcon.click();
+        console.log("Click on Large Image Icon");
+        wait.waitForElementVisibility(resov.checkAppIcon, 20000, "checkAppIcon is not available");
+        resov.checkAppIcon.click();
+        console.log("Check First Image");
+        browser.sleep(1000);
+        wait.waitForElementVisibility(resov.selectAppIcon, 20000, "selectAppIcon is not available");
+        resov.selectAppIcon.click();
+        console.log("Clicked on Select button");
+        browser.sleep(1000);
+        expect(resov.verifyLargeImageAdded.isPresent()).toBe(true);
+        if (resov.verifyLargeImageAdded.isDisplayed()) {
+            console.log("Images Added Succesfully In Question Set")
+        }
+
+
+
+        // wait.waitForElementVisibility(resov.previewRefreshIcon, 20000, "previewRefreshIcon  is not available");
+        // resov.previewRefreshIcon.click();
+
+        console.log("Preview refresh icon MTF is passed");
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.createQueNext, 20000, " createQueNext  is not available");
+        resov.createQueNext.click();
+
+        fillQusetionMetaDataFormAndClickBackButton();
+
+        browser.sleep(2000);
+
+        browser.switchTo().frame(browser.driver.findElement(by.xpath("//iframe[contains(@title,'Rich Text Editor')]")));
+        browser.sleep(2000);
+        resov.enterTheQuestion.click();
+
+        resov.enterTheQuestion.sendKeys('UpdateData');
+       browser.switchTo().defaultContent();
+        console.log("switched========= to default content");
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+     
+
+  browser.sleep(3000);
+        wait.waitForElementVisibility(resov.createQueNext, 20000, " createQueNext  is not available");
+        resov.createQueNext.click();
+        browser.sleep(3000);
+
+
+      // var foo = element(by.id('foo'));
+     //  expect(resov.assertUpdatedChangesInMetaDataPage1.getText()).toEqual('2+7=[[9]]UpdateData');
+
+        expect(resov.assertUpdatedChangesInMetaDataPage1.isPresent()).toBe(true);
+
+        browser.executeScript("arguments[0].click();", resov.submitButtonInQuestion,)
+        browser.sleep(3000);
+        expect(resov.assertUpdatedChangesInMetaDataPage2.isPresent()).toBe(true);
+        expect(resov.assertDescriptionData.isPresent()).toBe(true);
+
+
+ 
+        return resourceName;
+    }
+    catch (Exception) {
+        console.log("Failed to create QuestionFITB ");
+    }
+}
+
+
+const fillQusetionMetaDataFormAndClickBackButton = () => {
+    try {
+        console.log("User is trying to fillQusetionMetaDataForm");
+        browser.sleep(3000);
+        wait.waitForElementVisibility(resov.enterTheTitleQues, 40000, "  enterTheTitleQues is not available");
+        resov.enterTheTitleQues.click();
+        resov.enterTheTitleQues.clear();
+        resov.enterTheTitleQues.sendKeys('Question');
+
+        wait.waitForElementVisibility(resov.fieldDescription, 20000);
+    browser.sleep(300);
+    resov.fieldDescription.sendKeys('ಕನ್ನಡ ಪ್ರಶ್ನೆ Kannada question');
+
+
+        wait.waitForElementVisibility(resov.boardInQuestion, 20000, "   boardInQuestion is not available");
+        resov.boardInQuestion.click();
+        wait.waitForElementVisibility(resov.selectCBSEQue, 20000, "  selectCBSEQue is not available");
+        resov.selectCBSEQue.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.mediumInQuestion, 20000, "   mediumInQuestion  is not available");
+        resov.mediumInQuestion.click();
+        wait.waitForElementVisibility(resov.selectEnglishFITB, 20000, " selectEnglishFITB is not available");
+        resov.selectEnglishFITB.click();
+        browser.sleep(3000);
+
+        wait.waitForElementVisibility(resov.gradeLevelInQuestion, 20000, "   gradeLevelInQuestionis not available");
+        resov.gradeLevelInQuestion.click();
+        wait.waitForElementVisibility(resov.selectClass4, 20000, "  selectClass4 is not available");
+        resov.selectClass4.click();
+        browser.sleep(2000);
+        wait.waitForElementVisibility(resov.subjectInQuestion, 20000, "  subjectInQuestion is not available");
+        resov.subjectInQuestion.click();
+        wait.waitForElementVisibility(resov.selectMathematics, 20000, "  selectMathematics is not available");
+        resov.selectMathematics.click();
+        wait.waitForElementVisibility(resov.maxScore, 20000, "   maxScore is not available");
+        resov.maxScore.click();
+        resov.maxScore.clear();
+        resov.maxScore.sendKeys('1');
+        wait.waitForElementVisibility(resov.levelInQuestion, 20000, "  levelInQuestion  is not available");
+        resov.levelInQuestion.click();
+        wait.waitForElementVisibility(resov.selectEasy, 20000, "  selectEasy  is not available");
+        resov.selectEasy.click();
+        browser.sleep(1000);
+
+        // console.log("Search for Learning outcome is present or not ");
+        // wait.waitForElementVisibility(resov.learningOutcome, 20000, " learningOutcome is not available");
+        // resov.learningOutcome.click();
+        // browser.sleep(2000);
+        // wait.waitForElementVisibility(resov.selectLearningOutcome, 20000, " selectLearningOutcome  is not available");
+        // resov.selectLearningOutcome.click();
+
+        browser.waitForAngularEnabled(false);
+        browser.sleep(4000);
+     //  browser.executeScript("arguments[0].click();", resov.clickQuestionMetaDataBackButton,)
+     //   browser.sleep(5000);
+
+        wait.waitForElementVisibility(resov.clickQuestionMetaDataBackButton, 20000, "   boardInQuestion is not available");
+        resov.clickQuestionMetaDataBackButton.click();
+
+        console.log("User successfully fillQusetionMetaDataForm");
+    } catch (e) {
+        console.log("Failed to fillQusetionMetaDataForm")
+    }
+}
 
 module.exports = {
     createResource,
@@ -47556,5 +47860,8 @@ module.exports = {
     copySlideAndVerifyAddedQuestion,
     fillQusetionMetaDataFormAndSaveAndCreateOption,
     SaveAndCreateQuestionAndValidatePreviousQuestionAfterSelectingSameTemplate,
+    BlankPageShouldDisplayIfUserSelectDifferentTemplateAfterSaveAndCreate,
+    createQuestionAndValidateMetaDatawhenUserComesBackfromPreviousPage,
+    fillQusetionMetaDataFormAndClickBackButton,
 }
 

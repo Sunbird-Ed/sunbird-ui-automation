@@ -87,7 +87,7 @@ exports.config = {
     //   test2:'test/specs/sanity2/CreateCourseAndVerify.spec.js',
       // test3:'test/specs/FilterScenarioED_Portal/VerifyDigitalTxtBookFilterPersistOnlyInDigitalTxtbookNotInOtherTabs.spec.js',
 
-//test:'test/specs/SUNBIRD_Knowledge_5/PreviousQuestionStillShowUpIfUserChooseSameQuestioTemplateAfterSaveAndCreate.spec.js'
+//test:'test/specs/SUNBIRD_Knowledge_5/VerifyUpdatedChangedInMetadataPageWhenUserClickBackBtnAndDoChangesAndComeBack.spec.js'
 },
     allScriptsTimeout: 4000000000,
 

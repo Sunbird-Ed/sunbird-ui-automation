@@ -44214,7 +44214,7 @@ const deletecreatedbookInthedraft = (coursename1) => {
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.drafts), 20000, "drafts page not loaded");
         content.drafts.click();
-        browser.sleep(2000);
+        browser.sleep(5000);
         browser.wait(
             protractor.ExpectedConditions.visibilityOf(content.searchForReview),
             20000,
@@ -44591,11 +44591,11 @@ const resourceSearchInDrafts = (resourceName) => {
 const closeResourceEditor = (resourceName) => {
     try {
         browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(resov.resoureEditorCloseIcon), 40000, "drafts is not available");
+       // browser.wait(protractor.ExpectedConditions.visibilityOf(resov.resoureEditorCloseIcon), 40000, "drafts is not available");
         resov.resoureEditorCloseIcon.click();
             browser.sleep(3000);
             browser.refresh();
-                 browser.sleep(1000);
+                 browser.sleep(6000);
     }
     catch (Exception) {
         console.log('User not able to search and edit draft');
@@ -47526,6 +47526,99 @@ const fillQusetionMetaDataFormAndClickBackButton = () => {
     }
 }
 
+
+const editAndUpdateTheCourseAssementContentInDraft = () => {
+    console.log("user is trying to create a course")
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+    content.headerDropdown.click();
+    browser.sleep(2000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+    content.workSpace.click();
+    browser.sleep(2000);
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(resov.drafts), 40000, "drafts is not available");
+    resov.drafts.click();
+    browser.sleep(5000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(resov.imageCard), 40000, "imageCard is not available");
+    resov.imageCard.click();
+    console.log('User should be able to click on the drafts section to see draft contents')
+    browser.sleep(6000);
+    browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+    browser.sleep(8000);
+
+
+    // wait.waitForElementVisibility(resov.newchild, 40000, "Didn't switched to different frame");
+    // resov.newchild.click();
+    // browser.sleep(3000);
+    // console.log('User should be able to click on New chlid/New siblings button to add nodes into the lessonplan')
+    // wait.waitForElementVisibility(resov.untitledUnitName, 40000, "untitledUnitName is not available");
+    // resov.untitledUnitName.click();
+    // resov.untitledUnitName.clear();
+    // resov.untitledUnitName.sendKeys('content');
+    // browser.sleep(4000);
+    wait.waitForElementVisibility(resov.reviewerSuggestion, 40000, "resov.reviewerSuggestion is not available");
+    console.log('User should be able to click on the content from draft section to update/edit the content.')
+    resov.reviewerSuggestion.click();
+    browser.sleep(4000);
+
+
+    wait.waitForElementVisibility(resov.reviewerSuggestionTitle, 40000, "resov.reviewerSuggestion is not available");
+    expect(resov.reviewerSuggestionTitle.isDisplayed()).toBeTruthy();
+
+
+    browser.sleep(1000);
+    // wait.waitForElementToBeClickable(content.save,20000, "Dashboard never loaded");
+    // content.save.click();    
+    // browser.sleep(1000);
+    // resov.closeLinkIcon.click();
+    resov.revieDialogClose.click();
+
+    console.log('User has successfully verified the uploaded content in up for review page')
+    wait.waitForElementVisibility(
+        resov.addShape,
+        20000,
+        "addShape is not available"
+      );
+      resov.addShape.click();
+      wait.waitForElementVisibility(
+        resov.addTriangle,
+        20000,
+        "addTriangle is not available"
+      );
+      resov.addTriangle.click();
+
+      browser.sleep(1000);
+      wait.waitForElementToBeClickable(
+        resov.clicksave,
+        20000,
+        "clicksave never loaded"
+      );
+      resov.clicksave.click();
+      browser.sleep(2000);
+      wait.waitForElementToBeClickable(
+        resov.closebutton,
+        20000,
+        "closebutton never loaded"
+      );
+      resov.closebutton.click();
+      browser.sleep(1000);
+      console.log("User successfully created resource");
+     
+
+}
+
+const validatetosterMsg = () => {
+    
+    browser.sleep(2000);
+
+    expect(resov.assertDeleteToasterMsg.isPresent()).toBe(true);
+
+        
+    }
+    
+
+
 module.exports = {
     createResource,
     sendForReviewTheResource,
@@ -47863,5 +47956,7 @@ module.exports = {
     BlankPageShouldDisplayIfUserSelectDifferentTemplateAfterSaveAndCreate,
     createQuestionAndValidateMetaDatawhenUserComesBackfromPreviousPage,
     fillQusetionMetaDataFormAndClickBackButton,
+    editAndUpdateTheCourseAssementContentInDraft,
+    validatetosterMsg,
 }
 

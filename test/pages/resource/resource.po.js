@@ -1076,6 +1076,7 @@ var resource = () => {
     var assertUpdatedChangesInMetaDataPage1 = element(by.xpath("//input[@id='name']"));
     var assertUpdatedChangesInMetaDataPage2 = element(by.xpath("//div[contains(text(),'2+7=____UpdateData')]"));
     var assertDescriptionData = element(by.xpath("//div[contains(text(),'ಕನ್ನಡ ಪ್ರಶ್ನೆ Kannada question')]"));
+    var assertDeleteToasterMsg = element(by.xpath("//strong[contains(text(),'Content deleted successfully')]"));
 
 
 
@@ -2154,6 +2155,7 @@ var resource = () => {
         assertUpdatedChangesInMetaDataPage1,
         assertUpdatedChangesInMetaDataPage2,
         assertDescriptionData,
+        assertDeleteToasterMsg,
     }
 };
 module.exports = {

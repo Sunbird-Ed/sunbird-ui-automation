@@ -1782,7 +1782,7 @@ const applyStatusFilterinAllMyContent = () => {
     );
     searchObj.showFilter1.click();
     console.log("Click on Filter Icon");
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.status),
       40000,
@@ -1790,7 +1790,7 @@ const applyStatusFilterinAllMyContent = () => {
     );
     searchObj.status.click();
     console.log("Click on Status DropDown");
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.draft),
       40000,
@@ -1801,7 +1801,7 @@ const applyStatusFilterinAllMyContent = () => {
     // browser.wait(protractor.ExpectedConditions.visibilityOf(searchCourse.status), 40000, "status is not available");
     searchObj.status1.click();
     console.log("Select Status Filer");
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.applyButton1),
       40000,
@@ -1809,7 +1809,7 @@ const applyStatusFilterinAllMyContent = () => {
     );
     searchObj.applyButton1.click();
     console.log("Click on Apply button");
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.showFilter1),
       40000,
@@ -1817,7 +1817,7 @@ const applyStatusFilterinAllMyContent = () => {
     );
     searchObj.showFilter1.click();
     console.log("Click on Filter Icon");
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.contentName),
       40000,
@@ -1826,7 +1826,7 @@ const applyStatusFilterinAllMyContent = () => {
     searchObj.contentName.getText().then(function (contentName) {
       console.log("contentName is" + contentName);
 
-      browser.sleep(1000);
+      browser.sleep(2000);
       browser.wait(
         protractor.ExpectedConditions.visibilityOf(searchObj.searchInActivity),
         40000,
@@ -1845,13 +1845,13 @@ const applyStatusFilterinAllMyContent = () => {
     searchObj.searchIcon2.click();
     console.log("Click on Search Icon");
     console.log("Succesfully Verified Drafts Status Filter in Search Field");
-    browser.sleep(1000);
+    browser.sleep(2000);
     searchObj.searchInActivity.click();
     searchObj.searchInActivity.clear();
     console.log("Clear Searched Course in Search Text Field");
     searchObj.allMyContent.click();
     console.log("Navigate to all My Content");
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.showFilter1),
       40000,
@@ -1866,15 +1866,15 @@ const applyStatusFilterinAllMyContent = () => {
     );
     searchObj.status.click();
     console.log("Select StatusDropDown");
-    browser.sleep(1000);
+    browser.sleep(2000);
     searchObj.statusReview.click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     searchObj.status1.click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     console.log("Select Review in Dropdown");
     searchObj.applyButton1.click();
     console.log("Click on Apply button");
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.showFilter1),
       40000,
@@ -1882,7 +1882,7 @@ const applyStatusFilterinAllMyContent = () => {
     );
     searchObj.showFilter1.click();
     console.log("Click on Filter Icon");
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.contentName),
       40000,
@@ -1891,7 +1891,7 @@ const applyStatusFilterinAllMyContent = () => {
     searchObj.contentName.getText().then(function (contentName2) {
       console.log("contentName is" + contentName2);
 
-      browser.sleep(1000);
+      browser.sleep(2000);
       browser.wait(
         protractor.ExpectedConditions.visibilityOf(searchObj.searchInActivity),
         40000,
@@ -1911,7 +1911,7 @@ const applyStatusFilterinAllMyContent = () => {
     searchObj.searchIcon2.click();
     console.log("Click on Search Icon");
     console.log("Succesfully Verified Drafts Status Filter in Search Field");
-    browser.sleep(1000);
+    browser.sleep(2000);
     searchObj.searchInActivity.click();
     searchObj.searchInActivity.clear();
     console.log("Clear Searched Course in Search Text Field");
@@ -1919,7 +1919,7 @@ const applyStatusFilterinAllMyContent = () => {
     searchObj.allMyContent.click();
     console.log("Navigate to all My Content");
 
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.showFilter1),
       40000,
@@ -1935,14 +1935,14 @@ const applyStatusFilterinAllMyContent = () => {
     );
     searchObj.status.click();
     console.log("Select StatusDropDown");
-    browser.sleep(1000);
+    browser.sleep(2000);
     searchObj.statusLive.click();
     searchObj.status1.click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     console.log("Select statusLive in Dropdown");
     searchObj.applyButton1.click();
     console.log("Click on Apply button");
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.showFilter1),
       40000,
@@ -1950,7 +1950,7 @@ const applyStatusFilterinAllMyContent = () => {
     );
     searchObj.showFilter1.click();
     console.log("Click on Filter Icon");
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.contentName),
       40000,
@@ -1959,7 +1959,7 @@ const applyStatusFilterinAllMyContent = () => {
     searchObj.contentName.getText().then(function (contentName3) {
       console.log("contentName is" + contentName3);
 
-      browser.sleep(1000);
+      browser.sleep(2000);
       browser.wait(
         protractor.ExpectedConditions.visibilityOf(searchObj.searchInActivity),
         40000,
@@ -1970,7 +1970,7 @@ const applyStatusFilterinAllMyContent = () => {
       console.log("Enter Course Name in Search Field");
     });
 
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.searchIcon2),
       40000,
@@ -1979,14 +1979,14 @@ const applyStatusFilterinAllMyContent = () => {
     searchObj.searchIcon2.click();
     console.log("Click on Search Icon");
     console.log("Succesfully Verified Live Status Filter in Search Field");
-    browser.sleep(1000);
+    browser.sleep(2000);
     searchObj.searchInActivity.click();
     searchObj.searchInActivity.clear();
     console.log("Clear Searched Course in Search Text Field");
-    browser.sleep(1000);
+    browser.sleep(2000);
     searchObj.allMyContent.click();
     console.log("Navigate to all My Content");
-    browser.sleep(1000);
+    browser.sleep(2000);
 
     console.log(
       "Course is Succesfully Display after applying Status Filter like Draft,Review,Live in All My Content"
@@ -2028,7 +2028,7 @@ const applyFilterinAllMyContent = () => {
     );
     searchObj.selectEnglish.click();
     console.log("select English");
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.applyButton1),
       40000,
@@ -2036,7 +2036,7 @@ const applyFilterinAllMyContent = () => {
     );
     searchObj.applyButton1.click();
     console.log("Click on Apply button");
-    browser.sleep(1000);
+    browser.sleep(2000);
     expect(
       browser.wait(
         protractor.ExpectedConditions.visibilityOf(searchObj.contentName)
@@ -2058,7 +2058,7 @@ const applyFilterinAllMyContent = () => {
     searchObj.resetButton.click();
     console.log("Click Reset button");
     console.log("Verified Medium Dropdown Filter And Content is Displayed");
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.gradeLevel),
       40000,
@@ -2067,7 +2067,7 @@ const applyFilterinAllMyContent = () => {
     searchObj.gradeLevel.click();
     console.log("click on Grade Level Filter");
 
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.gradeLevel1),
       40000,
@@ -2083,7 +2083,7 @@ const applyFilterinAllMyContent = () => {
     );
     searchObj.applyButton1.click();
     console.log("Click on Apply button");
-    browser.sleep(1000);
+    browser.sleep(2000);
     expect(
       browser.wait(
         protractor.ExpectedConditions.visibilityOf(searchObj.contentName)
@@ -2105,7 +2105,7 @@ const applyFilterinAllMyContent = () => {
     searchObj.resetButton.click();
     console.log("Click Reset button");
     console.log("Verified Grade Dropdown Filter And Content is Displayed");
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.subject),
       40000,
@@ -9357,7 +9357,7 @@ const createCourseAssessment = () => {
       "closebutton never loaded"
     );
     resov.closebutton.click();
-    browser.sleep(1000);
+    browser.sleep(5000);
     console.log("User successfully created resource");
     return coursename;
   } catch (Exception) {
@@ -44919,6 +44919,34 @@ const verifyCollapseAndExpandAllOption = () => {
   }
 };
 
+const CourseAssessmentSendReviewWithAlreadyFilledDetails = () => {
+  try {
+    browser.sleep(2000);
+    wait.waitForElementToBeClickable(
+      content.sendForReview,
+      20000,
+      "send for review not available"
+    );
+    content.sendForReview.click();
+         browser.sleep(6000);
+    wait.waitForElementVisibility(
+      content.saveform,
+      20000,
+      "submitForm not available"
+    );
+    // content.saveform.click();
+   
+
+    content.saveButoonReview.click();
+    browser.sleep(2000);
+    browser.executeScript("window.scrollTo(0,0);").then(function () {
+      console.log("++++++SCROLLED up+++++");
+    });
+    browser.sleep(5000);
+  } catch (Exception) {
+    console.log("User failed to create a resource");
+  }
+};
 
 
 module.exports = {
@@ -45487,4 +45515,5 @@ module.exports = {
   verifyCollapseAndExpandAllOption,
   publishCollectionFromUpForReviewAndValidate,
   FillBmesWhileCreatingBookForRelNameValidation,
+  CourseAssessmentSendReviewWithAlreadyFilledDetails,
 };

@@ -1077,6 +1077,8 @@ var resource = () => {
     var assertUpdatedChangesInMetaDataPage2 = element(by.xpath("//div[contains(text(),'2+7=____UpdateData')]"));
     var assertDescriptionData = element(by.xpath("//div[contains(text(),'ಕನ್ನಡ ಪ್ರಶ್ನೆ Kannada question')]"));
     var assertDeleteToasterMsg = element(by.xpath("//strong[contains(text(),'Content deleted successfully')]"));
+    var assertCollobratorUpdateToasterMsg = element(by.xpath("//strong[contains(text(),'Collaborators updated successfully')]"));
+    var assertNoCollobratorInManageSectionMsg = element(by.xpath("//div[contains(text(),' No collaborators found for this content ')]"));
 
 
 
@@ -2156,6 +2158,8 @@ var resource = () => {
         assertUpdatedChangesInMetaDataPage2,
         assertDescriptionData,
         assertDeleteToasterMsg,
+        assertCollobratorUpdateToasterMsg,
+        assertNoCollobratorInManageSectionMsg,
     }
 };
 module.exports = {

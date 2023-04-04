@@ -26,10 +26,8 @@ describe('verifyAddCollaboratorToBook', () => {
     });
 
     it('verifyAddCollaboratorToBook',function(){
-
        utility.handleDropDown();
-       
-       utility.handleLocationPopup();
+              utility.handleLocationPopup();
         utility.userLogin('Creator');
         let bookName = sanityfun.createBookSaveAsDraft();
         utility.userLogout();

@@ -12653,9 +12653,27 @@ const addChildAndSiblingNode = (corseNames) => {
     // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().selectButton), 20000,"Select content Button not loaded");
     sanityPage.SanityElement().selectButton.click();
     browser.sleep(3000);
-    //browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addContent), 20000,"Add content content Button not loaded");
+    //browser.wait(protractor.ExpectedCJavasonditions.visibilityOf(sanityPage.SanityElement().addContent), 20000,"Add content content Button not loaded");
     sanityPage.SanityElement().addContent.click();
     browser.sleep(3000);
+
+sanityPage.SanityElement().searchContentFromLibrary.click();
+sanityPage.SanityElement().searchContentFromLibrary.sendKeys("mp4");
+browser.sleep(3000);
+browser.actions().sendKeys(protractor.Key.ENTER).perform();
+browser.sleep(5000);
+
+  // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().selectButton), 20000,"Select content Button not loaded");
+  sanityPage.SanityElement().selectButton.click();
+  browser.sleep(3000);
+  //browser.wait(protractor.ExpectedCJavasonditions.visibilityOf(sanityPage.SanityElement().addContent), 20000,"Add content content Button not loaded");
+  sanityPage.SanityElement().addContent.click();
+  browser.sleep(3000);
+
+
+
+
+
     // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().contentFromLibrayBackButton), 20000,"Back Button not loaded");
     sanityPage.SanityElement().contentFromLibrayBackButton.click();
     browser.sleep(3000);

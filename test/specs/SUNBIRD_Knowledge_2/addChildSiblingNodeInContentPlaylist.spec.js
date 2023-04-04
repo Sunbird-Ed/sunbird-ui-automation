@@ -30,8 +30,7 @@ describe('addChildSiblingNodeInContentPlaylist', () => {
         
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        
-        let collectionName = collectionPo.createCollectionAndSaveAsDraft();
+                let collectionName = collectionPo.createCollectionAndSaveAsDraft();
         utility.userLogout();
         utility.userLogin('Creator');
         tpdPageObj.addChildAndSiblingNode(collectionName);

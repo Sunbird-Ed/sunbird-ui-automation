@@ -88,7 +88,7 @@ exports.config = {
       // test3:'test/specs/FilterScenarioED_Portal/VerifyDigitalTxtBookFilterPersistOnlyInDigitalTxtbookNotInOtherTabs.spec.js',
 //test:'test/specs/SUNBIRD_Knowledge_5/VerifyUpdatedChangedInMetadataPageWhenUserClickBackBtnAndDoChangesAndComeBack.spec.js'
 
-//test:'test/specs/SUNBIRD_Knowledge_3/DeleteCourseAssesmentContentInDrafts.spec.js'
+//test:'test/specs/SUNBIRD_Knowledge_4/CreateResourceWith4MCQ4FTB4MTF.spec.js'
 
 },
     allScriptsTimeout: 4000000000,

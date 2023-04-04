@@ -2,7 +2,7 @@ const { browser } = require("protractor");
 
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
-const createRW4M4F4MPageObj = require(protractor.basePath + '/test/pageObject/resourcePageObj.js');
+const resourcePageObj = require(protractor.basePath + '/test/pageObject/resourcePageObj.js');
 
 describe('Crea is Able to CreateQuestionAS4McQ,4MTF,4FLB and its navigate and Consume by other Users and Creator Can Delete that resource', () => {
 
@@ -22,12 +22,19 @@ describe('Crea is Able to CreateQuestionAS4McQ,4MTF,4FLB and its navigate and Co
         browser.manage().deleteAllCookies();
     });
     it('CreateResourceWith4MCQ4FTB4MTF', function () {
+       
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('Creator');
-        let contentName = createRW4M4F4MPageObj.createQuestionsWith4MCQ4FTB4MTF();
-        // createRW4M4F4MPageObj.sendForReviewTheResource();
+        utility.userLogin('ContentCreator');
+        let contentName=resourcePageObj.ValidateAllQuestionTypeInAddQuestionPage();
+        
+       
+     //   utility.handleDropDown();
+        
+        // utility.handleLocationPopup();
+        // utility.userLogin('Creator');
+        // let contentName = createRW4M4F4MPageObj.createQuestionsWith4MCQ4FTB4MTF();
+        // // createRW4M4F4MPageObj.sendForReviewTheResource();
         // createRW4M4F4MPageObj.reviewInSubmissions(contentName);
         //utility.userLogout();
         // utility.userLogin('Reviewer');

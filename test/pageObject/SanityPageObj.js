@@ -372,20 +372,21 @@ const addCollboratortoDraftAndSaveBookWithWorkspace = (BookName) => {
       "First search book not available"
     );
     sanityPage.SanityElement().searchedFirstBook.click();
-    browser.sleep(4000);
+    browser.sleep(8000);
     //browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
     if (searchObj.collaboratorIcon.isDisplayed()) {
       console.log("Collaborator icon is present");
     }
-    browser.sleep(1000);
+    browser.sleep(2000);
     searchObj.collaboratorIcon.click();
     console.log("User should be able to click on collaborator icon");
-    searchObj.searchCollaboratorField.sendKeys("Mentor");
+    searchObj.searchCollaboratorField.sendKeys("creator");
     browser.sleep(3000);
     searchObj.suggestionCollaboratorList1.click();
     browser.sleep(3000);
     searchObj.searchCollaboratorField.clear();
     searchObj.searchCollaboratorField.click();
+    browser.sleep(3000);
     searchObj.searchCollaboratorField.sendKeys("suborg");
     browser.sleep(3000);
     browser.wait(
@@ -7607,7 +7608,7 @@ const createBookSaveAsDraft = () => {
       "Book page not loaded"
     );
     etbpage.etb().book.click();
-    browser.sleep(1000);
+    browser.sleep(2000);
 
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(etbv.bookName),
@@ -7628,19 +7629,19 @@ const createBookSaveAsDraft = () => {
     browser.sleep(1000);
 
     sanityPage.SanityElement().selectBoardForcollection.click();
-    browser.sleep(200);
+    browser.sleep(2000);
     sanityPage.SanityElement().selectBoardValueForcollection.click();
-    browser.sleep(200);
+    browser.sleep(2000);
 
     sanityPage.SanityElement().selectMediumForcollection.click();
-    browser.sleep(200);
+    browser.sleep(2000);
     sanityPage.SanityElement().selectMediumValueForcollection.click();
-    browser.sleep(200);
+    browser.sleep(2000);
 
     sanityPage.SanityElement().selectClassForCourse.click();
-    browser.sleep(200);
+    browser.sleep(2000);
     sanityPage.SanityElement().selectClassValueForcollection.click();
-    browser.sleep(200);
+    browser.sleep(2000);
 
     browser.wait(
       protractor.ExpectedConditions.elementToBeClickable(
@@ -7650,7 +7651,7 @@ const createBookSaveAsDraft = () => {
       "subject covered not loaded"
     );
     sanityPage.SanityElement().selectSubjectForCourse.click();
-    browser.sleep(200);
+    browser.sleep(2000);
     sanityPage.SanityElement().selectSubjectValueForcollection.click();
     browser.sleep(200);
 
@@ -7658,15 +7659,15 @@ const createBookSaveAsDraft = () => {
       "arguments[0].scrollIntoView();",
       sanityPage.SanityElement().selectCopyRightYear
     );
-    browser.sleep(200);
+    browser.sleep(2000);
     sanityPage.SanityElement().selectCopyRightYear.sendKeys("2022");
-    browser.sleep(200);
+    browser.sleep(2000);
 
     browser.executeScript(
       "arguments[0].scrollIntoView();",
       sanityPage.SanityElement().attribution
     );
-    browser.sleep(200);
+    browser.sleep(2000);
     var attributioninput =
       "bAttribution1,aAttribution2,dAttribution3,fAttribution4";
     sanityPage.SanityElement().attribution.sendKeys(attributioninput);
@@ -10285,7 +10286,7 @@ const addCollboratortoAllMyContentAndSaveBook = (BookName) => {
       "allMyContent Icon not available"
     );
     content.allMyContent.click();
-    browser.sleep(2000);
+    browser.sleep(4000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(
         sanityPage.SanityElement().bookSeaarchBox
@@ -10301,20 +10302,22 @@ const addCollboratortoAllMyContentAndSaveBook = (BookName) => {
       "First search book not available"
     );
     resov.imageCard4.click();
-    browser.sleep(4000);
+    browser.sleep(7000);
     //browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
     if (searchObj.collaboratorIcon.isDisplayed()) {
       console.log("Collaborator icon is present");
     }
     browser.sleep(1000);
     searchObj.collaboratorIcon.click();
+    browser.sleep(3000);
     console.log("User should be able to click on collaborator icon");
-    searchObj.searchCollaboratorField.sendKeys("Mentor");
+    searchObj.searchCollaboratorField.sendKeys("creator");
     browser.sleep(3000);
     searchObj.suggestionCollaboratorList1.click();
     browser.sleep(3000);
     searchObj.searchCollaboratorField.clear();
     searchObj.searchCollaboratorField.click();
+    browser.sleep(2000);
     searchObj.searchCollaboratorField.sendKeys("suborg");
     browser.sleep(3000);
     browser.wait(
@@ -10343,25 +10346,42 @@ const addCollboratortoAllMyContentAndSaveBook = (BookName) => {
       "Save Draft"
     );
     sanityPage.SanityElement().saveAsDraft.click();
-    browser.sleep(2000);
-    browser.wait(
-      protractor.ExpectedConditions.visibilityOf(
-        sanityPage.SanityElement().coursePagebackButton
-      ),
-      20000,
-      "Save Draft"
-    );
-    sanityPage.SanityElement().coursePagebackButton.click();
-    browser.sleep(2000);
+    browser.sleep(6000);
 
-    // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().submitForreviewButton), 20000, "submit Button not loaded");
-    // sanityPage.SanityElement().submitForreviewButton.click();
-    // browser.sleep(3000);
-    // sanityPage.SanityElement().termsAndConditionCheckbox.click();
-    // browser.sleep(3000);
-    // sanityPage.SanityElement().NewCoursesubmitButton.click();
-    // browser.sleep(4000);
-    // browser.sleep(2000);
+
+    if (searchObj.collaboratorIcon.isDisplayed()) {
+      console.log("Collaborator icon is present");
+      searchObj.collaboratorIcon.click();
+  }
+  browser.sleep(1000);
+  resov.manageCollaborator.click();
+  browser.sleep(3000);
+
+  resov.removeCollaborator.click();
+  browser.sleep(2000);
+  resov.removeCollaborator.click();
+  browser.sleep(2000);
+
+  console.log("User should be able to click on collaborator icon");
+ 
+  browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.clickDonebutton), 20000, "donebutton1 not loaded");
+  searchObj.clickDonebutton.click();
+  browser.sleep(2000);
+  expect(resov.assertCollobratorUpdateToasterMsg.isPresent()).toBe(true);
+
+  browser.sleep(4000);
+  sanityPage.SanityElement().saveAsDraft.click();
+  browser.sleep(8000);
+  if (searchObj.collaboratorIcon.isDisplayed()) {
+    console.log("Collaborator icon is present");
+    searchObj.collaboratorIcon.click();
+}
+browser.sleep(1000);
+resov.manageCollaborator.click();
+browser.sleep(3000);
+expect(resov.assertNoCollobratorInManageSectionMsg.isPresent()).toBe(true);
+
+
   } catch (err) {
     console.log(err);
   }
@@ -27271,7 +27291,7 @@ const SearchCollboratorAndAddToBook = (BookName) => {
     browser.sleep(1000);
     searchObj.collaboratorIcon.click();
     console.log("User should be able to click on collaborator icon");
-    searchObj.searchCollaboratorField.sendKeys("Mentor");
+    searchObj.searchCollaboratorField.sendKeys("creator");
     browser.sleep(3000);
     searchObj.suggestionCollaboratorList1.click();
     browser.sleep(3000);

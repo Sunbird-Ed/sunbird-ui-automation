@@ -47613,10 +47613,143 @@ const validatetosterMsg = () => {
     browser.sleep(2000);
 
     expect(resov.assertDeleteToasterMsg.isPresent()).toBe(true);
-
         
     }
+    const ValidateAllQuestionTypeInAddQuestionPage = () => {
+        var resourceName;
+        try {
+            console.log("User is trying to create a resource")
+            browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+            content.headerDropdown.click();
+            browser.sleep(1000);
+            wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+            ccpage.contentCreation().workSpace.click();
+            wait.waitForElementVisibility(resov.clickresource, 20000, "clickresource is not available");
+            resov.clickresource.click();
+            browser.sleep(9000);
+            wait.waitForElementVisibility(resov.resourceName, 20000, "resourceName is not available");
+            resourceName = "ResourceM" + faker.randomData().firstname;
+            browser.sleep(2000);
+            resov.resourceName.sendKeys(resourceName);
+            browser.executeScript("arguments[0].scrollIntoView();", etbv.contentType);
+            wait.waitForElementVisibility(etbv.contentType, 30000, "contentType button not available");
+            etbv.contentType.click();
+            browser.sleep(500);
+            browser.executeScript("arguments[0].scrollIntoView();", etbv.practiceResource);
+            etbv.practiceResource.click();
+            browser.sleep(3000);
+            resov.startCreating.click();
+            browser.sleep(8000);
+            addSlideInresource();
+            browser.sleep(4000);
+
+                    wait.waitForElementVisibility(resov.addQuestionSet, 20000, "addQuestionSet is not available");
+                    browser.sleep(1000);
+                    resov.addQuestionSet.click();
+                    browser.sleep(2000);
+                    wait.waitForElementVisibility(resov.createQuestion, 20000, "createQuestion is not available");
+                    resov.createQuestion.click();
+                    browser.sleep(2000);
+
+                    expect(resov.selectMCQTemplate.isPresent()).toBe(true);
+                    expect(resov.selectFITBTemplate.isPresent()).toBe(true);
+                    expect(resov.arrangeTemplate.isPresent()).toBe(true);
+                    expect(resov.selectReOrderingTemplate.isPresent()).toBe(true);
+                    expect(resov.selectMTFTemplate.isPresent()).toBe(true);
+
+                    
+                    resov.btnCloseQuestion.click();
+
+                    browser.sleep(4000);
+                    wait.waitForElementVisibility(resov.searchTextInQuestion, 20000, "searchTextInQuestion is not available");
+                    browser.sleep(2000);
+                    resov.searchTextInQuestion.click();
+                    resov.searchTextInQuestion.sendKeys("FTB");
+                    resov.searchIconInQuestion.click();
+                    browser.sleep(3500);
+            
+                    resov.checkBox1InSelectQuestion.click();
+                    browser.sleep(2000);
+                    resov.checkBox2InSelectQuestion.click();
+                    browser.sleep(2000);
+                    resov.checkBox3InSelectQuestion.click();
+                    browser.sleep(2000);
+                    resov.checkBox4InSelectQuestion.click();
+                    browser.sleep(2000);
+                    wait.waitForElementVisibility(resov.searchTextInQuestion, 20000, "searchTextInQuestion is not available");
+                    browser.sleep(1000);
+                    resov.searchTextInQuestion.clear();
+                    browser.sleep(500);
+                    resov.searchTextInQuestion.click();
+                    resov.searchTextInQuestion.sendKeys("mcq");
+                    browser.sleep(500);
+                    resov.searchIconInQuestion.click();
+                    browser.sleep(4000);
+            
+                    resov.checkBox1InSelectQuestion.click();
+                    browser.sleep(2000);
+                    resov.checkBox2InSelectQuestion.click();
+                    browser.sleep(2000);
+                    resov.checkBox3InSelectQuestion.click();
+                    browser.sleep(2000);
+                    resov.checkBox4InSelectQuestion.click();
+                    browser.sleep(4000);
+            
+                    wait.waitForElementVisibility(resov.searchTextInQuestion, 20000, "searchTextInQuestion is not available");
+                    resov.searchTextInQuestion.clear();
+                    browser.sleep(500);
+                    resov.searchTextInQuestion.click();
+                    resov.searchTextInQuestion.sendKeys("MTF");
+                    browser.sleep(500);
+                    resov.searchIconInQuestion.click();
+                    browser.sleep(4000);
+            
+                    resov.checkBox1InSelectQuestion.click();
+                    browser.sleep(2000);
+                    resov.checkBox2InSelectQuestion.click();
+                    browser.sleep(2000);
+                    resov.checkBox3InSelectQuestion.click();
+                    browser.sleep(2000);
+                    resov.checkBox4InSelectQuestion.click();
+                    browser.sleep(5000);
+            
+            
+                    wait.waitForElementVisibility(resov.nextButton, 20000, "nextButton is not available");
+                    resov.nextButton.click();
+                    wait.waitForElementVisibility(resov.questionSetTitle, 20000, "questionSetTitle is not available");
+                    // resov.questionSetTitle.click();
+                    resov.questionSetTitle.sendKeys("Math test");
+                    browser.sleep(1000);
+            
+                    browser.sleep(2000);
+                    // browser.executeScript("arguments[0].click();", resov.addbutton,);
+                    // browser.sleep(2000);
+                   
+                    // browser.sleep(5000);
+                    // browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+                    // browser.sleep(5000);
+                    wait.waitForElementVisibility(resov.questionSetAddButton, 20000, "addbutton is not available");
+                    resov.questionSetAddButton.click();
+                    browser.sleep(1000);
+                    
+            
+
+
+
+
+
+
+
+
+
+
+            return resourceName;
+        }
+        catch (Exception) {
+            console.log("Failed adding slide ");
+        }
     
+    }
 
 
 module.exports = {
@@ -47958,5 +48091,6 @@ module.exports = {
     fillQusetionMetaDataFormAndClickBackButton,
     editAndUpdateTheCourseAssementContentInDraft,
     validatetosterMsg,
+    ValidateAllQuestionTypeInAddQuestionPage,
 }
 

@@ -27,7 +27,16 @@ describe('Crea is Able to CreateQuestionAS4McQ,4MTF,4FLB and its navigate and Co
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         let contentName=resourcePageObj.ValidateAllQuestionTypeInAddQuestionPage();
-        
+        resourcePageObj.sendForReviewTheResource();
+      //  resourcePageObj.reviewInSubmissions(contentName);
+        utility.userLogout();
+        utility.userLogin('Reviewer');
+        resourcePageObj.publishTheResourceFromUpForReview(contentName);
+        utility.userLogout();
+
+            utility.userLogin('Public User2');
+            resourcePageObj.navigateToLibraryAndSearchForResource(contentName);
+            utility.userLogout();
        
      //   utility.handleDropDown();
         

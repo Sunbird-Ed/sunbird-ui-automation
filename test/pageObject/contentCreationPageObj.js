@@ -2765,7 +2765,39 @@ browser.sleep(6000);
 
 };
 
+const AdminContentCreatorShouldNotBeAbleEditAdoptedBook = () => {
 
+
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, "5");
+    var AdapotedBook = cred[0]["CourseName"];
+
+    console.log("verify all textBook");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
+    ccpage.contentCreation().headerDropdown.click();
+    browser.sleep(1000);
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
+    ccpage.contentCreation().workSpace.click();
+    browser.sleep(5000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allTextbook), 20000, "Book page not loaded");
+    searchObj.allTextbook.click();
+    browser.sleep(5000);
+    searchObj.searchContent.click();
+    browser.sleep(2000);
+    searchObj.searchContent.sendKeys(AdapotedBook);
+        searchObj.searchIcon2.click();
+        browser.sleep(5000);
+        searchObj.firstSearchContent.click();
+
+
+    expect(searchObj.assertTostrMsgCanNotEdit.isPresent()).toBeTruthy();
+    expect(searchObj.assertTostrMsgCanNotEdit2.isPresent()).toBeTruthy();
+
+    browser.sleep(3000);
+
+
+}
 
 
 module.exports = {
@@ -2834,4 +2866,5 @@ module.exports = {
   editBookAndAddValidQrCodeAndSave,
   editBookAndAddQrCodeAndSaveAndPublish,
   ExhaustReportErrMsg,
+  AdminContentCreatorShouldNotBeAbleEditAdoptedBook,
 }

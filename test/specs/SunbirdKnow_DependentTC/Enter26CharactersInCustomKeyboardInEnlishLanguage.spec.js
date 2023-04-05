@@ -19,10 +19,12 @@ describe('verifyTheCommaSeparatedWordsCanBeEnteredInCustomKeyboardInputFieldAndT
         browser.manage().deleteAllCookies();
     });
 
-    it('verifyTheCommaSeparatedWordsCanBeEnteredInCustomKeyboardInputFieldAndTheSameRendersCorrectlyInPreviewKeyboard',function(){
-        utility.handleDropDown();
-        utility.handleLocationPopup();
+    it('Enter26CharactersInCustomKeyboardInEnlishLanguage',function(){
+      
+     utility.handleDropDown();
+       utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-        resourcePageObj.verifyTheCommaSeparatedWordsCanBeEnteredInCustomKeyboardInputFieldAndTheSameRendersCorrectlyInPreviewKeyboard();
+       var TwentySixCharacter="A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
+        resourcePageObj.Enter26CharactersInCustomKeyboardInEnglishLanguage(TwentySixCharacter);
     })
 });

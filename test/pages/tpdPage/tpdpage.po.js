@@ -1572,6 +1572,10 @@ const tpdPage = () => {
     var assertCollabPostEdit = element(by.xpath("//div[text()='9 collaborators exists']"));
     var clkLiveQuestionSetRootOnly = element(by.xpath("//i[@class='trash large icon ng-star-inserted']//preceding::div[text()='AutomationLive ']"));
     var clkDraftQuestionSetRootOnly = element(by.xpath("//td[text()='Draft']//preceding::div[text()='AutomationLive ']"));
+    var assertTostrMsgCanNotEdit = element(by.xpath("//strong[contains(text(),'This is an adopted textbook from')]"));
+    var assertTostrMsgCanNotEdit2 = element(by.xpath("//strong[contains(text(),'Hence it cannot be edited')]"));
+
+   
     return {
         headerCourse,
         confirmForPublishBook,
@@ -3061,6 +3065,8 @@ const tpdPage = () => {
         assertCollabPostEdit,
         clkLiveQuestionSetRootOnly,
         clkDraftQuestionSetRootOnly,
+        assertTostrMsgCanNotEdit,
+        assertTostrMsgCanNotEdit2,
     }
 }
 

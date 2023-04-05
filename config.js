@@ -90,6 +90,9 @@ exports.config = {
 
 //test:'test/specs/SUNBIRD_Knowledge_4/CreateResourceWith4MCQ4FTB4MTF.spec.js'
 
+//test1:'test/specs/SUNBIRD_Knowledge_2/AdminContentCreatorShouldNotBeAbleEditAdoptedBookInAllTextbookSection.spec.js'
+
+//testing:'test/specs/SUNBIRD_Knowledge_2/Enter26CharactersInCustomKeyboardInEnlishLanguage.spec.js'
 },
     allScriptsTimeout: 4000000000,
 

@@ -19,10 +19,11 @@ describe('verifyTheCommaSeparatedWordsCanBeEnteredInCustomKeyboardInputFieldAndT
         browser.manage().deleteAllCookies();
     });
 
-    it('verifyTheCommaSeparatedWordsCanBeEnteredInCustomKeyboardInputFieldAndTheSameRendersCorrectlyInPreviewKeyboard',function(){
+    it('Enter26CharactersInCustomKeyboardInReginalLanguage',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-        resourcePageObj.verifyTheCommaSeparatedWordsCanBeEnteredInCustomKeyboardInputFieldAndTheSameRendersCorrectlyInPreviewKeyboard();
+       var TwentySixCharacter="ಕ ,ಖ, ಗ ,ಘ, ಙ, ಚ, ಛ, ಜ, ಝ, ಝ,ಕ ,ಖ, ಗ ,ಘ, ಙ, ಚ, ಛ, ಜ, ಝ, ಝ,ಙ, ಚ, ಛ, ಜ, ಝ, ಝ,";
+        resourcePageObj.Enter26CharactersInCustomKeyboardInReginalLanguage(TwentySixCharacter);
     })
 });

@@ -1051,8 +1051,8 @@ var contentCreation = () => {
   var assertSearchBtnUrdu = element(by.xpath("//button[contains(text(),'تلاش کریں')]"));
   var assertSearchFieldUrdu = element(by.xpath("//input[contains(@placeholder,'تلاش کریں یا QR کوڈ درج کریں')]"));
   var assertshareBtnUrdu = element(by.xpath("//button[contains(text(),'شیئر ')]"));
-  var keyBoard1 = element(by.xpath("(//*[@class='dropdown ng-pristine ng-untouched ng-valid has-error ui selection ng-not-empty ng-valid-required'])"));
-  var customKeyBoard1 = element(by.xpath("(//*[text()='Custom'])[2]"));
+  var keyBoard1 = element(by.xpath("//span[contains(text(),'Select Keyboard: ')]//following::select"));
+  var customKeyBoard1 = element(by.xpath("//option[@label='Custom']"));
   var assertErrMsgInAddUser = element(by.xpath("//label[contains(text(),'You have to enter a username')]"));
   var clkSubmitOrUpdateDetailsProfile = element(by.xpath("//button[contains(text(),'Update')]"));
   var SelectBMCstateTN = element(by.xpath("//span[contains(text(),' Tamil Nadu ')]"));
@@ -1063,7 +1063,12 @@ var contentCreation = () => {
   var assertTNStateInProfile = element(by.xpath("//div[contains(text(),'State :')]//following::div[contains(text(),' Tamil Nadu')]"));
   var assertTNDBlockInProfile = element(by.xpath("//div[contains(text(),'Block :')]//following::div[contains(text(),' Perambur ')]"));
   var assertTNClusterInProfile = element(by.xpath("//div[contains(text(),'Cluster :')]//following::div[contains(text(),' Koyambedu ')]"));
-
+  var ansRegKeys1 = element(by.xpath("//div[@id='keyboard']//following::span[contains(text(),'ಕ')]"));
+  var ansRegKeys2 = element(by.xpath("//div[@id='keyboard']//following::span[contains(text(),'ಖ')]"));
+  var ansRegKeys3 = element(by.xpath("//div[@id='keyboard']//following::span[contains(text(),'ಗ')]"));
+  var ansEngKeys1 = element(by.xpath("//div[@id='keyboard']//following::span[contains(text(),'A')]"));
+  var ansEngKeys2 = element(by.xpath("//div[@id='keyboard']//following::span[contains(text(),'B')]"));
+  var ansEngKeys3 = element(by.xpath("//div[@id='keyboard']//following::span[contains(text(),'C')]"));
 
   return {
     closeIcon,
@@ -2093,6 +2098,12 @@ var contentCreation = () => {
     assertTNDistrictInProfile,
     assertTNDBlockInProfile,
     assertTNClusterInProfile,
+    ansRegKeys1,
+    ansRegKeys2,
+    ansRegKeys3,
+    ansEngKeys1,
+    ansEngKeys2,
+    ansEngKeys3,
   }
 };
 module.exports = {

@@ -46448,6 +46448,10 @@ const verifyTheCommaSeparatedWordsCanBeEnteredInCustomKeyboardInputFieldAndTheSa
         browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@class='iziModal-iframe']")));
         browser.sleep(3000);
 
+        browser.executeScript("arguments[0].scrollIntoView();",content.keyBoard1);
+        browser.sleep(3000);
+
+
         browser.actions().mouseMove(content.keyBoard1).perform();
         content.keyBoard1.click();
         browser.sleep(3000);
@@ -46486,6 +46490,10 @@ const verifyTheCommaSeparatedWordsCanBeEnteredInCustomKeyboardInputFieldAndTheSa
         browser.sleep(1000);
         browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@class='iziModal-iframe']")));
         browser.sleep(3000);
+
+        browser.executeScript("arguments[0].scrollIntoView();",content.keyBoard1);
+        browser.sleep(3000);
+
         browser.actions().mouseMove(content.keyBoard1).perform();
         content.keyBoard1.click();
         browser.sleep(2000);
@@ -47656,9 +47664,10 @@ const validatetosterMsg = () => {
                     expect(resov.arrangeTemplate.isPresent()).toBe(true);
                     expect(resov.selectReOrderingTemplate.isPresent()).toBe(true);
                     expect(resov.selectMTFTemplate.isPresent()).toBe(true);
+                  
+                    browser.sleep(2000);
 
-                    
-                    resov.btnCloseQuestion.click();
+                 resov.clickCancelBtnInCreateQuestionTemplatePage.click();
 
                     browser.sleep(4000);
                     wait.waitForElementVisibility(resov.searchTextInQuestion, 20000, "searchTextInQuestion is not available");
@@ -47733,16 +47742,6 @@ const validatetosterMsg = () => {
                     browser.sleep(1000);
                     
             
-
-
-
-
-
-
-
-
-
-
             return resourceName;
         }
         catch (Exception) {
@@ -47750,6 +47749,256 @@ const validatetosterMsg = () => {
         }
     
     }
+
+    const Enter26CharactersInCustomKeyboardInReginalLanguage = (TwentySixCharacter) => {
+        browser.sleep(1000);
+            browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+            content.headerDropdown.click();
+            wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+            ccpage.contentCreation().workSpace.click();
+            wait.waitForElementVisibility(resov.clickresource, 20000, "clickresource is not available");
+            resov.clickresource.click();
+            browser.sleep(5000);
+            wait.waitForElementVisibility(resov.resourceName, 20000, "resourceName is not available");
+            resourcename = "ResourceA" + faker.randomData().firstname;
+            resov.resourceName.sendKeys(resourcename);
+            browser.executeScript("arguments[0].scrollIntoView();", etbv.contentType);
+            wait.waitForElementVisibility(etbv.contentType, 30000, "contentType button not available");
+            etbv.contentType.click();
+            browser.sleep(500);
+            browser.executeScript("arguments[0].scrollIntoView();", etbv.practiceResource);
+            etbv.practiceResource.click();
+            resov.startCreating.click();
+            browser.sleep(2000);
+            browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+            browser.sleep(1000);
+            wait.waitForElementVisibility(content.addQuestionSet, 20000, "addQuestionSet is not available");
+            content.addQuestionSet.click();
+            wait.waitForElementVisibility(resov.createQuestion, 20000);
+            resov.createQuestion.click();
+            browser.sleep(1000);
+            wait.waitForElementVisibility(resov.selectFITBTemplate, 20000);
+            resov.selectFITBTemplate.click();
+            browser.sleep(5000);
+            browser.switchTo().frame(browser.driver.findElement(by.xpath("//iframe[contains(@title,'Rich Text Editor')]")));
+            browser.sleep(2000);
+            resov.enterTheQuestion.click();
+            browser.sleep(2000);
+            resov.enterTheQuestion.sendKeys('AB[[C]]DE[[F]]GH[[I]].');
+            browser.sleep(1000);
+            console.log("Before====== default content");
+            browser.switchTo().defaultContent();
+            console.log("switched========= to default content");
+            browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+            browser.sleep(2000);
+            console.log("switched to parent frame");
+            wait.waitForElementVisibility(resov.previewRefreshIcon, 20000, "previewRefreshIcon  is not available");
+            resov.previewRefreshIcon.click();
+            browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@id='iframeArea']")));
+            wait.waitForElementVisibility(content.ansFild1, 20000, "ansFild1 is not available");
+            content.ansFild1.click().sendKeys("C");
+            browser.sleep(2000);
+            wait.waitForElementVisibility(content.ansFild2, 20000, "ansFild2 is not available");
+            content.ansFild2.click().sendKeys("F");
+            browser.sleep(2000);
+            wait.waitForElementVisibility(content.ansFild3, 20000, "ansFild3 is not available");
+            content.ansFild3.click().sendKeys("I");
+            searchObj.navigateToNextButton.click();
+            expect(content.correctButton.isPresent()).toBe(true);
+            browser.sleep(3000);
+            content.previewNext.click();
+            browser.sleep(2000);
+            browser.switchTo().defaultContent();
+            browser.sleep(1000);
+    
+            browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@class='iziModal-iframe']")));
+            browser.sleep(3000);
+            browser.executeScript("arguments[0].scrollIntoView();",content.keyBoard1);
+            browser.sleep(3000);
+
+    
+            browser.actions().mouseMove(content.keyBoard1).perform();
+            content.keyBoard1.click();
+            browser.sleep(3000);
+    
+            wait.waitForElementVisibility(content.customKeyBoard1, 20000, "customKeyBoard is not available");
+            content.customKeyBoard1.click();
+            browser.sleep(3000);
+    
+            wait.waitForElementVisibility(resov.inputAddKeys,20000);
+            resov.inputAddKeys.click();
+            resov.inputAddKeys.sendKeys(TwentySixCharacter);
+            browser.sleep(3000);
+    
+            wait.waitForElementVisibility(resov.previewRefreshIcon, 20000, "previewRefreshIcon  is not available");
+            resov.previewRefreshIcon.click();
+            browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@id='iframeArea']")));
+            browser.sleep(2000);
+            wait.waitForElementVisibility(content.ansFild1, 20000, "ansFild1 is not available");
+            content.ansFild1.click();
+            browser.sleep(2000);
+            content.ansRegKeys1.click();
+            wait.waitForElementVisibility(content.ansFild2, 20000, "ansFild2 is not available");
+            content.ansFild2.click();
+            browser.sleep(2000);
+            content.ansRegKeys2.click();
+            wait.waitForElementVisibility(content.ansFild3, 20000, "ansFild3 is not available");
+            content.ansFild3.click();
+            content.ansRegKeys3.click();
+            searchObj.navigateToNextButton.click();
+            expect(content.correctButton.isPresent()).toBe(true);
+            browser.sleep(3000);
+            content.previewNext.click();
+            browser.sleep(2000);
+            browser.switchTo().defaultContent();
+           
+         
+                      browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@class='iziModal-iframe']")));
+            browser.sleep(2000);
+            wait.waitForElementVisibility(resov.createQueNext, 20000, " createQueNext  is not available");
+            resov.createQueNext.click();
+            fillQusetionMetaDataForm();
+            wait.waitForElementVisibility(content.nextButton, 20000, "nextButton is not available");
+            content.nextButton.click();
+            wait.waitForElementVisibility(content.questionSetTitle, 20000, "questionSetTitle is not available");
+            content.questionSetTitle.sendKeys("Question-1");
+            wait.waitForElementVisibility(content.addbutton, 20000, "addbutton is not available");
+            content.addbutton.click();
+            wait.waitForElementToBeClickable(resov.clicksave, 20000, "save button is not visible");
+            resov.clicksave.click();
+            wait.waitForElementToBeClickable(resov.closebutton, 20000, "close button is not visible");
+            resov.closebutton.click();
+            browser.sleep(1000);
+            console.log("user successfully create question");
+    
+            
+    }
+    
+
+const Enter26CharactersInCustomKeyboardInEnglishLanguage = (TwentySixCharacter) => {
+        browser.sleep(1000);
+            browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+            content.headerDropdown.click();
+            wait.waitForElementVisibility(ccpage.contentCreation().workSpace, 20000, "workspace page not loaded");
+            ccpage.contentCreation().workSpace.click();
+            wait.waitForElementVisibility(resov.clickresource, 20000, "clickresource is not available");
+            resov.clickresource.click();
+            browser.sleep(5000);
+            wait.waitForElementVisibility(resov.resourceName, 20000, "resourceName is not available");
+            resourcename = "ResourceA" + faker.randomData().firstname;
+            resov.resourceName.sendKeys(resourcename);
+            browser.executeScript("arguments[0].scrollIntoView();", etbv.contentType);
+            wait.waitForElementVisibility(etbv.contentType, 30000, "contentType button not available");
+            etbv.contentType.click();
+            browser.sleep(500);
+            browser.executeScript("arguments[0].scrollIntoView();", etbv.practiceResource);
+            etbv.practiceResource.click();
+            resov.startCreating.click();
+            browser.sleep(2000);
+            browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+            browser.sleep(1000);
+            wait.waitForElementVisibility(content.addQuestionSet, 20000, "addQuestionSet is not available");
+            content.addQuestionSet.click();
+            wait.waitForElementVisibility(resov.createQuestion, 20000);
+            resov.createQuestion.click();
+            browser.sleep(1000);
+            wait.waitForElementVisibility(resov.selectFITBTemplate, 20000);
+            resov.selectFITBTemplate.click();
+            browser.sleep(5000);
+            browser.switchTo().frame(browser.driver.findElement(by.xpath("//iframe[contains(@title,'Rich Text Editor')]")));
+            browser.sleep(2000);
+            resov.enterTheQuestion.click();
+            browser.sleep(2000);
+            resov.enterTheQuestion.sendKeys('AB[[C]]DE[[F]]GH[[I]].');
+            browser.sleep(1000);
+            console.log("Before====== default content");
+            browser.switchTo().defaultContent();
+            console.log("switched========= to default content");
+            browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+            browser.sleep(2000);
+            console.log("switched to parent frame");
+            wait.waitForElementVisibility(resov.previewRefreshIcon, 20000, "previewRefreshIcon  is not available");
+            resov.previewRefreshIcon.click();
+            browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@id='iframeArea']")));
+            wait.waitForElementVisibility(content.ansFild1, 20000, "ansFild1 is not available");
+            content.ansFild1.click().sendKeys("C");
+            browser.sleep(2000);
+            wait.waitForElementVisibility(content.ansFild2, 20000, "ansFild2 is not available");
+            content.ansFild2.click().sendKeys("F");
+            browser.sleep(2000);
+            wait.waitForElementVisibility(content.ansFild3, 20000, "ansFild3 is not available");
+            content.ansFild3.click().sendKeys("I");
+            searchObj.navigateToNextButton.click();
+            expect(content.correctButton.isPresent()).toBe(true);
+            browser.sleep(3000);
+            content.previewNext.click();
+            browser.sleep(2000);
+            browser.switchTo().defaultContent();
+            browser.sleep(1000);
+    
+            browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@class='iziModal-iframe']")));
+            browser.sleep(3000);
+            browser.executeScript("arguments[0].scrollIntoView();",content.keyBoard1);
+            browser.sleep(3000);
+
+    
+            browser.actions().mouseMove(content.keyBoard1).perform();
+            content.keyBoard1.click();
+            browser.sleep(3000);
+    
+            wait.waitForElementVisibility(content.customKeyBoard1, 20000, "customKeyBoard is not available");
+            content.customKeyBoard1.click();
+            browser.sleep(3000);
+    
+            wait.waitForElementVisibility(resov.inputAddKeys,20000);
+            resov.inputAddKeys.click();
+            resov.inputAddKeys.sendKeys(TwentySixCharacter);
+            browser.sleep(3000);
+    
+            wait.waitForElementVisibility(resov.previewRefreshIcon, 20000, "previewRefreshIcon  is not available");
+            resov.previewRefreshIcon.click();
+            browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@id='iframeArea']")));
+            browser.sleep(2000);
+            wait.waitForElementVisibility(content.ansFild1, 20000, "ansFild1 is not available");
+            content.ansFild1.click();
+            browser.sleep(2000);
+            content.ansEngKeys1.click();
+            wait.waitForElementVisibility(content.ansFild2, 20000, "ansFild2 is not available");
+            content.ansFild2.click();
+            browser.sleep(2000);
+            content.ansEngKeys2.click();
+            wait.waitForElementVisibility(content.ansFild3, 20000, "ansFild3 is not available");
+            content.ansFild3.click();
+            content.ansEngKeys3.click();
+            searchObj.navigateToNextButton.click();
+            expect(content.correctButton.isPresent()).toBe(true);
+            browser.sleep(3000);
+            content.previewNext.click();
+            browser.sleep(2000);
+            browser.switchTo().defaultContent();
+           
+         
+                      browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@class='iziModal-iframe']")));
+            browser.sleep(2000);
+            wait.waitForElementVisibility(resov.createQueNext, 20000, " createQueNext  is not available");
+            resov.createQueNext.click();
+            fillQusetionMetaDataForm();
+            wait.waitForElementVisibility(content.nextButton, 20000, "nextButton is not available");
+            content.nextButton.click();
+            wait.waitForElementVisibility(content.questionSetTitle, 20000, "questionSetTitle is not available");
+            content.questionSetTitle.sendKeys("Question-1");
+            wait.waitForElementVisibility(content.addbutton, 20000, "addbutton is not available");
+            content.addbutton.click();
+            wait.waitForElementToBeClickable(resov.clicksave, 20000, "save button is not visible");
+            resov.clicksave.click();
+            wait.waitForElementToBeClickable(resov.closebutton, 20000, "close button is not visible");
+            resov.closebutton.click();
+            browser.sleep(1000);
+            console.log("user successfully create question");
+    
+            
+    }
+    
 
 
 module.exports = {
@@ -48092,5 +48341,7 @@ module.exports = {
     editAndUpdateTheCourseAssementContentInDraft,
     validatetosterMsg,
     ValidateAllQuestionTypeInAddQuestionPage,
+    Enter26CharactersInCustomKeyboardInReginalLanguage,
+    Enter26CharactersInCustomKeyboardInEnglishLanguage,
 }
 

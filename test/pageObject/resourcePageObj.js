@@ -2536,17 +2536,33 @@ const ResumeAndCloseEditor = () => {
         browser.sleep(1000);
         wait.waitForElementToBeClickable(resov.clicksave, 20000, "Dashboard never loaded");
         resov.clicksave.click();
-        browser.sleep(150000);
+        browser.sleep(2000);
+        wait.waitForElementToBeClickable(resov.closebutton, 20000, "Dashboard never loaded");
+        resov.closebutton.click();
+        
+
+      browser.sleep(60000);
+      browser.sleep(60000);
+      browser.sleep(60000);
+
+
         wait.waitForElementVisibility(resov.btnResume, 20000);
         resov.btnResume.click();
-        browser.sleep(1000);
+        browser.sleep(3000);
         wait.waitForElementVisibility(resov.addTriangle, 20000, "addTriangle is not available");
         expect(resov.addTriangle.isDisplayed()).toBeTruthy();
-        browser.sleep(150000);
+        browser.sleep(60000);
+        browser.sleep(60000);
+        browser.sleep(60000);
+
         wait.waitForElementVisibility(resov.btnCloseEditor, 20000);
         resov.btnCloseEditor.click();
+        browser.sleep(3000);
+
         wait.waitForElementVisibility(resov.workSpace, 20000);
         expect(resov.workSpace.isDisplayed()).toBeTruthy();
+        browser.sleep(3000);
+
         wait.waitForElementVisibility(resov.linkActiveItemDraft, 20000);
         resov.linkActiveItemDraft.getText().then(function (text) {
 
@@ -44611,6 +44627,9 @@ const SearchQuestionInQuestionSetPage = (SearchQuestion) => {
         content.searchTextInQuestion.sendKeys(SearchQuestion);
         content.searchTextInQuestion.click();
         browser.sleep(2000);
+resov.searchIconInQuestion.click();
+browser.sleep(5000);
+
         content.questionCheckbox.click();
         browser.sleep(2000);
         wait.waitForElementVisibility(content.nextButton, 20000, "nextButton is not available");

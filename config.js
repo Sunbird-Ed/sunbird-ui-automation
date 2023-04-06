@@ -92,7 +92,8 @@ exports.config = {
 
 //test1:'test/specs/SUNBIRD_Knowledge_2/AdminContentCreatorShouldNotBeAbleEditAdoptedBookInAllTextbookSection.spec.js'
 
-//testing:'test/specs/SUNBIRD_Knowledge_2/Enter26CharactersInCustomKeyboardInEnlishLanguage.spec.js'
+
+//test:'test/specs/NotFound/VerifyResumeAndCloseEditor.spec.js'
 },
     allScriptsTimeout: 4000000000,
 

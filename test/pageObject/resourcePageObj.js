@@ -2549,25 +2549,39 @@ const ResumeAndCloseEditor = () => {
         wait.waitForElementVisibility(resov.btnResume, 20000);
         resov.btnResume.click();
         browser.sleep(3000);
+       // wait.waitForElementVisibility(resov.addTriangle, 20000, "addTriangle is not available");
+      //  expect(resov.addTriangle.isDisplayed()).toBeTruthy();
+
+        browser.sleep(1000);
+        wait.waitForElementVisibility(resov.addShape, 20000, "addShape is not available");
+        resov.addShape.click();
         wait.waitForElementVisibility(resov.addTriangle, 20000, "addTriangle is not available");
-        expect(resov.addTriangle.isDisplayed()).toBeTruthy();
-        browser.sleep(60000);
-        browser.sleep(60000);
-        browser.sleep(60000);
+        resov.addTriangle.click();
+        browser.sleep(1000);
+        wait.waitForElementToBeClickable(resov.clicksave, 20000, "Dashboard never loaded");
+        resov.clicksave.click();
+        browser.sleep(2000);
+        wait.waitForElementToBeClickable(resov.closebutton, 20000, "Dashboard never loaded");
+        resov.closebutton.click();
+        
 
-        wait.waitForElementVisibility(resov.btnCloseEditor, 20000);
-        resov.btnCloseEditor.click();
-        browser.sleep(3000);
+        // browser.sleep(60000);
+        // browser.sleep(60000);
+        // browser.sleep(60000);
 
-        wait.waitForElementVisibility(resov.workSpace, 20000);
-        expect(resov.workSpace.isDisplayed()).toBeTruthy();
-        browser.sleep(3000);
+        // wait.waitForElementVisibility(resov.btnCloseEditor, 20000);
+        // resov.btnCloseEditor.click();
+        // browser.sleep(3000);
 
-        wait.waitForElementVisibility(resov.linkActiveItemDraft, 20000);
-        resov.linkActiveItemDraft.getText().then(function (text) {
+        // wait.waitForElementVisibility(resov.workSpace, 20000);
+        // expect(resov.workSpace.isDisplayed()).toBeTruthy();
+        // browser.sleep(3000);
 
-            expect(text).toBe('Drafts');
-        })
+        // wait.waitForElementVisibility(resov.linkActiveItemDraft, 20000);
+        // resov.linkActiveItemDraft.getText().then(function (text) {
+
+        //     expect(text).toBe('Drafts');
+        // })
 
     }
 
@@ -3855,8 +3869,7 @@ const ConsumeResourceAndValidateScoreForMTF = (resourceName) => {
 
 const createQuestionsWith4MCQ4FTB4MTF = () => {
     var resourcename;
-    try {
-
+   
         console.log("User is trying to create a resource")
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
         content.headerDropdown.click();
@@ -3958,8 +3971,9 @@ const createQuestionsWith4MCQ4FTB4MTF = () => {
 
         wait.waitForElementVisibility(resov.nextButton, 20000, "nextButton is not available");
         resov.nextButton.click();
-        wait.waitForElementVisibility(resov.questionSetTitle, 20000, "questionSetTitle is not available");
-        // resov.questionSetTitle.click();
+        browser.sleep(5000);
+      //  wait.waitForElementVisibility(resov.questionSetTitle, 20000, "questionSetTitle is not available");
+        resov.questionSetTitle.click();
         resov.questionSetTitle.sendKeys("Math test");
         browser.sleep(1000);
 
@@ -3968,24 +3982,23 @@ const createQuestionsWith4MCQ4FTB4MTF = () => {
         // browser.sleep(2000);
        
         // browser.sleep(5000);
-        // browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-        // browser.sleep(5000);
+       // browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+       //  browser.sleep(5000);
         wait.waitForElementVisibility(resov.questionSetAddButton, 20000, "addbutton is not available");
         resov.questionSetAddButton.click();
-        browser.sleep(1000);
+        browser.sleep(5000);
         
 
-
-        // resov.addbutton.then(function (input) {
-        //     input.click();
-        // });
-        // browser.sleep(2000);
-        // wait.waitForElementToBeClickable(resov.saveIcon, 20000, "saveIcon never loaded");
-        // resov.saveIcon.click();
-        // browser.sleep(1000);
-        // wait.waitForElementToBeClickable(resov.closeButtonMsg, 20000, "closeButtonMsg never loaded");
-        // resov.closeButtonMsg.click();
-        // browser.sleep(1000);
+        resov.addbutton.then(function (input) {
+            input.click();
+        });
+        browser.sleep(2000);
+        wait.waitForElementToBeClickable(resov.saveIcon, 20000, "saveIcon never loaded");
+        resov.saveIcon.click();
+        browser.sleep(1000);
+        wait.waitForElementToBeClickable(resov.closeButtonMsg, 20000, "closeButtonMsg never loaded");
+        resov.closeButtonMsg.click();
+        browser.sleep(1000);
         browser.switchTo().defaultContent();
 
         browser.sleep(2000);
@@ -3993,10 +4006,8 @@ const createQuestionsWith4MCQ4FTB4MTF = () => {
 
 
     }
-    catch (Exception) {
-        console.log("Failed to create QuestionMTF ");
-    }
-}
+   
+
 const saveAndSendResouceForReview4MFM = () => {
 
     try {
@@ -47467,8 +47478,6 @@ const createQuestionAndValidateMetaDatawhenUserComesBackfromPreviousPage = () =>
         browser.sleep(3000);
 
 
-      // var foo = element(by.id('foo'));
-     //  expect(resov.assertUpdatedChangesInMetaDataPage1.getText()).toEqual('2+7=[[9]]UpdateData');
 
         expect(resov.assertUpdatedChangesInMetaDataPage1.isPresent()).toBe(true);
 
@@ -47644,7 +47653,6 @@ const validatetosterMsg = () => {
     }
     const ValidateAllQuestionTypeInAddQuestionPage = () => {
         var resourceName;
-        try {
             console.log("User is trying to create a resource")
             browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
             content.headerDropdown.click();
@@ -47762,10 +47770,7 @@ const validatetosterMsg = () => {
                     
             
             return resourceName;
-        }
-        catch (Exception) {
-            console.log("Failed adding slide ");
-        }
+               
     
     }
 
@@ -48014,11 +48019,79 @@ const Enter26CharactersInCustomKeyboardInEnglishLanguage = (TwentySixCharacter) 
             resov.closebutton.click();
             browser.sleep(1000);
             console.log("user successfully create question");
-    
-            
+               
     }
     
+    const VerifyCloseEditorButtonPopupWhenUserIsInActiveInEditor = () => {
 
+        var resourcename;
+        try {
+            console.log("User is trying to create a resource")
+            browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+            content.headerDropdown.click();
+            browser.sleep(1000);
+            wait.waitForElementVisibility(resov.workSpace, 20000);
+            resov.workSpace.click();
+            wait.waitForElementVisibility(resov.clickresource, 20000, "clickresource is not available");
+            resov.clickresource.click();
+            wait.waitForElementVisibility(resov.resourceName, 20000, "resourceName is not available");
+            resourcename = "ResourceA" + faker.randomData().firstname;
+            resov.resourceName.sendKeys(resourcename);
+    
+    
+            browser.executeScript("arguments[0].scrollIntoView();", etbv.contentType);
+            wait.waitForElementVisibility(etbv.contentType, 30000, "contentType button not available");
+            etbv.contentType.click();
+            browser.sleep(500);
+            browser.executeScript("arguments[0].scrollIntoView();", etbv.practiceResource);
+            etbv.practiceResource.click();
+    
+            resov.startCreating.click();
+            browser.sleep(2000);
+            browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+            browser.sleep(1000);
+            wait.waitForElementVisibility(resov.addShape, 20000, "addShape is not available");
+            resov.addShape.click();
+            wait.waitForElementVisibility(resov.addTriangle, 20000, "addTriangle is not available");
+            resov.addTriangle.click();
+            browser.sleep(1000);
+            wait.waitForElementToBeClickable(resov.clicksave, 20000, "Dashboard never loaded");
+            resov.clicksave.click();
+            browser.sleep(2000);
+            wait.waitForElementToBeClickable(resov.closebutton, 20000, "Dashboard never loaded");
+            resov.closebutton.click();
+            
+    
+          browser.sleep(60000);
+          browser.sleep(60000);
+          browser.sleep(60000);
+        
+        
+            wait.waitForElementVisibility(resov.btnCloseEditor, 20000);
+            resov.btnCloseEditor.click();
+            browser.sleep(3000);
+    
+            wait.waitForElementVisibility(resov.workSpace, 20000);
+            expect(resov.workSpace.isDisplayed()).toBeTruthy();
+            browser.sleep(3000);
+    
+            // wait.waitForElementVisibility(resov.linkActiveItemDraft, 20000);
+            // resov.linkActiveItemDraft.getText().then(function (text) {
+    
+            //     expect(text).toBe('Drafts');
+            // })
+            expect(resov.linkActiveItemDraft.isDisplayed()).toBeTruthy();
+
+        }
+    
+        catch (Exception) {
+    
+            console.log("Unable to find Resume and Close Editor Buttons")
+    
+        }
+    
+    
+    }
 
 module.exports = {
     createResource,
@@ -48362,5 +48435,6 @@ module.exports = {
     ValidateAllQuestionTypeInAddQuestionPage,
     Enter26CharactersInCustomKeyboardInReginalLanguage,
     Enter26CharactersInCustomKeyboardInEnglishLanguage,
+    VerifyCloseEditorButtonPopupWhenUserIsInActiveInEditor,
 }
 

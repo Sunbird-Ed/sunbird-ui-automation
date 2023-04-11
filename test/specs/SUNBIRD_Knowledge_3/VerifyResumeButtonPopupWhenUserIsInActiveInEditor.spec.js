@@ -20,7 +20,7 @@ describe('Verifyt user is able to give multiple blank space and delete the same'
         browser.manage().deleteAllCookies();
     });
 
-    it('VerifyResumeAndCloseEditor',function(){
+    it('VerifyResumeButtonPopupWhenUserIsInActiveInEditor',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');

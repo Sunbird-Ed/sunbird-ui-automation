@@ -15,9 +15,9 @@ exports.config = {
     waitForAngularEnabled: false,
     suites: {
 
-     sanity1: 'test/specs/sanity1/*.spec.js',
-      sanity2: 'test/specs/sanity2/*.spec.js',
-      sanity3: 'test/specs/sanity3/*.spec.js',
+    //  sanity1: 'test/specs/sanity1/*.spec.js',
+    //   sanity2: 'test/specs/sanity2/*.spec.js',
+    //   sanity3: 'test/specs/sanity3/*.spec.js',
         
         // SunbirdPortal1: 'test/specs/Sunbird_ED_Portal_1/*.spec.js',
         //   SunbirdPortal2: 'test/specs/SUNBIRD_ED_Portal_2/*.spec.js',
@@ -93,7 +93,7 @@ exports.config = {
 //test1:'test/specs/SUNBIRD_Knowledge_2/AdminContentCreatorShouldNotBeAbleEditAdoptedBookInAllTextbookSection.spec.js'
 
 
-//test:'test/specs/NotFound/VerifyResumeAndCloseEditor.spec.js'
+test:'test/specs/SUNBIRD_Knowledge_6/openDraftBookAndUpdateChildNodesWithQrCodeOfDiffTenant.spec.js'
 
 },
     allScriptsTimeout: 4000000000,

@@ -21,17 +21,13 @@ describe('openDraftLiveBookAndUpdateChildNodesWithQrCodeOfDiffTenant', () => {
         browser.manage().deleteAllCookies();
     });
     
-    it('openDraftLiveBookAndUpdateChildNodesWithQrCodeOfDiffTenant', function () {
+    it('openDraftBookAndUpdateChildNodesWithQrCodeOfDiffTenant', function () {
         utility.handleDropDown();
-        
         utility.handleLocationPopup();
-        utility.userLogin('ContentCreator');
-        let bookName = sanityfun.createBookAndAddQrCode();
+        utility.userLogin('Creator');
+        let bookName = sanityfun.createBookSaveAsDraft();
         utility.userLogout();
-        utility.userLogin('ContentReviewer');
-        tpdPageObj.publishCourseFromUpForReview(bookName);
-        utility.userLogout();
-        utility.userLogin('ContentCreator');
-        cont.verifyPublishedContentInDraftVersionAndValidateInLibrary(bookName);
+               utility.userLogin('Creator');
+               tpdPageObj.contentSearchInDraftAndUpdateQRofDifferentTenanatAndValidateError(bookName);
     })
 });

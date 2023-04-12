@@ -2542,6 +2542,10 @@ const verifyPublishedContentInDraftVersionAndValidateInLibrary = (publishedTextB
       console.log("++++++SCROLLED Down+++++");
     });
     browser.sleep(3000);
+
+
+    
+
     searchObj.qrCodeYesButton.click();
     browser.sleep(3000);
     searchObj.enterQrCodeTextBoxInEditor.sendKeys(qrcode);

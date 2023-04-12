@@ -44966,6 +44966,72 @@ const CourseAssessmentSendReviewWithAlreadyFilledDetails = () => {
   }
 };
 
+const contentSearchInDraftAndUpdateQRofDifferentTenanatAndValidateError = (corseNames) => {
+    console.log("User able to search and edit draft");
+    browser.sleep(1000);
+    browser.wait(
+      protractor.ExpectedConditions.visibilityOf(content.headerDropdown),
+      20000,
+      "headerDropdown page not loaded"
+    );
+    content.headerDropdown.click();
+    browser.sleep(2000);
+    browser.wait(
+      protractor.ExpectedConditions.visibilityOf(content.workSpace),
+      20000,
+      "workspace page not loaded"
+    );
+    content.workSpace.click();
+    browser.sleep(3000);
+
+    browser.wait(
+      protractor.ExpectedConditions.visibilityOf(resov.drafts),
+      40000,
+      "drafts is not available"
+    );
+    resov.drafts.click();
+    browser.sleep(3000);
+    browser.wait(
+      protractor.ExpectedConditions.visibilityOf(content.searchForReview),
+      20000,
+      "workspace page not loaded"
+    );
+    content.searchForReview.click();
+    content.searchForReview.sendKeys(corseNames);
+    browser.sleep(6000);
+    browser.wait(
+      protractor.ExpectedConditions.visibilityOf(resov.imageCard),
+      40000,
+      "imageCard is not available"
+    );
+    resov.imageCard.click();
+    console.log(
+      "User should be able to click on the drafts section to see draft contents"
+    );
+    browser.sleep(9000);
+    browser.executeScript("window.scrollTo(0,400);").then(function () {
+      console.log("++++++SCROLLED Down+++++");
+    });
+    browser.sleep(6000);
+
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    console.log(cred);
+    var qrcode = cred[47]['TitleDescription'];
+
+    searchObj.qrCodeYesButton.click();
+    browser.sleep(3000);
+    searchObj.enterQrCodeTextBoxInEditor.sendKeys(qrcode);
+    browser.sleep(3000);
+    searchObj.clickRightButton.click();
+    browser.sleep(3000);
+  
+    expect(searchObj.assertInvalidQrError.isDisplayed()).toBeTruthy();
+    browser.sleep(3000);
+
+
+};
+
 
 module.exports = {
   createCourse,
@@ -45534,4 +45600,5 @@ module.exports = {
   publishCollectionFromUpForReviewAndValidate,
   FillBmesWhileCreatingBookForRelNameValidation,
   CourseAssessmentSendReviewWithAlreadyFilledDetails,
+  contentSearchInDraftAndUpdateQRofDifferentTenanatAndValidateError,
 };

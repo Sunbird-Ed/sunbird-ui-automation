@@ -15,9 +15,9 @@ exports.config = {
     waitForAngularEnabled: false,
     suites: {
 
-    //  sanity1: 'test/specs/sanity1/*.spec.js',
-    //   sanity2: 'test/specs/sanity2/*.spec.js',
-    //   sanity3: 'test/specs/sanity3/*.spec.js',
+     sanity1: 'test/specs/sanity1/*.spec.js',
+      sanity2: 'test/specs/sanity2/*.spec.js',
+      sanity3: 'test/specs/sanity3/*.spec.js',
         
         // SunbirdPortal1: 'test/specs/Sunbird_ED_Portal_1/*.spec.js',
         //   SunbirdPortal2: 'test/specs/SUNBIRD_ED_Portal_2/*.spec.js',
@@ -95,7 +95,6 @@ exports.config = {
 
 //test:'test/specs/NotFound/VerifyResumeAndCloseEditor.spec.js'
 
-testing:'test/specs/SUNBIRD_Knowledge_3/VerifyCloseEditorButtonPopupWhenUserIsInActiveInEditor.spec.js'
 },
     allScriptsTimeout: 4000000000,
 

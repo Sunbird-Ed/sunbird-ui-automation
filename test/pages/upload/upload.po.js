@@ -32,7 +32,11 @@ var upload = () => {
     var assertLiscenceCCBY = element(by.xpath("//label[text()='LICENSE']//following::div[contains(text(),'CC BY 4.0')]"));
     var clickUploadButton = element(by.xpath("//div[contains(@data-content,'Upload Content')]"));
     var cancelUpload = element(by.xpath("(//button[contains(text(),'Cancel')])[2]"));
+    var uploadLargeVideo = element(by.xpath("//span[contains(text(),'Upload Large Videos (>50 MB)')]"));
 
+
+
+    
     return {
         clickuploadContent,
         close,
@@ -63,6 +67,7 @@ var upload = () => {
         assertLiscenceCCBY,
         clickUploadButton,
         cancelUpload,
+        uploadLargeVideo,
     };
 
 };

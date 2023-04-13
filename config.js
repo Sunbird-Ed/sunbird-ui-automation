@@ -93,7 +93,8 @@ exports.config = {
 //test1:'test/specs/SUNBIRD_Knowledge_2/AdminContentCreatorShouldNotBeAbleEditAdoptedBookInAllTextbookSection.spec.js'
 
 
-test:'test/specs/SUNBIRD_Knowledge_6/openDraftBookAndUpdateChildNodesWithQrCodeOfDiffTenant.spec.js'
+//test:'test/specs/SUNBIRD_Knowledge_6/openDraftBookAndUpdateChildNodesWithQrCodeOfDiffTenant.spec.js'
+test:'test/specs/SUNBIRD_Knowledge_1/validateWorkspaceOptionAndSection.spec.js'
 
 },
     allScriptsTimeout: 4000000000,

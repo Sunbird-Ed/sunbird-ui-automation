@@ -1080,6 +1080,7 @@ var resource = () => {
     var assertCollobratorUpdateToasterMsg = element(by.xpath("//strong[contains(text(),'Collaborators updated successfully')]"));
     var assertNoCollobratorInManageSectionMsg = element(by.xpath("//div[contains(text(),' No collaborators found for this content ')]"));
     var clickCancelBtnInCreateQuestionTemplatePage = element(by.xpath("//button[@id='cancel-button']"));
+    var createBtnInWorkspace = element(by.xpath("//a[contains(text(),'Create')]"));
 
 
 
@@ -2162,6 +2163,7 @@ var resource = () => {
         assertCollobratorUpdateToasterMsg,
         assertNoCollobratorInManageSectionMsg,
         clickCancelBtnInCreateQuestionTemplatePage,
+        createBtnInWorkspace,
     }
 };
 module.exports = {

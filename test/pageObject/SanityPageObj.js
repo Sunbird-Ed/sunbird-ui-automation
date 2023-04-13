@@ -41,6 +41,10 @@ const tpdPageObj = require(protractor.basePath +
   "/test/pageObject/tpdPageObj.js");
 var readWrite = require(protractor.basePath +
   "/test/genericFunctions/readWriteUploadCsv.js");
+  const uploadPage = require(protractor.basePath + '/test/pages/upload/upload.po.js');
+  var uploadV = uploadPage.upload();
+
+
 
 const verifySearchBookInLibraryPage = () => {
   try {
@@ -32453,7 +32457,48 @@ const addETextBookContent = () => {
   }
 };
 
+const validateWorkspaceOptionAndSection = () => {
+    console.log("user is trying to create a course");
+    browser.sleep(1000);
+    browser.wait(
+      protractor.ExpectedConditions.visibilityOf(content.headerDropdown),
+      20000,
+      "headerDropdown page not loaded"
+    );
+    content.headerDropdown.click();
+    browser.sleep(100);
+    browser.wait(
+      protractor.ExpectedConditions.visibilityOf(content.workSpace),
+      20000,
+      "workspace page not loaded"
+    );
+    content.workSpace.click();
+    browser.sleep(5000);
+    expect(etbpage.etb().book.isDisplayed()).toBeTruthy();
+    expect(content.course.isDisplayed()).toBeTruthy();
+    expect(resov.clickresource.isDisplayed()).toBeTruthy();
+    expect(content.collection.isDisplayed()).toBeTruthy();
+    expect(content.lessonPlan.isDisplayed()).toBeTruthy();
+    expect(uploadV.clickuploadContent.isDisplayed()).toBeTruthy();
+    expect(uploadV.uploadLargeVideo.isDisplayed()).toBeTruthy();
+    expect(content.courseAssessment.isDisplayed()).toBeTruthy();
+    expect(resov.clickQuestionSet.isDisplayed()).toBeTruthy();
 
+    expect(resov.createBtnInWorkspace.isDisplayed()).toBeTruthy();
+    expect(searchObj.allMyContent.isDisplayed()).toBeTruthy();
+    expect(resov.drafts.isDisplayed()).toBeTruthy();
+    expect(searchObj.submittedForReview.isDisplayed()).toBeTruthy();
+    expect(content.published.isDisplayed()).toBeTruthy();
+    expect(uploadV.allUploads.isDisplayed()).toBeTruthy();
+    expect(searchObj.sharedViaLink.isDisplayed()).toBeTruthy();
+    expect(resov.collaboration.isDisplayed()).toBeTruthy();
+
+   
+
+
+
+    }
+  
 
 module.exports = {
   verifyViewAllButton,
@@ -32750,4 +32795,5 @@ module.exports = {
   generate250QRCodes,
   download250QRCode,
   addETextBookContent,
+  validateWorkspaceOptionAndSection,
 };

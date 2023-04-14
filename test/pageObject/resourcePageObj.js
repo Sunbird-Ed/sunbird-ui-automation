@@ -36,6 +36,8 @@ const createResource = () => {
         ccpage.contentCreation().workSpace.click();
         wait.waitForElementVisibility(resov.clickresource, 20000, "clickresource is not available");
         resov.clickresource.click();
+
+        
         wait.waitForElementVisibility(resov.resourceName, 20000, "resourceName is not available");
         resourcename = "ResourceA" + faker.randomData().firstname;
         resov.resourceName.sendKeys(resourcename);
@@ -20136,6 +20138,8 @@ const verifyContentCreatorIsAbleToSelectTableAndDifferentHeadingsInMCQTypeQuesnS
     catch (e) {
         console.log("Unable To validate Table and Different Format of Headings in MCQ Type QuesnSet")
     }
+
+    
 }
 
 const verifyCreatorIsAbleToCreateNewParagraphDuringDescriptiveTypeQuestion = () => {
@@ -48089,9 +48093,87 @@ const Enter26CharactersInCustomKeyboardInEnglishLanguage = (TwentySixCharacter) 
             console.log("Unable to find Resume and Close Editor Buttons")
     
         }
-    
-    
+        
     }
+
+    const sendForReviewTheResourceAfterCopyAndEditContentName = () => {
+
+        var resourcename;
+       
+        browser.sleep(2000);
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(3000);
+
+        browser.sleep(1000);
+        wait.waitForElementToBeClickable(content.sendForReview, 20000, "send for review not available");
+        content.sendForReview.click();
+        browser.sleep(4000);
+
+        resourcename = "UploadContentCopy" + faker.randomData().firstname;
+        resov.fieldInputDesc.click();
+        resov.fieldInputDesc.clear();
+        browser.sleep(2000);
+        resov.fieldInputDesc.sendKeys(resourcename);
+          
+
+        // wait.waitForElementVisibility(etbv.clickAppIcon, 50000, "clickAppIcon button not available");
+        // etbv.clickAppIcon.click();
+        // browser.sleep(2000);
+        // wait.waitForElementVisibility(etbv.allImage, 30000, "allImage button not available");
+        // etbv.allImage.click();
+        // browser.sleep(2000);
+        // wait.waitForElementVisibility(etbv.myImage, 30000, "myImage button not available");
+        // etbv.myImage.click();
+        // wait.waitForElementVisibility(etbv.checkAppIcon, 30000, "checkAppIcon button not available");
+        // etbv.checkAppIcon.click();
+        // wait.waitForElementVisibility(etbv.selectAppIcon, 30000, "selectAppIcon button not available");
+        // etbv.selectAppIcon.click();
+        browser.sleep(2000);
+        browser.executeScript("arguments[0].scrollIntoView();", etbv.clickBoard);
+        browser.sleep(500);
+        wait.waitForElementVisibility(etbv.clickBoard, 30000, "board button not available");
+        etbv.clickBoard.click();
+        wait.waitForElementVisibility(etbv.selectBoard, 30000, "contuinew button not available");
+        etbv.selectBoard.click();
+        // wait.waitForElementVisibility(etbv.clickCurriculum, 30000, "clickCurriculum button not available");
+        // etbv.clickCurriculum.click();
+        // wait.waitForElementVisibility(etbv.selectCurriculum, 30000, "selectCurriculum button not available");
+        // etbv.selectCurriculum.click();
+        browser.sleep(500);
+        etbv.clickMedium.click();
+        wait.waitForElementVisibility(etbv.selectMedium, 30000, "contuinew button not available");
+        etbv.selectMedium.click();
+        browser.sleep(500);
+        browser.executeScript("arguments[0].scrollIntoView();", etbv.clickclass);
+        etbv.clickclass.click();
+        wait.waitForElementVisibility(etbv.SelectClass, 30000, "contuinew button not available");
+        etbv.SelectClass.click();
+        browser.sleep(500);
+        etbv.clicksubject.click();
+        wait.waitForElementVisibility(etbv.selectSubject, 30000, "contuinew button not available");
+        etbv.selectSubject.click();
+        browser.sleep(500);
+        browser.executeScript("arguments[0].scrollIntoView();", etbv.yearOfCreation);
+        wait.waitForElementVisibility(etbv.yearOfCreation, 30000, "yearOfCreation button not available");
+        etbv.yearOfCreation.click();
+        etbv.yearOfCreation.clear();
+        etbv.yearOfCreation.sendKeys(`2020`);
+        // browser.executeScript("arguments[0].scrollIntoView();", etbv.clickContentType);
+        // wait.waitForElementVisibility(etbv.clickContentType, 30000, "clickContentType button not available");
+        // etbv.clickContentType.click();
+        // browser.sleep(1000);
+        // browser.executeScript("arguments[0].scrollIntoView();", etbv.practiceResource2);
+        // etbv.practiceResource2.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.saveButoonReview, 20000, "submitForm not available");
+        // content.saveform.click();
+    
+        content.saveButoonReview.click();
+    
+        browser.sleep(5000);
+        return resourcename;
+    }
+    
 
 module.exports = {
     createResource,
@@ -48436,5 +48518,6 @@ module.exports = {
     Enter26CharactersInCustomKeyboardInReginalLanguage,
     Enter26CharactersInCustomKeyboardInEnglishLanguage,
     VerifyCloseEditorButtonPopupWhenUserIsInActiveInEditor,
+    sendForReviewTheResourceAfterCopyAndEditContentName,
 }
 

@@ -19,7 +19,6 @@ describe('upload Webm, save and send for review and publish.', () =>{
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
 
@@ -35,9 +34,9 @@ describe('upload Webm, save and send for review and publish.', () =>{
         // utility.userLogin('Public User2');
         // resourcePageObj.ConsumeUploadContent(uploadContent,'EPUB');
         // utility.userLogout();
-        utility.userLogin('Creator');
+        // utility.userLogin('Creator');
         
-        lspPageObj.deleteCreatedItems();
+        // lspPageObj.deleteCreatedItems();
 
 
     });

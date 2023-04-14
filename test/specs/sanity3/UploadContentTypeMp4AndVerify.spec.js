@@ -34,8 +34,8 @@ describe('upload Mp4, save and send for review and publish.', () =>{
         // utility.userLogin('Public User2');
         // resourcePageObj.ConsumeUploadContent(uploadContent,'EPUB');
         // utility.userLogout();
-        utility.userLogin('Creator');
+        // utility.userLogin('Creator');
         
-        lspPageObj.deleteCreatedItems();
+        // lspPageObj.deleteCreatedItems();
     });
 });

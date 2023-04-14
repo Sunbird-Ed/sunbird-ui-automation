@@ -94,7 +94,9 @@ exports.config = {
 
 
 //test:'test/specs/SUNBIRD_Knowledge_6/openDraftBookAndUpdateChildNodesWithQrCodeOfDiffTenant.spec.js'
-test:'test/specs/SUNBIRD_Knowledge_1/validateWorkspaceOptionAndSection.spec.js'
+//test:'test/specs/SUNBIRD_Knowledge_1/validateWorkspaceOptionAndSection.spec.js'
+//test:'test/specs/SUNBIRD_Knowledge_6/CopyMP4ContentAndSendForReview.spec.js'
+test:'test/specs/SUNBIRD_Knowledge_5/verifyCreatorIsAbleToCreateNewParagraphDuringDescriptiveTypeQuestion.spec.js'
 
 },
     allScriptsTimeout: 4000000000,

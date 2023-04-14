@@ -35,7 +35,6 @@ describe('upload h5p, save and send for review and publish.', () =>{
         // utility.userLogin('Public User2');
         // resourcePageObj.ConsumeUploadContent(uploadContent,'EPUB');
         // utility.userLogout();
-        utility.userLogin('Creator');
-        lspPageObj.deleteCreatedItems();
+       
     });
 });

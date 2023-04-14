@@ -32492,13 +32492,46 @@ const validateWorkspaceOptionAndSection = () => {
     expect(uploadV.allUploads.isDisplayed()).toBeTruthy();
     expect(searchObj.sharedViaLink.isDisplayed()).toBeTruthy();
     expect(resov.collaboration.isDisplayed()).toBeTruthy();
-
-   
-
-
-
     }
+
+    const justCopyTheContentBySearching = (contentType) => {
+        console.log("User is trying to copy content");
+    
+        browser.sleep(2000);
+        sanityPage.SanityElement().searchConLib.click();
+        browser.sleep(2000);
+        sanityPage.SanityElement().searchConLib.sendKeys(contentType);
+        browser.sleep(2000);
+        sanityPage.SanityElement().clkSearchLib.click();
+        // browser.executeScript('window.scrollTo(0,200);').then(function () {
+        //     console.log('++++++SCROLLED Down+++++');
+        // });
+        browser.sleep(3000);
+        browser.wait(
+          protractor.ExpectedConditions.elementToBeClickable(san.clkFirConLib),
+          20000,
+          "clkFirConLib  is not available"
+        );
+        san.clkFirConLib.click();
+        console.log("clicked on first content");
+        browser.executeScript("window.scrollTo(0,0);").then(function () {
+          console.log("++++++SCROLLED UP+++++");
+        });
+    
+        browser.sleep(8000);
+       
+        browser.wait(
+          protractor.ExpectedConditions.visibilityOf(
+            sanityPage.SanityElement().clkCopyButton
+          ),
+          20000,
+          "clkCopyButton  is not available"
+        );
+        sanityPage.SanityElement().clkCopyButton.click();
+        browser.sleep(9000);
+          }
   
+     
 
 module.exports = {
   verifyViewAllButton,
@@ -32796,4 +32829,5 @@ module.exports = {
   download250QRCode,
   addETextBookContent,
   validateWorkspaceOptionAndSection,
+  justCopyTheContentBySearching,
 };

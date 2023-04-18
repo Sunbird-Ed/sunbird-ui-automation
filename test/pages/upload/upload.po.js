@@ -33,6 +33,7 @@ var upload = () => {
     var clickUploadButton = element(by.xpath("//div[contains(@data-content,'Upload Content')]"));
     var cancelUpload = element(by.xpath("(//button[contains(text(),'Cancel')])[2]"));
     var uploadLargeVideo = element(by.xpath("//span[contains(text(),'Upload Large Videos (>50 MB)')]"));
+    var clkkUploadBtnForReUpload = element(by.xpath("//i[@class='upload icon custom-icon']"));
 
 
 
@@ -68,6 +69,7 @@ var upload = () => {
         clickUploadButton,
         cancelUpload,
         uploadLargeVideo,
+        clkkUploadBtnForReUpload,
     };
 
 };

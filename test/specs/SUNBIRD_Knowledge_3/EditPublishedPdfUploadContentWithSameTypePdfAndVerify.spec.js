@@ -1,13 +1,13 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
-const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
 let getExcelPath = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const genericFun = require(protractor.basePath + '/test/genericFunctions/GenericFunction.js');
-
-
-describe('cpy Question save and send for review and publish.', () => {
-
+let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
+const resourcePageObj=require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
+const uploadPageObj=require(protractor.basePath+'/test/pageObject/uploadPageObj.js');
+const sanityFun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
+describe('upload pdf, save and send for review and publish.', () =>{
     beforeEach(() => {
         browser.ignoreSynchronization = true;
         var Url=getAppURL.ConfigurePath().AppURL;
@@ -21,22 +21,25 @@ describe('cpy Question save and send for review and publish.', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        
+
     });
-    it('CopyMP4ContentAndSendForReview',function(){
+
+    it('EditPublishedPdfUploadContentWithSameTypePdfAndVerify ',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('ContentCreator');
+        utility.userLogin('Creator');
 
         var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
         var cred = genericFun.readParticularDataFromExcelFile(sheetPath, "5");
-        var Mp4 = cred[2]["CourseDescription"];
+        var PDF = cred[1]["CourseDescription"];
 
-        sanityFun.justCopyTheContentBySearching(Mp4);
-        var copiedFileName = resourcePageObj.sendForReviewTheResourceAfterCopyAndEditContentName();
-        utility.userLogout();
-        utility.userLogin('ContentReviewer');
-        resourcePageObj.publishTheResourceFromUpForReview(copiedFileName);
+        sanityFun.validateContentInPublishedSectionAfterPublishmentOfContent(PDF);
 
-    })
+       uploadPageObj.ReuploadSameTypeForLiveUploadContent('PDF');
+         utility.userLogout();
+         utility.userLogin('Reviewer');
+            resourcePageObj.publishTheResourceFromUpForReview(PDF);
+
+
+    });
 });

@@ -1383,10 +1383,122 @@ const uploadMp4MoreThan150Mb = () => {
     }
 }
 
+const ReuploadSamePdfType = () => {
+    var resourceName;
+    try {
+      
+
+        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+        browser.sleep(5000);
+        browser.sleep(8000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.clkkUploadBtnForReUpload), 20000, "selectOne is not available");
+        uploadV.clkkUploadBtnForReUpload.click();
+        
+        browser.sleep(4000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.selectOne), 20000, "selectOne is not available");
+        uploadV.selectOne.click();
+        browser.sleep(4000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.learningResource), 20000, "learningResource is not available");
+        uploadV.learningResource.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.enterUrl.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.browseButton.sendKeys(pdf);
+        browser.sleep(40000);
+
+        JustSendForReviewWithoutModification();
+
+        browser.sleep(3000);
+        console.log("User successfully uploaded pdf content");
+        return resourceName;
+    } catch (Exception) {
+        console.log("User failed to upload content pdf")
+    }
+}
+const JustSendForReviewWithoutModification = () => {
+
+   browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.sendforRev), 20000, "Failed to click sendForReview");
+        uploadV.sendforRev.click();
+        browser.sleep(3000);
+
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.saveform), 20000, "submitForm not available");
+        content.saveform.click();
+        browser.sleep(2000);
+}
+
+const ReuploadSameTypeForLiveUploadContent = (uploadType) => {
+
+    var resourceName;
+      
+    browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+    browser.sleep(5000);
+    browser.sleep(8000);
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.clkkUploadBtnForReUpload), 20000, "selectOne is not available");
+    uploadV.clkkUploadBtnForReUpload.click();
+    
+    browser.sleep(4000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.selectOne), 20000, "selectOne is not available");
+        uploadV.selectOne.click();
+        browser.sleep(3000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.learningResource), 20000, "learningResource is not available");
+        uploadV.learningResource.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.enterUrl.click();
+        browser.sleep(3000);
 
 
+        switch (uploadType) {
 
+            case 'PDF':
+                browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+                uploadV.browseButton.sendKeys(pdf);
+                browser.sleep(40000);
+                break;
 
+            case 'WEBM':
+                    browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+        uploadV.browseButton.sendKeys(webm);
+        browser.sleep(40000);
+                break;
+
+            case 'H5P':
+                uploadV.browseButton.sendKeys(h5p);
+                browser.sleep(40000);
+                break;
+
+            case 'MP4':
+                uploadV.browseButton.sendKeys(mp4);
+                browser.sleep(40000);
+                break;
+
+            case 'HTML':
+                  browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.browseButton), 20000, "didn't click browse button");
+        uploadV.browseButton.sendKeys(html);
+        browser.sleep(40000);
+                break;
+
+            case 'EPUB':
+                browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+                uploadV.browseButton.sendKeys(epub);
+                browser.sleep(40000);
+                break;
+        }
+
+        JustSendForReviewWithoutModification();
+        console.log("User successfully uploaded epub");
+        return resourceName;
+   
+}
 module.exports = {
     uploadPdf,
     uploadHtml,
@@ -1410,4 +1522,7 @@ module.exports = {
     uploadAllTypeOfContents,
     uploadLargeVideo,
     uploadMp4MoreThan150Mb,
+    ReuploadSamePdfType,
+    JustSendForReviewWithoutModification,
+    ReuploadSameTypeForLiveUploadContent,
 }

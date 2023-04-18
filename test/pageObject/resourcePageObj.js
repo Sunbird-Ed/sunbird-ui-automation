@@ -52,8 +52,12 @@ const createResource = () => {
 
         resov.startCreating.click();
         browser.sleep(4000);
+
+
         browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-        browser.sleep(5000);
+       browser.sleep(5000);
+
+
         wait.waitForElementVisibility(resov.addText, 20000, "addShape is not available");
         resov.addText.click();
         wait.waitForElementVisibility(resov.addShapes, 20000, "addShape is not available");
@@ -48104,7 +48108,7 @@ const Enter26CharactersInCustomKeyboardInEnglishLanguage = (TwentySixCharacter) 
         browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
         browser.sleep(3000);
 
-        browser.sleep(1000);
+        browser.sleep(2000);
         wait.waitForElementToBeClickable(content.sendForReview, 20000, "send for review not available");
         content.sendForReview.click();
         browser.sleep(4000);

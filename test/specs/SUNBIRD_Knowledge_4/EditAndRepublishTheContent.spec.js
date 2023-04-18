@@ -30,7 +30,7 @@ describe('Ve that creator is able to edit already published content, send for re
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
         utility.userLogout();
         utility.userLogin('Creator');
-        resourcePageObj.clickingTheResourceFromPublishedBucket();
+        resourcePageObj.clickingTheResourceFromPublishedBucket(resourceName);
         resourcePageObj.sendForReviewTheResourceAfterEditing();
         utility.userLogout();
         utility.userLogin('Reviewer');

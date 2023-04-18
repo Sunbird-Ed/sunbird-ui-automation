@@ -23,16 +23,16 @@ describe('cpy Question save and send for review and publish.', () => {
         browser.manage().deleteAllCookies();
         
     });
-    it('CopyMP4ContentAndSendForReview',function(){
+    it('CopyWebMContentAndSendForReview',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
 
         var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
         var cred = genericFun.readParticularDataFromExcelFile(sheetPath, "5");
-        var Mp4 = cred[2]["CourseDescription"];
+        var WebM = cred[3]["CourseDescription"];
 
-        sanityFun.justCopyTheContentBySearching(Mp4);
+        sanityFun.justCopyTheContentBySearching(WebM);
         var copiedFileName = resourcePageObj.sendForReviewTheResourceAfterCopyAndEditContentName();
         utility.userLogout();
         utility.userLogin('ContentReviewer');

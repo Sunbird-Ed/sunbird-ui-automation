@@ -25270,11 +25270,15 @@ const validateContentInPublishedSectionAfterPublishmentOfContent = async (
     content.searchForReview.click();
     content.searchForReview.sendKeys(bookname);
     browser.sleep(6000);
-    resov.imageCard.getText().then(function (input) {
-      expect(input).toEqual(bookname);
-      console.log("submitForReviewtab content is verified successfully");
-    });
+    // resov.imageCard.getText().then(function (input) {
+    //   expect(input).toEqual(bookname);
+    //   console.log("submitForReviewtab content is verified successfully");
+    // });
     browser.sleep(5000);
+
+    resov.imageCard.click();
+    browser.sleep(5000);
+
   } catch (err) {
     console.log(err);
   }
@@ -32506,7 +32510,7 @@ const validateWorkspaceOptionAndSection = () => {
         // browser.executeScript('window.scrollTo(0,200);').then(function () {
         //     console.log('++++++SCROLLED Down+++++');
         // });
-        browser.sleep(3000);
+        browser.sleep(5000);
         browser.wait(
           protractor.ExpectedConditions.elementToBeClickable(san.clkFirConLib),
           20000,

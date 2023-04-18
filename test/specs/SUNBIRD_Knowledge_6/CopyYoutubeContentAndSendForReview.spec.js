@@ -23,16 +23,14 @@ describe('cpy Question save and send for review and publish.', () => {
         browser.manage().deleteAllCookies();
         
     });
-    it('CopyMP4ContentAndSendForReview',function(){
+    it('CopyYoutubeContentAndSendForReview',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-
         var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
         var cred = genericFun.readParticularDataFromExcelFile(sheetPath, "5");
-        var Mp4 = cred[2]["CourseDescription"];
-
-        sanityFun.justCopyTheContentBySearching(Mp4);
+        var Html = cred[7]["CourseDescription"];
+        sanityFun.justCopyTheContentBySearching(Html);
         var copiedFileName = resourcePageObj.sendForReviewTheResourceAfterCopyAndEditContentName();
         utility.userLogout();
         utility.userLogin('ContentReviewer');

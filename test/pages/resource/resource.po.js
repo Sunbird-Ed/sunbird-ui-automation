@@ -1081,7 +1081,18 @@ var resource = () => {
     var assertNoCollobratorInManageSectionMsg = element(by.xpath("//div[contains(text(),' No collaborators found for this content ')]"));
     var clickCancelBtnInCreateQuestionTemplatePage = element(by.xpath("//button[@id='cancel-button']"));
     var createBtnInWorkspace = element(by.xpath("//a[contains(text(),'Create')]"));
-
+    var inputAnswer3 = element(by.id("mcqoptions_2"));
+    var inputAnswer4 = element(by.id("mcqoptions_3"));
+    var inputAnswer5 = element(by.id("mcqoptions_4"));
+    var ClickAddAnswerForExtra = element(by.xpath("//button[contains(text(),'Add answer ')]"));
+    var ImgGrid2 = element(by.xpath("//div[contains(text(),'Select layout')]//following::img[2]"));
+    var ImgGrid3 = element(by.xpath("//div[contains(text(),'Select layout')]//following::img[3]"));
+    var assertTextEclipse = element(by.xpath("//div[@class='mcq-grid-option-text-only']"));
+    var assertSingleRowForAllAnswerOptions = element.all(by.xpath("//div[@class='option-text-container text-only']"));
+    var ImgGrid6 = element(by.xpath("//div[contains(text(),'Select layout')]//following::img[6]"));
+    var assertTextInQuestionSection = element(by.xpath("//p[contains(text(),'India')]"));
+    var assertImageInQuestionSection = element(by.xpath("//div[@class='image-container   ']"));
+    var ImgGrid7 = element(by.xpath("//div[contains(text(),'Select layout')]//following::img[7]"));
 
 
     return {
@@ -1140,7 +1151,6 @@ var resource = () => {
         addActivity,
         sendForReview,
         clickAppIcon,
-        selectAppIcon,
         clickYear,
         addbuttonActivity,
         save,
@@ -2164,6 +2174,18 @@ var resource = () => {
         assertNoCollobratorInManageSectionMsg,
         clickCancelBtnInCreateQuestionTemplatePage,
         createBtnInWorkspace,
+        inputAnswer3,
+        inputAnswer4,
+        inputAnswer5,
+        ImgGrid2,
+        ImgGrid3,
+        assertTextEclipse,
+        assertSingleRowForAllAnswerOptions,
+        ClickAddAnswerForExtra,
+        ImgGrid6,
+        assertTextInQuestionSection,
+        assertImageInQuestionSection,
+        ImgGrid7,
     }
 };
 module.exports = {

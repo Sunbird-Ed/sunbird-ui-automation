@@ -144,7 +144,7 @@ const forgetPassword = () => {
         userOnboard.loginButton.click();
         wait.waitForElementVisibility(userOnboard.clkForgot, 20000, "clkForgot field is not available");
         userOnboard.clkForgot.click();
-        //browser.wait(protractor.ExpectedConditions.visibilityOf(userOnboard.clkForgot),2000,"clkForgot field is not available");
+        
         // userOnboard.clkForgot.click();
         wait.waitForElementVisibility(userOnboard.enterEmailInRecoveryAcc, 20000, "enterEmailInRecoveryAcc field is not available");
         userOnboard.enterEmailInRecoveryAcc.click();

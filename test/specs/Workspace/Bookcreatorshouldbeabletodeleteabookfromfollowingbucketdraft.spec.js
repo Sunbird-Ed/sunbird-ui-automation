@@ -21,7 +21,7 @@ describe('Bookcreatorshouldbeabletodeleteabookfromfollowingbucketdraft', () => {
     });
 
 
-it('Bookcreatorshouldbeabletodeleteabookfromfollowingbucketdraft  ',function(){
+it('Bookcreatorshouldbeabletodeleteabookfromfollowingbucket',function(){
            utility.handleDropDown();
            utility.handleLocationPopup();
            utility.userLogin('ContentCreator');

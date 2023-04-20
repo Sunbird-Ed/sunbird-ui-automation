@@ -23,7 +23,7 @@ describe('addSameContentToDifffoldersAndValidateInCourse', () => {
         browser.close();
     });
 
-    it('addSameContentToDifffoldersAndValidateInCourse', function () {
+    it('addSSameContentToDifffoldersAndValidateInCourse', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');

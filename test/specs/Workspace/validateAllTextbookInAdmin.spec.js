@@ -21,7 +21,7 @@ describe('validateAllTextbookInAdmin', () => {
         browser.manage().deleteAllCookies();
     });
 
-    it('validatePublishedContentInAllMyContentForCreatorSide', function () {
+    it('validateAllTextbookInAdmin', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Admin3');

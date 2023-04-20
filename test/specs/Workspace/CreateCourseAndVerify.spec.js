@@ -26,8 +26,7 @@ describe('Create Course save and send for review and publish.', () => {
     });
     it('CreateCourseAndVerify', function () {
         utility.handleDropDown();
-        browser.sleep(30000);
-        //utility.handleLocationPopup();
+        utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
         let courseName = sanityfun.createCourseAndSendForReview();
         utility.userLogout();

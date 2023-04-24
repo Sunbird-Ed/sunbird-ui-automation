@@ -34,8 +34,12 @@ var upload = () => {
     var cancelUpload = element(by.xpath("(//button[contains(text(),'Cancel')])[2]"));
     var uploadLargeVideo = element(by.xpath("//span[contains(text(),'Upload Large Videos (>50 MB)')]"));
     var clkkUploadBtnForReUpload = element(by.xpath("//i[@class='upload icon custom-icon']"));
+    var clkkDownloadBtn = element(by.xpath("//i[@class='download icon custom-icon']"));
+    var assertDownlodToasterMsg = element(by.xpath("//strong[contains(text(),'Content download started!')]"));
+    var clkCloseBtninUploadEditor = element(by.xpath("//div[@id='closeButton']"));
 
 
+    
 
     
     return {
@@ -70,6 +74,9 @@ var upload = () => {
         cancelUpload,
         uploadLargeVideo,
         clkkUploadBtnForReUpload,
+        clkkDownloadBtn,
+        assertDownlodToasterMsg,
+        clkCloseBtninUploadEditor,
     };
 
 };

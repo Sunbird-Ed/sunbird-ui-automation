@@ -27,7 +27,6 @@ var searchObj = tpdPage.tpdPage();
 var webm50Mb = protractor.basePath + '/test/testdata/75mbwebm.webm';
 var mp4150Mb = protractor.basePath + '/test/testdata/Upload content-mp4.mp4';
 
-
 const uploadPdf = () => {
     var resourceName;
     try {
@@ -570,7 +569,6 @@ const uploadTemplate = () => {
 const uploadAllContent = () => {
 
     var resourcename;
-    try {
 
         console.log("user is trying to upload All Content");
         browser.sleep(1000);
@@ -592,50 +590,50 @@ const uploadAllContent = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
         uploadV.browseButton.sendKeys(pdf);
-        browser.sleep(8000);
+        browser.sleep(25000);
         uploadV.savebutton.click();
         browser.sleep(1000);
         uploadV.closebutton.click();
         browser.sleep(2000);
-        //   uploadV.uploadcontIcon.click();
-        //   browser.sleep(2000);
-        //   uploadV.browseButton.sendKeys(mp4);
-        //   browser.sleep(8000);
-        //   uploadV.savebutton.click();
-        //   browser.sleep(1000);
-        //   uploadV.closebutton.click();
-        //   browser.sleep(2000);
-        //   uploadV.uploadcontIcon.click();
-        //   browser.sleep(2000);
-        //   uploadV.browseButton.sendKeys(h5p);
-        //   browser.sleep(8000);
-        //   uploadV.savebutton.click();
-        //   browser.sleep(1000);
-        //   uploadV.closebutton.click();
-        //   browser.sleep(2000);
-        //   uploadV.uploadcontIcon.click();
-        //   browser.sleep(2000);
-        //   uploadV.browseButton.sendKeys(epub);
-        //   browser.sleep(8000);
-        //   uploadV.savebutton.click();
-        //   browser.sleep(1000);
-        //   uploadV.closebutton.click();
-        //   browser.sleep(2000);
-        //   uploadV.uploadcontIcon.click();
-        //   browser.sleep(2000);
-        //   uploadV.browseButton.sendKeys(webm);
-        //   browser.sleep(8000);
-        //   uploadV.savebutton.click();
-        //   browser.sleep(1000);
-        //   uploadV.closebutton.click();
-        //   browser.sleep(2000);
-        //   uploadV.uploadcontIcon.click();
-        //   browser.sleep(2000);
-        //   uploadV.browseButton.sendKeys(html);
-        //   browser.sleep(8000);
-        //   uploadV.savebutton.click();
-        //   browser.sleep(1000);
-        //   uploadV.closebutton.click();
+          uploadV.uploadcontIcon.click();
+          browser.sleep(2000);
+          uploadV.browseButton.sendKeys(mp4);
+          browser.sleep(25000);
+          uploadV.savebutton.click();
+          browser.sleep(1000);
+          uploadV.closebutton.click();
+          browser.sleep(2000);
+          uploadV.uploadcontIcon.click();
+          browser.sleep(2000);
+          uploadV.browseButton.sendKeys(h5p);
+          browser.sleep(25000);
+          uploadV.savebutton.click();
+          browser.sleep(1000);
+          uploadV.closebutton.click();
+          browser.sleep(2000);
+          uploadV.uploadcontIcon.click();
+          browser.sleep(2000);
+          uploadV.browseButton.sendKeys(epub);
+          browser.sleep(8000);
+          uploadV.savebutton.click();
+          browser.sleep(1000);
+          uploadV.closebutton.click();
+          browser.sleep(2000);
+          uploadV.uploadcontIcon.click();
+          browser.sleep(2000);
+          uploadV.browseButton.sendKeys(webm);
+          browser.sleep(8000);
+          uploadV.savebutton.click();
+          browser.sleep(1000);
+          uploadV.closebutton.click();
+          browser.sleep(2000);
+          uploadV.uploadcontIcon.click();
+          browser.sleep(2000);
+          uploadV.browseButton.sendKeys(html);
+          browser.sleep(8000);
+          uploadV.savebutton.click();
+          browser.sleep(1000);
+          uploadV.closebutton.click();
         browser.sleep(2000);
 
 
@@ -667,11 +665,9 @@ const uploadAllContent = () => {
         browser.sleep(1000);
         console.log("User successfully uploaded pdf content");
         return resourcename;
-    } catch (err) {
-        console.error("User failed to upload content pdf, " + err);
     }
 
-}
+
 const uploadAddCollaborator = () => {
     var resourceName;
     try {
@@ -1460,6 +1456,80 @@ const ReuploadSameTypeForLiveUploadContent = (uploadType) => {
         switch (uploadType) {
 
             case 'PDF':
+                browser.sleep(5000);
+                uploadV.browseButton.sendKeys(pdf);
+                browser.sleep(40000);
+                break;
+
+            case 'WEBM':
+                browser.sleep(5000);
+        uploadV.browseButton.sendKeys(webm);
+        browser.sleep(40000);
+                break;
+
+            case 'H5P':
+                browser.sleep(5000);
+                uploadV.browseButton.sendKeys(h5p);
+                browser.sleep(40000);
+                break;
+
+            case 'MP4':
+                browser.sleep(5000);
+                uploadV.browseButton.sendKeys(mp4);
+                browser.sleep(40000);
+                break;
+
+            case 'HTML':
+                browser.sleep(5000);
+        uploadV.browseButton.sendKeys(html);
+        browser.sleep(40000);
+                break;
+
+            case 'EPUB':
+                browser.sleep(5000);
+                uploadV.browseButton.sendKeys(epub);
+                browser.sleep(40000);
+                break;
+        }
+
+        JustSendForReviewWithoutModification();
+        console.log("User successfully uploaded epub");
+        return resourceName;
+   
+}
+
+
+const uploadFileForDownload = (uploadType) => {
+   
+    console.log("user is trying to upload pdf");
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
+    content.headerDropdown.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(content.workSpace), 20000, "workspace page not loaded");
+    content.workSpace.click();
+    browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.clickuploadContent), 20000, "Upload content didn't click");
+    uploadV.clickuploadContent.click();
+    browser.sleep(4000);
+    browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
+    browser.sleep(5000);
+    browser.sleep(8000);
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.selectOne), 20000, "selectOne is not available");
+    uploadV.selectOne.click();
+    browser.sleep(4000);
+    browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.learningResource), 20000, "learningResource is not available");
+    uploadV.learningResource.click();
+    browser.sleep(3000);
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
+    uploadV.enterUrl.click();
+    browser.sleep(2000);
+
+ 
+
+        switch (uploadType) {
+
+            case 'PDF':
                 browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.enterUrl), 20000, "didn't click browse button");
                 uploadV.browseButton.sendKeys(pdf);
                 browser.sleep(40000);
@@ -1493,11 +1563,34 @@ const ReuploadSameTypeForLiveUploadContent = (uploadType) => {
                 browser.sleep(40000);
                 break;
         }
+        uploadV.savebutton.click();
+        browser.sleep(2000);
+        uploadV.closebutton.click();
+        browser.sleep(2000);
 
-        JustSendForReviewWithoutModification();
+        downloadUploadedContent();
         console.log("User successfully uploaded epub");
-        return resourceName;
    
+}
+
+const downloadUploadedContent = () => {
+
+   browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.clkkDownloadBtn), 20000, "Failed to click sendForReview");
+        uploadV.clkkDownloadBtn.click();
+        browser.sleep(2000);
+        expect(uploadV.assertDownlodToasterMsg.isPresent()).toBe(true);
+
+}
+
+const closeEditorAndVerifyDraftSection = () => {
+
+    browser.wait(protractor.ExpectedConditions.visibilityOf(uploadV.clkCloseBtninUploadEditor), 20000, "Failed to click sendForReview");
+         uploadV.clkCloseBtninUploadEditor.click();
+         browser.sleep(6000);
+ wait.waitForElementVisibility(resov.workSpace, 20000);
+expect(resov.workSpace.isDisplayed()).toBeTruthy();
+browser.sleep(1000);
+expect(resov.linkActiveItemDraft.isDisplayed()).toBeTruthy();
 }
 module.exports = {
     uploadPdf,
@@ -1525,4 +1618,7 @@ module.exports = {
     ReuploadSamePdfType,
     JustSendForReviewWithoutModification,
     ReuploadSameTypeForLiveUploadContent,
+    uploadFileForDownload,
+    downloadUploadedContent,
+    closeEditorAndVerifyDraftSection,
 }

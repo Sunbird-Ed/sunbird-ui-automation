@@ -45029,6 +45029,55 @@ const contentSearchInDraftAndUpdateQRofDifferentTenanatAndValidateError = (corse
     expect(searchObj.assertInvalidQrError.isDisplayed()).toBeTruthy();
     browser.sleep(3000);
 
+};
+
+const ProperPreviewShownForUploadContentInAllMyContentSection = (uploadName) => {
+  
+  console.log("User able to search and edit drafted content");
+  browser.sleep(1000);
+  browser.wait(
+    protractor.ExpectedConditions.visibilityOf(
+      content.workspaceHeaderDropDwn
+    ),
+    20000,
+    "headerDropdown page not loaded"
+  );
+  content.workspaceHeaderDropDwn.click();
+  browser.sleep(2000);
+  browser.wait(
+    protractor.ExpectedConditions.visibilityOf(content.workSpace),
+    20000,
+    "workspace page not loaded"
+  );
+  content.workSpace.click();
+  browser.sleep(3000);
+  browser.wait(
+    protractor.ExpectedConditions.visibilityOf(searchObj.allMyContent),
+    40000,
+    "allMyContent is not available"
+  );
+  searchObj.allMyContent.click();
+  console.log("User successfully navigated to All My Content");
+  browser.wait(
+    protractor.ExpectedConditions.visibilityOf(content.searchForReview),
+    20000,
+    "workspace page not loaded"
+  );
+  content.searchForReview.click();
+  content.searchForReview.sendKeys(uploadName);
+  browser.sleep(6000);
+  browser.wait(
+    protractor.ExpectedConditions.visibilityOf(resov.imageCard4),
+    40000,
+    "imageCard is not available"
+  );
+  resov.imageCard4.click();
+  console.log(
+    "User should be able to click on the drafts section to see draft contents"
+  );
+  browser.sleep(5000);
+
+
 
 };
 
@@ -45601,4 +45650,5 @@ module.exports = {
   FillBmesWhileCreatingBookForRelNameValidation,
   CourseAssessmentSendReviewWithAlreadyFilledDetails,
   contentSearchInDraftAndUpdateQRofDifferentTenanatAndValidateError,
+  ProperPreviewShownForUploadContentInAllMyContentSection,
 };

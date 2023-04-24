@@ -1093,6 +1093,8 @@ var resource = () => {
     var assertTextInQuestionSection = element(by.xpath("//p[contains(text(),'India')]"));
     var assertImageInQuestionSection = element(by.xpath("//div[@class='image-container   ']"));
     var ImgGrid7 = element(by.xpath("//div[contains(text(),'Select layout')]//following::img[7]"));
+    var clkZoomInMCQInPreviewSection = element(by.xpath("//img[@class='zoom-icon']"));
+    var assertCrossIconInImageZoom = element(by.xpath("//div[@class='qc-popup-close-button']"));
 
 
     return {
@@ -2186,6 +2188,8 @@ var resource = () => {
         assertTextInQuestionSection,
         assertImageInQuestionSection,
         ImgGrid7,
+        clkZoomInMCQInPreviewSection,
+        assertCrossIconInImageZoom,
     }
 };
 module.exports = {

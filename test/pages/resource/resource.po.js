@@ -1096,7 +1096,22 @@ var resource = () => {
     var clkZoomInMCQInPreviewSection = element(by.xpath("//img[@class='zoom-icon']"));
     var assertCrossIconInImageZoom = element(by.xpath("//div[@class='qc-popup-close-button']"));
     var clkSelectedAudioSelectBtn = element(by.xpath("//button[@type='button'][contains(text(),'Select')]"));
+    var clickLargeImageIconInAnswerOption = element.all(by.xpath("//i[@class='image large icon']"));
+    var verifyLargeImageAddedInAnswerOption = element.all(by.xpath("//div[@class='image-container']"));
+    var clickAudioIconInAnswerOption = element.all(by.xpath("//*[@class='music large icon']"));
+    var verifyAudioAddedInAnswerOption = element.all(by.xpath("//div[@class='audio-container']"));
+    var ImgGrid1 = element(by.xpath("//div[contains(text(),'Select layout')]//following::img[1]"));
+    var assertImageInQuestionSection2 = element(by.xpath("//img[@class='q-image']"));
+    var clkZoomInQuestion = element(by.xpath("//img[@class='question-zoom-img']"));
+    var assertAudioRightsidePositionGrid1Layout = element(by.xpath("//img[@class='audio with-image']"));
+    var ImgGrid5 = element(by.xpath("//div[contains(text(),'Select layout')]//following::img[5]"));
+    var clkZoomInQuestionForGrid5 = element(by.xpath("//img[@class='zoom-image']"));
+    var assertAudioRightsidePositionGrid5Layout = element(by.xpath("//img[@class='audio-option-image']"));
+    var assertAudioRightsidePositionGrid7Layout = element(by.xpath("//img[@class='audio-icon']"));
+    var clkZoomInQuestionForGrid2 = element(by.xpath("//img[@class='option-image-zoom-icon']"));
+    var clkZoomInQuestionForGrid6 = element(by.xpath("//img[@class='mcq-option-img']//following::img[@tabindex='0'][1]"));
 
+    
 
     return {
         ddSelectlanguage,
@@ -2192,6 +2207,21 @@ var resource = () => {
         clkZoomInMCQInPreviewSection,
         assertCrossIconInImageZoom,
         clkSelectedAudioSelectBtn,
+        clickLargeImageIconInAnswerOption,
+        verifyLargeImageAddedInAnswerOption,
+        clickAudioIconInAnswerOption,
+        verifyAudioAddedInAnswerOption,
+        ImgGrid1,
+        clkZoomInQuestion,
+        assertImageInQuestionSection2,
+        assertAudioRightsidePositionGrid1Layout,
+        ImgGrid5,
+        clkZoomInQuestionForGrid5,
+        assertAudioRightsidePositionGrid5Layout,
+        assertAudioRightsidePositionGrid7Layout,
+        clkZoomInQuestionForGrid2,
+        clkZoomInQuestionForGrid6,
+        
     }
 };
 module.exports = {

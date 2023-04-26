@@ -19,7 +19,7 @@ describe('VerfyLayoutOfAnImageInMCQ', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('ValidateAudioIconForAllMCQLayoutByAddingAudioInQuestioAndAswerOptions',function(){
+    it('ValidateAudioIconAndZoomIconForAllMCQLayoutByAddingAudioInQuestioAndAswerOptions',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');

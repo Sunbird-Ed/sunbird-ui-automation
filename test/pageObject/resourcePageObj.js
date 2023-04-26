@@ -49133,15 +49133,20 @@ const Enter26CharactersInCustomKeyboardInEnglishLanguage = (TwentySixCharacter) 
                                 resov.inputAnswer2.click();
                                 resov.inputAnswer2.sendKeys("Two");
                 
+                                addImageInMCQAnswerOption();
+                                addAudioInMCQAnswerOption();
                                 browser.sleep(1000);
+                                browser.executeScript("arguments[0].scrollIntoView();", resov.ClickAddAnswerForExtra);
                                 resov.ClickAddAnswerForExtra.click();
+                                browser.sleep(1000);
                                 browser.executeScript("arguments[0].scrollIntoView();", resov.inputAnswer3);
-                                wait.waitForElementVisibility(resov.inputAnswer2, 20000, "inputAnswer2 is not available");
+                                wait.waitForElementVisibility(resov.inputAnswer3, 20000, "inputAnswer2 is not available");
                                 resov.inputAnswer3.click();
                                 resov.inputAnswer3.sendKeys("Three");
                 
                 
                                 browser.sleep(1000);
+                                browser.executeScript("arguments[0].scrollIntoView();", resov.ClickAddAnswerForExtra);
                                 resov.ClickAddAnswerForExtra.click();
                                 browser.executeScript("arguments[0].scrollIntoView();", resov.inputAnswer4);
                                 wait.waitForElementVisibility(resov.inputAnswer2, 20000, "inputAnswer2 is not available");
@@ -49149,25 +49154,14 @@ const Enter26CharactersInCustomKeyboardInEnglishLanguage = (TwentySixCharacter) 
                                 resov.inputAnswer4.sendKeys("Four");
                 
                                 browser.sleep(1000);
+                                browser.executeScript("arguments[0].scrollIntoView();", resov.ClickAddAnswerForExtra);
                                 resov.ClickAddAnswerForExtra.click();
                                 browser.executeScript("arguments[0].scrollIntoView();", resov.inputAnswer5);
                                 wait.waitForElementVisibility(resov.inputAnswer2, 20000, "inputAnswer2 is not available");
                                 resov.inputAnswer5.click();
                                 resov.inputAnswer5.sendKeys("Fifth");
                 
-                                //  for (var i = 2; i <= 7; i++) 
-                                //  {
-                                //     resov.addAnswerInQuestionSet.click();
-                                //     var l = "']";
-                                //     var d = "//div[@id='mcqoptions_";
-                                //     var xp = d + i + l;
-                                // }
-                                // resov.deleteSetAnsewerOptions.click();
-                                // browser.sleep(1000);
-                                // resov.deleteSetAnsewerOptions.click();
-                        
-                                // wait.waitForElementVisibility(resov.previewRefreshIcon, 20000, "previewRefreshIcon  is not available");
-                                // resov.previewRefreshIcon.click();
+                                
                                 console.log("First Image comparison in MCQ is passed");
                                 console.log("Second Image comparison in MCQ is passed");
                                 console.log("Third Image comparison in MCQ is passed");
@@ -49177,57 +49171,134 @@ const Enter26CharactersInCustomKeyboardInEnglishLanguage = (TwentySixCharacter) 
                                 resov.previewRefreshIcon.click();
                                 browser.sleep(7000);
                 
-                                browser.executeScript("arguments[0].scrollIntoView();", resov.ImgGrid6);
+                                browser.executeScript("arguments[0].scrollIntoView();", resov.ImgGrid1);
                                 browser.sleep(2000);
                 
-                                resov.ImgGrid6.click();
+                                resov.ImgGrid1.click();
                                 browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@id='iframeArea']")));
                                
                                 browser.sleep(4000);
                                 expect(resov.assertTextInQuestionSection.isPresent()).toBe(true);
-                                expect(resov.assertImageInQuestionSection.isPresent()).toBe(true);
-                                wait.waitForElementVisibility(resov.clkZoomInMCQInPreviewSection, 20000, "previewRefreshIcon  is not available");
-                                resov.clkZoomInMCQInPreviewSection.click();
+                                expect(resov.assertImageInQuestionSection2.isPresent()).toBe(true);
+                                wait.waitForElementVisibility(resov.clkZoomInQuestion, 20000, "previewRefreshIcon  is not available");
+                                resov.clkZoomInQuestion.click();
                                 browser.sleep(2000);
                                 expect(resov.assertCrossIconInImageZoom.isPresent()).toBe(true);
                                 resov.assertCrossIconInImageZoom.click();
                                 browser.sleep(2000);
                    
-                                expect(resov.assertSingleRowForAllAnswerOptions.get(0).isPresent()).toBe(true);
-                                expect(resov.assertSingleRowForAllAnswerOptions.get(1).isPresent()).toBe(true);
-                                expect(resov.assertSingleRowForAllAnswerOptions.get(2).isPresent()).toBe(true);
-                                expect(resov.assertSingleRowForAllAnswerOptions.get(3).isPresent()).toBe(true);
-                                expect(resov.assertSingleRowForAllAnswerOptions.get(4).isPresent()).toBe(true);
+                                expect(resov.assertAudioRightsidePositionGrid1Layout.isPresent()).toBe(true);
+
+                               
                                 browser.sleep(4000);
                            
                                 browser.switchTo().defaultContent();
                        
                                 browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@class='iziModal-iframe']")));
                       browser.sleep(2000);
-                                browser.executeScript("arguments[0].scrollIntoView();", resov.ImgGrid7);
+                                browser.executeScript("arguments[0].scrollIntoView();", resov.ImgGrid5);
                                 browser.sleep(2000);
-                                resov.ImgGrid7.click();
+                                resov.ImgGrid5.click();
                                 browser.executeScript('window.scrollTo(0,0);').then(function () {
                                     console.log('++++++SCROLLED UP+++++');
                                 });
                                 browser.sleep(2000);
                     browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@id='iframeArea']")));
-                    wait.waitForElementVisibility(resov.clkZoomInMCQInPreviewSection, 20000, "previewRefreshIcon  is not available");
-                    resov.clkZoomInMCQInPreviewSection.click();
+
+                    wait.waitForElementVisibility(resov.clkZoomInQuestionForGrid5, 20000, "previewRefreshIcon  is not available");
+                    resov.clkZoomInQuestionForGrid5.click();
                     browser.sleep(2000);
                     expect(resov.assertCrossIconInImageZoom.isPresent()).toBe(true);
                     resov.assertCrossIconInImageZoom.click();
                     browser.sleep(2000);
+                    expect(resov.assertAudioRightsidePositionGrid5Layout.isPresent()).toBe(true);
+
+                   
+                    browser.sleep(4000);
                            
+                    browser.switchTo().defaultContent();
+           
+                    browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@class='iziModal-iframe']")));
+          browser.sleep(2000);
+                    browser.executeScript("arguments[0].scrollIntoView();", resov.ImgGrid7);
+                    browser.sleep(2000);
+                    resov.ImgGrid7.click();
+                    browser.executeScript('window.scrollTo(0,0);').then(function () {
+                        console.log('++++++SCROLLED UP+++++');
+                    });
+                    browser.sleep(2000);
+        browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@id='iframeArea']")));
+
+        wait.waitForElementVisibility(resov.clkZoomInMCQInPreviewSection, 20000, "previewRefreshIcon  is not available");
+        resov.clkZoomInMCQInPreviewSection.click();
+        browser.sleep(2000);
+        expect(resov.assertCrossIconInImageZoom.isPresent()).toBe(true);
+        resov.assertCrossIconInImageZoom.click();
+        browser.sleep(2000);
+        expect(resov.assertAudioRightsidePositionGrid7Layout.isPresent()).toBe(true);
+
+
+
+        browser.sleep(4000);
+                           
+        browser.switchTo().defaultContent();
+
+        browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@class='iziModal-iframe']")));
+browser.sleep(2000);
+        browser.executeScript("arguments[0].scrollIntoView();", resov.ImgGrid2);
+        browser.sleep(2000);
+        resov.ImgGrid2.click();
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        browser.sleep(2000);
+browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@id='iframeArea']")));
+
+wait.waitForElementVisibility(resov.clkZoomInQuestionForGrid2, 20000, "previewRefreshIcon  is not available");
+resov.clkZoomInQuestionForGrid2.click();
+browser.sleep(2000);
+expect(resov.assertCrossIconInImageZoom.isPresent()).toBe(true);
+resov.assertCrossIconInImageZoom.click();
+browser.sleep(2000);
+expect(resov.assertAudioRightsidePositionGrid1Layout.isPresent()).toBe(true);
+
+
+
+browser.sleep(4000);
+                           
+        browser.switchTo().defaultContent();
+
+        browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@class='iziModal-iframe']")));
+browser.sleep(2000);
+        browser.executeScript("arguments[0].scrollIntoView();", resov.ImgGrid6);
+        browser.sleep(2000);
+        resov.ImgGrid6.click();
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        browser.sleep(2000);
+browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@id='iframeArea']")));
+
+wait.waitForElementVisibility(resov.clkZoomInQuestionForGrid6, 20000, "previewRefreshIcon  is not available");
+resov.clkZoomInQuestionForGrid6.click();
+browser.sleep(2000);
+expect(resov.assertCrossIconInImageZoom.isPresent()).toBe(true);
+resov.assertCrossIconInImageZoom.click();
+browser.sleep(2000);
+expect(resov.assertAudioRightsidePositionGrid1Layout.isPresent()).toBe(true);
+
+
+                      
                            
                                 browser.switchTo().defaultContent();
                 
                                 browser.switchTo().frame(browser.driver.findElement(by.xpath("//*[@class='iziModal-iframe']")));
-                                browser.sleep(2000);
+                                browser.sleep(3000);
                 
                                 wait.waitForElementToBeClickable(resov.createQueNext, 20000, " createQueNext  is not available");
                                 resov.createQueNext.click();
-    
+                                browser.sleep(3000);
+
                                 fillQusetionMetaDataForm();
                                
                                 wait.waitForElementToBeClickable(resov.nextButton, 20000, "nextButton is not available");
@@ -49249,8 +49320,48 @@ const Enter26CharactersInCustomKeyboardInEnglishLanguage = (TwentySixCharacter) 
                                     return resourceName;
                                 }   
         
-    
+     const addImageInMCQAnswerOption = () => {
+  wait.waitForElementVisibility(resov.clickLargeImageIconInAnswerOption.get(1), 20000, "clickLargeImageIcon is not available");
+   resov.clickLargeImageIconInAnswerOption.get(1).click();
+   browser.sleep(1000);
 
+ console.log("Click on Large Image Icon");
+  wait.waitForElementVisibility(resov.checkAppIcon, 20000, "checkAppIcon is not available");
+resov.checkAppIcon.click();
+ console.log("Check First Image");
+  browser.sleep(1000);
+wait.waitForElementVisibility(resov.selectAppIcon, 20000, "selectAppIcon is not available");
+  resov.selectAppIcon.click();
+   console.log("Clicked on Select button");
+browser.sleep(4000);
+ expect(resov.verifyLargeImageAddedInAnswerOption.get(1).isPresent()).toBe(true);
+  if (resov.verifyLargeImageAddedInAnswerOption.get(1).isDisplayed()) {
+        console.log("Images Added Succesfully In Question Set")
+       }            
+       }   
+    
+       const addAudioInMCQAnswerOption = () => {
+        console.log("User is Trying to Add Audio in Question Set");
+        
+ wait.waitForElementVisibility(resov.clickAudioIconInAnswerOption.get(1),20000, "clickAudioIcon is not available");
+  resov.clickAudioIconInAnswerOption.get(1).click();
+ console.log("Click Add Audio Icon");
+ browser.sleep(1000);
+ wait.waitForElementVisibility(resov.clickAllAudioTab,20000, "clickAllAudioTab is not available");
+  resov.clickAllAudioTab.click();
+   console.log("Click on AllAudioTab");
+ wait.waitForElementVisibility(resov.selectAudio,20000, "selectAudio is not available");
+resov.selectAudio.click();
+  console.log("Select Audio");
+   browser.sleep(4000);
+  resov.clkSelectedAudioSelectBtn.click();
+   browser.sleep(4000);
+  expect(resov.verifyAudioAddedInAnswerOption.get(1).isPresent()).toBe(true);
+if (resov.verifyAudioAddedInAnswerOption.get(1).isDisplayed()) {
+  console.log("Audio Added Succesfully In Question Set")
+             }
+             }   
+      
 
 module.exports = {
     createResource,
@@ -49603,5 +49714,7 @@ module.exports = {
     ImageContainerShouldNotDisplayForGridAndImageHorizontalayout,
     ZoomIconVerifyForMCQQuestionImageGridAndImageHorizontalLayout,
     ValidateAudioIconForAllMCQLayoutByAddingAudioInQuestioAndAswerOptions,
+    addImageInMCQAnswerOption,
+    addAudioInMCQAnswerOption,
 }
 

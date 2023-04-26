@@ -1095,6 +1095,7 @@ var resource = () => {
     var ImgGrid7 = element(by.xpath("//div[contains(text(),'Select layout')]//following::img[7]"));
     var clkZoomInMCQInPreviewSection = element(by.xpath("//img[@class='zoom-icon']"));
     var assertCrossIconInImageZoom = element(by.xpath("//div[@class='qc-popup-close-button']"));
+    var clkSelectedAudioSelectBtn = element(by.xpath("//button[@type='button'][contains(text(),'Select')]"));
 
 
     return {
@@ -2190,6 +2191,7 @@ var resource = () => {
         ImgGrid7,
         clkZoomInMCQInPreviewSection,
         assertCrossIconInImageZoom,
+        clkSelectedAudioSelectBtn,
     }
 };
 module.exports = {

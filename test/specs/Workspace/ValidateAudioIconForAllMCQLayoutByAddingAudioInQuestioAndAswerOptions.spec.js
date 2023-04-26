@@ -19,13 +19,12 @@ describe('VerfyLayoutOfAnImageInMCQ', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('ZoomIconShouldDisplayForMCQImageGridLayoutAndImageHorizontalLayout',function(){
+    it('ValidateAudioIconForAllMCQLayoutByAddingAudioInQuestioAndAswerOptions',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('Creator');
-        let contentName=resourcePageObj.ZoomIconVerifyForMCQQuestionImageGridAndImageHorizontalLayout();
-       
-
+        let contentName=resourcePageObj.ValidateAudioIconForAllMCQLayoutByAddingAudioInQuestioAndAswerOptions();
+     
     });
 });
 

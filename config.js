@@ -97,7 +97,7 @@ exports.config = {
 //test:'test/specs/SUNBIRD_Knowledge_1/validateWorkspaceOptionAndSection.spec.js'
 //test:'test/specs/SUNBIRD_Knowledge_6/CopyMP4ContentAndSendForReview.spec.js'
 //test:'test/specs/SUNBIRD_Knowledge_3/EditPublishedWebMUploadContentWithSameTypeWebmAndVerify.spec.js'
-testing:'test/specs/Workspace/ZoomIconShouldDisplayForMCQImageGridLayoutAndImageHorizontalLayout.spec.js'
+testing:'test/specs/Workspace/ValidateAudioIconForAllMCQLayoutByAddingAudioInQuestioAndAswerOptions.spec.js'
 
 },
     allScriptsTimeout: 4000000000,

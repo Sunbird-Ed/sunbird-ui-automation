@@ -28477,8 +28477,8 @@ const validateClickedOnLogoDirectedToHomepage = () => {
     wait.waitForElementVisibility(content.leftSideSunbirdLogo, 20000);
     searchObj.leftSideSunbirdLogo.click();
     browser.sleep(6000);
-    //     expect((searchObj.assertHomepage).isEnabled()).toBe(true);
-    //     browser.sleep(2000);
+       expect((searchObj.assertHomepage).isEnabled()).toBe(true);
+       browser.sleep(2000);
   } catch (Exception) {
     console.log("Fai");
   }

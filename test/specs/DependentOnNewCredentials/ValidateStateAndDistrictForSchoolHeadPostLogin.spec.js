@@ -28,7 +28,7 @@ describe('SchoolHeadRoleInLocationPopupAndRolePopup for role', () => {
         utility.handleLocationPopupForSchoolHead();
         utility.handleLocationPopup();
         utility.userLogin('SchoolHeader');
-        utility.handleLocationPopup();
+        //utility.handleLocationPopup();
 
         
     })

@@ -4,7 +4,7 @@ var HtmlReporter = require('protractor-beautiful-reporter');
 
 
 exports.config = {
-    //seleniumAddress: 'http://localhost:4444/wd/hub',
+    // seleniumAddress: 'http://localhost:4444/wd/hub',
     directConnect: true,
     //allScriptsTimeout: 10000000000,
 
@@ -20,7 +20,7 @@ exports.config = {
        vdn3 : 'test/specs/Sanity4/*.spec.js',
        
 
-        //vdn1 : 'test/specs/Sanity4/verifyDraftStatusOfUploadContentInTOCpage.spec.js',
+        // vdn1 : 'test/specs/Sanity4/verifyMyContentsTabIsAvailable.spec.js',
         // vdn2 : 'test/specs/Sanity3/verifyAssignedProjectContributorAbleToUploadContent.spec.js',
 
         //vdn : 'test/specs/Sanity3/validateEditDeleteIconsInDraftwithContent.spec.js'

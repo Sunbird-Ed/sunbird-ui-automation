@@ -2668,9 +2668,9 @@ const addSampleFromContriutionSideAndNominate = (projectName) => {
 
 
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkeTextbook), 20000, "Checkbox not Present");
-        vdn.clkeTextbook.click();
-        browser.sleep(2000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkeTextbook), 20000, "Checkbox not Present");
+        // vdn.clkeTextbook.click();
+        // browser.sleep(2000);
 
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.eTextbookCreateNewBtn), 20000, "Checkbox not Present");
@@ -7964,9 +7964,9 @@ const addSampleFromContriutionSideWithoutNominate = (projectName) => {
 
 
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkeTextbook), 20000, "Checkbox not Present");
-        vdn.clkeTextbook.click();
-        browser.sleep(2000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkeTextbook), 20000, "Checkbox not Present");
+        // vdn.clkeTextbook.click();
+        // browser.sleep(2000);
 
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.eTextbookCreateNewBtn), 20000, "Checkbox not Present");
@@ -8082,6 +8082,10 @@ const NominateContributerWithUploadSample = (projectName) => {
         vdn.checkLearningResource.click();
         browser.sleep(2000);
 
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.checkTeacherResource), 20000, "Checkbox is not Present");
+        vdn.checkTeacherResource.click();
+        browser.sleep(2000);
+
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnSubmitContentType), 20000, "Submit Button not Present");
         vdn.btnSubmitContentType.click();
         browser.sleep(5000);
@@ -8097,9 +8101,9 @@ const NominateContributerWithUploadSample = (projectName) => {
 
 
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkeTextbook), 20000, "Checkbox not Present");
-        vdn.clkeTextbook.click();
-        browser.sleep(2000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkeTextbook), 20000, "Checkbox not Present");
+        // vdn.clkeTextbook.click();
+        // browser.sleep(2000);
 
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.eTextbookCreateNewBtn), 20000, "Checkbox not Present");

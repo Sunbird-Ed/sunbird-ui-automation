@@ -154,7 +154,7 @@ var VDNPage = () => {
     var checkLearningPlanUnit = element(by.xpath("//label[contains(text(),'Lesson Plan Unit')]"));
     var clkUploadSample = element(by.xpath("//button[contains(text(),'Upload Sample')]"));
     var clkeTextbook = element(by.xpath("//div[@class='title']//span[contains(text(),'eTextbook')][1]"));
-    var eTextbookCreateNewBtn = element(by.xpath("//span[contains(text(),' eTextbook')]//following::button[1]"));
+    var eTextbookCreateNewBtn = element(by.xpath("//button[contains(text(),'Create new ')]"));
     var slteTextbookContribute = element(by.xpath("//div[contains(text(),'eTextbook')]"));
     var clkContnue = element(by.xpath("//button[contains(text(),'Continue ')]"));
     var clkContentTypeDropdown = element(by.xpath("//label[contains(text(),'Content Type(s) ')]//following::i[@class='dropdown icon']"));

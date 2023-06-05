@@ -26,7 +26,7 @@ describe('Verify project with approved status in My projects tab  for Contributo
                  utility.userLogin('Admin');
                  let projectName1 = VDNfun.createProjectWithContributorOrgAdmin();
                  utility.userLogout();
-                 utility.userLoginContributer('Cont OrgAdmin');
+                 utility.userLoginContributer('Cont OrgAdmin1');
                  VDNfun.verifyApprovedStatusForProjectWithIndividualContributor(projectName1);
 
                 })  

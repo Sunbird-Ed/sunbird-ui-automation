@@ -799,7 +799,7 @@ const verifyPreApprovedUserNominationIsDisplayedInNominationsTab = (projectName)
         browser.sleep(2000);
 
         (vdn.assertPreApproved.getText()).then(function (input) {
-            expect((input).includes("Sunrise")).toBe(true);
+            expect((input).includes("Cherry")).toBe(true);
             console.log("Contribution organisation name Is same as sourcing org");
         });
 
@@ -1879,7 +1879,7 @@ const createProjectWithAllContentType = () => {
         vdn.selLearningResource.click();
         browser.sleep(1000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selOldQuestionSet), 20000, "Old Practice Question Set is not available");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selOldQuestionSet), 20000, "Practice Question Set is not available");
         vdn.selOldQuestionSet.click();
         browser.sleep(1000);
 
@@ -3502,7 +3502,7 @@ const createProjectWithContributorOrgAdmin = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterNameOrOrg), 20000, "Eenter Name or Org Field Not Available");
         vdn.enterNameOrOrg.click();
-        vdn.enterNameOrOrg.sendKeys('Karnataka');
+        vdn.enterNameOrOrg.sendKeys('Classmate');
         browser.sleep(1000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.searchBtn), 20000, "Search Button Not Available");
@@ -7823,9 +7823,9 @@ const verifyAcceptRequestChangesNotAvailableInReviewerSide = (projectName) => {
         });
         browser.sleep(2000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.openAngularDropdown), 20000, "dropdown Option not Displayed");
-        vdn.openAngularDropdown.click();
-        browser.sleep(2000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.openAngularDropdown), 20000, "dropdown Option not Displayed");
+        // vdn.openAngularDropdown.click();
+        // browser.sleep(2000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.openContentForReject), 20000, "Content not Displayed");
         vdn.openContentForReject.click();
@@ -8080,10 +8080,6 @@ const NominateContributerWithUploadSample = (projectName) => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.checkLearningResource), 20000, "Checkbox is not Present");
         vdn.checkLearningResource.click();
-        browser.sleep(2000);
-
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.checkTeacherResource), 20000, "Checkbox is not Present");
-        vdn.checkTeacherResource.click();
         browser.sleep(2000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnSubmitContentType), 20000, "Submit Button not Present");

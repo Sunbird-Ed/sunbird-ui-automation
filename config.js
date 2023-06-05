@@ -20,10 +20,10 @@ exports.config = {
        vdn3 : 'test/specs/Sanity4/*.spec.js',
        
 
-        // vdn1 : 'test/specs/Sanity4/verifyMyContentsTabIsAvailable.spec.js',
+        //vdn1 : 'test/specs/Sanity4/verifyDraftStatusOfUploadContentInTOCpage.spec.js',
         // vdn2 : 'test/specs/Sanity3/verifyAssignedProjectContributorAbleToUploadContent.spec.js',
 
-        //vdn : 'test/specs/Sanity3/validateEditDeleteIconsInDraftwithContent.spec.js'
+        // vdn : 'test/specs/Sanity3/verifyApprovedNominationStatusForContributorOrgAdmin.spec.js'
          //vdn : 'test/specs/Sanity2/verifyUploadContentForMultipleContentTypesFromContributor.spec.js'
      
 

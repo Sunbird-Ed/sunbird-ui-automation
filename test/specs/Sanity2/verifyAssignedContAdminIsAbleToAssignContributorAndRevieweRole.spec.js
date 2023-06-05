@@ -26,7 +26,7 @@ describe('Verify All projects my projects and manage users is displayed for Assi
                  utility.userLogin('Admin');
                  let projectName1 = VDNfun.createProjectWithContributorOrgAdmin();
                  utility.userLogout();
-                 utility.userLoginContributer('Cont OrgAdmin');
+                 utility.userLoginContributer('Cont OrgAdmin1');
                  VDNfun.verifyAllProjectsMyProjectsAndManageUsersTabForAssignedContAdmin();
                  VDNfun.verifyAssignedAdminAbleToAssignUsersToTheProject(projectName1);
 

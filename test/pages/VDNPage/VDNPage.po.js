@@ -28,7 +28,7 @@ var VDNPage = () => {
     var seleTextBook = element(by.xpath("//span[text()='eTextbook']"));
     var selExplainitionContent = element(by.xpath("//span[text()='Explanation Content']"));
     var selLearningResource = element(by.xpath("//span[text()='Learning Resource']"));
-    var selOldQuestionSet = element(by.xpath("//span[text()='Old Practice Question Set']"));
+    var selOldQuestionSet = element(by.xpath("//span[text()='Demo Practice Question Set']"));
     var selTeacherResource = element(by.xpath("//span[text()='Teacher Resource']"));
     var clkOutContentType = element(by.xpath("//label[text()='Content Type(s) ']"));
     var assertNominationTab = element(by.xpath("//a[text()='Nominations ']"));
@@ -332,7 +332,7 @@ var VDNPage = () => {
     var checkBoxContentType4 = element(by.xpath("//div[text()=' Select Content Types ']//following::div[8]"));
     var checkBoxContentType5 = element(by.xpath("//div[text()=' Select Content Types ']//following::div[10]"));
     var openNominations = element(by.xpath("//span[text()=' Pending ']//following::button[1]"));
-    var uploadContentFromIndCont = element(by.xpath("//span[contains(text(),' eTextbook')]//following::button[1]"));
+    var uploadContentFromIndCont = element(by.xpath("//span[contains(text(),' Chapter')]//following::button[2]"));
     var eTextBookUpload = element(by.xpath("//div[text()='eTextbook']"));
     var openUploadedContent = element(by.xpath("//span[text()=' Approval Pending']//following::button[1]"));
     var openAngularDropdown = element(by.xpath("//span[text()=' eTextbook']//following::div[5]"));

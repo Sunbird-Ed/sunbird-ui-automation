@@ -122,23 +122,7 @@ var etb = () => {
     var collAllImage = element(by.xpath("//a[text()='All Image']"));
     var collMyImage = element(by.xpath("//a[contains(text(),'My Images')]"));
     var collAppIcon = element(by.xpath("//div[@class='sb-image-section relative position']//following::img"));
-    var clkMediumForAPtenant = element(by.xpath("//*[contains(@id,'gradeLevel')]"));
-    var sltGradeValueForApTenant = element(by.xpath("//*[contains(@id,'gradeLevel')]//following::*[contains(text(),'Class 10')]"));
-    var clkSubjectForApTenant = element(by.xpath("//*[contains(@id,'subject')]"));
-    var sltSubjectForApTenant = element(by.xpath("//*[contains(@id,'subject')]//following::*[contains(text(),'Tamil')]"));
-    var clkMediumForApTenant = element(by.xpath("//*[contains(@id,'medium')]"));
-    var sltMediumForApTenant = element(by.xpath("//*[contains(@id,'medium')]//following::*[contains(text(),'English')]"))
-    var publisherEntryBoxForApTenant = element(by.xpath("//*[contains(@placeholder,'Publisher')]"));
-    var clkYeardropDwnForapTenant = element(by.xpath("//*[contains(@id,'year')]"));
-    var sltYearForAPtenant = element(by.xpath("//*[contains(@id,'year')]//following::*[contains(text(),'2007')]"));
-    var eTextBook = element(by.xpath("//*[contains(text(),'eTextbook')]"));
-    var validateBoardSyllabus = element(by.xpath("//div[contains(text(),'CBSE')]"));
-    var validateYearOfCreation = element(by.xpath("//*[contains(@placeholder,'Enter Year of Creation')]"));
-    var closeButtonInEditor = element(by.xpath("(//*[contains(@id,'closeButton')])"));
-    var validateMediumInEditor = element(by.xpath("(//div[contains(text(),'English')])[1]"));
-    var validateClassOne = element(by.xpath("(//div[contains(text(),'Class 1')])[2]"));
 
-    
 
     return {
         bookName,
@@ -257,22 +241,9 @@ var etb = () => {
         collAllImage,
         collMyImage,
         collAppIcon,
-        clkMediumForAPtenant,
-        sltGradeValueForApTenant,
-        clkSubjectForApTenant,
-        sltSubjectForApTenant,
-        clkMediumForApTenant,
-        sltMediumForApTenant,
-        publisherEntryBoxForApTenant,
-        clkYeardropDwnForapTenant,
-        sltYearForAPtenant,
-        eTextBook,
-        validateBoardSyllabus,
-        validateYearOfCreation,
-        closeButtonInEditor,
-        validateMediumInEditor,
-        validateClassOne,
+
     };
+
 };
 module.exports = {
     etb

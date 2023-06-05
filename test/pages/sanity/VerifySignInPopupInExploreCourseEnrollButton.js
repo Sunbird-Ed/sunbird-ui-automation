@@ -17,7 +17,7 @@ var VerifySignInPopupInExploreCourseEnrollButton = () => {
     var studentCourse = element(by.xpath("//span[text()='Student courses']"));
     var StudentCoursesCount = element(by.xpath("//span/following-sibling::span"));
     var clickOnFirststudentCourses = element(by.xpath("//span[text()='Student courses']/following::bdi"));
-    var addUser = element(by.xpath("//div[contains(text(),'Add another user')]"));
+    var addUser = element(by.xpath("//div[contains(text(),'Add')]"));
     var enterName = element(by.xpath("//input[@placeholder='Enter your name']"));
     var addUserButton = element(by.xpath("//button[text()=' Add user ']"));
     var profile = element(by.xpath("//li[text()=' Profile ']"));
@@ -27,10 +27,6 @@ var VerifySignInPopupInExploreCourseEnrollButton = () => {
     var switchUser = element(by.xpath("//button[contains(text(), 'Change user')]"));
     var declaration = element(by.xpath("//span[contains(text(),' I agree')]/../input"));
     var continueDeclaration = element(by.xpath("//button[contains(text(),'Continue')]"));
-    var assertlimitValidation = element(by.xpath("//strong[contains(text(),'You have exceeded the user creation limit')]"));
-    var assertTcCheckbox = element(by.xpath("//input[@role='checkbox']//following::span[contains(text(),' I agree to the updated terms and policies')]"));
-
-
     return {
         loginButton,
         username,
@@ -56,9 +52,8 @@ var VerifySignInPopupInExploreCourseEnrollButton = () => {
         availableUser,
         switchUser,
         declaration,
-        continueDeclaration,
-        assertlimitValidation,
-        assertTcCheckbox,
+        continueDeclaration
+
 
     };
 

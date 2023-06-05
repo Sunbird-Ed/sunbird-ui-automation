@@ -9,9 +9,6 @@ const ccpage = require(protractor.basePath + '/test/pages/contentCreation/conten
 var content = ccpage.contentCreation();
 let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 
-
-
-
 const validateSignInPopupOnClickOnEnroll = () => {
   try {
     console.log("User is in Explore-Course Page");
@@ -42,7 +39,7 @@ const validateSignInPopupOnClickOnEnroll = () => {
     console.log("User is trying to login");
 
     var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', 'Public User2');
+    var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', 'Public User1');
     browser.sleep(1000);
 
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.userName), 20000, "userName is not available");
@@ -88,7 +85,7 @@ const validateSignInPopupOnClickOnEnrollOnLatestCourse = () => {
     console.log("User is trying to login");
 
     var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', 'Public User2');
+    var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', 'Public User1');
     browser.sleep(1000);
 
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.userName), 20000, "userName is not available");
@@ -256,16 +253,12 @@ const addUserInProfile = () => {
     // console.log("Verified selected user is switched : "+input);
     //});
 
-    return userName;
-
 
   }
   catch (Exception) {
     console.log("Failed on adding user");
   }
 }
-
-
 const validateTextBookCount = () => {
   var count;
   try {
@@ -335,4 +328,5 @@ module.exports = {
   validateTextBookCount,
   validateTextBookCountInDifferentRole,
   verifyYOBforCustodianUsers,
+
 }

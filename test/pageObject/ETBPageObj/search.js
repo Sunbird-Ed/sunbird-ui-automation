@@ -12,12 +12,13 @@ let getAppURL = require(protractor.basePath + '/test/pathFolder/changePath.js');
 
 
 const verifyfilters = () => {
+
     browser.sleep(4000);
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.digitalTextbooksFilter), 20000, "Digital Textbooks Filter not found");
     filter2.digitalTextbooksFilter.click();
     browser.sleep(4000);
     filter2.mediumValidation.click();
-    browser.sleep(3000);
+    browser.sleep();
     expect(filter2.mediumValidation.isDisplayed()).toBe(true);
     browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.selectClass1), 20000, "Class Filter not found");
     filter2.selectClass1.click();
@@ -89,6 +90,7 @@ const verifyfilters = () => {
     return {
         verifyfilters,
     };
+
 };
 
 const verifySearchContentInExplorePage = () => {
@@ -158,8 +160,17 @@ const verifySearchContentInExplorePage = () => {
 filter2.clkExplore.click();
 browser.sleep(2000);
   
-
-
+  
+browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.search), 50000, "textbook content not validated");
+filter2.search.sendKeys("LearningOutcomeDefinition");
+browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchbutton), 20000, "Search button not validated");
+filter2.searchbutton.click();
+browser.sleep(4000);
+expect(filter2.assertLearningOutCome.isDisplayed()).toBeTruthy();
+browser.sleep(2000);
+filter2.clkExplore.click();
+browser.sleep(2000);
+ 
 browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.search), 50000, "textbook content not validated");
 filter2.search.sendKeys("ExplanationResource");
 browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.searchbutton), 20000, "Search button not validated");
@@ -169,7 +180,12 @@ expect(filter2.assertExplanationResource.isDisplayed()).toBeTruthy();
 browser.sleep(2000);
 filter2.clkExplore.click();
 browser.sleep(2000);
+ 
 
+
+  
+   
+ 
 }
 
 
@@ -307,32 +323,32 @@ const multiSelection = () => {
         filter2.hindi.click();
         browser.sleep(2000);
         console.log("Multiple medium Selected");
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.classSelect), 20000, "class not present");
-        // filter2.classSelect.click();
-        // browser.sleep(2000);
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.selectClass1), 20000, "Class 1 not selected");
-        // filter2.selectClass1.click();
-        // browser.sleep(2000);
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.classSelect1), 20000, "class not present");
-        // filter2.classSelect1.click();
-        // browser.sleep(2000);
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.selectClass2), 20000, "class 2 not present");
-        // filter2.selectClass2.click();
-        // browser.sleep(2000);
-        // console.log("Multiple Class Selected");
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectselect), 20000, "Subject not selected");
-        // filter2.subjectselect.click();
-        // browser.sleep(2000);
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectSelection1), 20000, "subject1 not present");
-        // filter2.subjectSelection1.click();
-        // browser.sleep(2000);
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectselect), 20000, "Subject not selected");
-        // filter2.subjectselect.click();
-        // browser.sleep(2000);
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectSelection2), 20000, "subject2 not present");
-        // filter2.subjectSelection2.click();
-        // browser.sleep(2000);
-        // console.log("Multiple Subject Selected");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.classSelect), 20000, "class not present");
+        filter2.classSelect.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.selectClass1), 20000, "Class 1 not selected");
+        filter2.selectClass1.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.classSelect1), 20000, "class not present");
+        filter2.classSelect1.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.selectClass2), 20000, "class 2 not present");
+        filter2.selectClass2.click();
+        browser.sleep(2000);
+        console.log("Multiple Class Selected");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectselect), 20000, "Subject not selected");
+        filter2.subjectselect.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectSelection1), 20000, "subject1 not present");
+        filter2.subjectSelection1.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectSelect1), 20000, "Subject not selected");
+        filter2.subjectSelect1.click();
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(filter2.subjectSelection2), 20000, "subject2 not present");
+        filter2.subjectSelection2.click();
+        browser.sleep(2000);
+        console.log("Multiple Subject Selected");
     }
     catch (Exception) {
         console.log("err")

@@ -1,8 +1,5 @@
 //const { element } = require("protractor");
 
-const { element } = require("protractor");
-const { elementsLocated } = require("selenium-webdriver/lib/until");
-
 var resource = () => {
 
     var clickresource = element(by.xpath("//div[@class='content']/..//span[.='Resource']"));
@@ -123,7 +120,7 @@ var resource = () => {
     var teacherInstruction = element(by.xpath("//textarea[@id='instructions']"));
     var backgroundColor = element(by.xpath("//div[@class='sp-preview-inner']"));
     var redColor = element(by.xpath("//span[@title='#ff0000']"));
-    var addQuestionSet = element(by.xpath("(//div[contains(@id,'toolbar')])//following::a[@data-content='Add Question Set']"));
+    var addQuestionSet = element(by.xpath("//a[@data-content='Add Question Set']"));
     var pickQuestion = element(by.xpath("//div[@class='header ng-binding']"));
     var pickQuestionCheckBox = element(by.xpath("//div[@class='seven wide column qb-question-container']//input"));
     var pickQueNextButton = element(by.xpath("//button[contains(text(),'Next')]"));
@@ -170,7 +167,7 @@ var resource = () => {
     var searchIcon = element(by.xpath("//button[contains(.,'Search')]"));
     var cardLabel = element(by.xpath("//span[contains(@class,'sb--card__type')]"));
     var searchedContentForUpload = element(by.xpath("(//h4[contains(@class,'sb--card__title sb__ellipsis sb__ellipsis--two text-left')])[1]"));
-    var headerLibrary = element(by.xpath("//*[contains(@class,'textbooks')][1]"));
+    var headerLibrary = element(by.xpath("(//*[contains(@class,'textbooks')])[1]"));
     var selectFITBTemplate = element(by.xpath("//a[contains(text(),'Fill in the Blanks')]/following::div[3]"));
 
     var workSpace = element(by.xpath("//*[contains(text(),'Workspace')]"));
@@ -192,7 +189,7 @@ var resource = () => {
     var submitButtonInQuestion = element(by.xpath("(//button[@id='save-question-button'])[2]"));
     var nextButton = element(by.xpath("//button[contains(text(),'Next')]"));
 
-    var addbutton = element(by.xpath("//span[contains(text(),'Question Set')]//following::button[contains(text(),'Add More Questions')]//following::button[2]"));
+    var addbutton = element(by.xpath("(//button[contains(text(),'Add')])[3]"));
 
     var checkAppIcon = element(by.xpath("//div[@class='ui image']//img"));
     var yearOfCreation = element(by.xpath("//input[@id='copyrightYear']"));
@@ -229,7 +226,7 @@ var resource = () => {
     var verifyRatingSlideMsg = element(by.xpath("//*[contains(text(),'Thank you for rating this content!')]"));
     var justCompletedMsg = element(by.xpath("//*[contains(text(),'You just completed')]"));
     var ScoreLabel = element(by.xpath("//*[contains(text(),'SCORE')]"));
-    var validateScoreResult = element(by.xpath("//*[contains(text(),'SCORE')]//following::ul"));
+    var validateScoreResult = element(by.xpath("//li[@class='ps-score-data endpage-score ps-score-data-padding-top ng-binding']"));
 
     var Published = element(by.xpath(" //a[contains(.,'Published ')]"));
     var firstCourseCardContentName = element(by.xpath("//*[@class='sliderCardHeading text-cencapitalize']"));
@@ -240,9 +237,9 @@ var resource = () => {
     var clickBoard = element(by.xpath("//div[contains(text(),'Select Board/Syllabus')]"));
     var selectBoard = element(by.xpath("//div[contains(text(),'Select Board/Syllabus')]//following::div[2]"));
     var clickMedium = element(by.xpath("//div[contains(text(),'Select Medium')]"));
-    var selectMedium = element(by.xpath("//*[contains(text(),'Select Medium')]//following::div[2]"));
-    var clickclass = element(by.xpath("//*[contains(text(),'Select Class')]"));
-    var SelectClass = element(by.xpath("//*[contains(text(),'Select Class')]//following::div[2]"));
+    var selectMedium = element(by.xpath("//div[contains(text(),'Select Medium')]//following::div[2]"));
+    var clickclass = element(by.xpath("//div[contains(text(),'Select Class')]"));
+    var SelectClass = element(by.xpath("//div[contains(text(),'Select Class')]//following::div[2]"));
     var clicksubject = element(by.xpath("//div[contains(text(),'Select Subject')]"));
     var selectSubject = element(by.xpath("//div[contains(text(),'Select Subject')]//following::div[2]"));
     var ddYear = element(by.xpath("//select[@id='_selectyear']"));
@@ -256,7 +253,7 @@ var resource = () => {
     var deleteSetAnsewerOptions = element(by.xpath("//i[@class='trash large icon delete-icon']"));
     var closePage = element(by.xpath("//i[@class='remove icon custom-cursor']"));
     var firstBook = element(by.xpath("//div[@class='ui image']"));
-    var clickMcQFirstAnswer = element(by.xpath("//div[@aria-label='Select the answer']//following::div[@class='option-text-container text-only']"));
+    var clickMcQFirstAnswer = element(by.xpath("//div[@class='option-text-container text-only']"));
     var courseName = element(by.xpath("//input[@placeholder='Name']"));
     var boardInResource = element(by.id("board"));
     var mediumInResource = element(by.id("medium"));
@@ -323,32 +320,32 @@ var resource = () => {
     var btnResume = element(by.xpath("//div[contains(@class,'ui ok blue button ng-scope')]"));
     var btnCloseEditor = element(by.xpath("//div[contains(@class,'ui basic cancel button ng-scope')]"));
     var labelEnterTheQuestion = element(by.xpath("//span[contains(text(),'Enter the question')]"));
-    var linkActiveItemDraft = element(by.xpath("//a[contains(text(),' Drafts ')]//following::a[contains(@class,'ui black right ribbon')]"));
-    var ddSendforreview = element(by.xpath("(//div[@class='ui button text-part popup-item']//following::i[@class='dropdown icon'])[1]"));
+    var linkActiveItemDraft = element(by.xpath("(//a[contains(@class,'item active')])[1]"));
+    var ddSendforreview = element(by.xpath("(//div[@class='ui button text-part popup-item']//following::i[2]//parent::div)[1]"));
     var sendForReviewInShareViaLink = element(by.xpath("//div[contains(@data-content,'Send for review')]"));
     var linkLimitedSharing = element(by.xpath("//div[contains(text(),'Limited sharing')]"));
     var linkShareViaLink = element(by.xpath("//a[contains(text(),' Shared via link ')]"));
-    var resourceInFirstColumn = element(by.xpath("//div[contains(@class,'cardImageText center aligned ')]"));
+    var resourceInFirstColumn = element(by.xpath("//div[@class='cardImageText center aligned ']"));
     var btnEditDetails = element(by.xpath("//span[contains(text(),'Edit Details')]//parent::a"));
     var labelLicense = element(by.xpath("//label[contains(text(),'LICENSE')]//following::div"));
-    var linkCredit = element(by.xpath("//*[contains(text(),'About the content')]"));
+    var linkCredit = element(by.xpath("//div[contains(text(),'About the content')]//following::i"));
     var labelLicenceTerms = element(by.xpath("(//div[contains(@class,'content-metadeta__text fnormal')])[1]"));
     var labelMoreDetails = element(by.xpath("(//div[contains(@class,'content-metadeta__text fnormal')])[2]"));
     var labelCopyRight = element(by.xpath("(//div[contains(@class,'content-metadeta__text fnormal')])[3]"));
     var iconPreview = element(by.xpath("(//div[@class='ui button text-part popup-item'])[2]"));
     var nextIconInPreviewBox = element(by.xpath("(//a[@class='nav-icon nav-next'])[2]"));
     var btnCloseInPreview = element(by.xpath("//h5[@class='ui right floated basic icon circular button  mouse-pointer']"));
-    var ddSelectlanguage = element(by.xpath("//*[contains(@aria-label,'Select Language')]//following::div[contains(@class,'mat-select-arrow-wrapper')]"));
+    var ddSelectlanguage = element(by.xpath("//i[@class='dropdown icon']"));
     var labelEnglish = element(by.xpath("(//span[contains(text(),'English')])[1]"));
     var labelMyCourses = element(by.xpath("//h4[contains(text(),'courses')]"));
     var btnSlideNext = element(by.xpath("//button[contains(@class,'slick-next slick-arrow')]"));
     var btnViewAll = element(by.xpath("//button[contains(text(),' View All ')]"));
     var btnPagination = element(by.xpath("//a[contains(@class,'sb-item')]"));
-    var imageCard3 = element(by.xpath("//div[contains(@class,'cardImageText center aligned')]"));
+    var imageCard3 = element(by.xpath("//div[@class='cardImageText center aligned ']"));
     var revieDialogClose = element(by.xpath("//span[contains(text(),'Reviewer Suggestions')]//following::i"));
     var clkUploRequestChanges = element(by.xpath("//button[@tabindex='0']"));
     var clkRejectUploadsc = element(by.xpath("//label[contains(text(),'Language is NOT simple to understand')]//following::button"));
-    var clkFeaturedCourseViewAll = element(by.xpath("//span[contains(text(),' courses')]//following::button[2]"));
+    var clkFeaturedCourseViewAll = element(by.xpath("//span[contains(text(),' courses')]//following::button[1]"));
     var SltLevelQu = element(by.xpath("//label[contains(text(),'TOPIC')]//following::i[1]"));
     var saveAndCreateButton = element(by.xpath("//button[@id='save-question-button']"));
     var resoCard = element(by.xpath("//div[@class='sb--card__meta']"));
@@ -415,18 +412,18 @@ var resource = () => {
 
 
     var clkBoardDdAllTabs = element(by.xpath("//label[contains(text(),'Board')]//following::div[1]"));
-    var sltBoardDdAllTabs = element(by.xpath("//*[contains(text(),'Board')]//following::span[contains(text(),' CBSE/NCERT ')]"));
+    var sltBoardDdAllTabs = element(by.xpath("//label[contains(text(),'Board')]//following::span[1]"));
 
     var clkMediumDdAllTabs = element(by.xpath("//label[contains(text(),'Medium')]//following::div[1]"));
-    var sltMediumDdAllTabs = element(by.xpath("//label[contains(text(),'Medium')]//following::span[contains(text(),'english')]"));
+    var sltMediumDdAllTabs = element(by.xpath("//label[contains(text(),'Medium')]//following::span[1]"));
     var sltMedium2DdAllTabs = element(by.xpath("//label[contains(text(),'Medium')]//following::span[3]"));
 
-    var clkClassDdAllTabs = element(by.xpath("//label[contains(text(),'Grade')]//following::div[1]"));
-    var sltClassDdAllTabs = element(by.xpath("//label[contains(text(),'Grade')]//following::span[contains(text(),' class 1 ')]"));
+    var clkClassDdAllTabs = element(by.xpath("//label[contains(text(),'Class')]//following::div[1]"));
+    var sltClassDdAllTabs = element(by.xpath("//label[contains(text(),'Class')]//following::span[1]"));
     var sltClass2DdAllTabs = element(by.xpath("//label[contains(text(),'Class')]//following::span[3]"));
 
     var clkSubjectDdAllTabs = element(by.xpath("//label[contains(text(),'Subject')]//following::div[1]"));
-    var sltSubjectDdAllTabs = element(by.xpath("//label[contains(text(),'Subject')]//following::*[contains(text(),'accountancy')]"));
+    var sltSubjectDdAllTabs = element(by.xpath("//label[contains(text(),'Subject')]//following::span[2]"));
     var sltSubjectDD2dAllTabs = element(by.xpath("//label[contains(text(),'Subject')]//following::span[3]"));
     var courseToBeClicked = element(by.xpath("//div[@class='sb--card__meta']"));
 
@@ -454,22 +451,23 @@ var resource = () => {
     var publishedContent = element(by.xpath("//a[text()=' Published ']"));
     var clkPreferences = element(by.xpath("//*[contains(text(),'Your preferences ')]"));
     var assertGusetName = element(by.xpath("//*[contains(text(),'Hi Guest ')]"));
-    var assertPreferencePopup = element(by.xpath("//*[contains(text(),'Browse SUNBIRD Library to find relevant content based on your preferences (Board, Medium and Grade)')]"));
+    var assertPreferencePopup = element(by.xpath("//*[contains(text(),'Browse SUNBIRD Library to find relevant content based on your preferences (Board, Medium and Class)')]"));
     var clkHome = element(by.xpath("//*[contains(text(),'Home')]"));
-    var browseBySubj = element(by.xpath("//*[contains(text(),'Browse by Subjects')]"));
+    var imageCard4= element(by.xpath("(//div[contains(@class,'UpReviewHeader')])"));
+    var browseBySubj = element(by.xpath("//div[contains(text(),'Browse by Subjects')]"));
     var featured = element(by.xpath("//div[contains(text(),'Featured')]"));
     var browseByCategories = element(by.xpath("//div[contains(text(),'Browse by Categories')]"));
     var browseByBoard = element(by.xpath("//div[contains(text(),'Browse by Board')]"));
     var browseByAudience = element(by.xpath("//div[contains(text(),'Browse by Audience')]"));
     var assertCbseBoard = element(by.xpath("//label[contains(text(),'Cbse/ncert')]"));
     var assertIgotBoard = element(by.xpath("//label[contains(text(),'Igot-health')]"));
-    var assertBoardSubContnet = element(by.xpath("//*[contains(text(),'Browse by Subjects')]//following::div[@role='button'][1]"));
+    var assertBoardSubContnet = element(by.xpath("//div[contains(text(),'Browse by Subjects')]//following::div[@role='button'][1]"));
     var assertCategSubContent = element(by.xpath("//div[contains(text(),'Browse by Categories')]//following::div[@role='button'][1]"));
     var clkExploreTab = element(by.xpath("//*[contains(text(),' Explore ')]"));
     var assertAudeinceType = element(by.xpath("//div[contains(text(),'Browse by Audience')]//following::label[contains(text(),'School Head Or Officials')]"));
     var assertAudeinceType2 = element(by.xpath("//div[contains(text(),'Browse by Audience')]//following::label[contains(text(),'Parent/guardian')]"));
-    var clkBackInbrowseBySubjectContentCard = element(by.xpath("//span[contains(text(),'English')]//following::button[1]"));
-    var clkBackInbrowseByBoardInExplore = element(by.xpath("//span[contains(text(),'English')]//following::button[1]"));
+    var clkBackInbrowseBySubjectContentCard = element(by.xpath("//div[contains(text(),' from all the boards and mediums on  SUNBIRD')]//preceding::button[1]"));
+    var clkBackInbrowseByBoardInExplore = element(by.xpath("//div[contains(text(),'Explore cbse/ncert from all the boards and mediums on  SUNBIRD')]//preceding::button[1]"));
     var clkViewAllBtn = element(by.xpath("//button[contains(text(),'View all')]"));
     var clkCloseBtn = element(by.xpath("//button[contains(text(),'Close ')]"));
     var clkChangePreferenceBtn = element(by.xpath("//button[contains(text(),'CHANGE PREFERENCE')]"));
@@ -480,41 +478,41 @@ var resource = () => {
     var toastMsg = element(by.xpath("//*[@class='iziToast-title slideIn']"));
     var addVedio = element(by.xpath("//a[@data-content='Add Video']"));
     var addMathtext = element(by.xpath("//a[@data-content='Add Math text']"));
-    var clkMediFilter = element(by.xpath("//label[contains(text(),'Medium')]//following::div[2]"));
-    var sltMediuFilter1 = element(by.xpath("//mat-option[@aria-selected='false']//following::span"));
+    var clkMediFilter = element(by.xpath("//label[contains(text(),'Medium')]//following::span[1]"));
+    var sltMediuFilter1 = element(by.xpath("//label[contains(text(),'Medium')]//following::div[5]"));
     var sltMediuFilter2 = element(by.xpath("//label[contains(text(),'Medium')]//following::span[6]"));
-    var ClkClassFilter = element(by.xpath("//label[contains(text(),'Grade')]//following::div[2]"));
-    var sltClassFilter1 = element(by.xpath("//mat-option[@aria-selected='false']//following::span"));
-    var sltClassFilter2 = element(by.xpath("//mat-option[@aria-label='Class 1']"));
+    var ClkClassFilter = element(by.xpath("//label[contains(text(),'Class')]//following::span[1]"));
+    var sltClassFilter1 = element(by.xpath("//label[contains(text(),'Class')]//following::div[5]"));
+    var sltClassFilter2 = element(by.xpath("//label[contains(text(),'Class')]//following::span[6]"));
     var clkDigitalTxtBooks = element(by.xpath("//a[contains(text(),'Digital textbooks')]"));
     var clkTVClasses = element(by.xpath("//a[contains(text(),'TV classes')]"));
     var clkCourseHeader = element(by.xpath("//a[contains(text(),'Courses')]"));
-    var MediumsAsertSelectedOption = element(by.xpath("//span[contains(text(),'English, Tamil')]"));
-    var ClassAsserSelctedOption = element(by.xpath("//span[contains(text(),'Class 1, Class 2')]"));
+    var MediumsAsertSelectedOption = element(by.xpath("//label[contains(text(),'Medium')]//following::span[contains(text(),',')]"));
+    var ClassAsserSelctedOption = element(by.xpath("//label[contains(text(),'Class')]//following::span[contains(text(),',')][1]"));
     var clkResetBtn = element(by.xpath("//button[contains(text(),'Reset')]"));
-    var clkViewAllNcertSec = element(by.xpath("//div[contains(text(),'From NCERT ')]//following::button[1]"));
+    var clkViewAllNcertSec = element(by.xpath("//*[contains(text(),' From NCERT ')]/following:: button[contains(text(),' View All')][1]"));
     var aseertCourseData = element(by.xpath("//*[contains(text(),'From NCERT')]//following::div[contains(text(),'Course')]"));
     var assertTextBookData = element(by.xpath("//*[contains(text(),'From NCERT')]//following::div[contains(text(),'TextBook')]"));
     var assertEnrollEndDate = element(by.xpath("//*[contains(text(),'Last date for enrolment:')]"));
-    var QuestionName = element(by.xpath("//input[contains(@placeholder,'Name')]"));
-    var enterDescription = element(by.xpath("//textarea[contains(@placeholder,'Description')]"));
+    var QuestionName = element(by.xpath("//input[@placeholder='Enter Name']"));
+    var enterDescription = element(by.xpath("//textarea[@placeholder='Enter Description']"));
     var enterInstruction = element(by.xpath("//div[@contenteditable='true']"));
     var AdditionalCategory = element(by.xpath("//sb-caret-down[@class='caret-down']")); 
     var selAdditionalCategory = element(by.xpath("//label[contains(text(),'Concept Map')]"));
     var selBoard = element(by.xpath("//select[@id='sb-dropdown']"));
-    var selBoardValue = element(by.xpath("//option[contains(text(),'State (Tamil Nadu)') or contains(text(),'Z_Test_Framework') or contains(text(),'CBSE')]"));
+    var selBoardValue = element(by.xpath("//option[text()='State (Tamil Nadu)']"));
     var dropdownMedium = element(by.xpath("//select[@id='sb-dropdown']//following::select[1]"));
-    var selectMedium3 = element(by.xpath("//option[contains(text(),'English')]"));
-    var dropDownClass = element(by.xpath("//option[contains(text(),'Select Class')]//.."));
-    var selectClass = element(by.xpath("//option[contains(text(),'Class 1')]"));
-    var dropDownSubject = element(by.xpath("//option[contains(text(),'Select Subject')]"));
-    var selectSubject1 = element(by.xpath("//option[contains(text(),'Mathematics')]"));
-    var dropDownAudiene = element(by.xpath("//option[contains(text(),'Select Audience ')]"));
-    var selectAudience = element(by.xpath("//option[contains(text(),'Student')]"));
+    var selectMedium3 = element(by.xpath("//option[text()='English']"));
+    var dropDownClass = element(by.xpath("//option[text()='Select Class ']"));
+    var selectClass = element(by.xpath("//option[text()='Class 1']"));
+    var dropDownSubject = element(by.xpath("//sb-icon-dropdown[@class='dropdown-icon']"));
+    var selectSubject1 = element(by.xpath("//option[text()='Mathematics']"));
+    var dropDownAudiene = element(by.xpath("//sb-icon-dropdown[@class='dropdown-icon']"));
+    var selectAudience = element(by.xpath("//option[text()='Student']"));
     var maxHour = element(by.xpath("//input[@name='hour']"));
     var maxHourValue = element(by.xpath("//option[@value='01']"));
     var Qtype = element(by.xpath("//input[contains(@class,'sb-textbox')]"));
-    var createNew1 = element(by.xpath("//button[contains(text(),'Create New ')]"));
+    var createNew1 = element(by.xpath("//button[contains(@class,'sb-btn sb-btn-normal sb-btn-primary mt-10 mr-30')]"));
     var createNew2 = element(by.xpath("//i[@class='icon plus']"));
     var McqOptionInput22 = element(by.xpath("(//div[@aria-label='Rich Text Editor, main'])[3]"));
     var sltCorrectAnswer1 = element(by.xpath("//label[@for='answer_1']"));
@@ -591,495 +589,7 @@ var resource = () => {
     var lessonPlanRequestChanges = element(by.xpath("//div[@id='reviewButton']//following::*[text()='Request Changes']"));
     var commentbox = element(by.xpath("//textarea[@id='review-comments']"));
     var footerRequestChanges = element(by.xpath("//div[@id='review-footer']//following::button[contains(text(),'Request changes')][2]"));
-    var selectContentType = element(by.xpath("//*[contains(text(),'Select Content type')]"));
-    var contentTypeValue = element(by.xpath("//span[contains(text(),'content playlist')]"));
-    var assertBoard = element(by.xpath("(//span[contains(text(),'CBSE/NCERT')])[1]"));
-    var assertMedium = element(by.xpath("(//span[contains(text(),'english')])[1]"));
-    var assertClass = element(by.xpath("(//span[contains(text(),'class 1')])[1]"));
-    var createNewBtn = element(by.xpath("//button[contains(text(),'Create New')]"));
-    var limitSharingdrpdwn = element(by.model("hideLimitedSharingBtn"));
-    var assertTermsNcond = element(by.xpath("//*[contains(text(),'Terms and Privacy')]"));
-    var switchToClassicTheme = element(by.xpath("//*[contains(@title,'Close sidebar')]//following::span[contains(text(),'Switch to classic theme')]"));
-    var addImageQuestionSet = element(by.xpath("//button[@title='Add image']//*[@class='image outline icon']"));
-    var selectImageInQuesSet = element(by.xpath("//div[text()='Select Image']//following::div[9]"));
-    var clickImage = element(by.xpath("//label[text()='Question']//following::*[@class='image ck-widget ck-widget_selected']"));
-    var clickZoom = element(by.xpath("//div[@class='ck-balloon-rotator__content']"));
-    var assertBorad = element(by.xpath("//span[contains(text(),'State (Tamil Nadu)')]"));
-    var asseertMedim = element(by.xpath("//span[contains(text(),'Medium:')]//following::span[1]"));
-    var assertClass1 = element(by.xpath("//span[contains(text(),'Class')]"));
-    var slideDropDown = element(by.xpath("(//div[contains(@data-content,'Add Slide')]//following::div[contains(@class,'dropdownarrowwrapper')])[1]"));
-    var selectArrangeSequesnce = element(by.xpath("//a[contains(text(),'Arrange in Sequence')]/following::div[3]"));
-    var clickBoldLetter = element(by.xpath("(//*[contains(@class,'cke_toolgroup')]//following::*[@title='Bold (Ctrl+B)'])[2]"));
-    var sizeDropDown = element(by.xpath("(//*[contains(@id,'cke_993_text')])"));
-    var assertErrorUploadingMessage = element(by.xpath("//*[contains(text(),'Error in processing the file')]//following::div[contains(text(),'Upload file again')]"));
-    var previewButtonInEditor = element(by.xpath("//div[@data-content='Preview']"));
-    var clkNxtSlide = element(by.xpath("(//div[contains(text(),'Questions')]//preceding::div[@aria-label='next slide'])[1]"));
-    var clkClosePreview = element(by.xpath("//div[contains(text(),'Question Set Preview')]//preceding::i[1]"));
-    var assertInstruction = element(by.xpath("//p[contains(text(),'Answer All')]"));
-    var clkBoldQstn = element(by.xpath("(//button[@class='ck ck-button ck-off'])[1]"));
-    var assertQstnBold = element(by.xpath("//strong[contains(text(),'What is the capital of Karnataka?')]"));
-    var clkBoldAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[10]"));
-    var clkBoldAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[19]"));
-    var assertBoldAns1 = element(by.xpath("//strong[contains(text(),'Bangalore')]"));
-    var assertBoldAns2 = element(by.xpath("//strong[contains(text(),'Mangalore')]"));
-    var clkItalicQstn = element(by.xpath("(//button[@class='ck ck-button ck-off'])[2]"));
-    var assertQstnItalic = element(by.xpath("//i[contains(text(),'What is the capital of Karnataka?')]"));
-    var clkItalicAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[11]"));
-    var assertItalicAns1 = element(by.xpath("//i[contains(text(),'Bangalore')]"));
-    var clkItalicAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[20]"));
-    var assertItalicAns2 = element(by.xpath("//i[contains(text(),'Mangalore')]"));  
-    var clkUnderlineQstn = element(by.xpath("(//button[@class='ck ck-button ck-off'])[3]"));
-    var assertQstnUnderline = element(by.xpath("//u[contains(text(),'What is the capital of Karnataka?')]"));
-    var clkUnderlineAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[12]"));
-    var assertUnderlineAns1 = element(by.xpath("//u[contains(text(),'Bangalore')]"));
-    var clkUnderlineAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[21]"));
-    var assertUnderlineAns2 = element(by.xpath("//u[contains(text(),'Mangalore')]")); 
-    var assertQstnBoldSub = element(by.xpath("//strong[contains(text(),'Describe Bangalore')]"));
-    var assertBoldAnsSub = element(by.xpath("//strong[contains(text(),'Bangalore Is Capital Of KARNATAKA')]"));
-    var assertQstnItalicSub = element(by.xpath("//i[contains(text(),'Describe Bangalore')]"));
-    var assertItalicAnsSub = element(by.xpath("//i[contains(text(),'Bangalore Is Capital Of KARNATAKA')]"));
-    var assertQstnUnderlineSub = element(by.xpath("//u[contains(text(),'Describe Bangalore')]"));
-    var assertUnderlineAnsSub = element(by.xpath("//u[contains(text(),'Bangalore Is Capital Of KARNATAKA')]"));
-    var clkDropDownFontQstn = element(by.xpath("(//button[@class='ck ck-button ck-off ck-dropdown__button'])[3]"));
-    var fontSizeSelectedForQstn = element(by.xpath("//span[text()='14']"));
-    var assertFontForQstn = element(by.xpath("//span[@class='fs-14']"));
-    var clkDropDownFontAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off ck-dropdown__button'])[7]"));
-    var fontSizeSelectedForAns1 = element(by.xpath("(//span[text()='18'])[2]"));
-    var assertFontForAns1 = element(by.xpath("//span[@class='fs-18']"));
-    var clkDropDownFontAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off ck-dropdown__button'])[11]"));
-    var fontSizeSelectedForAns2 = element(by.xpath("(//span[text()='20'])[3]"));
-    var assertFontForAns2 = element(by.xpath("//span[@class='fs-20']"));
-    var assertScoreMsgeWhenDisplayScoreIsYes = element(by.xpath("//div[contains(text(),'Your score is')]"));
-    var selectFirstOption = element(by.xpath("(//div[@aria-label='Select the answer']//following::span)[1]"));
-    var clkNextButtonInPreviewWindow = element(by.xpath("(//*[@alt='Navigate to Next'])"));
-    var clkSubmitButtonInPreviewWindow = element(by.xpath("(//button[text()=' Submit '])"));
-    var assertDefaultdisplayscore = element(by.xpath("(//div[@id='displayScore'])//following::div[1]"));
-    var selectDisplayScoreAsNo = element(by.xpath("//div[text()='No']"));
-    var displayDropDown = element(by.xpath("(//div[@id='displayScore']//following::input)[1]"));
-    var clkSuperScript = element(by.xpath("(//button[@class='ck ck-button ck-off'])[9]"));
-    var assertSuperScriptQstn = element(by.xpath("//sup[contains(text(),'Bangalore')]"));
-    var clkSuperScriptAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[18]"));
-    var assertSuperScriptAns1 = element(by.xpath("//sup[contains(text(),'BESCOM')]"));
-    var clkSuperScriptAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[27]"));
-    var assertSuperScriptAns2 = element(by.xpath("//sup[contains(text(),'MESCOM')]"));
-    var clkSubScript = element(by.xpath("(//button[@class='ck ck-button ck-off'])[8]"));
-    var assertSubScriptQstn = element(by.xpath("//sub[contains(text(),'Bangalore')]"));
-    var clkSubScriptAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[17]"));
-    var assertSubScriptAns1 = element(by.xpath("//sub[contains(text(),'BESCOM')]"));
-    var clkSubScriptAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[26]"));
-    var assertSubScriptAns2 = element(by.xpath("//sub[contains(text(),'MESCOM')]"));
-    var clkScientificTextAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[20]"));
-    var selScientificAns1 = element(by.xpath("//div[contains(text(),'Area of circle')]"));
-    var clkAddBtn = element(by.xpath("//button[contains(text(),'Add')]"));
-    var assertScientificSymbol1 = element(by.xpath("//div[@class='ck ck-reset_all ck-widget__type-around']"));
-    var clkScientificTextAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[21]"));
-    var selScientificAns2 = element(by.xpath("(//span[@class='katex'])[2]"));
-    var assertScientificSymbol2 = element(by.xpath("(//div[@class='ck ck-reset_all ck-widget__type-around'])[2]"));
-    var clkSymbolOpt = element(by.xpath("//a[contains(text(),'Symbols')]"));
-    var clkLibOpt = element(by.xpath("//a[contains(text(),'Library')]"));
-    var clkAddImgeAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off ck-dropdown__button'])[8]"));
-    var selectSplChar1 = element(by.xpath("(//span[contains(text(),'Special characters')]//following::span[contains(text(),'$')])[2]"));
-    var assertSCAns1 = element(by.xpath("//p[contains(text(),'$')]"));
-    var assertSCAns2 = element(by.xpath("//p[contains(text(),'@')]"));
-    var clkParagraphOpt1 = element(by.xpath("(//span[contains(text(),'Paragraph')])[1]"));
-    var clkHeadingOpt1 = element(by.xpath("(//span[contains(text(),'Heading 1')])[1]"));
-    var assertHeadingOpt1 = element(by.xpath("//h1[contains(text(),'What is The Capital of Karnataka?')]"));
-    var clkParagraphOpt2 = element(by.xpath("(//span[contains(text(),'Paragraph')])[2]"));
-    var clkHeadingOpt2 = element(by.xpath("(//span[contains(text(),'Heading 2')])[2]"));
-    var assertHeadingOpt2 = element(by.xpath("//h2[contains(text(),'Bangalore')]"));
-    var clkParagraphOpt3 = element(by.xpath("(//span[contains(text(),'Paragraph')])[3]"));
-    var clkHeadingOpt3 = element(by.xpath("(//span[contains(text(),'Heading 3')])[3]"));
-    var assertHeadingOpt3 = element(by.xpath("//h3[contains(text(),'Mangalore')]"));
-    var clkHeadingOpt6 = element(by.xpath("(//span[contains(text(),'Heading 6')])[1]"));
-    var assertHeadingOpt6 = element(by.xpath("//h6[contains(text(),'American Currency')]"));
-    var clkHeadingOpt5 = element(by.xpath("(//span[contains(text(),'Heading 5')])[2]"));
-    var assertHeadingOpt5 = element(by.xpath("//h5[contains(text(),'Dollor')]"));
-    var clkPreview = element(by.xpath("//button[contains(text(),'Preview')]"));
-    var clkAlignOptAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off ck-dropdown__button'])[5]"));
-    var clkCenterAlignment = element(by.xpath("(//button[@class='ck ck-button ck-off'])[15]"));
-    var clkAlignOptAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off ck-dropdown__button'])[9]"));
-    var clkRightAlignment = element(by.xpath("(//button[@class='ck ck-button ck-off'])[26]"));
-    var assertCenterAlignment = element(by.xpath("//p[@class='text-center']"));
-    var assertRightAlignment = element(by.xpath("//p[@class='text-right']"));
-    var clkShowQFeedback = element(by.xpath("(//option[contains(text(),'Select Option')])[1]"));
-    var selectYesOptQFeedback = element(by.xpath("(//option[contains(text(),'Yes')])[1]"));
-    var clkShowSolution = element(by.xpath("(//option[contains(text(),'Select Option')])[2]"));
-    var selectYesOptSolution = element(by.xpath("(//option[contains(text(),'Yes')])[2]"))
-    var enterInstructions = element(by.xpath("//p[@data-placeholder='Enter Instructions']"));
-    var chooseType = element(by.xpath("//div[contains(text(),'Choose type')]"));
-    var selectTextImage = element(by.xpath("//div[contains(text(),'Text+Image')]"));
-    var enterSolField = element(by.xpath("(//div[@aria-label='Rich Text Editor, main'])[6]"));
-    var assertInstBeforeEdit = element(by.xpath("//p[contains(text(),'Only 10 Mins')]"));
-    var assertQstnBeforeEdit = element(by.xpath("//p[text()='What is the capital of Karnataka?']"));
-    var assertAnsBeforeEdit = element(by.xpath("//p[text()='Bangalore']"));
-    var assertSolBeforeEdit = element(by.xpath("//p[text()='City']"));
-    var clkBtnDone = element(by.xpath("(//button[text()='Done'])[2]"));
-    var clkClose = element(by.xpath("//p[contains(text(),'What is the capital of Karnataka?')]//preceding::i[1]"));
-    var selSection = element(by.xpath("(//span[@class='fancytree-title'])[2]"));
-    var clkGK = element(by.xpath("//span[contains(text(),'GK1')]"));
-    var clkEditBtn = element(by.xpath("//button[contains(text(),'Edit')]"));
-    var QuestionClear = element(by.xpath("//p[contains(text(),'What is the capital of Karnataka?')]"))
-    var Ans1Clear = element(by.xpath("//p[contains(text(),'Bangalore')]"));
-    var solClear = element(by.xpath("//p[text()='City']"));
-    var assertInstAfterEdit = element(by.xpath("//p[contains(text(),'Only 15 Mins')]"));
-    var assertQstAfterEdit = element(by.xpath("//p[text()='What is the capital?']"));
-    var assertAnsAfterEdit = element(by.xpath("//p[text()='Bengaluru']"));
-    var assertSolAfterEdit = element(by.xpath("//p[text()='Garden City']"));
 
-    var clkChildSection = element(by.xpath("//span[contains(@title,'Section')]"));
-    var clkRootNodeInquestion = element(by.xpath("//*[contains(text(),'Section')]//following::span[@role='button'][1]//.."));
-    var tableDrpdwn1 = element(by.xpath("(//*[@class='ck ck-dropdown']//*[@class='ck ck-icon ck-button__icon'])[1]"));
-    var tableDrpdwn2 = element(by.xpath("(//*[@class='ck ck-dropdown']//*[@class='ck ck-icon ck-button__icon'])[3]"));
-    var tableDrpdwn3 = element(by.xpath("(//*[@class='ck ck-dropdown']//*[@class='ck ck-icon ck-button__icon'])[5]"));
-    var clickTableRc = element(by.xpath("//*[@data-row='1' or @data-column='2']"));
-    var numberedList = element(by.xpath("(//*[@class='ck ck-button ck-off']//*[@class='ck ck-icon ck-button__icon'])[7]"));
-    var numberedList2 = element(by.xpath("(//*[@class='ck ck-button ck-off']//*[@class='ck ck-icon ck-button__icon'])[16]"));
-    var numberedList3 = element(by.xpath("(//*[@class='ck ck-button ck-off']//*[@class='ck ck-icon ck-button__icon'])[24]"));
-
-    var clkImageIconQstn = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[1]"));
-    var clkImageIconAns = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[2]"));
-    var assertQstnImag = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[1]//following::img[1]"));
-    var assertAnsImage = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[2]//following::img[1]"));
-    var assertBoardFilter = element(by.xpath("//*[@id='board']"));
-    var asertAddChildDisabled = element(by.xpath("//button[@class='sb-btn sb-btn-outline-primary sb-btn-normal sb-btn-radius b-none p-0 sb-disabled']"));
-    var clkZoomOut = element(by.xpath("(//div[@class='magnify-icon'])[1]"));
-    var assertLandscap = element(by.xpath("//div[@class='quml-landscape']"));
-    var clkMobIcon = element(by.xpath("//button[@class='w-10 btn-none']"));
-    var assertPortrait = element(by.xpath("//div[@class='quml-header__metadata quml-header__metadata--portrait ng-star-inserted']"));
-    var assertDataRatio = element(by.xpath("//div[@data-ratio='16:9']"));
-    var clkDesktopIcon = element(by.xpath("//button[@class='btn-none']"));
-    var clkImageIconAns2 = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[3]"));
-    var clkZommInPopup = element(by.xpath("//div[@class='image-viewer__zoomin']"));
-    var assertOnZoomIn = element(by.xpath("//img[@style='width: 110%; height: 110%;']"));
-    var selSubConfirmationEnable = element(by.xpath("//option[text()='Enable']"));
-    var selCorrectAns1 = element(by.xpath("(//div[@class='quml-option'])[1]"));
-    var selWrongAns2 = element(by.xpath("(//div[@class='quml-option'])[7]"));
-    var selWrongAns3 = element(by.xpath("(//div[@class='quml-option'])[9]"));
-    var clkZommOutPopup = element(by.xpath("//div[@class='image-viewer__zoomout']"));
-    var assertOnZoomOut = element(by.xpath("//img[@style='width: 100%; height: 100%;']"));
-    var selVideo = element(by.xpath("//div[contains(text(),'Video')]"));
-    var choosevideo1 = element(by.xpath("(//button[text()='Search'])[1]//following::div[2]"));
-    var btnAdd = element(by.xpath("//button[text()='Add']"));
-    var resourceSubmitButton = element(by.xpath("//button[contains(text(),'Submit')]"));
-    var assertTenanatFirstInfo1 = element(by.xpath("//span[contains(text(),'Publisher: ')]//following::span[@title='Tamil Nadu'][1]"));
-    var assertTenanatFirstInfo2 = element(by.xpath("//span[contains(text(),'Publisher: ')]//following::span[@title='Tamil Nadu'][2]"));
-    var assertTenanatFirstInfo3 = element(by.xpath("//span[contains(text(),'Publisher: ')]//following::span[@title='Tamil Nadu'][3]"));
-    var assertTenanatFirstSubjectInfo1 = element(by.xpath("//span[contains(text(),'Subject: ')]//following::span[1]"));
-    var titleCard1 = element(by.xpath("//div[contains(text(),'Digital Textbook')]//following::bdi[1]"));
-    var titleCard2 = element(by.xpath("//div[contains(text(),'Digital Textbook')]//following::bdi[2]"));
-    var assertBoardVisible= element(by.xpath("//div[contains(text(),'Digital Textbook')]//following::bdi//following::span[@title='Tamil Nadu']"));
-    var assertMediumVisible = element(by.xpath("//div[contains(text(),'Digital Textbook')]//following::bdi//following::span[@title='Tamil Nadu']//following::span[1]"));
-    var assertClassVisible = element(by.xpath("//div[contains(text(),'Digital Textbook')]//following::bdi//following::span[@title='Tamil Nadu']//following::span[3]"));
-    var titleCourseCard1 = element(by.xpath("//div[contains(text(),'Course')]//following::bdi[1]"));
-    var titleCourseCard2 = element(by.xpath("//div[contains(text(),'Course')]//following::bdi[3]"));
-    var assertBmcCourse = element(by.xpath("//div[contains(text(),'Course')]//following::bdi//following::span[1]"));
-    var videoButton = element(by.xpath("//span[text()='Video']"));
-    var interactiveButton = element(by.xpath("//span[text()='Interactive']"));
-    var docsButton = element(by.xpath("//span[text()='Docs']"));
-    var Allbtn = element(by.xpath("//span[text()='All']"));
-    var clkChapterUnit = element(by.xpath("//i[@title='arrow-down']//following::h4[1]"));
-    var clkLicenceDropDown = element(by.xpath("//*[contains(text(),' Credits and Licence information')]"));
-    var assertAuthor = element(by.xpath("//h4[contains(text(),'Author')]//following::p[1]"));
-    var assertCreatedOn = element(by.xpath("//h4[contains(text(),'Created On')]//following::p[1]"));
-    var assertUpdatedOn = element(by.xpath("//h4[contains(text(),'Updated on')]//following::p[1]"));
-    var assertlicenceTerms = element(by.xpath("//h4[contains(text(),'License terms')]//following::p[1]"));
-    var assertDescriptionLink= element(by.xpath("//p[contains(text(),'CC BY 4.0 For details see below:')]"));
-    var assertCopyRights = element(by.xpath("//h4[contains(text(),'Copyright')]//following::p[1]"));
-    var assertSolution = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[3]//following::img[1]"));
-    var selAddedCollaborator = element(by.xpath("//i[@class='edit icon cursor-pointer']"));
-    var clkBulletQuestion = element(by.xpath("(//button[@class='ck ck-button ck-off'])[4]"));
-    var clkBulletAns1 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[13]"));
-    var clkBulletAns2 = element(by.xpath("(//button[@class='ck ck-button ck-off'])[22]"));
-    var assertBulletList1Question = element(by.xpath("//li[contains(text(),'What is the capital of Karnataka?')]"));
-    var assertBulletList2Question = element(by.xpath("//li[contains(text(),'Capital Of Karnataka Is')]"));
-    var assertBulletList1Ans1 = element(by.xpath("//li[contains(text(),'Bangalore')]"));
-    var assertBulletList2Ans1 = element(by.xpath("//li[contains(text(),'Bengaluru')]"));
-    var assertAnswer2Image = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[3]//following::img[1]"));
-    var selectSolImgForMCQ = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[4]"));
-    var assertSolForMCQ = element(by.xpath("(//button[@class='ui icon button insert-image-btn'])[4]//following::img[1]"));
-    var resoCardclkForOldTheme = element(by.xpath("//div[@class='sb--card__meta1']"));
-    var assertRichTextEditor = element(by.xpath("//label[text()='Rich Text Editor']"));
-    var assertNameDisable = element(by.xpath("//input[@placeholder='Name' and @disabled='true']"));
-    var assertDescDisable = element(by.xpath("//textarea[@placeholder='Description' and @disabled='true']"));
-    var assertTextFieldDisable = element(by.xpath("//input[@type='text' and @disabled='true']"));
-    var dropdownSummeryType = element(by.xpath("//label[contains(text(),'Summary Type')]//following::sb-icon-dropdown[1]"));
-    var selDurAndScore = element(by.xpath("//option[contains(text(),'Score & Duration')]"));    
-    var assertCoutMaxOnQset = element(by.xpath("//label[contains(text(),'Count of questions to be displayed in this section')]"));
-    var selectMaxQuesDropdown = element(by.xpath("(//select[@id='sb-dropdown'])[1]"));
-    var selectMaxQuestions = element(by.xpath("//option[@value='2: 2']"));
-    var clkTableIcon1 = element(by.xpath("(//button[contains(@aria-haspopup,'true')])[3]"));
-    var assertQuestion = element(by.xpath("(//div[contains(@aria-label,'Rich Text Editor, main')])[1]"));
-    var clkBulletIcon2 = element(by.xpath("(//button[@aria-pressed='false'])[15]"));
-    var clkTableIcon3 = element(by.xpath("(//button[contains(@aria-haspopup,'true')])[8]"));
-    var assertAnswer =  element(by.xpath("(//div[contains(@aria-label,'Rich Text Editor, main')])[2]"));
-    var clkChooseType = element(by.xpath("//div[contains(text(),'Choose type')]"));
-    var clkTxtImage = element(by.xpath("//div[contains(text(),' Text+Image ')]"));
-    var clkBulletIcon3 = element(by.xpath("(//button[starts-with(@aria-labelledby,'ck-editor__aria-label_')])[84]"));
-    var clkTableIcon5 = element(by.xpath("(//button[contains(@aria-haspopup,'true')])[13]"));
-    var assertSolution1 = element (by.xpath("(//div[contains(@aria-label,'Rich Text Editor, main')])[3]"));
-    var assertSelectedNumOfQstns = element(by.xpath("//span[text()='2']"));
-    var clkBulletIcon = element(by.xpath("(//button[@aria-pressed='false'])[7]"));
-    var assertBulletIcon = element(by.xpath("(//div[contains(@aria-label,'Rich Text Editor, main')])[1]"));
-    var clkBulletIcon2 = element(by.xpath("(//button[@aria-pressed='false'])[15]"));
-    var assertBulletIcon2 = element(by.xpath("(//div[contains(@aria-label,'Rich Text Editor, main')])[2]"));
-    var clkTableIcon1 = element(by.xpath("(//button[contains(@aria-haspopup,'true')])[3]"));
-    var clkTableIcon2 = element(by.xpath("//*[@data-row='3' and @data-column='3']"));
-    var clkTableIcon3 = element(by.xpath("(//button[contains(@aria-haspopup,'true')])[8]"));
-    var clkTableIcon4= element(by.xpath("(//*[@data-row='4' and @data-column='4'])[2]"));
-    var rowNumOption1 = element (by.xpath("(//td[@contenteditable='true'])[1]"));
-    var rowNumOption2 = element(by.xpath("(//td[@contenteditable='true'])[5]"));
-    var rowNumOption3 = element(by.xpath("(//td[@contenteditable='true'])[9]"));
-    var assertTblOpt1 = element(by.xpath("(//div[contains(@role,'textbox')])[1]"));
-    var rowNumOption4 = element(by.xpath("(//td[@contenteditable='true'])[12]"));
-    var rowNumOption5 = element(by.xpath("(//td[@contenteditable='true'])[15]")); 
-    var assertTblOpt1 = element(by.xpath("(//div[contains(@role,'textbox')])[1]"));
-    var assertTblOpt2 = element(by.xpath("(//div[contains(@role,'textbox')])[1]"));
-    var clkMcqHeadingOpt6 = element(by.xpath("(//span[contains(text(),'Heading 6')])[2]"));
-    var clkParagraphOpt4 = element(by.xpath("(//span[contains(text(),'Paragraph')])[4]"));
-    var clkMcqHeadingOpt1 = element(by.xpath("(//span[contains(text(),'Heading 1')])[3]")); 
-    var assertMcqHeadingOPt1 = element(by.xpath("//h1[contains(text(),'Dollar')]"));
-    var clkParagraphOpt5 = element(by.xpath("(//span[contains(text(),'Paragraph')])[5]"));
-    var clkMcqHeadingOpt5 = element(by.xpath("(//span[contains(text(),'Heading 5')])[4]"));
-    var assertMcqHeading5 = element(by.xpath("//h5[contains(text(),'Bangalore')]"));
-    var assertMcqParagraph1 = element(by.xpath("//p[contains(text(),'Dollar')]"));
-    var clkMcqHeadingOpt2 = element(by.xpath("(//span[contains(text(),'Heading 2')])[1]"));
-    var assertMcqHeadingOpt2 = element(by.xpath("//h2[contains(text(),'What is The Capital of Karnataka?')]"));
-    var clkMcqHeadingOpt3 = element(by.xpath("(//span[contains(text(),'Heading 3')])[2]"));
-    var assertMcqHeading3 = element(by.xpath("//h3[contains(text(),'Bangalore')]"));
-    var clkMcqHeadingOpt4 = element(by.xpath("(//span[contains(text(),'Heading 4')])[3]"));
-    var assertMcqHeadingOpt3 = element(by.xpath("//h4[contains(text(),'Mangalore')]"));
-    var assertParagraph = element(by.xpath("//p[contains(text(),'American Currency')]"));
-    var assertConversationFlow = element(by.xpath("(//div[contains(text(),'Conversation flow')])[2]"));
-    var assertTnCOnConversationFlow = element(by.xpath("(//a[contains(text(),'I agree to the required terms and conditions')])[1]"));
-    var assertVerifyHeadingOpt1 = element(by.xpath("//h1[contains(text(),'American Currency')]"));
-    var assertVerifyHeadingOpt2 = element(by.xpath("//h2[contains(text(),'Dollor')]"));
-    var clickHeadingOption3 = element(by.xpath("(//span[contains(text(),'Heading 3')])[1]"));
-    var assertVerifyHeading3 = element(by.xpath("//h3[contains(text(),'American Currency')]"));
-    var clkHeadingOpt4 = element(by.xpath("(//span[contains(text(),'Heading 4')])[2]"));
-    var assertHeadingOpt4 = element(by.xpath("//h4[contains(text(),'Dollar')]"));
-    var btnUploadAndUse = element(by.xpath("//button[contains(text(),'Upload and Use')]"));
-    var btnUploadFromComputer = element(by.xpath("//button[contains(text(),' Upload from Computer ')]"));
-    var btnUploadAndUse2 = element(by.xpath("( //button[contains(text(),'Upload and Use')])[2]"));
-    var assertQuestionImgUploaded = element(by.xpath("//label[contains(text(),'Question')]//following::img[1]"));
-    var assertAns1ImgUploaded = element(by.xpath("//label[contains(text(),'Options')]//following::img[1]"));
-    var assertAns2ImgUploaded = element(by.xpath("//label[contains(text(),'Options')]//following::img[2]"));
-    var selectSummeryType = element(by.xpath("//option[text()='Complete']"));
-    var selectRadioButton1 = element(by.xpath("(//label[@class='container'])[1]"));
-    var selectRadioButton2 = element(by.xpath("(//label[@class='container'])[4]"));
-    var selectScoreAndDuration = element(by.xpath("//option[text()='Score & Duration']"));
-    var asertAnsIconYes  = element(by.xpath("(//div[@class='ng-star-inserted'])[2]"));
-    var selectNoOptSolution  = element(by.xpath("(//option[contains(text(),'No')])[2]"));
-    var clkAddOption = element(by.xpath("(//i[@aria-hidden='true'])[5]"));
-    var clkMcqHeading3 = element(by.xpath("(//span[contains(text(),'Heading 3')])[4]"));
-    var assertMcqHeadingopt4 = element(by.xpath("//h3[contains(text(),'Dollar')]"));
-    var mcqSelHeading5 = element(by.xpath("(//span[contains(text(),'Heading 5')])[1]"));
-    var assertMCQHeadingOpt5 = element(by.xpath("//h5[contains(text(),'What is The Capital of Karnataka?')]"));
-    var clkShowAns1 =element(by.xpath("(//div[@id='submit-answer'])[1]"));
-    var enterMarks = element(by.xpath("//input[@placeholder='Marks']"));
-    var assertPreviewMarks = element(by.xpath("//*[@id='Pages-read-:']"));
-    var clkSubmitConfirmation = element(by.xpath("//label[contains(text(),'Submit Confirmation Page ')]//following::sb-icon-dropdown[1]"));
-    var submitConfirmationEnable = element(by.xpath("//option[contains(text(),'Enable')]"));
-    var assertCorrectAns = element(by.xpath("//div[@class='scoreboard__index correct ng-star-inserted']"));
-    var assertWrongAns = element(by.xpath("//div[@class='scoreboard__index wrong ng-star-inserted']"));
-    var assertSkippedAns = element(by.xpath("//div[@class='scoreboard__index skipped ng-star-inserted']"));
-    var assertQuestionImg = element(by.xpath("(//figure[@class='image'])[1]"));
-    var assertAns1Img = element(by.xpath("(//figure[@class='image'])[2]"));
-    var assertAns2Img = element(by.xpath("(//figure[@class='image'])[3]"));
-    var assertTotalQuestions = element(by.xpath("//div[text()='Total Questions: 3']"));
-    var assertQuestionsAnswered = element(by.xpath("//div[text()='Questions Answered: 2']"));
-    var assertQuestionsSkipped = element(by.xpath("//div[text()='Questions Skipped: 1']"));
-    var assertQuestionsNotViewed = element(by.xpath("//div[text()='Questions not Viewed: 0']"));
-    var enterSection = element(by.xpath("//input[@placeholder='Title']"));
-    var clkSection1 = element(by.xpath("//span[text()='Section1']"));
-    var clkSection2 = element(by.xpath("//span[text()='Section2']"));
-    var clkRootNode = element(by.xpath("//span[text()='Section1']//preceding::span[@class='fancytree-title']"));
-    var assertInstructionFromRootNode = element(by.xpath("//p[text()='Answer All']"));
-    var assertCorrectAnsSecA = element(by.xpath("//div[contains(text(),'Section A')]//following::div[@class='scoreboard__index correct ng-star-inserted'][1]"));
-    var assertCorrectAnsSecB = element(by.xpath("//div[contains(text(),'Section B')]//following::div[@class='scoreboard__index correct ng-star-inserted']"));
-    var assertWrongAnsSecA = element(by.xpath("//div[contains(text(),'Section A')]//following::div[@class='scoreboard__index wrong ng-star-inserted'][1]"));
-    var assertWrongAnsSecB = element(by.xpath("//div[contains(text(),'Section B')]//following::div[@class='scoreboard__index wrong ng-star-inserted']"));
-    var assertSkippedAnsSecA = element(by.xpath("//div[contains(text(),'Section A')]//following::div[@class='scoreboard__index skipped ng-star-inserted'][1]"));
-    var assertSkippedAnsSecB = element(by.xpath("//div[contains(text(),'Section B')]//following::div[@class='scoreboard__index skipped ng-star-inserted']"));
-    var assetSecAOnSubmitPage = element(by.xpath("//div[contains(text(),'Section A')]"));
-    var assrtSecBOnSubmitPage = element(by.xpath("//div[contains(text(),'Section A')]//following::div[contains(text(),'Section B')]"));
-    var assertQuestionNo1 = element(by.xpath("//p[contains(text(),'What is the capital of Karnataka?')]"));
-    var assertQuestionNo2 = element(by.xpath("//p[contains(text(),'What is the capital of India?')]"));
-    var assertQuestionNo3 = element(by.xpath("//p[contains(text(),'What is the Indian Currency?')]"));
-    var assertSectionAandProgressBarActive = element(by.xpath("//label[@class='progressBar-border active' and text()='A']"));
-    var assertSectionBandProgressBarActive = element(by.xpath("//label[@class='progressBar-border active' and text()='B']"));
-    var assertSectionAandQuestion1Indicator = element(by.xpath("//li[@class='showFeedBack-progressBar ng-star-inserted progressBar-border' and text()=' 1 ']"));
-    var assertSectionAandQuestion2Indicator = element(by.xpath("//li[@class='showFeedBack-progressBar ng-star-inserted progressBar-border' and text()=' 2 ']"));
-    var assertSectionAandQuestion3Indicator = element(by.xpath("//li[@class='showFeedBack-progressBar ng-star-inserted progressBar-border' and text()=' 3 ']"));
-    var clkReview = element(by.xpath("//button[contains(text(),'Review')]"));
-    var assertQuestion1 = element(by.xpath("//div[contains(text(),' 1/3 ')]"));
-    var NavigateSubmitPage = element(by.xpath("//li[@aria-label='scoreboard']"));
-    var assertSubmitConfirmation = element(by.xpath("//div[contains(text(),'Enjoyed this content?')]"));
-    var assertNextButtonOnQuestionSet = element(by.xpath("//div[@class='quml-navigation__next ml-8 ng-star-inserted' and @title='next slide']"));
-    var assertPrevButtonOnQuewstionSet = element(by.xpath("//div[@class='quml-navigation__previous' and @title='preview slide']"));
-    var assertBtnColor = element(by.xpath("//div[@class='quml-navigation__next quml-navigation__next--active ml-8 ng-star-inserted' and @title='next slide']"));
-    var assertInstruction1 = element(by.xpath("//div[contains(text(),'Instructions')]"));
-    var assertInstructionUnderline = element(by.xpath("(//u[contains(text(),'Instruction')])[1]"))
-    var assertAttempts = element(by.xpath("//span[contains(text(),'Attempt') and contains(text(),'1/')]"));
-    var clkMaxAttempt = element(by.xpath("//button[contains(text(),'Continue learning')]"));
-    var assertReachedMaxLimit = element(by.xpath("//div[contains(text(),'You have exceeded the maximum number of attempts that can be submitted')]"));
-    var assertCloseBtn = element(by.xpath("//a[contains(text(),'Close')]"));
-    var assertInstBold = element(by.xpath("(//strong[contains(text(),'Instruction')])[1]"))
-    var assertInstItalic = element(by.xpath("//i[contains(text(),'Instruction')]"));
-    var clkShuffleCheckBox = element(by.xpath("//*[contains(@id,'shuffle-questions')]"));
-    var validateShuffleMessagePopUp = element(by.xpath("//*[text()='Each question will carry equal weightage of 1 mark when using Shuffle. To provide different weightage to individual questions please turn off Shuffle.']"));
-    var clkSelAns2 = element(by.xpath("//div[@class='option']//preceding::p[2][text()='New Delhi']"));
-    var clkSelAns3 = element(by.xpath("//div[@class='option']//preceding::p[2][text()='Rupee']"));
-    var asserTotalQuestionsAfterMax = element(by.xpath("//div[contains(text(),'Questions Answered: 5')]"));
-    var clkPublishedContentCard = element(by.xpath("//div[@class='content']"));
-    var firstContentCard = element(by.xpath("(//*[contains(@class,'UpForReviewListHover')]//child::td[1])[1]"));
-    var assertTitleLeft = element(by.xpath("(//p[text()='test'])[1]"));
-    var assertTitleCenter = element(by.xpath("//p[text()='test' and @class='text-center']"));
-    var asserrtTitleRight = element(by.xpath("//p[text()='test' and @class='text-right']"));
-    var assertQuestion1Left = element(by.xpath("(//p[text()='One'])[1]"));
-    var assertQuestion1Center = element(by.xpath("//p[text()='one' and @class='text-center']"));
-    var assertQuetion1Right = element(by.xpath("//p[text()='one' and @class='text-right']"));
-    var assertLiveQuestion1 = element(by.xpath("//small[contains(text(),' Show question added to question set')]//following::sui-checkbox[1]"));
-    var assertLiveQuestion2 = element(by.xpath("//small[contains(text(),' Show question added to question set')]//following::sui-checkbox[1]"));
-    var clkOpt1Quest2 = element(by.xpath("(//div[@class='option']//preceding::p[2][text()='Bangalore'])[2]"));
-    var clkOpt1Quest3 = element(by.xpath("(//div[@class='option']//preceding::p[2][text()='Bangalore'])[3]"));
-    var assertQuestionsAnswered1 = element(by.xpath("//div[contains(text(),'Questions Answered: 6')]"));
-    var clkAddQuestion = element(by.xpath("//button[contains(text(),'Add question')]"));
-    var clkAddedQuestion = element(by.xpath("//span[contains(text(),'Section')]//following::span[@class='fancytree-title']"));
-    var assertselectedQuestion = element(by.xpath("//li[text()='i ']"));
-    var assertAppliedBoardFilterInAllTabs = element(by.xpath("//div[contains(text(),'Applied filters')]//following::label[contains(text(),'Board')]//following::a[1]"));
-    var assertAppliedMediumFilterInAllTabs = element(by.xpath("//div[contains(text(),'Applied filters')]//following::label[contains(text(),'Medium')]//following::a[1]"));
-    var assertAppliedSubjectFilterInAllTabs = element(by.xpath("//div[contains(text(),'Applied filters')]//following::label[contains(text(),'Subject')]//following::a[1]"));
-    var selectMax3Questions = element(by.xpath("//option[@value='3: 3']"));
-    var selCorrectAnswer1 = element(by.xpath("(//div[@class='quml-option'])[1]"));
-    var selCorrectAnswer2 = element(by.xpath("(//div[@class='quml-option'])[2]"));
-    var selCorrectAnswer3 = element(by.xpath("(//div[@class='quml-option'])[3]"));
-    var assertSumOfBothSec = element(by.id("Group-18-Copy"));
-    var assertTimer = element(by.xpath("//quml-durationtimer//following::span"));
-    var assertTimerDisplay = element(by.xpath("//quml-timer//following::span[1]"));
-    var assertTimerActive = element(by.id("timer/active"));
-    var selCorrectAnswer4 = element(by.xpath("(//div[@class='quml-option'])[4]"));
-    var selCorrectAnswer5 = element(by.xpath("(//div[@class='quml-option'])[5]"));
-    var enterQuestionTitle = element(by.xpath("(//*[contains(@id,'searchText')])[2]"));
-    var clkCopyQuestion = element(by.xpath("//span[contains(@data-tooltip,'copy question')]"));
-    var submitButtonInEditQuestion = element(by.xpath("//button[contains(text(),'Submit')]"));
-    var clickFunctions = element(by.xpath("(//*[@title='Add Formula'])[1]"));
-    var clickFunctions2 = element(by.xpath("(//*[@title='Add Formula'])[2]"));
-    var clickFunctions3 = element(by.xpath("(//*[@title='Add Formula'])[3]"));
-    var clickEquations = element(by.xpath("//a[contains(text(),'Equations')]"));
-    var clickEquationDropdwn = element(by.xpath("//div[contains(text(),'All Equations')]"));
-    var selectEquationDropDownValue = element(by.xpath("//div[contains(text(),'Trigonometric functions')]"));
-    var selectSinTheta = element(by.xpath("//div[contains(@id,'trig0')]"));
-    var selectCosTheta = element(by.xpath("(//div[contains(@id,'trig1')])[1]"));
-    var selectTanTheta = element(by.xpath("//*[contains(@id,'trig4')]"));
-    var addButton = element(by.xpath("//*[contains(text(),'Please switch to advanced tab to copy paste LaTeX')]//following::button[contains(text(),'Add')]"));
-    var assertAnsSelected = element(by.xpath("//div[@class='quml-option quml-option--selected']"));
-    var assertCompleteConsume = element(by.xpath("//div[text()='You just completed']"));
-    var assertAllQuestions = element(by.xpath("//span[text()='5']"));
-    var assertAllQuestionConsum = element(by.xpath("//div[contains(text(),'Replay')]"));
-    var clkCourse = element(by.xpath("//*[contains(text(),'Course Unit')]//following::div[@title='PDF_13.pdf']"));
-    var assertTitle = element(by.xpath("(//div[text()=' PDF_13.pdf '])[1]"));
-    var assertByOrg = element(by.xpath("(//div[text()=' PDF_13.pdf '])[1]//following::span[text()='by CBSE/NCERT']"));
-    var assertMaxSelectedQuestions = element(by.xpath("//span[text()='3']"));
-    var selectScore = element(by.xpath("//option[text()='Score']"));
-    var selectImageAfterAdding = element(by.xpath("(//*[@class='image ck-widget ck-widget_selected'])"));
-    var resizeOne = element(by.css("svg.ck.ck-icon.ck-button_icon"));
-    var addVedioInResource = element(by.xpath("//*[@data-content='Add Video']"));
-    var addAudioInResource = element(by.xpath("//*[@data-content='Add Audio']"));
-    var clickSelectVedio = element(by.xpath("//*[@name='youtubeVideo']"));
-    var clickSelectedVideo = element(by.xpath("//*[text()='Select']"));
-    var assertmaxlength = element(by.xpath("//*[@maxlength='100']"));
-    var changeTimeout = element(by.xpath("//input[@placeholder='Time'][1]"));
-    var selectOptionOne = element(by.xpath("//*[contains(text(),'240,200,160')]"));
-    var selectSecondOption = element(by.xpath("//*[contains(text(),'200,160,240')]"));
-    var assertImageonCard = element(by.xpath("//span[contains(text(),'Continue Learning')]//following::img"));
-    var assertTitleOnCard = element(by.xpath("//span[contains(text(),'Continue Learning')]//following::h4"));
-    var assertSubjectOnCard = element(by.xpath("//span[contains(text(),'Subject')]//following::span[1]"));
-    var assertPublisherOnCard = element(by.xpath("//span[contains(text(),'Publisher')]//following::span[1]"));
-    var assertDataOnCard = element(by.xpath("//span[contains(text(),'Continue Learning')]//following::h4//following::div//following::span[1]"));
-    var clkNextAfterOpen = element(by.xpath("(//a[@class='nav-icon nav-next'])[2]"));
-    var clkNextButton = element(by.xpath("(//div[contains(text(),'Next')])[1]"));
-    var clkOption1 = element(by.xpath("(//div[@class='option-text-container text-only'])[1]"));
-    var clkAddCertificate = element(by.xpath("//a[contains(text(),'Add certificate')]"));
-    var clkbtnAddCertificate = element(by.xpath("//button[contains(text(),'Add certificate')]"));
-    var assert100PDisable = element(by.xpath("//input[@readonly='true']"));
-    var assertPlusSign = element(by.xpath("//button[@class='d-flex flex-ai-center flex-jc-center plus-btn ng-star-inserted']"));
-    var filterSearch1 = element(by.xpath("(//input[@name='filter_search'])[2]"));
-    var clkAddCollaborator = element(by.xpath("//div[@class='icon-box popup-item']"));
-    var clkAdd = element(by.xpath("(//strong[text()='+ADD'])[1]"));
-    var clkbtnDone1 = element(by.xpath("//button[text()='Done']"));
-    var clkMngCollab = element(by.xpath("//a[text()='Manage Collaborators']"));
-    var clkRemove = element(by.xpath("(//strong[text()='REMOVE'])[1]"));
-    var sectionGK1 = element(by.xpath("//span[text()='SectionGK1']"));
-    var navigateToPrevious = element(by.xpath("//*[contains(@alt,'Navigate to previous')]"));
-    var assertTimeOut = element(by.xpath("//div[contains(text(),'00:00')]"));
-    var replayButton = element(by.xpath("(//*[contains(text(),'Replay')])[2]//..//child::a"));
-    var selectOptionOneSlideOne = element(by.xpath("//*[contains(text(),'241,201,161')]"));
-    var closeIconPopup = element(by.xpath("//*[contains(@aria-label,'close')]"));
-    var nextButtonPopup = element(by.xpath("//div[contains(@id,'popup-buttons-container')]//child::div"));
-    var selBoardValueOnlyRootNode = element(by.xpath("//option[contains(text(),'State (Andhra Pradesh)') or contains(text(),'Z_Test_Framework') or contains(text(),'CBSE')]"));
-    var assertTextCenter = element(by.xpath("//p[text()='What is the capital of Karnataka?' and @class='text-center']"));
-    var clkQuestionAlign = element(by.xpath("(//button[@class='ck ck-button ck-off ck-dropdown__button'])[1]"));
-    var clkQuestionCenter = element(by.xpath("(//button[@class='ck ck-button ck-off'])[5]"));
-    var assertInstructionsEntered = element(by.xpath("//div[contains(text(),'Instructions')]//following::p[text()='abcd xyz']"));
-    var selNoOption = element(by.xpath("(//option[contains(text(),'No')])[1]"));
-    var selMaxQuestionAs1 = element(by.xpath("//option[@value='1: 1']"));
-    var selectMaxQuesDropdownRootNode = element(by.xpath("(//select[@id='sb-dropdown'])[7]"));
-    var assertAfterCreateQuestion = element(by.xpath("//span[text()='Selected Question : 1']"));
-    var checkUncheck1 = element(by.xpath("(//input[@class='question-select'])[1]"));
-    var assertAfterUncheck1 = element(by.xpath("//span[text()='Selected Question : 0']"));
-    var checkUncheck2 = element(by.xpath("(//input[@class='question-select'])[2]"));
-    var checkUncheck3 = element(by.xpath("(//input[@class='question-select'])[3]"));
-    var checkUncheck4 = element(by.xpath("(//input[@class='question-select'])[4]"));
-    var checkUncheck5 = element(by.xpath("(//input[@class='question-select'])[5]"));
-    var assertAfterCheck4 = element(by.xpath("//span[text()='Selected Question : 4']"));
-    var copyQstn = element(by.xpath("(//i[@class='copy icon'])[1]"));
-    var assertCopiedQuestion = element(by.xpath("(//div[contains(text(),'Copy of - Question')])[1]"));
-    var boardInQuestion1 = element(by.xpath("(//div[text()='Select Board' or text()= 'Select Board/Syllabus' ])"));
-    var selectCBSEQue1 = element(by.xpath("(//div[text()='Select Board' or text()= 'Select Board/Syllabus' ])/following::div/div[1]"));
-    var mediumInQuestion1 = element(by.xpath("(//div[.='Select Medium'])"));
-    var selectEnglishFITB1 = element(by.xpath("(//div[.='Select Medium'])/following::div/div[1]"));
-    var clkDeleteQstn = element(by.xpath("(//i[@id='delete-question-config'])[1]"));
-    var assertQuestionCreated = element(by.xpath("//div[contains(text(),'Question Delete')]"));
-    var btnConfirmDel = element(by.xpath("//button[text()='Delete']"));
-    var resoureEditorCloseIcon = element(by.xpath("//div[@id='closeButton']"));
-    var assertEditIconInResouceEditor = element(by.xpath("//i[@class='edit icon link']"));
-    var selectAudioOption = element(by.xpath("//button[@ng-switch-when='select']"));
-    var assertAudioForQuestion = element(by.xpath("//img[@id='org-ekstep-contentrenderer-questionunit-questionComponent-AudioImg']"));
-    var assertAudioForAnswer = element(by.xpath("//*[text()='India']//following::img[2]"));
-    var copyQuestion = element(by.xpath("//*[@class='icon-duplicate link']"));
-    var clickAnswerAudioIcon = element(by.xpath("(//*[text()='Mark as right answer'])[1]//following::i[2]"));
-    var uploadBtn = element(by.xpath("//*[contains(text(),'Upload/ Record')]"));
-    var uploadImage = element(by.xpath("//*[@class='huge upload icon']"));
-    var uploadAndUseBtn = element(by.xpath("//*[text()='Upload and Use']"));
-    var createFTB = element(by.xpath("(//div[@class='card card-hover-effect ng-scope'])[3]"));
-    var clkFTBSelect = element(by.xpath("(//div[@class='card card-hover-effect ng-scope'])[3]//following::div[@class='ui small primary button']"));
-    var clkbtnRefresh = element(by.xpath("//button[text()='Refresh']"));
-    var clkAddText = element(by.xpath("//a[@data-content='Add Text']"));
-    var typeInstruction = element(by.xpath("//textarea[@placeholder='Add text here']"));
-    var clkPrevButtonInPreviewWindow = element(by.xpath("(//*[@alt='Navigate to previous'])"));
-    var assertBlankPageFTB = element(by.xpath("//p[contains(text(),'[[')]"));
-    var assertBlankPageFTB3 = element(by.xpath("//p[contains(text(),']]')]"));
-    var assertBlankPageMCQ = element(by.xpath("assertBlankPageMCQ"));
-    var assertBlankPageReOrdering1 = element(by.xpath("//p[contains(text(),'Arrange the given words in proper order to form a sentence.')]"));
-    var assertBlankPageReOrdering2 = element(by.xpath("//textarea[@maxlength='120']//following::span[contains(text(),'0')]"));
-    var assertBlankPageReArranging = element(by.xpath("//span[contains(text(),'Add Sequences')]//following::span[contains(text(),'0')]"));
-    var clkCloseIcon = element(by.xpath("//div[@class='two wide column right aligned']//following::i[@class='cursor-pointer close link icon']"));
-    var assertQuestionInTheList = element(by.xpath("//div[text()='Close Question']"));
-    var clkEditQuestion = element(by.xpath("(//i[@class='edit icon cursor-icon'])[1]"));
-    var assertEditPage = element(by.xpath("//span[text()='Edit Question']"));
-    var assertShowingResultsText = element(by.xpath("//h4[text()='Showing results for Q4R2I7']"));
-    var assertDigitalTextbookByQR = element(by.xpath("//h4[text()='Showing results for Q4R2I7']//following::div[text()='Digital Textbook']"));
-    var assertCourseByQR = element(by.xpath("//h4[text()='Showing results for Q4R2I7']//following::div[text()='Course']"));
-    var assertAddedQuestion = element(by.xpath("//div[@id='ftb-template']"));
-    var validateBlankScreen = element(by.xpath("//p[contains(text(),'ValidateBlankPage')]"));
-    var clickQuestionMetaDataBackButton = element(by.xpath("//button[@id='back-button']"));
-    var assertUpdatedChangesInMetaDataPage1 = element(by.xpath("//input[@id='name']"));
-    var assertUpdatedChangesInMetaDataPage2 = element(by.xpath("//div[contains(text(),'2+7=____UpdateData')]"));
-    var assertDescriptionData = element(by.xpath("//div[contains(text(),'ಕನ್ನಡ ಪ್ರಶ್ನೆ Kannada question')]"));
-    var assertDeleteToasterMsg = element(by.xpath("//strong[contains(text(),'Content deleted successfully')]"));
-    var assertCollobratorUpdateToasterMsg = element(by.xpath("//strong[contains(text(),'Collaborators updated successfully')]"));
-    var assertNoCollobratorInManageSectionMsg = element(by.xpath("//div[contains(text(),' No collaborators found for this content ')]"));
-    var clickCancelBtnInCreateQuestionTemplatePage = element(by.xpath("//button[@id='cancel-button']"));
 
 
 
@@ -1119,6 +629,7 @@ var resource = () => {
         labelMoreDetails,
         labelCopyRight,
         sendForReviewInShareViaLink,
+
         reload,
         headerCourse1,
         untitledCollection,
@@ -1176,6 +687,7 @@ var resource = () => {
         imageCard,
         selectImage,
         addHotspot,
+        saveIcon,
         closeButtonMsg,
         clickActionTabInResourceCreation,
         clickPlusIconInActionTab,
@@ -1341,13 +853,14 @@ var resource = () => {
         maxScore,
         levelInQuestion,
         selectEasy,
-        // learningOutcome,
+        learningOutcome,
         selectLearningOutcome,
         submitButtonInQuestion,
         nextButton,
-        //questionSetTitle,
+        questionSetTitle,
         addbutton,
         saveIcon,
+        closeButtonMsg,
         sendForReview,
         clickAppIcon,
         checkAppIcon,
@@ -1676,493 +1189,8 @@ var resource = () => {
         lessonPlanRequestChanges,
         commentbox,
         footerRequestChanges,
-        selectContentType,
-        contentTypeValue,
-        assertBoard,
-        assertMedium,
-        assertClass,
-        createNewBtn,
-        limitSharingdrpdwn,
-        assertTermsNcond,
-        switchToClassicTheme,
-        addImageQuestionSet,
-        selectImageInQuesSet,
-        clickImage,
-        clickZoom,
-        assertBorad,
-        asseertMedim,
-        assertClass1,
-        slideDropDown,
-        selectArrangeSequesnce,
-        clickBoldLetter,
-        sizeDropDown,
-        assertErrorUploadingMessage,
-        previewButtonInEditor,
-        clkNxtSlide,
-        clkClosePreview,
-        assertInstruction,
-        clkBoldQstn,
-        assertQstnBold,
-        clkBoldAns1,
-        clkBoldAns2,
-        assertBoldAns1,
-        assertBoldAns2,
-        clkItalicQstn,
-        assertQstnItalic,
-        clkItalicAns1,
-        assertItalicAns1,
-        clkItalicAns2,
-        assertItalicAns2,
-        clkUnderlineQstn,
-        assertQstnUnderline,
-        clkUnderlineAns1,
-        assertUnderlineAns1,
-        clkUnderlineAns2,
-        assertUnderlineAns2,
-        assertQstnBoldSub,
-        assertBoldAnsSub,
-        assertQstnItalicSub,
-        assertItalicAnsSub,
-        assertQstnUnderlineSub,
-        assertUnderlineAnsSub,
-        clkDropDownFontQstn,
-        fontSizeSelectedForQstn,
-        assertFontForQstn,
-        clkDropDownFontAns1,
-        fontSizeSelectedForAns1,
-        assertFontForAns1,
-        clkDropDownFontAns2,
-        fontSizeSelectedForAns2,
-        assertFontForAns2,
-        assertScoreMsgeWhenDisplayScoreIsYes,
-        selectFirstOption,
-        clkNextButtonInPreviewWindow,
-        clkSubmitButtonInPreviewWindow,
-        assertDefaultdisplayscore,
-        selectDisplayScoreAsNo,
-        displayDropDown,
-        clkSuperScript,
-        assertSuperScriptQstn,
-        clkSuperScriptAns1,
-        assertSuperScriptAns1,
-        clkSuperScriptAns2,
-        assertSuperScriptAns2,
-        clkSubScript,
-        assertSubScriptQstn,
-        clkSubScriptAns1,
-        assertSubScriptAns1,
-        clkSubScriptAns2,
-        assertSubScriptAns2,
-        clkScientificTextAns1,
-        selScientificAns1,
-        clkAddBtn,
-        assertScientificSymbol1,
-        clkScientificTextAns2,
-        selScientificAns2,
-        assertScientificSymbol2,
-        clkSymbolOpt,
-        clkLibOpt,
-        clkAddImgeAns1,
-        selectSplChar1,
-        assertSCAns1,
-        assertSCAns2,
-        clkParagraphOpt1,
-        clkHeadingOpt1,
-        assertHeadingOpt1,
-        clkParagraphOpt2,
-        clkHeadingOpt2,
-        assertHeadingOpt2,
-        clkParagraphOpt3,
-        clkHeadingOpt3,
-        assertHeadingOpt3,
-        clkHeadingOpt6,
-        assertHeadingOpt6,
-        clkHeadingOpt5,
-        assertHeadingOpt5,
-        clkPreview,
-        clkAlignOptAns1,
-        clkCenterAlignment,
-        clkAlignOptAns2,
-        clkRightAlignment,
-        assertCenterAlignment,
-        assertRightAlignment,
-        clkShowQFeedback,
-        selectYesOptQFeedback,
-        clkShowSolution,
-        selectYesOptSolution,
-        enterInstructions,
-        chooseType,
-        selectTextImage,
-        enterSolField,
-        assertInstBeforeEdit,
-        assertQstnBeforeEdit,
-        assertAnsBeforeEdit,
-        assertSolBeforeEdit,
-        clkBtnDone,
-        clkClose,
-        selSection,
-        clkGK,
-        clkEditBtn,
-        QuestionClear,
-        Ans1Clear,
-        solClear,
-        assertInstAfterEdit,
-        assertQstAfterEdit,
-        assertAnsAfterEdit,
-        assertSolAfterEdit,
-        clkChildSection,
-        clkRootNodeInquestion,
-        tableDrpdwn1,
-        tableDrpdwn2,
-        tableDrpdwn3,
-        clickTableRc,
-        numberedList,
-        numberedList2,
-        numberedList3,
-        clkImageIconQstn,
-        clkImageIconAns,
-        assertQstnImag,
-        assertAnsImage,
-        assertBoardFilter,
-        asertAddChildDisabled,
-        clkZoomOut,
-        assertLandscap,
-        clkMobIcon,
-        assertPortrait,
-        assertDataRatio,
-        clkDesktopIcon,
-        clkImageIconAns2,
-        clkZommInPopup,
-        assertOnZoomIn,
-        selSubConfirmationEnable,
-        selCorrectAns1,
-        selWrongAns2,
-        selWrongAns3,
-        clkZommOutPopup,
-        assertOnZoomOut,
-        selVideo,
-        choosevideo1,
-        btnAdd,
-        resourceSubmitButton,
-        assertTenanatFirstInfo1,
-        assertTenanatFirstInfo2,
-        assertTenanatFirstInfo3,
-        assertTenanatFirstSubjectInfo1,
-        titleCard1,
-        titleCard2,
-        assertBoardVisible,
-        assertMediumVisible,
-        assertClassVisible,
-        titleCourseCard1,
-        titleCourseCard2,
-        assertBmcCourse,
-        videoButton,
-        interactiveButton,
-        docsButton,
-        Allbtn,
-        clkChapterUnit,
-        clkLicenceDropDown,
-        assertAuthor,
-        assertCreatedOn,
-        assertUpdatedOn,
-        assertlicenceTerms,
-        assertDescriptionLink,
-        assertCopyRights,
-        assertSolution,
-        selAddedCollaborator,
-        clkBulletQuestion,
-        clkBulletAns1,
-        clkBulletAns2,
-        assertBulletList1Question,
-        assertBulletList2Question,
-        assertBulletList1Ans1,
-        assertBulletList2Ans1,
-        assertAnswer2Image,
-        selectSolImgForMCQ,
-        assertSolForMCQ,
-        resoCardclkForOldTheme,
-        assertRichTextEditor,
-        assertNameDisable,
-        assertDescDisable,
-        assertTextFieldDisable,
-        dropdownSummeryType,
-        selDurAndScore,
-        assertCoutMaxOnQset,
-        selectMaxQuesDropdown,
-        selectMaxQuestions,
-        clkTableIcon1,
-        assertQuestion,
-        clkBulletIcon2,
-        clkTableIcon3,
-        assertAnswer,
-        clkChooseType,
-        clkTxtImage,
-        clkBulletIcon3,
-        clkTableIcon5,
-        assertSolution1,
-        assertSelectedNumOfQstns,
-        clkBulletIcon,
-        assertBulletIcon,
-        clkBulletIcon2,
-        assertBulletIcon2,
-        clkTableIcon1,
-        clkTableIcon2,
-        clkTableIcon3,
-        clkTableIcon4,
-        rowNumOption1,
-        rowNumOption2,
-        rowNumOption3,
-        rowNumOption4,
-        rowNumOption5,
-        assertTblOpt1,
-        assertTblOpt2,
-        clkMcqHeadingOpt6,
-		clkParagraphOpt4,
-		clkMcqHeadingOpt1,
-		assertMcqHeadingOPt1,
-		clkParagraphOpt5,
-		clkMcqHeadingOpt5,
-		assertMcqHeading5,
-		assertMcqParagraph1,
-		clkMcqHeadingOpt2,
-		assertMcqHeadingOpt2,
-		clkMcqHeadingOpt3,
-		assertMcqHeading3,
-		clkMcqHeadingOpt4,
-		assertMcqHeadingOpt3,
-        assertParagraph,
-        assertConversationFlow,
-        assertTnCOnConversationFlow,
-        assertVerifyHeadingOpt1,
-        assertVerifyHeadingOpt2,
-        clickHeadingOption3,
-        assertVerifyHeading3,
-        clkHeadingOpt4,
-        assertHeadingOpt4,
-        btnUploadAndUse,
-        btnUploadFromComputer,
-        btnUploadAndUse2,
-        assertQuestionImgUploaded,
-        assertAns1ImgUploaded,
-        assertAns2ImgUploaded,
-        selectSummeryType,
-        selectRadioButton1,
-        selectRadioButton2,
-        selectScoreAndDuration,
-        asertAnsIconYes,
-        selectNoOptSolution,
-        clkAddOption,
-        clkMcqHeading3,
-        assertMcqHeadingopt4,
-        mcqSelHeading5,
-        assertMCQHeadingOpt5,
-        clkShowAns1,
-        enterMarks,
-        assertPreviewMarks,
-        clkSubmitConfirmation,
-        submitConfirmationEnable,
-        assertCorrectAns,
-        assertWrongAns,
-        assertSkippedAns,
-        assertQuestionImg,
-        assertAns1Img,
-        assertAns2Img,
-        assertTotalQuestions,
-        assertQuestionsAnswered,
-        assertQuestionsSkipped,
-        assertQuestionsNotViewed,
-        enterSection,
-        clkSection1,
-        clkSection2,
-        clkRootNode,
-        assertInstructionFromRootNode,
-        assertCorrectAnsSecA,
-        assertCorrectAnsSecB,
-        assertWrongAnsSecA,
-        assertWrongAnsSecB,
-        assertSkippedAnsSecA,
-        assertSkippedAnsSecB,
-        assetSecAOnSubmitPage,
-        assrtSecBOnSubmitPage,
-        assertQuestionNo1,
-        assertQuestionNo2,
-        assertQuestionNo3,
-        assertSectionAandProgressBarActive,
-        assertSectionBandProgressBarActive,
-        assertSectionAandQuestion1Indicator,
-        assertSectionAandQuestion2Indicator,
-        assertSectionAandQuestion3Indicator,
-        clkReview,
-        assertQuestion1,
-        NavigateSubmitPage,
-        assertSubmitConfirmation,
-        assertNextButtonOnQuestionSet,
-        assertPrevButtonOnQuewstionSet,
-        assertBtnColor,
-        assertInstruction1,
-        assertInstructionUnderline,
-        assertAttempts,
-        clkMaxAttempt,
-        assertReachedMaxLimit,
-        assertCloseBtn,
-        assertInstBold,
-        assertInstItalic,
-        clkShuffleCheckBox,
-        validateShuffleMessagePopUp,
-        clkSelAns2,
-        clkSelAns3,
-        asserTotalQuestionsAfterMax,
-        clkPublishedContentCard,
-        firstContentCard,
-        assertTitleLeft,
-        assertTitleCenter,
-        asserrtTitleRight,
-        assertQuestion1Left,
-        assertQuestion1Center,
-        assertQuetion1Right,
-        assertLiveQuestion1,
-        assertLiveQuestion2,
-        clkOpt1Quest2,
-        clkOpt1Quest3,
-        assertQuestionsAnswered1,
-        clkAddQuestion,
-        clkAddedQuestion,
-        assertselectedQuestion,
-        assertAppliedBoardFilterInAllTabs,
-        assertAppliedMediumFilterInAllTabs,
-        assertAppliedSubjectFilterInAllTabs,
-        selectMax3Questions,
-        selCorrectAnswer1,
-        selCorrectAnswer2,
-        selCorrectAnswer3,
-        assertSumOfBothSec,
-        assertTimer,
-        assertTimerDisplay,
-        assertTimerActive,
-        selCorrectAnswer4,
-        selCorrectAnswer5,
-        enterQuestionTitle,
-        clkCopyQuestion,
-        submitButtonInEditQuestion,
-        clickFunctions,
-        clickEquations,
-        clickEquationDropdwn,
-        selectEquationDropDownValue,
-        selectSinTheta,
-        selectCosTheta,
-        addButton,
-        selectTanTheta,
-        clickFunctions2,
-        clickFunctions3,
-        assertAnsSelected,
-        assertCompleteConsume,
-        assertAllQuestions,
-        assertAllQuestionConsum,
-        clkCourse,
-        assertTitle,
-        assertByOrg,
-        assertMaxSelectedQuestions,
-        selectScore,
-        selectImageAfterAdding,
-        resizeOne,
-        assertmaxlength,
-        addVedioInResource,
-        addAudioInResource,
-        clickSelectVedio,
-        clickSelectedVideo,
-        changeTimeout,
-        selectOptionOne,
-        selectSecondOption,
-        assertImageonCard,
-        assertTitleOnCard,
-        assertSubjectOnCard,
-        assertPublisherOnCard,
-        assertDataOnCard,
-        clkNextAfterOpen,
-        clkNextButton,
-        clkOption1,
-        clkAddCertificate,
-        clkbtnAddCertificate,
-        assert100PDisable,
-        assertPlusSign,
-        filterSearch1,
-        clkAddCollaborator,
-        clkAdd,
-        clkbtnDone1,
-        clkMngCollab,
-        clkRemove,
-        sectionGK1,
-        navigateToPrevious,
-        assertTimeOut,
-        replayButton,
-        selectOptionOneSlideOne,
-        closeIconPopup,
-        nextButtonPopup,
-        selBoardValueOnlyRootNode,
-        assertTextCenter,
-        clkQuestionAlign,
-        clkQuestionCenter,
-        assertInstructionsEntered,
-        selNoOption,
-        selMaxQuestionAs1,
-        selectMaxQuesDropdownRootNode,
-        assertAfterCreateQuestion,
-        checkUncheck1,
-        assertAfterUncheck1,
-        checkUncheck2,
-        checkUncheck3,
-        checkUncheck4,
-        checkUncheck5,
-        assertAfterCheck4,
-        copyQstn,
-        assertCopiedQuestion,
-        boardInQuestion1,
-        selectCBSEQue1,
-        mediumInQuestion1,
-        selectEnglishFITB1,
-        clkDeleteQstn,
-        assertQuestionCreated,
-        btnConfirmDel,
-        resoureEditorCloseIcon,
-        assertEditIconInResouceEditor,
-        selectAudioOption,
-        assertAudioForQuestion,
-        assertAudioForAnswer,
-        copyQuestion,
-        clickAnswerAudioIcon,
-        uploadBtn,
-        uploadImage,
-        uploadAndUseBtn,
-        createFTB,
-        clkFTBSelect,
-        clkbtnRefresh,   
-        clkAddText,
-        typeInstruction,
-        clkPrevButtonInPreviewWindow,
-        assertBlankPageFTB,
-        assertBlankPageFTB3,
-        assertBlankPageMCQ,
-        assertBlankPageReOrdering1,
-        assertBlankPageReOrdering2,
-        assertBlankPageReArranging,
-        clkCloseIcon,
-        assertQuestionInTheList,
-        clkEditQuestion,
-        assertEditPage,
-        assertShowingResultsText,
-        assertDigitalTextbookByQR,
-        assertCourseByQR,
-        assertAddedQuestion,
-        validateBlankScreen,
-        clickQuestionMetaDataBackButton,
-        assertUpdatedChangesInMetaDataPage1,
-        assertUpdatedChangesInMetaDataPage2,
-        assertDescriptionData,
-        assertDeleteToasterMsg,
-        assertCollobratorUpdateToasterMsg,
-        assertNoCollobratorInManageSectionMsg,
-        clickCancelBtnInCreateQuestionTemplatePage,
     }
+
 };
 module.exports = {
     resource

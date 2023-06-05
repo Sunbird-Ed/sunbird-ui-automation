@@ -17,13 +17,14 @@ var userOnboard = usronBoardPage.UserOnBoarding();
 var signUpPageObj = signUpPage.signUpPage();
 const tpdPage = require(protractor.basePath + '/test/pages/tpdPage/tpdpage.po.js');
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-var sanityPage = require(protractor.basePath + '/test/pages/userOnBoarding/SanityPage.js');
+const sanityPage = require(protractor.basePath + '/test/pages/userOnBoarding/SanityPage.js');
 var teacherCsv = protractor.basePath + '/test/testdata/teacher.csv';
 var searchObj = tpdPage.tpdPage();
 const verifyCEBpage = require(protractor.basePath + '/test/pages/sanity/VerifySignInPopupInExploreCourseEnrollButton.js');
 var verifyCEBObj = verifyCEBpage.VerifySignInPopupInExploreCourseEnrollButton();
 
 const verifyAdminDashBoard = () => {
+
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
     content.headerDropdown.click();
     wait.waitForElementVisibility(userOnboard.clkAdminDashBoard, 20000, "clkAdminDashBoard is not available");
@@ -115,6 +116,7 @@ const signInWithSSO = () => {
     userOnboard.submitState.click();
     wait.waitForElementVisibility(userOnboard.dropdown, 20000);
     userOnboard.dropdown.click();
+
 }
 
 
@@ -591,6 +593,7 @@ const verifyNoBoardValue = () => {
         expect(firstPart).not.toEqual("Board :");
         console.log('Board didnt displayed');
     });
+
 }
 const verifyHelpFAQ = () => {
 
@@ -626,33 +629,25 @@ const verifyHelpFAQ = () => {
     userOnboard.clkGoToHelpCenter.click();
     wait.waitForElementVisibility(userOnboard.HelpCenterPageAssert, 20000);
     expect(userOnboard.HelpCenterPageAssert.isDisplayed()).toBeTruthy();
-}
 
+
+}
 const updateProfileDetailsForSelfSignedUser = () => {
 
     wait.waitForElementVisibility(content.headerDropdown, 20000);
     content.headerDropdown.click();
-    browser.sleep(3000);
     wait.waitForElementVisibility(content.linkProfile, 20000);
     content.linkProfile.click();
-    browser.sleep(3000);
+
 
     // wait.waitForElementVisibility(userOnboard.labelSubjects, 20000);
     var scrolling = userOnboard.clkEditProfile;
     browser.controlFlow().execute(function () {
         browser.executeScript('arguments[0].scrollIntoView({block:"center"})', scrolling.getWebElement());
     });
-    browser.sleep(3000);
+
     wait.waitForElementVisibility(userOnboard.clkEditProfile, 20000);
     userOnboard.clkEditProfile.click();
-    browser.sleep(3000);
-    wait.waitForElementVisibility(userOnboard.clkBoardEdit, 20000);
-    userOnboard.clkBoardEdit.click();
-    browser.sleep(3000);
-    wait.waitForElementVisibility(userOnboard.verifyIGotHealthValue, 20000);
-    expect(userOnboard.verifyIGotHealthValue.isDisplayed()).toBeTruthy();
-    userOnboard.verifyIGotHealthValue.click();
-    browser.sleep(3000);
 
     wait.waitForElementVisibility(userOnboard.clkBoardEdit, 20000);
     userOnboard.clkBoardEdit.click();
@@ -660,57 +655,61 @@ const updateProfileDetailsForSelfSignedUser = () => {
     wait.waitForElementVisibility(userOnboard.verifyIGotHealthValue, 20000);
     expect(userOnboard.verifyIGotHealthValue.isDisplayed()).toBeTruthy();
     userOnboard.verifyIGotHealthValue.click();
+    browser.sleep(3000);
+
+    // wait.waitForElementVisibility(userOnboard.clkBoardEdit, 20000);
+    // userOnboard.clkBoardEdit.click();
+
+    // wait.waitForElementVisibility(userOnboard.verifyIGotHealthValue, 20000);
+    // expect(userOnboard.verifyIGotHealthValue.isDisplayed()).toBeTruthy();
+    // userOnboard.verifyIGotHealthValue.click();
 
     browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.clkMediumDropDown, 20000);
     userOnboard.clkMediumDropDown.click();
-    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.sltMediumDropDown, 20000);
     userOnboard.sltMediumDropDown.click();
-    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.closeMediumIcon, 20000);
     userOnboard.closeMediumIcon.click();
 
     browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.clkClassDropDown, 20000);
     userOnboard.clkClassDropDown.click();
-    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.sltClassDropDown, 20000);
     userOnboard.sltClassDropDown.click();
-    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.closeClassIcon, 20000);
     userOnboard.closeClassIcon.click();
 
     browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.clkSubjectDropDown, 20000);
     userOnboard.clkSubjectDropDown.click();
-    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.sltSubjectDropDown, 20000);
     userOnboard.sltSubjectDropDown.click();
-    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.closeSubjectIcon, 20000);
     userOnboard.closeSubjectIcon.click();
-    browser.sleep(3000);
+
     wait.waitForElementVisibility(userOnboard.clkSubmitProfile, 20000);
     userOnboard.clkSubmitProfile.click();
-    browser.sleep(3000);
     wait.waitForElementVisibility(userOnboard.assertUpdateToastrMsg, 20000);
     expect(userOnboard.assertUpdateToastrMsg.isDisplayed()).toBeTruthy();
-    browser.sleep(3000);
+
     wait.waitForElementVisibility(userOnboard.labelBoard, 20000);
     expect(userOnboard.labelBoard.isDisplayed()).toBeTruthy();
-    browser.sleep(3000);
+
     wait.waitForElementVisibility(userOnboard.labelMedium, 20000);
     expect(userOnboard.labelMedium.isDisplayed()).toBeTruthy();
-    browser.sleep(3000);
+
     wait.waitForElementVisibility(userOnboard.labelClasses, 20000);
     expect(userOnboard.labelClasses.isDisplayed()).toBeTruthy();
-    browser.sleep(3000);
+
     wait.waitForElementVisibility(userOnboard.labelSubjects, 20000);
     expect(userOnboard.labelSubjects.isDisplayed()).toBeTruthy();
-    browser.sleep(3000);
+
     wait.waitForElementVisibility(userOnboard.assertProfileBoardValue, 20000);
     expect(userOnboard.assertProfileBoardValue.isDisplayed()).toBeTruthy();
+
+
+
 }
 
 const updateStateAndDistrictName = () => {
@@ -733,12 +732,12 @@ const updateStateAndDistrictName = () => {
     browser.sleep(3000);
 
 
-    wait.waitForElementVisibility(userOnboard.clkStateDropdown, 20000);
-    userOnboard.clkStateDropdown.click();
-    browser.sleep(1000);
-    wait.waitForElementVisibility(userOnboard.sltStateDropdown, 20000);
-    userOnboard.sltStateDropdown.click();
-    browser.sleep(1000);
+    // wait.waitForElementVisibility(userOnboard.clkStateDropdown, 20000);
+    // userOnboard.clkStateDropdown.click();
+    // browser.sleep(1000);
+    // wait.waitForElementVisibility(userOnboard.sltStateDropdown, 20000);
+    // userOnboard.sltStateDropdown.click();
+    // browser.sleep(1000);
 
 
     wait.waitForElementVisibility(userOnboard.clkDistrictDropdown, 20000);
@@ -1007,15 +1006,11 @@ const verifyGuestUserDisplayedInProfile = () => {
         console.log("Guest user is not displayed in profile");
     }
 }
-
 const verifyUserCourseProgress = () => {
     try {
         var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
         var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        //console.log(cred[43]);
-        var do_id = cred[43]['CourseName'];
-        console.log(do_id)
-
+        var do_id = cred[34]['CourseName'];
         wait.waitForElementVisibility(content.searchInput, 20000);
         content.searchInput.sendKeys(do_id);
         browser.sleep(3000);
@@ -1087,70 +1082,42 @@ const verifyBCSforSelectedState = () => {
         wait.waitForElementVisibility(content.editProfileName, 20000);
         content.editProfileName.click();
         browser.sleep(8000);
-        wait.waitForElementVisibility(content.BMCstateTN, 20000);
-        content.BMCstateTN.click();
+        wait.waitForElementVisibility(content.BMCstate, 20000);
+        content.BMCstate.click();
         browser.sleep(3000);
-                wait.waitForElementVisibility(content.SelectBMCstate, 20000);
+        wait.waitForElementVisibility(content.SelectBMCstate, 20000);
         content.SelectBMCstate.click();
-        browser.sleep(5000);
-        wait.waitForElementVisibility(content.BMCstateTN, 20000);
-        content.BMCstateTN.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.SelectBMCstateTN, 20000);
-        content.SelectBMCstateTN.click();
         browser.sleep(3000);
         wait.waitForElementVisibility(content.BMCdistrict, 20000);
         content.BMCdistrict.click();
         browser.sleep(3000);
-        wait.waitForElementVisibility(content.SelectBMCdistrictChennai, 20000);
-        content.SelectBMCdistrictChennai.click();
-        browser.sleep(5000);
+        wait.waitForElementVisibility(content.SelectBMCdistrict, 20000);
+        content.SelectBMCdistrict.click();
+        browser.sleep(3000);
         wait.waitForElementVisibility(content.BMCBlock, 20000);
         content.BMCBlock.click();
         browser.sleep(3000);
-        wait.waitForElementVisibility(content.SelectBMCblockPerambur, 20000);
-        content.SelectBMCblockPerambur.click();
+        wait.waitForElementVisibility(content.SelectBMCblock, 20000);
+        content.SelectBMCblock.click();
         browser.sleep(3000);
-        browser.executeScript("arguments[0].scrollIntoView();", content.BMCcluster);
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.BMCcluster, 20000);
-        content.BMCcluster.click();
-        browser.sleep(3000);
-
-        browser.actions().sendKeys(protractor.Key.ENTER).perform();
-        browser.sleep(3000);
-    
-
-       browser.actions().sendKeys(protractor.Key.TAB).perform();
-       browser.sleep(3000);
-    
-
+        // wait.waitForElementVisibility(content.BMCcluster, 20000);
+        // content.BMCcluster.click();
+        // browser.sleep(3000);
         // wait.waitForElementVisibility(content.SelectBMCcluster, 20000);
         // content.SelectBMCcluster.click();
         // browser.sleep(3000);
-
-
-
         // wait.waitForElementVisibility(content.BMCSchoolCluster, 20000);
         // content.BMCSchoolCluster.click();
         // browser.sleep(3000);
-
         // wait.waitForElementVisibility(content.selectBMCSchoolCluster, 20000);
         // content.selectBMCSchoolCluster.click();
-
-      //  browser.executeScript("arguments[0].scrollIntoView();", content.BMCSubmit);
-      //  browser.sleep(2000);
-        wait.waitForElementVisibility(content.BMCSubmit, 2000);
+        browser.executeScript("arguments[0].scrollIntoView();", content.BMCSubmit);
+        browser.sleep(2000);
+        wait.waitForElementVisibility(content.BMCSubmit, 20000);
         content.BMCSubmit.click();
-        browser.sleep(6000);
+        browser.sleep(3000);
+        expect((content.Cluster).isPresent()).toBeFalsy();
 
-        expect(content.assertTNDistrictInProfile.isDisplayed()).toBe(true);
-        expect(content.assertTNStateInProfile.isDisplayed()).toBe(true);
-        expect(content.assertTNDBlockInProfile.isDisplayed()).toBe(true);
-        expect(content.assertTNClusterInProfile.isDisplayed()).toBe(true);
-
-
-      
     }
     catch (err) {
         console.error("Verify Block Cluster and school in BMC with state Uttar pradesh, " + err);
@@ -1164,21 +1131,18 @@ const AddUserProfileVerification = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
         content.headerDropdown.click();
         browser.sleep(1000);
-        browser.executeScript('window.scrollTo(0,100);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.addUser), 20000, "addUser is not available");
         verifyCEBObj.addUser.click();
         console.log("Clicked on add user");
-       userName = "User" + faker.randomData().firstname;
-
+        userName = "User" + faker.randomData().firstname;
         browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.enterName), 20000, "enterName is not available");
         verifyCEBObj.enterName.sendKeys(userName);
         browser.sleep(3000);
+
         browser.executeScript('window.scrollTo(0,200);').then(function () {
             console.log('++++++SCROLLED UP+++++');
         });
+
         browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.addUserButton), 20000, "addUserButton is not available");
         verifyCEBObj.addUserButton.click();
         browser.sleep(1000);
@@ -1211,15 +1175,13 @@ const AddUserProfileVerification = () => {
         content.selectDistrict.click();
         wait.waitForElementVisibility(content.btnSubmit, 20000);
         content.btnSubmit.click();
-        browser.sleep(5000);
-
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
-        // content.headerDropdown.click();
-        // browser.sleep(1000);
-        // verifyCEBObj.availableUser.getText().then(function (input) {
-        //     expect(input).toEqual(userName);
-        //     console.log("Verified selected user is switched : " + input);
-        // });
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
+        content.headerDropdown.click();
+        browser.sleep(1000);
+        verifyCEBObj.availableUser.getText().then(function (input) {
+            expect(input).toEqual(userName);
+            console.log("Verified selected user is switched : " + input);
+        });
     }
     catch (Exception) {
         console.log("Failed on adding user");
@@ -1299,48 +1261,29 @@ const NewCustodianUsers = () => {
         console.log("Verification failed YOBpopup for new CustodianUsers");
     }
 }
-
-
 const verifySSOAndCustodianMerge = () => {
     try {
-
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var externalUsrId = cred[49]['TitleDescription'];
-        var schoolUsrId = cred[50]['TitleDescription'];
-        var schoolExtID = cred[51]['TitleDescription'];
-        var mergeAccount = cred[52]['TitleDescription'];
-        var mergePassword = cred[53]['TitleDescription'];
-
         wait.waitForElementVisibility(content.statelogin, 20000);
         content.statelogin.click();
         browser.sleep(1000);
-        // wait.waitForElementVisibility(content.stateInsideEdit, 20000);
-        // content.stateInsideEdit.click();
-        // browser.sleep(1000);
+        wait.waitForElementVisibility(content.stateInsideEdit, 20000);
+        content.stateInsideEdit.click();
+        browser.sleep(1000);
         wait.waitForElementVisibility(content.SSOStateSelect1, 20000);
         content.SSOStateSelect1.click();
-        browser.sleep(2000);
-        content.selectLoginState.click();
-        browser.sleep(3000);
+        browser.sleep(1000);
         wait.waitForElementVisibility(content.SSOSubmit2, 20000);
         content.SSOSubmit2.click();
         browser.sleep(1000);
         wait.waitForElementVisibility(content.SSOUserName, 20000);
-        content.SSOUserName.click();
-        browser.sleep(2000);
-        content.SSOUserName.sendKeys(externalUsrId);
+        content.SSOUserName.sendKeys('rambo');
         browser.sleep(1000);
         wait.waitForElementVisibility(content.SSOUserExtID, 20000);
-        content.SSOUserExtID.click();
-        browser.sleep(2000);
-        content.SSOUserExtID.sendKeys(schoolUsrId);
-        browser.sleep(2000);
+        content.SSOUserExtID.sendKeys('rambo1');
+        browser.sleep(1000);
         wait.waitForElementVisibility(content.SSOSchoolExtID, 20000);
-        content.SSOSchoolExtID.click();
-        browser.sleep(2000);
-        content.SSOSchoolExtID.sendKeys(schoolExtID);
-        browser.sleep(2000);
+        content.SSOSchoolExtID.sendKeys('33291500301');
+        browser.sleep(1000);
         wait.waitForElementVisibility(content.SSOsubmit, 20000);
         content.SSOsubmit.click();
         browser.sleep(1000);
@@ -1354,9 +1297,9 @@ const verifySSOAndCustodianMerge = () => {
         content.mergebutton.click();
         browser.sleep(1000);
         wait.waitForElementVisibility(content.userName, 20000);
-        content.userName.sendKeys(mergeAccount);
+        content.userName.sendKeys('custod2user@yopmail.com');
         browser.sleep(3000);
-        content.password.sendKeys(mergePassword);
+        content.password.sendKeys('Test@123');
         browser.sleep(3000);
         content.login.click();
     }
@@ -1364,47 +1307,31 @@ const verifySSOAndCustodianMerge = () => {
         console.log("Failed on adding user");
     }
 }
-
-
-
 const YOBnotAccessibleToExistingAndSSOusers = () => {
     try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var externalUsrId = cred[49]['TitleDescription'];
-        var schoolUsrId = cred[50]['TitleDescription'];
-        var schoolExtID = cred[51]['TitleDescription'];
-        // var mergeAccount = cred[52]['TitleDescription'];
-        // var mergePassword = cred[53]['TitleDescription'];
-       
         console.log('Verify YOB popup is not accecsible for existing and SSO users');
         browser.sleep(5000);
         wait.waitForElementVisibility(content.statelogin, 20000);
         content.statelogin.click();
         browser.sleep(3000);
-        wait.waitForElementVisibility(content.SSOStateSelect1, 20000);
-        content.SSOStateSelect1.click();
-        browser.sleep(2000);
-        content.selectLoginState.click();
+        wait.waitForElementVisibility(content.stateInsideEdit, 20000);
+        content.stateInsideEdit.click();
         browser.sleep(3000);
-        wait.waitForElementVisibility(content.SSOSubmit2, 20000);
-        content.SSOSubmit2.click();
+        wait.waitForElementVisibility(content.stateDropdown, 20000);
+        content.stateDropdownsso.click();
+        browser.sleep(3000);
+        wait.waitForElementVisibility(content.stateSubmit, 20000);
+        content.stateSubmit.click();
         browser.sleep(3000);
         wait.waitForElementVisibility(content.SSOUserName, 20000);
-        content.SSOUserName.click();
-        browser.sleep(2000);
-        content.SSOUserName1.sendKeys(externalUsrId);
+        content.SSOUserName.sendKeys('rambo');
         browser.sleep(1000);
         wait.waitForElementVisibility(content.SSOUserExtID, 20000);
-        content.SSOUserExtID.click();
-        browser.sleep(2000);
-        content.SSOUserExtID.sendKeys(schoolUsrId);
-        browser.sleep(2000);
+        content.SSOUserExtID.sendKeys('rambo1');
+        browser.sleep(1000);
         wait.waitForElementVisibility(content.SSOSchoolExtID, 20000);
-        content.SSOSchoolExtID.click();
-        browser.sleep(2000);
-        content.SSOSchoolExtID.sendKeys(schoolExtID);
-        browser.sleep(2000);
+        content.SSOSchoolExtID.sendKeys('33291500301');
+        browser.sleep(1000);
         wait.waitForElementVisibility(content.SSOsubmit, 20000);
         content.SSOsubmit.click();
         browser.sleep(4000);
@@ -1542,6 +1469,7 @@ const clkProfileForGuestUsers = () => {
         browser.sleep(3000);
         expect(content.guestIcon).toBeTruthy();
         browser.sleep(2000);
+
 
     }
     catch (e) {
@@ -1832,6 +1760,8 @@ const validateReprtIssueWithThemes = () => {
     catch (Exception) {
         console.log("Failed on Validating SignInPopup on click on Enroll button on latest course in Explore-Course Page");
     }
+
+
 }
 
 
@@ -1849,6 +1779,8 @@ const validateContributionSection = () => {
         userOnboard.contributionSectionInProfile.getText().then(function (input) {
             console.log(input + " is validated")
         })
+
+
     }
     catch (Exception) {
         console.log("Failed on Validating SignInPopup on click on Enroll button on latest course in Explore-Course Page");
@@ -1875,17 +1807,14 @@ const verifyLocationDetailsInProfile = () => {
         browser.sleep(1000);
         wait.waitForElementVisibility(content.sltlocationPopupState, 20000)
         content.sltlocationPopupState.click();
-        browser.sleep(1000);
         content.sltlocationPopupState.getText().then(function (state) {
             console.log("State selected in location popup is : " + state);
         })
-        browser.sleep(1000);
         wait.waitForElementVisibility(content.locationpopupDistrict, 20000)
         content.locationpopupDistrict.click();
         browser.sleep(1000);
         wait.waitForElementVisibility(content.sltlocationpopupDistrict, 20000)
         content.sltlocationpopupDistrict.click();
-        browser.sleep(1000);
         content.sltlocationpopupDistrict.getText().then(function (district) {
             console.log("District selected in location popup is : " + district);
         })
@@ -1950,19 +1879,15 @@ const verifyRegisterHerePage = () => {
         browser.executeScript('window.scrollTo(0,150);').then(function () {
             console.log('++++++SCROLLED down+++++');
         });
-        
         wait.waitForElementVisibility(content.RegisterHereLink, 20000)
         content.RegisterHereLink.click();
         browser.sleep(1000);
-        searchObj.enterNameInRegisterPage.sendKeys("Automation");
-        browser.sleep(3000);
         wait.waitForElementVisibility(content.birthYear, 20000)
         content.birthYear.click();
         browser.sleep(3000);
         wait.waitForElementVisibility(content.sltBirtYear, 20000)
         content.sltBirtYear.click();
         browser.sleep(2000);
-        
         expect(content.signUpName.isPresent()).toBe(true);
         expect(content.emailLabel.isPresent()).toBe(true);
         expect(content.phonenumLabel.isPresent()).toBe(true);
@@ -2061,6 +1986,7 @@ const verifyOTPwarningMessage = () => {
             console.log("Warning message is" + input);
         })
         browser.sleep(2000);
+
     }
     catch (Exception) {
         console.log("Not validating OTP warning message.");
@@ -2097,13 +2023,6 @@ const verifyloginPagelinks = () => {
         browser.sleep(2000);
         content.registersignupName.sendKeys("Email");
         browser.sleep(2000);
-        content.clkContinueBtn.click();
-        browser.sleep(2000);
-        browser.executeScript('window.scrollTo(0,200);').then(function () {
-            console.log('++++++SCROLLED DOWN+++++');
-        });
-        content.submitBtn.click();
-        browser.sleep(2000);
         wait.waitForElementVisibility(content.signUpEmailId, 20000);
         content.signUpEmailId.click();
         browser.sleep(2000);
@@ -2125,10 +2044,11 @@ const verifyloginPagelinks = () => {
         browser.executeScript('window.scrollTo(200,400);').then(function () {
             console.log('++++++SCROLLED DOWN+++++');
         });
-        
+        expect(content.signUptnc.isPresent()).toBeTruthy();
+        console.log("TnC check box is validated.")
         browser.sleep(2000);
-        browser.executeScript('arguments[0].scrollIntoView()', content.clkContinueBtn.getWebElement());
-        expect((content.clkContinueBtn).isPresent()).toBeTruthy();
+        browser.executeScript('arguments[0].scrollIntoView()', content.signUpSubmitBtn.getWebElement());
+        expect((content.signUpSubmitBtn).isPresent()).toBeTruthy();
         console.log("Register button link is validated.");
         browser.sleep(2000);
     }
@@ -2138,7 +2058,7 @@ const verifyloginPagelinks = () => {
 }
 
 
-const TnCReminderTextInDownloadButton = () => {
+const validateTncPopInManage = () => {
     try {
         console.log("validating manage option popup is not generete everytime user visit.");
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
@@ -2147,17 +2067,10 @@ const TnCReminderTextInDownloadButton = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(content.manageOption), 20000, "Manage option page not loaded");
         content.manageOption.click();
         browser.sleep(2000);
-        expect((content.assertDownloadDataAccordance).isPresent()).toBe(true);
-        browser.sleep(2000);
-              browser.wait(protractor.ExpectedConditions.visibilityOf(content.adminpolicyInManage), 20000, "Manage option page not loaded");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(content.adminpolicyInManage), 20000, "Manage option page not loaded");
         content.adminpolicyInManage.click();
         browser.sleep(1000);
         expect((content.tncPopUp).isPresent()).toBe(true);
-        browser.sleep(2000);
-        browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
-        browser.sleep(5000);
-
-        expect((content.assertDikshaGuidelines).isPresent()).toBe(true);
         browser.sleep(2000);
     }
     catch (Exception) {
@@ -2262,1930 +2175,7 @@ const validateLocationPopUpInAllPages = () => {
     }
 }
 
-const validateDebugMode = () => {
-    try {
-        console.log('validate the Faq(s) and helpcentre burger menu');
-        browser.sleep(5000);
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(userOnboard.helpButton, 20000);
-        userOnboard.helpButton.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,200);').then(function () {
-            console.log('++++++SCROLLED Down+++++');
-        });
-        browser.sleep(4000);
-        wait.waitForElementVisibility(userOnboard.developerOptionDebugModeDropdown, 20000);
-        userOnboard.developerOptionDebugModeDropdown.click();
-        browser.sleep(4000);
-        wait.waitForElementVisibility(userOnboard.enableDebugMenu, 20000);
-        userOnboard.enableDebugMenu.click();
-        browser.sleep(4000);
-        expect((userOnboard.validationToasterMsg).isPresent()).toBe(true);
-        browser.sleep(4000);
 
-       
-    }
-    catch (Exception) {
-        console.log("Failed");
-    }
-}
-
-const verifyForgetLabelAndLink = () => {
-
-    wait.waitForElementVisibility(content.headerDropdown, 20000);
-    content.headerDropdown.click();
-    browser.sleep(1000);
-    wait.waitForElementVisibility(content.loginLink, 20000);
-    content.loginLink.click();
-    browser.sleep(4000);
-
-    wait.waitForElementVisibility(userOnboard.forgotLabellink, 20000);
-    expect(userOnboard.forgotLabellink.isDisplayed()).toBeTruthy();
-    wait.waitForElementVisibility(userOnboard.forgotLabellink, 20000);
-    userOnboard.forgotLabellink.click();
-
-    browser.sleep(4000);
-
-    wait.waitForElementVisibility(userOnboard.assertForgotpageLink, 20000);
-    expect(userOnboard.assertForgotpageLink.isDisplayed()).toBeTruthy();
-
-}
-
-
-const verifyNewRegisterHerePage = async () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        
-        console.log("validating Register Here page.")
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.loginLink, 20000);
-        content.loginLink.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,150);').then(function () {
-            console.log('++++++SCROLLED down+++++');
-        });
-        wait.waitForElementVisibility(content.RegisterHereLink, 20000)
-        content.RegisterHereLink.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.nameInRegisterPage, 20000)
-        content.nameInRegisterPage.sendKeys(cred[48]['CourseName']);
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.birthYear, 20000)
-        content.birthYear.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.sltBirtYear, 20000)
-        content.sltBirtYear.click();
-        browser.sleep(2000);
-        console.log("Register page is not blank.")
-        wait.waitForElementVisibility(content.continueButton, 20000)
-        content.continueButton.click();
-        browser.sleep(2000);
-        let autoPopulatedRole = await content.assertRoleAutoPopulated.getText();
-        browser.sleep(2000);
-        autoPopulatedRole.includes("Teacher");
-        browser.sleep(2000);
-        content.btnSubmit.click();
-        browser.sleep(2000);
-        expect(content.assertParentGuardianPhone.isPresent()).toBe(true);
-        browser.sleep(2000);
-        expect(content.assertParentGuardianEmail.isPresent()).toBe(true);
-    }
-    catch (Exception) {
-        console.log("Register here page is blank.");
-    }
-}
-const validateTncPopInManage = () => {
-    try {
-        console.log("validating manage option popup is not generete everytime user visit.");
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
-        content.headerDropdown.click();
-        browser.sleep(2000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.manageOption), 20000, "Manage option page not loaded");
-        content.manageOption.click();
-        browser.sleep(2000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.adminpolicyInManage), 20000, "Manage option page not loaded");
-        content.adminpolicyInManage.click();
-        browser.sleep(1000);
-        expect((content.tncPopUp).isPresent()).toBe(true);
-        browser.sleep(2000);
-    }
-    catch (Exception) {
-        console.log("failed");
-    }
-}
-
-const verifyNewRegisterHerePageAndValidateMobileAndEmailEntryForMajorUsers = async () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        
-
-        console.log("validating Register Here page.")
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.loginLink, 20000);
-        content.loginLink.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,150);').then(function () {
-            console.log('++++++SCROLLED down+++++');
-        });
-        wait.waitForElementVisibility(content.RegisterHereLink, 20000)
-        content.RegisterHereLink.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.nameInRegisterPage, 20000)
-        content.nameInRegisterPage.sendKeys(cred[48]['CourseName']);
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.birthYear, 20000)
-        content.birthYear.click();
-        browser.sleep(3000);
-        var scrolling = content.sltBirtYearForMajorUser;
-        browser.controlFlow().execute(function () {
-            browser.executeScript('arguments[0].scrollIntoView({block:"center"})', scrolling.getWebElement());
-        });
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.sltBirtYearForMajorUser, 20000)
-        content.sltBirtYearForMajorUser.click();
-        browser.sleep(2000);
-        console.log("Register page is not blank.")
-        wait.waitForElementVisibility(content.continueButton, 20000)
-        content.continueButton.click();
-        browser.sleep(4000);
-        content.btnSubmit.click();
-        browser.sleep(4000);
-        expect(content.emailCheckBox.isPresent()).toBeTruthy();
-        expect(content.mobileNumberCheckBox.isPresent()).toBeTruthy();
-    }
-    catch (Exception) {
-        console.log("Register here page is blank.");
-    }
-}
-
-const verifySSOandCustodUserMergeAndValidatePopUp= async () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var externalUsrId = cred[49]['TitleDescription'];
-        var schoolUsrId = cred[50]['TitleDescription'];
-        var schoolExtID = cred[51]['TitleDescription'];
-        var mergeAccount = cred[52]['TitleDescription'];
-        var mergePassword = cred[53]['TitleDescription'];
-        
-        wait.waitForElementVisibility(content.statelogin, 20000);
-        content.statelogin.click();
-        browser.sleep(1000);
-        // wait.waitForElementVisibility(content.stateInsideEdit, 20000);
-        // content.stateInsideEdit.click();
-        // browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOStateSelect1, 20000);
-        expect(content.SSOStateSelect1.isPresent()).toBe(true);
-        browser.sleep(2000);
-        content.SSOStateSelect1.click();
-        browser.sleep(2000);
-        content.selectLoginState.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.SSOSubmit2, 20000);
-        content.SSOSubmit2.click();
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOUserName, 20000);
-        content.SSOUserName.click();
-        browser.sleep(2000);
-        content.SSOUserName1.sendKeys(externalUsrId);
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOUserExtID, 20000);
-        content.SSOUserExtID.click();
-        browser.sleep(2000);
-        content.SSOUserExtID.sendKeys(schoolUsrId);
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.SSOSchoolExtID, 20000);
-        content.SSOSchoolExtID.click();
-        browser.sleep(2000);
-        content.SSOSchoolExtID.sendKeys(schoolExtID);
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.SSOsubmit, 20000);
-        content.SSOsubmit.click();
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.mergeAccount, 20000);
-        content.mergeAccount.click();
-        browser.sleep(5000);
-        searchObj.clickCancelButton.click();
-        browser.sleep(3000);
-        // let mesg =  await sanity.validateMergePopUpMsg.getText();
-        // mesg.includes("If you have two accounts with SUNBIRD,click Merge to:combine usage details of both accounts, and delete the other account Else, click Cancel")
-        //browser.sleep(5000);
-        var currentUrlBeforeMerge = await browser.getCurrentUrl();
-        console.log(currentUrlBeforeMerge);
-        browser.sleep(5000);
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.mergeAccount, 20000);
-        content.mergeAccount.click();
-        browser.sleep(5000);
-        wait.waitForElementVisibility(content.mergebutton, 20000);
-        content.mergebutton.click();
-        browser.sleep(3000);
-        expect(searchObj.assertSignInGoogleOption.isPresent()).toBe(true);
-        browser.sleep(3000);
-        // utility.userLogin('NewUserSecondTime');
-        // browser.sleep(3000);
-        wait.waitForElementVisibility(content.userName, 20000);
-        content.userName.sendKeys(mergeAccount);
-        browser.sleep(3000);
-        content.password.sendKeys(mergePassword);
-        browser.sleep(3000);
-        content.login.click();
-        browser.sleep(3000);
-        var currentUrlAfterMerge = await browser.getCurrentUrl();
-        expect(currentUrlBeforeMerge!=currentUrlAfterMerge);
-        browser.sleep(2000);
-        expect(sanity.validatePopUpMesgAfterMerge.isPresent()).toBe(true);
-        browser.sleep(3000);
-        sanity.saityokButtonToMerge.click();
-        browser.sleep(5000);
-    }
-    catch (Exception) {
-        console.log("Failed on adding user");
-    }
-}
-
-
-
-const verifySSOandCustodUserMergeAndValidatePopUpAndInvalid= async () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var externalUsrId = cred[49]['TitleDescription'];
-        var schoolUsrId = cred[50]['TitleDescription'];
-        var schoolExtID = cred[51]['TitleDescription'];
-        var mergeAccount = cred[52]['TitleDescription'];
-        var mergePassword = cred[53]['TitleDescription'];
-
-        wait.waitForElementVisibility(content.statelogin, 20000);
-        content.statelogin.click();
-        browser.sleep(1000);
-        // wait.waitForElementVisibility(content.stateInsideEdit, 20000);
-        // content.stateInsideEdit.click();
-        // browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOStateSelect1, 20000);
-        expect(content.SSOStateSelect1.isPresent()).toBe(true);
-        browser.sleep(2000);
-        content.SSOStateSelect1.click();
-        browser.sleep(2000);
-        content.selectLoginState.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.SSOSubmit2, 20000);
-        content.SSOSubmit2.click();
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOUserName, 20000);
-        content.SSOUserName.click();
-        browser.sleep(2000);
-        content.SSOUserName1.sendKeys(externalUsrId);
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOUserExtID, 20000);
-        content.SSOUserExtID.click();
-        browser.sleep(2000);
-        content.SSOUserExtID.sendKeys(schoolUsrId);
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.SSOSchoolExtID, 20000);
-        content.SSOSchoolExtID.click();
-        browser.sleep(2000);
-        content.SSOSchoolExtID.sendKeys(schoolExtID);
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.SSOsubmit, 20000);
-        content.SSOsubmit.click();
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.mergeAccount, 20000);
-        content.mergeAccount.click();
-        browser.sleep(5000);
-        searchObj.clickCancelButton.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.mergeAccount, 20000);
-        content.mergeAccount.click();
-        browser.sleep(5000);
-        wait.waitForElementVisibility(content.mergebutton, 20000);
-        content.mergebutton.click();
-        browser.sleep(3000);
-        expect(searchObj.assertSignInGoogleOption.isPresent()).toBe(true);
-        browser.sleep(3000);
-        // utility.userLogin('NewUserSecondTime');
-        // browser.sleep(3000);
-        wait.waitForElementVisibility(content.userName, 20000);
-        content.userName.sendKeys(mergeAccount);
-        browser.sleep(3000);
-        content.password.sendKeys(mergePassword);
-        browser.sleep(3000);
-        content.login.click();
-        browser.sleep(3000);        
-    }
-    catch (Exception) {
-        console.log("Failed on adding user");
-    }
-}
-
-
-const validateAllLoginAttributesOfExplorePage = async () => {
-    try {
-        browser.sleep(4000);
-        let explorePage = await browser.getCurrentUrl();
-        var loginUrl = "auth";
-        var exploreUrl ="explore";
-        
-        explorePage.includes(exploreUrl);
-        browser.sleep(4000);
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.loginLink, 20000);
-        content.loginLink.click();
-        browser.sleep(3000);
-        let loginPage = await browser.getCurrentUrl();
-        browser.sleep(3000);
-        loginPage.includes(loginUrl);
-        browser.sleep(3000);
-        expect(searchObj.validateWelcomePage.isPresent()).toBe(true);
-        browser.sleep(3000);
-        var rightSide = await (searchObj.validateForgetPasswordUnderPasswordInput).getCssValue('float');
-        expect(rightSide).toBe("right");
-        browser.sleep(3000);
-        expect(searchObj.validateplaceHolderTextBox.isPresent()).toBe(true);
-        browser.sleep(3000);
-        expect(searchObj.loginButtonTextInCaps.isPresent()).toBe(true);
-        browser.sleep(2000);
-        expect(searchObj.assertDontHaveAccountRegisterHereInLeftSide.isPresent()).toBe(true);
-        browser.sleep(2000);
-        var leftSide = await (searchObj.validateForgetPasswordUnderPasswordInput).getCssValue('text-align');
-        //console.log(leftSide);
-        //expect(leftSide).toBe("left");
-        browser.sleep(3000);
-        expect(searchObj.assertSignInGoogleButton.isPresent()).toBe(true);
-        browser.sleep(2000);
-        var googleButtonColor = await (searchObj.assertSignInGoogleButton).getCssValue('background');
-        let hexcolorCode = utility.rgba2hex(googleButtonColor);
-        expect(hexcolorCode).toMatch("#0b51c1");
-        browser.sleep(3000);
-        expect(searchObj.assertLoginwithStateSystem.isPresent()).toBe(true);
-        browser.sleep(3000);
-        expect(searchObj.assertGoogleLogo.isPresent()).toBe(true);
-        var googleLogo = await (searchObj.assertGoogleLogo).getCssValue('left');
-        expect(googleLogo).toBe("1px");
-        browser.sleep(3000);
-        var googleButtonColor = await (searchObj.assertLoginwithStateSystem).getCssValue('background-color');
-        let hexcolorCode2 = utility.rgba2hex(googleButtonColor);
-        expect(hexcolorCode2).toMatch("#fff");
-        browser.sleep(3000);
-    }
-    catch (Exception) {
-        console.log("Failed on adding user");
-    }
-}
-
-const userCreationlimitValidation = () => {
-    try {
-        console.log("User is trying to addUserInProfile");
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
-        content.headerDropdown.click();
-        browser.sleep(1000);
-        browser.executeScript('window.scrollTo(0,100);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.addUser), 20000, "addUser is not available");
-        verifyCEBObj.addUser.click();
-        console.log("Clicked on add user");
-        userName = "User" + faker.randomData().firstname;
-        browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.enterName), 20000, "enterName is not available");
-        verifyCEBObj.enterName.sendKeys(userName);
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,200);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.addUserButton), 20000, "addUserButton is not available");
-        verifyCEBObj.addUserButton.click();
-        browser.sleep(2000);
-
-        expect(verifyCEBObj.assertlimitValidation.isPresent()).toBeTruthy();
-
-        browser.sleep(1000);
-
-       
-    }
-    catch (Exception) {
-        console.log("Failed on adding user");
-    }
-}
-
-const validateTcInAddUserForm = () => {
-    try {
-
-        console.log("User is trying to addUserInProfile");
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
-        content.headerDropdown.click();
-        browser.sleep(1000);
-        browser.executeScript('window.scrollTo(0,100);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.addUser), 20000, "addUser is not available");
-        verifyCEBObj.addUser.click();
-        console.log("Clicked on add user");
-        userName = "User" + faker.randomData().firstname;
-        browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.enterName), 20000, "enterName is not available");
-        verifyCEBObj.enterName.sendKeys(userName);
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,200);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        
-        browser.sleep(1000);
-        expect((verifyCEBObj.assertTcCheckbox).isPresent()).toBe(false);
-        browser.sleep(2000);
-        
-       
-   
-    }
-    catch (Exception) {
-        console.log("Failed on adding user");
-    }
-}
-const NotAbleToProceedFurtherWithoutAcceptingTncheck = () => {
-    try {
-        console.log("User is trying to addUserInProfile");
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
-        content.headerDropdown.click();
-        browser.sleep(1000);
-        browser.executeScript('window.scrollTo(0,100);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.addUser), 20000, "addUser is not available");
-        verifyCEBObj.addUser.click();
-        console.log("Clicked on add user");
-        userName = "User" + faker.randomData().firstname;
-        browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.enterName), 20000, "enterName is not available");
-        verifyCEBObj.enterName.sendKeys(userName);
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,200);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.addUserButton), 20000, "addUserButton is not available");
-        verifyCEBObj.addUserButton.click();
-        browser.sleep(1000);
-        console.log("added a User successfully ");
-        verifyCEBObj.availableUser.getText().then(function (input) {
-            // expect(input).toEqual(userName);
-            console.log("Verified added user: " + input);
-        });
-        verifyCEBObj.availableUser.click();
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.switchUser), 20000, "switchUser is not available");
-        verifyCEBObj.switchUser.click();
-        browser.sleep(3000);
-
-        browser.sleep(1000);
-        expect((verifyCEBObj.continueDeclaration).isPresent()).toBe(false);
-        browser.sleep(2000);
-
-        browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.declaration), 20000, "declaration is not available");
-        verifyCEBObj.declaration.click();
-
-
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.continueDeclaration), 20000, "switchUser is not available");
-        verifyCEBObj.continueDeclaration.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.Teacher, 20000);
-        content.Teacher.click();
-        wait.waitForElementVisibility(content.Continue, 20000);
-        content.Continue.click();
-        browser.sleep(4000);
-        wait.waitForElementVisibility(content.state, 20000);
-        content.state.click();
-        wait.waitForElementVisibility(content.selectState, 20000);
-        content.selectState.click();
-        wait.waitForElementVisibility(content.district, 20000);
-        content.district.click();
-        wait.waitForElementVisibility(content.selectDistrict, 20000);
-        content.selectDistrict.click();
-        wait.waitForElementVisibility(content.btnSubmit, 20000);
-        content.btnSubmit.click();
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
-        // content.headerDropdown.click();
-        // browser.sleep(1000);
-        // verifyCEBObj.availableUser.getText().then(function (input) {
-        //     expect(input).toEqual(userName);
-        //     console.log("Verified selected user is switched : " + input);
-        // });
-    }
-    catch (Exception) {
-        console.log("Failed on adding user");
-    }
-}
-const validateCheckBoxInSubmitConsentForm = () => {
-    try {
-
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        wait.waitForElementVisibility(content.linkProfile, 20000);
-        content.linkProfile.click();
-        browser.sleep(3000);
-        expect(content.submitDetailsProfile.isPresent()).toBe(true).then(function () {
-            content.submitDetailsProfile.click();
-            browser.sleep(2000);
-        })
-        expect(content.masterOrgDropdown.isPresent()).toBeTruthy().then(function () {
-            content.masterOrgDropdown.click();
-            browser.sleep(1000);
-            content.sltStateDropdown.click();
-            browser.sleep(1000);
-        })
-        expect(content.optionalFieldID.isPresent()).toBe(true).then(function () {
-            console.log("External ID optional field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.externalID.isPresent()).toBe(true).then(function () {
-            console.log("External ID input field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.optionalFieldphoneNumber.isPresent()).toBe(true).then(function () {
-            console.log("Phone Number optional field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.phoneNumber.isPresent()).toBe(true).then(function () {
-            console.log("Phone Number input field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.optionalFieldEmailID.isPresent()).toBe(true).then(function () {
-            console.log("Email optional field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.checkBoxConsent.isPresent()).toBe(true).then(function () {
-            console.log("checkbox field is validated");
-            browser.sleep(2000);
-        })
-       
-        expect(content.assertTermsDesc.isPresent()).toBe(true).then(function () {
-            console.log("Email optional field is validated");
-            browser.sleep(2000);
-        })
-    }
-    catch (e) {
-        console.error("Handled");
-    }
-}
-
-const submitCheckBoxInSubmitConsentForm = () => {
-    try {
-
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        wait.waitForElementVisibility(content.linkProfile, 20000);
-        content.linkProfile.click();
-        browser.sleep(3000);
-        expect(content.submitDetailsProfile.isPresent()).toBe(true).then(function () {
-            content.submitDetailsProfile.click();
-            browser.sleep(2000);
-        })
-        expect(content.masterOrgDropdown.isPresent()).toBeTruthy().then(function () {
-            content.masterOrgDropdown.click();
-            browser.sleep(1000);
-            content.sltStateDropdown.click();
-            browser.sleep(1000);
-        })
-        expect(content.optionalFieldID.isPresent()).toBe(true).then(function () {
-            console.log("External ID optional field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.externalID.isPresent()).toBe(true).then(function () {
-            console.log("External ID input field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.optionalFieldphoneNumber.isPresent()).toBe(true).then(function () {
-            console.log("Phone Number optional field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.phoneNumber.isPresent()).toBe(true).then(function () {
-            console.log("Phone Number input field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.optionalFieldEmailID.isPresent()).toBe(true).then(function () {
-            console.log("Email optional field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.checkBoxConsent.isPresent()).toBe(true).then(function () {
-            console.log("checkbox field is validated");
-            browser.sleep(2000);
-        })
-             expect(content.assertTermsDesc.isPresent()).toBe(true).then(function () {
-            console.log("Email optional field is validated");
-            browser.sleep(2000);
-        })
-
-        browser.executeScript('window.scrollTo(0,400);').then(function () {
-            console.log('++++++SCROLLED Down+++++');
-        });
-
-        browser.sleep(2000);
-        // expect((content.submitButtonForDropdowns).isPresent()).toBe(false);
-        // browser.sleep(2000);
-
-        wait.waitForElementVisibility(content.checkBoxConsent, 20000);
-        content.checkBoxConsent.click();
-        browser.sleep(3000);
-
-        wait.waitForElementVisibility(content.submitButtonForDropdowns, 20000);
-        content.submitButtonForDropdowns.click();
-        browser.sleep(2000);
-        expect(content.assertSubmitSuccesTostrMsg).isDisplayed().toBe(true);
-        browser.sleep(5000);
-        expect(content.assertSubmitSuccesMsg).isDisplayed().toBe(true);
-        expect(content.assertSubmitSuccesMsg2).isDisplayed().toBe(true);
-
-
-
-    }
-    catch (e) {
-        console.error("Handled");
-    }
-}
-const resetotpValidation = () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        
-        console.log("validating Register Here page.")
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.loginLink, 20000);
-        content.loginLink.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,150);').then(function () {
-            console.log('++++++SCROLLED down+++++');
-        });
-        wait.waitForElementVisibility(content.forgotPasswordLink, 20000)
-        content.forgotPasswordLink.click();
-            browser.sleep(3000);
-
-            wait.waitForElementVisibility(content.enterEmailForRecovery, 20000);
-            content.enterEmailForRecovery.sendKeys('dikshatest15@gmail.com');
-            browser.sleep(3000);
-
-            wait.waitForElementVisibility(content.enterNameForRecovery, 20000);
-            content.enterNameForRecovery.sendKeys('diksha');
-            browser.sleep(3000);
-
-            wait.waitForElementVisibility(content.clkNextInRecovery, 20000);
-            content.clkNextInRecovery.click();
-            browser.sleep(3000);
-            expect(content.assertRecoveryMsg1.isPresent()).toBe(true);
-            browser.sleep(2000);
-            wait.waitForElementVisibility(content.clkRadioBtnForSelection, 20000);
-            content.clkRadioBtnForSelection.click();
-            browser.sleep(3000);
-            
-            wait.waitForElementVisibility(content.clkGetOTP, 20000);
-            content.clkGetOTP.click();
-            browser.sleep(3000);
-
-        expect(content.assertOtpMsg1.isPresent()).toBe(true);
-        browser.sleep(2000);
-        expect(content.assertOtpMsg2.isPresent()).toBe(true);
-        expect(content.assertOtpMsg3.isPresent()).toBe(true);
-        expect(content.assertOtpMsg4.isPresent()).toBe(true);
-
-    }
-    catch (Exception) {
-        console.log("Register here page is blank.");
-    }
-}
-
-
-const resetotpValidationForInValidOtp = () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        
-        console.log("validating Register Here page.")
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.loginLink, 20000);
-        content.loginLink.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,150);').then(function () {
-            console.log('++++++SCROLLED down+++++');
-        });
-        wait.waitForElementVisibility(content.forgotPasswordLink, 20000)
-        content.forgotPasswordLink.click();
-            browser.sleep(3000);
-
-            wait.waitForElementVisibility(content.enterEmailForRecovery, 20000);
-            content.enterEmailForRecovery.sendKeys('dikshatest15@gmail.com');
-            browser.sleep(3000);
-
-            wait.waitForElementVisibility(content.enterNameForRecovery, 20000);
-            content.enterNameForRecovery.sendKeys('diksha');
-            browser.sleep(3000);
-
-            wait.waitForElementVisibility(content.clkNextInRecovery, 20000);
-            content.clkNextInRecovery.click();
-            browser.sleep(3000);
-            expect(content.assertRecoveryMsg1.isPresent()).toBe(true);
-            browser.sleep(2000);
-            wait.waitForElementVisibility(content.clkRadioBtnForSelection, 20000);
-            content.clkRadioBtnForSelection.click();
-            browser.sleep(3000);
-            
-            wait.waitForElementVisibility(content.clkGetOTP, 20000);
-            content.clkGetOTP.click();
-            browser.sleep(5000);
-
-        expect(content.assertOtpMsg1.isPresent()).toBe(true);
-        browser.sleep(3000);
-        expect(content.assertOtpMsg2.isPresent()).toBe(true);
-        browser.sleep(2000);
-        expect(content.assertOtpMsg3.isPresent()).toBe(true);
-        browser.sleep(2000);
-        expect(content.assertOtpMsg4.isPresent()).toBe(true);
-        browser.sleep(8000);
-
-        wait.waitForElementVisibility(content.clkResendOtp, 20000);
-        content.clkResendOtp.click();
-        browser.sleep(4000);
-        // expect(content.resendSuccessMsg.isPresent()).toBe(true);
-        browser.sleep(8000);
-        
-
-        wait.waitForElementVisibility(content.enterOtp1, 20000);
-        content.enterOtp1.sendKeys('123456');
-        browser.sleep(3000);
-
-        wait.waitForElementVisibility(content.submitOtp, 20000);
-        content.submitOtp.click();
-        browser.sleep(3000);
-        expect(content.assertErrorOtpMsg1.isPresent()).toBe(true);
-        browser.sleep(6000);
-
-        wait.waitForElementVisibility(content.enterOtp1, 20000);
-        content.enterOtp1.sendKeys('245628');
-        browser.sleep(3000);
-
-        wait.waitForElementVisibility(content.submitOtp, 20000);
-        content.submitOtp.click();
-        browser.sleep(6000);
-        expect(content.assertErrorOtpMsg2.isPresent()).toBe(true);
-        browser.sleep(6000);
-
-        expect(content.forgotPasswordLink.isPresent()).toBe(true);
-
-    }
-    catch (Exception) {
-        console.log("Register here page is blank.");
-    }
-}
-
-const verifyDownlaodedCSVFile = (filename) => {
-    try {
-      browser.sleep(5000);
-      var filename = getExcelPath.ConfigurePath().downloadLocalPath + filename;
-      console.log(filename);
-      var fs = require("fs");
-      searchObj.downloadAsCSV.click();
-      browser.driver
-        .wait(function () {
-          return fs.existsSync(filename);
-        }, 3000)
-        .then(function () {
-          console.log("Admin Is Able To Download CSV File");
-        });
-    } catch (Exception) {
-      console.log("Unable To Download CSV File");
-    }
-  };
-
-
-const clickAdminDashBoardAndVerifyReports = () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var report1 = cred[20]['Title'];
-        var report2 = cred[22]['Title'];
-        var report3 = cred[22]['TitleDescription'];
-        console.log(report1);
-        console.log(report2);
-        console.log(report3);
-
-
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
-        content.headerDropdown.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(userOnboard.clkAdminDashBoard, 20000, "clkAdminDashBoard is not available");
-        userOnboard.clkAdminDashBoard.click();
-        browser.sleep(6000);
-        console.log("clicked on Admin Dashboard")
-        browser.executeScript('window.scrollTo(0,100);').then(function () {
-            console.log('++++++SCROLLED down+++++');
-        });
-        browser.sleep(6000);
-        sanityPage.datasetTab.click();
-        browser.sleep(2000);
-        sanityPage.reportsTab.click();
-        browser.sleep(2000);
-        sanityPage.searchReport.click();
-        browser.sleep(1000);
-        sanityPage.searchReport.sendKeys(report1);
-        browser.sleep(2000);
-        sanityPage.clickData.click();
-        browser.sleep(3000);
-        sanityPage.clickParameter.click();
-        browser.sleep(2000);
-        expect(sanityPage.downloadDataAsCsv.isPresent()).toBe(true);
-        browser.sleep(2000);
-        sanityPage.downloadDataAsCsv.click();
-        browser.sleep(2000);
-        sanityPage.reportBackButton.click();
-        browser.sleep(2000);
-        sanityPage.searchboxForReportAdmin.sendKeys(report2);
-        browser.sleep(2000);
-        sanityPage.clickData.click();
-        browser.sleep(2000);
-        sanityPage.clickParameter.click();
-        browser.sleep(2000);
-        expect(sanityPage.downloadDataAsCsv.isPresent()).toBe(true);
-        browser.sleep(2000);
-        sanityPage.downloadDataAsCsv.click();
-        browser.sleep(2000);
-        verifyDownlaodedCSVFile("ml_no_of_surveys_in_started_status_currently.csv");
-        sanityPage.reportBackButton.click();
-        browser.sleep(2000);
-        sanityPage.searchboxForReportAdmin.sendKeys(report3);
-        browser.sleep(2000);
-        sanityPage.clickData.click();
-        browser.sleep(2000);
-        sanityPage.clickParameter.click();
-        browser.sleep(2000);
-        expect(sanityPage.downloadDataAsCsv.isPresent()).toBe(true);
-        browser.sleep(2000);
-        sanityPage.downloadDataAsCsv.click();
-        browser.sleep(2000);
-        verifyDownlaodedCSVFile("ETB_textbook_data.csv");
-        browser.sleep(5000);
-    } catch (Exception) {
-    console.log("Unable To Download CSV File");
-  }
-}
-
-const passwordFieldValidation = async () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        
-        console.log("validating Register Here page.")
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.loginLink, 20000);
-        content.loginLink.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,150);').then(function () {
-            console.log('++++++SCROLLED down+++++');
-        });
-        wait.waitForElementVisibility(content.RegisterHereLink, 20000)
-        content.RegisterHereLink.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.nameInRegisterPage, 20000)
-        content.nameInRegisterPage.sendKeys(cred[48]['CourseName']);
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.birthYear, 20000)
-        content.birthYear.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.sltBirtYear, 20000)
-        content.sltBirtYear.click();
-        browser.sleep(6000);
-        wait.waitForElementVisibility(content.continueButton, 20000)
-        content.continueButton.click();
-        browser.sleep(400);
-        
-        console.log("Register page is not blank.")
-        content.btnSubmit.click();
-        browser.sleep(4000);
-        content.enterPasswordInRegister.click();
-        content.enterPasswordInRegister.sendKeys('Test@123');
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.clickEyeImg, 20000)
-        content.clickEyeImg.click();
-        browser.sleep(3000);
-
-        wait.waitForElementVisibility(content.clickEyeImg, 20000)
-        content.clickEyeImg.click();
-
-      
-        browser.sleep(2000);
-
-    }
-    catch (Exception) {
-        console.log("Register here page is blank.");
-    }
-}
-
-
-const EmailAddressOtpMsgForMajorUser = async () => {
-    try {
-        
-        console.log("validating Register Here page.")
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.loginLink, 20000);
-        content.loginLink.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,150);').then(function () {
-            console.log('++++++SCROLLED down+++++');
-        });
-        wait.waitForElementVisibility(content.RegisterHereLink, 20000)
-        content.RegisterHereLink.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.nameInRegisterPage, 20000)
-        content.nameInRegisterPage.sendKeys('EmailCheck');
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.birthYear, 20000)
-        content.birthYear.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.sltBirtMajorYear, 20000)
-        content.sltBirtMajorYear.click();
-        browser.sleep(6000);
-        wait.waitForElementVisibility(content.continueButton, 20000)
-        content.continueButton.click();
-        browser.sleep(400);
-        
-        console.log("Register page is not blank.")
-        content.btnSubmit.click();
-        browser.sleep(4000);
-        wait.waitForElementVisibility(content.clickEmailBtn, 20000)
-        content.clickEmailBtn.click();
-        browser.sleep(3000);
-
-        content.enterEmailTextbox.click();
-        content.enterEmailTextbox.sendKeys('EmailCheck@yopmail.com');
-        browser.sleep(3000);
-
-        content.enterPasswordInRegister.click();
-        content.enterPasswordInRegister.sendKeys('Test@123');
-        browser.sleep(3000);
-
-        content.conifrmPassword.click();
-        content.conifrmPassword.sendKeys('Test@123');
-        browser.sleep(3000);
-        
-        wait.waitForElementVisibility(content.continueButton, 20000)
-        content.continueButton.click();
-        browser.sleep(5000);
-
-    
-        expect(content.assertEmailOtpMSg1.isPresent()).toBe(true);
-        browser.sleep(2000);
-        expect(content.assertEmailOtpMSg2.isPresent()).toBe(true);
-        browser.sleep(2000);
-        expect(content.assertEmailOtpMSg3.isPresent()).toBe(true);
-        expect(content.assertEmailOtpMSg4.isPresent()).toBe(true);
-        expect(content.tAndCBelowOtpTxtbox.isPresent()).toBe(true);
-        
-
-    }
-    catch (Exception) {
-        console.log("Register here page is blank.");
-    }
-}
-
-const EmailAddressOtpMsgForMinorUser = async () => {
-    try {
-        
-        console.log("validating Register Here page.")
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.loginLink, 20000);
-        content.loginLink.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,150);').then(function () {
-            console.log('++++++SCROLLED down+++++');
-        });
-        wait.waitForElementVisibility(content.RegisterHereLink, 20000)
-        content.RegisterHereLink.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.nameInRegisterPage, 20000)
-        content.nameInRegisterPage.sendKeys('EmailCheck');
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.birthYear, 20000)
-        content.birthYear.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.sltBirtYear, 20000)
-        content.sltBirtYear.click();
-        browser.sleep(6000);
-        wait.waitForElementVisibility(content.continueButton, 20000)
-        content.continueButton.click();
-        browser.sleep(5000);
-        
-        console.log("Register page is not blank.")
-        content.btnSubmit.click();
-        browser.sleep(4000);
-        wait.waitForElementVisibility(content.clickEmailBtn, 20000)
-        content.clickEmailBtn.click();
-        browser.sleep(3000);
-
-        content.enterEmailTextbox.click();
-        content.enterEmailTextbox.sendKeys('EmailCheck@yopmail.com');
-        browser.sleep(3000);
-
-        content.enterPasswordInRegister.click();
-        content.enterPasswordInRegister.sendKeys('Test@123');
-        browser.sleep(3000);
-
-        content.conifrmPassword.click();
-        content.conifrmPassword.sendKeys('Test@123');
-        browser.sleep(3000);
-        
-        wait.waitForElementVisibility(content.continueButton, 20000)
-        content.continueButton.click();
-        browser.sleep(5000);
-
-    
-        expect(content.assertEmailOtpMSg1.isPresent()).toBe(true);
-        browser.sleep(2000);
-        expect(content.assertEmailOtpMSg2.isPresent()).toBe(true);
-        browser.sleep(2000);
-        expect(content.assertEmailOtpMSg3.isPresent()).toBe(true);
-        expect(content.assertEmailOtpMSgforMinor1.isPresent()).toBe(true);
-        expect(content.assertEmailOtpMSgforMinor2.isPresent()).toBe(true);
-
-
-    }
-    catch (Exception) {
-        console.log("Register here page is blank.");
-    }
-}
-
-const MobileNumberOtpMsgForMinorUser = async () => {
-    try {
-        
-        console.log("validating Register Here page.")
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.loginLink, 20000);
-        content.loginLink.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,150);').then(function () {
-            console.log('++++++SCROLLED down+++++');
-        });
-        wait.waitForElementVisibility(content.RegisterHereLink, 20000)
-        content.RegisterHereLink.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.nameInRegisterPage, 20000)
-        content.nameInRegisterPage.sendKeys('EmailCheck');
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.birthYear, 20000)
-        content.birthYear.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.sltBirtYear, 20000)
-        content.sltBirtYear.click();
-        browser.sleep(6000);
-        wait.waitForElementVisibility(content.continueButton, 20000)
-        content.continueButton.click();
-        browser.sleep(6000);
-        
-        console.log("Register page is not blank.")
-        content.btnSubmit.click();
-        browser.sleep(4000);
-        wait.waitForElementVisibility(content.enterMobileNoTextbox, 20000)
-        content.enterMobileNoTextbox.click();
-        browser.sleep(3000);
-       content.enterMobileNoTextbox.sendKeys('9591429465');
-        browser.sleep(3000);
-
-        content.enterPasswordInRegister.click();
-        content.enterPasswordInRegister.sendKeys('Test@123');
-        browser.sleep(3000);
-
-        content.conifrmPassword.click();
-        content.conifrmPassword.sendKeys('Test@123');
-        browser.sleep(3000);
-        
-        wait.waitForElementVisibility(content.continueButton, 20000)
-        content.continueButton.click();
-        browser.sleep(5000);
-
-    
-        expect(content.assertMobileOtpMsg1.isPresent()).toBe(true);
-        browser.sleep(2000);
-        expect(content.assertMobileOtpMsg2.isPresent()).toBe(true);
-        browser.sleep(2000);
-        expect(content.assertEmailOtpMSg3.isPresent()).toBe(true);
-        expect(content.assertEmailOtpMSgforMinor1.isPresent()).toBe(true);
-        expect(content.assertEmailOtpMSgforMinor2.isPresent()).toBe(true);
-
-
-    }
-    catch (Exception) {
-        console.log("Register here page is blank.");
-    }
-}
-
-const MobileNumberOtpMsgForMajorUser = async () => {
-    try {
-        
-        console.log("validating Register Here page.")
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.loginLink, 20000);
-        content.loginLink.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,150);').then(function () {
-            console.log('++++++SCROLLED down+++++');
-        });
-        wait.waitForElementVisibility(content.RegisterHereLink, 20000)
-        content.RegisterHereLink.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.nameInRegisterPage, 20000)
-        content.nameInRegisterPage.sendKeys('EmailCheck');
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.birthYear, 20000)
-        content.birthYear.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.sltBirtMajorYear, 20000)
-        content.sltBirtMajorYear.click();
-        browser.sleep(6000);
-        wait.waitForElementVisibility(content.continueButton, 20000)
-        content.continueButton.click();
-        browser.sleep(6000);
-        
-        console.log("Register page is not blank.")
-        content.btnSubmit.click();
-        browser.sleep(4000);
-        wait.waitForElementVisibility(content.enterMobileNoTextbox, 20000)
-        content.enterMobileNoTextbox.click();
-        browser.sleep(3000);
-       content.enterMobileNoTextbox.sendKeys('9591429465');
-        browser.sleep(3000);
-
-        content.enterPasswordInRegister.click();
-        content.enterPasswordInRegister.sendKeys('Test@123');
-        browser.sleep(3000);
-
-        content.conifrmPassword.click();
-        content.conifrmPassword.sendKeys('Test@123');
-        browser.sleep(3000);
-        
-        wait.waitForElementVisibility(content.continueButton, 20000)
-        content.continueButton.click();
-        browser.sleep(5000);
-
-    
-        expect(content.assertMobileOtpMsg1.isPresent()).toBe(true);
-        browser.sleep(2000);
-        expect(content.assertMobileOtpMsg2.isPresent()).toBe(true);
-        browser.sleep(2000);
-        expect(content.assertEmailOtpMSg3.isPresent()).toBe(true);
-        expect(content.assertEmailOtpMSg4.isPresent()).toBe(true);
-
-
-    }
-    catch (Exception) {
-        console.log("Register here page is blank.");
-    }
-}
-
-const verifySSOandCustodUserMergeAndValidateTheLandingPage = async () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var externalUsrId = cred[49]['TitleDescription'];
-        var schoolUsrId = cred[50]['TitleDescription'];
-        var schoolExtID = cred[51]['TitleDescription'];
-
-        wait.waitForElementVisibility(content.statelogin, 20000);
-        content.statelogin.click();
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOStateSelect1, 20000);
-        expect(content.SSOStateSelect1.isPresent()).toBe(true);
-        browser.sleep(2000);
-        content.SSOStateSelect1.click();
-        browser.sleep(2000);
-        content.selectLoginState.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.SSOSubmit2, 20000);
-        content.SSOSubmit2.click();
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOUserName, 20000);
-        content.SSOUserName.click();
-        browser.sleep(2000);
-        content.SSOUserName1.sendKeys(externalUsrId);
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOUserExtID, 20000);
-        content.SSOUserExtID.click();
-        browser.sleep(2000);
-        content.SSOUserExtID.sendKeys(schoolUsrId);
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.SSOSchoolExtID, 20000);
-        content.SSOSchoolExtID.click();
-        browser.sleep(2000);
-        content.SSOSchoolExtID.sendKeys(schoolExtID);
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.SSOsubmit, 20000);
-        content.SSOsubmit.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(3000);
-        searchObj.profileButtonInSSO.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,50);').then(function () {
-            console.log('++++++SCROLLED down+++++');
-        });
-        browser.sleep(3000);
-        expect(searchObj.assertGreenTickMarkInSSoProfile.isPresent()).toBe(true);
-        browser.sleep(3000);
-    }
-    catch (Exception) {
-        console.log("Failed");
-    }
-}
-
-
-const verifySpaceIsallowedInUserIdEntrybox = () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var textwithspace = cred[42]['Title'];
-        
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
-        content.headerDropdown.click();
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.profileButton), 20000, "Profile Button is not available");
-        content.profileButton.click();
-        console.log("Clicked on Profile Button");
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.UpdateButton), 20000, "Update Button is not available");
-        content.UpdateButton.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,0);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.DataDropdown), 20000, "Data drop down is not available");
-        content.DataDropdown.click();
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.SelectDataDropdown), 20000, "Select Dropdown is not available");
-        content.SelectDataDropdown.click();
-        browser.sleep(3000);
-        searchObj.enterUserIdInProfileUpdateForm.click();
-        browser.sleep(2000);
-        searchObj.enterUserIdInProfileUpdateForm.sendKeys(textwithspace);
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.UpdateButton), 20000, "Update Button is not available");
-        content.UpdateButton.click();
-        browser.sleep(4000);
-    }
-    catch (Exception) {
-        console.log("Failed on Update details");
-    }
-}
-
-
-const validateConsentPopupForstateUsers = async () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var externalUsrId = cred[49]['TitleDescription'];
-        var schoolUsrId = cred[50]['TitleDescription'];
-        var schoolExtID = cred[51]['TitleDescription'];
-
-        wait.waitForElementVisibility(content.statelogin, 20000);
-        content.statelogin.click();
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOStateSelect1, 20000);
-        expect(content.SSOStateSelect1.isPresent()).toBe(true);
-        browser.sleep(2000);
-        content.SSOStateSelect1.click();
-        browser.sleep(2000);
-        content.selectLoginState.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.SSOSubmit2, 20000);
-        content.SSOSubmit2.click();
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOUserName, 20000);
-        content.SSOUserName.click();
-        browser.sleep(2000);
-        content.SSOUserName1.sendKeys(externalUsrId);
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOUserExtID, 20000);
-        content.SSOUserExtID.click();
-        browser.sleep(2000);
-        content.SSOUserExtID.sendKeys(schoolUsrId);
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.SSOSchoolExtID, 20000);
-        content.SSOSchoolExtID.click();
-        browser.sleep(2000);
-        content.SSOSchoolExtID.sendKeys(schoolExtID);
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.SSOsubmit, 20000);
-        content.SSOsubmit.click();
-        browser.sleep(5000);
-        console.log("User is trying to navigate To Library And Search For Book");
-        content.headerLibrary.click();
-        browser.sleep(1000);
-        content.filterSearch.sendKeys(bookname);
-        content.searchIcon.click();
-        browser.sleep(1000);
-        searchObj.courseCard.click();
-        browser.sleep(1000);
-        searchObj.clkJoinCourse.click();
-    browser.sleep(4000);
-    browser.executeScript("window.scrollTo(0,200);").then(function () {
-      console.log("++++++SCROLLED down+++++");
-    });
-    //browser.sleep(3000);
-    // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.checkBoxConsent), 20000, "checkBoxConsent not available");
-    //expect(searchObj.userNameBatch.isDisplayed()).toBeTruthy();
-    expect(searchObj.stateBatch.isPresent()).toBe(true);
-    browser.sleep(1000);
-    expect(searchObj.userIdBatch.isPresent()).toBe(true);
-    browser.sleep(1000);
-    expect(searchObj.districtBatch.isPresent()).toBe(true);
-    browser.sleep(1000);
-    expect(searchObj.blockBatch.isPresent()).toBe(true);
-    browser.sleep(1000);
-    expect(searchObj.schoolIdBatch.isPresent()).toBe(true);
-    browser.sleep(1000);
-    expect(searchObj.nameBatch.isPresent()).toBe(true);
-    browser.sleep(1000);
-    expect(searchObj.mobileNumberBatch.isPresent()).toBe(true);
-    //expect(searchObj.emailIdbatch.isDisplayed()).toBeTruthy();
-    browser.sleep(4000);
-    searchObj.checkBoxConsent.click();
-    browser.sleep(4000);
-    expect(searchObj.validateTermsCondition.isPresent()).toBe(true);
-    browser.sleep(4000);
-    browser.executeScript("arguments[0].scrollIntoView();", searchObj.doNotShare);
-    browser.wait(
-      protractor.ExpectedConditions.visibilityOf(searchObj.doNotShare),
-      20000,
-      "doNotShare not available"
-    );
-    searchObj.doNotShare.click();
-    browser.sleep(4000);
-    }
-    catch (Exception) {
-        console.log("Failed");
-    }
-}
-
-
-const phoneNumberFieldPreFilled = () => {
-    try {
-
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        wait.waitForElementVisibility(content.linkProfile, 20000);
-        content.linkProfile.click();
-        browser.sleep(3000);
-        expect(content.updateButtonInproFilePage.isPresent()).toBe(true).then(function () {
-            content.updateButtonInproFilePage.click();
-            browser.sleep(2000);
-        })
-        expect(content.masterOrgDropdown.isPresent()).toBeTruthy().then(function () {
-            content.masterOrgDropdown.click();
-            browser.sleep(1000);
-            content.sltStateDropdown.click();
-            browser.sleep(1000);
-        })
-        expect(content.optionalFieldID.isPresent()).toBe(true).then(function () {
-            console.log("External ID optional field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.externalID.isPresent()).toBe(true).then(function () {
-            console.log("External ID input field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.optionalFieldphoneNumber.isPresent()).toBe(true).then(function () {
-            console.log("Phone Number optional field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.phoneNumber.isPresent()).toBe(true).then(function () {
-            console.log("Phone Number input field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.assertPhoneNoFieldPreField.isPresent()).toBe(true).then(function () {
-            console.log("Phone Number input field is validated");
-            browser.sleep(2000);
-        })
-
-        expect(content.optionalFieldEmailID.isPresent()).toBe(true).then(function () {
-            console.log("Email optional field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.assertEmailFieldPreField.isPresent()).toBe(true).then(function () {
-            console.log("Email optional field is validated");
-            browser.sleep(2000);
-        })
-       
-
-    }
-    catch (e) {
-        console.error("Handled");
-    }
-}
-
-const EmailFieldPreFilled = () => {
-    try {
-
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        wait.waitForElementVisibility(content.linkProfile, 20000);
-        content.linkProfile.click();
-        browser.sleep(3000);
-        expect(content.updateButtonInproFilePage.isPresent()).toBe(true).then(function () {
-            content.updateButtonInproFilePage.click();
-            browser.sleep(2000);
-        })
-        expect(content.masterOrgDropdown.isPresent()).toBeTruthy().then(function () {
-            content.masterOrgDropdown.click();
-            browser.sleep(1000);
-            content.sltStateDropdown.click();
-            browser.sleep(1000);
-        })
-        expect(content.optionalFieldID.isPresent()).toBe(true).then(function () {
-            console.log("External ID optional field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.externalID.isPresent()).toBe(true).then(function () {
-            console.log("External ID input field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.optionalFieldphoneNumber.isPresent()).toBe(true).then(function () {
-            console.log("Phone Number optional field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.phoneNumber.isPresent()).toBe(true).then(function () {
-            console.log("Phone Number input field is validated");
-            browser.sleep(2000);
-        })
-       
-        expect(content.optionalFieldEmailID.isPresent()).toBe(true).then(function () {
-            console.log("Email optional field is validated");
-            browser.sleep(2000);
-        })
-        expect(content.assertEmailFieldPreField.isPresent()).toBe(true).then(function () {
-            console.log("Email optional field is validated");
-            browser.sleep(2000);
-        })
-       
-
-    }
-    catch (e) {
-        console.error("Handled");
-    }
-}
-
-const enterSpaceInUserIDInProfile = () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var textwithspace = cred[42]['Title'];
-        
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
-        content.headerDropdown.click();
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.profileButton), 20000, "Profile Button is not available");
-        content.profileButton.click();
-        console.log("Clicked on Profile Button");
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.UpdateButton), 20000, "Update Button is not available");
-        content.UpdateButton.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,0);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.DataDropdown), 20000, "Data drop down is not available");
-        content.DataDropdown.click();
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.SelectDataDropdown), 20000, "Select Dropdown is not available");
-        content.SelectDataDropdown.click();
-        browser.sleep(3000);
-        searchObj.enterUserIdInProfileUpdateForm.click();
-        browser.sleep(2000);
-        searchObj.enterUserIdInProfileUpdateForm.sendKeys(textwithspace);
-        browser.sleep(3000);
-       
-        wait.waitForElementVisibility(content.checkBoxConsent, 20000);
-        content.checkBoxConsent.click();
-        browser.sleep(3000);
-
-        wait.waitForElementVisibility(content.submitButtonForDropdowns, 20000);
-        content.submitButtonForDropdowns.click();
-        browser.sleep(2000);
-        expect(content.assertSubmitSuccesTostrMsg).isDisplayed().toBe(true);
-        browser.sleep(5000);
-        expect(content.assertSubmitSuccesMsg).isDisplayed().toBe(true);
-        expect(content.assertSubmitSuccesMsg2).isDisplayed().toBe(true);
-
-
-
-    }
-    catch (Exception) {
-        console.log("Failed on Update details");
-    }
-}
-
-const AdduserInDifferentStyles = (name) => {
-    try {
-        console.log("User is trying to addUserInProfile");
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
-        content.headerDropdown.click();
-        browser.sleep(1000);
-        browser.executeScript('window.scrollTo(0,100);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.addUser), 20000, "addUser is not available");
-        verifyCEBObj.addUser.click();
-        console.log("Clicked on add user");
-       //userName = "User" + faker.randomData().firstname;
-
-        browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.enterName), 20000, "enterName is not available");
-        verifyCEBObj.enterName.sendKeys(name);
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,200);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.addUserButton), 20000, "addUserButton is not available");
-        verifyCEBObj.addUserButton.click();
-        browser.sleep(1000);
-        console.log("added a User successfully ");
-        verifyCEBObj.availableUser.getText().then(function (input) {
-            // expect(input).toEqual(userName);
-            console.log("Verified added user: " + input);
-        });
-        verifyCEBObj.availableUser.click();
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.switchUser), 20000, "switchUser is not available");
-        verifyCEBObj.switchUser.click();
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.declaration), 20000, "declaration is not available");
-        verifyCEBObj.declaration.click();
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.continueDeclaration), 20000, "switchUser is not available");
-        verifyCEBObj.continueDeclaration.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.Teacher, 20000);
-        content.Teacher.click();
-        wait.waitForElementVisibility(content.Continue, 20000);
-        content.Continue.click();
-        browser.sleep(4000);
-        wait.waitForElementVisibility(content.state, 20000);
-        content.state.click();
-        wait.waitForElementVisibility(content.selectState, 20000);
-        content.selectState.click();
-        wait.waitForElementVisibility(content.district, 20000);
-        content.district.click();
-        wait.waitForElementVisibility(content.selectDistrict, 20000);
-        content.selectDistrict.click();
-        wait.waitForElementVisibility(content.btnSubmit, 20000);
-        content.btnSubmit.click();
-        browser.sleep(5000);
-
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
-        // content.headerDropdown.click();
-        // browser.sleep(1000);
-        // verifyCEBObj.availableUser.getText().then(function (input) {
-        //     expect(input).toEqual(userName);
-        //     console.log("Verified selected user is switched : " + input);
-        // });
-    }
-    catch (Exception) {
-        console.log("Failed on adding user");
-    }
-}
-
-
-const validateConsentPopupForstateUsersAndValidateExternalID = async () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var name = cred[53]['Title'];
-        var externalUserId = cred[54]['Title'];
-        var schoolExternalID = cred[51]['TitleDescription'];
-
-        wait.waitForElementVisibility(content.statelogin, 20000);
-        content.statelogin.click();
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOStateSelect1, 20000);
-        expect(content.SSOStateSelect1.isPresent()).toBe(true);
-        browser.sleep(2000);
-        content.SSOStateSelect1.click();
-        browser.sleep(2000);
-        content.selectLoginState.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.SSOSubmit2, 20000);
-        content.SSOSubmit2.click();
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOUserName, 20000);
-        content.SSOUserName.click();
-        browser.sleep(2000);
-        content.SSOUserName1.sendKeys(name);
-        browser.sleep(1000);
-        wait.waitForElementVisibility(content.SSOUserExtID, 20000);
-        content.SSOUserExtID.click();
-        browser.sleep(2000);
-        content.SSOUserExtID.sendKeys(externalUserId);
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.SSOSchoolExtID, 20000);
-        content.SSOSchoolExtID.click();
-        browser.sleep(2000);
-        content.SSOSchoolExtID.sendKeys(schoolExternalID);
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.SSOsubmit, 20000);
-        content.SSOsubmit.click();
-        browser.sleep(5000);
-        expect(searchObj.validateExternalIdInConsentPopUp.isPresent()).toBe(true);
-        browser.sleep(3000);
-        expect(searchObj.stateBatch.isPresent()).toBe(true);
-        browser.sleep(1000);
-        expect(searchObj.userIdBatch.isPresent()).toBe(true);
-        browser.sleep(1000);
-        expect(searchObj.districtBatch.isPresent()).toBe(true);
-        browser.sleep(1000);
-        expect(searchObj.blockBatch.isPresent()).toBe(true);
-        browser.sleep(1000);
-        expect(searchObj.schoolIdBatch.isPresent()).toBe(true);
-        browser.sleep(1000);
-        expect(searchObj.nameBatch.isPresent()).toBe(true);
-        browser.sleep(1000);
-        expect(searchObj.mobileNumberBatch.isPresent()).toBe(true);
-        browser.sleep(4000);
-        expect(sanityPage.validateDisabledContinueButton.isPresent()).toBe(true);
-        browser.sleep(4000);
-        sanityPage.checkBoxConsent.click();
-        browser.sleep(4000);
-        expect(sanityPage.validateEnabledContinueButton.isPresent()).toBe(true);
-        browser.sleep(4000);
-    }
-    catch (Exception) {
-        console.log("Failed");
-    }
-}
-
-const validateInvalidYearOfBirthErrorInRegisterPage = async () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        
-        console.log("validating Register Here page.");
-        wait.waitForElementVisibility(content.headerDropdown, 20000);
-        content.headerDropdown.click();
-        browser.sleep(2000);
-        wait.waitForElementVisibility(content.loginLink, 20000);
-        content.loginLink.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,150);').then(function () {
-            console.log('++++++SCROLLED down+++++');
-        });
-        wait.waitForElementVisibility(content.RegisterHereLink, 20000)
-        content.RegisterHereLink.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.nameInRegisterPage, 20000)
-        content.nameInRegisterPage.sendKeys(cred[48]['CourseName']);
-        browser.sleep(3000);
-        searchObj.selectYearOfBirth.sendKeys("2040");
-        browser.sleep(2000);
-        content.nameInRegisterPage.click();
-        browser.sleep(3000);
-        expect(searchObj.validateyearofBirthError.isPresent()).toBe(true);
-        browser.sleep(3000);
-        content.birthYear.clear();
-        browser.sleep(2000);
-        content.nameInRegisterPage.click();
-        browser.sleep(3000);
-    }
-    catch (Exception) {
-        console.log("Failed");
-    }
-}
-
-const updateSubmitDetailsInProfile = () => {
-    try {
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var textwithspace = cred[42]['Title'];
-        
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
-        content.headerDropdown.click();
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.profileButton), 20000, "Profile Button is not available");
-        content.profileButton.click();
-        console.log("Clicked on Profile Button");
-        browser.sleep(3000);
-        browser.executeScript("window.scrollTo(0,100);").then(function () {
-            console.log("++++++SCROLLED Down+++++");
-          });
-          browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.UpdateButton), 20000, "Update Button is not available");
-        content.UpdateButton.click();
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,0);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        })
-        browser.sleep(2000);
-
-                expect(content.assertPreFilledName).isDisplayed().toBe(true);
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.DataDropdown), 20000, "Data drop down is not available");
-        content.DataDropdown.click();
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.SelectDataDropdown), 20000, "Select Dropdown is not available");
-        content.SelectDataDropdown.click();
-        browser.sleep(3000);
-        searchObj.enterUserIdInProfileUpdateForm.click();
-        browser.sleep(2000);
-        searchObj.enterUserIdInProfileUpdateForm.sendKeys(textwithspace);
-        browser.sleep(3000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.UpdateButton), 20000, "Update Button is not available");
-        content.UpdateButton.click();
-        browser.sleep(4000);
-        content.myDetails.getText().then(function (input) {
-            expect(input).toEqual('Haryana State');
-            console.log("Verified Updated Details : " + input);
-            browser.sleep(3000);
-        })
-
-    }
-    catch (Exception) {
-        console.log("Failed on Update details");
-    }
-}
-
-const validatedErrorMsgInAddUser = () => {
-    try {
-        console.log("User is trying to addUserInProfile");
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
-        content.headerDropdown.click();
-        browser.sleep(1000);
-        browser.executeScript('window.scrollTo(0,100);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.addUser), 20000, "addUser is not available");
-        verifyCEBObj.addUser.click();
-        console.log("Clicked on add user");
-        browser.sleep(2000);
-        verifyCEBObj.enterName.click();
-   
-
-        browser.actions().sendKeys(protractor.Key.TAB).perform();
-        browser.sleep(2000);
-
-        expect(content.assertErrMsgInAddUser.isPresent()).toBeTruthy();
-
-        browser.sleep(1000);
-
-       
-    }
-    catch (Exception) {
-        console.log("Failed on adding user");
-    }
-}
-
-const naviageToProfilePage = () => {
-   
-        browser.sleep(2000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown page not loaded");
-        content.headerDropdown.click();
-        wait.waitForElementVisibility(userOnboard.clickProfileIcon, 20000, "clickProfileIcon field is not available");
-        userOnboard.clickProfileIcon.click();
-        browser.sleep(5000);
-}
-const validateRecoveryIdOptionNotDisplayed = () => {
-      
-    expect(userOnboard.assertPhoneNumberNotDisplayed.isPresent()).toEqual(false);
-    expect(userOnboard.assertEmailOptionNotDisplayed.isPresent()).toEqual(false);
-    expect(userOnboard.assertRecoveyOptionNotDisplayed.isPresent()).toEqual(false);
-  
-}
-const firstLetterInCapitalInProfileAvathar = () => {
-      
-    expect(userOnboard.assertUserAddedValidationWithName.isPresent()).toEqual(true);
-    expect(userOnboard.assertProfileAvatharFirstLetter.isPresent()).toEqual(true);
-    expect(userOnboard.assertFirstLetterInProfile.isPresent()).toEqual(true);
-  
-}
-const AddUserWithSpecificName = () => {
-    try {
-        console.log("User is trying to addUserInProfile");
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
-        content.headerDropdown.click();
-        browser.sleep(1000);
-        browser.executeScript('window.scrollTo(0,100);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.addUser), 20000, "addUser is not available");
-        verifyCEBObj.addUser.click();
-        console.log("Clicked on add user");
-    //   userName = "User" + faker.randomData().firstname;
-    userName = "Userprofilefirstlettervalidation";
-
-        browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.enterName), 20000, "enterName is not available");
-        verifyCEBObj.enterName.sendKeys(userName);
-        browser.sleep(3000);
-        browser.executeScript('window.scrollTo(0,200);').then(function () {
-            console.log('++++++SCROLLED UP+++++');
-        });
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.addUserButton), 20000, "addUserButton is not available");
-        verifyCEBObj.addUserButton.click();
-        browser.sleep(1000);
-        console.log("added a User successfully ");
-        verifyCEBObj.availableUser.getText().then(function (input) {
-            // expect(input).toEqual(userName);
-            console.log("Verified added user: " + input);
-        });
-        verifyCEBObj.availableUser.click();
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.switchUser), 20000, "switchUser is not available");
-        verifyCEBObj.switchUser.click();
-        browser.sleep(1000);
-        browser.wait(protractor.ExpectedConditions.visibilityOf(verifyCEBObj.declaration), 20000, "declaration is not available");
-        verifyCEBObj.declaration.click();
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(verifyCEBObj.continueDeclaration), 20000, "switchUser is not available");
-        verifyCEBObj.continueDeclaration.click();
-        browser.sleep(3000);
-        wait.waitForElementVisibility(content.Teacher, 20000);
-        content.Teacher.click();
-        wait.waitForElementVisibility(content.Continue, 20000);
-        content.Continue.click();
-        browser.sleep(4000);
-        wait.waitForElementVisibility(content.state, 20000);
-        content.state.click();
-        wait.waitForElementVisibility(content.selectState, 20000);
-        content.selectState.click();
-        wait.waitForElementVisibility(content.district, 20000);
-        content.district.click();
-        wait.waitForElementVisibility(content.selectDistrict, 20000);
-        content.selectDistrict.click();
-        wait.waitForElementVisibility(content.btnSubmit, 20000);
-        content.btnSubmit.click();
-        browser.sleep(5000);
-
-        // browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerDropdown), 20000, "headerDropdown is not available");
-        // content.headerDropdown.click();
-        // browser.sleep(1000);
-        // verifyCEBObj.availableUser.getText().then(function (input) {
-        //     expect(input).toEqual(userName);
-        //     console.log("Verified selected user is switched : " + input);
-        // });
-    }
-    catch (Exception) {
-        console.log("Failed on adding user");
-    }
-}
-
-const verifyDebugModeInHelpSection = () => {
-
-    wait.waitForElementVisibility(content.headerDropdown, 20000);
-    content.headerDropdown.click();
-    wait.waitForElementVisibility(userOnboard.clkHelp, 20000);
-    userOnboard.clkHelp.click();
-    browser.sleep(3000);
-
-    userOnboard.clkDeveloperOptions.click();
-    browser.sleep(3000);
-
-    wait.waitForElementVisibility(userOnboard.EnableDebugModetext, 20000);
-    expect(userOnboard.EnableDebugModetext.isDisplayed()).toBeTruthy();
-  
-    userOnboard.clkDebugMode.click();
-    browser.sleep(3000);
-    
-    wait.waitForElementVisibility(userOnboard.assertDebugModeEnabled, 20000);
-    expect(userOnboard.assertDebugModeEnabled.isDisplayed()).toBeTruthy();
-}
 
 
 module.exports = {
@@ -4246,41 +2236,6 @@ module.exports = {
     validatingQRcodeSearchAndValidate,
     validateLocationPopUpInAllPages,
     validateLocationPopUp,
-    validateDebugMode,
-    verifyForgetLabelAndLink,
-    verifyNewRegisterHerePage,
-    TnCReminderTextInDownloadButton,
-    verifyNewRegisterHerePageAndValidateMobileAndEmailEntryForMajorUsers,
-    verifySSOandCustodUserMergeAndValidatePopUp,
-    verifySSOandCustodUserMergeAndValidatePopUpAndInvalid,
-    validateAllLoginAttributesOfExplorePage,
-    userCreationlimitValidation,
-    validateTcInAddUserForm,
-    NotAbleToProceedFurtherWithoutAcceptingTncheck,
-    validateCheckBoxInSubmitConsentForm,
-    submitCheckBoxInSubmitConsentForm,
-    resetotpValidation,
-    resetotpValidationForInValidOtp,
-    clickAdminDashBoardAndVerifyReports,
-    passwordFieldValidation,
-    EmailAddressOtpMsgForMajorUser,
-    EmailAddressOtpMsgForMinorUser,
-    MobileNumberOtpMsgForMinorUser,
-    MobileNumberOtpMsgForMajorUser,
-    verifySSOandCustodUserMergeAndValidateTheLandingPage,
-    verifySpaceIsallowedInUserIdEntrybox,
-    validateConsentPopupForstateUsers,
-    phoneNumberFieldPreFilled,
-    EmailFieldPreFilled,
-    enterSpaceInUserIDInProfile,
-    AdduserInDifferentStyles,
-    validateConsentPopupForstateUsersAndValidateExternalID,
-    validateInvalidYearOfBirthErrorInRegisterPage,
-    updateSubmitDetailsInProfile,
-    validatedErrorMsgInAddUser,
-    naviageToProfilePage,
-    validateRecoveryIdOptionNotDisplayed,
-    firstLetterInCapitalInProfileAvathar,
-    AddUserWithSpecificName,
-    verifyDebugModeInHelpSection,
+
 }
+

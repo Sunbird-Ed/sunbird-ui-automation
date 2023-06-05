@@ -115,8 +115,7 @@ var etb = () => {
     var selectFilterSubject = element(by.xpath("//span[contains(text(),'accountancy')]"));
     var groupFilterContentType = element(by.xpath("//li[contains(text(),'Select Content type')]"));
     var selectFilterContentType = element(by.xpath("//span[contains(text(),'course')]"));
-    var contentCollType = element(by.xpath("//*[contains(text(),'Collection Type')]/following::span[contains(text(),'Content Playlist')]"));
-    var questionCollType = element(by.xpath("//*[contains(text(),'Collection Type')]/following::span[contains(text(),'Question paper')]"));
+
 
 
 
@@ -231,8 +230,6 @@ var etb = () => {
         selectFilterSubject,
         groupFilterContentType,
         selectFilterContentType,
-        contentCollType,
-        questionCollType,
   };
 
 };

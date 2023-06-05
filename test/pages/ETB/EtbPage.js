@@ -204,7 +204,7 @@ let EtbElem = () => {
     var MediumNoDefDD = element(by.xpath("//div[contains(text(),' Select Medium')]"));
     var ClassNoDefDD = element(by.xpath("//div[contains(text(),' Select Class')]"));
     var subjectNoDefDD = element(by.xpath("//*[contains(text(),'Select Subject')]"));
-    var PublishedDD = element(by.xpath("//*[contains(text(),'Select User Type')]"));
+    var PublishedDD = element(by.xpath("//*[contains(text(),'Select Published by')]"));
     var contentInSubjectWise = element(by.xpath("//div[@class='sb--card__meta']//following::span[1]"));
     var defaultValueCBSEDD = element(by.xpath("//label[contains(text(),'Board')]/following::span[2]"));
     var defaultValueEnglish = element(by.xpath("//div[@id='class0']"));
@@ -218,7 +218,12 @@ let EtbElem = () => {
     var clickFilterBoard1 = element(by.xpath("//label[contains(text(),'Board')]//following::span[2]"));
     var sltFilterBoard2 = element(by.xpath("//label[contains(text(),'Board')]//following::sui-select-option[2]"));
     var clkTVClasses = element(by.xpath("//a[contains(text(),' TV classes ')]"));
+
     var downloadCSVfile = element(by.xpath("//*[text()='Download sample csv file']"));
+    
+
+
+
 
     return {
         searchCollaboratorField,

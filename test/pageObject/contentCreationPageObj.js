@@ -13,12 +13,12 @@ var etbv = etbpage.etb();
 var searchObj = tpdPage.tpdPage();
 var resov = resourcePag.resource();
 const sanityPage = require(protractor.basePath + '/test/pages/userOnBoarding/SanityPage.js');
-var sanity = sanityPage.SanityElement();
 let getExcelPath = require(protractor.basePath + '/test/pathFolder/changePath.js');
 const genericFun = require(protractor.basePath + '/test/genericFunctions/GenericFunction.js');
 
 const searchContentInLibrary = (contentType) => {
   try {
+
     // console.log("User should be able to get the newly created content by Searching the content with the content name.");
     // content.searchedContentForUpload.click();
     // browser.sleep(2000);
@@ -69,12 +69,13 @@ const navigateToLibraryAndSearchForLessonPlan = () => {
     content.searchedContentForUpload.click();
     browser.sleep(3000);
     console.log("Succesfully to navigate To Library And Search For LessonPlan");
+
   }
   catch (Exception) {
     console.log("Failed to navigate To Library And Search For LessonPlan");
   }
-}
 
+}
 const consumeTheCourseInLibrarySection = () => {
   try {
     console.log("User is trying to consume the content by clicking on it.");
@@ -303,11 +304,11 @@ const enrollmentDateEnded = () => {
     console.log("User successfully enrolled to the course");
   }
 }
-
-
 const createInviteBatch = (contentName) => {
+
   try {
     console.log("User is trying to create invite only batch for a course");
+
     browser.sleep(2000);
     browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.headerCourse), 20000, " headerCourse not loaded");
     searchObj.headerCourse.click();
@@ -356,7 +357,6 @@ const createInviteBatch = (contentName) => {
     console.log("Failed to create invite only batch");
   }
 }
-
 const batchNameAndEndDateIsMandatoryFields2 = () => {
 
   try {
@@ -365,6 +365,7 @@ const batchNameAndEndDateIsMandatoryFields2 = () => {
     browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.addIcon), 20000, "headerCourse not available");
     content.addIcon.click();
     browser.sleep(1000);
+
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.nameOfBatch), 20000, " nameOfBatch is not available");
     content.nameOfBatch.click();
     content.nameOfBatch.sendKeys("batch1");
@@ -382,6 +383,7 @@ const batchNameAndEndDateIsMandatoryFields2 = () => {
   }
 }
 const inviteOnlybatchCanBeCreatedAndUpdatedWithoutEndDate = () => {
+
   try {
     console.log("User is trying to create invite only batch for a course");
 
@@ -417,8 +419,8 @@ const inviteOnlybatchCanBeCreatedAndUpdatedWithoutEndDate = () => {
     console.log("Failed to create invite only batch");
   }
 }
-
 const consumeTheCourseOfInviteOnly = (content) => {
+
   try {
     console.log("User is trying to consume invite only batch");
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerCourse), 20000, " headerCourse not loaded");
@@ -441,8 +443,8 @@ const consumeTheCourseOfInviteOnly = (content) => {
     console.log("Failed to consume invite only batch");
   }
 }
-
 const clearTheFieldNameOfTheBatchAndStartDate = (contentName) => {
+
   try {
     browser.sleep(2000);
     console.log("User is trying to clear Name of the Batch and Start date");
@@ -653,6 +655,7 @@ const checkInAssignToMeSection = () => {
   }
 }
 const applyFilterAndToggleQuestion = () => {
+  try {
     browser.sleep(2000);
 
     console.log("User is trying to create a resource")
@@ -714,17 +717,17 @@ const applyFilterAndToggleQuestion = () => {
     browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectMediumQ), 40000, "selectMedium is not available");
     content.selectMediumQ.click();
     browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.classType), 40000, "classType is not available");
-    content.classType.click();
-    browser.sleep(3000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectClassQ), 40000, "selectClass is not available");
-    content.selectClassQ.click();
-    browser.sleep(3000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.subject), 40000, "subject is not available");
-    content.subject.click();
-    browser.sleep(3000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectSubjectQ), 40000, "selectSubject is not available");
-    content.selectSubjectQ.click();
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(content.classType), 40000, "classType is not available");
+    // content.classType.click();
+    // browser.sleep(3000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectClassQ), 40000, "selectClass is not available");
+    // content.selectClassQ.click();
+    // browser.sleep(3000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(content.subject), 40000, "subject is not available");
+    // content.subject.click();
+    // browser.sleep(3000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectSubjectQ), 40000, "selectSubject is not available");
+    // content.selectSubjectQ.click();
     // console.log('successfully applied all filters except my toggle')
     // browser.sleep(3000);
     // for (var i = 0; i <= 2; i++) 
@@ -732,22 +735,33 @@ const applyFilterAndToggleQuestion = () => {
 
 
     // browser.wait(protractor.ExpectedConditions.visibilityOf(content.myQuestionToggle), 20000, "  myQuestionToggle is not available");
-   // content.myQuestionToggle.click();
+    content.myQuestionToggle.click();
     console.log('Toggle is selected')
 
     browser.sleep(3000);
     expect(browser.wait(protractor.ExpectedConditions.visibilityOf(content.copyQuestion))).toBeTruthy()
-    
-    // browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.closePage), 20000, "Dashboard never loaded");
-    // content.closePage.click();
-    // browser.sleep(1000);
-    // browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.saveCourse), 20000, "Dashboard never loaded");
-    // content.saveCourse.click();
-    // browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.closeEditor2), 20000, "Dashboard never loaded");
-    // content.closeEditor2.click();
-    // console.log('User has successfully applied Filter And Toggle Question')
-  } 
+    if (browser.wait(protractor.ExpectedConditions.visibilityOf(content.copyQuestion))) {
+      console.log('filtered question is available')
+    }
+    else {
+      console.log('filtered question is not available')
+    }
 
+    browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.closePage), 20000, "Dashboard never loaded");
+    content.closePage.click();
+    browser.sleep(1000);
+    browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.saveCourse), 20000, "Dashboard never loaded");
+    content.saveCourse.click();
+    browser.wait(protractor.ExpectedConditions.elementToBeClickable(content.closeEditor2), 20000, "Dashboard never loaded");
+    content.closeEditor2.click();
+    console.log('User has successfully applied Filter And Toggle Question')
+  } catch (e) {
+    console.log('Failed to apply Filter And Toggle Question');
+
+
+  }
+
+}
 const reviewerUpForReview = () => {
   try {
     console.log('User is Navigating to up for review');
@@ -1047,6 +1061,7 @@ const trainingAttendedIsAvailableInProfilePage = () => {
 
 }
 const viewCourseDashBoardDetails = () => {
+
   try {
     var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
     var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
@@ -1247,6 +1262,7 @@ const searchContentByUsingFilter = () => {
   }
 }
 const exploreChatBox = () => {
+
   try {
     wait.waitForElementVisibility(content.clkChatBox, 30000, "clkChatBox button not available");
     content.clkChatBox.click();
@@ -1393,56 +1409,13 @@ const consumeContent = () => {
     browser.sleep(2000);
     content.zoomIn.click();
     browser.sleep(1000);
-    // for (i = 0; i < 95; i++) {
-    //   sanityPage.SanityElement().pdfArrowButton.click();
-    // }
-    // browser.sleep(4000);
-    // (content.assertConsume).getText().then(function (input) {
-    //   console.log(input + " consuming the content.");
-    // })
-    //content.zoomOut.click();
-    // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "save never loaded");
-    // searchObj.starRating.click();
-    // browser.sleep(1000);
-    // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.submitRating), 20000, "save never loaded");
-    // searchObj.submitRating.click();
-    //browser.sleep(4000);
-    browser.sleep(4000);
-
-
-  }
-  catch (Exception) {
-    console.log("Failed to consumed the content properly.");
-  }
-}
-
-const consumeContentPlaylist = (content) => {
-  try {
-    // var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    // var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    // var do_id = cred[42]['CourseName'];
-    browser.sleep(2000);
-    console.log("User is trying to consume content");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
-    sanityPage.SanityElement().clkLibraray.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.sendKeys(contentCreation);
-    browser.sleep(2000);
-    sanityPage.SanityElement().clkSearchLib.click();
-    browser.sleep(1000);
-    content.courseCard.click();
-    browser.sleep(1000);
-    content.zoomIn.click();
-    browser.sleep(1000);
-    for (i = 0; i < 9; i++) {
+    for (i = 0; i < 95; i++) {
       sanityPage.SanityElement().pdfArrowButton.click();
     }
-    // browser.sleep(2000);
-    // (content.assertConsume).getText().then(function (input) {
-    //   console.log(input + " consuming the content.");
-    // })
+    browser.sleep(2000);
+    (content.assertConsume).getText().then(function (input) {
+      console.log(input + " consuming the content.");
+    })
     content.zoomOut.click();
     // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "save never loaded");
     // searchObj.starRating.click();
@@ -1459,7 +1432,50 @@ const consumeContentPlaylist = (content) => {
   }
 }
 
-const consumeDigitalTextBook = (content) => {
+const consumeContentPlaylist = () => {
+  try {
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+    var do_id = cred[42]['CourseName'];
+    browser.sleep(2000);
+    console.log("User is trying to consume content");
+    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
+    sanityPage.SanityElement().clkLibraray.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
+    browser.sleep(2000);
+    sanityPage.SanityElement().clkSearchLib.click();
+    browser.sleep(1000);
+    content.courseCard.click();
+    browser.sleep(1000);
+    content.zoomIn.click();
+    browser.sleep(1000);
+    for (i = 0; i < 9; i++) {
+      sanityPage.SanityElement().pdfArrowButton.click();
+    }
+    browser.sleep(2000);
+    (content.assertConsume).getText().then(function (input) {
+      console.log(input + " consuming the content.");
+    })
+    content.zoomOut.click();
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "save never loaded");
+    // searchObj.starRating.click();
+    // browser.sleep(1000);
+    // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.submitRating), 20000, "save never loaded");
+    // searchObj.submitRating.click();
+    //browser.sleep(4000);
+    browser.sleep(1000);
+
+
+  }
+  catch (Exception) {
+    console.log("Failed to consumed the content properly.");
+  }
+}
+
+const consumeDigitalTextBook = () => {
   try {
     var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
     var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
@@ -1471,7 +1487,7 @@ const consumeDigitalTextBook = (content) => {
     browser.sleep(2000);
     sanityPage.SanityElement().searchConLib.click();
     browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.sendKeys(content);
+    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
     browser.sleep(2000);
     sanityPage.SanityElement().clkSearchLib.click();
     browser.sleep(1000);
@@ -1482,10 +1498,10 @@ const consumeDigitalTextBook = (content) => {
     for (i = 0; i < 9; i++) {
       sanityPage.SanityElement().pdfArrowButton.click();
     }
-    // browser.sleep(2000);
-    // (content.assertConsume).getText().then(function (input) {
-    //   console.log(input + " consuming the content.");
-    // })
+    browser.sleep(2000);
+    (content.assertConsume).getText().then(function (input) {
+      console.log(input + " consuming the content.");
+    })
     content.zoomOut.click();
     // browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "save never loaded");
     // searchObj.starRating.click();
@@ -1561,9 +1577,9 @@ const validateContentDetails = () => {
     sanityPage.SanityElement().searchConLib.sendKeys(do_id);
     browser.sleep(2000);
     sanityPage.SanityElement().clkSearchLib.click();
-    browser.sleep(3000);
+    browser.sleep(1000);
     content.courseCard.click();
-    browser.sleep(5000);
+    browser.sleep(2000);
     content.createdOn.getText().then(function (createdOn) {
       console.log("validating created on" + createdOn);
     })
@@ -1586,6 +1602,10 @@ const validateContentDetails = () => {
     (sanityPage.attributionInbook).getText().then(function (attributionorder) {
       console.log("Order of Attributions output are" + attributionorder);
     })
+
+
+
+
   }
   catch (Exception) {
     console.log("Failed to consumed the content properly.");
@@ -1684,6 +1704,7 @@ const verifyPublishedContentInAllMyContent = (publishedTextBook) => {
     browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
     ccpage.contentCreation().headerDropdown.click();
     browser.sleep(1000);
+
     browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
     ccpage.contentCreation().workSpace.click();
     browser.sleep(5000);
@@ -1693,1114 +1714,24 @@ const verifyPublishedContentInAllMyContent = (publishedTextBook) => {
     searchObj.searchContent.sendKeys(publishedTextBook);
     browser.sleep(2000);
     browser.wait(protractor.ExpectedConditions.visibilityOf(resov.imageCard4), 40000, "imageCard is not available");
-    (resov.imageCard4.getText()).then(function (publishedContent) {
+    (resov.imageCard4.getText()).then(function(publishedContent){
       console.log(publishedContent);
       (publishedContent).includes(publishedTextBook);
     })
-  }
-  catch (Exception) {
-    console.log("Failed to validate filters in all textbook.");
-  }
-}
 
-
-const validateDownloadToc = () => {
-  try {
-    browser.sleep(9000);
-    browser.actions().dragAndDrop(content.overlayButton, content.overlayButton).mouseUp().perform();
-    browser.sleep(3000);
-    expect(content.sharebutton.isPresent()).toBe(true);
-    expect(content.downloadButton.isPresent()).toBeTruthy();
-    browser.sleep(3000);
-    content.downloadButton.click();
-    browser.sleep(3000);
-    content.downloadPopUpButton.click();
-    browser.sleep(1000);
-    content.closeButton.click();
-    browser.sleep(1000);
-    browser.actions().dragAndDrop(content.overlayButton, content.overlayButton).mouseUp().perform();
-    browser.sleep(6000);
-  }
-  catch (Exception) {
-    console.log("Failed to consumed the content properly.");
-  }
-}
-
-
-
-const consumePdfContentAndValidateSomeAttributes = () => {
-  try {
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    var do_id = cred[34]['CourseName'];
-    browser.sleep(2000);
-    console.log("User is trying to consume content");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
-    sanityPage.SanityElement().clkLibraray.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
-    browser.sleep(2000);
-    sanityPage.SanityElement().clkSearchLib.click();
-    browser.sleep(3000);
-    content.courseCard.click();
-    browser.sleep(1000);
-    content.courseClk.click();
-    browser.sleep(9000);
-    for (i = 0; i > 2; i++) {
-      content.zoomOutToc.click();
-      browser.sleep(1000);
-    }
-    content.zoomInToc.click();
-    validateDownloadToc();
-    content.zoomIn.click();
-    browser.sleep(5000);
-    validateDownloadToc();
-    for (i = 0; i < 94; i++) {
-      sanityPage.SanityElement().pdfArrowButton.click();
-      browser.sleep(200);
-      if (i === 92) {
-        browser.sleep(4000);
-        (content.consumptionInPercentage).getText().then(function (input) {
-          console.log("Consumption percentage : " + input);
-        })
-        browser.sleep(4000);
-      }
-    }
-    sanityPage.SanityElement().pdfArrowButton.click();
-    browser.sleep(5000);
-    (content.consumptionTimer).getText().then(function (input) {
-      console.log("Total time consume " + input);
-    })
-    browser.sleep(6000);
-    (content.assertConsume).getText().then(function (input) {
-      console.log(input + " consuming the content.");
-    })
-    browser.sleep(3000);
-    (content.replayButton).getText().then(function (replay) {
-      console.log(replay + " Button is validated");
-    })
-    browser.sleep(5000);
-    content.zoomOut.click();
-    browser.sleep(1000);
-  }
-  catch (Exception) {
-    console.log("Failed to consumed the content properly.");
-  }
-}
-
-
-
-const consumePdfContentAndVerifyProgress = () => {
-  try {
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    var do_id = cred[34]['CourseName'];
-    browser.sleep(2000);
-    console.log("User is trying to consume content");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
-    sanityPage.SanityElement().clkLibraray.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
-    browser.sleep(2000);
-    sanityPage.SanityElement().clkSearchLib.click();
-    browser.sleep(3000);
-    content.courseCard.click();
-    browser.sleep(8000);
-    content.courseClk.click();
-    browser.sleep(6000);
-    content.zoomIn.click();
-    browser.sleep(5000);
-    for (i = 0; i <= 1; i++) {
-      
-      sanityPage.SanityElement().pdfArrowButton.click();
-      browser.sleep(200);
-      if (i === 0) {
-        browser.sleep(4000);
-        (content.consumptionInPercentage).getText().then(function (input) {
-          console.log("Consumption percentage : " + input);
-        })
-        browser.sleep(4000);
-      }
-    }
-    browser.sleep(2000);
-    (content.consumptionTimer).getText().then(function (input) {
-      console.log("Total time consume " + input);
-    })
-    browser.sleep(6000);
-    (content.assertConsume).getText().then(function (input) {
-      console.log(input + " consuming the content.");
-    })
-    browser.sleep(3000);
-    (content.replayButton).getText().then(function (replay) {
-      console.log(replay + " Button is validated");
-    })
-    browser.sleep(7000);
-    content.zoomOut.click();
-    browser.sleep(2000);
-
-  }
-  catch (Exception) {
-    console.log("Failed to consumed the content properly.");
-  }
-}
-
-const navigateContentAndValidate = (keywordNames, courseName) => {
-  try {
-    console.log("To verify navigate to Course section and search course");
-    browser.sleep(2000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
-    sanityPage.SanityElement().clkLibraray.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.sendKeys(keywordNames);
-    browser.sleep(2000);
-    sanityPage.SanityElement().clkSearchLib.click();
-    browser.sleep(1000);
-    content.courseCard.getText().then(function (input) {
-      expect(input).toMatch(courseName);
-    })
-  }
-  catch (Exception) {
-    console.log("Failed to verify navigate to Course section and search course");
-  }
-}
-
-
-const epubContent = (courseName) => {
-  try {
-    browser.sleep(2000);
-    console.log("User is trying to consume content");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
-    sanityPage.SanityElement().clkLibraray.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.sendKeys(courseName);
-    browser.sleep(2000);
-    sanityPage.SanityElement().clkSearchLib.click();
-    browser.sleep(3000);
-    content.courseCard.click();
-    browser.sleep(1000);
-    content.courseClk.click();
-    browser.sleep(9000); 
-    content.fullScreen.click();
-    validateDownloadToc();
-    for (i = 0; i < 5; i++) {
-      sanityPage.SanityElement().pdfArrowButton.click();
-      browser.sleep(200);
-    }
-    sanityPage.SanityElement().pdfArrowButton.click();
-    browser.sleep(5000);
-    (content.consumptionTimer).getText().then(function (input) {
-      console.log("Total time consume " + input);
-    })
-    browser.sleep(6000);
-    (content.assertConsume).getText().then(function (input) {
-      console.log(input + " consuming the content.");
-    })
-    browser.sleep(3000);
-    (content.replayButton).getText().then(function (replay) {
-      console.log(replay + " Button is validated");
-    })
-    browser.sleep(5000);
-    content.minimizeToc.click();
-  }
-  catch (Exception) {
-    console.log("Failed to consumed the content properly.");
-  }
-}
-
-const consumeEpubContent = (courseName) => {
-  try {
-    browser.sleep(2000);
-    console.log("User is trying to consume content");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
-    sanityPage.SanityElement().clkLibraray.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.sendKeys(courseName);
-    browser.sleep(2000);
-    sanityPage.SanityElement().clkSearchLib.click();
-    browser.sleep(3000);
-    content.courseCard.click();
-    browser.sleep(1000);
-    searchObj.joinCourseButton.click();
-    browser.sleep(5000);
-    content.courseClk.click();
-    browser.sleep(9000);
-    browser.executeScript('window.scrollTo(0,100);').then(function () {
-      console.log('++++++SCROLLED Down+++++');
-    });
-    content.fullScreen.click();
-    //browser.actions().dragAndDrop(content.fullScreen, content.fullScreen).mouseUp().perform();
-    browser.sleep(3000);
-     validateDownloadToc();
-      content.zoomIn.click();
-      browser.sleep(5000);
-      validateDownloadToc();
-      for (i = 0; i < 94; i++) {
-        sanityPage.SanityElement().pdfArrowButton.click();
-        browser.sleep(200);
-        if (i === 92) {
-          browser.sleep(4000);
-          (content.consumptionInPercentage).getText().then(function (input) {
-            console.log("Consumption percentage : " + input);
-          })
-          browser.sleep(4000);
-        }
-      }
-      sanityPage.SanityElement().pdfArrowButton.click();
-      browser.sleep(5000);
-      (content.consumptionTimer).getText().then(function (input) {
-        console.log("Total time consume " + input);
-      })
-      browser.sleep(6000);
-      (content.assertConsume).getText().then(function (input) {
-        console.log(input + " consuming the content.");
-      })
-      browser.sleep(3000);
-      (content.replayButton).getText().then(function (replay) {
-        console.log(replay + " Button is validated");
-      })
-      browser.sleep(5000);
-      content.zoomOut.click();
-      browser.sleep(1000);
-
-  }
-  catch (Exception) {
-    console.log("Failed to consumed the content properly.");
-  }
-}
-
-
-
-const verifyAndValidateEpubContent = () => {
-  try {
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    var contentName = cred[41]['TitleDescription'];
-    browser.sleep(2000);
-    console.log("User is trying to consume content");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
-    sanityPage.SanityElement().clkLibraray.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.sendKeys(contentName);
-    browser.sleep(2000);
-    sanityPage.SanityElement().clkSearchLib.click();
-    browser.sleep(3000);
-    content.courseCard.click();
-    browser.sleep(1000);
-    content.pagenummberInput.click();
-    content.pagenummberInput.clear();
-    browser.sleep(100);
-    content.pagenummberInput.sendKeys("9");
-    browser.sleep(2000);
-    content.rightArrowSearchbutton.click();
-    browser.sleep(1000);
-    content.assertPageNotFoundMsg.getText().then(function(input){
-      var wrongPageNumMsg = "Page Not Found";
-      console.log(input);
-      expect(input).toMatch(wrongPageNumMsg);
-    })
-    browser.sleep(1000);
-    browser.executeScript('window.scrollTo(0,400);').then(function () {
-      console.log('++++++SCROLLED Down+++++');
-    });
-    browser.sleep(1000);
-    content.assertPercentageOfCompletion.getText().then(function (input) {
-      console.log("Completion Percentage is " + input);
-    })
-
-
-  }
-  catch (Exception) {
-    console.log("Failed to consumed the content properly.");
-  }
-}
-
-const consumeContetnByKeyBoardevents = () => {
-  try {
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    var do_id = cred[34]['CourseName'];
-    browser.sleep(2000);
-    console.log("User is trying to consume content");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
-    sanityPage.SanityElement().clkLibraray.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
-    browser.sleep(2000);
-    sanityPage.SanityElement().clkSearchLib.click();
-    browser.sleep(3000);
-    content.courseCard.click();
-    browser.sleep(1000);
-    searchObj.shareButton.click();
-    browser.sleep(2000);
-    searchObj.closeShareButton.click();
-    browser.sleep(2000);
-    //browser.actions().sendKeys(protractor.Key.TAB);
-    //browser.actions().sendKeys(protractor.Key.ENTER);
-    //searchObj.joinCourseButton.sendKeys(protractor.Key.TAB, protractor.Key.TAB, protractor.Key.TAB, protractor.Key.TAB);
-    //searchObj.joinCourseButton.sendkeys(protractor.key.TAB);
-    // browser.sleep(2000);
-    searchObj.joinCourseButton.sendkeys(protractor.Key.ENTER);
-
-    
-    // browser.sleep(5000);
-    // content.courseClk.sendKeys(protractor.key.ENTER);
-    // browser.sleep(9000);
-    // for (i = 0; i > 2; i++) {
-    //   content.zoomOutToc.sendKeys(protractor.key.ENTER);
-    //   browser.sleep(1000);
-    // }
-    // for (i = 0; i < 94; i++) {
-    //   sanityPage.SanityElement().pdfArrowButton.sendKeys(protractor.key.ENTER);
-    //   browser.sleep(200);
-    // }
-    // sanityPage.SanityElement().pdfArrowButton.sendKeys(protractor.key.ENTER);
-    // browser.sleep(5000);
-    // (content.consumptionTimer).getText().then(function (input) {
-    //   console.log("Total time consume " + input);
-    // })
-    // browser.sleep(6000);
-    // (content.assertConsume).getText().then(function (input) {
-    //   console.log(input + " consuming the content.");
-    // })
-    // browser.sleep(3000);
-    // (content.replayButton).getText().then(function (replay) {
-    //   console.log(replay + " Button is validated");
-    // })
-    // browser.sleep(5000);
-    // content.zoomOut.click();
-    // browser.sleep(1000);
-  }
-  catch (Exception) {
-    console.log("Failed to consumed the content properly.");
-  }
-}
-
-const viewCourseDashBoardDetailsInCertificatesTab = () => {
-  try {
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    var contentSearch = cred[7]['CourseName'];//"do_31353968960534937614631";
-    console.log("Course mentor should be able to see  view course dashboard details");
-
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerCourse), 20000, " headerCourse is not available");
-    content.headerCourse.click();
-    browser.sleep(3000);
-    content.searchInput.sendKeys(contentSearch);
-    content.searchButton.click();
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.searchedContetsForUpload), 20000, "courseCard is not available");
-    content.searchedContetsForUpload.click();
-    browser.sleep(3000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.viewCourseDashBoard), 20000, "viewCourseDashBoard is not available");
-    content.viewCourseDashBoard.click();
-    browser.sleep(3000);
-    console.log("Course mentor is able to see the view training dashboard");
-    //browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectBatch), 20000, "selectBatch is not available");
-    // sanityPage.selectBatchDropdwn.click();
-    // browser.sleep(3000);
-    // searchObj.selectBatch.click();
-    // browser.sleep(2000);
-    // content.startDateDashboard.getText().then(function (input) {
-    //   expect(input).toEqual('Start Date')
-    // });
-    // console.log("Start date is displayed in the view training dashboard section");
-    // browser.sleep(2000);
-    // content.endDateDashboard.getText().then(function (input) {
-    //   expect(input).toEqual('End Date')
-    // });
-    browser.sleep(2000);
-    browser.sleep(1000);
-    sanityPage.certificateTab.click();
-    browser.sleep(2000);
-    sanityPage.searchCertficateIDbutton.sendKeys("usersun");
-    browser.sleep(2000);
-    expect(sanityPage.assertUpdatedOn.isPresent()).toBe(true);
-    browser.sleep(2000);
-    expect(sanityPage.assertUserName.isPresent()).toBe(true);
-    browser.sleep(2000);
-    expect(sanityPage.assertUserDistrict.isPresent()).toBe(true);
-    browser.sleep(2000);
-    expect(sanityPage.assertCriteriaMet.isPresent()).toBe(true);
-    browser.sleep(2000);
-    expect(sanityPage.assertUpdatedOn.isPresent()).toBe(true);
-    console.log("End date is displayed in the view training dashboard section");
-  }
-  catch (Exception) {
-    console.log("Failed to see view course dashboard details");
-  }
-};
-
-
-const viewCourseDashBoard = (contentSearch) => {
-  try {
-    console.log("Course mentor should be able to see  view course dashboard details");
-
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerCourse), 20000, " headerCourse is not available");
-    content.headerCourse.click();
-    browser.sleep(3000);
-    content.searchInput.sendKeys(contentSearch);
-    browser.sleep(1000);
-    content.searchButton.click();
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.courseCard), 20000, "courseCard is not available");
-    content.courseCard.click();
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.viewCourseDashBoard), 20000, "viewCourseDashBoard is not available");
-    content.viewCourseDashBoard.click();
-    console.log("Course mentor is able to see the view training dashboard");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectBatch), 20000, "selectBatch is not available");
-    content.selectBatch.click();
-    browser.sleep(1000);
-    content.batchSelectValue.click();
-    browser.sleep(2000);
-    content.startDateDashboard.getText().then(function (input) {
-      expect(input).toEqual('Start Date')
-    });
-    console.log("Start date is displayed in the view training dashboard section");
-
-    content.endDateDashboard.getText().then(function (input) {
-      expect(input).toEqual('End Date')
-    });
-    console.log("End date is displayed in the view training dashboard section");
-  }
-  catch (Exception) {
-    console.log("Failed to see view course dashboard details");
-  }
-};
-
-
-const consumePDFbContent = (courseName) => {
-  try {
-    browser.sleep(2000);
-    console.log("User is trying to consume content");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
-    sanityPage.SanityElement().clkLibraray.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.sendKeys(courseName);
-    browser.sleep(2000);
-    sanityPage.SanityElement().clkSearchLib.click();
-    browser.sleep(3000);
-    content.courseCard.click();
-    browser.sleep(4000);
-    searchObj.joinCourseButton.click();
-    browser.sleep(5000);
-    browser.executeScript("arguments[0].scrollIntoView();", searchObj.doNotShare);
-    searchObj.doNotShare.click();
-    browser.sleep(3000);
-    // content.courseClk.click();
-    // browser.sleep(9000);
-    // browser.executeScript('window.scrollTo(0,100);').then(function () {
-    //   console.log('++++++SCROLLED Down+++++');
-    // });
-    //content.fullScreen.click();
-    //browser.actions().dragAndDrop(content.fullScreen, content.fullScreen).mouseUp().perform();
-    // browser.sleep(3000);
-    //  validateDownloadToc();
-      // content.zoomIn.click();
-      // browser.sleep(5000);
-      // validateDownloadToc();
-      // browser.sleep(5000);
-      // for (i = 0; i < 94; i++) {
-      //   sanityPage.SanityElement().pdfArrowButton.click();
-      //   browser.sleep(200);
-      //   if (i === 92) {
-      //     browser.sleep(4000);
-      //     (content.consumptionInPercentage).getText().then(function (input) {
-      //       console.log("Consumption percentage : " + input);
-      //     })
-      //     browser.sleep(4000);
-      //   }
-      // }
-      // sanityPage.SanityElement().pdfArrowButton.click();
-      // browser.sleep(5000);
-      // (content.consumptionTimer).getText().then(function (input) {
-      //   console.log("Total time consume " + input);
-      // })
-      // browser.sleep(6000);
-      // (content.assertConsume).getText().then(function (input) {
-      //   console.log(input + " consuming the content.");
-      // })
-      // browser.sleep(3000);
-      // (content.replayButton).getText().then(function (replay) {
-      //   console.log(replay + " Button is validated");
-      // })
-      // browser.sleep(5000);
-      // content.zoomOut.click();
-      // browser.sleep(1000);
-  }
-  catch (Exception) {
-    console.log("Failed to consumed the content properly.");
-  }
-}
-
-
-const validatePrintButtonInplayer = () => {
-  try {
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    var do_id = cred[52]['CourseName'];
-    browser.sleep(2000);
-    console.log("User is trying to consume content");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
-    sanityPage.SanityElement().clkLibraray.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
-    browser.sleep(2000);
-    sanityPage.SanityElement().clkSearchLib.click();
-    browser.sleep(3000);
-    content.courseCard.click();
-    browser.sleep(1000);
-    content.expandAllButton.click();
-    browser.sleep(1000);
-    content.clkCoursePdf.click();
-    browser.sleep(9000);
-    browser.actions().dragAndDrop(content.overlayButton, content.overlayButton).mouseUp().perform();
-    browser.sleep(3000);
-    expect((content.printButtonInPlayerNavBar).isPresent()).toBe(true);
-    browser.sleep(3000);
-    browser.actions().dragAndDrop(content.overlayButton, content.overlayButton).mouseUp().perform();
-    browser.sleep(6000);
-  }
-  catch (Exception) {
-    console.log("Failed");
-  }
-}
-
-const validateLabelPageIsChangedFromLocation = () => {
-  try {
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    var do_id = cred[52]['CourseName'];
-    browser.sleep(2000);
-    console.log("User is trying to consume content");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkLibraray), 20000, "clkLibraray  is not available");
-    sanityPage.SanityElement().clkLibraray.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.click();
-    browser.sleep(2000);
-    sanityPage.SanityElement().searchConLib.sendKeys(do_id);
-    browser.sleep(2000);
-    sanityPage.SanityElement().clkSearchLib.click();
-    browser.sleep(3000);
-    content.courseCard.click();
-    browser.sleep(1000);
-    content.expandAllButton.click();
-    browser.sleep(1000);
-    content.clkCoursePdf.click();
-    browser.sleep(9000);
-    browser.executeScript('window.scrollTo(0,100);').then(function () {
-      console.log('++++++SCROLLED Down+++++');
-    });
-    browser.sleep(2000);
-    searchObj.clickFullScreen.click();
-    browser.sleep(2000);
-    browser.actions().dragAndDrop(content.overlayButton, content.overlayButton).mouseUp().perform();
-    browser.sleep(3000);
-    expect((content.printButtonInPlayerNavBar).isPresent()).toBe(true);
-    browser.sleep(3000);
-    browser.actions().dragAndDrop(content.overlayButton, content.overlayButton).mouseUp().perform();
-    browser.sleep(6000);
-    sanity.pdfArrowButton.click();
-    browser.sleep(2000);
-    sanity.pdfArrowButton.click();
-    browser.sleep(2000);
-    expect((content.assertPagesReplaceWithLocationLabel).isPresent()).toBe(true);
-    browser.sleep(2000);
-    searchObj.clickMinimize.click();
-  }
-  catch (Exception) {
-    console.log("Failed");
-  }
-}
-
-const verifyPublishedContentInAllMyContentandValidateInLibrary = (publishedTextBook) => {
-  try {
-    console.log("verify all published content in allMyContent");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
-    ccpage.contentCreation().headerDropdown.click();
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
-    ccpage.contentCreation().workSpace.click();
-    browser.sleep(5000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allMyContent), 20000, "Book page not loaded");
-    searchObj.allMyContent.click();
-    browser.sleep(5000);
-    // searchObj.searchContent.sendKeys(publishedTextBook);
-    // browser.sleep(2000);
-    // browser.wait(protractor.ExpectedConditions.visibilityOf(content.draftsVersion), 20000, "Book page not loaded");
-    // content.draftsVersion.click();
-    // browser.sleep(5000);
-    searchObj.searchContent.sendKeys(publishedTextBook);
-    //browser.sleep(2000);
-    //content.searchButton.click();
-    browser.sleep(5000);
-    // browser.executeScript('window.scrollTo(0,100);').then(function () {
-    //   console.log('++++++SCROLLED Down+++++');
-    // });
-    // browser.actions().sendKeys(protractor.Key.TAB);
-    // browser.actions().sendKeys(protractor.Key.ENTER);
-    resov.imageCard4.click()
-    // browser.wait(protractor.ExpectedConditions.visibilityOf(content.contentCard), 20000, "workspace page not loaded");
-    // content.contentCard.click();
-    browser.sleep(5000);
-    sanityPage.SanityElement().addChild.click();
-    browser.sleep(3000);
-    sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
-    browser.sleep(4000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
-    sanityPage.SanityElement().addFromLibraryButton.click();
-    browser.sleep(5000);
-    sanityPage.SanityElement().searchLibrary.sendKeys(publishedTextBook);
-    browser.sleep(1000);
-    sanityPage.SanityElement().searchLibrary.sendKeys(protractor.Key.ENTER);
-    browser.sleep(6000);
-    expect(sanity.assertNoResultsFound.isPresent()).toBe(true);
-    browser.sleep(5000);
-  }
-  catch (Exception) {
-    console.log("Failed to validate filters in all textbook.");
-  }
-}
-
-const viewCourseDashBoardandValidateRequestButton = () => {
-  try {
-    browser.sleep(2000);
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    var user_id = cred[32]['TitleDescription'];
-
-    console.log("Course mentor should be able to see  view course dashboard details");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerCourse), 20000, " headerCourse is not available");
-    content.headerCourse.click();
-    browser.sleep(3000);
-    content.searchInput.sendKeys(user_id);
-    browser.sleep(1000);
-    content.searchButton.click();
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.courseCard), 20000, "courseCard is not available");
-    content.courseCard.click();
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.viewCourseDashBoard), 20000, "viewCourseDashBoard is not available");
-    content.viewCourseDashBoard.click();
-    console.log("Course mentor is able to see the view training dashboard");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectBatch), 20000, "selectBatch is not available");
-    content.selectBatch.click();
-    browser.sleep(1000);
-    sanity.selectBatchValueInCourseDashBoard.click();
-    browser.sleep(2000);
-    sanity.chooseYourReport.click();
-    browser.sleep(2000);
-    sanity.selectReportValue.click();
-    browser.sleep(2000);
-    sanity.requestButton.click();
-    browser.sleep(1000);
-    expect(sanity.assertSubmit.isPresent()).toBe(true);
-    browser.sleep(1000);
-    content.startDateDashboard.getText().then(function (input) {
-      expect(input).toEqual('Start Date')
-    });
-    console.log("Start date is displayed in the view training dashboard section");
-
-    content.endDateDashboard.getText().then(function (input) {
-      expect(input).toEqual('End Date')
-    });
-    console.log("End date is displayed in the view training dashboard section");
-  }
-  catch (Exception) {
-    console.log("Failed to see view course dashboard details");
-  }
-};
-
-
-const validateReissuedCertificate = () => {
-  try {
-    browser.sleep(2000);
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    var user_id = cred[32]['TitleDescription'];
-    var search_usr = cred[49]['Title'];
-    console.log(user_id);
-
-    console.log("Course mentor should be able to see  view course dashboard details");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerCourse), 20000, " headerCourse is not available");
-    content.headerCourse.click();
-    browser.sleep(3000);
-    content.searchInput.sendKeys(user_id);
-    browser.sleep(1000);
-    content.searchButton.click();
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.courseCard), 20000, "courseCard is not available");
-    content.courseCard.click();
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.viewCourseDashBoard), 20000, "viewCourseDashBoard is not available");
-    content.viewCourseDashBoard.click();
-    console.log("Course mentor is able to see the view training dashboard");
-    browser.sleep(2000);
-    sanity.clickCertificate.click();
-    browser.sleep(2000);
-    sanity.searchUserInReissueCertificate.sendKeys(search_usr);
-    browser.sleep(2000);
-    sanity.searchButtonInCertificateTab.click();
-    browser.sleep(2000);
-    expect(sanity.assertBatchName.isPresent()).toBe(true);
-    expect(sanity.assertUserName.isPresent()).toBe(true);
-    expect(sanity.assertUserDistrict.isPresent()).toBe(true);
-    expect(sanity.assertCourseProgress.isPresent()).toBe(true);
-    browser.sleep(3000);
-    expect(sanity.reissueCertificate.isPresent()).toBe(true);
-    browser.sleep(1000);
-    sanity.reissueCertificate.click();
-    browser.sleep(2000);
-    expect(content.yesButtonPopup.isPresent()).toBe(true);
-    content.yesButtonPopup.click();
-    browser.sleep(2000);
-  }
-  catch (Exception) {
-    console.log("Failed to see view course dashboard details");
-  }
-};
-
-const navigateToLibraryAndSearchForContetRibbonValidation = () => {
-  try {
-    console.log("User is trying to navigate To Library And Search For LessonPlan");
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    var qrcode = cred[59]['Title'];
-
-    browser.sleep(1000);
-    content.headerLibrary.click();
-    browser.sleep(2000);
-    content.filterSearch.sendKeys(qrcode);
-    browser.sleep(2000);
-    content.searchIcon.click();
-    browser.sleep(5000);
-    expect(searchObj.validatecontentPlaylistRibbon.isPresent()).toBe(true);
-    browser.sleep(3000);
-    content.searchedContentForUpload.click();
-    browser.sleep(3000);
-    for (i = 0; i < 31; i++) {
-      sanityPage.SanityElement().pdfArrowButton.click();
-        browser.sleep(4000);
-      }
-    browser.sleep(4000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.starRating), 20000, "starRating never loaded");
-    searchObj.starRating.click();
-    browser.sleep(4000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.submitRating), 20000, "submitRating never loaded");
-    searchObj.submitRating.click();
-    browser.sleep(4000);
-    console.log("Succesfully to navigate To Library And Search For qrcode based content");
-  }
-  catch (Exception) {
-    console.log("Failed to navigate");
-  }
-}
-
-
-const verifyPublishedContentInDraftVersionAndValidateInLibrary = (publishedTextBook) => {
-  try {
-    console.log("verify all published content in allMyContent");
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    console.log(cred);
-    var qrcode = cred[47]['TitleDescription'];
-    console.log(qrcode);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
-    ccpage.contentCreation().headerDropdown.click();
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
-    ccpage.contentCreation().workSpace.click();
-    browser.sleep(5000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allMyContent), 20000, "Book page not loaded");
-    searchObj.allMyContent.click();
-    browser.sleep(5000);
-    searchObj.searchContent.sendKeys(publishedTextBook);
-    browser.sleep(5000);
-    expect(searchObj.assertLiveStatusContent.isPresent()).toBe(true);
-    browser.sleep(5000);
-    resov.imageCard4.click();
-    browser.sleep(5000);
-    browser.executeScript("window.scrollTo(0,400);").then(function () {
-      console.log("++++++SCROLLED Down+++++");
-    });
-    browser.sleep(3000);
-    searchObj.qrCodeYesButton.click();
-    browser.sleep(3000);
-    searchObj.enterQrCodeTextBoxInEditor.sendKeys(qrcode);
-    browser.sleep(3000);
-    searchObj.clickRightButton.click();
-    browser.sleep(3000);
-    expect(searchObj.assertInvalidQrError.isPresent()).toBe(true);
-    browser.sleep(3000);
-    sanityPage.SanityElement().addChild.click();
-    browser.sleep(3000);
-    sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
-    browser.sleep(4000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
-    sanityPage.SanityElement().addFromLibraryButton.click();
-    browser.sleep(5000);
-    sanityPage.SanityElement().selectButton.click();
-    browser.sleep(6000);
-    sanityPage.SanityElement().addContent.click();
-    browser.sleep(8000);
-    browser.executeScript("window.scrollTo(0,0);").then(function () {
-      console.log("++++++SCROLLED up+++++");
-    });
-    browser.sleep(6000);
-    sanityPage.SanityElement().contentFromLibrayBackButton.click();
-    browser.sleep(8000);
-    browser.wait(
-      protractor.ExpectedConditions.visibilityOf(
-        sanityPage.SanityElement().submitForreviewButton
-      ),
-      20000,
-      "submit Button not loaded"
-    );
-    sanityPage.SanityElement().saveAsDraft.click();
-    browser.sleep(5000);
-  }
-  catch (Exception) {
-    console.log("Failed to validate filters in all textbook.");
-  }
-}
-
-
-const editBookAndAddValidQrCodeAndSave = (publishedTextBook) => {
-  try {
-    console.log("verify all published content in allMyContent");
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    console.log(cred);
-    var qrcode = cred[48]['CourseDescription'];
-    console.log(qrcode);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
-    ccpage.contentCreation().headerDropdown.click();
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
-    ccpage.contentCreation().workSpace.click();
-    browser.sleep(5000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allMyContent), 20000, "Book page not loaded");
-    searchObj.allMyContent.click();
-    browser.sleep(5000);
-    searchObj.searchContent.sendKeys(publishedTextBook);
-    browser.sleep(5000);
-    expect(searchObj.assertLiveStatusContent.isPresent()).toBe(true);
-    browser.sleep(5000);
-    resov.imageCard4.click();
-    browser.sleep(5000);
-    browser.executeScript("window.scrollTo(0,400);").then(function () {
-      console.log("++++++SCROLLED Down+++++");
-    });
-    browser.sleep(3000);
-    searchObj.qrCodeYesButton.click();
-    browser.sleep(3000);
-    searchObj.enterQrCodeTextBoxInEditor.sendKeys(qrcode);
-    browser.sleep(3000);
-    searchObj.clickRightButton.click();
-    browser.sleep(3000);
-    sanityPage.SanityElement().addChild.click();
-    browser.sleep(3000);
-    sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
-    browser.sleep(4000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
-    sanityPage.SanityElement().addFromLibraryButton.click();
-    browser.sleep(5000);
-    sanityPage.SanityElement().selectButton.click();
-    browser.sleep(6000);
-    sanityPage.SanityElement().addContent.click();
-    browser.sleep(8000);
-    browser.executeScript("window.scrollTo(0,0);").then(function () {
-      console.log("++++++SCROLLED up+++++");
-    });
-    browser.sleep(6000);
-    sanityPage.SanityElement().contentFromLibrayBackButton.click();
-    browser.sleep(8000);
-    browser.wait(
-      protractor.ExpectedConditions.visibilityOf(
-        sanityPage.SanityElement().submitForreviewButton
-      ),
-      20000,
-      "submit Button not loaded"
-    );
-    sanityPage.SanityElement().saveAsDraft.click();
-    browser.sleep(5000);
-  }
-  catch (Exception) {
-    console.log("Failed to validate filters in all textbook.");
-  }
-}
-
-const editBookAndAddQrCodeAndSaveAndPublish = (publishedTextBook) => {
-  try {
-    console.log("verify all published content in allMyContent");
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    console.log(cred);
-    var qrcode = cred[48]['CourseDescription'];
-    console.log(qrcode);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
-    ccpage.contentCreation().headerDropdown.click();
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
-    ccpage.contentCreation().workSpace.click();
-    browser.sleep(5000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allMyContent), 20000, "Book page not loaded");
-    searchObj.allMyContent.click();
-    browser.sleep(5000);
-    searchObj.searchContent.sendKeys(publishedTextBook);
-    browser.sleep(5000);
-    expect(searchObj.assertLiveStatusContent.isPresent()).toBe(true);
-    browser.sleep(5000);
-    resov.imageCard4.click();
-    browser.sleep(5000);
-    browser.executeScript("window.scrollTo(0,400);").then(function () {
-      console.log("++++++SCROLLED Down+++++");
-    });
-    browser.sleep(3000);
-    searchObj.qrCodeYesButton.click();
-    browser.sleep(3000);
-    searchObj.enterQrCodeTextBoxInEditor.sendKeys(qrcode);
-    browser.sleep(3000);
-    searchObj.clickRightButton.click();
-    browser.sleep(3000);
-    expect(searchObj.greenTickMark.isPresent()).toBe(true);
-    browser.sleep(3000);
-    sanityPage.SanityElement().addChild.click();
-    browser.sleep(3000);
-    sanityPage.SanityElement().childDesc.sendKeys("CdildDesc");
-    browser.sleep(4000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
-    sanityPage.SanityElement().addFromLibraryButton.click();
-    browser.sleep(5000);
-    sanityPage.SanityElement().selectButton.click();
-    browser.sleep(6000);
-    sanityPage.SanityElement().addContent.click();
-    browser.sleep(8000);
-    browser.executeScript("window.scrollTo(0,0);").then(function () {
-      console.log("++++++SCROLLED up+++++");
-    });
-    browser.sleep(6000);
-    sanityPage.SanityElement().contentFromLibrayBackButton.click();
-    browser.sleep(8000);
-    sanityPage.SanityElement().saveAsDraft.click();
-    browser.sleep(5000);
-    browser.wait(
-      protractor.ExpectedConditions.visibilityOf(
-        sanityPage.SanityElement().submitForreviewButton
-      ),
-      20000,
-      "submit Button not loaded"
-    );
-    sanityPage.SanityElement().submitForreviewButton.click();
-    browser.sleep(4000);
-    sanityPage.SanityElement().termsAndConditionCheckbox.click();
-    browser.sleep(4000);
-    sanityPage.SanityElement().NewCoursesubmitButton.click();
-    browser.sleep(4000);
-    console.log("User successfully created a book");
-  }
-  catch (Exception) {
-    console.log("Failed to validate filters in all textbook.");
-  }
-}
-
-const ExhaustReportErrMsg = () => {
   
-    browser.sleep(2000);
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-    var user_id = cred[32]['TitleDescription'];
-
-    console.log("Course mentor should be able to see  view course dashboard details");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.headerCourse), 20000, " headerCourse is not available");
-    content.headerCourse.click();
-    browser.sleep(3000);
-    content.searchInput.sendKeys(user_id);
-    browser.sleep(1000);
-    content.searchButton.click();
-    browser.sleep(1000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.courseCard), 20000, "courseCard is not available");
-    content.courseCard.click();
-    browser.sleep(3000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.viewCourseDashBoard), 20000, "viewCourseDashBoard is not available");
-    content.viewCourseDashBoard.click();
-    browser.sleep(3000);
-    console.log("Course mentor is able to see the view training dashboard");
-browser.refresh();
-browser.sleep(6000);
-
-    browser.wait(protractor.ExpectedConditions.visibilityOf(content.selectBatch), 20000, "selectBatch is not available");
-    content.selectBatch.click();
-    browser.sleep(3000);
-    sanity.selectBatchValueInCourseDashBoard.click();
-    browser.sleep(3000);
-    sanity.chooseYourReport.click();
-    browser.sleep(2000);
-    sanity.selectReportValue.click();
-    browser.sleep(2000);
-    sanity.requestButton.click();
-    browser.sleep(2000);
-    expect(sanity.assertExhaustReportSecondTimeRequestMsg.isPresent()).toBe(true);
-    browser.sleep(2000);
-        expect(sanity.assertSubmit.isPresent()).toBe(true);
-    browser.sleep(1000);
-
-};
-
-const AdminContentCreatorShouldNotBeAbleEditAdoptedBook = () => {
-
-
-    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-    var cred = genericFun.readParticularDataFromExcelFile(sheetPath, "5");
-    var AdapotedBook = cred[0]["CourseName"];
-
-    console.log("verify all textBook");
-    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().headerDropdown), 20000, "headerDropdown page not loaded");
-    ccpage.contentCreation().headerDropdown.click();
-    browser.sleep(1000);
-
-    browser.wait(protractor.ExpectedConditions.visibilityOf(ccpage.contentCreation().workSpace), 20000, "workspace page not loaded");
-    ccpage.contentCreation().workSpace.click();
-    browser.sleep(5000);
-    browser.wait(protractor.ExpectedConditions.visibilityOf(searchObj.allTextbook), 20000, "Book page not loaded");
-    searchObj.allTextbook.click();
-    browser.sleep(5000);
-    searchObj.searchContent.click();
-    browser.sleep(2000);
-    searchObj.searchContent.sendKeys(AdapotedBook);
-        searchObj.searchIcon2.click();
-        browser.sleep(5000);
-        searchObj.firstSearchContent.click();
-
-
-    expect(searchObj.assertTostrMsgCanNotEdit.isPresent()).toBeTruthy();
-    expect(searchObj.assertTostrMsgCanNotEdit2.isPresent()).toBeTruthy();
-
-    browser.sleep(3000);
-
-
+  }
+  catch (Exception) {
+    console.log("Failed to validate filters in all textbook.");
+  }
 }
+
+
+
 
 
 module.exports = {
+
   searchContentInLibrary,
   navigateToLibraryAndSearchForLessonPlan,
   consumeTheCourseInLibrarySection,
@@ -2845,26 +1776,5 @@ module.exports = {
   consumeTextBook,
   verifyFilterSortSearchInAllTextBook,
   verifyPublishedContentInAllMyContent,
-  consumePdfContentAndValidateSomeAttributes,
-  consumePdfContentAndVerifyProgress,
-  validateDownloadToc,
-  navigateContentAndValidate,
-  epubContent,
-  consumeEpubContent,
-  verifyAndValidateEpubContent,
-  consumeContetnByKeyBoardevents,
-  viewCourseDashBoardDetailsInCertificatesTab,
-  viewCourseDashBoard,
-  consumePDFbContent,
-  validatePrintButtonInplayer,
-  validateLabelPageIsChangedFromLocation,
-  verifyPublishedContentInAllMyContentandValidateInLibrary,
-  viewCourseDashBoardandValidateRequestButton,
-  validateReissuedCertificate,
-  navigateToLibraryAndSearchForContetRibbonValidation,
-  verifyPublishedContentInDraftVersionAndValidateInLibrary,
-  editBookAndAddValidQrCodeAndSave,
-  editBookAndAddQrCodeAndSaveAndPublish,
-  ExhaustReportErrMsg,
-  AdminContentCreatorShouldNotBeAbleEditAdoptedBook,
+
 }

@@ -16,7 +16,7 @@ var upload = () => {
     var uploadButton = element(by.xpath("//button[contains(text(),'Upload')]"));
     var clkEditDetails = element(by.xpath("//*[contains(text(),'Edit Details')]"));
     var selectOne = element(by.id("_selectPrimaryCategory"));
-    var learningResource = element(by.xpath("(//select[@id='_selectPrimaryCategory']//following::option)[2]"));
+    var learningResource = element(by.xpath("//select[@id='_selectPrimaryCategory']/option[2]"));
     var saveupload = element(by.xpath("//div[@data-content='Save content']"));
     var close = element(by.xpath("//button[text()='Close']"));
     var closeEditor = element(by.xpath("//i[@class='remove icon custom-cursor']"));
@@ -29,9 +29,7 @@ var upload = () => {
     var limitSharingDrpdwn = element(by.xpath("//label[contains(text(),'Untitled Content')]//following::div[@ng-show='hideLimitedSharingBtn']//following::i[@class='dropdown icon']"));
     var limmitSharingDrpdwnValue = element(by.xpath("//label[contains(text(),'Untitled Content')]//following::div[@ng-show='hideLimitedSharingBtn']//following::i[@class='dropdown icon']/following::div[@class='item']"));
     var closebuton = element(by.xpath("//button[contains(text(),'Close')]"));
-    var assertLiscenceCCBY = element(by.xpath("//label[text()='LICENSE']//following::div[contains(text(),'CC BY 4.0')]"));
-    var clickUploadButton = element(by.xpath("//div[contains(@data-content,'Upload Content')]"));
-    var cancelUpload = element(by.xpath("(//button[contains(text(),'Cancel')])[2]"));
+
 
     return {
         clickuploadContent,
@@ -60,9 +58,6 @@ var upload = () => {
         limitSharingDrpdwn,
         limmitSharingDrpdwnValue,
         closebuton,
-        assertLiscenceCCBY,
-        clickUploadButton,
-        cancelUpload,
     };
 
 };

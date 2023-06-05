@@ -28,7 +28,6 @@ describe('Default contribution org contributor should be able to upload the cont
         utility.userLoginContributer('Cont OrgAdmin');
         VDNfun.addSampleFromContriutionSideWithoutNominate(projectName);
         VDNfun.verifyContributorsAreAbleToUploadASampleAndInitiateNomination(projectName);
-        utility.userLogout();
-        
+        utility.userLogout();     
     })  
 });

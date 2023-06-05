@@ -28,7 +28,7 @@ var VDNPage = () => {
     var seleTextBook = element(by.xpath("//span[text()='eTextbook']"));
     var selExplainitionContent = element(by.xpath("//span[text()='Explanation Content']"));
     var selLearningResource = element(by.xpath("//span[text()='Learning Resource']"));
-    var selOldQuestionSet = element(by.xpath("//span[text()='Demo Practice Question Set']"));
+    var selOldQuestionSet = element(by.xpath("//span[text()='Practice Question Set']"));
     var selTeacherResource = element(by.xpath("//span[text()='Teacher Resource']"));
     var clkOutContentType = element(by.xpath("//label[text()='Content Type(s) ']"));
     var assertNominationTab = element(by.xpath("//a[text()='Nominations ']"));

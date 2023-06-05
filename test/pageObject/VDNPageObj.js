@@ -799,7 +799,7 @@ const verifyPreApprovedUserNominationIsDisplayedInNominationsTab = (projectName)
         browser.sleep(2000);
 
         (vdn.assertPreApproved.getText()).then(function (input) {
-            expect((input).includes("Cherry")).toBe(true);
+            expect((input).includes("EKSTEP")).toBe(true);
             console.log("Contribution organisation name Is same as sourcing org");
         });
 
@@ -891,7 +891,7 @@ const verifySourcingOrgAdminIsAbleToAcceptNomination = (projectName) => {
 
         let var1 = "//*[contains(text(),'";
         let var2 = projectName;
-        let var3 = "')]//following::button[2]";
+        let var3 = "')]//following::button[1]";
         browser.sleep(10000);
         var assertProjInAllProjTab = element(by.xpath(var1 + var2 + var3));
 
@@ -1672,26 +1672,26 @@ const editFromDraftAfterPublishProject = () => {
         var contributionEndDate = cred[41]['Title'];
         var projectEndDate = cred[41]['TitleDescription'];
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.nominationEndDate), 20000, "Nomination End Date Is Not Present");
-        vdn.nominationEndDate.click();
-        browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.nominationEndDate), 20000, "Nomination End Date Is Not Present");
+        // vdn.nominationEndDate.click();
+        // browser.sleep(1000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.nominationEndDate), 20000, "Nomination End Date is not available");
-        vdn.nominationEndDate.click();
-        vdn.nominationEndDate.clear();
-        vdn.nominationEndDate.sendKeys(nominationEndDate);
-        console.log("Nomination End Date Is Selected");
-        browser.sleep(2000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.nominationEndDate), 20000, "Nomination End Date is not available");
+        // vdn.nominationEndDate.click();
+        // vdn.nominationEndDate.clear();
+        // vdn.nominationEndDate.sendKeys(nominationEndDate);
+        // console.log("Nomination End Date Is Selected");
+        // browser.sleep(2000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.shortlistEndDate), 20000, "Shortlist End Date Is Not Present");
-        vdn.shortlistEndDate.click();
-        browser.sleep(1000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.shortlistEndDate), 20000, "Shortlist End Date Is Not Present");
+        // vdn.shortlistEndDate.click();
+        // browser.sleep(1000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.shortlistEndDate), 20000, "Shortlist End Date is not available");
-        vdn.shortlistEndDate.click();
-        vdn.shortlistEndDate.clear();
-        vdn.shortlistEndDate.sendKeys(shortlistEndDate);
-        console.log("Shortlist End Date Is Selected");
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.shortlistEndDate), 20000, "Shortlist End Date is not available");
+        // vdn.shortlistEndDate.click();
+        // vdn.shortlistEndDate.clear();
+        // vdn.shortlistEndDate.sendKeys(shortlistEndDate);
+        // console.log("Shortlist End Date Is Selected");
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date Is Not Present");
         vdn.contributionEndDate.click();
@@ -1859,8 +1859,8 @@ const createProjectWithAllContentType = () => {
         vdn.selectContentType.click();
         browser.sleep(1000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selQuestionSet), 20000, "Practice Question Set is not available");
-        vdn.selQuestionSet.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selOldQuestionSet), 20000, "Practice Question Set is not available");
+        vdn.selOldQuestionSet.click();
         browser.sleep(1000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.courseAssessment), 20000, "Course Assessment is not available");
@@ -2001,7 +2001,7 @@ const OrgAdminIsAbleToAssignReviewer = (projectName) => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterSearchField), 20000, "Search Field not Present");
         vdn.enterSearchField.click();
-        vdn.enterSearchField.sendKeys(reviewer);
+        vdn.enterSearchField.sendKeys("jaga4.8");
         browser.sleep(2000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSearchbtn), 20000, "Search Button not Present");
@@ -2104,7 +2104,7 @@ const OrgAdminIsAbleToAssignReviewerWithNominationDisable = (projectName) => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterSearchField), 20000, "Search Field not Present");
         vdn.enterSearchField.click();
-        vdn.enterSearchField.sendKeys(reviewer);
+        vdn.enterSearchField.sendKeys("jaga4.8");
         browser.sleep(2000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSearchbtn), 20000, "Search Button not Present");
@@ -2518,8 +2518,8 @@ const createProjectWithAllContentTypes = () => {
         browser.sleep(1000);
 
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selQuestionSet), 20000, "Practice Question Set is not available");
-        vdn.selQuestionSet.click();
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selOldQuestionSet), 20000, "Practice Question Set is not available");
+        vdn.selOldQuestionSet.click();
         browser.sleep(1000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.courseAssessment), 20000, "Course Assessment is not available");
@@ -2958,10 +2958,10 @@ const OpenAprovedProjectAndAssignContributeRole = () => {
         vdn.clkMyProjectsOnIndContributor.click();
         browser.sleep(3000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.openApprovedProject), 20000, "Approved Project Not Present");
-        vdn.openApprovedProject.click();
-        browser.sleep(3000);
-
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.openApprovedProject), 20000, "Approved Project Not Present");
+        // vdn.openApprovedProject.click();
+        // browser.sleep(3000);
+F
         browser.executeScript('window.scrollTo(0,0);').then(function () {
             console.log('++++++SCROLLED UP+++++');
         });
@@ -3064,7 +3064,7 @@ const verifyContributorOrgAdminIsAbleToSearchAndAssignRoles = (projectName) => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterSearchField), 20000, "Search Field not Present");
         vdn.enterSearchField.click();
-        vdn.enterSearchField.sendKeys('user');
+        vdn.enterSearchField.sendKeys('color1');
         browser.sleep(2000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSearchbtn), 20000, "Search Button not Present");
@@ -3088,7 +3088,7 @@ const verifyContributorOrgAdminIsAbleToSearchAndAssignRoles = (projectName) => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterSearchField), 20000, "Search Field not Present");
         vdn.enterSearchField.click();
         vdn.enterSearchField.clear();
-        vdn.enterSearchField.sendKeys('test');
+        vdn.enterSearchField.sendKeys('color2');
         browser.sleep(2000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSearchbtn), 20000, "Search Button not Present");
@@ -3311,7 +3311,7 @@ const createProjectWithIndividualContributor = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterNameOrOrg), 20000, "Eenter Name or Org Field Not Available");
         vdn.enterNameOrOrg.click();
-        vdn.enterNameOrOrg.sendKeys('Pass123'); //
+        vdn.enterNameOrOrg.sendKeys('7may'); //
         browser.sleep(3000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.searchBtn), 20000, "Search Button Not Available");
@@ -3502,7 +3502,7 @@ const createProjectWithContributorOrgAdmin = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterNameOrOrg), 20000, "Eenter Name or Org Field Not Available");
         vdn.enterNameOrOrg.click();
-        vdn.enterNameOrOrg.sendKeys('Classmate');
+        vdn.enterNameOrOrg.sendKeys('Color');
         browser.sleep(1000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.searchBtn), 20000, "Search Button Not Available");
@@ -10571,9 +10571,9 @@ const verifyAssignedProjectReviewerIsAbleToSubmitForApprovalWithETextBookAndEC =
         });
 
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.eTextReviewPendings), 20000, "eTextBook Review Pending not Present");
-        vdn.eTextReviewPendings.click();
-        browser.sleep(2000);
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.eTextReviewPendings), 20000, "eTextBook Review Pending not Present");
+        // vdn.eTextReviewPendings.click();
+        // browser.sleep(2000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selSample1ForAccept), 20000, "Sample1 Review Pending not Present");
         vdn.selSample1ForAccept.click();

@@ -32,8 +32,8 @@ var contentCreation = () => {
   var proceed = element(by.xpath("//button[contains(text(),'PROCEED')]"));
   var save = element(by.xpath("//span[contains(text(),'Save')]"));
   var closeIcon = element(by.xpath("//div[@class='close icon-box popup-item']"));
-  var headerDropdown = element(by.xpath("(//div[@class='avatar-container'])[2]"));
-  var headerDropdown1 = element(by.xpath("(//div[@class='avatar-container'])[2]"));
+  var headerDropdown = element(by.xpath("//*[@aria-controls='overlaySidebarID']"));
+  var headerDropdown1 = element(by.xpath("//*[@aria-controls='overlaySidebarID']"));
   var headerDropdown2 = element(by.xpath("(//div[@class='avatar-container'])[2]"));
   var classicThemeHeaderDropdown = element(by.xpath("(//div[@class='avatar-container'])"));
   var headerdrpdwn = element(by.xpath("//ngx-avatar[@class='ng-star-inserted']//following::div[@class='avatar-container']"));
@@ -410,7 +410,7 @@ var contentCreation = () => {
   var chatcontentContribution = element(by.xpath("//button[contains(text(),'Content contribution')]"));
   var chatOtherDIKSHAqueries = element(by.xpath("//button[contains(text(),'Other DIKSHA queries')]"));
   var chatExplore = element(by.xpath("//span[contains(text(),' What content would you like to explore?')]"));
-  var headerDropdown1 = element(by.xpath("(//ngx-avatar[@aria-controls='overlaySidebarID']//following::div)[1]"));
+  //var headerDropdown1 = element(by.xpath("(//ngx-avatar[@aria-controls='overlaySidebarID']//following::div)[1]"));
   var Student = element(by.xpath("//div[text()='Student']"));
   var Other = element(by.xpath("//div[text()='Other']"));
   var BookCount = element(by.xpath("//div[@class='title']/span"));
@@ -425,9 +425,9 @@ var contentCreation = () => {
   var chatMainMenu2 = element(by.xpath("//button[contains(text(),'Go Back')]//following::button[1]"));
   var verifykarnatakaState = element(by.xpath("//button[contains(text(),'Karnataka')]"));
   var clkDikshaCopy = element(by.xpath("//span[contains(text(),'Copy')]"));
-  var boardDropdown = element(by.xpath("//*[contains(@id,'board')]//following::*[@role='combobox']"));
-  var mediumDropdown = element(by.xpath("//*[contains(@id,'medium')]//following::*[@role='combobox']"));
-  var gradeLevelDropDown = element(by.xpath("//*[contains(@id,'gradeLevel')]//following::*[@role='combobox']"));
+  var boardDropdown = element(by.xpath("//div[@id='mat-select-value-3']"));
+  var mediumDropdown = element(by.xpath("//div[@id='mat-select-value-9']"));
+  var gradeLevelDropDown = element(by.xpath("//div[@id='mat-select-value-13']"));
   var subjectDropdown = element(by.xpath("//sui-multi-select[@id='subject']"));
   var submitButtonForDropdowns = element(by.xpath("//button[contains(text(),' Submit ')]"));
   // var selectBoardValue=element(by.xpath("//span[contains(text(),'CBSE/NCERT')]"));

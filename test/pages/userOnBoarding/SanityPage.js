@@ -201,7 +201,7 @@ let SanityElement = () => {
   var closeButton = element(by.xpath("//button[text()='Close ']"));
   var addCourseTitle = element(by.xpath("//input[@placeholder='Title']"));
   var addCourseName = element(by.xpath("//input[@placeholder='Name']"));
-  var courseadditionalCategory = element(by.xpath("(//div[@class='list-border'])[1]//following::li[text()='Select Additional Category']"));
+  var courseadditionalCategory = element(by.xpath("//li[contains(text(),'Select Additional Category')]"));
   var courseType = element(by.xpath("(//select[@id='sb-dropdown'])[2]"));
   // var subjectCovered=element(by.xpath("(//div[@class='list-border'])[2]"));
   var subjectCovered = element(by.xpath("//label[contains(text(),'Subjects covered in the course')]//following::select[1]"));

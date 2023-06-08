@@ -18,7 +18,6 @@ describe('Create Lesson plan save and send for review and publish.', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
     it('CreateLessonPlanAndVerify ',function(){
@@ -30,8 +29,6 @@ describe('Create Lesson plan save and send for review and publish.', () => {
         utility.userLogout();
         utility.userLogin('ContentReviewer');
         lessonPlanPageObj.publishTheLessonPlanFromUpForReview(lessonPlan);
-        utility.userLogout();
-        utility.userLogin('ContentCreator');
-        lessonPlanPageObj.deleteCreatedItems();  
+      
     })
 });

@@ -1588,6 +1588,9 @@ const addmoreUnitInBook = () => {
 
     browser.sleep(8000);
 
+
+
+
     browser.executeScript("window.scrollTo(0,800);").then(function () {
       console.log("++++++SCROLLED Down+++++");
     });
@@ -1728,6 +1731,11 @@ const generateQRCodes = () => {
     ccpage.contentCreation().startCreating.click();
 
     browser.sleep(8000);
+
+sanityPage.SanityElement().clkKeyWordInEditor.click();
+    sanityPage.SanityElement().clkKeyWordInEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);
 
     browser.executeScript("window.scrollTo(0,920);").then(function () {
       console.log("++++++SCROLLED Down+++++");
@@ -3848,6 +3856,13 @@ const createCourseAndSendForReview = () => {
     sanity.addCourseTitle.clear();
     courseName = "CourseAT1567" + faker.randomData().firstname;
     sanity.addCourseTitle.sendKeys(courseName);
+
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.click();
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);   
+    
+
     browser.executeScript("window.scrollTo(0,1000);").then(function () {
       console.log("++++++SCROLLED Down+++++");
     });
@@ -4177,6 +4192,12 @@ const createCourseForFrameworkWithTopicAndSubject = (FrameworkName) => {
     // sanity.addcourseTag.sendKeys('test');
     //browser.actions().sendKeys(protractor.Key.ENTER).perform();
     browser.sleep(1000);
+
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.click();
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);   
+    
     browser.executeScript("window.scrollTo(0,1000);").then(function () {
       console.log("++++++SCROLLED Down+++++");
     });
@@ -6180,6 +6201,11 @@ const createBookTnContentCred = () => {
     ccpage.contentCreation().startCreating.click();
     browser.sleep(8000);
 
+    sanityPage.SanityElement().clkKeyWordInEditor.click();
+    sanityPage.SanityElement().clkKeyWordInEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);
+
     browser.executeScript("window.scrollTo(0,800);").then(function () {
       console.log("++++++SCROLLED Down+++++");
     });
@@ -7488,10 +7514,15 @@ const createBookWithAllResourceType = () => {
     bookname = "BookA" + faker.randomData().firstname;
     etbpage.etb().bookName.sendKeys(bookname);
 
-    FillBmesWhileCreatingBook();
+    FillBmesWhileCreatingBookOnlyBookRole();
 
     ccpage.contentCreation().startCreating.click();
     browser.sleep(8000);
+    sanityPage.SanityElement().clkKeyWordInEditor.click();
+    sanityPage.SanityElement().clkKeyWordInEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);   
+
 
     browser.executeScript("window.scrollTo(0,800);").then(function () {
       console.log("++++++SCROLLED Down+++++");
@@ -13617,6 +13648,13 @@ const createCourseAndSendForReviewWithResourceForPostSync = () => {
     courseName = "CourseCjk" + faker.randomData().firstname;
     sanity.addCourseTitle.sendKeys(courseName);
 
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.click();
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);   
+    
+
+
     browser.executeScript("window.scrollTo(0,1000);").then(function () {
       console.log("++++++SCROLLED Down+++++");
     });
@@ -13792,6 +13830,11 @@ const createCourseAndSendForReviewWithResource = () => {
 
     courseName = "CourseC" + faker.randomData().firstname;
     sanity.addCourseTitle.sendKeys(courseName);
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.click();
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);   
+    
 
     browser.executeScript("window.scrollTo(0,1000);").then(function () {
       console.log("++++++SCROLLED Down+++++");
@@ -14160,6 +14203,11 @@ const downloadTocInCSVFormat = () => {
 
     ccpage.contentCreation().startCreating.click();
     browser.sleep(8000);
+
+sanityPage.SanityElement().clkKeyWordInEditor.click();
+    sanityPage.SanityElement().clkKeyWordInEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);
 
     browser.executeScript("window.scrollTo(0,800);").then(function () {
       console.log("++++++SCROLLED Down+++++");
@@ -14964,6 +15012,12 @@ const createCourseAndSendForReviewWithMeritCourse = () => {
 
     courseName = "CourseC" + faker.randomData().firstname;
     sanity.addCourseTitle.sendKeys(courseName);
+
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.click();
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);   
+    
 
     browser.executeScript("window.scrollTo(0,1000);").then(function () {
       console.log("++++++SCROLLED Down+++++");
@@ -17375,6 +17429,11 @@ const createCourseAndSendForReviewWithNcertCoureType = () => {
     courseName = "CourseM" + faker.randomData().firstname;
     sanity.addCourseTitle.sendKeys(courseName);
 
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.click();
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);   
+    
     browser.executeScript("window.scrollTo(0,1000);").then(function () {
       console.log("++++++SCROLLED Down+++++");
     });
@@ -17524,6 +17583,12 @@ const createCourseAndSendForReviewWithCBSECoureType = () => {
     sanity.addCourseTitle.clear();
     courseName = "CourseM" + faker.randomData().firstname;
     sanity.addCourseTitle.sendKeys(courseName);
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.click();
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);   
+    
+
 
     browser.executeScript("window.scrollTo(0,1000);").then(function () {
       console.log("++++++SCROLLED Down+++++");
@@ -17824,7 +17889,11 @@ const createCourseAndSendForReviewWithCourseAssessment = () => {
     sanity.addCourseTitle.clear();
     courseName = "CourseM" + faker.randomData().firstname;
     sanity.addCourseTitle.sendKeys(courseName);
-
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.click();
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);   
+    
     browser.executeScript("window.scrollTo(0,1000);").then(function () {
       console.log("++++++SCROLLED Down+++++");
     });
@@ -22235,6 +22304,11 @@ const createCourseAndSendForReviewWithDoubleQuotesInDescription = () => {
     courseName = "CourseM" + faker.randomData().firstname;
     sanity.addCourseTitle.sendKeys(courseName);
 
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.click();
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);   
+    
     browser.executeScript("window.scrollTo(0,1000);").then(function () {
       console.log("++++++SCROLLED Down+++++");
     });
@@ -25675,6 +25749,22 @@ const verifyWhenUserReplaysTheQuestionSetItShouldStartFromInstructionPage =
 const sendCopiedBookForReview = () => {
   try {
     browser.sleep(8000);
+
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.click();
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(3000);   
+    browser.executeScript("window.scrollTo(0,400);").then(function () {
+      console.log("++++++SCROLLED Down+++++");
+    });  
+    browser.sleep(3000);
+
+    sanityPage.SanityElement().subjectCovered.click();
+    browser.sleep(2000);
+    sanityPage.SanityElement().selectSubject.click();
+    browser.sleep(2000);
+
+
     browser.executeScript("window.scrollTo(0,800);").then(function () {
       console.log("++++++SCROLLED Down+++++");
     });
@@ -25694,13 +25784,7 @@ const sendCopiedBookForReview = () => {
     sanityPage.SanityElement().selectClassValueForcollection.click();
     browser.sleep(4000);
 
-    browser.wait(
-      protractor.ExpectedConditions.elementToBeClickable(
-        sanityPage.SanityElement().selectSubjectForCourse
-      ),
-      20000,
-      "subject covered not loaded"
-    );
+    
     sanityPage.SanityElement().selectSubjectForCourse.click();
     browser.sleep(4000);
     sanityPage.SanityElement().selectSubjectValueForcollection.click();
@@ -29439,6 +29523,12 @@ const createCourseAndSendForReviewWithAttribution = () => {
     sanity.addCourseTitle.clear();
     courseName = "CourseAT1" + faker.randomData().firstname;
     sanity.addCourseTitle.sendKeys(courseName);
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.click();
+    sanityPage.SanityElement().clkKeyWordInCourseEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);   
+    
+
     browser.executeScript("window.scrollTo(0,1000);").then(function () {
       console.log("++++++SCROLLED Down+++++");
     });
@@ -32535,7 +32625,57 @@ const validateWorkspaceOptionAndSection = () => {
         browser.sleep(9000);
           }
   
-     
+          const FillBmesWhileCreatingBookOnlyBookRole = () => {
+            try {
+              browser.sleep(5000);
+              wait.waitForElementVisibility(etbv.clkBoardInBook, 20000, "clkBoardInBook is not available");
+              etbv.clkBoardInBook.click();
+              browser.sleep(1000);
+              wait.waitForElementVisibility(etbv.SltBoardInBook, 20000, "clkBoardInBook is not available");
+              etbv.SltBoardInBook.click();
+              browser.sleep(1000);
+              wait.waitForElementVisibility(etbv.clkMediumInBook, 20000, "clkBoardInBook is not available");
+              etbv.clkMediumInBook.click();
+              browser.sleep(1000);
+              wait.waitForElementVisibility(etbv.sltMediumInBook, 20000, "clkBoardInBook is not available");
+              etbv.sltMediumInBook.click();
+              browser.sleep(1000);
+              wait.waitForElementVisibility(etbv.clkClassInBook, 20000, "clkBoardInBook is not available");
+              etbv.clkClassInBook.click();
+              browser.sleep(1000);
+              wait.waitForElementVisibility(etbv.sltClassInBook, 20000, "clkBoardInBook is not available");
+              etbv.sltClassInBook.click();
+              browser.sleep(1000);
+              wait.waitForElementVisibility(etbv.clkSubjectInBook, 20000, "clkBoardInBook is not available");
+              etbv.clkSubjectInBook.click();
+              browser.sleep(1000);
+              wait.waitForElementVisibility(etbv.sltSubjectInBook, 20000, "clkBoardInBook is not available");
+              etbv.sltSubjectInBook.click();
+              browser.sleep(1000);
+              wait.waitForElementVisibility(
+                sanity.publisher,
+                20000,
+                "publisher is not available"
+              );
+              sanity.publisher.sendKeys("TestPublisher");
+              browser.sleep(1000);
+              wait.waitForElementVisibility(
+                sanity.year,
+                20000,
+                "publisher is not available"
+              );
+              sanity.year.click();
+              browser.sleep(1000);
+              wait.waitForElementVisibility(
+                sanity.sltYear,
+                20000,
+                "publisher is not available"
+              );
+              sanity.sltYear.click();
+            } catch (err) {
+              console.log(err);
+            }
+          };
 
 module.exports = {
   verifyViewAllButton,
@@ -32834,4 +32974,5 @@ module.exports = {
   addETextBookContent,
   validateWorkspaceOptionAndSection,
   justCopyTheContentBySearching,
+  FillBmesWhileCreatingBookOnlyBookRole,
 };

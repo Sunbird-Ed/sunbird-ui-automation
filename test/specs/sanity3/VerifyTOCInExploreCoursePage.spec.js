@@ -16,7 +16,6 @@ describe('VerifyTOCInExploreCoursePage.spec', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
     

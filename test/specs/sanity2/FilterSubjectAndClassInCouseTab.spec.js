@@ -19,7 +19,6 @@ describe('FilterSubjectAndClassInCouseTab', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
 

@@ -21,7 +21,6 @@ describe('Create Course with all resource save and send for review and publish.'
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
     it('CreateCourseWithAllResourceType', function () {

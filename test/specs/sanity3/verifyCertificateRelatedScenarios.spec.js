@@ -21,7 +21,6 @@ describe('verifyCertificateRelatedScenarios for Course', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
 

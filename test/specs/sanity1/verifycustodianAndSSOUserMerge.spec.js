@@ -18,7 +18,6 @@ describe('Verify SSO user merged with Custodian User', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
     

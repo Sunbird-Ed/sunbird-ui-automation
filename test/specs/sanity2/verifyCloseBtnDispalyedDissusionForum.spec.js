@@ -21,7 +21,6 @@ describe('verifyCloseBtnDispalyedDissusionForum.spec', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
     it('verifyCloseBtnDispalyedDissusionForum',function(){

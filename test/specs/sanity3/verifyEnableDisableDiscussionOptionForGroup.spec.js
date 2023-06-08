@@ -19,7 +19,6 @@ describe('verifyEnableDisableDiscussionOptionForGroup in groups', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
 

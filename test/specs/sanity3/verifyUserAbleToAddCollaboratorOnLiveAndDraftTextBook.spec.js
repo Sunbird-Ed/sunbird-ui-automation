@@ -23,7 +23,6 @@ describe('verifyUserAbleToAddCollaboratorOnLiveAndDraftTextBook', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
     it('verifyUserAbleToAddCollaboratorOnLiveAndDraftTextBook ',function(){

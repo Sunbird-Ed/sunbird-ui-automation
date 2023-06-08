@@ -22,7 +22,6 @@ describe('is Able to create Question MTF and Creator Can Delete that resource', 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
     it('CreateQuestionMTFAndVerify',function(){

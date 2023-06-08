@@ -396,7 +396,7 @@ const tpdPage = () => {
     var viewAllButton = element(by.xpath("(//button[contains(text(),'View all')])[1]"));
     var latestEnrolledourse = element(by.xpath("(//div[@class='sb-card-body'])[1]"));
     // var myGroupButton=element(by.xpath("//li[@routerlink='profile']//following::i[2]"));
-    var profileButton = element(by.xpath("(//div[@class='avatar-content'])[2]"));
+    var profileButton = element(by.xpath("//*[@aria-controls='overlaySidebarID']"));
     // var createGroupButton=element(by.xpath("//button[text()=' Create group ']"));
     var enterGroupName = element(by.xpath("//input[@placeholder='Enter group name']"));
     var enterGroupDescription = element(by.xpath("//textarea[contains(@class,'sb-form-control ng-untouched')]"));

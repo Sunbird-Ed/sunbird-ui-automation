@@ -21,7 +21,6 @@ describe('Create Book with all resource type, save and send for review and publi
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
     

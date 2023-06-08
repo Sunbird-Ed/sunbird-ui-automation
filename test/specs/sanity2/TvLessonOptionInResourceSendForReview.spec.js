@@ -22,7 +22,6 @@ describe('TvLessonOptionInResourceSendForReviewfor review and publish.', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
     it('TvLessonOptionInResourceSendForReview',function(){

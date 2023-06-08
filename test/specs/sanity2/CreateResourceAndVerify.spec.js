@@ -20,7 +20,6 @@ describe('CreateResourceAndVerify.', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
 
@@ -34,9 +33,7 @@ describe('CreateResourceAndVerify.', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
-        utility.userLogout();
-        utility.userLogin('Creator');
-        lspPageObj.deleteCreatedItems();
+       
      })
 });
    

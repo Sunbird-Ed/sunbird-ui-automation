@@ -19,7 +19,6 @@ describe('copy Question save and send for review and publish.', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
         
     });
@@ -32,8 +31,6 @@ describe('copy Question save and send for review and publish.', () => {
         utility.userLogout();
         utility.userLogin('ContentReviewer');
         resourcePageObj.publishTheResourceFromUpForReview(questionName);
-        utility.userLogout();
-        utility.userLogin('ContentCreator');
-        lspPageObj.deleteCreatedItems();
+       
     })
 });

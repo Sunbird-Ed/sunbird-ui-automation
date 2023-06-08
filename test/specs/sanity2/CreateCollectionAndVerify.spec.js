@@ -19,7 +19,6 @@ describe('Create Collection save and send for review and publish.', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
 
@@ -31,8 +30,8 @@ describe('Create Collection save and send for review and publish.', () => {
         utility.userLogout();
         utility.userLogin('Reviewer');
         tpdPageObj.publishCourseFromUpForReview(collectionName)
-        utility.userLogout();
-        utility.userLogin('Creator');
-        lspPageObj.deleteCreatedItems();
+        // utility.userLogout();
+        // utility.userLogin('Creator');
+        // lspPageObj.deleteCreatedItems();
     })
 });

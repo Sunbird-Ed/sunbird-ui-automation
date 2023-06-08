@@ -18,7 +18,6 @@ describe('validateObservationTabForDifferentRoles', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
 

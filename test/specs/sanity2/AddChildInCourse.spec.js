@@ -19,7 +19,6 @@ describe('AddChildInCourse', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
 
@@ -37,8 +36,8 @@ describe('AddChildInCourse', () => {
         utility.userLogout();
         utility.userLogin('Public User2');
         content.navigateContentAndValidate(keywordName,courseName);
-        utility.userLogout();
-        utility.userLogin('ContentCreator');
-        lspPageObj.deleteCreatedItems();
+        // utility.userLogout();
+        // utility.userLogin('ContentCreator');
+        // lspPageObj.deleteCreatedItems();
     })
 });

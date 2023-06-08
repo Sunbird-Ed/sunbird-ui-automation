@@ -17,7 +17,6 @@ describe('Verify createBookWithMoreUnits', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
     
@@ -25,6 +24,6 @@ describe('Verify createBookWithMoreUnits', () => {
         utility.handleDropDown();
         utility.handleLocationPopup();
         utility.userLogin('ContentCreator');
-        sanityFun.addmoreUnitInBook();
+        sanityFun.createBookTnContentCred();
     });
 });

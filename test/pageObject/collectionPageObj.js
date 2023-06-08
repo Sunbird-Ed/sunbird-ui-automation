@@ -70,8 +70,13 @@ const createCollection = () => {
     etbv.contentResource.click();
 
     content.startCreating.click();
-    browser.sleep(4000);
+  //  browser.sleep(4000);
     browser.sleep(8000);
+
+    sanityPage.SanityElement().clkKeyWordInEditor.click();
+    sanityPage.SanityElement().clkKeyWordInEditor.sendKeys("BookKeyword");
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    browser.sleep(2000);
 
     // browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));
     //  browser.sleep(4000);
@@ -79,6 +84,8 @@ const createCollection = () => {
     // browser.sleep(1000);
     // sanityPage.SanityElement().clkKeyworkCollection.sendKeys('Keyword');
     // browser.sleep(1000);
+    // browser.actions().sendKeys(protractor.Key.ENTER).perform();
+    //  browser.sleep(2000);
 
     // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().clkKeyworkCollection), 20000, "tag not available");
     // sanityPage.SanityElement().clkKeyworkCollection.sendKeys('test');

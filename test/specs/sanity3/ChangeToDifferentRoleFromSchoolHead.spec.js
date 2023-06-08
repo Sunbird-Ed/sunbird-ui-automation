@@ -18,7 +18,6 @@ describe('ChangeToDifferentRoleFromSchoolHead', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
     

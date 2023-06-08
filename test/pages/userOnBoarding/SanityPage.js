@@ -751,6 +751,8 @@ let SanityElement = () => {
   let clkDownload250Qr = element(by.xpath("//*[contains(text(),'Download 249 +1 QR codes')]"));
   var sltETextbook = element(by.xpath("//label[contains(text(),'eTextbook')]"));
   var clkCollectionChild1 = element(by.xpath("//span[contains(text(),'Collection Unit')]"));
+  var clkKeyWordInEditor = element(by.xpath("//input[@placeholder='Input the keyword and press enter']"));
+  var clkKeyWordInCourseEditor = element(by.xpath("//input[@placeholder='Enter Keywords']"));
 
 
 
@@ -1483,6 +1485,8 @@ let SanityElement = () => {
     clkDownload250Qr,
     sltETextbook,
     clkCollectionChild1,
+    clkKeyWordInEditor,
+    clkKeyWordInCourseEditor,
   }
 }
 module.exports = {

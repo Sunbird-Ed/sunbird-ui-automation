@@ -18,7 +18,6 @@ describe('Download  QR Code In Book', () => {
   afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
     

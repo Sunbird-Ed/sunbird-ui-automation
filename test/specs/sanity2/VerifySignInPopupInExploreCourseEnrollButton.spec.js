@@ -22,7 +22,6 @@ describe('verify sign in popup in explore course', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
 

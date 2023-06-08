@@ -21,7 +21,6 @@ describe('able to create course and enroll consume TimerVerification', () => {
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
-        browser.close();
 
     });
 

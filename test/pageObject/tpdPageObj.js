@@ -8493,10 +8493,10 @@ const enrollForOpenBatchAndVerifyTimer = () => {
     searchObj.batchCourseName.getText().then(function (input) {
       console.log("User is successfully enrolled to Course : " + input);
     });
-    // expect(searchObj.assertTimer.isDisplayed()).toBeTruthy();
-    // browser.sleep(3000);
-    // expect(searchObj.assertTimeStamp.isDisplayed()).toBeTruthy();
-    // browser.sleep(5000);
+    expect(searchObj.assertTimer.isDisplayed()).toBeTruthy();
+    browser.sleep(3000);
+    expect(searchObj.assertTimeStamp.isDisplayed()).toBeTruthy();
+    browser.sleep(5000);
   } catch (Exception) {
     console.log("Failed to enroll for an open batch");
   }

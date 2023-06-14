@@ -34,9 +34,6 @@ describe('CreateCourseAndConsume', () => {
         
         tpdPageObj.publishContentFromUpForReviewBucket(courseName);
         utility.userLogout();
-        utility.userLogin('Creator');
-        
-        lspPageObj.deleteCreatedItems();
 
 
 

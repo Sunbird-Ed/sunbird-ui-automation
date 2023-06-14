@@ -4253,16 +4253,16 @@ const createQuestionArrangeSequenceTemplateWithAllStyles = () => {
         wait.waitForElementVisibility(resov.selectEasy, 20000, "  selectEasy  is not available");
         resov.selectEasy.click();
 
-        try {
-            console.log("Search for Learning outcome is present  ");
-            wait.waitForElementVisibility(resov.learningOutcome, 20000, " learningOutcome is not available");
-            resov.learningOutcome.click();
-            wait.waitForElementVisibility(resov.selectLearningOutcome, 20000, " selectLearningOutcome  is not available");
-            resov.selectLearningOutcome.click();
-        }
-        catch (Exception) {
-            console.log("Learning outcome is not present");
-        }
+        // try {
+        //     console.log("Search for Learning outcome is present  ");
+        //     wait.waitForElementVisibility(resov.learningOutcome, 20000, " learningOutcome is not available");
+        //     resov.learningOutcome.click();
+        //     wait.waitForElementVisibility(resov.selectLearningOutcome, 20000, " selectLearningOutcome  is not available");
+        //     resov.selectLearningOutcome.click();
+        // }
+        // catch (Exception) {
+        //     console.log("Learning outcome is not present");
+        // }
         wait.waitForElementVisibility(resov.submitButtonInQuestion, 20000, "nextButton is not available");
         resov.submitButtonInQuestion.click();
         browser.sleep(2000);
@@ -4598,16 +4598,16 @@ const createQuestionReOrderingWithAllStyles = () => {
         wait.waitForElementVisibility(resov.selectEasy, 20000);
         resov.selectEasy.click();
         browser.sleep(2000);
-        try {
-            console.log("Search for Learning outcome is present  ");
-            wait.waitForElementVisibility(resov.learningOutcome, 20000, " learningOutcome is not available");
-            resov.learningOutcome.click();
-            wait.waitForElementVisibility(resov.selectLearningOutcome, 20000, " selectLearningOutcome  is not available");
-            resov.selectLearningOutcome.click();
-        }
-        catch (Exception) {
-            console.log("Learning outcome is not present");
-        }
+        // try {
+        //     console.log("Search for Learning outcome is present  ");
+        //     wait.waitForElementVisibility(resov.learningOutcome, 20000, " learningOutcome is not available");
+        //     resov.learningOutcome.click();
+        //     wait.waitForElementVisibility(resov.selectLearningOutcome, 20000, " selectLearningOutcome  is not available");
+        //     resov.selectLearningOutcome.click();
+        // }
+        // catch (Exception) {
+        //     console.log("Learning outcome is not present");
+        // }
         wait.waitForElementVisibility(resov.submitButtonInQuestion, 20000);
         resov.submitButtonInQuestion.click();
         browser.sleep(2000);

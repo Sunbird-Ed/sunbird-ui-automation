@@ -24228,7 +24228,7 @@ const createCourseWithImageIconAndValidateImageSearchBar = () => {
     // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().addFromLibraryButton), 20000,"Add library Button not loaded");
     sanityPage.SanityElement().addFromLibraryButton.click();
     browser.sleep(5000);
-    sanityPage.SanityElement().clkContent.click();
+   // sanityPage.SanityElement().clkContent.click();
     browser.sleep(2000);
     // browser.wait(protractor.ExpectedConditions.visibilityOf(sanityPage.SanityElement().selectButton), 20000,"Select content Button not loaded");
     sanityPage.SanityElement().selectButton.click();

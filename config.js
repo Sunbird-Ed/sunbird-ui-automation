@@ -20,8 +20,12 @@ exports.config = {
       //sanity3: 'test/specs/sanity3/*.spec.js',
 
 
-      Workspace1: 'test/specs/Workspace1/*.spec.js'
+   //   Workspace1: 'test/specs/Workspace1/*.spec.js'
      // Workspace2: 'test/specs/workspace2/*.spec.js'
+    // Workspace3: 'test/specs/workspace3/*.spec.js'
+   //  Workspace4: 'test/specs/Workspace4/*.spec.js'
+  // Workspace5: 'test/specs/workspace5/*.spec.js'
+
         // SunbirdPortal1: 'test/specs/Sunbird_ED_Portal_1/*.spec.js',
         //   SunbirdPortal2: 'test/specs/SUNBIRD_ED_Portal_2/*.spec.js',
        //  SunbirdPortal3: 'test/specs/Sunbird_ED_Portal_3/*.spec.js',
@@ -99,7 +103,7 @@ exports.config = {
 //test:'test/specs/SUNBIRD_Knowledge_6/openDraftBookAndUpdateChildNodesWithQrCodeOfDiffTenant.spec.js'
 //test:'test/specs/SUNBIRD_Knowledge_1/validateWorkspaceOptionAndSection.spec.js'
 //test:'test/specs/SUNBIRD_Knowledge_6/CopyMP4ContentAndSendForReview.spec.js'
-//test:'test/specs/workspace2/CreateQuestionMCQAndConsume.spec.js'
+test:'test/specs/workspace3/RejectTheCollectionAndVerifyInDraft.spec.js'
 
 },
     allScriptsTimeout: 4000000000,

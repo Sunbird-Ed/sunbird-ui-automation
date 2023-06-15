@@ -24,16 +24,14 @@ describe('createResourceWithDescriptionAndVerify.', () => {
     
     it('createResourceWithDescriptionAndVerify',function(){
         utility.handleDropDown();
-        browser.sleep(30000);
-        //utility.handleLocationPopup();
+      
+        utility.handleLocationPopup();
         utility.userLogin('Creator');
         let resourceName=resourcePageObj.createResource();
         resourcePageObj.sendForReviewTheResource();
         utility.userLogout();
         utility.userLogin('Reviewer');
         resourcePageObj.publishTheResourceFromUpForReview(resourceName);
-        utility.userLogout();
-        utility.userLogin('Creator');
-        lspPageObj.deleteCreatedItems();
+       
     })
 });

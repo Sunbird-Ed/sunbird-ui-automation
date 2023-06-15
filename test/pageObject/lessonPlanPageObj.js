@@ -456,7 +456,7 @@ const searchAnddeleteAllMyContentItems = (content) => {
         resov.allMyContent.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchForReview), 20000, "allMyContent page not loaded");
         resov.searchForReview.sendKeys(content);
-        browser.sleep(2000);
+        browser.sleep(5000);
         // browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchCoursesUpForReview), 20000, "  deleteButton is not available");
         // resov.searchCoursesUpForReview.getText().then(function (input) {
         //     name = input;
@@ -465,6 +465,8 @@ const searchAnddeleteAllMyContentItems = (content) => {
         browser.sleep(1000);
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.deleteContent), 20000, "  deleteButton is not available");
         resov.deleteContent.click();
+        browser.sleep(3000);
+
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.yesButtonPopup), 20000, "yesButtonPopup is not available");
         resov.yesButtonPopup.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.toastMsg), 20000, "toastmsg is not available");
@@ -499,6 +501,10 @@ const searchAnddeleteDraftItems = (content) => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.searchForReview), 20000, "allMyContent page not loaded");
         resov.searchForReview.sendKeys(content);
         browser.sleep(4000);
+
+  browser.wait(protractor.ExpectedConditions.visibilityOf(content.deleteButton), 20000, "  deleteButton is not available");
+  content.deleteButton.click();
+
              browser.wait(protractor.ExpectedConditions.visibilityOf(resov.deleteButton), 20000, "  deleteButton is not available");
         resov.deleteButton.click();
         browser.wait(protractor.ExpectedConditions.visibilityOf(resov.yesButtonPopup), 20000, "yesButtonPopup is not available");

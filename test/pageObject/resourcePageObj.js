@@ -10182,9 +10182,11 @@ const createResourceForTextbook = () => {
         wait.waitForElementVisibility(etbv.contentType, 30000, "contentType button not available");
         etbv.contentType.click();
         browser.sleep(500);
-        browser.executeScript("arguments[0].scrollIntoView();", etbv.eTextBook);
-        etbv.eTextBook.click();
+        browser.executeScript("arguments[0].scrollIntoView();", etbv.practiceResource);
+        etbv.practiceResource.click();
         browser.sleep(3000);
+
+       
         resov.startCreating.click();
         browser.sleep(4000);
         browser.switchTo().frame(browser.driver.findElement(by.tagName('iframe')));

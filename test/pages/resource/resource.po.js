@@ -233,7 +233,7 @@ var resource = () => {
 
     var Published = element(by.xpath(" //a[contains(.,'Published ')]"));
     var firstCourseCardContentName = element(by.xpath("//*[@class='sliderCardHeading text-cencapitalize']"));
-    var deleteButton = element(by.xpath("(//i[@class='trash large icon'])[1]"));
+    var deleteButton = element(by.xpath("//i[@class='icon large trash']"));
     var yesButtonPopup = element(by.xpath("//button[contains(.,'Yes')]"));
     var messageBox = element(by.xpath("//strong[@class='iziToast-title slideIn']"));
     var allMyContent = element(by.xpath("//a[contains(.,'All My Content ')] "));
@@ -475,7 +475,7 @@ var resource = () => {
     var clkChangePreferenceBtn = element(by.xpath("//button[contains(text(),'CHANGE PREFERENCE')]"));
     var assertChangePreferencePopup = element(by.xpath("//div[contains(text(),'To discover relevant content, update the following details:‎')]"));
     var imageCard4 = element(by.xpath("(//div[contains(@class,'UpReviewHeader')])"));
-    var deleteContent = element(by.xpath("(//i[@class='trash large icon ng-star-inserted'])[1]"));
+    var deleteContent = element(by.xpath("//i[@class='trash large icon ng-star-inserted']"));
     var searchCoursesUpForReview = element(by.xpath("(//div[@class='UpReviewHeader'])[1]"));
     var toastMsg = element(by.xpath("//*[@class='iziToast-title slideIn']"));
     var addVedio = element(by.xpath("//a[@data-content='Add Video']"));

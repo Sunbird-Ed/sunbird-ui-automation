@@ -126,7 +126,7 @@ var contentCreation = () => {
   var searchIcon = element(by.xpath("//button[contains(.,'Search')]"));
   var courseCard = element(by.xpath("(//div[contains(@class,'sb--card__meta')]//..//..)[1]"));
   var firstCourseCardContentName = element(by.xpath("//*[@class='sliderCardHeading text-cencapitalize']"));
-  var deleteButton = element(by.xpath("(//i[@class='trash large icon'])[1]"));
+  var deleteButton = element(by.xpath("//i[@class='icon large trash']"));
   var yesButtonPopup = element(by.xpath("//button[contains(.,'Yes')]"))
   var messageBox = element(by.xpath("//strong[@class='iziToast-title slideIn']"));
   var published = element(by.xpath("//a[contains(text(),'Published')]"))

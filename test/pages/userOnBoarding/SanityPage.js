@@ -343,7 +343,7 @@ let SanityElement = () => {
   var assertlicense = element(by.xpath("(//label[text()='License  '])"));
   var exploreTab = element(by.xpath("//a[contains(text(),'Explore')]"));
   var assertTabs = element(by.xpath("//a[contains(@aria-selected,'true')]"));
-  var MedDropDown = element(by.xpath("(//sb-caret-down[@class='caret-down'])[3]"));
+  var MedDropDown = element(by.xpath("//label[contains(text(),'Medium')]//following::span[1]"));
   var classDropDown = element(by.xpath("(//sb-caret-down[@class='caret-down'])[4]"));
   var subDropDown = element(by.xpath("(//sb-caret-down[@class='caret-down'])[5]"));
   var multiSelect2 = element(by.xpath("(//label[contains(text(),'of the audience')]//following::label[contains(text(),'Select All')])[2]"));

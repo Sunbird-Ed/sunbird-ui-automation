@@ -25,6 +25,7 @@ exports.config = {
     // Workspace3: 'test/specs/workspace3/*.spec.js'
    //  Workspace4: 'test/specs/Workspace4/*.spec.js'
   // Workspace5: 'test/specs/workspace5/*.spec.js'
+ // Workspace6: 'test/specs/Workspace6/*.spec.js'
 
         // SunbirdPortal1: 'test/specs/Sunbird_ED_Portal_1/*.spec.js',
         //   SunbirdPortal2: 'test/specs/SUNBIRD_ED_Portal_2/*.spec.js',
@@ -103,7 +104,7 @@ exports.config = {
 //test:'test/specs/SUNBIRD_Knowledge_6/openDraftBookAndUpdateChildNodesWithQrCodeOfDiffTenant.spec.js'
 //test:'test/specs/SUNBIRD_Knowledge_1/validateWorkspaceOptionAndSection.spec.js'
 //test:'test/specs/SUNBIRD_Knowledge_6/CopyMP4ContentAndSendForReview.spec.js'
-test:'test/specs/workspace3/RejectTheCollectionAndVerifyInDraft.spec.js'
+test:'test/specs/Workspace4/UploadContentTypeHtmlAndVerifyWithOnlyCreatorRole.spec.js'
 
 },
     allScriptsTimeout: 4000000000,

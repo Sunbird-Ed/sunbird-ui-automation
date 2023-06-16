@@ -10561,6 +10561,8 @@ const EditTargetFrameworkWithMultipleCategoricalValues = (corseNames) => {
             20000,
             "Medium covered not loaded"
           );
+          browser.sleep(3000);
+
           sanityPage.SanityElement().MedDropDown.click();
           browser.sleep(1000);
           sanityPage.SanityElement().MultipleSelect.click();
@@ -10608,7 +10610,7 @@ const EditTargetFrameworkWithMultipleCategoricalValues = (corseNames) => {
     browser.sleep(3000);
 
     sanityPage.SanityElement().contentFromLibrayBackButton.click();
-    browser.sleep(2000);
+    browser.sleep(5000);
   } catch (err) {
     console.log(err);
   }
@@ -10620,7 +10622,7 @@ const EditDraftedTargetFrameworkWithMultipleCategoricalValues = (
   try {
     console.log("user is trying to create a course");
 
-    browser.sleep(1000);
+    browser.sleep(3000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(
         content.workspaceHeaderDropDwn
@@ -45651,4 +45653,5 @@ module.exports = {
   CourseAssessmentSendReviewWithAlreadyFilledDetails,
   contentSearchInDraftAndUpdateQRofDifferentTenanatAndValidateError,
   ProperPreviewShownForUploadContentInAllMyContentSection,
+  EditTargetFrameworkWithMultipleCategoricalValues,
 };

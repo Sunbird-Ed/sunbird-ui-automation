@@ -34,10 +34,10 @@ var contentCreation = () => {
   var closeIcon = element(by.xpath("//div[@class='close icon-box popup-item']"));
   var headerDropdown = element(by.xpath("//*[@aria-controls='overlaySidebarID']"));
   var headerDropdown1 = element(by.xpath("//*[@aria-controls='overlaySidebarID']"));
-  var headerDropdown2 = element(by.xpath("(//div[@class='avatar-container'])[2]"));
+  var headerDropdown2 = element(by.xpath("//*[@aria-controls='overlaySidebarID']"));
   var classicThemeHeaderDropdown = element(by.xpath("(//div[@class='avatar-container'])"));
   var headerdrpdwn = element(by.xpath("//ngx-avatar[@class='ng-star-inserted']//following::div[@class='avatar-container']"));
-  var workspaceHeaderDropDwn = element(by.xpath("(//div[@class='avatar-container'])[2]"));
+  var workspaceHeaderDropDwn = element(by.xpath("//*[@aria-controls='overlaySidebarID']"));
   var logout = element(by.xpath("//li[contains(text(),' Logout ')]"));
   var dog = element(by.css('name'));
   var district = element(by.xpath("//*[contains(@id,'district')]//following::*[contains(@aria-label,'Select District')]"));

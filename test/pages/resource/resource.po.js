@@ -323,7 +323,7 @@ var resource = () => {
     var btnResume = element(by.xpath("//div[contains(@class,'ui ok blue button ng-scope')]"));
     var btnCloseEditor = element(by.xpath("//div[contains(@class,'ui basic cancel button ng-scope')]"));
     var labelEnterTheQuestion = element(by.xpath("//span[contains(text(),'Enter the question')]"));
-    var linkActiveItemDraft = element(by.xpath("//a[contains(text(),' Drafts ')]//following::a[contains(@class,'ui black right ribbon')]"));
+    var linkActiveItemDraft = element(by.xpath("//a[contains(text(),' Drafts ')]//following::a[contains(@class,'black')]"));
     var ddSendforreview = element(by.xpath("(//div[@class='ui button text-part popup-item']//following::i[@class='dropdown icon'])[1]"));
     var sendForReviewInShareViaLink = element(by.xpath("//div[contains(@data-content,'Send for review')]"));
     var linkLimitedSharing = element(by.xpath("//div[contains(text(),'Limited sharing')]"));

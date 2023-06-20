@@ -35,6 +35,6 @@ describe('RejectTheUploadedContentAndVerify', () => {
         utility.userLogout();
         utility.userLogin('Creator');
         uploadPageObj.validateuplloadContentInAllUploadAfterRejection(uploadContent);
-        utility.userLogout(); 
+      
     })
 });

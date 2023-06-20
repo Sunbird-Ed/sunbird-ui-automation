@@ -1043,7 +1043,7 @@ var contentCreation = () => {
   var questionConfiguration = element(by.xpath("(//*[@class='section activeBreadcumb'])[2]"));
   var questionSlid = element(by.xpath("(//*[@type='text'])[2]"));
   var editQuestion = element(by.xpath("(//*[@id='edit-question-config'])[1]"));
-  var deleteButtonInWorkSpace = element(by.xpath("//i[@class='trash large icon']"));
+  var deleteButtonInWorkSpace = element(by.xpath("//i[@class='icon large trash']"));
   var saveAsDraftInWorkspace = element(by.xpath("//button[@class='sb-btn sb-btn-normal sb-btn-outline-primary mr-10 ng-star-inserted']"));
   var assertFirstnode = element(by.xpath("//span[contains(text(),'Textbook UnitChildTitle')]"));
   var assertSecondnode = element(by.xpath("//span[contains(text(),'Textbook UnitChildTitle')]"));

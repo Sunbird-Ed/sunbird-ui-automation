@@ -1,10 +1,11 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
-const searchedCotentsValidation = require(protractor.basePath + '/test/pageObject/ETBPageObj/search.js');
+const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
+const collectionPageObj = require(protractor.basePath+'/test/pageObject/collectionPageObj.js');
 
-
-describe('Verify searched contents', () => {
+describe('Veriy that user is able to create colleciton by adding,deleting nodes and is also able to add description and keyword', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -12,7 +13,7 @@ describe('Verify searched contents', () => {
         var AppendExplore='/explore';
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
-        browser.driver.manage().window().maximize();
+        browser.driver.manage().window().maximize(); 
     });
 
     afterEach(() => {
@@ -20,11 +21,11 @@ describe('Verify searched contents', () => {
         browser.manage().deleteAllCookies();
     });
 
-    it('verifyMultiSelection',function(){
+    it('VerifyCountOfTheContentsWhenLanguageIsChanged',function(){
         utility.handleDropDown();
-        browser.sleep(30000);
+        
         utility.handleLocationPopup();
-        utility.userLogin('ContentCreator');
-        searchedCotentsValidation.multiSelection();
+        utility.userLogin('Creator');
+        resourcePageObj.VerifyCoursePage();
     });
 });

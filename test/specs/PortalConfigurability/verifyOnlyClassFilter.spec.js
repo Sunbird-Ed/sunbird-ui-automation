@@ -20,7 +20,7 @@ describe('VerifyOnlyClassFilter ', () => {
     it('VerifyOnlyClassFilter',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Public User2');
+        utility.userLogin('ContentCreator');
         etbFun.verifyOnlyClassFilter();  
     })
 });

@@ -23,7 +23,7 @@ describe('verifysingleSeletion', () => {
     it('verifysingleSeletion',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        utility.userLogin('Admin');
+        utility.userLogin('ContentCreator');
         searchedCotentsValidation.boardvalueSigleSelect();
     });
 });

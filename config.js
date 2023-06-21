@@ -29,6 +29,13 @@ exports.config = {
 
  //Login: 'test/specs/Login/*.spec.js'
  //Profile : 'test/specs/Profile/*.spec.js'
+//CourseConsumption1 : 'test/specs/Course Consumption1/*.spec.js'
+
+//CourseConsumption2 : 'test/specs/CourseConsumption2/*.spec.js'
+//PortalConfigurabili : 'test/specs/PortalConfigurability/*.spec.js'
+
+//DigitalTextbookConsumption1 : 'test/specs/DigitalTextbookConsumption/*.spec.js'
+DigitalTextbookConsumption2 : 'test/specs/DigitalTxtBook2/*.spec.js'
 
 
         // SunbirdPortal1: 'test/specs/Sunbird_ED_Portal_1/*.spec.js',
@@ -108,7 +115,6 @@ exports.config = {
 //test:'test/specs/SUNBIRD_Knowledge_6/openDraftBookAndUpdateChildNodesWithQrCodeOfDiffTenant.spec.js'
 //test:'test/specs/SUNBIRD_Knowledge_1/validateWorkspaceOptionAndSection.spec.js'
 //test:'test/specs/SUNBIRD_Knowledge_6/CopyMP4ContentAndSendForReview.spec.js'
-test:'test/specs/workspace3/DeleteCourseAssesmentContentInDrafts.spec.js'
 
 },
     allScriptsTimeout: 4000000000,

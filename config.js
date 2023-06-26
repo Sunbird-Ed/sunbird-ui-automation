@@ -35,8 +35,21 @@ exports.config = {
 //PortalConfigurabili : 'test/specs/PortalConfigurability/*.spec.js'
 
 //DigitalTextbookConsumption1 : 'test/specs/DigitalTextbookConsumption/*.spec.js'
-DigitalTextbookConsumption2 : 'test/specs/DigitalTxtBook2/*.spec.js'
+//DigitalTextbookConsumption2 : 'test/specs/DigitalTxtBook2/*.spec.js'
+//QRcode : 'test/specs/QRcode/*.spec.js'
+//BatchCreation : 'test/specs/QRcode/*.spec.js'
+//ContentConsumption : 'test/specs/ContentConsumption/*.spec.js'
+//BatchCreation : 'test/specs/BatchCreation/*.spec.js'
+//UCI : 'test/specs/Sunbird_UCI/*.spec.js'
+//Quml2 : 'test/specs/Quml2/*.spec.js'
+//Quml3 : 'test/specs/quml3/*.spec.js'
+//Quml1 : 'test/specs/QUML/*.spec.js'
 
+//Groups : 'test/specs/Groups2/*.spec.js'
+//Group2 : 'test/specs/Groups/*.spec.js'
+
+
+//PortalSpecific : 'test/specs/PortalSpecificTestCase/*.spec.js'
 
         // SunbirdPortal1: 'test/specs/Sunbird_ED_Portal_1/*.spec.js',
         //   SunbirdPortal2: 'test/specs/SUNBIRD_ED_Portal_2/*.spec.js',
@@ -116,6 +129,7 @@ DigitalTextbookConsumption2 : 'test/specs/DigitalTxtBook2/*.spec.js'
 //test:'test/specs/SUNBIRD_Knowledge_1/validateWorkspaceOptionAndSection.spec.js'
 //test:'test/specs/SUNBIRD_Knowledge_6/CopyMP4ContentAndSendForReview.spec.js'
 
+test:'test/specs/PortalSpecificTestCase/ForGuestUserConsumptionValidateHeaderTabs.spec.js'
 },
     allScriptsTimeout: 4000000000,
 

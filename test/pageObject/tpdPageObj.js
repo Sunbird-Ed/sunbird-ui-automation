@@ -39756,7 +39756,7 @@ const validateHeaderTabsInConsumption = (coursename) => {
   browser.sleep(5000);
   searchObj.courseCard.click();
   browser.sleep(7000);
-  browser.navigate().back();
+  //browser.navigate().back();
   browser.sleep(7000);
 
 expect(searchObj.homeTab.isPresent()).toBe(false);

@@ -1,8 +1,13 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const resource = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
+const resourcePageObj = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
+const lspPageObj = require(protractor.basePath+'/test/pageObject/lessonPlanPageObj.js');
+const tpdPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
+const cont = require(protractor.basePath+ '/test/pageObject/contentCreationPageObj.js');
 
-describe('BrowseSectionInExplorePage', () => {
+describe('validatecourseDashboardSelectBatchAndSubmitDetailedReport', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -17,14 +22,12 @@ describe('BrowseSectionInExplorePage', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('VerifyHomeAndExploreTabsForLoggedAndNonLoggedInUser',function(){
+    
+    it('validatecourseDashboardSelectBatchAndSubmitDetailedReport',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        resource.verifyHomeTab();
-      //  resource.verifyExploreTab();
-        utility.userLogin('Creator');
-        resource.browseSeactionInExplorePage();
-        resource.VerifyHomePageWhenUserClicksBackBtnFromBrowseBySubject();
+        
+        utility.userLogin('ContentCreator');
+        cont.viewCourseDashBoardandValidateRequestButton();
     })
-    
 });

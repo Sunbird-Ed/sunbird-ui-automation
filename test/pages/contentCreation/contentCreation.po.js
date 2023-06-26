@@ -566,7 +566,7 @@ var contentCreation = () => {
   var clickState = element(by.xpath("(//div[contains(@class,'cfe-multiselect-field-label-container list-border')])[2]"));
   var clickDistrict = element(by.xpath("(//div[contains(@class,'cfe-multiselect-field-label-container list-border')])[3]"));
   var assertFromNcert = element(by.xpath("//div[@class='title']"));
-  var clkHomeTab = element(by.xpath("//div[@aria-label='Main menu']//following::a[contains(text(),' Home ')]"));
+  var clkHomeTab = element(by.xpath("//a[contains(text(),'Home')]"));
   var inputField = element(by.xpath("//div[@class='sb-field']"));
   var recoverySubmit = element(by.xpath("(//button[contains(text(),'Submit')])[2]"));
   var invalidMessage = element(by.xpath("//div[contains(@class,'sb-field')]//following::span[@class='sb-color-error fnormal mt-8']"));

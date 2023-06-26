@@ -1,8 +1,13 @@
+const { browser } = require("protractor");
+
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const resource = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
+const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
+const sanityfun = require(protractor.basePath + '/test/pageObject/SanityPageObj.js');
+const tpdPageObj = require(protractor.basePath + '/test/pageObject/tpdPageObj.js');
 
-describe('BrowseSectionInExplorePage', () => {
+
+describe('validateOrgAdminHasWorkspaceInProfileAndAllTextBook', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -17,14 +22,12 @@ describe('BrowseSectionInExplorePage', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('VerifyHomeAndExploreTabsForLoggedAndNonLoggedInUser',function(){
+
+    it('validateOrgAdminHasWorkspaceInProfileAndAllTextBook',function(){
         utility.handleDropDown();
+        
         utility.handleLocationPopup();
-        resource.verifyHomeTab();
-      //  resource.verifyExploreTab();
-        utility.userLogin('Creator');
-        resource.browseSeactionInExplorePage();
-        resource.VerifyHomePageWhenUserClicksBackBtnFromBrowseBySubject();
+        utility.userLogin('Admin3');
+        tpdPageObj.orgAdminShouldHaveWorkspaceInProfileAnd();
     })
-    
 });

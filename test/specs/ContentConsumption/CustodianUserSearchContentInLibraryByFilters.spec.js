@@ -1,8 +1,8 @@
-const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
-let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
-const resource = require(protractor.basePath+'/test/pageObject/resourcePageObj.js');
 
-describe('BrowseSectionInExplorePage', () => {
+const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
+const etbFun = require(protractor.basePath + '/test/pageObject/etbPageObj.js');
+let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
+describe('multiselectInAllTabs', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -11,20 +11,26 @@ describe('BrowseSectionInExplorePage', () => {
         browser.get(Url+AppendExplore, 40000);
         browser.manage().timeouts().implicitlyWait(30000);
         browser.driver.manage().window().maximize(); 
+       
     });
+
 
     afterEach(() => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
+        browser.close();
     });
-    it('VerifyHomeAndExploreTabsForLoggedAndNonLoggedInUser',function(){
+    it('CustodianUserSearchContentInLibraryByFilters',function(){
         utility.handleDropDown();
         utility.handleLocationPopup();
-        resource.verifyHomeTab();
-      //  resource.verifyExploreTab();
         utility.userLogin('Creator');
-        resource.browseSeactionInExplorePage();
-        resource.VerifyHomePageWhenUserClicksBackBtnFromBrowseBySubject();
+        etbFun.multiselectForAllTabs();
+        
+
+        
     })
     
+    
+
+ 
 });

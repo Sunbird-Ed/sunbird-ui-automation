@@ -692,12 +692,12 @@ const tpdPage = () => {
     var clkTagOption = element(by.xpath("//a[text()='Tags']"));
     var tagPageAnimation = element(by.xpath("//label[text()='No tags Available !']//preceding::img[1]"));
     var noTagsAvailableMsg = element(by.xpath("//label[text()='No tags Available !']"));
-    var assertDiscussionTopic = element(by.xpath("//input[@placeholder='Type here (minimum 8 characters)']"));
+   // var assertDiscussionTopic = element(by.xpath("//input[@placeholder='Type here (minimum 8 characters)']"));
     var assertElaborateSection = element(by.xpath("//textarea[@placeholder='Type here (minimum 8 characters)']"));
     var viewIcon = element(by.xpath("//div[text()='General Discussion']//following::img[1]"));
     var createdTopic2 = element(by.xpath("//h3[text()='Demo5678']"));
     var assertMinLengthOnReply = element(by.xpath("//textarea[@placeholder='Type here (minimum 10 characters)']"));
-    var minLengthValue = element(by.xpath("//textarea[@minlength='10']"));
+    var minLengthValue = element(by.xpath("//textarea[@minlength='8']"));
     var assertelaborateLabel = element(by.xpath("//label[text()='Please elaborate your question or idea here*']"));
     var assertTagLabel = element(by.xpath("//label[text()='Tags']"));
     var assertTagWaterMark = element(by.xpath("//input[@placeholder='Add a tag and press Enter']"));

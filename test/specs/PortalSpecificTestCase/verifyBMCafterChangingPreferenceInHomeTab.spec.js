@@ -26,6 +26,7 @@ describe('verifyBMCafterChangingPreferenceInHomeTab', () => {
     it('verifyBMCafterChangingPreferenceInHomeTab', function () {
         utility.handleDropDown();
         utility.handleLocationPopup();
+        utility.userLogin('CustodianUser');
         sanityfun.observeChangingThePreferences();
         // utility.userLogin('CustodianUser');
         // sanityfun.observeChangingThePreferences2();

@@ -3,7 +3,7 @@ const { browser } = require("protractor");
 const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js');
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const EnrollTBFCPageObj = require(protractor.basePath+'/test/pageObject/tpdPageObj.js');
-describe('User is redirected to the conversation flow screen with no logic added and a button to Add logic', () => {
+describe('Verify Org Admin must be able to view Communication Console Tab on the Hamburger Menu List', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -20,14 +20,13 @@ describe('User is redirected to the conversation flow screen with no logic added
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('userClicksOnBackInConversationFlowScreen',function(){
+    it('communicationConsoleVisibleForOnlyOrgAdminNotForOther ',function(){
         utility.handleDropDown();
-            utility.handleLocationPopup();
-        utility.userLogin('OrgAdmin');
-        EnrollTBFCPageObj.verifyCommunicationConsole();
-        EnrollTBFCPageObj.userClicksOnAddNewToAddDetailsOfANewConversation();
-        EnrollTBFCPageObj.userProvidesMandatoryAndOptionalOnTheConversationListingScreen();
-        EnrollTBFCPageObj.userProvidesMandatoryAndOptionalOnTheConversationListingAndClickNext();
-        EnrollTBFCPageObj.userClicksOnBackInConversationFlowScreen();
+        
+        utility.handleLocationPopup();
+        utility.userLogin('ContentCreator');
+        EnrollTBFCPageObj.verifyCommunicationConsoleNotDisplayforNonAdmin();
+       
+     
     })
 });

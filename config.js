@@ -50,6 +50,7 @@ exports.config = {
 
 
 //PortalSpecific : 'test/specs/PortalSpecificTestCase/*.spec.js'
+//OrgAdminReports : 'test/specs/OrgAdminReports/*.spec.js'
 
         // SunbirdPortal1: 'test/specs/Sunbird_ED_Portal_1/*.spec.js',
         //   SunbirdPortal2: 'test/specs/SUNBIRD_ED_Portal_2/*.spec.js',
@@ -129,7 +130,7 @@ exports.config = {
 //test:'test/specs/SUNBIRD_Knowledge_1/validateWorkspaceOptionAndSection.spec.js'
 //test:'test/specs/SUNBIRD_Knowledge_6/CopyMP4ContentAndSendForReview.spec.js'
 
-test:'test/specs/PortalSpecificTestCase/ForGuestUserConsumptionValidateHeaderTabs.spec.js'
+testing:'test/specs/Sunbird_UCI/userClicksOnBackInConversationFlowScreen.spec.js'
 },
     allScriptsTimeout: 4000000000,
 
@@ -147,7 +148,7 @@ test:'test/specs/PortalSpecificTestCase/ForGuestUserConsumptionValidateHeaderTab
         version: '78.0.3904.108',
         platform: 'Any',
         shardTestFiles: true,
-        maxInstances:3,
+        maxInstances:2,
         chromeOptions: {
             w3c: false,
             prefs: {

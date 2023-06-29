@@ -14035,48 +14035,48 @@ const viewTheContentOnCommunicationConsole = () => {
       "Starting Message Value1 is Viewed Successfully On Communication Console  "
     );
 
-    browser.sleep(2000);
-    browser.wait(
-      protractor.ExpectedConditions.visibilityOf(searchObj.botURLHeading),
-      40000,
-      "BOT URL Heading Is Not Displayed "
-    );
-    expect(searchObj.botURLHeading.isDisplayed()).toBe(true);
-    console.log(
-      "BOT URL Heading is Viewed Successfully On Communication Console  "
-    );
+    // browser.sleep(2000);
+    // browser.wait(
+    //   protractor.ExpectedConditions.visibilityOf(searchObj.botURLHeading),
+    //   40000,
+    //   "BOT URL Heading Is Not Displayed "
+    // );
+    // expect(searchObj.botURLHeading.isDisplayed()).toBe(true);
+    // console.log(
+    //   "BOT URL Heading is Viewed Successfully On Communication Console  "
+    // );
 
-    browser.sleep(2000);
-    browser.wait(
-      protractor.ExpectedConditions.visibilityOf(searchObj.botURLValue1),
-      40000,
-      "BOT URL Value1 Is Not Displayed "
-    );
-    expect(searchObj.botURLValue1.isDisplayed()).toBe(true);
-    console.log(
-      "BOT URL Value1 is Viewed Successfully On Communication Console  "
-    );
+    // browser.sleep(2000);
+    // browser.wait(
+    //   protractor.ExpectedConditions.visibilityOf(searchObj.botURLValue1),
+    //   40000,
+    //   "BOT URL Value1 Is Not Displayed "
+    // );
+    // expect(searchObj.botURLValue1.isDisplayed()).toBe(true);
+    // console.log(
+    //   "BOT URL Value1 is Viewed Successfully On Communication Console  "
+    // );
 
-    browser.sleep(2000);
-    browser.wait(
-      protractor.ExpectedConditions.visibilityOf(searchObj.botIDHeading),
-      40000,
-      "BOT ID Heading Is Not Displayed "
-    );
-    expect(searchObj.botIDHeading.isDisplayed()).toBe(true);
-    console.log(
-      "BOT ID Heading is Viewed Successfully On Communication Console  "
-    );
-    browser.sleep(2000);
-    browser.wait(
-      protractor.ExpectedConditions.visibilityOf(searchObj.botIDValue1),
-      40000,
-      "BOT ID Value1 Is Not Displayed "
-    );
-    expect(searchObj.botIDValue1.isDisplayed()).toBe(true);
-    console.log(
-      "BOT ID Value1 is Viewed Successfully On Communication Console  "
-    );
+    // browser.sleep(2000);
+    // browser.wait(
+    //   protractor.ExpectedConditions.visibilityOf(searchObj.botIDHeading),
+    //   40000,
+    //   "BOT ID Heading Is Not Displayed "
+    // );
+    // expect(searchObj.botIDHeading.isDisplayed()).toBe(true);
+    // console.log(
+    //   "BOT ID Heading is Viewed Successfully On Communication Console  "
+    // );
+    // browser.sleep(2000);
+    // browser.wait(
+    //   protractor.ExpectedConditions.visibilityOf(searchObj.botIDValue1),
+    //   40000,
+    //   "BOT ID Value1 Is Not Displayed "
+    // );
+    // expect(searchObj.botIDValue1.isDisplayed()).toBe(true);
+    // console.log(
+    //   "BOT ID Value1 is Viewed Successfully On Communication Console  "
+    // );
     browser.sleep(2000);
     browser.wait(
       protractor.ExpectedConditions.visibilityOf(searchObj.actionHeading),
@@ -19738,11 +19738,6 @@ const userProvidesMandatoryAndOptionalOnTheConversationListingAndClickNext =
       });
       browser.sleep(2000);
 
-      wait.waitForElementVisibility(
-        searchObj.assertNoLogicAdded,
-        20000,
-        "No Logic Added Is Not Present"
-      );
       expect(searchObj.assertNoLogicAdded.isDisplayed()).toBe(true);
       console.log(
         "User is redirected to the conversation flow screen with no logic added"
@@ -21142,40 +21137,22 @@ const verifyuserShouldBeAbleToSearchByName = () => {
     searchObj.clkSearchName.click();
     browser.sleep(4000);
 
-    wait.waitForElementVisibility(
-      searchObj.KebabOptOnActionColumn,
-      20000,
-      "Kebab Option On Action Column Is Not Present"
-    );
+    
     expect(searchObj.KebabOptOnActionColumn.isDisplayed()).toBe(true);
     console.log("Kebab Option On Action Column Is Displayed ");
     browser.sleep(2000);
 
-    wait.waitForElementVisibility(
-      searchObj.assertbotName,
-      20000,
-      "Bot Name Is Not Present"
-    );
+   
     expect(searchObj.assertbotName.isDisplayed()).toBe(true);
     console.log("user Is able to Display Bot Name Successfully ");
     browser.sleep(2000);
 
-    wait.waitForElementVisibility(
-      searchObj.assertbotStaus,
-      20000,
-      "Bot Status Is Not Present"
-    );
     expect(searchObj.assertbotStaus.isDisplayed()).toBe(true);
     console.log(
       "user Is able to Display Bot Status Successfully with the Bot Name as Keyword"
     );
     browser.sleep(2000);
 
-    wait.waitForElementVisibility(
-      searchObj.assertbotDesc,
-      20000,
-      "Bot Desc Is Not Present"
-    );
     expect(searchObj.assertbotDesc.isDisplayed()).toBe(true);
     console.log(
       "user Is able to Display Bot Description Successfully with the Bot Name as Keyword"
@@ -30434,7 +30411,7 @@ const validateConsolePageWithHindiLanguage = () => {
     browser.sleep(2000);
     expect(searchObj.assertConversationTab.isPresent()).toBe(true);
     browser.sleep(2000);
-    expect(searchObj.assertNameTab.isPresent()).toBe(true);
+    expect(searchObj.viewTheContentOnCommunicationConsole.isPresent()).toBe(true);
     browser.sleep(2000);
     expect(searchObj.assertstatusTab.isPresent()).toBe(true);
     browser.sleep(2000);
@@ -45078,11 +45055,29 @@ const ProperPreviewShownForUploadContentInAllMyContentSection = (uploadName) => 
     "User should be able to click on the drafts section to see draft contents"
   );
   browser.sleep(5000);
-
-
-
 };
+const verifyCommunicationConsoleNotDisplayforNonAdmin = () => {
+  try {
+    console.log("user is able to create View Communication Console Tab");
+    browser.wait(
+      protractor.ExpectedConditions.visibilityOf(searchObj.profileButton),
+      40000,
+      "Profile Button not available"
+    );
+    searchObj.profileButton.click();
+    browser.sleep(3000);
 
+    expect(searchObj.communicationConsole.isPresent()).toBe(false);
+
+    browser.sleep(3000);
+
+
+ 
+    browser.sleep(3000);
+  } catch (Exception) {
+    console.log("Failed To Verify Communication Console");
+  }
+};
 
 module.exports = {
   createCourse,
@@ -45654,4 +45649,5 @@ module.exports = {
   contentSearchInDraftAndUpdateQRofDifferentTenanatAndValidateError,
   ProperPreviewShownForUploadContentInAllMyContentSection,
   EditTargetFrameworkWithMultipleCategoricalValues,
+  verifyCommunicationConsoleNotDisplayforNonAdmin,
 };

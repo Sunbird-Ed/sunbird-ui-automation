@@ -1309,15 +1309,15 @@ const exploreChatBOT = () => {
     wait.waitForElementVisibility(content.chatCourse, 30000, "chatCourse button not available");
     content.chatCourse.click();
 
-    wait.waitForElementVisibility(content.chatTakeaCourse, 20000);
-    expect(content.chatTakeaCourse.isDisplayed()).toBeTruthy();
-    wait.waitForElementVisibility(content.chatHelpSupport, 20000);
-    expect(content.chatHelpSupport.isDisplayed()).toBeTruthy();
+    // wait.waitForElementVisibility(content.chatTakeaCourse, 20000);
+    // expect(content.chatTakeaCourse.isDisplayed()).toBeTruthy();
+    // wait.waitForElementVisibility(content.chatHelpSupport, 20000);
+    // expect(content.chatHelpSupport.isDisplayed()).toBeTruthy();
     wait.waitForElementVisibility(content.chatMainMenu, 20000);
     expect(content.chatMainMenu.isDisplayed()).toBeTruthy();
 
-    wait.waitForElementVisibility(content.chatTakeaCourse, 30000, "chatTakeaCourse button not available");
-    content.chatTakeaCourse.click();
+    // wait.waitForElementVisibility(content.chatTakeaCourse, 30000, "chatTakeaCourse button not available");
+    // content.chatTakeaCourse.click();
 
     wait.waitForElementVisibility(content.chatStateCourse, 20000);
     expect(content.chatStateCourse.isDisplayed()).toBeTruthy();

@@ -51,7 +51,7 @@ var VDNPage = () => {
     var checkBoxContentType1 = element(by.xpath("//div[text()=' Select Content Types ']//following::div[2]"));
     var btnSubmitContentType = element(by.xpath("//button[contains(text(),'Submit')]"));
     var selectedContentTypeSuccess = element(by.xpath("//strong[text()='Selected Content type(s) saved successfully']"));
-    var checkBoxUploadSample = element(by.xpath("//button[text()='Upload Sample']//preceding::div[1]"));
+    var checkBoxUploadSample = element(by.xpath("//*[@type='checkbox'][1]"));
     var btnNominate = element(by.xpath("//button[text()='Nominate']"));
     var assertNominationSent = element(by.xpath("//strong[text()='Nomination sent']"));
     var openUserForAction = element(by.xpath("//div[text()=' user ']//following::button[1]"));
@@ -196,7 +196,7 @@ var VDNPage = () => {
     var assertUser = element(by.xpath("//div[contains(text(),'Test')]"));
     var clkOnChangeRole = element(by.xpath("//select[@labelfield='name']"));
     var changeToUserRole = element(by.xpath("//select[@labelfield='name']//following::option[1]"));
-    var changeToAdminRole = element(by.xpath("//select[@labelfield='name']//following::option[2]"));
+    var changeToAdminRole = element(by.xpath("//*[contains(text(),'Admin')]"));
     var assertRoleUpdatedMessage = element(by.xpath("//strong[contains(text(),'Role updated successfully')]"));
     var selectCourseAssessment = element(by.xpath("//label[contains(text(),'Course Assessment')]"));
     var courseCreateNewButton = element(by.xpath("//span[contains(text(),' Course Unit1')]//following::button[1]"));
@@ -204,14 +204,14 @@ var VDNPage = () => {
     var radioButtonEcmlCreation1 = element(by.xpath("//div[contains(text(),'Mode of creation')]//following::label[contains(text(),'Create Interactive Content online')]"));
     var radioButtonEcmlCreation2 = element(by.xpath("//label[contains(text(),'Create Question Sets Online')]//preceding::input[@id='question']"));
     var addQuestionSet = element(by.xpath("//div[@id='toolbar']//following::i[@class='icon-questions icon custom-menu-icon']"));
-    var sltQuestionCheckbox = element(by.xpath("(//div[@data-tooltip='select question']//input[@type='checkbox'])[1]"));
+    var sltQuestionCheckbox = element(by.xpath("//*[contains(text(),'Selected Question : 0')]//following::input[1]"));
     var nextButton = element(by.xpath("//button[contains(text(),'Next')]"));
     var questionSetTitle = element(by.model("questionSetConfigObj.title"));
     var addQuestionSetButton = element(by.id("add-to-stage"));
     var savebutton = element(by.xpath("//div[contains(@id,'saveButton')]"));
     var closePopUpButton = element(by.xpath("//button[contains(text(),'Close')]"));
     var closeEditor = element(by.xpath("(//div[contains(@id,'saveButton')]//preceding::div[contains(@id,'closeButton')]//following::a)[1]"));
-    var clkContnuePopUp = element(by.xpath("(//button[contains(text(),'Continue ')])[2]"));
+    var clkContnuePopUp = element(by.xpath("//*[contains(text(),' Continue ')]"));
     var addslide = element(by.xpath("(//div[@id='toolbar']//following::i[@class='caret down icon custom-icon dropdown-icon'])[1]"));
     var uploadContentButton = element(by.xpath("//button[contains(text(),'Upload Content')]"));
     var aproovePendingOpenButton = element(by.xpath("//span[contains(text(),'Approval Pending')]//following::button[1]"));
@@ -387,7 +387,7 @@ var VDNPage = () => {
     var clkRevPending = element(by.xpath("//span[contains(text(),'Test1')]//following::span[contains(text(),'Review Pending')]"));
     var clkRevPending2 = element(by.xpath("//span[contains(text(),'Test2')]//following::span[contains(text(),'Review Pending')]"));
     var assignUsersToProjectTab1 = element(by.xpath("//div[contains(text(),'Assign users to project')]"));
-
+    var stateSystem = element(by.xpath("//*[contains(text(),'Login with State System')]"));
 
     return {
         clkMyProject,
@@ -740,6 +740,7 @@ var VDNPage = () => {
         clkRevPending,
         clkRevPending2,
         assignUsersToProjectTab1,
+        stateSystem,
 
     }
 }

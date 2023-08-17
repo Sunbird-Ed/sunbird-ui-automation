@@ -859,10 +859,12 @@ const NominateContributer = (projectName) => {
             console.log("Selected Content type(s) saved successfully");
         });
 
+        browser.executeScript("arguments[0].scrollIntoView();", vdn.checkBoxUploadSample);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.checkBoxUploadSample), 20000, "Checkbox not Present");
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.checkBoxUploadSample), 30000, "Checkbox not Present");
         vdn.checkBoxUploadSample.click();
-        browser.sleep(1000);
+        browser.sleep(2000);
 
 
 
@@ -904,7 +906,12 @@ const verifySourcingOrgAdminIsAbleToAcceptNomination = (projectName) => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.assertNominationTab), 20000, "Nomination Tab is not Displayed");
         vdn.assertNominationTab.click();
-        browser.sleep(3000);
+        browser.sleep(10000);
+        
+        browser.executeScript("arguments[0].scrollIntoView();", vdn.openUserForAction);
+        browser.sleep(2000);
+
+        
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.openUserForAction), 20000, "Open Pending User not Displayed");
         vdn.openUserForAction.click();
@@ -1554,37 +1561,42 @@ const createProjectWithoutTargetCollection = () => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterProjectDesc), 20000, "Project Description Field Is Not Present");
         vdn.enterProjectDesc.sendKeys(projectDesc);
         browser.sleep(1000);
-
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.nominationEndDate), 20000, "Nomination End Date Is Not Present");
         vdn.nominationEndDate.click();
         browser.sleep(1000);
+
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.nominationEndDate), 20000, "Nomination End Date is not available");
         vdn.nominationEndDate.click();
         console.log(nominationEndDate)
         vdn.nominationEndDate.sendKeys(nominationEndDate);
         console.log("Nomination End Date Selected");
+
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.shortlistEndDate), 20000, "Shortlist End Date Is Not Present");
         vdn.shortlistEndDate.click();
         browser.sleep(1000);
+
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.shortlistEndDate), 20000, "Shortlist End Date is not available");
         vdn.shortlistEndDate.click();
         vdn.shortlistEndDate.sendKeys(utility.shortlistEndDate());
         console.log("Shortlist End Date Selected");
+
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date Is Not Present");
         vdn.contributionEndDate.click();
         browser.sleep(1000);
+
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date is not available");
         vdn.contributionEndDate.click();
         vdn.contributionEndDate.sendKeys(utility.contributionEndDate());
         console.log("Contribution End Date Selected");
+
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.projectEndDate), 20000, "Project End Date Is Not Present");
         vdn.projectEndDate.click();
         browser.sleep(1000);
+
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.projectEndDate), 20000, "Project End Date is not available");
         vdn.projectEndDate.click();
         vdn.projectEndDate.sendKeys(utility.projectEndDate());
         console.log("Project End Date Selected");
-
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnNext), 20000, "Next Button is not available");
         vdn.btnNext.click();
         browser.sleep(1000);
@@ -1792,12 +1804,12 @@ const createProjectWithAllContentType = () => {
         vdn.enterProjectDesc.sendKeys(projectDesc);
         browser.sleep(1000);
 
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var nominationEndDate = cred[41]['CourseName'];
-        var shortlistEndDate = cred[41]['CourseDescription'];
-        var contributionEndDate = cred[41]['Title'];
-        var projectEndDate = cred[41]['TitleDescription'];
+        // var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        // var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+        // var nominationEndDate = cred[41]['CourseName'];
+        // var shortlistEndDate = cred[41]['CourseDescription'];
+        // var contributionEndDate = cred[41]['Title'];
+        // var projectEndDate = cred[41]['TitleDescription'];
         expect(vdn.skipCheckbox.isSelected()).toBe(false);
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.skip2levelReview), 20000, "Skip Two Level Review Not Available");
         vdn.skip2levelReview.click();
@@ -1812,9 +1824,9 @@ const createProjectWithAllContentType = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.nominationEndDate), 20000, "Nomination End Date is not available");
         vdn.nominationEndDate.click();
+        console.log(nominationEndDate)
         vdn.nominationEndDate.sendKeys(nominationEndDate);
         console.log("Nomination End Date Selected");
-
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.shortlistEndDate), 20000, "Shortlist End Date Is Not Present");
         vdn.shortlistEndDate.click();
@@ -1822,7 +1834,7 @@ const createProjectWithAllContentType = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.shortlistEndDate), 20000, "Shortlist End Date is not available");
         vdn.shortlistEndDate.click();
-        vdn.shortlistEndDate.sendKeys(shortlistEndDate);
+        vdn.shortlistEndDate.sendKeys(utility.shortlistEndDate());
         console.log("Shortlist End Date Selected");
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date Is Not Present");
@@ -1831,7 +1843,7 @@ const createProjectWithAllContentType = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date is not available");
         vdn.contributionEndDate.click();
-        vdn.contributionEndDate.sendKeys(contributionEndDate);
+        vdn.contributionEndDate.sendKeys(utility.contributionEndDate());
         console.log("Contribution End Date Selected");
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.projectEndDate), 20000, "Project End Date Is Not Present");
@@ -1840,7 +1852,7 @@ const createProjectWithAllContentType = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.projectEndDate), 20000, "Project End Date is not available");
         vdn.projectEndDate.click();
-        vdn.projectEndDate.sendKeys(projectEndDate);
+        vdn.projectEndDate.sendKeys(utility.projectEndDate());
         console.log("Project End Date Selected");
 
         browser.executeScript('window.scrollTo(0,800);').then(function () {
@@ -2465,12 +2477,12 @@ const createProjectWithAllContentTypes = () => {
         vdn.enterProjectDesc.sendKeys(projectDesc);
         browser.sleep(1000);
 
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var nominationEndDate = cred[41]['CourseName'];
-        var shortlistEndDate = cred[41]['CourseDescription'];
-        var contributionEndDate = cred[41]['Title'];
-        var projectEndDate = cred[41]['TitleDescription'];
+        // var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        // var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+        // var nominationEndDate = cred[41]['CourseName'];
+        // var shortlistEndDate = cred[41]['CourseDescription'];
+        // var contributionEndDate = cred[41]['Title'];
+        // var projectEndDate = cred[41]['TitleDescription'];
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.nominationEndDate), 20000, "Nomination End Date Is Not Present");
         vdn.nominationEndDate.click();
@@ -2478,9 +2490,9 @@ const createProjectWithAllContentTypes = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.nominationEndDate), 20000, "Nomination End Date is not available");
         vdn.nominationEndDate.click();
+        console.log(nominationEndDate)
         vdn.nominationEndDate.sendKeys(nominationEndDate);
         console.log("Nomination End Date Selected");
-
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.shortlistEndDate), 20000, "Shortlist End Date Is Not Present");
         vdn.shortlistEndDate.click();
@@ -2488,7 +2500,7 @@ const createProjectWithAllContentTypes = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.shortlistEndDate), 20000, "Shortlist End Date is not available");
         vdn.shortlistEndDate.click();
-        vdn.shortlistEndDate.sendKeys(shortlistEndDate);
+        vdn.shortlistEndDate.sendKeys(utility.shortlistEndDate());
         console.log("Shortlist End Date Selected");
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date Is Not Present");
@@ -2497,7 +2509,7 @@ const createProjectWithAllContentTypes = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date is not available");
         vdn.contributionEndDate.click();
-        vdn.contributionEndDate.sendKeys(contributionEndDate);
+        vdn.contributionEndDate.sendKeys(utility.contributionEndDate());
         console.log("Contribution End Date Selected");
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.projectEndDate), 20000, "Project End Date Is Not Present");
@@ -2506,7 +2518,7 @@ const createProjectWithAllContentTypes = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.projectEndDate), 20000, "Project End Date is not available");
         vdn.projectEndDate.click();
-        vdn.projectEndDate.sendKeys(projectEndDate);
+        vdn.projectEndDate.sendKeys(utility.projectEndDate());
         console.log("Project End Date Selected");
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnNext), 20000, "Next Button is not available");
@@ -2622,7 +2634,7 @@ const addSampleFromContriutionSideAndNominate = (projectName) => {
         });
         browser.sleep(1000);
         assertProjInAllProjTab.click();
-        browser.sleep(5000);
+        browser.sleep(10000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnSelectContentTypes), 20000, "Select Content Type Button is not Present");
         vdn.btnSelectContentTypes.click();
@@ -2650,7 +2662,7 @@ const addSampleFromContriutionSideAndNominate = (projectName) => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnSubmitContentType), 20000, "Submit Button not Present");
         vdn.btnSubmitContentType.click();
-        browser.sleep(5000);
+        browser.sleep(10000);
 
         // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectedContentTypeSuccess), 20000, "Content Type not Success");
         // expect(vdn.selectedContentTypeSuccess.isPresent()).toBe(true).then(function () {
@@ -3064,7 +3076,7 @@ const verifyContributorOrgAdminIsAbleToSearchAndAssignRoles = (projectName) => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterSearchField), 20000, "Search Field not Present");
         vdn.enterSearchField.click();
-        vdn.enterSearchField.sendKeys('user');
+        vdn.enterSearchField.sendKeys('sunrise8');
         browser.sleep(2000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSearchbtn), 20000, "Search Button not Present");
@@ -5188,12 +5200,12 @@ const createCourseProjectWithSkipReviewEnabled = () => {
         vdn.skip2levelReview.click();
         browser.sleep(1000);
 
-        var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
-        var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
-        var nominationEndDate = cred[41]['CourseName'];
-        var shortlistEndDate = cred[41]['CourseDescription'];
-        var contributionEndDate = cred[41]['Title'];
-        var projectEndDate = cred[41]['TitleDescription'];
+        // var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+        // var cred = genericFun.readParticularDataFromExcelFile(sheetPath, '3');
+        // var nominationEndDate = cred[41]['CourseName'];
+        // var shortlistEndDate = cred[41]['CourseDescription'];
+        // var contributionEndDate = cred[41]['Title'];
+        // var projectEndDate = cred[41]['TitleDescription'];
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.nominationEndDate), 20000, "Nomination End Date Is Not Present");
         vdn.nominationEndDate.click();
@@ -5201,9 +5213,9 @@ const createCourseProjectWithSkipReviewEnabled = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.nominationEndDate), 20000, "Nomination End Date is not available");
         vdn.nominationEndDate.click();
+        console.log(nominationEndDate)
         vdn.nominationEndDate.sendKeys(nominationEndDate);
         console.log("Nomination End Date Selected");
-
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.shortlistEndDate), 20000, "Shortlist End Date Is Not Present");
         vdn.shortlistEndDate.click();
@@ -5211,7 +5223,7 @@ const createCourseProjectWithSkipReviewEnabled = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.shortlistEndDate), 20000, "Shortlist End Date is not available");
         vdn.shortlistEndDate.click();
-        vdn.shortlistEndDate.sendKeys(shortlistEndDate);
+        vdn.shortlistEndDate.sendKeys(utility.shortlistEndDate());
         console.log("Shortlist End Date Selected");
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date Is Not Present");
@@ -5220,7 +5232,7 @@ const createCourseProjectWithSkipReviewEnabled = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date is not available");
         vdn.contributionEndDate.click();
-        vdn.contributionEndDate.sendKeys(contributionEndDate);
+        vdn.contributionEndDate.sendKeys(utility.contributionEndDate());
         console.log("Contribution End Date Selected");
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.projectEndDate), 20000, "Project End Date Is Not Present");
@@ -5229,7 +5241,7 @@ const createCourseProjectWithSkipReviewEnabled = () => {
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.projectEndDate), 20000, "Project End Date is not available");
         vdn.projectEndDate.click();
-        vdn.projectEndDate.sendKeys(projectEndDate);
+        vdn.projectEndDate.sendKeys(utility.projectEndDate());
         console.log("Project End Date Selected");
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnNext), 20000, "Next Button is not available");
@@ -5516,6 +5528,7 @@ const verifySourcingOrgAdminIsAbleToAcceptNominationWithoutTargetColl = (project
         vdn.assertNominationTab.click();
         browser.sleep(3000);
 
+        
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.openUserForAction), 20000, "Open Pending User not Displayed");
         vdn.openUserForAction.click();
         browser.sleep(3000);
@@ -8810,7 +8823,7 @@ const NominateContributerWithMultipleContentTypes = (projectName) => {
         });
         browser.sleep(1000);
         assertProjInAllProjTab.click();
-        browser.sleep(5000);
+        browser.sleep(10000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnSelectContentTypes), 20000, "Select Content Type Button is not Present");
         vdn.btnSelectContentTypes.click();
@@ -8849,13 +8862,15 @@ const NominateContributerWithMultipleContentTypes = (projectName) => {
         expect(vdn.selectedContentTypeSuccess.isPresent()).toBe(true).then(function () {
             console.log("Selected Content type(s) saved successfully");
         });
-
+        
+        browser.executeScript("arguments[0].scrollIntoView();", vdn.checkBoxUploadSample);
+        browser.sleep(2000);
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.checkBoxUploadSample), 20000, "Checkbox not Present");
         vdn.checkBoxUploadSample.click();
         browser.sleep(1000);
 
-
+    
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnNominate), 20000, "Nominate Button not Present");
         vdn.btnNominate.click();
@@ -8864,6 +8879,8 @@ const NominateContributerWithMultipleContentTypes = (projectName) => {
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnSubmitContentType), 20000, "Submit Button not Present");
         vdn.btnSubmitContentType.click();
         browser.sleep(1000);
+
+       
 
         // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selSunriseContributer), 20000, " startDateCalendar is not available");
         // vdn.selSunriseContributer.click();
@@ -10935,9 +10952,17 @@ const sourcingAdminAbleToAssignReviewerRole1 = (projectName) => {
         console.log('Reviewer role not updated successfully')
     }
 }
+const sourcingAdminAbleToseeStateSystem = () => {
+
+    
+
+        expect(vdn.stateSystem.isPresent()).toBe(true).then(function () {
+            console.log("State System Is Displayed login Page");
+     
+}
 
 
-
+        )};
 
 
 
@@ -11075,4 +11100,5 @@ module.exports = {
     uploadMoreContentForAction,
     verifyCountAndStatusOnReviewer,
     sourcingAdminAbleToAssignReviewerRole1,
+    sourcingAdminAbleToseeStateSystem,
 }

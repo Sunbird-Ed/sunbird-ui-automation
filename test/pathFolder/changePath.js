@@ -13,10 +13,8 @@ var ConfigurePath = () => {
   var downloadLocalPath = 'C:\\Users\\Qualitrix\\Downloads\\';
   
 
-
-
-
-  var AppURL = 'https://dockstaging.sunbirded.org';
+ //var AppURL = 'https://dock.sunbirded.org';
+ var AppURL = 'https://dockstaging.sunbirded.org';
   //  var AppURL = 'https://dock.preprod.ntp.net.in';
   //var AppURL = 'https://vdn.diksha.gov.in/';
 

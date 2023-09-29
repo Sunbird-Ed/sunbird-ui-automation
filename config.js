@@ -5,7 +5,7 @@ var HtmlReporter = require('protractor-beautiful-reporter');
 
 exports.config = {
      seleniumAddress: 'http://localhost:4444/wd/hub',
-    //directConnect: true,
+   // directConnect: true,
     //allScriptsTimeout: 10000000000,
 
     framework: 'jasmine2',
@@ -15,17 +15,17 @@ exports.config = {
 
         
 
-vdn1 : 'test/specs/Sanity2/*.spec.js',
+//vdn1 : 'test/specs/Sanity2/*.spec.js',
       // vdn2 : 'test/specs/Sanity3/*.spec.js',
      // vdn3 : 'test/specs/Sanity4/*.spec.js',
        
 
       //vdn1 : 'test/specs/Sanity2/verifyDraftAndApprovalPendingStatusInTOCFromIndividualContributorSide.spec.js',
-       vdn3 : 'test/specs/Sanity4/VerifySourcingOrgAdminisabletoRejectNomination.js',
+      vdn2 : 'test/specs/RegressionSourcing1/verifySourcingorgAdminabletoCreate100TextbookProject.spec.js',
 
       //  vdn3 : 'test/specs/RegressionSourcing1/SourcingorgAdminabletoseeStateSystem.js'
-        // vdn3 : 'test/specs/Sanity4/verifyDefaultContributionOrgAdminIsAbleAssignRolesWithNominationEnabled.spec.js',
-        // vdn3 : 'test/specs/Sanity4/VerifyCreatedProjectsAreAvailableOnAllProjectsTabForIndContributor.spec.js',
+       //  vdn3 : 'test/specs/Sanity4/verifyDefaultContributionOrgAdminIsAbleAssignRolesWithNominationEnabled.spec.js',
+       // vdn3 : 'test/specs/Sanity4/VerifyCreatedProjectsAreAvailableOnAllProjectsTabForIndContributor.spec.js',
         // vdn3 : 'test/specs/Sanity4/verifyDefaultContributionOrgAdminIsAbleAssignRolesWithNominationDisabled.spec.js',
         // vdn3 : 'test/specs/Sanity4/verifyMyContentsTabIsAvailable.spec.js',
         //vdn3 : 'test/specs/Sanity4/verifyDraftStatusInApprovedProject.spec.js'
@@ -48,7 +48,7 @@ vdn1 : 'test/specs/Sanity2/*.spec.js',
         version: '114.0.5735.91',
         platform: 'Any',
         shardTestFiles: true,
-        maxInstances: 3,
+        maxInstances: 2,
         chromeOptions: {
             prefs: {
                 profile: {

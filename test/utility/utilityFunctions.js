@@ -51,6 +51,35 @@ const userLogin = (roleName) => {
     }
 
 }
+const userCBSELogin = (roleName) => {
+    
+
+    var sheetPath = getExcelPath.ConfigurePath().excelSheetPath;
+    var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', roleName);
+    browser.sleep(4000);
+       
+        // browser.sleep(300);
+        // wait.waitForElementVisibility(content.userName, 20000);
+        // content.userName.sendKeys("cbsestaging1@yopmail.com");
+        // browser.sleep(100);
+        // content.password.sendKeys("Test@123");
+        // browser.sleep(100);
+        browser.sleep(300);
+        wait.waitForElementVisibility(content.userName, 20000);
+        content.userName.sendKeys(cred[0]['Username']);
+        browser.sleep(100);
+        content.password.sendKeys(cred[0]['Password']);
+        browser.sleep(100);
+
+        content.login.click();
+        browser.sleep(9000);
+
+
+        content.login.click();
+        browser.sleep(9000);
+
+  
+}
 const userLoginWithInvalidCredential = (roleName) => {
     try {
 
@@ -737,6 +766,7 @@ const userLoginSourcing = (roleName) => {
 
 
 module.exports = {
+    userCBSELogin,
     verifyAdminDashBoard,
     userLoginPopup,
     handleDropDown,

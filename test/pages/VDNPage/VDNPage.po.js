@@ -1,7 +1,7 @@
 const { element, by } = require("protractor");
 
 var VDNPage = () => {
-
+    var select100TextBook = element.all(by.xpath("(//input[@name='checkitem'])"));
     var clkMyProject = element(by.xpath("//a[text()='My Projects']"));
     var btnCreation = element(by.xpath("//button[text()=' Create New Project']"));
     var selectOpt1 = element(by.xpath("//label[text()='Get content targeted to Textbooks, Courses or other collections']"));
@@ -388,8 +388,24 @@ var VDNPage = () => {
     var clkRevPending2 = element(by.xpath("//span[contains(text(),'Test2')]//following::span[contains(text(),'Review Pending')]"));
     var assignUsersToProjectTab1 = element(by.xpath("//div[contains(text(),'Assign users to project')]"));
     var stateSystem = element(by.xpath("//*[contains(text(),'Login with State System')]"));
-
+    var assertWithCollection = element(by.xpath("//*[contains(text(),'Get content targeted to Textbooks, Courses or other collections')]"));
+    var assertWithQuestionset = element(by.xpath("//*[contains(text(),'Get content targeted to Question Sets')]"));
+    var assertWithoutCollection = element(by.xpath("//*[contains(text(),'Get individual content not targeted to any collection')]"));
+    var clkForBooksCourseOtherCollections = element(by.xpath("//*[contains(text(),'For Books/Course/Other Collections ')]"));
+    var clkforQuestionSets = element(by.xpath("//*[contains(text(),'For Question Sets ')]"));
+    var clkForindividualcontentnotforanycollection = element(by.xpath("//*[contains(text(),'For individual content not for any collection ')]"));
+    var assertDetailsPage = element(by.xpath("//*[contains(text(),' Details ')]"));
+    var assertProjectScopePage = element(by.xpath("//*[contains(text(),' Project Scope ')]"));
+   
     return {
+        assertProjectScopePage,
+        assertDetailsPage,
+        clkForBooksCourseOtherCollections,
+        clkforQuestionSets,
+        clkForindividualcontentnotforanycollection,
+        assertWithCollection,
+        assertWithQuestionset,
+        assertWithoutCollection,
         clkMyProject,
         btnCreation,
         selectOpt1,
@@ -741,7 +757,7 @@ var VDNPage = () => {
         clkRevPending2,
         assignUsersToProjectTab1,
         stateSystem,
-
+        select100TextBook,
     }
 }
 

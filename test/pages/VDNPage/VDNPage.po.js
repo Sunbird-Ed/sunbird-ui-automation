@@ -1,6 +1,10 @@
 const { element, by } = require("protractor");
 
 var VDNPage = () => {
+    var Framework = element(by.xpath("//sui-select[@formcontrolname='framework']"));
+    var TPD = element(by.xpath("//span[contains(text(),'Continuous Professional Development')]"));
+    var Tpdyesbtn = element(by.xpath("//button[contains(text(),'Yes')]"));
+    var projectsavedraft = element(by.xpath("//button[contains(text(),'Save as Draft')]"));
     var select100TextBook = element.all(by.xpath("(//input[@name='checkitem'])"));
     var clkMyProject = element(by.xpath("//a[text()='My Projects']"));
     var btnCreation = element(by.xpath("//button[text()=' Create New Project']"));
@@ -398,6 +402,10 @@ var VDNPage = () => {
     var assertProjectScopePage = element(by.xpath("//*[contains(text(),' Project Scope ')]"));
    
     return {
+        TPD,
+        Framework,
+        Tpdyesbtn,
+        projectsavedraft,
         assertProjectScopePage,
         assertDetailsPage,
         clkForBooksCourseOtherCollections,

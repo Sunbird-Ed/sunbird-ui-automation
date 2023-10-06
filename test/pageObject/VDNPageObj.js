@@ -170,6 +170,152 @@ const createProjectWithCourse = () => {
     return projectName;
 }
 
+const createProjectWithTPDCourse = () => {
+    var projectName;
+    try {
+        console.log("Admin User is trying to create a Project")
+        browser.sleep(2000);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkMyProject), 20000, "My Prject Is Not Present");
+        vdn.clkMyProject.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnCreation), 20000, "Create Project Button Is Not Present");
+        vdn.btnCreation.click();
+        browser.sleep(1000);
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectOpt1), 20000, "Options Is Not Available");
+        vdn.selectOpt1.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnClkNext), 20000, "Next Button Is Not Present");
+        vdn.btnClkNext.click();
+        browser.sleep(1000);
+
+        projectName = "Auto" + faker.randomData().firstname;
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterProjectName), 20000, "Project Name Field Is Not Present");
+        vdn.enterProjectName.click();
+        vdn.enterProjectName.sendKeys(projectName);
+        browser.sleep(1000);
+
+        projectDesc = "Automation" + faker.randomData().firstname;
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterProjectDesc), 20000, "Project Description Field Is Not Present");
+        vdn.enterProjectDesc.sendKeys(projectDesc);
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.nominationEndDate), 20000, "Nomination End Date Is Not Present");
+        vdn.nominationEndDate.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.nominationEndDate), 20000, "Nomination End Date is not available");
+        vdn.nominationEndDate.click();
+        console.log(nominationEndDate)
+        vdn.nominationEndDate.sendKeys(nominationEndDate);
+        console.log("Nomination End Date Selected");
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.shortlistEndDate), 20000, "Shortlist End Date Is Not Present");
+        vdn.shortlistEndDate.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.shortlistEndDate), 20000, "Shortlist End Date is not available");
+        vdn.shortlistEndDate.click();
+        vdn.shortlistEndDate.sendKeys(utility.shortlistEndDate());
+        console.log("Shortlist End Date Selected");
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date Is Not Present");
+        vdn.contributionEndDate.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date is not available");
+        vdn.contributionEndDate.click();
+        vdn.contributionEndDate.sendKeys(utility.contributionEndDate());
+        console.log("Contribution End Date Selected");
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.projectEndDate), 20000, "Project End Date Is Not Present");
+        vdn.projectEndDate.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.projectEndDate), 20000, "Project End Date is not available");
+        vdn.projectEndDate.click();
+        vdn.projectEndDate.sendKeys(utility.projectEndDate());
+        console.log("Project End Date Selected");
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnNext), 20000, "Next Button is not available");
+        vdn.btnNext.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectContentType), 20000, "Content Type dropDown is not available");
+        vdn.selectContentType.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.courseAssessment), 20000, "Course Assessment is not available");
+        vdn.courseAssessment.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectContentType), 20000, "Content Type dropDown is not available");
+        vdn.selectContentType.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectTargetCollection), 20000, "Target Collection dropDown is not available");
+        vdn.selectTargetCollection.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.Course), 20000, "Course Option is not available");
+        vdn.Course.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.Framework), 20000, "Framework is not available");
+        vdn.Framework.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.TPD), 20000, "TPD is not available");
+        vdn.TPD.click();
+        browser.sleep(1000);
+        
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.Tpdyesbtn), 20000, "Yes button is not available");
+        vdn.Tpdyesbtn.click();
+        browser.sleep(1000);
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectFrameWork), 20000, "Select Framework Dropdown is not available");
+        // vdn.selectFrameWork.click();
+        // browser.sleep(1000);
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectCPD), 20000, "Select Framework Option2 is not available");
+        // vdn.selectCPD.click();
+        // browser.sleep(1000);
+
+        browser.executeScript('window.scrollTo(0,400);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectFirstCollection1), 20000, "Course Is Not Listed ");
+        vdn.selectFirstCollection1.click();
+        browser.sleep(20000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnPublishProject), 20000, "Publish Button is not available");
+        vdn.btnPublishProject.click();
+        browser.sleep(5000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnYes), 20000, "Button Yes is not available");
+        vdn.btnYes.click();
+        browser.sleep(3000);
+
+        //browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.assertToastMsg), 20000, "Project Publish Msg is not Displayed");
+
+        // expect(vdn.assertToastMsg.isPresent()).toBe(true).then(function () {
+        //     console.log("Project published successfully ");
+        // })
+
+        browser.sleep(3000);
+
+    } catch (err) {
+        console.log(err);
+    }
+    return projectName;
+}
+
+
+
 
 
 const verifyProjectAvailableInAllProjectsTabForContributor = (projectName) => {
@@ -392,6 +538,184 @@ const createProjectWithCourseOrgOnly = () => {
     return projectName;
 }
 
+const createProjectWithCourseOrgOnlyskipDisable = () => {
+    var projectName;
+    try {
+        console.log("user is trying to create a Project")
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkMyProject), 20000, "My Prject Is Not Present");
+        vdn.clkMyProject.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnCreation), 20000, "Create Project Button Is Not Present");
+        vdn.btnCreation.click();
+        browser.sleep(1000);
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectOpt1), 20000, "Options Not Present");
+        vdn.selectOpt1.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnClkNext), 20000, "Next Button Is Not Present");
+        vdn.btnClkNext.click();
+        browser.sleep(1000);
+
+        projectName = "Auto" + faker.randomData().firstname;
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterProjectName), 20000, "Enter Project Name Field Is Not Present");
+        vdn.enterProjectName.click();
+        vdn.enterProjectName.sendKeys(projectName);
+        browser.sleep(1000);
+
+        projectDesc = "Automation" + faker.randomData().firstname;
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterProjectDesc), 20000, "Enter Project Description Field Is Not Present");
+        vdn.enterProjectDesc.sendKeys(projectDesc);
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.fromOrgOnly), 20000, "Org Only Option Not Available");
+        vdn.fromOrgOnly.click();
+        browser.sleep(1000);
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.skip2levelReview), 20000, "Skip Two Level Review Not Available");
+        // vdn.skip2levelReview.click();
+        // browser.sleep(1000);
+
+        expect(vdn.nominationEndDate.isPresent()).toBe(false).then(function () {
+            console.log("Nomination Date Not Displayed ");
+        })
+
+
+        browser.executeScript('window.scrollTo(0,800);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date Field Is Not Present");
+        vdn.contributionEndDate.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date Field is not available");
+        vdn.contributionEndDate.click();
+        vdn.contributionEndDate.sendKeys(utility.contributionEndDate());
+        console.log("Select Contribution End Date");
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.projectEndDate), 20000, "Project End Date Field Is Not Present");
+        vdn.projectEndDate.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.projectEndDate), 20000, "Project End Date Field is not available");
+        vdn.projectEndDate.click();
+        vdn.projectEndDate.sendKeys(utility.projectEndDate());
+        console.log("Select Project End Date Field");
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnNext), 20000, "Next Button is not available");
+        vdn.btnNext.click();
+        browser.sleep(1000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectContentType), 20000, "Content Type is not available");
+        vdn.selectContentType.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selQuestionSet), 20000, "Practice Question Set is not available");
+        vdn.selQuestionSet.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.courseAssessment), 20000, "Course Assessment is not available");
+        vdn.courseAssessment.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.seleTextBook), 20000, "eTextBook is not available");
+        vdn.seleTextBook.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selExplainitionContent), 20000, "Explainition Content is not available");
+        vdn.selExplainitionContent.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selLearningResource), 20000, "Learning Resource is not available");
+        vdn.selLearningResource.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selOldQuestionSet), 20000, "Old Practice Question Set is not available");
+        vdn.selOldQuestionSet.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selTeacherResource), 20000, "Teacher Resource is not available");
+        vdn.selTeacherResource.click();
+        browser.sleep(1000);
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkOutContentType), 20000, "Content Type is not available");
+        vdn.clkOutContentType.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectTargetCollection), 20000, "Target Collection is not available");
+        vdn.selectTargetCollection.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.Course), 20000, "Course Option is not available");
+        vdn.Course.click();
+        browser.sleep(1000);
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectFrameWork), 20000, "Select Framework Dropdown is not available");
+        // vdn.selectFrameWork.click();
+        // browser.sleep(1000);
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectCPD), 20000, "Select Framework Option2 is not available");
+        // vdn.selectCPD.click();
+        // browser.sleep(1000);
+        
+
+        browser.executeScript('window.scrollTo(0,400);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectFirstCollection1), 20000, "Course Is Not Listed ");
+        vdn.selectFirstCollection1.click();
+        browser.sleep(10000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnPublishProject), 20000, "Publish Project is not available");
+        vdn.btnPublishProject.click();
+        browser.sleep(5000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnYes), 20000, "Confirm Yes Button is not available");
+        vdn.btnYes.click();
+        browser.sleep(3000);
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.assertToastMsg), 20000, "Project Is Not Published");
+        // expect(vdn.assertToastMsg.isPresent()).toBe(true).then(function () {
+        //     console.log("Project published successfully");
+        // })
+
+        expect(vdn.assertToastMsg.isPresent()).toBeTruthy();
+        console.log("Project published successfully ");
+
+        browser.sleep(5000);
+
+
+        let var1 = "//*[contains(text(),'";
+        let var2 = projectName;
+        let var3 = "')]//following::button[1]";
+        browser.sleep(10000);
+        var assertProjInAllProjTab = element(by.xpath(var1 + var2 + var3));
+        assertProjInAllProjTab.click();
+        browser.sleep(5000);
+
+        expect(vdn.assertNominationTab.isPresent()).toBe(false).then(function () {
+            console.log("Nomination Tab Is not Present");
+        })
+
+
+    } catch (err) {
+        console.log(err);
+    }
+    return projectName;
+}
+
+
 const createProjectWithDefinedSetOfOrgAndIndividualContributors = () => {
     var projectName;
     try {
@@ -583,7 +907,212 @@ const createProjectWithDefinedSetOfOrgAndIndividualContributors = () => {
         console.log('Unable To Create Project With Defined Org and Individual Contributor')
     }
     return projectName;
+
 }
+
+
+
+    
+const createProjectWithDefinedSetOfOrgAndIndividualContributorsskipENable = () => {
+    var projectName;
+    try {
+        console.log("user is trying to create a Project")
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkMyProject), 20000, "My Prject Is Not Present");
+        vdn.clkMyProject.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnCreation), 20000, "Create Project Button Is Not Present");
+        vdn.btnCreation.click();
+        browser.sleep(1000);
+
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectOpt1), 20000, "Options Not Present");
+        vdn.selectOpt1.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnClkNext), 20000, "Next Button Is Not Present");
+        vdn.btnClkNext.click();
+        browser.sleep(1000);
+
+        projectName = "Auto" + faker.randomData().firstname;
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterProjectName), 20000, "Enter Project Name Field Is Not Present");
+        vdn.enterProjectName.click();
+        vdn.enterProjectName.sendKeys(projectName);
+        browser.sleep(1000);
+
+        projectDesc = "Automation" + faker.randomData().firstname;
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterProjectDesc), 20000, "Enter Project Description Field Is Not Present");
+        vdn.enterProjectDesc.sendKeys(projectDesc);
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.fromOrgOnly), 20000, "Org Only Option Not Available");
+        vdn.fromOrgOnly.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.fromSetOfSelContributors), 20000, "From Set Of Contributors Not Available");
+        vdn.fromSetOfSelContributors.click();
+        browser.sleep(2000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSelContributors), 20000, "Select Contributors Link Not Available");
+        vdn.clkSelContributors.click();
+        browser.sleep(3000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.dropDownContrType), 20000, "Contributor Type Dropdown Not Available");
+        vdn.dropDownContrType.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selIndividualType), 20000, "Individual Contributor Type Is Not Available");
+        vdn.selIndividualType.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterNameOrOrg), 20000, "Eenter Name or Org Field Not Available");
+        vdn.enterNameOrOrg.click();
+        vdn.enterNameOrOrg.sendKeys('Pass123'); 
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.searchBtn), 20000, "Search Button Not Available");
+        vdn.searchBtn.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selSearchedContributer), 20000, "Search Contributor Not Available");
+        vdn.selSearchedContributer.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnSave), 20000, "Save Button Not Available");
+        vdn.btnSave.click();
+        browser.sleep(2000);
+
+        browser.executeScript('window.scrollTo(0,500);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.assertContributersAdded), 20000, "Contributors Not Added");
+        expect(vdn.assertContributersAdded.isPresent()).toBe(true).then(function () {
+            console.log("Contributors Added From The Link Successfully ");
+        })
+
+        browser.executeScript('window.scrollTo(0,800);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+
+        expect(vdn.skipCheckbox.isSelected()).toBe(false);
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.skip2levelReview), 20000, "Skip Two Level Review Not Available");
+        vdn.skip2levelReview.click();
+        expect(vdn.skipCheckbox.isSelected()).toBe(true).then(function () {
+            console.log("Skip level is selected.")
+        })
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date Field Is Not Present");
+        vdn.contributionEndDate.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.contributionEndDate), 20000, "Contribution End Date Field is not available");
+        vdn.contributionEndDate.click();
+        vdn.contributionEndDate.sendKeys(utility.contributionEndDate());
+        console.log("Select Contribution End Date");
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.projectEndDate), 20000, "Project End Date Field Is Not Present");
+        vdn.projectEndDate.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.projectEndDate), 20000, "Project End Date Field is not available");
+        vdn.projectEndDate.click();
+        vdn.projectEndDate.sendKeys(utility.projectEndDate());
+        console.log("Select Project End Date Field");
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnNext), 20000, "Next Button is not available");
+        vdn.btnNext.click();
+        browser.sleep(1000);
+
+        browser.executeScript('window.scrollTo(0,0);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectContentType), 20000, "Content Type dropDown is not available");
+        vdn.selectContentType.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.courseAssessment), 20000, "Course Assessment is not available");
+        vdn.courseAssessment.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectContentType), 20000, "Content Type dropDown is not available");
+        vdn.selectContentType.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectTargetCollection), 20000, "Target Collection dropDown is not available");
+        vdn.selectTargetCollection.click();
+        browser.sleep(1000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.Course), 20000, "Course Option is not available");
+        vdn.Course.click();
+        browser.sleep(1000);
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectFrameWork), 20000, "Select Framework Dropdown is not available");
+        // vdn.selectFrameWork.click();
+        // browser.sleep(1000);
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectCPD), 20000, "Select Framework Option2 is not available");
+        // vdn.selectCPD.click();
+        // browser.sleep(1000);
+
+        browser.executeScript('window.scrollTo(0,400);').then(function () {
+            console.log('++++++SCROLLED UP+++++');
+        });
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selectFirstCollection1), 20000, "Course Is Not Listed ");
+        vdn.selectFirstCollection1.click();
+        browser.sleep(10000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnPublishProject), 20000, "Publish Button is not available");
+        vdn.btnPublishProject.click();
+        browser.sleep(5000);
+
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.btnYes), 20000, "Button Yes is not available");
+        vdn.btnYes.click();
+        browser.sleep(3000);
+
+        // browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.assertToastMsg), 20000, "Project Publish Msg is not Displayed");
+        // expect(vdn.assertToastMsg.isPresent()).toBe(true).then(function () {
+        //     console.log("Project published successfully ");
+        // })
+
+        browser.sleep(3000);
+
+        let var1 = "//*[contains(text(),'";
+        let var2 = projectName;
+        let var3 = "')]//following::button[1]";
+        browser.sleep(10000);
+        var assertProjInAllProjTab = element(by.xpath(var1 + var2 + var3));
+        assertProjInAllProjTab.click();
+        browser.sleep(5000);
+
+        expect(vdn.assertNominationTab.isPresent()).toBe(true).then(function () {
+            console.log("Nomination Tab Is Present");
+        })
+
+        vdn.assertNominationTab.click();
+        browser.sleep(3000);
+
+        // expect(vdn.assertDefaultIndApproved.isPresent()).toBe(true).then(function () {
+        //     console.log("Individual contributors nomination Is approved by default");
+        // })
+
+        expect(vdn.assertDefaultOrgApproved.isPresent()).toBe(true).then(function () {
+            console.log("Organization contributors nomination Is approved by default");
+        })
+
+    }
+    catch (Exception) {
+        console.log('Unable To Create Project With Defined Org and Individual Contributor skip enable')
+    }
+    return projectName;
+}
+
 
 
 const verifyAutomaticallyApprovedIndividualNomination = (projectName) => {
@@ -2336,7 +2865,7 @@ const createProjectWithDigitalTextBookWithNominationDisable = () => {
 
 
 const verifySourcingOrgAdminIsAbleToModifyProjectDates = (projectName) => {
-    try {
+    try{
 
         browser.executeScript('window.scrollTo(0,0);').then(function () {
             console.log('++++++SCROLLED UP+++++');
@@ -11173,6 +11702,9 @@ const sourcingAdminAbleToseeStateSystem = () => {
 
 
 module.exports = {
+    createProjectWithTPDCourse,
+    createProjectWithDefinedSetOfOrgAndIndividualContributorsskipENable,
+    createProjectWithCourseOrgOnlyskipDisable,
     createProjectWith100DigitalTextBook,
     createProjectWithCourse,
     verifyProjectAvailableInAllProjectsTabForContributor,
@@ -11307,4 +11839,6 @@ module.exports = {
     sourcingAdminAbleToAssignReviewerRole1,
     sourcingAdminAbleToseeStateSystem,
     check3TabsareAvailableunderMyprojectTab,
+    
+
 }

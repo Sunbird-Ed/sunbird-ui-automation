@@ -19,10 +19,8 @@ exports.config = {
       // vdn2 : 'test/specs/Sanity3/*.spec.js',
      // vdn3 : 'test/specs/Sanity4/*.spec.js',
        
-
       //vdn1 : 'test/specs/Sanity2/verifyDraftAndApprovalPendingStatusInTOCFromIndividualContributorSide.spec.js',
-      vdn2 : 'test/specs/RegressionSourcing1/verifySourcingorgAdminabletoCreate100TextbookProject.spec.js',
-
+      vdn2 : 'test/specs/RegressionSourcing1/verifySourcingorgAdminabaletocreateProjectwithTPD.spec.js',
       //  vdn3 : 'test/specs/RegressionSourcing1/SourcingorgAdminabletoseeStateSystem.js'
        //  vdn3 : 'test/specs/Sanity4/verifyDefaultContributionOrgAdminIsAbleAssignRolesWithNominationEnabled.spec.js',
        // vdn3 : 'test/specs/Sanity4/VerifyCreatedProjectsAreAvailableOnAllProjectsTabForIndContributor.spec.js',

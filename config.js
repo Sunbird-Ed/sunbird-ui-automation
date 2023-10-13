@@ -17,11 +17,11 @@ exports.config = {
 
 //vdn1 : 'test/specs/Sanity2/*.spec.js',
       // vdn2 : 'test/specs/Sanity3/*.spec.js',
-     // vdn3 : 'test/specs/Sanity4/*.spec.js',
+      //vdn3 : 'test/specs/RegressionSourcing1/*.spec.js',
        
       //vdn1 : 'test/specs/Sanity2/verifyDraftAndApprovalPendingStatusInTOCFromIndividualContributorSide.spec.js',
-      vdn2 : 'test/specs/RegressionSourcing1/verifySourcingorgAdminabaletocreateProjectwithTPD.spec.js',
-      //  vdn3 : 'test/specs/RegressionSourcing1/SourcingorgAdminabletoseeStateSystem.js'
+    // vdn2 : 'test/specs/RegressionSourcing1/verifySourcingOrgAdminabletoCreateaProjectwithContentPlaylistandNominationDisableSkipDisable.spec.js',
+       vdn3 : 'test/specs/RegressionSourcing1/verifySourcingOrgAdminabletoCreateProjectwithTPDcourseandSelectedContributorsSkipDisable.spec.js'
        //  vdn3 : 'test/specs/Sanity4/verifyDefaultContributionOrgAdminIsAbleAssignRolesWithNominationEnabled.spec.js',
        // vdn3 : 'test/specs/Sanity4/VerifyCreatedProjectsAreAvailableOnAllProjectsTabForIndContributor.spec.js',
         // vdn3 : 'test/specs/Sanity4/verifyDefaultContributionOrgAdminIsAbleAssignRolesWithNominationDisabled.spec.js',

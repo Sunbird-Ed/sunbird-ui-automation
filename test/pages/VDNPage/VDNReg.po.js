@@ -2,7 +2,7 @@ const { element, by } = require("protractor");
 
 var VDNReg = () => {
 
-    var select100TextBook = element(by.xpath("//input[@name='checkitem']"));
+    var select100TextBook = element(by.xpath("(//td[@class='collapsing'])"));
 
    var projectsavedraft = element(by.xpath("//button[contains(text(),'Save as Draft')]"));
    var assertStatusDraft = element(by.xpath("//div[text()='Draft']"));

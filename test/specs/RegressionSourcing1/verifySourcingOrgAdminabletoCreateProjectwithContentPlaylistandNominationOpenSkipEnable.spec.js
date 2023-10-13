@@ -4,7 +4,8 @@ const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySig
 const VDNfun = require(protractor.basePath + '/test/pageObject/VDNPageObj.js');
 const VDNReg = require(protractor.basePath + '/test/pageObject/VDNSourcingwithTargetObj.js');
 
-describe('Verify sourcing org admin is able to create the Project with 100 textbooks ', () => {
+
+describe('available in All Projects tab for contributors ', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -20,13 +21,15 @@ describe('Verify sourcing org admin is able to create the Project with 100 textb
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('verifySourcingOrgAdminisabletoCreateProjectwithDigitalTextBook',function(){
+    it('verifyOrgAdminIsAbleToCreateAndPublishProjectUsingContentPlaylistandSkipEnable',function(){
       
-         utility.userCBSELogin('Admin');
+         utility.userLogin('Admin');
          let projectName = VDNReg.createProjectWithNominationOpenSkipEnable();
-         VDNReg.createProjectWith100DigitalTextBook(projectName);
+         VDNReg.createProjectWithContentPlaylist(projectName);
          console.log(projectName);
          
-        
+         
+      
     })  
 });
+   

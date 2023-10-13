@@ -36,15 +36,15 @@ const userLogin = (roleName) => {
         // browser.sleep(200);
         // wait.waitForElementVisibility(content.loginLink, 20000);
         // content.loginLink.click();
-        browser.sleep(300);
+       
         wait.waitForElementVisibility(content.userName, 20000);
         content.userName.sendKeys(cred[0]['Username']);
-        browser.sleep(100);
+        
         content.password.sendKeys(cred[0]['Password']);
-        browser.sleep(100);
-
+       
+        wait.waitForElementVisibility(content.login, 20000);
         content.login.click();
-        browser.sleep(9000);
+       
 
     } catch (Err) {
         console.error("Failed to user login, " + Err);
@@ -58,25 +58,21 @@ const userCBSELogin = (roleName) => {
     var cred = genericFun.readLoginDataFromExcelFile(sheetPath, '1', roleName);
     browser.sleep(4000);
        
+       
+        wait.waitForElementVisibility(content.userName, 20000);
+        content.userName.sendKeys("cbsestaging1@yopmail.com");
+      
+        content.password.sendKeys("Test@123");
+        
         // browser.sleep(300);
         // wait.waitForElementVisibility(content.userName, 20000);
-        // content.userName.sendKeys("cbsestaging1@yopmail.com");
+        // content.userName.sendKeys(cred[0]['Username']);
         // browser.sleep(100);
-        // content.password.sendKeys("Test@123");
+        // content.password.sendKeys(cred[0]['Password']);
         // browser.sleep(100);
-        browser.sleep(300);
-        wait.waitForElementVisibility(content.userName, 20000);
-        content.userName.sendKeys(cred[0]['Username']);
-        browser.sleep(100);
-        content.password.sendKeys(cred[0]['Password']);
-        browser.sleep(100);
 
         content.login.click();
-        browser.sleep(9000);
-
-
-        content.login.click();
-        browser.sleep(9000);
+        browser.sleep(5000);
 
   
 }

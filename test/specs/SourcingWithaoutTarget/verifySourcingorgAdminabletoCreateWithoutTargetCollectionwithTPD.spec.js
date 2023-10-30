@@ -4,7 +4,9 @@ const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySig
 const VDNfun = require(protractor.basePath + '/test/pageObject/VDNPageObj.js');
 const VDNReg = require(protractor.basePath + '/test/pageObject/VDNSourcingwithTargetObj.js');
 
-describe('Verify Project Created with Skip review enabled ', () => {
+
+
+describe('Sourcing Org Admin able to Create With out Target Collection Project', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -20,10 +22,15 @@ describe('Verify Project Created with Skip review enabled ', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('verifyProjectWithSkipReviewEnabledForOrgOnly',function(){
+    it('verifySourcingOrgAdminabletoCreateWithoutTargetCollectionProject',function(){
          utility.userLogin('Admin');
-         let projectName = VDNReg.createProjectWithoutTargetCollectionNominationDisableSkipEnable();
+         let projectName = VDNReg.createProjectWithoutTargetCollectionTPD();
          console.log(projectName);
-         //VDNfun.verifyCreatedProjectIsAvailableInIndividualContentNotTargetedToAnyCollectionSectionForSkipReviewEnabled(projectName);
+         utility.userLogout();
     })  
 });
+
+
+
+
+

@@ -2,9 +2,9 @@ const utility = require(protractor.basePath + '/test/utility/utilityFunctions.js
 let getAppURL=require(protractor.basePath + '/test/pathFolder/changePath.js');
 const verifyCEBpageobj = require(protractor.basePath+'/test/pageObject/VerifySignInPopupInExploreCourseEnrollButtonObj.js');
 const VDNfun = require(protractor.basePath + '/test/pageObject/VDNPageObj.js');
-const VDNReg = require(protractor.basePath + '/test/pageObject/VDNSourcingwithTargetObj.js');
 
-describe('Verify Project Created with Skip review enabled ', () => {
+
+describe('Verify assigned Project contributor is able to upload content to the textbooks for the skip review disabled Project', () => {
 
     beforeEach(() => {
         browser.ignoreSynchronization = true;
@@ -20,10 +20,17 @@ describe('Verify Project Created with Skip review enabled ', () => {
         browser.waitForAngularEnabled(false);
         browser.manage().deleteAllCookies();
     });
-    it('verifyProjectWithSkipReviewEnabledForOrgOnly',function(){
+    it('verifyContentCountAndAtatusIsDisplayedForContributorOrgAdminInDigitalTextbooksTab',function(){
          utility.userLogin('Admin');
-         let projectName = VDNReg.createProjectWithoutTargetCollectionNominationDisableSkipEnable();
+         let projectName = VDNfun.createProjectWithAllContentTypes();
          console.log(projectName);
-         //VDNfun.verifyCreatedProjectIsAvailableInIndividualContentNotTargetedToAnyCollectionSectionForSkipReviewEnabled(projectName);
-    })  
-});
+         utility.userLogout();
+         utility.userLoginContributer('Cont OrgAdmin');
+         VDNfun.verifyProjectAvailableInAllProjectsTabForContributor(projectName);
+         VDNfun.NominateContributerWithUploadSample(projectName);
+         utility.userLogout();
+         utility.userLogin('Admin');
+         VDNfun.verifySourcingOrgAdminIsAbleToAcceptNomination(projectName);
+        })  
+
+    });

@@ -16,10 +16,10 @@ exports.config = {
         
 
 //vdn1 : 'test/specs/Sanity2/*.spec.js',
-      // vdn2 : 'test/specs/Sanity3/*.spec.js',
+     // vdn2 : 'test/specs/Sanity3/*.spec.js',
       //vdn3 : 'test/specs/RegressionSourcing1/*.spec.js',
        
-      vdn1 : 'test/specs/Sanity2/verifyProjectWithSkipReviewEnabledForOrgOnly.spec.js',
+   vdn1 : 'test/specs/SourcingWithoutTarget/verifySourcingOrgAdminabletoCreateProjectwithoutTargetCollectionbyselectingBMGS.spec.js',
     // vdn2 : 'test/specs/RegressionSourcing1/verifySourcingOrgAdminabletoCreateaProjectwithContentPlaylistandNominationDisableSkipDisable.spec.js',
       // vdn3 : 'test/specs/SourcingWithaoutTarget/verifySourcingorgAdminabletoCreateWithoutTargetCollectionwithTPD.spec.js'
        //  vdn3 : 'test/specs/Sanity4/verifyDefaultContributionOrgAdminIsAbleAssignRolesWithNominationEnabled.spec.js',

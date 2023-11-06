@@ -6,6 +6,7 @@ const ccpage = require(protractor.basePath + '/test/pages/contentCreation/conten
 const data = require(protractor.basePath + '/test/testdata/login/login.td.json');
 const etbpage = require(protractor.basePath + '/test/pages/ETB/etb.po.js');
 var etbv = etbpage.etb();
+const defaultEleVisibility = 360000;
 const usrOnBoard = require(protractor.basePath + '/test/pages/userOnBoarding/UserOnBoardingPage.js')
 var content = ccpage.contentCreation();
 const genericFun = require(protractor.basePath + '/test/genericFunctions/GenericFunction.js');
@@ -336,7 +337,7 @@ const verifyProjectAvailableInAllProjectsTabForContributor = (projectName) => {
         var selSunriseContributer = element(by.xpath(v1 + v2 + v3));
 
 
-        // //browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selSunriseContributer), 20000, " Cherry Cont is not available");
+        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.selSunriseContributer), 20000, " Cherry Cont is not available");
         selSunriseContributer.click();
         browser.sleep(5000);
 
@@ -3439,7 +3440,7 @@ const addSampleFromContriutionSideAndNominate = (projectName) => {
         });
 
 
-        wait.waitForElementVisibility(vdn.clkSubmit, 20000);
+        wait.waitForElementVisibility(vdn.clkSubmit, defaultEleVisibility);
         vdn.clkSubmit.click();
         browser.sleep(300);
 
@@ -6760,9 +6761,8 @@ const uploadContentFromContributorSide = (projectName) =>{
     browser.sleep(7000);
     browser.sleep(3000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit review button is not displayed");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(5000);
 
     browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterName1), 20000, "Name is not displayed");
     vdn.enterName1.click();
@@ -6809,10 +6809,8 @@ const uploadSecondContent = (projectName) =>{
     browser.sleep(7000);
     browser.sleep(3000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit review button is not displayed");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(5000);
-
     browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterName1), 20000, "Name is not displayed");
     vdn.enterName1.click();
     vdn.enterName1.sendKeys("Sample2");
@@ -6858,9 +6856,8 @@ const uploadThirdContent = (projectName) =>{
     browser.sleep(7000);
     browser.sleep(3000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit review button is not displayed");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(5000);
 
     browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterName1), 20000, "Name is not displayed");
     vdn.enterName1.click();
@@ -6907,9 +6904,8 @@ const uploadFourthContent = (projectName) =>{
     browser.sleep(7000);
     browser.sleep(3000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit review button is not displayed");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(5000);
 
     browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterName1), 20000, "Name is not displayed");
     vdn.enterName1.click();
@@ -8173,9 +8169,9 @@ const uploadTheContentFromIndividualContributorSide = (projectName) => {
     browser.sleep(7000);
     browser.sleep(3000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit review button is not displayed");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(5000);
+    
 
     browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterName1), 20000, "Name is not displayed");
     vdn.enterName1.click();
@@ -8519,9 +8515,8 @@ const uploadContentFromAssignedContributor = (projectName) => {
         browser.sleep(7000);
         browser.sleep(3000);
 
-        browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit review button is not displayed");
-        vdn.clkSubmitForReview.click();
-        browser.sleep(5000);
+        wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
+    vdn.clkSubmitForReview.click();
 
         browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterName1), 20000, "Name is not displayed");
         vdn.enterName1.click();
@@ -9338,10 +9333,8 @@ const uploadContentAndVerifyApprovalPendingStatusInTOCPostPublish = (projectName
     })
     browser.sleep(5000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit review button is not displayed");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(5000);
-
     browser.executeScript("arguments[0].scrollIntoView();", vdn.clickCheckBox);
     browser.sleep(2000);
     vdn.clickCheckBox.click();
@@ -10042,9 +10035,8 @@ const uploadThePdfContentFromIndividualContributorSideAndVerifyAbleToPublishTheC
     })
     browser.sleep(5000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit review button is not displayed");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(5000);
 
     browser.executeScript("arguments[0].scrollIntoView();", vdn.clickCheckBox);
     browser.sleep(2000);
@@ -10125,9 +10117,8 @@ const uploadTheEpubContentFromIndividualContributorSideAndVerifyAbleToPublishThe
     })
     browser.sleep(5000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit review button is not displayed");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(5000);
 
     browser.executeScript("arguments[0].scrollIntoView();", vdn.clickCheckBox);
     browser.sleep(2000);
@@ -10206,10 +10197,8 @@ const uploadTheMP3ContentFromIndividualContributorSideAndVerifyAbleToPublishTheC
         console.log("content updated successfully message is displayed");
     })
     browser.sleep(5000);
-
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit review button is not displayed");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(5000);
 
     browser.executeScript("arguments[0].scrollIntoView();", vdn.clickCheckBox);
     browser.sleep(2000);
@@ -10297,9 +10286,8 @@ const uploadTheMP4ContentFromIndividualContributorSideAndVerifyAbleToPublishTheC
     })
     browser.sleep(5000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit review button is not displayed");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(5000);
 
     browser.executeScript("arguments[0].scrollIntoView();", vdn.clickCheckBox);
     browser.sleep(2000);
@@ -10390,9 +10378,8 @@ const uploadTheWebmContentFromIndividualContributorSideAndVerifyAbleToPublishThe
     })
     browser.sleep(5000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit review button is not displayed");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(5000);
 
     browser.executeScript("arguments[0].scrollIntoView();", vdn.clickCheckBox);
     browser.sleep(2000);
@@ -10472,9 +10459,8 @@ const uploadTheh5pContentFromIndividualContributorSideAndVerifyAbleToPublishTheC
     })
     browser.sleep(5000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit review button is not displayed");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(5000);
 
     browser.executeScript("arguments[0].scrollIntoView();", vdn.clickCheckBox);
     browser.sleep(2000);
@@ -10554,9 +10540,8 @@ const uploadThehtmlContentFromIndividualContributorSideAndVerifyAbleToPublishThe
     })
     browser.sleep(5000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit review button is not displayed");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(5000);
 
     browser.executeScript("arguments[0].scrollIntoView();", vdn.clickCheckBox);
     browser.sleep(2000);
@@ -11066,9 +11051,8 @@ const uploadContentAndSubmitForRev = () => {
     browser.switchTo().defaultContent();
     browser.sleep(8000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit For Review Button is not available");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(3000);
 
     browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterName), 20000, "Name field is not available");
     vdn.enterName.click();
@@ -11139,9 +11123,8 @@ const uploadContentAndSubmitForRev = () => {
     browser.switchTo().defaultContent();
     browser.sleep(8000);
 
-    browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.clkSubmitForReview), 20000, "Submit For Review Button is not available");
+    wait.waitForElementVisibility(vdn.clkSubmitForReview, defaultEleVisibility, "Submit review button is not displayed");    
     vdn.clkSubmitForReview.click();
-    browser.sleep(3000);
 
     browser.wait(protractor.ExpectedConditions.visibilityOf(vdn.enterName), 20000, "Name field is not available");
     vdn.enterName.click();

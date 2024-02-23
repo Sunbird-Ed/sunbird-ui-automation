@@ -18,11 +18,11 @@ var ConfigurePath = () => {
   //var AppURL='https://diksha.gov.in';
   //var AppURL='https://preprod.ntp.net.in';
    //var AppURL='https://preprod.ntp.net.in';
- var AppURL='https://staging.sunbirded.org';
+ //var AppURL='https://staging.sunbirded.org';
   //var AppURL='https://staging.ntp.net.in';
   // var AppURL='https://staging.diksha.gov.in';
   // var AppURL='https://dev.diksha.gov.in/';
-
+  var AppURL='https://hotfix.sunbirded.org/';
   
   return {
     excelSheetPath,

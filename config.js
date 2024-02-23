@@ -126,11 +126,11 @@ exports.config = {
 //test1:'test/specs/SUNBIRD_Knowledge_2/AdminContentCreatorShouldNotBeAbleEditAdoptedBookInAllTextbookSection.spec.js'
 
 
-//test:'test/specs/SUNBIRD_Knowledge_6/openDraftBookAndUpdateChildNodesWithQrCodeOfDiffTenant.spec.js'
+//test:'test/specs/SUrNBIRD_Knowledge_6/openDraftBookAndUpdateChildNodesWithQrCodeOfDiffTenant.spec.js'
 //test:'test/specs/SUNBIRD_Knowledge_1/validateWorkspaceOptionAndSection.spec.js'
 //test:'test/specs/SUNBIRD_Knowledge_6/CopyMP4ContentAndSendForReview.spec.js'
 
-testing:'test/specs/Sunbird_UCI/userClicksOnBackInConversationFlowScreen.spec.js'
+testing:'test/specs/sanity2/CreateQuestionAndVerify.spec.js'
 },
     allScriptsTimeout: 4000000000,
 

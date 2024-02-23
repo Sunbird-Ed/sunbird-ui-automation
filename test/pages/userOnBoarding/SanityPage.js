@@ -310,7 +310,7 @@ let SanityElement = () => {
   var clkSubmitRolePopup = element(by.xpath("//button[contains(text(),'Submit ')]"));
   var publisher = element(by.xpath("//input[@placeholder='Publisher']"));
   var year = element(by.xpath("//sui-select[@id='year']"));
-  var sltYear = element(by.xpath("//span[text()='2008']"));
+  var sltYear = element(by.xpath("//span[text()='2009']"));
   var SelectTargetBoard = element(by.xpath("(//div[contains(@class,'multi-select-container')]//following::ul)[5]"));
   let clkGenerateQrCode2 = element(by.xpath("//i[contains(@class,'icon qrcode')]//following::span[text()=' Generate 2 + 1 QR Codes ']"));
   let clkDownloadQrcode = element(by.xpath("//*[contains(text(),' Download 1 +1 QR codes ')]"));

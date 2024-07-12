@@ -1,0 +1,16 @@
+{
+    "id": "org.ekstep.test",
+    "ver": "1.0",
+    "shortId": "org.eskstep.test",
+    "author": "Santhosh Vasabhaktula",
+    "description": "",
+    "publishedDate": "",
+    "renderer": {
+        "main": "plugin.js",
+        "dependencies": [
+            { "type": "js", "src": "baseplugin.js" }
+            
+        ]
+    }
+
+}

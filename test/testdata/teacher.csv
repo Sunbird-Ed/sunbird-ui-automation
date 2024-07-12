@@ -1,0 +1,61 @@
+Name,Diksha UUID,State,District,School Name,School UDISE ID,State provided ext. ID,Phone number,Email ID,Persona,Status,Error Type,Channel
+SK,dcb542b8-b0dd-4edc-86c2-7ad5cc75fdf1,Tamil Nadu,MADURAI,Doon,3,U3,9439322142,lu****@yopmail.com,teacher,SUBMITTED,,tn
+dumm57,255cb56a-e864-4f5a-8fb1-27365cb5833a,Tamil Nadu,NAGAPATTINAM,EER,56,U2,8917401167,dumm57@yopmail.com,teacher,VALIDATED,,tn
+ash,f4676038-800f-4037-aa5b-e2fbaa4882bb,Karnataka,BENGALURU URBAN SOUTH,ash skool,,123456,9738611076,ash@yopmail.com,teacher,SUBMITTED,,tn
+SHS Mob user 1,4b1c8fc6-f2d5-430a-b409-1041af8041a3,Tamil Nadu,TIRUVALLUR,KV NO. 2,59862073378,642309,******9487,sh***@yopmail.com,teacher,SUBMITTED,,tn
+ajk1,85f88694-9385-4630-95ef-0419ad4519ea,Andhra Pradesh,CHITTOOR,St ford school,33121102805,!@#$%^&*(,9738611076,ajk1@yopmail.com,teacher,SUBMITTED,,tn
+ahjo 03,e04cb7ac-58f9-49ce-9c7e-19e240205131,Tamil Nadu,TIRUVALLUR,Gandhi Matriculation,57582312345,575823,9790936557,ahjo03@yopmail.com,teacher,SUBMITTED,,tn
+user2,5d24b255-d9e5-48f0-83f7-eb0a5eb4d99b,Karnataka,BENGALURU URBAN SOUTH,123,,Test,9738611076,,teacher,SUBMITTED,,tn
+custorg2,ab3cc10d-d34f-491c-b773-01102f651e89,Tamil Nadu,CHENNAI,tnschool1,33122201904,tnschool1,9886882909,custorg2@yopmail.com,teacher,VALIDATED,,tn
+Mix 02,f27bc400-2914-4603-af65-529fbb3b989b,Tamil Nadu,KARUR,F43FE34,F43F43F4443RT4RT3R34,R43R34F3343,7735113827,,teacher,VALIDATED,,tn
+user 0908,0f4fe18b-e54f-4043-a08b-ce19ce40cee0,Tamil Nadu,Chengalpattu,KV NO.1 Chennai,59862023456,642309,9790936557,user0908@yopmail.com,teacher,SUBMITTED,,tn
+testuser3,9e14e6db-bffd-493d-8c0b-0ef1815c1569,Karnataka,BENGALURU URBAN SOUTH,,,,,,teacher,VALIDATED,ERROR-STATE,tn
+A-2,7685d751-eab2-410b-88e3-9e0fc66d23ab,Tamil Nadu,ERODE,HJK,66,U3,8917401167,,teacher,VALIDATED,,tn
+raj3,d01e2237-c388-40d9-85ab-553eb3016210,Karnataka,BENGALURU URBAN SOUTH,,33291500301,131133113313,9738611076,raj3@yopmail.com,teacher,ERROR,ERROR-EMAIL,tn
+शैलेन्द्र ओझा,2570984c-ffbf-4284-a490-0bb761a800f7,Karnataka,BENGALURU URBAN SOUTH,,,Test@123_121@*/-,8050341806,testojha1@gmail.com,teacher,SUBMITTED,,tn
+useri13,159c60f2-be9e-4b1f-8ca4-3032c5d2b1a7,Odisha,DEOGARH,SSS,123,dwdw1,8917401167,useri13@yopmail.com,teacher,SUBMITTED,,tn
+resu 01,7ca78e9f-c673-42fe-8104-e30846ae3e23,Tamil Nadu,TIRUVALLUR,Kendriya Vidyalaya 1,59862073737,761213,9790936557,resu01@yopmail.com,teacher,VALIDATED,,tn
+nine105,b6ce442f-a4ad-46e2-b7d3-3bf99932b449,Odisha,CUTTACK,wew,dewe,dew,9658835076,nine109@yopmail.com,teacher,VALIDATED,,tn
+sk,357d510e-8841-4305-9680-a729d498e3ed,Tamil Nadu,COIMBATORE,BITS,1,U1,8917401167,lu****@yopmail.com,teacher,SUBMITTED,,tn
+steve4,db8324cb-4020-405c-a436-8ec4e753f85b,Karnataka,BENGALURU URBAN SOUTH,TNR school,12345,steve4,9738611076,st****@yopmail.com,teacher,SUBMITTED,,tn
+oct21 user2,f13ae6d3-9d0f-4cd1-a42f-f9fb4c8bf60f,Tamil Nadu,SALEM,KV No.1 Salem,Salem CBSE school,638363,6383637483,oct21user2@yopmail.com,teacher,SUBMITTED,,tn
+SK5,99faf5e5-01c9-4ed1-9f8b-f9b9ed6b20bb,Tamil Nadu,Kanchipuram,EEE,5,U5,8917401167,lu****@yopmail.com,teacher,SUBMITTED,,tn
+dumm56,2bcd8a33-20f6-4f57-a9f5-75a52c44d488,Tamil Nadu,KANNIYAKUMARI,EEE,45,U1,8917401167,dumm56@yopmail.com,teacher,ERROR,ERROR-SCHOOL ORG ID,tn
+raj1,37a6d799-0cad-4037-9db1-2716e87f6725,Karnataka,BENGALURU URBAN SOUTH,,7983472947,raj_01,9738611076,raj1@yopmail.com,teacher,ERROR,ERROR-STATE,tn
+Testuser2,98fc74f2-bc4f-4b25-aecb-5362a7593d4b,Karnataka,BENGALURU URBAN SOUTH,RPA school,33291500301,testuser2,9738611076,testuser2@yopmail.com,teacher,VALIDATED,,tn
+octopus1,0a9a2b7f-71ad-481a-a7fc-8836b613153b,Odisha,CUTTACK,svvv,33291500301,u1,8917401167,octopus1@yopmail.com,teacher,ERROR,ERROR-SCHOOL ORG ID,tn
+ஹரிஹரா,9a26bd3f-11a4-4a34-888b-03e14a7e1374,Tamil Nadu,TIRUVALLUR,Sankara Vidyalaya,33291500301,63816,9790936557,tamilregional1@yopmail.com,teacher,SUBMITTED,,tn
+useri15,e23c9f57-52e5-4210-9822-ef56de815459,Tamil Nadu,VELLORE,WWW,33291500301,Sub500,8917401167,useri15@yopmail.com,teacher,VALIDATED,,tn
+skr45,18ed1fa1-5551-4a3f-93c6-e29f1835e123,Tamil Nadu,Kanchipuram,SVM       SCHOOL        ....!@$%^&* .,U01       Test,U 01     USER USER             USER------------ USER     $%^&#@!*}}}}}{{{{,8917401167,skr45@yopmail.com,teacher,SUBMITTED,,tn
+dummy506,04fbd38c-1ddd-4238-88eb-5214b3ef91cb,Tamil Nadu,Chengalpattu,UIO,89,U3,8917401167,dummy506@yopmail.com,teacher,SUBMITTED,,tn
+testuser12,a4e742aa-5364-4e44-866c-27c28c1b4dec,Karnataka,BENGALURU URBAN SOUTH,school,tenant,test user 12,9738611076,testuser12@yopmail.com,teacher,VALIDATED,,tn
+skr47,cd09de67-48e5-4459-8a2c-ea0e324d8283,Tamil Nadu,VELLORE,D    P   S    ----______________________456732Y4834>>>>>>>>>>>>>>>>>>>>,U78--------277821$%##&@@*&@&*,U89---_UI 89      --------:::::::::::::,8917401167,skr47@yopmail.com,teacher,VALIDATED,,tn
+email22,abb2e632-fa69-4e26-92c2-05d01178a06c,Karnataka,BENGALURU URBAN SOUTH,org1_sh1056,,sh1056,9886374695,email22@yopmail.com,teacher,SUBMITTED,,tn
+custuser2,9bc20bb5-32bf-4f69-bf1f-36af3bde42e9,Tamil Nadu,Kanchipuram,PUPS KUNGUMAMPALAYAM,33121800308,11111,9886882909,custuser2@yopmail.com,teacher,VALIDATED,,tn
+upre49,d390b010-a0ec-490a-a8a8-26eb639144c9,Tamil Nadu,KRISHNAGIRI,WWW,33291500301,U1,8917401167,upre49@yopmail.com,teacher,SUBMITTED,,tn
+zee65,1c83813a-06c7-4901-b574-009979b5c78a,Tamil Nadu,Kallakurichi,ANY,33291500301,User00000000067User,8917401167,zee65@yopmail.com,teacher,VALIDATED,,tn
+loop35@yopmail.com,a7d1895f-ea9f-451f-a20b-13c069f9b072,Tamil Nadu,COIMBATORE,BBB,678,U3,8917401167,loop35@yopmail.com,teacher,ERROR,ERROR-DISTRICT,tn
+SubChild_testuser1,f7ca9897-348c-442e-95bb-072b61f8b0a1,Karnataka,BENGALURU URBAN SOUTH,PL high school,,SC_TU1,9738611076,,teacher,VALIDATED,,tn
+testuser1,750c0423-9914-42d1-9b73-df44ca17f20a,Karnataka,BENGALURU U NORTH,TN skool,33291500301,testuser1,9738611076,testuser1@yopmail.com,teacher,SUBMITTED,,tn
+lube15,237b1e53-2b5b-49c9-93d3-d921af8413d8,Karnataka,BENGALURU URBAN SOUTH,dps,123,u1,8917401167,lu****@yopmail.com,teacher,ERROR,ERROR-DISTRICT,tn
+tn user,8d09eea1-b2b8-4811-9777-6fbbce89557f,Tamil Nadu,COIMBATORE,Tester,Qwerty,1234567789,9342755891,,teacher,SUBMITTED,,tn
+A-1,687054eb-a1a9-4769-9987-1eca51fd7b3c,Tamil Nadu,ERODE,RR,66,U3,8917401167,,teacher,VALIDATED,,tn
+zee0110,16654e1d-a08c-49a2-b177-d70f6b06944b,Odisha,GAJAPATI,eee,reefe,uuuu78,8917401167,zee0110@yopmail.com,teacher,SUBMITTED,,tn
+zee55,654e903d-3823-40f1-b171-3641038cb30a,Tamil Nadu,KARUR,SCHool,832908e8329e32en932e,newuser1,8917401167,zee55@yopmail.com,teacher,VALIDATED,,tn
+oct21 user1,7e62db53-494b-4e1d-aa57-7e5a85f743fa,Nagaland,KOHIMA,KV No.1 Nagaland,KV Number 1,9790936557,9790936557,oct21user1@yopmail.com,teacher,SUBMITTED,,tn
+link51,d04beceb-1948-4cc6-8c1c-49cf3f7945e6,Odisha,CUTTACK,equal,123,u12,8917401167,link51@yopmail.com,teacher,SUBMITTED,,tn
+subu20,86db7eb6-6f90-401d-99fa-c1318d842546,Tamil Nadu,CHENNAI,,,123445,8050341806,s234@yopmail.com,teacher,SUBMITTED,,tn
+हिंदी विद्यार्थी,fe2a8b93-d0a1-42ca-894a-bbaa37a3d0c5,Sikkim,SOUTH SIKKIM,KV No.1 Sikkim,,257358,9790936557,hindistu1@yopmail.com,teacher,SUBMITTED,,tn
+useri14,60f47e7c-b43e-4a09-9dcd-85ccd4610de6,Tamil Nadu,ERODE,SVM,33291500301,Sub_700,8917401167,useri14@yopmail.com,teacher,VALIDATED,,tn
+Testingpurpose01,7466826f-1a07-4408-b9cd-158dc3753810,Tamil Nadu,TIRUVALLUR,Tamil Nadu Government School,13579086421,749201,6383637483,te**************@yopmail.com,teacher,SUBMITTED,,tn
+lube22,58e3351a-5a9f-4b18-b28d-d0ce6014787b,Tamil Nadu,DHARMAPURI,QQQ,5,U5,9439322142,lu****@yopmail.com,teacher,ERROR,ERROR-SCHOOL ORG NAME,tn
+SK3,4ca141be-ceca-4943-a5b0-810629294950,Tamil Nadu,ARIYALUR,CCC,3,U3,8917401167,lu****@yopmail.com,teacher,SUBMITTED,,tn
+raj4,841b0de7-4d2b-4819-811f-356c6dbc2231,Karnataka,BENGALURU URBAN SOUTH,,,test13131313131313131313,9738611076,raj4@yopmail.com,teacher,ERROR,ERROR-SCHOOL ORG NAME,tn
+MUA01,817bfe87-a997-489e-bbb3-44cf707e701c,Tamil Nadu,ERODE,U8888,U 78 56,MUA01,8917401167,,teacher,SUBMITTED,,tn
+zee57,3610a94f-4e22-4043-bd23-07003f2fb10d,Tamil Nadu,ERODE,rewfewfewew,t54654,ujyjtterfwcwe67,7735113827,zee57@yopmail.com,teacher,VALIDATED,,tn
+nine100,d096a030-d625-4b82-9ec3-b8c9abb60dbf,Tamil Nadu,Kanchipuram,ABCDEF  ABC,33122201904,U 01,8917401167,nine100@yopmail.com,teacher,VALIDATED,,tn
+resu 02,3168653d-ffce-483b-b28d-5f867bb04e3f,Tamil Nadu,TIRUVALLUR,Test244,,Testtutdd1311,9738611076,resu02@yopmail.com,teacher,ERROR,ERROR-NAME,tn
+SK,25c43a94-3a2e-440c-8b57-df797e96c433,Tamil Nadu,COIMBATORE,AAA,123,U1,8917401167,lu****@yopmail.com,teacher,SUBMITTED,,tn
+Chils user under ajk1,4ab1bf63-27d3-41c9-8b3d-2599236795ad,Andhra Pradesh,CHITTOOR,,33121102805,child user,9738611076,,teacher,SUBMITTED,,tn
+ross,03fa1da1-18b1-43da-af9d-7df0d7bdbc69,Karnataka,BENGALURU URBAN SOUTH,TN school,prperod-sso-1,ross,9738611076,ro**@yopmail.com,teacher,SUBMITTED,,tn
+dumm58,2f33f3fa-62e8-4584-b49a-26d3111db1e1,Tamil Nadu,ERODE,yyy,34,U3,8917401167,dumm58@yopmail.com,teacher,ERROR,ERROR-PHONE,tn
